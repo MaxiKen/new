@@ -1,0 +1,7 @@
+# robots.txt
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /env.js
+
+Sitemap: https://yourdomain.com/sitemap.xml
