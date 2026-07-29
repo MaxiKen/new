@@ -146,6 +146,16 @@ const App = {
   },
   
   // ===== NAVIGATION =====
+  categoryRoute(category) {
+    const specialRoutes = {
+      about: '/about',
+      downloads: '/downloads',
+      glossary: '/glossary',
+      faqs: '/faqs'
+    };
+    return specialRoutes[category?.type] || '/cat/' + category.id;
+  },
+
   renderNav() {
     const nav = document.getElementById('nav-menu');
     const desktop = document.getElementById('desktop-nav');
@@ -156,7 +166,7 @@ const App = {
       const subs = Content.getVisibleSubtopics(cat.id);
       const isSpecial = ['downloads', 'glossary', 'faqs', 'about'].includes(cat.type);
       if (isSpecial || subs.length === 0) {
-        const route = cat.type === 'about' ? '/about' : cat.type === 'downloads' ? '/downloads' : cat.type === 'glossary' ? '/glossary' : cat.type === 'faqs' ? '/faqs' : '/cat/' + cat.id;
+        const route = this.categoryRoute(cat);
         html += '<div class="nav-item"><div class="nav-item-header" onclick="App.go(\'' + route + '\')" style="cursor:pointer"><div class="nav-item-header-left"><div class="nav-item-icon">' + this.icon(cat.icon) + '</div><div class="nav-item-title">' + cat.title + '</div></div></div></div>';
       } else {
         html += '<div class="nav-item"><div class="nav-item-header" onclick="App.toggleNav(this)"><div class="nav-item-header-left"><div class="nav-item-icon">' + this.icon(cat.icon) + '</div><div class="nav-item-title">' + cat.title + '</div></div><div class="nav-item-arrow">' + this.icon('chevron-down') + '</div></div><div class="nav-submenu"><a class="nav-submenu-item" onclick="App.go(\'/cat/' + cat.id + '\')">All ' + cat.title + '</a>' + subs.map(s => '<a class="nav-submenu-item" onclick="App.go(\'/cat/' + cat.id + '/sub/' + s.id + '\')">' + s.title + '</a>').join('') + '</div></div>';
@@ -169,7 +179,7 @@ const App = {
         const subs = Content.getVisibleSubtopics(cat.id);
         const isSpecial = ['downloads', 'glossary', 'faqs', 'about'].includes(cat.type);
         if (isSpecial || subs.length === 0) {
-          const route = cat.type === 'about' ? '/about' : cat.type === 'downloads' ? '/downloads' : cat.type === 'glossary' ? '/glossary' : cat.type === 'faqs' ? '/faqs' : '/cat/' + cat.id;
+          const route = this.categoryRoute(cat);
           dh += '<div class="desktop-nav-item"><a class="desktop-nav-link" onclick="App.go(\'' + route + '\')">' + cat.title + '</a></div>';
         } else {
           dh += '<div class="desktop-nav-item"><a class="desktop-nav-link" onclick="App.go(\'/cat/' + cat.id + '\')">' + cat.title + this.icon('chevron-down') + '</a><div class="desktop-dropdown">' + subs.map(s => '<a class="desktop-dropdown-item" onclick="App.go(\'/cat/' + cat.id + '/sub/' + s.id + '\')">' + s.title + '</a>').join('') + '</div></div>';
@@ -186,7 +196,15 @@ const App = {
     const site = Content.getSite();
     const footerData = Content.getFooter();
     const contact = Content.getContact();
-    const cats = Content.getVisibleCategories().filter(c => !['about'].includes(c.type));
+    const cats = Content.getVisibleCategories().filter(c => c.type !== 'about');
+    const quickLinks = [
+      { label: 'Home', route: '/' },
+      { label: 'About', route: '/about' },
+      { label: 'Glossary', route: '/glossary' },
+      { label: 'FAQs', route: '/faqs' },
+      { label: 'Downloads', route: '/downloads' }
+    ];
+    const footerLink = (label, route) => '<a href="#' + route + '" class="footer-link" onclick="event.preventDefault();App.go(\'' + route + '\')">' + label + '</a>';
     
     // Contact info HTML
     const contactHtml = contact.email ? '<p style="color:rgba(255,255,255,0.8);margin-bottom:8px;font-size:0.9rem">' + this.icon('mail') + ' <a href="mailto:' + contact.email + '" style="color:rgba(255,255,255,0.8)">' + contact.email + '</a></p>' : '';
@@ -199,15 +217,11 @@ const App = {
       '</div>' +
       // Quick Links
       '<div class="footer-section"><h3 class="footer-section-title">Quick Links</h3><div class="footer-links">' +
-      '<a href="#/" class="footer-link" onclick="App.go(\'/\')">Home</a>' +
-      '<a href="#/about" class="footer-link" onclick="App.go(\'/about\')">About</a>' +
-      '<a href="#/glossary" class="footer-link" onclick="App.go(\'/glossary\')">Glossary</a>' +
-      '<a href="#/faqs" class="footer-link" onclick="App.go(\'/faqs\')">FAQs</a>' +
-      '<a href="#/downloads" class="footer-link" onclick="App.go(\'/downloads\')">Downloads</a>' +
+      quickLinks.map(link => footerLink(link.label, link.route)).join('') +
       '</div></div>' +
       // Categories
       '<div class="footer-section"><h3 class="footer-section-title">Categories</h3><div class="footer-links">' +
-      cats.map(c => '<a href="#/cat/' + c.id + '" class="footer-link" onclick="App.go(\'/cat/' + c.id + '\')">' + c.title + '</a>').join('') +
+      cats.map(c => footerLink(c.title, this.categoryRoute(c))).join('') +
       '</div></div>' +
       // Newsletter
       '<div class="footer-section"><h3 class="footer-section-title">Newsletter</h3>' +
