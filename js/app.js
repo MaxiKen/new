@@ -275,6 +275,7 @@ const App = {
     const rt = Content.calcReadTime(post);
     const related = Content.getRelatedPosts(post.id, 3);
     Store.markRead(post.id);
+    this.trackView(post.id);
     el.innerHTML = '<article class="post-detail"><div class="post-detail-header"><nav class="post-detail-breadcrumb"><a href="#/" onclick="App.go(\'/\')">Home</a><span>/</span><a href="#/cat/' + post.category + '" onclick="App.go(\'/cat/' + post.category + '\')">' + (cat?.title || post.category) + '</a>' + (sub ? '<span>/</span><a href="#/cat/' + post.category + '/sub/' + post.subtopic + '" onclick="App.go(\'/cat/' + post.category + '/sub/' + post.subtopic + '\')">' + sub.title + '</a>' : '') + '</nav><h1 class="post-detail-title">' + post.title + '</h1><div class="post-detail-meta"><div class="post-detail-author" onclick="App.go(\'/author/' + post.author + '\')" style="cursor:pointer"><div class="post-detail-author-avatar">' + Content.initials(author?.name) + '</div><div class="post-detail-author-info"><span class="post-detail-author-name">' + (author?.name || '') + '</span><span class="post-detail-author-role">' + (author?.bio || '') + '</span></div></div><span class="post-detail-date">' + Content.fmtDate(post.published_date) + '</span><span class="post-detail-reading-time">' + rt + '</span></div></div>' + (post.featured_image ? '<figure class="post-detail-featured-image"><img src="' + post.featured_image + '" alt="' + (post.featured_image_alt || '') + '" onerror="this.style.display=\'none\'"></figure>' : '') + '<div class="article-content">' + (post.content || '') + '</div>' + (post.tags?.length ? '<div class="post-detail-tags"><strong>Tags:</strong>' + post.tags.map(t => '<span class="post-detail-tag" onclick="App.searchTag(\'' + t + '\')">' + t + '</span>').join('') + '</div>' : '') + '<div class="share-section"><h3 class="share-section-title">Share</h3><div class="share-buttons"><button class="share-btn" onclick="App.share(\'twitter\')">' + this.icon('twitter') + '</button><button class="share-btn" onclick="App.share(\'facebook\')">' + this.icon('facebook') + '</button><button class="share-btn" onclick="App.share(\'linkedin\')">' + this.icon('linkedin') + '</button><button class="share-btn" onclick="App.copyLink()">' + this.icon('link') + '</button></div></div>' + (related.length ? '<div class="related-posts"><h2 class="related-posts-title">Related</h2><div class="related-posts-grid">' + related.map(p => this.card(p)).join('') + '</div></div>' : '') + '</article>';
   },
   
@@ -300,22 +301,46 @@ const App = {
     el.innerHTML = '<section class="section"><div class="container"><div class="section-header"><nav class="post-detail-breadcrumb" style="justify-content:center;margin-bottom:16px"><a href="#/" onclick="App.go(\'/\')">Home</a><span>/</span><a href="#/cat/' + catId + '" onclick="App.go(\'/cat/' + catId + '\')">' + cat.title + '</a><span>/</span><span style="color:var(--text);font-weight:600">' + title + '</span></nav><h1 class="section-title">' + title + '</h1></div>' + (subs.length ? '<div class="category-filter" style="margin-bottom:32px"><button class="category-filter-btn" onclick="App.go(\'/cat/' + catId + '\')">All ' + cat.title + '</button>' + subs.map(s => '<button class="category-filter-btn' + (s.id === subId ? ' active' : '') + '" onclick="App.go(\'/cat/' + catId + '/sub/' + s.id + '\')">' + s.title + '</button>').join('') + '</div>' : '') + '<div class="posts-grid">' + (posts.length ? posts.map(p => this.card(p)).join('') : '<p style="text-align:center;color:var(--text-secondary);padding:48px 0;grid-column:1/-1">No articles yet.</p>') + '</div></div></section>';
   },
   
+  trackView(id) {
+    try {
+      const key = 'viewed_' + id;
+      if (sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key, '1');
+    } catch (e) {}
+    if (DB.ready) DB.rpc('api_track_view', { p_post_id: id });
+  },
+
   renderAuthorPage(authorId) {
     const author = Content.getAuthor(authorId);
-    if (!author) { Router.handle(); return; }
+    if (!author || author.is_visible === false) { Router.handle(); return; }
     const el = document.getElementById('main-content');
     if (!el) return;
-    
+
     const posts = Content.getPostsByAuthor(authorId);
     const initials = Content.initials(author.name);
-    
+    const socials = author.socials || {};
+    const links = Object.entries(socials)
+      .filter(([, v]) => v)
+      .map(([k, v]) => '<a href="' + v + '" target="_blank" rel="noopener" class="author-social" style="color:var(--primary);font-size:0.85rem;text-transform:capitalize">' + k + '</a>')
+      .concat(author.website ? ['<a href="' + author.website + '" target="_blank" rel="noopener" style="color:var(--primary);font-size:0.85rem">Website</a>'] : [])
+      .concat(author.email ? ['<a href="mailto:' + author.email + '" style="color:var(--primary);font-size:0.85rem">Email</a>'] : []);
+    const avatar = author.avatar
+      ? '<img src="' + author.avatar + '" alt="' + author.name + '" style="width:100px;height:100px;margin:0 auto 16px;border-radius:50%;object-fit:cover;display:block">'
+      : '<div style="width:100px;height:100px;margin:0 auto 16px;border-radius:50%;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700">' + initials + '</div>';
+
     el.innerHTML = '<section class="section"><div class="container">' +
-      '<div style="text-align:center;margin-bottom:48px;padding:40px 20px;background:var(--surface);border-radius:16px;box-shadow:0 2px 12px var(--shadow)">' +
-      '<div style="width:100px;height:100px;margin:0 auto 16px;border-radius:50%;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700">' + initials + '</div>' +
-      '<h1 style="font-size:1.75rem;margin-bottom:8px;color:var(--text)">' + author.name + '</h1>' +
+      '<div style="text-align:center;margin-bottom:48px;padding:40px 20px;background:var(--surface);border-radius:16px;box-shadow:0 2px 12px var(--shadow);' +
+        (author.cover_image ? 'background-image:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url(' + author.cover_image + ');background-size:cover;background-position:center;color:#fff' : '') + '">' +
+      avatar +
+      '<h1 style="font-size:1.75rem;margin-bottom:8px;color:inherit">' + author.name + '</h1>' +
       (author.role ? '<p style="color:var(--primary);font-weight:600;margin-bottom:4px">' + author.role + '</p>' : '') +
+      (author.tagline ? '<p style="font-size:0.95rem;margin-bottom:8px;opacity:.9">' + author.tagline + '</p>' : '') +
       (author.specialization ? '<p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:12px">' + author.specialization + '</p>' : '') +
-      (author.bio ? '<p style="color:var(--text-secondary);max-width:600px;margin:0 auto;line-height:1.7">' + author.bio + '</p>' : '') +
+      (author.bio ? '<p style="color:inherit;opacity:.85;max-width:600px;margin:0 auto;line-height:1.7">' + author.bio + '</p>' : '') +
+      ((author.expertise || []).length ? '<div style="margin-top:14px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap">' +
+        author.expertise.map(x => '<span class="post-detail-tag">' + x + '</span>').join('') + '</div>' : '') +
+      (links.length ? '<div style="margin-top:14px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">' + links.join('') + '</div>' : '') +
+      (author.location ? '<p style="margin-top:10px;font-size:0.82rem;opacity:.75">📍 ' + author.location + '</p>' : '') +
       '<p style="margin-top:16px;color:var(--text-muted);font-size:0.9rem">' + posts.length + ' article' + (posts.length !== 1 ? 's' : '') + ' published</p>' +
       '</div>' +
       '<div class="section-header"><h2 class="section-title">Articles by ' + author.name + '</h2></div>' +
@@ -452,12 +477,18 @@ const App = {
     const email = form.querySelector('[name="email"]')?.value.trim();
     const message = form.querySelector('[name="message"]')?.value.trim();
     if (!name || !email || !message) { this.toast('Fill all fields', 'error'); return; }
-    if (DB.ready) await DB.upsert('contact_messages', { name, email, message });
+    let ok = true, note = 'Message sent!';
+    if (DB.ready) {
+      const r = await DB.rpc('api_contact', { p_name: name, p_email: email, p_message: message });
+      if (r && r.ok === false) { ok = false; note = r.message || 'Could not send your message'; }
+      else if (r?.message) note = r.message;
+    }
     const key = Content.getWeb3Key();
-    if (key && key !== 'YOUR_KEY_HERE') {
+    if (ok && key && key !== 'YOUR_KEY_HERE') {
       try { await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ access_key: key, name, email, message, subject: 'Contact from ' + name }) }); } catch (e) {}
     }
-    this.toast('Message sent!');
+    this.toast(note, ok ? 'success' : 'error');
+    if (!ok) return;
     form.reset(); this.closeContact();
   },
   
@@ -468,8 +499,8 @@ const App = {
     const email = form.querySelector('[name="email"]')?.value.trim();
     if (!name || !email) { this.toast('Fill all fields', 'error'); return; }
     if (DB.ready) {
-      const { error } = await DB.upsert('newsletter_subscribers', { name, email });
-      if (error?.code === '23505') { this.toast('Already subscribed!', 'warning'); return; }
+      const r = await DB.rpc('api_subscribe', { p_name: name, p_email: email });
+      if (r && r.ok === false) { this.toast(r.message || 'Could not subscribe', 'error'); return; }
     }
     const key = Content.getWeb3Key();
     if (key && key !== 'YOUR_KEY_HERE') {

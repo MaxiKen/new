@@ -40,6 +40,15 @@ const DB = {
     } catch (e) { return null; }
   },
   
+  async rpc(fn, args) {
+    if (!this.ready) return null;
+    try {
+      const { data, error } = await this.client.rpc(fn, args || {});
+      if (error) throw error;
+      return data;
+    } catch (e) { console.warn('[DB] rpc(' + fn + '):', e); return null; }
+  },
+
   async upsert(table, row) {
     if (!this.ready) return { error: { message: 'Not connected' } };
     return await this.client.from(table).upsert(row);

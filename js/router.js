@@ -59,6 +59,11 @@ const Router = {
       params.id = parts[1];
       return { route: '/author/:id', params };
     }
+    // Admin route: the studio lives in its own document
+    if (parts[0] === 'admin' || parts[0] === 'login' || parts[0] === 'studio') {
+      window.location.href = 'admin.html';
+      return { route: '/', params };
+    }
     // Static pages
     if (['about', 'glossary', 'faqs', 'downloads', 'search'].includes(parts[0])) {
       return { route: '/' + parts[0], params };

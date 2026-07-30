@@ -95,9 +95,18 @@ const Content = {
   getAuthor(id) { return this.authors.find(a => a.id === id); },
   
   // Posts
+  isLive(p) {
+    if (p.status) {
+      if (p.status === 'published') return true;
+      if (p.status === 'scheduled') return p.scheduled_for && new Date(p.scheduled_for) <= new Date();
+      return false;
+    }
+    return p.is_published !== false;
+  },
+
   getPublishedPosts() {
     return this.posts
-      .filter(p => p.is_published !== false)
+      .filter(p => this.isLive(p))
       .sort((a, b) => {
         // Sort by created_at timestamp (most accurate), fall back to published_date
         const da = a.created_at || a.published_date || '';

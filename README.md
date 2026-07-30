@@ -49,22 +49,35 @@ A professional, responsive blog platform built with vanilla HTML, CSS, and JavaS
 └── images/             # Static images
 ```
 
-## Admin Panel
+## Admin Studio
 
-Access at `yourdomain.com/admin.html`
+Access at `yourdomain.com/admin.html` (the `#/admin` route on the public site redirects there too). Every visit starts at a **sign-in screen**.
 
-### Features:
-- **Dashboard** — Stats overview
+### Accounts & sign-in
+- Two account types: **admin** and **author**.
+- The admin account is fixed to the username `admin` and starts **without a password** — sign in with `admin` and an empty password the first time; the studio immediately prompts you to set one.
+- Authors are created by the admin and start **without a password**. The admin can set/clear a password for anyone; every user can also set, change, or remove their own. A blank password means passwordless sign-in.
+- Sessions are token-based (SHA-256 hashed server-side) with "remember me", per-device session management, lockout after repeated failures, and a full audit log.
+
+### What authors can do
+- Write and manage **their own posts** (any category/subtopic), always published under their own byline.
+- Edit **their own profile** (bio, photo, cover, expertise, social links, password).
+
+### What the admin can do (everything, plus)
+- Post **as any author** (choose the byline in the editor).
+- Edit any author's profile on their behalf, create/deactivate/unlock accounts, manage usernames and passwords, revoke sessions.
+- Review workflow (approve/send back), scheduling, featured posts, revisions, editorial & sign-in policies.
+
+### Studio pages
+- **Dashboard** — Role-aware stats, review queue, top posts, activity
+- **Posts** — Filters, bulk actions, Quill writing desk with autosave, SEO, scheduling, revisions, duplicate
+- **Authors** — Profiles + accounts, password/lock/session controls (admin)
+- **Media** — Image library
 - **Settings** — Site name, colors, hero, social links, SEO
-- **Posts** — Create/edit with Quill editor, featured toggle, publish/hide
-- **Authors** — Manage author profiles
 - **Categories** — Create, edit, hide, reorder; add/remove subtopics
-- **Downloads** — Upload files, manage resources
-- **Glossary** — Word + definition entries
-- **FAQs** — Questions and answers
-- **About** — Edit about page with rich text
-- **Messages** — View contact form submissions
-- **Subscribers** — Manage newsletter subscribers
+- **Downloads / Glossary / FAQs / About** — Library content
+- **Messages / Subscribers** — Contact inbox and newsletter list
+- **Security** — Own password & devices; admin: all accounts, policies, audit log
 
 ## Customization
 

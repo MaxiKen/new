@@ -21,7 +21,12 @@ const ENV = {
 1. In Supabase dashboard, go to **SQL Editor**
 2. Click **New Query**
 3. Copy the entire contents of `supabase-schema.sql`
-4. Click **Run**
+4. Click **Run** (safe to re-run — the script is idempotent and migrates existing data)
+
+### First sign-in
+Open `admin.html`, enter username **`admin`** with an **empty password**, and sign in.
+You'll be prompted to set an admin password right away. Then create authors from
+**Authors → New author** — they start passwordless until you or they set one.
 
 ### Step 4: Create Storage Buckets
 In Supabase → Storage, create these buckets (all public):
