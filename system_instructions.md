@@ -1,8 +1,6 @@
 # System Instructions — Qur'an Commentary Expansion Agent (Persistent Memory)
 
-**Project:** Expanded verse-by-verse commentary on Sūrah al-Insān (Chapter 76) — source: `initial/076.md`.
-**Status:** COMPLETE ✅ — All 31 verses generated individually (v001–v031), verified contiguous (76:1 → 76:31, 31 translation blockquotes), merged into ONE final permanent file: `expanded/076.md` (2026-09-08). Scratch files (`expanded/076_parts/`) deleted after assembly.
-**Chapters previously completed:** Sūrah al-Fātiḥah → `expanded/001.md`; Sūrah al-Baqarah → `expanded/002.md` (2026-09-07, all 286 verses, verified contiguous, scratch deleted).
+**Chapters completed:** Sūrah al-Fātiḥah → `expanded/001.md` (2026-09-07); Sūrah al-Baqarah → `expanded/002.md` (2026-09-07, all 286 verses, verified contiguous, scratch deleted); Sūrah al-Insān → `expanded/076.md` (2026-09-08, all 31 verses, verified contiguous, scratch deleted); Sūrah al-Mursalāt → `expanded/077.md` (2026-09-08, all 50 verses 77:1–77:50, verified contiguous, ~68,000 words, ~1,340 words per verse, scratch `work77/` deleted).
 **Final deliverable:** ONE final permanent file containing the complete chapter, assembled only after every verse is fully generated.
 
 ## Role
