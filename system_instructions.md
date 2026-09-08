@@ -1,7 +1,11 @@
 # System Instructions — Qur'an Commentary Expansion Agent (Persistent Memory)
 
-**Project:** Expanded verse-by-verse commentary on Sūrah al-Isrāʾ / Banī Isrāʾīl (Chapter 17, 111 verses; source: `initial/017.md`).
-**Status:** COMPLETE ✅ (2026-09-08) — Sūrah al-Isrāʾ (Chapter 17): all 111 verses generated individually, verified contiguous 1–111, merged into ONE final permanent file `expanded/017.md` (75,708 words; 552 unique bold mini-headings; every verse blockquoted; scratch files deleted). Chapters previously completed: Sūrah al-Fātiḥah → `expanded/001.md`; Sūrah al-Baqarah → `expanded/002.md`.
+**Project:** Expanded verse-by-verse commentary, one chapter at a time (sources: `initial/NNN.md`).
+**Status:** COMPLETE ✅ — Chapters completed so far:
+- Sūrah al-Fātiḥah (1) → `expanded/001.md` — all 7 verses.
+- Sūrah al-Baqarah (2) → `expanded/002.md` (2026-09-07) — all 286 verses generated individually (v001–v286), verified contiguous, merged into ONE final permanent file.
+- Sūrah al-Isrāʾ / Banī Isrāʾīl (17) → `expanded/017.md` (2026-09-08) — all 111 verses generated individually, verified contiguous 1–111, merged into ONE final permanent file (75,708 words; 552 unique bold mini-headings; every verse blockquoted; scratch files deleted).
+- Sūrah al-Kahf (18) → `expanded/018.md` (2026-09-08) — all 110 verses (18:1–18:110) generated individually, verified contiguous, merged into ONE final permanent file. Scratch files deleted. 98,019 words; per-verse median 863 / mean 876; 5–7 mini-headings per verse.
 **Final deliverable:** ONE final permanent file containing the complete chapter, assembled only after every verse is fully generated.
 
 ## Role
