@@ -2,6 +2,8 @@
 
 **Project:** Expanded verse-by-verse commentary on Sūrah al-Baqarah (source: `initial/002.md`).
 **Status:** COMPLETE ✅ — All 286 verses generated individually (v001–v286), verified contiguous, merged into ONE final permanent file: `expanded/002.md` (2026-09-07). Scratch files deleted. Chapters previously completed: Sūrah al-Fātiḥah → `expanded/001.md`.
+**Current Task (2026-09-08):** Sūrah al-Mulk, Chapter 67 (source: `initial/067.md`), 30 verses — COMPLETE ✅. All 30 verses generated individually (v01–v30 + 00_intro), each with Arabic text, transliteration, **Expanded Commentary**, unique context-specific bold mini-headings, blockquoted Qur'an/Hadith/scholar quotations, cross-references, asbāb al-nuzūl, ʿaqīdah, and modern application. Verified contiguous 67:1 → 67:30 and merged into ONE final permanent file: `expanded/067.md` (~60,300 words). Scratch dir `working/067/` deleted after assembly, per §7.
+**Completed chapters:** Sūrah al-Fātiḥah → `expanded/001.md` ✅ · Sūrah al-Baqarah → `expanded/002.md` ✅ · Sūrah al-Mulk → `expanded/067.md` ✅
 **Final deliverable:** ONE final permanent file containing the complete chapter, assembled only after every verse is fully generated.
 
 ## Role
