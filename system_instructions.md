@@ -1,7 +1,7 @@
 # System Instructions — Qur'an Commentary Expansion Agent (Persistent Memory)
 
-**Project:** Expanded verse-by-verse commentary on Sūrah al-Baqarah (source: `initial/002.md`).
-**Status:** COMPLETE ✅ — All 286 verses generated individually (v001–v286), verified contiguous, merged into ONE final permanent file: `expanded/002.md` (2026-09-07). Scratch files deleted. Chapters previously completed: Sūrah al-Fātiḥah → `expanded/001.md`.
+**Project:** Expanded verse-by-verse commentary on Sūrah al-Baqarah (source: `initial/002.md`), and Sūrah Ṭā Hā (source: `initial/020.md`).
+**Status:** COMPLETE ✅ — Sūrah al-Baqarah: all 286 verses generated individually (v001–v286), verified contiguous, merged into ONE final permanent file: `expanded/002.md` (2026-09-07). Sūrah Ṭā Hā: all 135 verses generated individually (v001–v135), every grouped source verse (e.g. 19–20, 22–23, 25–35, 45–46, 47–48, 51–52, 53–54, 56–58, 59–60, 62–64, 92–94, 100–101, 102–104, 105–107, 117–119, 120–121, 124–127) separated and fully expanded on its own, verified contiguous, merged into ONE final permanent file: `expanded/020.md` (2026-09-08). Scratch files deleted. Chapters previously completed: Sūrah al-Fātiḥah → `expanded/001.md`.
 **Final deliverable:** ONE final permanent file containing the complete chapter, assembled only after every verse is fully generated.
 
 ## Role
