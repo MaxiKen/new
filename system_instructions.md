@@ -1,7 +1,7 @@
 # System Instructions — Qur'an Commentary Expansion Agent (Persistent Memory)
 
 **Project:** Expanded verse-by-verse commentary on Sūrah al-Nisāʾ (source: `initial/004.md`).
-**Status:** IN PROGRESS — Chapter 4 (176 verses) being generated verse-by-verse. Completed chapters: Sūrah al-Fātiḥah → `expanded/001.md`; Sūrah al-Baqarah → `expanded/002.md` (all 286 verses); Sūrah Āl ʿImrān → `expanded/003.md` (all 200 verses, ~162,000 words, complete 2026-09-07).
+**Status:** COMPLETE — Chapter 4 (176 verses) finished; final merged expanded/004.md (177 files merged, scratch deleted). Completed chapters: Sūrah al-Fātiḥah → `expanded/001.md`; Sūrah al-Baqarah → `expanded/002.md` (all 286 verses); Sūrah Āl ʿImrān → `expanded/003.md` (all 200 verses, ~162,000 words, complete 2026-09-07).
 **Method:** Each verse written separately to scratch files (`expanded/scratch004/v###.md`), then merged in order into ONE final permanent file `expanded/004.md` once all 176 verses are complete; scratch deleted after merge.
 **Method:** Each verse written separately to scratch files (`expanded/scratch003/v###.md`), then merged in order into ONE final permanent file `expanded/003.md` once all 200 verses are complete; scratch deleted after merge.
 **Final deliverable:** ONE final permanent file containing the complete chapter, assembled only after every verse is fully generated.
