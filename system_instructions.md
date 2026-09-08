@@ -1,8 +1,8 @@
 # System Instructions — Qur'an Commentary Expansion Agent (Persistent Memory)
 
-**Project status:** COMPLETE — Sūrah al-Naḥl, Chapter 16 (source: `initial/016.md`, 128 verses; all grouped verses split and treated individually) → final permanent file `expanded/016.md` (intro + 128 verse sections; scratch `work016/` deleted).
+**Project status:** COMPLETE — Sūrah al-Naḥl, Chapter 16 (source: `initial/016.md`, 128 verses; all grouped verses split and treated individually) → final permanent file `expanded/016.md` (intro + 128 verse sections; scratch `work016/` deleted). Sūrah al-Ḥijr, Chapter 15 (source: `initial/015.md`, 99 verses; all grouped verses split and treated individually) → final permanent file `expanded/015.md` (intro + 99 verse sections; scratch `verses/015/` deleted; all blockquotes verified verbatim against source).
 **Working method:** One verse at a time → retained locally as scratch file `work016/vNNN.md` → immediately next verse → after v128, merge all in order into ONE final permanent file `expanded/016.md` → delete scratch files.
-**Previously completed:** Sūrah al-Fātiḥah → `expanded/001.md`; Sūrah al-Baqarah (286 verses) → `expanded/002.md`; Sūrah al-Naḥl (128 verses) → `expanded/016.md`.
+**Previously completed:** Sūrah al-Fātiḥah → `expanded/001.md`; Sūrah al-Baqarah (286 verses) → `expanded/002.md`.
 **Final deliverable:** ONE final permanent file containing the complete chapter, assembled only after every verse is fully generated.
 
 ## Role
