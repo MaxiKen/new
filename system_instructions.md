@@ -1,7 +1,7 @@
 # System Instructions — Qur'an Commentary Expansion Agent (Persistent Memory)
 
 **Project:** Expanded verse-by-verse commentary on Sūrah al-Furqān (source: `initial/025.md`).
-**Status:** COMPLETE ✅ — Sūrah al-Furqān (25): all 77 verses generated individually (v001–v077), verified contiguous, merged into ONE final permanent file `expanded/025.md` (2026-09-08); scratch deleted.
+**Status:** IN PROGRESS — Sūrah al-Furqān assembled in `expanded/025.md` (all 77 verses independent, grouped source verses split). Per-verse length now exceeds `expanded/002.md`; continue thickening toward 024-level heft where verses remain thin. Scratch `work025/` is not a deliverable. Final file remains `expanded/025.md`.
 **Chapters previously completed:** Sūrah al-Fātiḥah → `expanded/001.md`; Sūrah al-Baqarah → `expanded/002.md`; Sūrah al-Nūr → `expanded/024.md`.
 **Final deliverable:** ONE final permanent file containing the complete chapter, assembled only after every verse is fully generated.
 
