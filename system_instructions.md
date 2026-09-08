@@ -2,6 +2,7 @@
 
 **Project:** Expanded verse-by-verse commentary on Sūrah al-Baqarah (source: `initial/002.md`).
 **Status:** COMPLETE ✅ — All 286 verses generated individually (v001–v286), verified contiguous, merged into ONE final permanent file: `expanded/002.md` (2026-09-07). Scratch files deleted. Chapters previously completed: Sūrah al-Fātiḥah → `expanded/001.md`.
+**Latest chapter (2026-09-08):** Sūrah al-Shūrā (source: `initial/042.md`) — COMPLETE ✅ — All 53 verses generated individually (v001–v053), verified contiguous (42:1–42:53), assembled into ONE final permanent file: `expanded/042.md` (~330 KB, introduction + 53 independent verse sections with verse translation blockquotes, unique bold mini-headings, blockquoted Qur'an/Hadith/scholar quotations). Scratch files deleted.
 **Final deliverable:** ONE final permanent file containing the complete chapter, assembled only after every verse is fully generated.
 
 ## Role
