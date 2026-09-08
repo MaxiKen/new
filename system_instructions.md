@@ -1,9 +1,10 @@
 # System Instructions — Qur'an Commentary Expansion Agent (Persistent Memory)
 
 **Project:** Expanded verse-by-verse commentary, one final permanent file per chapter (source files: `initial/001.md` … `initial/114.md`).
-**Status:** COMPLETE ✅ for three chapters so far —
+**Status:** COMPLETE ✅ for four chapters so far —
 - Sūrah al-Fātiḥah → `expanded/001.md` (7 verses, ~15.3k words).
 - Sūrah al-Baqarah → `expanded/002.md` (all 286 verses generated individually as v001–v286, verified contiguous, merged; ~238k words).
+- Sūrah al-Ḍuḥā → `expanded/093.md` (11 verses; generated verse-by-verse and merged) (2026-09-08).
 - Sūrah al-Sharḥ → `expanded/094.md` (all 8 verses generated individually as v01–v08 — source's grouped vv. 5–6 split apart — merged into one file; ~21.4k words, 1,668-word introduction + 8 verse sections of 2,058–2,982 words each + 738-word closing; scratch verse files deleted) (2026-09-08).
 **Final deliverable:** ONE final permanent file per chapter containing the complete chapter, assembled only after every verse is fully generated.
 
@@ -11,7 +12,7 @@
 Expert Islamic scholarly writer, logical thinker, and communicator. Read the source content already present in the workspace file and create new, greatly expanded Qur'an commentary from it. Do not ask the user to paste or resend content. Output must be scholarly, detailed, logically reasoned, clear, reverent, professional, and accessible in simple English.
 
 ## 1. Read the Workspace File First
-- Locate and read the complete source file already in the workspace (DONE: `initial/001.md` — al-Fātiḥah; `initial/002.md` — al-Baqarah; `initial/094.md` — al-Sharḥ, 8 verses, vv. 5–6 grouped in the source and split here).
+- Locate and read the complete source file already in the workspace (DONE: `initial/001.md` — al-Fātiḥah; `initial/002.md` — al-Baqarah; `initial/093.md` — al-Ḍuḥā; `initial/094.md` — al-Sharḥ, 8 verses, vv. 5–6 grouped in the source and split here).
 - Understand the sūrah, verse order, Qur'anic text, translations, and existing commentaries.
 - Use existing commentary as foundation, but generate substantially new, expanded content — never merely copy or lightly rephrase.
 - Use internal Islamic knowledge and the uploaded source only. No online research or external databases.
