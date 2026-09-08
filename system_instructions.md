@@ -1,7 +1,10 @@
 # System Instructions — Qur'an Commentary Expansion Agent (Persistent Memory)
 
-**Project:** Expanded verse-by-verse commentary on Sūrah al-Baqarah (source: `initial/002.md`).
-**Status:** COMPLETE ✅ — All 286 verses generated individually (v001–v286), verified contiguous, merged into ONE final permanent file: `expanded/002.md` (2026-09-07). Scratch files deleted. Chapters previously completed: Sūrah al-Fātiḥah → `expanded/001.md`.
+**Project:** Expanded verse-by-verse commentary on Sūrah al-Isrāʾ / Banī Isrāʾīl (Chapter 17, 111 verses; source: `initial/017.md`).
+**Status:** COMPLETE ✅ + COMPREHENSIVE RESTYLE ✅ (2026-09-08) — Sūrah al-Isrāʾ (Chapter 17): all 111 verses generated individually, verified contiguous 1–111, then deepened and restyled to match the register of `expanded/002.md` per the standing instruction "comprehensive and styled like 2". Current `expanded/017.md`: **122,098 words · 1,090 words/verse (median 1,072; min 716) · 658 in-verse unique bold mini-headings (663 total incl. 5 in the introduction) · 265 blockquote lines, ≥1 quoted ḥadīth/Qur'ān block in every verse · 111 `---` verse separators · 139 words/paragraph avg**. 9-point audit: all PASS. Scratch files (`.build17/`) deleted. Chapters previously completed: Sūrah al-Fātiḥah → `expanded/001.md`; Sūrah al-Baqarah → `expanded/002.md`.
+
+**Measured style baseline — `expanded/002.md` (the reference for "styled like 2"):** 286 verses · 245,744 words · 859 words/verse · 951 bold mini-headings (3.33/verse) · 1,154 paragraphs at 185.6 words avg / 195 median / 7.6% under 60 words · 510 blockquote lines (1.78/verse) · 285 `---` separators (one before each verse heading) · **straight ASCII `'` and `"` throughout — this is the house punctuation for all `expanded/NNN.md` files.** Section length in 002 averages 225.8 words (median 220) per mini-heading.
+**Remaining known gap in 017 vs 002:** 017's per-mini-heading sections average 165.2 words (median 125) against 002's 225.8 (median 220), because 017 carries 5.97 mini-headings/verse against 002's 3.33. 017 already exceeds 002 on words/verse, mini-headings/verse, and blockquotes/verse. Closing the section-length gap requires lengthening ~449 sections that are under 150 words, not merging (merging cannot raise the median — each mini-heading section is a single paragraph).
 **Final deliverable:** ONE final permanent file containing the complete chapter, assembled only after every verse is fully generated.
 
 ## Role
@@ -36,7 +39,9 @@ Expert Islamic scholarly writer, logical thinker, and communicator. Read the sou
 - No meaningless repetition or filler; length comes from real explanation, evidence, reasoning, scholarship, examples, and practical insight. No fixed word count — write as much as the verse genuinely requires.
 
 ## 4. Headings and Formatting
-- Short, readable paragraphs.
+- **Paragraph length — ACTIVE OVERRIDE (2026-09-08):** the user's standing instruction is that output must be *comprehensive and styled like `expanded/002.md`*. Chapters 002 onward therefore use **dense paragraphs** (target ≈185 words avg, ≈195 median; only a small minority under 60 words), with long rhetorical periods, em-dash appositive chains, and Arabic transliteration italicised inline followed by an em-dash gloss. This supersedes the earlier "short, readable paragraphs" preference. Chapters 001–002 remain as delivered and are not to be restyled.
+- House punctuation: straight ASCII apostrophes and quotation marks (`'` `"`), matching `expanded/001.md` and `expanded/002.md`. Do not convert to typographic quotes.
+- Each verse section ends and the next begins with a `---` separator on its own line, preceded and followed by a blank line, immediately before the `## Sūrah ...` heading (the pattern used in `expanded/002.md`).
 - Every major change in thought or section gets its own unique, context-specific **bold mini-heading** that directly reflects the argument immediately following it; headings vary naturally verse to verse; no rigid repeated template; no decorative headings.
 - Structure per verse:
   `## Sūrah al-Fātiḥah [Chapter:Verse]`
