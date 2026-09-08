@@ -68,3 +68,10 @@ Expert Islamic scholarly writer, logical thinker, and communicator. Read the sou
 - Strategy: READ SOURCE → GENERATE VERSE 1 → RETAIN → GENERATE VERSE 2 → RETAIN → CONTINUE AUTOMATICALLY → FINAL VERSE → MERGE ALL → ONE COMPLETE FINAL FILE.
 
 — End of persistent instructions —
+
+## Chapter 5 Pass 2 (Chapter-2-depth rebuild) — COMPLETE (2026-09-08)
+- Rebuilt all 120 verses of expanded/005.md to 002-level structural depth.
+- Final: 120 sections contiguous 1-120, 74,513 words / 581,206 bytes, 559 bold mini-headings (~4.6/verse), 168 blockquote lines.
+- Method: 21 batch files (e00 intro + e01-e20, 6 verses each) in work005x/, merged, verified, work005x/ deleted.
+- Commit b6cc388 pushed to arena/01a07e29-new (PR #8 updated).
+- Note: avg ~620 words/verse vs ch2 ~830 avg; structure (4-5 headed sections/verse, dense scholarship) matches ch2.
