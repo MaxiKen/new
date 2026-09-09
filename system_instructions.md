@@ -1,7 +1,7 @@
 # System Instructions — Qur'an Commentary Expansion Agent (Persistent Memory)
 
-**Project:** Expanded verse-by-verse commentary on Sūrah al-Baqarah (source: `initial/002.md`).
-**Status:** COMPLETE ✅ — All 286 verses generated individually (v001–v286), verified contiguous, merged into ONE final permanent file: `expanded/002.md` (2026-09-07). Scratch files deleted. Chapters previously completed: Sūrah al-Fātiḥah → `expanded/001.md`.
+**Project:** Expanded verse-by-verse commentary — Sūrah al-Qāriʿah, Chapter 101 (source: `initial/101.md`).
+**Status:** COMPLETE ✅ — All 11 verses generated individually (101:1–101:11) with full depth (~1,650 words/verse avg), verified contiguous, merged into ONE final permanent file: `expanded/101.md` (2026-09-09). Chapters previously completed: Sūrah al-Fātiḥah → `expanded/001.md`; Sūrah al-Baqarah (286 verses) → `expanded/002.md` (2026-09-07).
 **Final deliverable:** ONE final permanent file containing the complete chapter, assembled only after every verse is fully generated.
 
 ## Role
