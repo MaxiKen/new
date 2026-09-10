@@ -1,0 +1,115 @@
+chapter,name,tier,tier_label,verses,sections,verses_with_content,empty_stubs,words_per_verse,paragraphs_per_verse,bold_headings_per_verse,base_floor_words,base_floor_paragraphs,base_floor_headings,fails,failed_metrics,status,gap_words_per_verse,gap_paragraphs_per_verse,gap_bold_headings_per_verse,extra_words_needed,extra_paragraphs_needed,extra_headings_needed
+37,Al-Ṣaffāt,T5,Very long,182,182,182,0,209.0,5.64,1.0,530,7.5,2.75,3,words_per_verse;paragraphs_per_verse;bold_headings_per_verse,below base,321.0,1.86,1.75,58422,339,318
+20,Ṭā Hā,T4,Long,135,135,135,0,475.8,7.5,3.25,700,11.0,4.0,3,words_per_verse;paragraphs_per_verse;bold_headings_per_verse,below base,224.2,3.5,0.75,30267,472,101
+39,Al-Zumar,T3,Medium,75,75,75,0,461.7,11.01,3.48,820,13.0,4.0,3,words_per_verse;paragraphs_per_verse;bold_headings_per_verse,below base,358.3,1.99,0.52,26872,149,39
+34,Sabaʾ,T3,Medium,54,54,54,0,410.4,12.85,3.02,820,13.0,4.0,3,words_per_verse;paragraphs_per_verse;bold_headings_per_verse,below base,409.6,0.15,0.98,22118,8,53
+67,Al-Mulk,T2,Short,30,30,30,0,403.2,12.63,3.03,970,16.5,4.5,3,words_per_verse;paragraphs_per_verse;bold_headings_per_verse,below base,566.8,3.87,1.47,17004,116,44
+73,Al-Muzzammil,T2,Short,20,20,20,0,403.8,13.8,3.8,970,16.5,4.5,3,words_per_verse;paragraphs_per_verse;bold_headings_per_verse,below base,566.2,2.7,0.7,11324,54,14
+97,Al-Qadr,T1,Very short,5,5,5,0,932.2,25.6,6.0,1800,29.0,6.25,3,words_per_verse;paragraphs_per_verse;bold_headings_per_verse,below base,867.8,3.4,0.25,4339,17,1
+107,Al-Māʿūn,T1,Very short,7,7,7,0,1281.9,25.14,4.29,1800,29.0,6.25,3,words_per_verse;paragraphs_per_verse;bold_headings_per_verse,below base,518.1,3.86,1.96,3627,27,14
+70,Al-Maʿārij,T3,Medium,44,44,44,0,762.5,11.5,3.16,820,13.0,4.0,3,words_per_verse;paragraphs_per_verse;bold_headings_per_verse,below base,57.5,1.5,0.84,2530,66,37
+26,Al-Shuʿarāʾ,T5,Very long,227,227,191,36,271.1,7.1,2.92,530,7.5,2.75,2,words_per_verse;paragraphs_per_verse,partly below base,258.9,0.4,0.0,49450,76,0
+69,Al-Ḥāqqah,T3,Medium,52,52,52,0,329.0,13.15,3.98,820,13.0,4.0,2,words_per_verse;bold_headings_per_verse,partly below base,491.0,0.0,0.02,25532,0,1
+75,Al-Qiyāmah,T3,Medium,40,40,40,0,376.1,14.85,3.52,820,13.0,4.0,2,words_per_verse;bold_headings_per_verse,partly below base,443.9,0.0,0.48,17756,0,19
+48,Al-Fatḥ,T2,Short,29,29,29,0,718.2,19.66,4.45,970,16.5,4.5,2,words_per_verse;bold_headings_per_verse,partly below base,251.8,0.0,0.05,7302,0,1
+30,Al-Rūm,T3,Medium,60,60,60,0,774.7,10.33,4.02,820,13.0,4.0,2,words_per_verse;paragraphs_per_verse,partly below base,45.3,2.67,0.0,2718,160,0
+58,Al-Mujādilah,T2,Short,22,22,22,0,899.3,19.05,4.32,970,16.5,4.5,2,words_per_verse;bold_headings_per_verse,partly below base,70.7,0.0,0.18,1555,0,4
+89,Al-Fajr,T2,Short,30,30,30,0,949.4,15.67,5.1,970,16.5,4.5,2,words_per_verse;paragraphs_per_verse,partly below base,20.6,0.83,0.0,618,25,0
+9,Al-Tawbah,T4,Long,129,129,129,0,799.5,10.19,3.99,700,11.0,4.0,2,paragraphs_per_verse;bold_headings_per_verse,partly below base,0.0,0.81,0.01,0,104,1
+11,Hūd,T4,Long,123,123,123,0,886.7,8.4,3.65,700,11.0,4.0,2,paragraphs_per_verse;bold_headings_per_verse,partly below base,0.0,2.6,0.35,0,320,43
+15,Al-Ḥijr,T4,Long,99,99,99,0,966.0,9.1,3.94,700,11.0,4.0,2,paragraphs_per_verse;bold_headings_per_verse,partly below base,0.0,1.9,0.06,0,188,6
+19,Maryam,T4,Long,98,98,98,0,721.5,8.35,2.94,700,11.0,4.0,2,paragraphs_per_verse;bold_headings_per_verse,partly below base,0.0,2.65,1.06,0,260,104
+57,Al-Ḥadīd,T2,Short,29,29,29,0,1304.4,12.79,4.34,970,16.5,4.5,2,paragraphs_per_verse;bold_headings_per_verse,partly below base,0.0,3.71,0.16,0,108,5
+87,Al-Aʿlā,T2,Short,19,19,19,0,1277.9,15.68,3.47,970,16.5,4.5,2,paragraphs_per_verse;bold_headings_per_verse,partly below base,0.0,0.82,1.03,0,16,20
+114,Al-Nās,T1,Very short,6,6,6,0,1865.5,24.0,6.0,1800,29.0,6.25,2,paragraphs_per_verse;bold_headings_per_verse,partly below base,0.0,5.0,0.25,0,30,2
+36,Yā Sīn,T4,Long,83,83,83,0,419.3,14.0,6.0,700,11.0,4.0,1,words_per_verse,partly below base,280.7,0.0,0.0,23298,0,0
+43,Al-Zukhruf,T4,Long,89,89,89,0,501.4,17.53,4.43,700,11.0,4.0,1,words_per_verse,partly below base,198.6,0.0,0.0,17675,0,0
+33,Al-Aḥzāb,T3,Medium,73,73,73,0,588.5,20.18,4.74,820,13.0,4.0,1,words_per_verse,partly below base,231.5,0.0,0.0,16900,0,0
+38,Ṣād,T4,Long,88,88,88,0,532.6,13.89,4.82,700,11.0,4.0,1,words_per_verse,partly below base,167.4,0.0,0.0,14731,0,0
+10,Yūnus,T4,Long,109,109,109,0,627.0,11.81,4.27,700,11.0,4.0,1,words_per_verse,partly below base,73.0,0.0,0.0,7957,0,0
+74,Al-Muddaththir,T3,Medium,56,56,56,0,735.6,25.02,6.02,820,13.0,4.0,1,words_per_verse,partly below base,84.4,0.0,0.0,4726,0,0
+88,Al-Ghāshiyah,T2,Short,26,26,26,0,876.6,19.46,4.96,970,16.5,4.5,1,words_per_verse,partly below base,93.4,0.0,0.0,2428,0,0
+111,Al-Masad,T1,Very short,5,5,5,0,1343.4,36.0,8.6,1800,29.0,6.25,1,words_per_verse,partly below base,456.6,0.0,0.0,2283,0,0
+102,Al-Takāthur,T1,Very short,8,8,8,0,1661.2,37.12,7.88,1800,29.0,6.25,1,words_per_verse,partly below base,138.8,0.0,0.0,1110,0,0
+72,Al-Jinn,T2,Short,28,28,28,0,931.7,31.57,5.89,970,16.5,4.5,1,words_per_verse,partly below base,38.3,0.0,0.0,1072,0,0
+46,Al-Aḥqāf,T3,Medium,35,35,35,0,812.0,14.63,4.03,820,13.0,4.0,1,words_per_verse,partly below base,8.0,0.0,0.0,280,0,0
+93,Al-Ḍuḥā,T2,Short,11,11,11,0,950.7,19.27,5.0,970,16.5,4.5,1,words_per_verse,partly below base,19.3,0.0,0.0,212,0,0
+68,Al-Qalam,T3,Medium,52,52,52,0,818.0,20.52,5.23,820,13.0,4.0,1,words_per_verse,partly below base,2.0,0.0,0.0,104,0,0
+7,Al-Aʿrāf,T5,Very long,206,206,206,0,802.9,8.08,2.59,530,7.5,2.75,1,bold_headings_per_verse,partly below base,0.0,0.0,0.16,0,0,33
+8,Al-Anfāl,T3,Medium,75,75,75,0,1014.8,9.75,4.01,820,13.0,4.0,1,paragraphs_per_verse,partly below base,0.0,3.25,0.0,0,244,0
+14,Ibrāhīm,T3,Medium,52,52,52,0,1016.5,12.9,4.88,820,13.0,4.0,1,paragraphs_per_verse,partly below base,0.0,0.1,0.0,0,5,0
+21,Al-Anbiyāʾ,T4,Long,112,112,112,0,1274.6,13.7,3.25,700,11.0,4.0,1,bold_headings_per_verse,partly below base,0.0,0.0,0.75,0,0,84
+32,Al-Sajdah,T2,Short,30,30,30,0,1567.4,11.37,4.7,970,16.5,4.5,1,paragraphs_per_verse,partly below base,0.0,5.13,0.0,0,154,0
+41,Fuṣṣilat,T3,Medium,54,54,54,0,886.1,10.57,4.06,820,13.0,4.0,1,paragraphs_per_verse,partly below base,0.0,2.43,0.0,0,131,0
+44,Al-Dukhān,T3,Medium,59,59,59,0,1036.5,10.66,4.71,820,13.0,4.0,1,paragraphs_per_verse,partly below base,0.0,2.34,0.0,0,138,0
+62,Al-Jumuʿah,T2,Short,11,11,11,0,988.0,17.18,4.0,970,16.5,4.5,1,bold_headings_per_verse,partly below base,0.0,0.0,0.5,0,0,6
+77,Al-Mursalāt,T3,Medium,50,50,50,0,1314.8,10.68,4.74,820,13.0,4.0,1,paragraphs_per_verse,partly below base,0.0,2.32,0.0,0,116,0
+81,Al-Takwīr,T2,Short,29,29,29,0,973.3,17.1,4.0,970,16.5,4.5,1,bold_headings_per_verse,partly below base,0.0,0.0,0.5,0,0,14
+85,Al-Burūj,T2,Short,22,22,22,0,1004.4,16.64,3.14,970,16.5,4.5,1,bold_headings_per_verse,partly below base,0.0,0.0,1.36,0,0,30
+90,Al-Balad,T2,Short,20,20,20,0,1205.2,13.3,5.05,970,16.5,4.5,1,paragraphs_per_verse,partly below base,0.0,3.2,0.0,0,64,0
+92,Al-Layl,T2,Short,21,21,21,0,1060.4,12.14,5.52,970,16.5,4.5,1,paragraphs_per_verse,partly below base,0.0,4.36,0.0,0,92,0
+95,Al-Tīn,T1,Very short,8,8,8,0,2015.6,23.88,6.38,1800,29.0,6.25,1,paragraphs_per_verse,partly below base,0.0,5.12,0.0,0,41,0
+99,Al-Zalzalah,T1,Very short,8,8,8,0,1804.1,37.12,5.0,1800,29.0,6.25,1,bold_headings_per_verse,partly below base,0.0,0.0,1.25,0,0,10
+104,Al-Humazah,T1,Very short,9,9,9,0,2484.2,29.33,5.89,1800,29.0,6.25,1,bold_headings_per_verse,partly below base,0.0,0.0,0.36,0,0,3
+1,Al-Fātiḥah,T1,Very short,7,7,7,0,1932.9,33.43,6.43,1800,29.0,6.25,0,,meets base,0.0,0.0,0.0,0,0,0
+2,Al-Baqarah,T5,Very long,286,286,286,0,821.1,9.07,3.31,530,7.5,2.75,0,,meets base,0.0,0.0,0.0,0,0,0
+3,Āl ʿImrān,T5,Very long,200,200,200,0,795.6,9.6,3.67,530,7.5,2.75,0,,meets base,0.0,0.0,0.0,0,0,0
+4,Al-Nisāʾ,T5,Very long,176,176,176,0,931.3,8.61,3.44,530,7.5,2.75,0,,meets base,0.0,0.0,0.0,0,0,0
+5,Al-Māʾidah,T4,Long,120,120,120,0,1496.7,20.36,7.54,700,11.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+6,Al-Anʿām,T5,Very long,165,165,165,0,1291.2,26.93,8.25,530,7.5,2.75,0,,meets base,0.0,0.0,0.0,0,0,0
+12,Yūsuf,T4,Long,111,111,111,0,1130.8,13.79,4.32,700,11.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+13,Al-Raʿd,T3,Medium,43,43,43,0,1094.9,19.37,6.44,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+16,Al-Naḥl,T4,Long,128,128,128,0,1549.9,29.62,8.24,700,11.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+17,Al-Isrāʾ,T4,Long,111,111,111,0,1068.6,15.31,5.93,700,11.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+18,Al-Kahf,T4,Long,110,110,110,0,858.7,21.22,5.55,700,11.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+22,Al-Ḥajj,T3,Medium,78,78,78,0,1004.3,25.21,7.04,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+23,Al-Muʾminūn,T4,Long,118,118,118,0,1504.9,23.24,8.38,700,11.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+24,Al-Nūr,T3,Medium,64,64,64,0,1528.6,24.95,8.33,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+25,Al-Furqān,T3,Medium,77,77,77,0,1135.7,23.23,5.94,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+27,Al-Naml,T4,Long,93,93,93,0,1753.9,44.12,7.02,700,11.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+28,Al-Qaṣaṣ,T4,Long,88,88,88,0,1662.7,55.27,7.77,700,11.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+29,Al-ʿAnkabūt,T3,Medium,69,69,69,0,1583.1,16.45,6.62,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+31,Luqmān,T3,Medium,34,34,34,0,1654.0,18.65,5.47,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+35,Fāṭir,T3,Medium,45,45,45,0,1523.8,40.69,7.11,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+40,Ghāfir,T4,Long,85,85,85,0,931.9,11.42,4.65,700,11.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+42,Al-Shūrā,T3,Medium,53,53,53,0,1000.1,14.06,4.13,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+45,Al-Jāthiyah,T3,Medium,37,37,37,0,1358.5,15.35,5.51,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+47,Muḥammad,T3,Medium,38,38,38,0,2236.2,40.53,6.5,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+49,Al-Ḥujurāt,T2,Short,18,18,18,0,2054.3,45.56,8.22,970,16.5,4.5,0,,meets base,0.0,0.0,0.0,0,0,0
+50,Qāf,T3,Medium,45,45,45,0,1419.8,18.6,5.64,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+51,Al-Dhāriyāt,T3,Medium,60,60,60,0,926.9,16.4,5.45,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+52,Al-Ṭūr,T3,Medium,49,49,49,0,1033.7,23.82,5.65,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+53,Al-Najm,T3,Medium,62,62,62,0,1124.4,13.66,5.47,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+54,Al-Qamar,T3,Medium,55,55,55,0,1522.1,37.13,5.73,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+55,Al-Raḥmān,T3,Medium,78,78,78,0,962.4,15.64,5.79,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+56,Al-Wāqiʿah,T4,Long,96,96,96,0,726.6,20.4,8.79,700,11.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+59,Al-Ḥashr,T2,Short,24,24,24,0,1232.6,19.29,5.67,970,16.5,4.5,0,,meets base,0.0,0.0,0.0,0,0,0
+60,Al-Mumtaḥanah,T2,Short,13,13,13,0,1742.8,33.31,7.54,970,16.5,4.5,0,,meets base,0.0,0.0,0.0,0,0,0
+61,Al-Ṣaff,T2,Short,14,14,14,0,1556.0,19.5,6.36,970,16.5,4.5,0,,meets base,0.0,0.0,0.0,0,0,0
+63,Al-Munāfiqūn,T2,Short,11,11,11,0,1480.5,30.09,6.18,970,16.5,4.5,0,,meets base,0.0,0.0,0.0,0,0,0
+64,Al-Taghābun,T2,Short,18,18,18,0,1871.7,20.17,6.06,970,16.5,4.5,0,,meets base,0.0,0.0,0.0,0,0,0
+65,Al-Ṭalāq,T2,Short,12,12,12,0,1560.1,26.0,5.83,970,16.5,4.5,0,,meets base,0.0,0.0,0.0,0,0,0
+66,Al-Taḥrīm,T2,Short,12,12,12,0,1657.7,22.33,5.83,970,16.5,4.5,0,,meets base,0.0,0.0,0.0,0,0,0
+71,Nūḥ,T2,Short,28,28,28,0,1280.8,21.21,5.21,970,16.5,4.5,0,,meets base,0.0,0.0,0.0,0,0,0
+76,Al-Insān,T3,Medium,31,31,31,0,1067.8,19.1,4.06,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+78,Al-Nabaʾ,T3,Medium,40,40,40,0,1621.5,17.43,4.72,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+79,Al-Nāziʿāt,T3,Medium,46,46,46,0,1390.0,38.57,5.98,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+80,ʿAbasa,T3,Medium,42,42,42,0,1178.3,15.4,5.02,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+82,Al-Infiṭār,T2,Short,19,19,19,0,1487.2,32.63,6.05,970,16.5,4.5,0,,meets base,0.0,0.0,0.0,0,0,0
+83,Al-Muṭaffifīn,T3,Medium,36,36,36,0,1138.3,15.58,4.42,820,13.0,4.0,0,,meets base,0.0,0.0,0.0,0,0,0
+84,Al-Inshiqāq,T2,Short,25,25,25,0,1222.6,17.24,5.76,970,16.5,4.5,0,,meets base,0.0,0.0,0.0,0,0,0
+86,Al-Ṭāriq,T2,Short,17,17,17,0,1674.9,33.41,9.88,970,16.5,4.5,0,,meets base,0.0,0.0,0.0,0,0,0
+91,Al-Shams,T2,Short,15,15,15,0,1229.4,21.13,5.87,970,16.5,4.5,0,,meets base,0.0,0.0,0.0,0,0,0
+94,Al-Sharḥ,T1,Very short,8,8,8,0,2347.0,34.0,7.5,1800,29.0,6.25,0,,meets base,0.0,0.0,0.0,0,0,0
+96,Al-ʿAlaq,T2,Short,19,19,19,0,1639.5,48.42,8.74,970,16.5,4.5,0,,meets base,0.0,0.0,0.0,0,0,0
+98,Al-Bayyinah,T1,Very short,8,8,8,0,2433.5,68.0,9.75,1800,29.0,6.25,0,,meets base,0.0,0.0,0.0,0,0,0
+100,Al-ʿĀdiyāt,T2,Short,11,11,11,0,1404.4,24.0,5.18,970,16.5,4.5,0,,meets base,0.0,0.0,0.0,0,0,0
+101,Al-Qāriʿah,T2,Short,11,11,11,0,1608.2,25.09,5.09,970,16.5,4.5,0,,meets base,0.0,0.0,0.0,0,0,0
+103,Al-ʿAṣr,T1,Very short,3,3,3,0,1826.7,59.67,7.67,1800,29.0,6.25,0,,meets base,0.0,0.0,0.0,0,0,0
+105,Al-Fīl,T1,Very short,5,5,5,0,2002.6,33.2,7.8,1800,29.0,6.25,0,,meets base,0.0,0.0,0.0,0,0,0
+106,Quraysh,T1,Very short,4,4,4,0,2558.5,38.75,7.75,1800,29.0,6.25,0,,meets base,0.0,0.0,0.0,0,0,0
+108,Al-Kawthar,T1,Very short,3,3,3,0,2223.7,47.33,8.0,1800,29.0,6.25,0,,meets base,0.0,0.0,0.0,0,0,0
+109,Al-Kāfirūn,T1,Very short,6,6,6,0,1802.8,34.67,7.0,1800,29.0,6.25,0,,meets base,0.0,0.0,0.0,0,0,0
+110,Al-Naṣr,T1,Very short,3,3,3,0,3279.3,35.33,9.67,1800,29.0,6.25,0,,meets base,0.0,0.0,0.0,0,0,0
+112,Al-Ikhlāṣ,T1,Very short,4,4,4,0,2222.2,29.0,7.75,1800,29.0,6.25,0,,meets base,0.0,0.0,0.0,0,0,0
+113,Al-Falaq,T1,Very short,5,5,5,0,1829.4,31.2,11.2,1800,29.0,6.25,0,,meets base,0.0,0.0,0.0,0,0,0

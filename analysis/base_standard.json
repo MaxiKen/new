@@ -1,0 +1,191 @@
+{
+  "declared": "2026-09-10",
+  "unit": "content-bearing verse section",
+  "tiers": [
+    {
+      "tier": "T1",
+      "label": "Very short",
+      "verse_range": [
+        3,
+        10
+      ],
+      "chapters": 19,
+      "verses": 112,
+      "words_per_verse": {
+        "base_floor": 1800,
+        "standard": 1930,
+        "extended": 2290,
+        "observed_p25": 1803.45,
+        "observed_median": 1932.9,
+        "observed_p75": 2285.35
+      },
+      "paragraphs_per_verse": {
+        "base_floor": 29.0,
+        "standard": 34.0,
+        "extended": 37.0,
+        "observed_p25": 29.16,
+        "observed_median": 34.0,
+        "observed_p75": 37.12
+      },
+      "bold_headings_per_verse": {
+        "base_floor": 6.25,
+        "standard": 7.75,
+        "extended": 8.0,
+        "observed_p25": 6.19,
+        "observed_median": 7.67,
+        "observed_p75": 7.94
+      }
+    },
+    {
+      "tier": "T2",
+      "label": "Short",
+      "verse_range": [
+        11,
+        30
+      ],
+      "chapters": 32,
+      "verses": 644,
+      "words_per_verse": {
+        "base_floor": 970,
+        "standard": 1260,
+        "extended": 1560,
+        "observed_p25": 967.65,
+        "observed_median": 1255.25,
+        "observed_p75": 1561.92
+      },
+      "paragraphs_per_verse": {
+        "base_floor": 16.5,
+        "standard": 19.5,
+        "extended": 25.5,
+        "observed_p25": 16.4,
+        "observed_median": 19.48,
+        "observed_p75": 25.32
+      },
+      "bold_headings_per_verse": {
+        "base_floor": 4.5,
+        "standard": 5.25,
+        "extended": 6.0,
+        "observed_p25": 4.42,
+        "observed_median": 5.2,
+        "observed_p75": 5.93
+      }
+    },
+    {
+      "tier": "T3",
+      "label": "Medium",
+      "verse_range": [
+        31,
+        80
+      ],
+      "chapters": 36,
+      "verses": 1913,
+      "words_per_verse": {
+        "base_floor": 820,
+        "standard": 1040,
+        "extended": 1370,
+        "observed_p25": 816.5,
+        "observed_median": 1035.1,
+        "observed_p75": 1366.38
+      },
+      "paragraphs_per_verse": {
+        "base_floor": 13.0,
+        "standard": 16.0,
+        "extended": 21.0,
+        "observed_p25": 13.09,
+        "observed_median": 16.02,
+        "observed_p75": 21.2
+      },
+      "bold_headings_per_verse": {
+        "base_floor": 4.0,
+        "standard": 5.0,
+        "extended": 5.75,
+        "observed_p25": 4.06,
+        "observed_median": 5.12,
+        "observed_p75": 5.83
+      }
+    },
+    {
+      "tier": "T4",
+      "label": "Long",
+      "verse_range": [
+        81,
+        150
+      ],
+      "chapters": 20,
+      "verses": 2125,
+      "words_per_verse": {
+        "base_floor": 700,
+        "standard": 910,
+        "extended": 1330,
+        "observed_p25": 697.88,
+        "observed_median": 909.3,
+        "observed_p75": 1330.12
+      },
+      "paragraphs_per_verse": {
+        "base_floor": 11.0,
+        "standard": 14.0,
+        "extended": 20.5,
+        "observed_p25": 11.11,
+        "observed_median": 13.95,
+        "observed_p75": 20.6
+      },
+      "bold_headings_per_verse": {
+        "base_floor": 4.0,
+        "standard": 4.75,
+        "extended": 7.25,
+        "observed_p25": 3.98,
+        "observed_median": 4.74,
+        "observed_p75": 7.15
+      }
+    },
+    {
+      "tier": "T5",
+      "label": "Very long",
+      "verse_range": [
+        151,
+        null
+      ],
+      "chapters": 7,
+      "verses": 1442,
+      "words_per_verse": {
+        "base_floor": 530,
+        "standard": 800,
+        "extended": 880,
+        "observed_p25": 533.35,
+        "observed_median": 802.9,
+        "observed_p75": 876.2
+      },
+      "paragraphs_per_verse": {
+        "base_floor": 7.5,
+        "standard": 8.5,
+        "extended": 9.5,
+        "observed_p25": 7.59,
+        "observed_median": 8.61,
+        "observed_p75": 9.34
+      },
+      "bold_headings_per_verse": {
+        "base_floor": 2.75,
+        "standard": 3.25,
+        "extended": 3.5,
+        "observed_p25": 2.75,
+        "observed_median": 3.31,
+        "observed_p75": 3.55
+      }
+    }
+  ],
+  "global": {
+    "chapters": 114,
+    "verses": 6236,
+    "words_per_verse": {
+      "base_floor": 890,
+      "standard": 1160,
+      "extended": 1580
+    },
+    "note": "Global figures are shown for reference only; the tiered base is the operative standard."
+  },
+  "verse_floor": {
+    "words": 420,
+    "paragraphs": 6,
+    "bold_headings": 3
+  }
+}
