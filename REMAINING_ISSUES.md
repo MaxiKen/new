@@ -49,7 +49,7 @@ check_scaffolding.py   114 files, 0 genuine hits
 test_skeleton.py       18/18 checks passed (NEW this pass)
 normalize.py           files written: 0 on the whole corpus (idempotent)
 fix_orphan_connectors.py  0 orphan connectors remaining (NEW this pass)
-census.py              235 sections >= 0.030 duprate in 22 files, ZERO >= 0.100
+census.py              187 sections >= 0.030 duprate in 22 files, ZERO >= 0.100
                        017.md no longer appears; worst section there is 0.013
 ```
 
@@ -163,7 +163,7 @@ sections have source apparatus to build from.
 
 ---
 
-## Group B — Repetitive prose (235 sections; `017.md` fully cleared)
+## Group B — Repetitive prose (187 sections; `017.md` fully cleared, `007.md` down to 52)
 
 **Method, stated so the number is checkable.** Per section, tokenise the whole
 section (heading through body, lowercased), form 10-grams, and take the fraction
@@ -257,9 +257,9 @@ Next targets by severity: `007.md` v162 (0.099), `007.md` v25 (0.098),
 `025.md` v32 (0.093). `007.md` holds seven of the eight worst sections and is
 now the file to work on; `017.md`'s severe band is closed (Group H).
 
-> **What the remaining 235 are, and are not.** The ten `007.md` sections
+> **What the remaining 187 are, and are not.** The ten `007.md` sections
 > cleared earlier were *degenerate output* — a 10-gram recurring ten times in
-> 1,118 words. The 235 that remain are a different thing: prose with a
+> 1,118 words. The 187 that remain are a different thing: prose with a
 > repetitive register, or (in `017.md`'s case) an inserted block that restates
 > part of its own section while also adding material. Treating them as
 > degenerate and rebuilding from scratch would destroy recoverable scholarship.
@@ -1036,13 +1036,39 @@ mechanically, and would be worth adding before any further ḥadīth-heavy work.
    from citation-format variance and diacritic stripping (H5b). v45 is worked
    end to end as the template.
 
-3. **Group B — remainder of `007.md`.** 100 sections still >= 0.030, 42 >=
-   0.060, and `007.md` now holds **seven of the eight worst sections in the
-   corpus** (v162 0.099, v25 0.098, v194 0.098, v205 0.097, v149 0.094, v197
-   0.092, v190 0.092). The severe band is clear; what remains is moderate.
+3. **Group B — remainder, now led by `025.md`, not `007.md`.** 187 sections
+   still >= 0.030 in 22 files, ZERO >= 0.100. `007.md` has been worked down
+   from 100 to **52** (15 >= 0.060, worst v17 at 0.078) by a mix of authored
+   rebuilds and mechanical frame-stripping — see "Group B progress" below.
+
+   **The severity ranking has changed since this list was written.** `007.md`
+   no longer holds the worst sections in the corpus. The eight worst are now:
+   `025.md` v32 0.092, `025.md` v36 0.090, `025.md` v60 0.089, `076.md` v15
+   0.087, `025.md` v53 0.087, `025.md` v61 0.085, `025.md` v37 0.083,
+   `010.md` v93 0.082. **`025.md` holds five of the eight** and 15 sections
+   >= 0.030 overall, at high word counts (976–1139w), which is why its ratios
+   stay elevated despite the length.
+
+   Current per-file counts (>= 0.030), largest first:
+
+       007.md  52   010.md  30   039.md  16   014.md  16   025.md  15
+       011.md  12   034.md   8   045.md   7   020.md   6   076.md   4
+       056.md   4   026.md   4   004.md   3   013.md   2   and eight files
+       with 1 each (002 030 033 037 041 042 062 064)
+
+   **Recommended next target: `025.md`.** It is smaller than `007.md` (15
+   sections vs 52) but holds the corpus's worst, and its sections are long
+   enough that a rebuild is a substantial authoring job rather than a repair
+   job. `010.md` (30 sections, worst 0.082) is the second target.
+
    **Apply the lesson from item 1**: check whether each is degenerate output or
    prose with a repetitive register before rebuilding, and measure what a
-   rewrite would cost in depth.
+   rewrite would cost in depth. On `007.md` the split was roughly half and
+   half — 33 sections were safely cleared by mechanical frame-stripping, and
+   the rest required authored rebuilds because stripping either failed to
+   clear the gate or dropped the section below the 400-word depth floor.
+   `tools/quran-audit/repair_degen.py --dry-run` classifies a file's sections
+   into frame-kernel / pure-loop / framed-opener and reports which are safe.
 
 4. **Group A, depth** — 524 sections under 400 w, 198 under 260 w (figures
    unchanged this pass; the measure is stated above the Group A table and must
