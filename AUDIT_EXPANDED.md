@@ -1,4 +1,4 @@
-# Audit of `expanded/` — 114 files, 6,235 sections, 6,286,453 words
+# Audit of `expanded/` — 114 files, 6,236 sections, 6,415,363 prose words
 
 **Method.** `expanded/001.md` is the confirmed reference and has never been modified. Its
 skeleton was encoded as `tools/quran-audit/validate.py`, which is now the structural gate for
@@ -6,6 +6,14 @@ the corpus. Content was verified against `initial/` (the ground-truth translatio
 per-verse classical commentary) and `translation/*.txt` (a second translation used to
 distinguish real substitutions from paraphrase). Every count in this report is the output of
 a committed checker, not an estimate.
+
+> **The title figures, and the three spans in this report.** Section count is `census.py`'s
+> 6,236; `check_translations.py` reports 6,235 because one section has no source text to
+> compare against. Prose words are word tokens matching `[\w'’-]+` summed over all of
+> `expanded/` with lines that are exactly `---` excluded — **6,415,363**. An earlier revision
+> of this title read 6,235 sections / 6,286,453 words, a figure reproducible by no span tried
+> this pass; it is withdrawn. Depth and duplication are measured on different spans and must
+> not be interchanged — see section 7.
 
 ---
 
@@ -30,13 +38,26 @@ $ python3 tools/quran-audit/normalize.py              # whole corpus
 files written: 0                                      # idempotent
 
 $ python3 tools/quran-audit/census.py --dup 0.030
-duplication >= 0.03: 269 sections in 23 files
+duplication >= 0.03: 264 sections in 23 files          # was 269; see Group H
+
+$ python3 tools/quran-audit/fix_orphan_connectors.py   # added this pass
+orphan connectors: 0 in 0 files
 ```
 
 The `validate.py` result above is now produced by a **hardened** gate. Before
 this pass it reported the same PASSED 114/114 while 107 files carried 219
 illegal horizontal rules and 10 files carried 11 non-canonical H2 headings; see
 the correction to section 2 and `REMAINING_ISSUES.md` Group G.
+
+> **Hardened again this pass, for the same reason.** `validate.py` still
+> reported PASSED 114/114 while `017.md` carried **111 malformed bold
+> mini-headings** (`****Heading****`) and three files carried **four orphan
+> connector lines**. Neither class was checked. Both are now gated — `^\*{4,}`
+> for malformed headings, and a bare short word alone between two blockquotes
+> for orphan connectors — and each gate was regression tested in both
+> directions. The lesson from Group G generalises: every "all green" in this
+> report is evidence only about the classes the gate enumerates.
+> `REMAINING_ISSUES.md` Groups H1 and I.
 
 The 7 translation flags are register variants, each verified side-by-side against both
 reference translations: `010.md` v91, `020.md` v1, `021.md` vv 73–76/78/97, `050.md` v25,
@@ -53,6 +74,10 @@ substitution and none was altered.
 | Stray horizontal rules | 107 files, 219 rules | **0 remaining** — found and fixed this pass; gate hardened |
 | Non-canonical H2 headings | 10 files, 11 headings | **0 remaining** — demoted to bold mini-headings |
 | Degenerate prose, severe band | `007.md`, 10 sections | **0 remaining** — rebuilt from `initial/007.md` |
+| Malformed bold mini-headings | `017.md`, 111 headings | **0 remaining** — `****H****` normalised to `**H**`; gate hardened |
+| Redundant inserted blocks, severe band | `017.md`, 5 sections | **0 remaining** — excised on per-section evidence, depth rebuilt |
+| Conflicting ḥadīth citation | `017.md` v44 | **resolved** — aligned to the corpus consensus (Muslim 1955) |
+| Orphan connector lines | 3 files, 4 lines | **0 remaining** — bare `and` stranded between blockquotes; gate hardened |
 
 > **Correction to the first row.** "Canonical-skeleton divergence: 0 remaining"
 > was **not true** when it was written, and the gate cited as evidence was not
@@ -160,12 +185,27 @@ scores 0 of 182 mismatch.
 
 | File | Sections | Min | Median | Max | Words |
 |---|---|---|---|---|---|
-| `037.md` | 182 | 139 | 231 | 899 | 43,186 |
-| `026.md` | 227 | 65 | 258 | 874 | 70,109 |
-| `069.md` | 52 | 245 | 323 | 415 | 17,329 |
-| `075.md` | 40 | 287 | 360 | 909 | 15,504 |
-| `073.md` | 20 | 302 | 370 | 1,240 | 8,387 |
-| `067.md` | 30 | 318 | 392 | 571 | 12,228 |
+| `026.md` | 227 | 61 | 247 | 849 | 68,686 |
+| `037.md` | 182 | 144 | 290 | 903 | 56,466 |
+| `069.md` | 52 | 243 | 320 | 410 | 17,185 |
+| `075.md` | 40 | 285 | 358 | 910 | 15,467 |
+| `073.md` | 20 | 301 | 367 | 1,239 | 8,347 |
+| `067.md` | 30 | 317 | 391 | 569 | 12,177 |
+
+> **Correction.** The table above previously carried **pre-Group-C** figures —
+> `037.md` at min 139 / median 231 / 43,186 words and `026.md` at min 65 /
+> median 258 / 70,109 words — and so contradicted section 3 and
+> `REMAINING_ISSUES.md`'s own Group C result. It is replaced with the current
+> measurement, taken on the same span as `REMAINING_ISSUES.md` Group A (section
+> body, H2 heading line and rules excluded, word tokens `[\w'’-]+`). On that
+> span the corpus stands at **198 sections under 260 w and 524 under 400 w** of
+> 6,236. `026.md`, not `037.md`, is now the thinnest file by median.
+>
+> `017.md` is **not** a depth problem and is deliberately absent from this
+> table: 111 sections, min 759 w, median 1,055 w, max 1,975 w, 119,274 words.
+> It was 724 w minimum before this pass removed five redundant blocks, and
+> three sections that fell below that floor were rebuilt (Group H3). No section
+> of `017.md` is under 400 w.
 
 **Off-topic flags — 4, all verified false positives.**
 
@@ -195,9 +235,28 @@ headings are literally "Forgiver of Sin", "Accepter of Repentance", "Severe in R
 "Possessor of Bounty" — the exact words of the verse — yet it scored 12.5% echo, and 100% once
 headings were retained.
 
-**`074.md`.** Structurally valid and correct after the scaffolding strip, but now thin:
-min 392 / median 436 / max 793 across 25,610 words. It needs depth rebuilt from
-`initial/074.md`.
+**`074.md`.** Structurally valid and correct after the scaffolding strip, but now thin.
+Measured this pass on the standard span: 56 sections, **min 378 / median 418 / max 790**
+across **24,771** words. It needs depth rebuilt from `initial/074.md`.
+
+> **Correction.** This entry previously read min 392 / median 436 / max 793 across 25,610
+> words. Those figures are not reproducible on the current tree under either span (including
+> the H2 heading line gives min 382 / median 422, still not 392 / 436), so they were taken
+> against an earlier state of the file. The numbers above are what `074.md` measures now.
+
+**`017.md` — 29 sections still over the duplication gate.** Worst is v45 (0.089).
+These are **not** degenerate prose and must not be rebuilt from scratch: each carries an
+inserted block that restates part of its own section while also adding material, and the 29
+blocks together hold 11,577 words including 1,129 content words found nowhere else in their
+sections. Treatment is trim and fold. Full method, evidence and bucketed worklist:
+`REMAINING_ISSUES.md` Group H5.
+
+**`007.md` — 100 sections still over the gate, 42 at or above 0.060.** The severe band is
+clear, but `007.md` now holds seven of the eight worst sections in the corpus. Before
+rebuilding any of them, establish whether it is degenerate output (a 10-gram recurring many
+times, which only a rewrite fixes) or prose with a repetitive register (which a rewrite would
+fix at the cost of depth). `017.md` was misdiagnosed as the former and the correct treatment
+turned out to be an excision.
 
 **`045.md`.** 6.17 emphasis runs per 1,000 words against a corpus norm near 1. Translations
 are exact. Left in place by decision — the pattern is the file's own style.
@@ -243,7 +302,23 @@ python3 tools/quran-audit/fix_translation.py <sura> <verse...> --dry-run
 python3 tools/quran-audit/fix_separators.py [--dry-run] [--sura N]
 python3 tools/quran-audit/fix_headings.py     [--dry-run] [--sura N]
 python3 tools/quran-audit/apply_sections.py <sura> <module.py>...
+
+# added this pass -- Group H (017.md inserted blocks) and Group I (orphans)
+python3 tools/quran-audit/fix_orphan_connectors.py [--apply]
+python3 tools/quran-audit/block017.py /tmp/017.bak <verse>   # or --list
+python3 tools/quran-audit/novel_sentences.py <verse...> | --all [--min F]
+python3 tools/quran-audit/fix_017_blocks.py /tmp/017.bak [--dry-run] <verse...>
 ```
+
+`block017.py`, `novel_sentences.py` and `fix_017_blocks.py` all locate the
+`017.md` blocks from a **pre-fix copy** (`/tmp/017.bak`), because the blocks were
+identified by their malformed `****` markers and `fix_headings.py` preserves line
+counts, so the copy's relative offsets stay valid against the current file. That
+copy is a working artifact, not committed; regenerate it from history with
+`git show <sha>:expanded/017.md > /tmp/017.bak` using a revision that still
+carries the `****` markers. Position-based identification is the only reliable
+method — locating a block by "the Nth heading in the section" picks the wrong
+one.
 
 `census.py` reports depth and duplication together. Its duplication measure uses
 the **whole-section span** (heading through body, trailing rule dropped) to match
