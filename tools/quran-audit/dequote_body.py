@@ -73,6 +73,11 @@ MIN_WORDS = 400
 CONSTRUCT = re.compile(r'\*["“](.+?)["”]\*\s*\(\*(.+?)\*\)', re.S)
 # *<Arabic>* — "<English>"  -- the mirror form (039.md, 014.md, 011.md ...)
 ARABIC_FIRST = re.compile(r'\*([^*"“”]+)\*\s*[\u2014\u2013-]\s*["“](.+?)["”]', re.S)
+# *<English>* — *<Arabic>*  -- a third form (034.md): both halves italic, the
+# English unquoted. Which half is Arabic is decided by diacritic density, not
+# by order, because the two appear in both orders across the corpus.
+ITALIC_PAIR = re.compile(r'\*([^*\n]+)\*\s*[\u2014\u2013]\s*\*([^*\n]+)\*', re.S)
+AR_DIACRITICS = 'āīūṭṣḥḍẓʾʿ'
 # a quote with no Arabic after it
 LONE_QUOTE = re.compile(r'\*["“](.+?)["”]\*', re.S)
 WS = re.compile(r'\s+')
@@ -123,14 +128,22 @@ def transform(body, translation, verbose=False):
             ar, eng = m.group(1), m.group(2)
             if longest_common_run(squash(eng), tr) >= MIN_OVERLAP:
                 cands.append((m.start(), m.end(), ar, eng, 'ar-first'))
+        for m in ITALIC_PAIR.finditer(ln):
+            a, b = m.group(1).strip(), m.group(2).strip()
+            # the half that re-quotes the verse is the English one; require the
+            # overlap so short glosses like *makr* — *plotting* never match
+            for eng, ar in ((a, b), (b, a)):
+                if longest_common_run(squash(eng), tr) >= MIN_OVERLAP:
+                    cands.append((m.start(), m.end(), ar, eng, 'pair'))
+                    break
         cands.sort()
         res, pos = '', 0
         for st, en, ar, eng, kind in cands:
             if st < pos:
                 continue            # overlapping match; already consumed
             lead = ln[pos:st]
-            if kind == 'ar-first':
-                # keep the Arabic, drop the duplicated English gloss after it
+            if kind in ('ar-first', 'pair'):
+                # keep the Arabic, drop the duplicated English gloss
                 rep = f'*{ar.strip()}*'
             else:
                 before = (res + lead).rstrip()

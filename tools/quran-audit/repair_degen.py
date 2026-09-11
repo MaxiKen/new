@@ -90,6 +90,15 @@ LOOP = [
     r'\bare the (\w+) who are in the state of\b',
     r'\bis the (\w+) that is in the form of the\b',
     r'\band the \w+ is the \w+ that is\b',
+    # 014.md's templates. Three fixed filler clauses account for essentially
+    # all of its duplication -- 174 occurrences of the first, 118 of the
+    # second, 51 of the third, measured as repeated 8-grams across the file's
+    # flagged sections. Each is contentless by construction: it asserts that
+    # something is what the surah requires, without saying what.
+    r"\bis the one that the sūrah's (?:argument|justice) requires\b",
+    r'\bis therefore a statement about the character of\b',
+    r'\band the character is the one that\b',
+    r"\bis the sūrah's treatment of the \w+ is\b",
 ]
 RE_LOOP = [re.compile(p, re.I) for p in LOOP]
 
@@ -103,6 +112,15 @@ RE_LOOP = [re.compile(p, re.I) for p in LOOP]
 TAUT_CLAUSE = re.compile(
     r',\s*and (?:the|this|that|these|those) (?P<n>\w+)[^.]{0,120}?'
     r'\bis the (?P=n) that is\b[^.]*\.?\s*$', re.I)
+
+# 014.md's tail: "..., and the teaching is the one that the surah's argument
+# requires." The clause before the comma is usually real commentary, so strip
+# only the tail. Also handles the semicolon variant and the bare sentence
+# ending, where the filler runs to the full stop.
+TAUT_CLAUSE2 = re.compile(
+    r"[,;]\s*(?:and |so |thus )?(?:the|this|that|these|those) \w+"
+    r"(?: is| are)? [^.]{0,80}?is the one that the sūrah's"
+    r" (?:argument|justice) requires\.?\s*$", re.I)
 
 # (c) framed opener carrying a quotation
 FRAME_OPENER = re.compile(
@@ -206,11 +224,12 @@ def repair_sentence(s, depth=0, trans=''):
         # The sentence is looped but carries something worth keeping -- a quote,
         # a citation or a scholar. Try to save it by pruning the tautological
         # tail instead of dropping the whole sentence.
-        pruned = TAUT_CLAUSE.sub('.', t)
-        if pruned != t and len(WORDS.findall(pruned)) >= 12:
-            inner = dethe(pruned.strip())
-            if not any(rx.search(inner) for rx in RE_LOOP):
-                return inner, 'prune'
+        for rx in (TAUT_CLAUSE, TAUT_CLAUSE2):
+            pruned = rx.sub('.', t)
+            if pruned != t and len(WORDS.findall(pruned)) >= 12:
+                inner = dethe(pruned.strip())
+                if not any(rx2.search(inner) for rx2 in RE_LOOP):
+                    return inner, 'prune'
 
     return s, 'keep'
 
