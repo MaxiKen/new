@@ -8,7 +8,10 @@
 """
 import os, re, sys, importlib.util
 
-ROOT = "/home/user/new"
+# Derive the repo root from this file rather than hard-coding an absolute
+# path: a hard-coded root silently retargets the real corpus when the tool
+# is run from a copy (e.g. a regression-test sandbox).
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 EXP = os.path.join(ROOT, "expanded")
 INI = os.path.join(ROOT, "initial")
 TARGET = os.path.join(EXP, "026.md")

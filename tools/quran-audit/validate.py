@@ -43,6 +43,33 @@ for f in sorted(glob.glob('expanded/*.md')):
         miss=[n for n in range(1,max(nums)+1) if n not in nums]
         if miss: E.append(f'missing verses {miss[:12]}{"..." if len(miss)>12 else ""} ({len(miss)} total)')
         if sorted(nums)!=nums: E.append('verses out of order')
+
+    # ---- horizontal rules -------------------------------------------------
+    # 001.md carries exactly one rule per boundary (one before each verse
+    # heading, one before the end marker) and none anywhere else. A rule is
+    # therefore legal only as the line immediately preceding a boundary. The
+    # per-verse checks above test L[i-1] and L[i-2] relative to a heading, so a
+    # duplicated rule satisfied both and went undetected; this closes that gap.
+    rule_targets=set(idx) | ({len(L)-1} if ENDM.match(L[-1]) else set())
+    stray=[i for i,l in enumerate(L) if l.strip() in ('---','***') and (i+1) not in rule_targets]
+    if stray:
+        kinds=collections.Counter()
+        for i in stray:
+            j=i+1
+            while j<len(L) and L[j].strip()=='': j+=1
+            nxt=L[j].strip() if j<len(L) else '<EOF>'
+            kinds['duplicate' if nxt in ('---','***') else 'internal']+=1
+        summary=', '.join(f'{v} {k}' for k,v in sorted(kinds.items()))
+        E.append(f'stray horizontal rule x{len(stray)} ({summary}) at lines '
+                 f'{[i+1 for i in stray[:6]]}{"..." if len(stray)>6 else ""}')
+    # ---- heading inventory ------------------------------------------------
+    # Only the H1, the introduction H2 and the verse H2s may exist; everything
+    # below that level is a bold mini-heading (system_instructions.md sec. 4).
+    extra=[(i+1,L[i][:50]) for i,l in enumerate(L)
+           if l.startswith('## ') and i not in set(idx) and i!=2]
+    if extra: E.append(f'non-canonical H2 x{len(extra)}: {extra[:4]}')
+    deep=[(i+1,L[i][:40]) for i,l in enumerate(L) if re.match(r'^#{3,6}\s',l)]
+    if deep: E.append(f'H3+ heading x{len(deep)}: {deep[:4]}')
     # end
     if not ENDM.match(L[-1]): E.append(f'end marker non-canonical: {L[-1][:60]!r}')
     else:

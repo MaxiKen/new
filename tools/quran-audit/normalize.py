@@ -6,7 +6,11 @@ Never mutates 001.md.
 """
 import os, re, sys, json, collections
 
-ROOT = "/home/user/new"; EXP = os.path.join(ROOT, "expanded")
+# Derive the repo root from this file rather than hard-coding an absolute
+# path: a hard-coded root silently retargets the real corpus when the tool
+# is run from a copy (e.g. a regression-test sandbox).
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+EXP = os.path.join(ROOT, "expanded")
 ARABIC = re.compile(r'[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]')
 EC   = '**Expanded Commentary**'
 SMC  = re.compile(r'^>\s*\*\*\[System Memory Check\]\*\*')
@@ -36,10 +40,14 @@ class Fixer:
                 self.n('leak', 'removed [System Memory Check] directive'); continue
             out.append(ln)
         txt = '\n'.join(out)
-        # unglue headings that are welded to the end of a previous line
+        # unglue headings that are welded to the end of a previous line.
+        # Insert a blank line ONLY: run() emits the canonical rule before every
+        # section, and the rule inserted here used to survive as an orphan once
+        # fix_section() dropped the welded heading as a remnant -- the source of
+        # 85 internal rules across the corpus.
         def unglue(m):
             self.n('glued', f'split heading glued mid-line: {m.group(1)[:45]!r}')
-            return '\n\n---\n\n' + m.group(0)
+            return '\n\n' + m.group(0)
         txt = re.sub(r'(?m)(?<=\S)(#{2,6}\s+Sūra[th]\s+[^\n#]{1,90}?(?:\[\d+:\d+\]|\d+:\d+)\s*)$', unglue, txt)
         # drop leaked unexpanded template token
         if 'Verse ${n}' in txt or '${n}' in txt:
@@ -139,6 +147,15 @@ class Fixer:
             self.n('intro-ec', f'added {EC} after intro heading')
         # strip a stray italic preamble note / basmalah block that sits above the first ---
         # (kept: content, not a format defect)
+        # Demote any H2 in the preamble other than the canonical introduction
+        # heading: 001.md has exactly 9 ATX headings (1 H1 + intro + 7 verses),
+        # so preamble subdivisions are bold mini-headings, not H2s.
+        for i, l in enumerate(lines):
+            s = l.rstrip()
+            if s.startswith('## ') and s != canon:
+                txt = s[3:].strip().replace('**', '').strip()
+                lines[i] = f'**{txt}**'
+                self.n('h2', f'demoted preamble H2 {s[:40]!r} -> bold mini-heading')
         return lines
 
     # ---------- stage 4: verse sections ----------
@@ -209,10 +226,39 @@ class Fixer:
             out.append(l)
         while out and out[0] == '': out.pop(0)
         while out and out[-1] == '': out.pop()
-        # strip a trailing --- that belonged to the old separator
+        # The final section's body slice runs to end of file, so it also contains
+        # the closing rule and the end marker. Both belong to the file-level
+        # closing that run() re-emits; peel them off first so they are not
+        # mistaken for orphans inside the commentary.
+        while out and ENDM.match(out[-1].strip()):
+            out.pop()
+            while out and out[-1] == '': out.pop()
+        # Strip a trailing rule. parse() slices a section body up to the NEXT
+        # heading, so the rule that opens the following boundary lands at the end
+        # of this body; run() re-emits it, so it must not be duplicated here.
         while out and out[-1].strip() in ('---', '***'):
             out.pop()
             while out and out[-1] == '': out.pop()
+        # Any rule still present is an orphan INSIDE the body -- typically left
+        # behind by clean()'s unglue once the welded heading it preceded was
+        # dropped as a remnant above. A rule is canonical in exactly one place,
+        # immediately before a verse heading or the end marker, and run() emits
+        # those itself. (85 such orphans were found in the corpus, 79 in 021.md.)
+        nrules = sum(1 for l in out if l.strip() in ('---', '***'))
+        if nrules:
+            self.n('rule', f'v{v}: dropped {nrules} orphaned horizontal '
+                           f'rule(s) from inside the section body')
+            out = [l for l in out if l.strip() not in ('---', '***')]
+            while out and out[-1] == '': out.pop()
+        # Demote a non-verse H2 that landed inside a section body (e.g. a
+        # trailing "## Concluding Reflection"): the canonical skeleton allows
+        # only the H1, the introduction H2 and the verse H2s, so anything below
+        # that level is a bold mini-heading (system_instructions.md sec. 4).
+        for q, l in enumerate(out):
+            if l.startswith('## '):
+                txt = l[3:].strip().replace('**', '').strip()
+                out[q] = f'**{txt}**'
+                self.n('h2', f'v{v}: demoted in-section H2 {l[:40]!r} -> bold mini-heading')
 
         if not transl and not out:
             self.n('empty', f'v{v}: section is empty (needs regeneration)')
@@ -272,6 +318,17 @@ class Fixer:
         except ValueError:
             pass
         while pl and pl[-1] == '': pl.pop()
+        # parse() slices the preamble as everything before the FIRST verse
+        # heading, so it ends with the rule that opens that heading's boundary.
+        # The loop below re-emits ['', '---'] before every section, so leaving
+        # the preamble's rule in place produced "---\n\n---\n## Sūrah N:1" --
+        # the duplicate rule found at the intro->v1 boundary of 108 files.
+        # Strip every trailing rule/blank, not just one: a file can already
+        # carry a duplicated boundary, and popping once would leave the other.
+        if pl and pl[-1].strip() in ('---', '***'):
+            self.n('rule', 'dropped preamble rule(s) belonging to the first verse boundary')
+            while pl and (pl[-1] == '' or pl[-1].strip() in ('---', '***')):
+                pl.pop()
         parts += pl
         for s in secs:
             parts += ['', '---'] + self.fix_section(s, name)
@@ -291,10 +348,20 @@ class Fixer:
         else:
             self.n('end', f'added end marker {want}')
             parts.append(want)
-        # ensure the end marker is preceded by a horizontal rule
-        if len(parts) >= 2 and parts[-2].strip() != '---':
+        # ensure the end marker is preceded by exactly one horizontal rule.
+        # Look back past blank lines: testing only parts[-2] used to miss a rule
+        # sitting at parts[-3] and insert a second one, producing the
+        # "---\n\n---\n**[End ...]**" duplicate found in 25 files.
+        j = len(parts) - 2
+        while j >= 0 and parts[j].strip() == '':
+            j -= 1
+        if not (j >= 0 and parts[j].strip() in ('---', '***')):
             self.n('end-rule', 'inserted --- before end marker')
             parts[-1:-1] = ['', '---']
+        elif j != len(parts) - 2:
+            # rule exists but blank lines sit between it and the end marker
+            self.n('end-rule', 'removed blank line(s) between final rule and end marker')
+            del parts[j + 1:-1]
         # collapse 2+ consecutive blank lines (001.md has none)
         ded = []
         for l in parts:

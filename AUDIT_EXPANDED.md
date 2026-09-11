@@ -20,9 +20,23 @@ checked: 6235 sections   (no translation line: 0)
 flagged (<0.45 against BOTH initial/ and translation/): 7
 
 $ python3 tools/quran-audit/check_offtopic.py
-files: 114   sections examined: 5551   threshold: <15% echo
+files: 114   sections examined: 5546   threshold: <15% echo
 flagged: 4   (all four verified as false positives -- see section 6)
+
+$ python3 tools/quran-audit/test_skeleton.py          # added this pass
+18/18 checks PASS
+
+$ python3 tools/quran-audit/normalize.py              # whole corpus
+files written: 0                                      # idempotent
+
+$ python3 tools/quran-audit/census.py --dup 0.030
+duplication >= 0.03: 269 sections in 23 files
 ```
+
+The `validate.py` result above is now produced by a **hardened** gate. Before
+this pass it reported the same PASSED 114/114 while 107 files carried 219
+illegal horizontal rules and 10 files carried 11 non-canonical H2 headings; see
+the correction to section 2 and `REMAINING_ISSUES.md` Group G.
 
 The 7 translation flags are register variants, each verified side-by-side against both
 reference translations: `010.md` v91, `020.md` v1, `021.md` vv 73–76/78/97, `050.md` v25,
@@ -35,7 +49,36 @@ substitution and none was altered.
 
 | Defect class | Files affected | Status |
 |---|---|---|
-| Canonical-skeleton divergence | 114 files | **0 remaining** |
+| Canonical-skeleton divergence | 114 files | **0 remaining** — *but see the correction below; this row was false when written* |
+| Stray horizontal rules | 107 files, 219 rules | **0 remaining** — found and fixed this pass; gate hardened |
+| Non-canonical H2 headings | 10 files, 11 headings | **0 remaining** — demoted to bold mini-headings |
+| Degenerate prose, severe band | `007.md`, 10 sections | **0 remaining** — rebuilt from `initial/007.md` |
+
+> **Correction to the first row.** "Canonical-skeleton divergence: 0 remaining"
+> was **not true** when it was written, and the gate cited as evidence was not
+> capable of establishing it. 107 of 114 files carried **219 illegal horizontal
+> rules** (134 duplicated boundary rules, 85 orphaned inside section bodies —
+> 79 of them in `021.md`) and 10 files carried **11 non-canonical H2 headings**.
+>
+> `validate.py` PASSED 114/114 throughout, because for each heading it tested
+> only `L[i-1] == '---'` and `L[i-2] == ''`. A duplicated rule satisfies both:
+> the second rule sits at `L[i-1]` and the blank between them at `L[i-2]`, while
+> the stray first rule occupies `L[i-3]`, which was never examined. It also
+> never inventoried headings at all.
+>
+> All three root causes were in `normalize.py`: the preamble slice retains the
+> first verse's boundary rule before `run()` re-emits one; the end-rule guard
+> tested only `parts[-2]`, missing a rule at `parts[-3]`; and `clean()`'s
+> `unglue` inserted `\n\n---\n\n` before welded headings that were later dropped
+> as remnants, orphaning the rule. All are patched, the corpus is repaired with
+> **zero content change** (126,667 fingerprinted content lines identical;
+> 6,417,717 prose words unchanged), `validate.py` is hardened to reject both
+> classes, and `test_skeleton.py` (18 checks) proves the pre-hardening gate
+> would have accepted them. Full detail: `REMAINING_ISSUES.md` Group G.
+>
+> **General lesson.** A green gate is evidence only about what the gate
+> measures. "PASSED 114/114" was reported as proof of skeleton conformance for
+> an invariant the gate did not test.
 | Leaked `[System Memory Check]` drafting scaffolding | `074.md` (54/56 sections, 61% of file) | **0 remaining** — 17,334 w stripped |
 | Whole-file template boilerplate | `036.md` (83/83 sections, 13 sentences ×83) | **0 remaining** — 16,483 w stripped, all 83 sections rebuilt |
 | Cross-sūrah verse substitution | `037.md` (117 sections), `011.md` (13), `007.md` (1), `040.md` (1) | **0 remaining** — 132 translations restored |
@@ -189,12 +232,28 @@ waiting'" is 6:158), so it prints context for human judgement rather than assert
 ## 7. Reproducing the gates
 
 ```
-python3 tools/quran-audit/validate.py
+python3 tools/quran-audit/validate.py                       # hardened: rules + heading inventory
 python3 tools/quran-audit/check_translations.py [--sura N] [--verbose]
 python3 tools/quran-audit/check_offtopic.py     [--sura N] [--verbose]
 python3 tools/quran-audit/check_scaffolding.py  [--context N] [--sura N]
+python3 tools/quran-audit/census.py [--thin N] [--dup N] [--sura N] [--json F]
+python3 tools/quran-audit/test_skeleton.py                  # Group G regression test
 python3 tools/quran-audit/extract_source.py <sura> <lo> <hi>
 python3 tools/quran-audit/fix_translation.py <sura> <verse...> --dry-run
+python3 tools/quran-audit/fix_separators.py [--dry-run] [--sura N]
+python3 tools/quran-audit/fix_headings.py     [--dry-run] [--sura N]
+python3 tools/quran-audit/apply_sections.py <sura> <module.py>...
 ```
 
-Restore any file from history with `git checkout <sha> -- expanded/`.
+`census.py` reports depth and duplication together. Its duplication measure uses
+the **whole-section span** (heading through body, trailing rule dropped) to match
+`check_degeneracy.py`; a body-only span gives materially different counts (151 vs
+269 at the 0.030 gate), so the two must not be interchanged. Its depth figures
+are body-only and therefore run ~12–25 words below the whole-section medians
+quoted in section 6 of this report and in `REMAINING_ISSUES.md` Group A.
+
+Restore any file from history with `git checkout <sha> -- expanded/`. Note that
+the working tree is squashed to a single merge commit (`6eb8b1f`), so the
+pre-work baseline `48e6cbb` referenced in `REMAINING_ISSUES.md` Group B is not
+recoverable from this repository and figures diffed against it cannot be
+re-checked.
