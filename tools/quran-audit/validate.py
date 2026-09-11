@@ -70,6 +70,24 @@ for f in sorted(glob.glob('expanded/*.md')):
     if extra: E.append(f'non-canonical H2 x{len(extra)}: {extra[:4]}')
     deep=[(i+1,L[i][:40]) for i,l in enumerate(L) if re.match(r'^#{3,6}\s',l)]
     if deep: E.append(f'H3+ heading x{len(deep)}: {deep[:4]}')
+    # ---- bold mini-heading form -------------------------------------------
+    # Canonical is **Text**. Four or more leading asterisks is malformed and
+    # does not reliably render as bold. Exactly three is legitimate ("***Term*:
+    # the rest**" is bold opening with a nested italic) and is not flagged.
+    mal=[i+1 for i,l in enumerate(L) if re.match(r'^\*{4,}',l)]
+    if mal: E.append(f'malformed bold mini-heading x{len(mal)} at lines {mal[:6]}'
+                     f'{"..." if len(mal)>6 else ""}')
+    # ---- orphan connector between two blockquotes -------------------------
+    # A bare short word alone on a line between two blockquoted sources is the
+    # remnant of a lead-in reduced to nothing but its conjunction. The corpus
+    # norm is adjacent quotations with no connector. Short lines ending in a
+    # colon ("and:", "God says:") are valid lead-ins and are not flagged.
+    orph=[i+1 for i in range(2,len(L)-2)
+          if re.match(r"^[A-Za-zʿ’\-']{1,3}$",L[i].strip())
+          and not L[i-1].strip() and not L[i+1].strip()
+          and L[i-2].startswith('> ') and L[i+2].startswith('> ')]
+    if orph: E.append(f'orphan connector x{len(orph)} at lines {orph[:6]}'
+                      f'{"..." if len(orph)>6 else ""}')
     # end
     if not ENDM.match(L[-1]): E.append(f'end marker non-canonical: {L[-1][:60]!r}')
     else:

@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
-"""Demote non-canonical H2 headings in expanded/*.md to bold mini-headings.
+"""Normalise heading forms in expanded/*.md to the canonical skeleton.
+
+Two classes are repaired:
+
+  non-canonical H2  -> demoted to a bold mini-heading
+  "****Heading****"  -> "**Heading**"   (malformed bold mini-heading)
+
+Exactly three leading asterisks ("***Term*: the rest**") is LEFT ALONE: it is
+valid bold opening with a nested italic, and occurs legitimately in 026.md and
+040.md.
 
 Canonical skeleton, from expanded/001.md (9 ATX headings total: 1 H1 + 8 H2):
 
@@ -35,6 +44,13 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 VH = re.compile(r'^## Sūrah .+ \d+:\d+$')
 INTRO = '## Introduction to the Sūrah'
 
+# A bold mini-heading is **Text**. Four or more leading asterisks is malformed:
+# "****Text****" does not reliably render as bold and diverges from the
+# canonical form. Exactly three leading asterisks is legitimate -- "***Term*:
+# the rest**" is bold opening with a nested italic, as in 026.md and 040.md --
+# so it must not be rewritten.
+MALFORMED = re.compile(r'^\*{4,}([^*].*?[^*])\*{4,}$')
+
 
 def canonical(line):
     s = line.rstrip()
@@ -52,6 +68,7 @@ def main():
         files = [f for f in files if os.path.basename(f) == f'{args.sura:03d}.md']
 
     total = 0
+    files_scanned = len(files)
     for f in files:
         name = os.path.basename(f)
         raw = open(f, 'rb').read()
@@ -59,7 +76,11 @@ def main():
 
         targets = [i for i, l in enumerate(lines)
                    if l.startswith('## ') and not canonical(l)]
-        if not targets:
+        malformed = [(i, MALFORMED.match(l.rstrip('\n')))
+                     for i, l in enumerate(lines)]
+        malformed = [(i, m) for i, m in malformed if m]
+
+        if not targets and not malformed:
             continue
 
         before = [l for l in lines if l.strip()]
@@ -69,26 +90,34 @@ def main():
             text = text.replace('**', '').strip()
             lines[i] = f'**{text}**'
             print(f'  {name}:{i + 1}  "## {text}"  ->  "**{text}**"')
+        for i, m in malformed:
+            text = m.group(1).strip()
+            lines[i] = f'**{text}**'
+            print(f'  {name}:{i + 1}  "****{text[:48]}****"  ->  "**{text[:50]}**"')
         after = [l for l in lines if l.strip()]
 
         # Guarantee: same line count, and every line identical except the
-        # demoted headings, which differ only by the marker/bold wrapper.
+        # demoted/normalised headings, which differ only by their markers.
         assert len(before) == len(after), f'{name}: line count changed'
         for b, a in zip(before, after):
             if b == a:
                 continue
-            assert b.startswith('## ') and a == f'**{b[3:].strip().replace("**", "").strip()}**', \
-                f'{name}: unexpected edit {b[:40]!r} -> {a[:40]!r}'
+            if b.startswith('## '):
+                assert a == f'**{b[3:].strip().replace("**", "").strip()}**', \
+                    f'{name}: unexpected edit {b[:40]!r} -> {a[:40]!r}'
+            else:
+                mm = MALFORMED.match(b)
+                assert mm and a == f'**{mm.group(1).strip()}**', \
+                    f'{name}: unexpected edit {b[:40]!r} -> {a[:40]!r}'
 
-        total += len(targets)
+        total += len(targets) + len(malformed)
         if not args.dry_run:
             res = '\n'.join(lines)
             if not res.endswith('\n'):
                 res += '\n'
             open(f, 'w', encoding='utf-8', newline='\n').write(res)
 
-    print(f'\nnon-canonical H2 headings demoted: {total} '
-          f'across {len([1 for f in files])} files scanned')
+    print(f'\nheadings normalised: {total}  ({files_scanned} files scanned)')
     print('(dry run -- nothing written)' if args.dry_run else '(written)')
     return 0
 
