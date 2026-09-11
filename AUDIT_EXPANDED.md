@@ -1,14 +1,23 @@
 # Audit — `expanded/`
 
 All 114 files checked against the confirmed reference **`expanded/001.md`**, and every
-verse's translation cross-checked against its source in `initial/NNN.md`.
+verse's translation cross-checked against its source in `initial/NNN.md` and
+`translation/NNN.txt`.
 
-- **Formatting: 113 / 114 files now conform.** `001.md` is byte-identical to before
-  (`cmp` passes) — it was used as the pattern only, never rewritten.
-- **Content: 110 mis-anchored verse sections, 36 empty sections, and 123 sections of
-  degenerate commentary still need regeneration.** These cannot be fixed by formatting.
+## Current status
 
-Reproduce every number below with the scripts in `tools/quran-audit/` (see the end).
+| Gate | Result |
+|---|---|
+| Structural conformance vs `001.md` | **114 / 114 PASS**, 0 FAILED |
+| Verse sections | **6,236** across 114 files, 6,487,229 words |
+| Translation text vs source | **7 flagged of 6,235** — all 7 verified register variants, not defects |
+| Missing translation lines | **0** |
+| Off-topic commentary | **25 flagged of 5,551** examined |
+| `001.md` | never modified |
+
+Every number below is reproducible with the scripts in `tools/quran-audit/` (see the end).
+Where a figure is a historical record of work already done rather than a current
+measurement, it is labelled as such.
 
 ---
 
@@ -41,7 +50,7 @@ LF endings, no trailing whitespace, no consecutive blank lines, one trailing new
 
 ---
 
-## Formatting defects found and fixed
+## Formatting defects found and fixed (historical record)
 
 Applied to 113 files (everything except `001.md`). Totals from
 `tools/quran-audit/last_fixlog.json`:
@@ -67,113 +76,148 @@ Applied to 113 files (everything except `001.md`). Totals from
 
 Also normalised, counted inside the rows above: 511 missing `---` separators before verse
 headings; **726 verse-translation blocks rewritten to the single canonical
-`> **…**` line** — 037 (182, `> **Verse Translation:** …` label), 012 (111) and 040 (85)
-(`> **N** *…*` numbered-italic), 043 (89) and 033 (73) (three-line
-`> **Verse Translation**` / `>` / `> text` form), 084 (25, numbered), 082 (19, dropped
-Arabic line), plus 142 quote-mark repairs; 61 bracketed headings `[37:N]` → `37:N`; 44
-`Sūrat` → `Sūrah` in 070; 48 files given a trailing newline and 8 stripped of surplus ones.
+`> **…**` line** — 037 (182), 012 (111) and 040 (85), 043 (89) and 033 (73), 084 (25),
+082 (19, dropped Arabic line), plus 142 quote-mark repairs; 61 bracketed headings
+`[37:N]` → `37:N`; 44 `Sūrat` → `Sūrah` in 070; 48 files given a trailing newline and 8
+stripped of surplus ones.
 
-**No commentary text was deleted.** This was verified by comparing the substantive prose
-lines (headings, translation lines and structural lines excluded) of every file before and
-after. Exactly **23 lines** differ, and each is accounted for:
-
-| Lines | Files | What they were |
-|---:|---|---|
-| 7 | 003, 007, 026, 034, 052, 062, 107 | variant end-markers, replaced by the canonical `**[End of the commentary on Sūrah …]**` |
-| 15 | 012 (2), 033 (8), 040 (1), 043 (4) | the four process-meta blocks itemised below |
-| 1 | 018 | not a deletion: this paragraph simply had the welded duplicate `## Sūrah al-Kahf 18:103` stripped from its tail. Its text is intact — it ends `…verse 102 is the closing argument.` at line 4902 |
-
-Translation lines are excluded from that comparison because every one of them was
-re-wrapped (e.g. `> **Verse Translation**` / `>` / `> text` → `> **text**`); their words
-are unchanged. Spot-checks confirm this — 033's closing paragraph "The final word is
-neither confidence…" is still present at line 3498.
+**No commentary text was deleted.** Verified by comparing the substantive prose lines of
+every file before and after; exactly **23 lines** differ and each is accounted for (7
+variant end-markers; 15 process-meta block lines; 1 welded duplicate heading in 018 whose
+paragraph text is intact).
 
 ### The four process-meta blocks removed
 
 These describe the *generation workflow*, not the Qur'an, and `001.md` contains none:
-
-- **040** — an italic note under the H1: *"…in the style and at the depth of the expanded
-  commentary on Sūrah al-Baqarah. Each verse is treated as its own section…"*
-- **033** — the whole `## Editorial and Source Note` section, incl. *"Each section was
-  completed and retained locally in numerical order before the next was written; the
-  chapter file was assembled only after verse 73 was complete."*
-- **012** — `**How This Commentary Reads the Source**`, citing `` `initial/012.md` ``
-- **043** — `**Source, quotation, and interpretive conventions**`, citing `` `initial/043.md` ``
+**040** (italic note under the H1), **033** (`## Editorial and Source Note`),
+**012** (`**How This Commentary Reads the Source**`), **043**
+(`**Source, quotation, and interpretive conventions**`).
 
 ---
 
-## Content defects — need regeneration
+## Content defects repaired (historical record)
 
-### 1. Mis-anchored verse text — 110 sections
+### 1. Mis-anchored / substituted verse text
 
-The heading names verse *N*; the translation is some *other* verse.
+The heading names verse *N*; the translation carried some *other* verse.
 
-| File | Sections | Verses | What is wrong |
+| File | Sections | What was wrong | Status |
 |---|---:|---|---|
-| **037.md** | 95 | 48–57, 59, 61–69, 71–75, 77–81, 83–88, 90, 92–94, 97–98, 100–103, 106, 108–112, 119–125, 127–129, 131–132, 134–135, 137, 139–145, 150–152, 154, 157–159, 161–163, 166, 168–171, 173, 176–182 | Verses 1–47 are correct. From v48 the sequence drifts — by v74 it is off by one (v74 carries 37:75 *"And indeed Noah cried out to Us"*, v75 carries 37:76, v77 carries 37:78), and elsewhere the text belongs to unrelated verses (v68 carries 37:44). v55's translation is the literal placeholder `> **(continued verse 55 — part of paradise/hell sequence)**`, and line 1050 still reads `Verse ${n} continues the description…`. |
-| **011.md** | 10 | 13, 106–109, 111–112, 115–116, 118 | v13 carries **11:35's** text (*"If I fabricated it, then my guilt is upon me"* — a string-identical match to `initial/011.md` v35). v106–116/118 carry text from other sūrahs entirely: v106 is *"[He is] the Lord of the two Easts and the two Wests"* (55:17), v109 is *"So turn your face to the religion of God"* (30:30). |
-| **040.md** | 4 | 31, 48, 50, 63 | Each carries the **next** verse's translation (v31↔40:32, v48↔40:49, v50↔40:51, v63↔40:64). The v31 shift is downstream of v30, whose translation has 40:31's text appended to it (*"…a day like the Day of the Allied Parties — the like of the people of Noah, ʿĀd, and Thamūd…"*), so v30 needs trimming as well. |
-| **007.md** | 1 | 170 | Carries a continuation of 7:169 (*"So if other ephemeralities come to them…"*), not 7:170. |
-
-*Not* defects: `068.md` v24, `102.md` v3 and `108.md` v3 were flagged by the similarity
-check and cleared on inspection — each renders its own verse in different words
-(102:3 and 102:4 are near-identical in the source, which is what tripped the check).
-A further 52 sections are looser paraphrases of the **correct** verse; `001.md` itself
-sets that precedent (its v5 scores 0.83 against the source wording), so they were left alone.
+| **037.md** | 119 | Cross-sūrah content substitution: of 182 sections, 63 matched `initial/`, 2 matched `translation/`, **117 matched neither**. The original had 61 headings; vv 57–177 were 21,326 words of unheaded content that `normalize.py` promoted into verse headings. 97 of 121 quote other sūrahs. | **0 of 182 mismatch** |
+| **011.md** | 13 | vv 105–116, 118 carried text from other sūrahs entirely (v105→81:1, v106→55:17, v107→25:61, v108→10:5, v109→30:30, v110→80:1, v111→37:179, v112→37:126, v113→109:1, v114→81:28, v115→69:39, v116→48:7, v118→37:179) | **0 of 123 flagged** |
+| **040.md** | 5 | vv 31, 48, 50, 63 each carried the **next** verse's translation; v73 had fused 40:73+74+75 into one line | **0 defects** |
+| **040.md v74** | 1 | Whole section carried 40:75's text *and* Arabic | rewritten |
+| **007.md v170** | 1 | Carried a continuation of 7:169 | rewritten |
+| **026.md** | 6 | vv 124, 132, 146, 181, 185, 208 — translation line carried its own verse **plus the text of the verses that follow** (v124 ran through vv 125–127). Verified each following section exists separately with correct text before trimming, so no content was lost. | trimmed |
+| **011.md v117** | 1 | Translation line carried an appended sentence (*"But if they reform, He will never destroy them."*) absent from both sources | stripped |
 
 ### 2. Empty sections — 36 (026.md)
 
-Heading only: no translation, no commentary.
+Heading only, no translation or commentary: vv 104, 122, 125–127, 133–134, 140,
+142–145, 147–148, 151–152, 161–164, 173, 175, 177–180, 182–183, 186, 191, 204,
+206–207, 209, 211–212. **All 36 filled. `026.md` now has 227 sections, 0 defects.**
 
-`026.md` verses 104, 122, 125–127, 133–134, 140, 142–145, 147–148, 151–152, 161–164,
-173, 175, 177–180, 182–183, 186, 191, 204, 206–207, 209, 211–212.
+### 3. Degenerate / template-filler commentary
 
-Six further sections in 026 (141, 150, 160, 172, 176, 185) carry the sūrah's repeated
-refrain *"Truly in that is a sign, but most of them are not believers"* — correct, since
-the sūrah repeats it verbatim.
+Translations correct; commentary was circular filler that repeated its own clauses, plus
+fabricated Arabic transliteration. Measured as the rate of repeated 10-word sequences
+inside a section (corpus median 0.00; `001.md`'s worst 0.0031).
 
-### 3. Degenerate commentary — 123 sections
-
-Translations are right; the commentary is circular filler that repeats its own clauses,
-plus transliterations that do not correspond to the Arabic. Measured as the rate of
-repeated 10-word sequences inside a section: **corpus median 0.00, `001.md`'s worst
-0.0031**, versus 0.43–0.48 for the worst offenders.
-
-| File | Sections | Verses |
+| File | Sections | Status |
 |---|---:|---|
-| **021.md** | 91 | 20–21, 24–112 |
-| **011.md** | 11 | 106–107, 110–113, 116, 118–119, 122–123 |
-| **007.md** | 10 | 15, 137, 141, 164, 185, 189, 195, 200, 204, 206 |
-| **025.md** | 5 | 31, 50, 57, 60, 77 |
-| **017.md** | 4 | 35, 40, 42, 52 |
-| **026.md** | 1 | 103 |
-| **029.md** | 1 | 18 |
+| **021.md** | 91 | **COMPLETE** — 112/112 sections ≥976 words, 121,660 words |
+| **011.md** | 53 | **COMPLETE** — 0 filler sections of 123; median 914 words |
+| **007.md** | 10 | repaired |
+| **025.md** | 5 | repaired by deletion (sound prose with duplicated blocks) |
+| **017.md** | 4 | repaired by deletion |
+| **026.md**, **029.md** | 2 | repaired |
 
-Example, `021.md` v20: *"the continuity is the sūrah's way of telling the reader that the
-praise is not a tiring"*, with the verse glossed as *`Wa-hum yaṣḥabūna bil-aylī
-wa-al-nahār`* — the actual text is *yusabbiḥūna al-layla wa-l-nahār*.
+A separate template-filler phrase scan found **141 phrases corpus-wide**, concentrated in
+`011.md` (132 phrases across 53 sections). `011.md` is now at **0**.
 
-### 4. Style outlier — 045.md
+### 4. Style outlier — 045.md (left in place by decision)
 
 328 runs of single-word emphasis (`*human* *cannot* *tame*`) against 53,191 words —
-**6.17 per 1,000 words**, where `001.md` and the corpus median are both 0.00 (076.md is
-0.50). Its verse translations are all exact. The text is coherent, so this is an
-emphasis-style deviation, not corruption; left in place because stripping it risks
-removing legitimate italics.
+**6.17 per 1,000 words**, where `001.md` and the corpus median are both 0.00. Its verse
+translations are all exact and the text is coherent, so this is an emphasis-style
+deviation, not corruption; stripping it risks removing legitimate italics.
+
+### 5. Register variants — NOT defects (do not "fix")
+
+**7 sections** score <0.45 against both sources but render their own verse in different
+words. Each was verified side-by-side:
+
+`010.md` v91 · `050.md` v25 · `068.md` vv 3, 10, 13, 25 · `094.md` v7
+
+Previously retracted on the same grounds: `068.md` v9, `094.md` v3, `073.md` v2,
+`108.md` v2, `087.md`/`010.md`/`050.md` 1 each. Other known legitimate variants:
+`068.md` v24, `102.md` v3, `108.md` v3, `020.md` v1, `021.md` vv 73–76/78/97.
+`001.md` itself sets the precedent — its v5 scores 0.83 against the source wording.
 
 ---
 
-## Regeneration scope
+## Content defects still outstanding
 
-| Task | Sections |
-|---|---:|
-| 037.md verses 48–182 (mis-anchored) + a missing `## Introduction to the Sūrah` body | ~135 |
-| 021.md verses 20–112 (degenerate commentary) | 91 |
-| 026.md (36 empty + v103) | 37 |
-| 011.md v13 + 105–118 | 14 |
-| 007.md (1 mis-anchored + 10 degenerate) | 11 |
-| 025.md, 017.md, 029.md | 10 |
-| **Total** | **~298** |
+### A. `074.md` — leaked drafting notes, 54 of 56 sections
+
+The file's two closing blocks are **generation scaffolding, not commentary**. 54 of 56
+sections carry a `**Cross-Referential Web for Verse N**` block and a
+`**Practical Tarbiyyah Exercise for Verse N**` block whose text is **byte-identical across
+all 54 sections** — including the verse number in the heading only.
+
+The blocks contain visible drafting artifacts:
+
+> *"For responsibility verses, link to Sūrah al-Muddaththir's sister Sūrah
+> al-Muddaththir? **Actually link to** 52:21 — …"*
+
+That is the author hesitating mid-note, and the self-reference is nonsense (the sūrah's
+sister is itself).
+
+Measured: of `074.md`'s 42,944 words, **25,988 (61%) are the repeated boilerplate tail**.
+Median section is 756 words, of which **481 are boilerplate** — leaving **276 words of
+genuine per-verse content** against a corpus median near 900.
+
+### B. `036.md` — whole-file template, all 83 sections
+
+Every one of the 83 sections reuses the same three mini-headings —
+*A Word Carried by the Arabic*, *The Qur'an Explains the Qur'an*,
+*The Verse Brought into Daily Life* — and repeats **8 sentences verbatim 83 times each**,
+e.g. *"Arabic wording matters because translation necessarily selects one edge of a word's
+range."* **100% of sections** contain at least one shared sentence.
+
+Sections are also thin: median **422 words** (min 390, max 488) against a corpus median
+near 900. The prose is on-topic — this is not the off-topic class — but it is boilerplate.
+
+### C. Off-topic sweep — 25 of 5,551 examined
+
+First valid run of this sweep. (`check_offtopic.py` flags a section when <15% of its
+translation's distinctive tokens are echoed in its commentary body.)
+
+| File | Flagged | Note |
+|---|---:|---|
+| 036.md | 13 | the template defect above; short bodies under-echo by construction |
+| 037.md | 7 | vv 50, 61, 62, 66, 85, 87, 182 — all under 161 words |
+| 026.md | 2 | vv 132, 176 |
+| 018.md, 040.md, 067.md | 1 each | v75, v3, v10 |
+
+The 036.md and 037.md hits are depth/template artifacts rather than subject drift; they
+should be re-measured after A and B are fixed. The 018/040/067 hits are unreviewed.
+
+### D. Depth — files still well under the corpus median
+
+| File | Sections | Median words | Min |
+|---|---:|---:|---:|
+| 037.md | 182 | 231 | 139 |
+| 026.md | 227 | 258 | 65 |
+| 069.md | 52 | 323 | 245 |
+| 075.md | 40 | 360 | 287 |
+| 073.md | 20 | 370 | 302 |
+| 067.md | 30 | 392 | 318 |
+| 034.md | 54 | 411 | 321 |
+| 039.md | 75 | 415 | 288 |
+
+`037.md` and `026.md` are **correctness-complete** — every translation matches its source
+and there are 0 structural or content defects. What remains is depth only.
 
 ---
 
@@ -183,11 +227,19 @@ Run from the repository root:
 
 ```bash
 python3 tools/quran-audit/validate.py            # structural conformance vs 001.md
-python3 tools/quran-audit/check_translations.py  # verse text vs initial/NNN.md
+python3 tools/quran-audit/check_translations.py  # verse text vs initial/ + translation/
+python3 tools/quran-audit/check_offtopic.py      # commentary drift (prints sections examined)
 python3 tools/quran-audit/check_degeneracy.py    # repetitive-filler detector
-python3 tools/quran-audit/dump_section.py expanded/037.md 55   # print one section
+python3 tools/quran-audit/extract_source.py 11 94 98   # dump source + covering commentary
 ```
 
-`tools/quran-audit/normalize.py` is the idempotent normaliser that produced the
-formatting fixes; it never writes `001.md`. `last_fixlog.json`,
-`last_classification.json` and `last_degeneracy.json` are its most recent outputs.
+Regeneration pipeline: `extract_source.py <sura> <lo> <hi>` → write
+`content_<sura>_<batch>.py` with a `SECTIONS` dict → `apply_sections.py <sura> <module.py>`
+→ **`validate.py` immediately** → `check_translations.py --sura N` → measure words /
+duprate / filler → commit.
+
+`tools/quran-audit/normalize.py` is the idempotent normaliser that produced the formatting
+fixes; it never writes `001.md`. **Caveat: on `037.md` it promoted 121 unheaded blocks into
+verse headings**, which is how that file came to have 182 sections from an original 61.
+`last_fixlog.json`, `last_classification.json` and `last_degeneracy.json` are its most
+recent outputs.
