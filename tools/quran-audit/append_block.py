@@ -46,10 +46,22 @@ def main():
         add = [f"**{heading}**", ""]
         for p in paras:
             add += [p, ""]
-        # find the last non-empty line of the body and insert after it
+        # find the last non-empty line of the body and insert after it.
+        # For the final section the body must stop BEFORE the trailing
+        # "---" + "**[End of the commentary ...]**" block, otherwise the new
+        # block lands after the end marker and the file's canonical ending
+        # is destroyed.
         j = e - 1
         while j > i and not lines[j].strip():
             j -= 1
+        if j > i and lines[j].strip().startswith("**[End of the commentary"):
+            j -= 1
+            while j > i and not lines[j].strip():
+                j -= 1
+            if j > i and lines[j].strip() == "---":
+                j -= 1
+                while j > i and not lines[j].strip():
+                    j -= 1
         lines[j + 1:j + 1] = [""] + add
         done += 1
 

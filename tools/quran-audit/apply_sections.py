@@ -55,6 +55,19 @@ def main():
         if v not in secs:
             continue
         e = idx[k + 1][0] if k + 1 < len(idx) else len(lines)
+        # For the final verse section, e == len(lines) and the slice would
+        # swallow the trailing "---" + "**[End of the commentary ...]**" block.
+        # Pull e back to just before that block so the canonical ending survives.
+        if k == len(idx) - 1:
+            j = e - 1
+            while j > i and not lines[j].strip():
+                j -= 1
+            if j > i and lines[j].strip().startswith("**[End of the commentary"):
+                j -= 1
+                while j > i and not lines[j].strip():
+                    j -= 1
+                if j > i and lines[j].strip() == "---":
+                    e = j
         tr, blocks = secs[v]
 
         body = [""]
