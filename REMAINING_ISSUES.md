@@ -116,7 +116,7 @@ Range across all 303: **0.030 – 0.200**.
 
 ---
 
-## Group C — Misaligned bodies in `037.md` (correctness risk, NOW BOUNDED: 32 sections)
+## Group C — Misaligned bodies in `037.md` — **CLOSED (32/32 fixed)**
 
 `037.md` had **61 verse headings** at the pre-work baseline and **182 now**. The
 formatter `normalize.py` promoted roughly 21,326 words of unheaded prose into 121
@@ -129,29 +129,34 @@ al-rasūl* (content belonging to 33:66–67) under a heading about the tree of
 Zaqqūm; v182's discussed "We have preferred some of them over others" (2:253)
 under a heading about Jonah.
 
-### Status: bounded by reading, and 18 of 32 now fixed
+### Status: CLOSED — all 32 fixed and verified
 
 This group was previously recorded as unbounded. Reading every one of the 99
 unread promoted-range sections against its own verse translation bounded it at
-**32 misaligned sections**. Of those, **18 are now fixed** and **14 remain**:
+**32 misaligned sections**, and **all 32 have now been rebuilt from source**:
 
 ```
-FULL LIST (32):
+ALL 32, fixed in batches G–O:
   vv 58, 60, 70, 74, 75, 81, 82, 83, 90, 91, 92, 94, 99,
      107, 109, 124, 126, 127, 128, 137, 138, 143, 150, 151,
      154, 160, 162, 164, 166, 168, 172, 173
 
-FIXED (18) — batches G, H, I, J, K:
-  vv 58, 60, 70, 74, 75, 81, 82, 83, 90, 91, 92, 94, 99, 107,
-     150, 154, 160, 164
-
-REMAINING (14) — all ungroudable, see C2:
-  vv 109, 124, 126, 127, 128, 137, 138, 143, 151, 162, 166, 168, 172, 173
+  G  58, 60, 70, 74          J   99, 107, 150, 154      M  109, 124, 126, 127
+  H  75, 81, 82, 83          K  160, 164                N  128, 137, 138, 168
+  I  90, 91, 92, 94          L  143, 151, 162, 166      O  172, 173
 ```
 
-Every fix was verified after application: the section's opening prose was
-re-read against its own verse translation, and all 18 now describe the verse
-they are headed by. All 18 score under the 0.030 duplication gate.
+Every fix was verified after application by re-reading the section's opening
+prose against its own verse translation, confirming it now describes the verse
+it is headed by. All 32 score under the 0.030 duplication gate.
+
+Where several sections share one source note (vv 124–128, 137–138, 161–163,
+171–173), each was written on a different portion of that note rather than
+repeating it — the verbatim-repetition failure that broke the duplication gate
+twice in batch C.
+
+Result for `037.md`: **182 sections, min 139 / median 282 / max 899, 55,576
+words total** (median was 238 w when this pass began).
 
 ### C2 — The 14 remaining misaligned sections ARE groundable (earlier claim retracted)
 
@@ -185,9 +190,11 @@ A shared range note is in fact the likely *cause* of the misalignment: when
 only by a collective note had no verse-specific source to align against. But it
 is ample material to rebuild from.
 
-**No decision is needed.** These 14 can be fixed from source, and the only
-caveat is that the resulting commentary will speak to the passage rather than to
-the individual verse, since that is what the source provides.
+**No decision is needed, and none was taken.** All 14 were rebuilt from these
+shared range notes in batches L, M, N, and O. The only caveat is that the
+resulting commentary speaks to the passage rather than to the individual verse,
+since that is what the source provides — which is the correct treatment, not a
+compromise.
 
 Three were re-read in full to confirm the classification is not a headline
 artifact:
