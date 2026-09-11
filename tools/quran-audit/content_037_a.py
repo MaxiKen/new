@@ -1,166 +1,144 @@
 # -*- coding: utf-8 -*-
-"""037.md batch A: replace off-topic commentary in vv 53,56,57,59,63,64,65,67,69,71,72,73.
-These sections had correct translations but prose discussing other verses/surahs.
-Depth and structure matched to 037.md's own sections (~250 words).
-Source: initial/037.md (IJ, IK, T, Z, R)."""
+"""037.md batch A: rebuild the 7 sections whose bodies described a DIFFERENT verse.
+
+Verified defect (read directly, not inferred from a metric):
+  v62  body was about 'man ʿaṣaynā al-rasūl'  = 33:66-67 content, not Zaqqūm
+  v182 body was about 'We have preferred some of them over others' = 2:253 content
+  v50 / v61 / v66 / v85 / v87 bodies likewise quoted other verses' Arabic.
+
+Cause: vv 57-177 were 21,326 words of unheaded content that normalize.py promoted
+into verse headings. 119 translations were later corrected, but the bodies were
+never realigned, leaving section text describing the wrong verse.
+
+Rebuilt from initial/037.md's apparatus, in 037.md's own template shape.
+The Cross-Reference / Classical View lines are PARAGRAPHS inside the final
+mini-heading block (apply_sections.py wraps a tuple's first element in **...**),
+so they render as `> **...**` blockquote lines.
+No hadith is asserted unless the apparatus supplies one.
+"""
+
 SURAH = "al-Ṣaffāt"
 NUM = 37
 
 SECTIONS = {
 
-53: (None, [
- ("The Mockery of Resurrection", [
-  "The verse completes the speech of the companion begun at verse 51. He asks whether his former friend is among those who confirm the Resurrection, and then supplies his own scoffing answer: *What! When we have died and are dust and bones, are we to be requited?*",
-  "Ibn Jurayj, Ibn Kathīr, and al-Ṭabarī note that the first part of the verse reflects a question posed repeatedly across the Qur'an, citing 13:5, 17:49 and 98, 23:35 and 82–83, 27:67, 36:78–79, 37:16–17, 50:3, 56:47–48, and 79:11.",
-  "The recurrence is significant. The objection is not an isolated quibble but the standard denial the Qur'an attributes to those who reject the Hereafter, and the accumulation of parallels shows how central the objection is.",
-  "The second part of the verse mocks belief in a final reckoning specifically. The reduction of the human being to dust and bones is offered as proof that requital is impossible.",
-  "**Modern Analogy:** The argument assumes that what has decomposed cannot be reassembled — a claim about mechanism offered as a claim about possibility. The Qur'an answers it not by describing the mechanism but by appealing to the first creation.",
-  "> **Cross-Reference:** 36:78–79 — *Who shall revive the bones when they have rotted away? Say: He shall revive them Who first brought them into being* — the direct answer to this objection.",
-  "> **Classical View (Ibn Kathīr):** the companion's question is astonishment bordering on ridicule, and it is precisely this astonishment that the believer's vision at vv. 54–55 will overturn.",
- ]),
-])
+50: (None, [
+ ("Turning to One Another, Questioning", [
+  "The scene shifts to the Garden, where its inhabitants converse. The commentators explain that the inhabitants of the Garden ask one another about their state in the world (IJ). The questioning is therefore retrospective: it looks back at the life that has ended rather than forward.",
+  "The commentators record two readings of who the companion is. A companion refers to the satan assigned to each person, directing the reader to 43:36 (IJ, Ṭ). Or it refers to a believer's companion who denied the Resurrection and would ask the believer in astonishment, \"Are you among those who confirm the Resurrection?\" (IJ, IK, Ṭ). The two readings differ on whether the questioner is an assigned satan or a human acquaintance."]),
+ ("The Question and the Mockery", [
+  "The commentators note that the first part of v. 53 reflects a question posed in several Qur'anic verses, listing 13:5, 17:49 and 17:98, 23:35 and 23:82–83, 27:67, 36:78–79, 37:16–17, 50:3, 56:47–48, and 79:11, while the second part of v. 53 mocks the belief in a final reckoning.",
+  "The recurrence matters. The objection to bodily resurrection is not a local feature of this passage but a standing objection across the Qur'an, and the commentators' list shows how often it returns. The mocking tone in the second half is what distinguishes the question from sincere inquiry."]),
+ ("Seeing Across the Divide", [
+  "The commentators describe the mechanism: when they have died, and the believer goes to the Garden and the idolater goes to the Fire, the believer sees the state of the disbeliever (Ṭ), and according to 7:46–50, the disbelievers in Hell can see the believers in Paradise.",
+  "The visibility runs in both directions, and the commentators cite 7:46–50 for the second direction. What makes the conversation possible is not proximity but the removal of the barrier that separated them in the world."]),
+ ("The Two Companions of al-Kahf", [
+  "The commentators offer an identification: thus some say this passage refers to the two companions discussed in 18:32–43 (IJ). The attribution is to some rather than to all, and the commentators preserve it without endorsing it.",
+  "The reading connects this passage to the parable of the two gardens, where one companion boasted of wealth and the other warned him. The identification is offered because the pattern of two companions with opposite ends fits, not because the text names them.",
+  "> **Cross-Reference:** 43:36 — the satan assigned to each person; 7:46–50 — the two groups seeing one another across the barrier.",
+  "> **Classical View (IJ, IK, Ṭ):** the companion is either the satan appointed to a person or a human acquaintance who denied the Resurrection and now asks in astonishment whether the believer was among those who affirmed it."]),
+]),
 
-,
-56: (None, [
- ("You Did Well-Nigh Destroy Me", [
-  "The verse records the believer's address to the companion he has just seen in the midst of Hellfire. Ibn Jurayj, Ibn Kathīr, and al-Ṭabarī treat vv. 54–57 as a single exchange: the believer asks his companions to look, sees his former companion, and then speaks.",
-  "The opening oath *By God!* gives the speech its weight. What follows is not a taunt but a recognition of how narrowly the speaker escaped, and the oath marks the seriousness of that recognition.",
-  "The phrase *you did well-nigh destroy me* identifies the companion's influence as nearly fatal. The danger was not physical but spiritual — the companion's denial had almost carried the believer with it.",
-  "Ibn Kathīr glosses these verses with 7:43, where the believers say, *Praise be to God, Who guided us unto this. We would not have been rightly guided, had God not guided us.*",
-  "**Psychological Insight:** The verse captures a familiar experience in retrospect — recognizing that a relationship once thought harmless was in fact corrosive, and seeing this only once the consequences are visible.",
-  "> **Cross-Reference:** 2:166–167 — *Those who followed will disown those whom they followed, when they behold the punishment, and the ties between them are cut asunder.*",
-  "> **Classical View (al-Ṭabarī):** the address confirms that the companion of vv. 51–53 is the same person now seen in the Fire, binding the two passages into one narrative.",
- ]),
-])
+61: (None, [
+ ("For the Like of This Let the Laborers Labor", [
+  "The verse is an invitation rather than a description. The commentators state its message: it is to let those in this world perform righteous deeds, so that they too may attain the honor that God has bestowed upon these believers in the Hereafter (Ṭ).",
+  "The reading makes the verse hortatory. What has been described in the preceding verses is not merely reported but held up as something worth working toward, and the commentators identify the labor as righteous deeds performed in this world."]),
+ ("Whose Words Are These", [
+  "The commentators record a disagreement about the speaker. This verse can be understood as the words of God (Z) or as the words of the believers in the Garden.",
+  "The two readings change the register. As God's words the verse is a command addressed to the living; as the believers' words it is an exclamation of delight addressed to one another. The commentators preserve both without preferring either, and the verse's wording does not mark a speaker."]),
+ ("Labor and Its Object", [
+  "The word laborers is what carries the exhortation. The commentators do not gloss the term, but their reading supplies its content: the labor is the performance of righteous deeds, and its object is the honor bestowed upon the believers described in the surrounding verses.",
+  "The connection between labor and honor is what makes the verse an argument rather than a slogan. The honor is shown first, in the description of the Garden, and the invitation follows from it. The commentators' note that the labor is to be performed in this world fixes the time in which the invitation can be accepted."]),
+ ("The Verse in the Sequence", [
+  "The verse closes the description of the Garden's rewards and turns toward the disbelievers' provision at vv. 62–68. The commentators do not gloss the transition, but the structure supplies it: the invitation is followed by its opposite.",
+  "The commentators note at vv. 62–63 that in contrast to the fruits bestowed upon the believers as a known provision in the Garden (vv. 41–42), the disbelievers are given the tree of Zaqqūm. The labor invited here is therefore set against the outcome avoided there.",
+  "> **Cross-Reference:** vv. 41–42 — the known provision of the Garden, against which the invitation is framed.",
+  "> **Classical View (Ṭ / Z):** the verse exhorts those in this world to righteous deeds so that they may attain the same honor; it may be read either as the speech of God or as that of the believers in the Garden."]),
+]),
 
-,
-57: (None, [
- ("If Not for the Blessing of My Lord", [
-  "The verse completes the believer's speech, and its logic is counterfactual: *if not for the blessing of my Lord, I would have been among the arraigned.* The commentators cite 30:16 and 34:38 for the reckoning implied by *the arraigned*.",
-  "The attribution is the verse's point. The believer does not credit his own firmness but God's blessing, and the contrast with the companion makes the attribution concrete rather than abstract.",
-  "Ibn Kathīr's gloss with 7:43 — *We would not have been rightly guided, had God not guided us* — supplies the words this verse implies, locating guidance wholly in Divine initiative.",
-  "The pairing with verse 56 matters. The companion nearly destroyed him; God's blessing prevented it. Both halves of the outcome are named, and neither is attributed to the believer's own merit.",
-  "**Modern Analogy:** Like someone who learns that a decision once made casually determined everything after it, and who cannot claim to have seen the fork in the road at the time.",
-  "> **Cross-Reference:** 30:16 — *Then as for those who disbelieved and denied Our signs and the meeting of the Hereafter, those shall be arraigned unto the punishment.*",
-  "> **Classical View (Ibn Kathīr):** the verse establishes that deliverance from the Fire is owed to guidance received, not to superiority earned, which is why the believer speaks with relief rather than triumph.",
- ]),
-])
+62: (None, [
+ ("The Better Welcome, and Zaqqūm", [
+  "The verse poses a comparison. The commentators explain that in contrast to the fruits bestowed upon the believers as a known provision in the Garden (vv. 41–42), the disbelievers are given the tree of Zaqqūm, which is said to bear pain and sorrow (Z).",
+  "The commentators identify what the tree bears: pain and sorrow. The description is not of a fruit but of an affliction, and the commentators attribute the reading to Z."]),
+ ("Why a Question", [
+  "The commentators explain the rhetorical form. As it is known that there is no good in Zaqqūm, the rhetorical question is posed here as a rebuke to the disbelievers for the course they have chosen (Z).",
+  "The question is therefore not genuinely open. Its answer is already settled, and its function is to make the disbelievers' choice visible to them. The commentators read it as a rebuke rather than as an inquiry, and they ground that reading in the absence of any good in the tree."]),
+ ("Its Effects", [
+  "The commentators supply the description from elsewhere in the Qur'an. Its effects are best described in 44:43–46: Truly the tree of Zaqqūm is the food of the sinner, like molten lead boiling in their bellies, like the boiling of boiling liquid. They add 56:51–53 as a further parallel.",
+  "The cross-reference is offered as the fullest account, and the commentators direct the reader to the commentary on 44:43–46. What this verse supplies is the comparison; what 44:43–46 supplies is the sensation."]),
+ ("A Trial", [
+  "The commentators explain the term used at v. 63: that Zaqqūm is a trial (*fitnah*) means that eating from it is a punishment in the Hereafter (IJ, Z).",
+  "The gloss fixes the sense of trial. It is not a test whose outcome is unknown but a punishment already determined, and the commentators attribute the reading to both IJ and Z. The word therefore names the character of the eating rather than its uncertainty.",
+  "> **Cross-Reference:** 44:43–46 — the fullest description of Zaqqūm's effects; 56:51–53; vv. 41–42 — the believers' known provision, set in contrast.",
+  "> **Classical View (Z / IJ):** Zaqqūm bears pain and sorrow; the question is a rebuke, since no good is in it; and its being a *fitnah* means the eating of it is itself the punishment."]),
+]),
 
-,
-59: (None, [
- ("But Our First Death", [
-  "The verse continues the speech of the believer, or in the commentators' alternative reading, the words of all the believers in Paradise. Ibn Jurayj and al-Zamakhsharī treat vv. 58–60 as an expression of joy at two realizations: that they will not die again, and that they have escaped Divine punishment.",
-  "The phrase *but our first death* is the hinge. Death is acknowledged as having occurred once, and the exclusion of any further death is what the believers rejoice in.",
-  "The second half — *and are we not to be punished?* — is a question of delighted disbelief rather than doubt. The believers marvel that immunity has been granted them.",
-  "The commentators note that attaining the Garden is called the great triumph in over a dozen verses, and direct the reader to 5:119 and 44:51–57 for the blessings of the Garden.",
-  "**Psychological Insight:** The joy described is specifically relief — not the pleasure of acquisition but the cessation of a danger that was real and is now permanently past.",
-  "> **Cross-Reference:** 44:56 — *They shall not taste death therein, save the first death; and He shall protect them from the punishment of Hellfire.*",
-  "> **Classical View (al-Zamakhsharī):** the two clauses correspond to the two great fears of the human condition — annihilation and condemnation — and the verse declares both dissolved.",
- ]),
-])
+66: (None, [
+ ("Eating and Filling the Belly", [
+  "The verse describes the eating. The commentators explain that the disbelievers eat thereof because they are commanded to do so, citing 56:53, and that they fill their bellies either because of severe hunger or because they are forced to eat it even though they despise it (Z).",
+  "The two readings differ on the motive. One makes the eating a consequence of hunger, the other of compulsion despite revulsion. The commentators preserve both and note what they share."]),
+ ("What Both Readings Imply", [
+  "The commentators draw a common implication: both interpretations allude to the fact that their own avaricious natures have forced them to continue to eat from Zaqqūm.",
+  "The reading makes the compulsion internal rather than external. Whether the cause is hunger or force, the commentators locate the driver in the eaters' own nature. The eating is therefore continuous, and the commentators' phrase continue to eat is what marks it."]),
+ ("Satiety and Thirst", [
+  "The commentators describe what follows. But if they are satiated, then thirst overwhelms them, and they are given a drink that burns their faces and tears apart their intestines (Z).",
+  "The sequence closes the possibility of relief. The filling of the belly named in the verse does not end the affliction but produces the next one, and the commentators attribute the account to Z."]),
+ ("The Boiling Liquid and Its Contrast", [
+  "The commentators set the drink against the Garden's provision. The brew of a boiling liquid — citing 6:70, 10:4, 18:29, 38:57, 44:46, 47:15, 78:24–25, and 88:5 — that the disbelievers are made to drink stands in sharp contrast to the cool and pleasing drinks presented to the believers in the Garden, citing 37:45–47, 76:5–6, 76:17–18, 76:21, and 83:25–28, and to the rivers of water, milk, honey, and wine described in 47:15.",
+  "The contrast is drawn within the sūrah as well as across it. Verses 45–47 of this sūrah describe the believers' drink, and the commentators place the boiling liquid directly against it.",
+  "> **Cross-Reference:** 56:53 — the command to eat; 37:45–47 — the believers' drink in this same sūrah; 47:15 — the rivers of the Garden.",
+  "> **Classical View (Z):** they eat because they are commanded, filling their bellies from severe hunger or under compulsion despite despising it; both readings show their own avarice driving them on, and satiety brings a thirst answered by a drink that burns the face and tears the intestines."]),
+]),
 
-,
-63: (None, [
- ("A Trial for the Wrongdoers", [
-  "The verse states that the tree of Zaqqūm has been made a trial, and al-Zamakhsharī explains that the rhetorical question at verse 62 is posed as a rebuke to the disbelievers for the course they chose, since it is known that there is no good in Zaqqūm.",
-  "The trial is thus not an uncertainty about the tree's nature but a test of what people do with a warning. The tree's horror is announced in advance, and the choice remains open.",
-  "The contrast with the believers is explicit in the surrounding verses. Against the fruits given as a known provision in the Garden at vv. 41–42 stands Zaqqūm, which al-Zamakhsharī says bears pain and sorrow.",
-  "The commentators direct the reader to 44:43–46 for the tree's effects: *Truly the tree of Zaqqūm is the food of the sinner, like molten lead boiling in their bellies*, and also 56:51–55.",
-  "**Modern Analogy:** A hazard that is fully documented and clearly signposted, so that encountering it later cannot be pleaded as unforeseen.",
-  "> **Cross-Reference:** 17:60 — *And We appointed the vision We showed thee as a trial for the people, and the tree accursed in the Quran.*",
-  "> **Classical View (al-Zamakhsharī):** the tree is a trial in this world before it is a punishment in the next, since belief in it is itself a test of whether the warning is taken seriously.",
- ]),
-])
+85: (None, [
+ ("Abraham's Question to His People", [
+  "The verse opens Abraham's dispute. The commentators place it in a wider pattern: this is one of several passages in which Abraham argues with his people regarding the inanity of their idolatry, citing 2:258, 6:83, and 21:51–67.",
+  "The question asked is not rhetorical in the ordinary sense. It asks what they worship, and the commentators treat the passage as an argument rather than as a narrative interlude."]),
+ ("Why Abraham Here", [
+  "The commentators record an observation about the passage's placement. As al-Rāzī observes, the Qur'an invokes the story of Abraham in the context of the Prophet Muhammad's disputations with the idolaters, because even the idolatrous Arabs had great respect for Abraham as one of their most prominent forefathers.",
+  "The observation explains the choice of exemplar. The argument is addressed to an audience that already honors Abraham, and the commentators direct the reader to 43:26–27 for the same point. The appeal to a shared forefather is what gives the disputation its force."]),
+ ("The Form of the Question", [
+  "The verse reports the question without reporting the answer, which follows at vv. 86–87. The commentators note at v. 86 that the subtle grammatical structure of that verse allows several readings, all of which express rebuke and amazement.",
+  "The sequence is therefore a progression from inquiry to rebuke. Abraham asks what they worship, and the reply he draws out is met with amazement. The commentators do not gloss v. 85's question beyond placing it in the pattern of Abraham's disputations."]),
+ ("The Disputation and Its Aim", [
+  "The commentators describe the subject of the argument as the inanity of idolatry. The word is theirs, and it characterizes what Abraham is demonstrating rather than what he is asserting.",
+  "The cross-references at 2:258, 6:83, and 21:51–67 show the same argument conducted elsewhere, and the commentators cite them as parallels rather than as sources. The passage here is one instance of a recurring form.",
+  "> **Cross-Reference:** 2:258, 6:83, 21:51–67 — Abraham's disputations elsewhere; 43:26–27 — the idolaters' respect for their forefathers.",
+  "> **Classical View (al-Rāzī):** the Qur'an sets Abraham's argument in the context of the Prophet's own disputations because the idolatrous Arabs held Abraham in great respect as one of their most prominent forefathers."]),
+]),
 
-,
-64: (None, [
- ("A Tree in the Depths of Hellfire", [
-  "The verse locates Zaqqūm, and Ibn Kathīr explains that its emerging in the depths of Hellfire means its roots grow from the bottom of Hell and it is nourished by fire.",
-  "Al-Zamakhsharī records a related account: that its roots reach the depths of Hell while its branches rise through its other levels. The two descriptions agree on the root and differ on the extent of the growth.",
-  "The nourishment by fire is the striking element. A tree sustained by what destroys ordinary life inverts the natural order, and the inversion is what marks the tree as belonging to the Fire rather than to the world.",
-  "The commentators preserve both descriptions rather than choosing between them, so the reader is given the range of the tradition about the tree's form.",
-  "**Modern Analogy:** An organism adapted to an environment lethal to everything else — the image works because it inverts the expectation that fire consumes rather than sustains.",
-  "> **Cross-Reference:** 44:43–44 — *Truly the tree of Zaqqūm is the food of the sinner.*",
-  "> **Classical View (Ibn Kathīr):** that the tree grows in Hell is itself a sign of the Fire's inversion of the natural order, since fire is ordinarily what prevents growth rather than what feeds it.",
- ]),
-])
+87: (None, [
+ ("What Do You Think of the Lord of the Worlds", [
+  "The verse is the second question in Abraham's exchange. The commentators record two readings of what it asks, and the difference between them is substantial.",
+  "The first reading takes it as a challenge about God's nature: this verse may mean, \"Do you think that God would permit inanimate objects to share in the worship that is His due alone, or do you think that He is of their same genus, such that you should make them equal in worship?\" (R)."]),
+ ("The Second Reading", [
+  "The commentators give an alternative: it could also be understood to mean, \"What, then, do you think God will do with you when you meet Him, while you have been worshipping other gods?\" (IK, Ṭ).",
+  "The two readings differ in direction. The first concerns what God is and whether inanimate objects can be His equals; the second concerns what God will do to those who have worshipped them. The commentators preserve both, attributing the first to R and the second to IK and Ṭ."]),
+ ("The Question as Argument", [
+  "The commentators place the verse in the same pattern as v. 85: this is one of several passages in which Abraham argues with his people regarding the inanity of their idolatry, citing 2:258, 6:83, and 21:51–67.",
+  "The question form is what makes it an argument rather than an assertion. Abraham does not state a conclusion but asks what his people think, and the commentators' two readings both leave the answer to be supplied by those addressed."]),
+ ("The Shared Forefather", [
+  "The commentators note again why Abraham is the one arguing. As al-Rāzī observes, the Qur'an invokes the story of Abraham in the context of the Prophet Muhammad's disputations with the idolaters, because even the idolatrous Arabs had great respect for Abraham as one of their most prominent forefathers.",
+  "The point applies to this verse as much as to v. 85. The question is put by a figure the audience already honors, and the commentators direct the reader to 43:26–27 for the same observation.",
+  "> **Cross-Reference:** 2:258, 6:83, 21:51–67 — Abraham's disputations; 43:26–27 — the idolaters' respect for their forefathers.",
+  "> **Classical View (R / IK, Ṭ):** either \"Do you think God would permit inanimate objects to share His worship, or that He is of their genus?\" or \"What do you think God will do with you when you meet Him, having worshipped other gods?\""]),
+]),
 
-,
-65: (None, [
- ("Spathes as the Heads of Satans", [
-  "The verse describes the tree's spathes, and the commentators offer two readings. Al-Zamakhsharī takes the comparison to the heads of satans as indicating that the tree bears sheer evil; Ibn Jurayj understands the spathes as being like snakes.",
-  "The two readings differ in whether the comparison is moral or visual. On the first, the likeness conveys the tree's nature; on the second, its appearance.",
-  "Both readings are preserved, and the preservation matters: the simile is explained neither as pure metaphor nor as literal description, and the tradition declines to settle which it is.",
-  "Al-Zamakhsharī adds that the disbelievers eat of it because they are commanded to, citing 56:53, and that they fill their bellies either from severe hunger or because they are forced to eat despite despising it.",
-  "**Modern Analogy:** Something whose appearance signals danger accurately, so that consuming it requires either compulsion or a refusal to read the signal.",
-  "> **Cross-Reference:** 56:52–53 — *You shall surely eat of a tree of Zaqqūm, and shall fill therewith your bellies.*",
-  "> **Classical View (al-Zamakhsharī):** both interpretations allude to the fact that their own avaricious natures force them to continue eating from Zaqqūm, so the compulsion is partly internal.",
- ]),
-])
-
-,
-67: (None, [
- ("A Brew of Boiling Liquid", [
-  "The verse adds a drink to the food, and al-Zamakhsharī explains the sequence: if the disbelievers are satiated by Zaqqūm, thirst overwhelms them, and they are given a drink that burns.",
-  "The phrase *on top of it* indicates that the brew follows the eating rather than accompanies it, and the sequence is what makes the punishment cumulative rather than single.",
-  "The relief that eating would ordinarily bring is thus withdrawn. Satiety produces thirst, and the drink offered does not quench but scalds, so each stage generates the next need.",
-  "Al-Zamakhsharī's account of the cycle — hunger, eating, satiation, thirst, scalding drink — is what gives the verse its place within the sequence of vv. 62–67.",
-  "**Modern Analogy:** A remedy that reliably produces the next symptom, so that treatment and affliction become indistinguishable.",
-  "> **Cross-Reference:** 56:54–55 — *And shall drink thereon of boiling water, and drink as the thirsty camel drinks.*",
-  "> **Classical View (al-Zamakhsharī):** the alternating punishments are not redundant; each addresses a need created by the last, which is why the sequence has no resting point.",
- ]),
-])
-
-,
-69: (None, [
- ("They Found Their Fathers Astray", [
-  "The verse gives the reason for the disbelievers' rejection, and al-Ṭabarī explains that because their fathers had followed a different set of beliefs, they waxed arrogant when told to bear witness that there is no god but God.",
-  "Al-Rāzī adds that they preferred the way of their forefathers to the one the Prophet ﷺ called them to, and cites 2:170: *Nay, we follow that which we found our fathers doing. What! Even though their fathers understood nothing, and were not rightly guided?*",
-  "The commentators supply a further list of parallels — 5:104, 7:28, 11:109, and 43:22–23 — showing that appeal to ancestral practice is a recurring objection rather than a local one.",
-  "The verse is diagnostic rather than merely accusatory. It identifies inheritance of belief as the mechanism by which the rejection is transmitted across generations.",
-  "**Psychological Insight:** The objection is not that the fathers were shown to be right but that they were the fathers. Authority is located in lineage rather than in evidence, which is why counter-evidence does not reach it.",
-  "> **Cross-Reference:** 43:22–23 — *Nay, but they say: Truly we found our fathers following a religion, and we are guided by their traces.*",
-  "> **Classical View (al-Rāzī):** the arrogance mentioned by al-Ṭabarī is the refusal to examine an inherited position, and the refusal is what the verse identifies as the root of the denial.",
- ]),
-])
-
-,
-71: (None, [
- ("Most of Those of Old Had Gone Astray", [
-  "The verse extends the diagnosis of vv. 69–70 backward through history. Al-Rāzī explains that these verses affirm that most human collectivities have gone astray and rejected the prophets sent to them.",
-  "The scope is deliberate. The failure is not peculiar to the Prophet Muhammad's ﷺ contemporaries but is the general pattern of human communities, and the generality is what the verse asserts.",
-  "Al-Rāzī notes that this aspect of history may be cited as counsel for the Prophet ﷺ to be patient and to continue calling people to religion, since the prophets before him — whose stories occupy the remainder of the sūrah — were also rejected but ultimately prevailed.",
-  "The verse therefore functions as consolation before the narratives begin. The pattern of rejection is established first, so that the accounts that follow can be read as instances rather than anomalies.",
-  "**Modern Analogy:** Establishing a base rate before assessing a single case, so that an individual setback is not mistaken for evidence that the enterprise has failed.",
-  "> **Cross-Reference:** 22:44 — *And if they deny thee, so did the people of Noah, and ʿĀd and Thamūd, and the people of Abraham and the people of Lot, and the people of Madyan.*",
-  "> **Classical View (al-Rāzī):** the verse prepares the Prophet ﷺ for the accounts that follow by showing that rejection is the historical norm and that it has never been the final word.",
- ]),
-])
-
-,
-72: (None, [
- ("Though We Had Sent Warners Among Them", [
-  "The verse supplies the crucial qualification to verse 71, and the concessive *though* is what gives the passage its force. The going astray occurred despite warning, not in its absence.",
-  "Al-Rāzī's reading connects the two verses: most of the ancients went astray, and they did so after warners had been sent to them. The warning removes ignorance as an excuse.",
-  "This is what makes the historical pattern a warning rather than a mere observation. The communities failed with full notice, and the notice is what the verse emphasizes.",
-  "The verse also completes the consolation begun at verse 71. The prophets were sent and were rejected, yet the sending was not futile — the outcome of each account shows that the warning was ultimately vindicated.",
-  "**Psychological Insight:** The verse identifies a specific human tendency: that being warned does not produce attention, and that the presence of a warning can even harden the position it was meant to correct.",
-  "> **Cross-Reference:** 6:112 — *And so for every prophet We appointed an enemy — satans among mankind and jinn, inspiring one another with beguiling speech.*",
-  "> **Classical View (al-Rāzī):** the sending of warners is what converts the historical record from a catalogue of failures into a counsel of patience, since the warners prevailed despite the rejection.",
- ]),
-])
-
-,
-73: (None, [
- ("Behold How Those Who Were Warned Fared", [
-  "The verse turns from statement to invitation, and al-Rāzī notes that it is addressed to the Prophet ﷺ while also serving as a warning to the disbelievers.",
-  "Al-Rāzī further identifies the verse as a segue to the stories of Noah, Abraham, Lot, and the other prophets in the remainder of the sūrah, which is what gives it its structural role.",
-  "The commentators note that this verse about those who were warned is repeated as part of 10:73, and list further verses enjoining consideration of final ends: 3:137, 6:11, 16:36, and 43:25 for the deniers; 7:84 and 27:69 for the guilty; 7:86 and 103 and 27:14 for the workers of corruption; 10:39 and 28:40 for the wrongdoers.",
-  "The accumulation of parallels shows that the invitation to look at outcomes is a settled Qur'anic method. History is offered as evidence rather than as illustration.",
-  "**Modern Analogy:** Pointing to a set of completed cases and asking what happened in them, rather than arguing from first principles about what should happen.",
-  "> **Cross-Reference:** 10:73 — *So behold how those who were warned fared in the end.*",
-  "> **Classical View (al-Rāzī):** the verse is a hinge: it closes the argument about rejection and opens the prophetic narratives that will supply the evidence the invitation calls for.",
- ]),
-])
+182: (None, [
+ ("Praise Be to God, Lord of the Worlds", [
+  "The sūrah closes with praise. The commentators treat vv. 181–82 together, and their note concerns the greeting of peace that precedes it and the practice attached to both.",
+  "The closing follows the declaration of transcendence at v. 180, where the commentators explained that above that which they ascribe refers on one level to the partners the idolaters ascribe to God (IJ) and on another to God's complete transcendence beyond all that is other than Him (Q). The praise here is what follows that declaration."]),
+ ("Peace Upon the Messengers", [
+  "The commentators supply a report about the preceding verse. Regarding the messengers, the Prophet is reported to have said, \"If you send peace upon me, send peace upon the messengers, for I am a messenger among the messengers\" (IK, Q, Ṭ), and they direct the reader to 33:56 for greetings of peace upon the Prophet.",
+  "The report explains the plural. The peace is sent upon the message bearers collectively, and the Prophet's saying places himself among them rather than above them."]),
+ ("A Practice at the End of Prayer", [
+  "The commentators record a further report: it is reported that the Prophet would often recite vv. 180–82 at the end of his prayers (Q).",
+  "The report connects the three verses as a unit. What closes the sūrah also closed the Prophet's prayers, and the commentators attribute the report to Q."]),
+ ("The Counsel of ʿAlī", [
+  "The commentators add a third report: ʿAlī ibn Abī Ṭālib, in a saying sometimes attributed to the Prophet (IK), counseled, \"Whosoever desires that the greatest measure of reward be measured for him on the Day of Resurrection, let his last words at any gathering be Glory be to thy Lord, the Lord of Might, above that which they ascribe. Peace be upon the message bearers. And praise be to God, Lord of the worlds\" (Bg).",
+  "The commentators are careful about the attribution, noting that the saying is sometimes attributed to the Prophet. The counsel quotes all three closing verses, and the commentators attribute it to Bg.",
+  "> **Cross-Reference:** vv. 180–81 — the declaration of transcendence and the peace upon the messengers, recited with this verse; 33:56 — greetings of peace upon the Prophet.",
+  "> **Classical View (IK, Q, Ṭ / Bg):** the Prophet said, \"If you send peace upon me, send peace upon the messengers, for I am a messenger among the messengers\"; he often recited vv. 180–82 at the end of his prayers; and ʿAlī counseled making these three verses one's last words at any gathering."]),
+]),
 
 }

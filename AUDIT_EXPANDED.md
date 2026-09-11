@@ -21,7 +21,7 @@ flagged (<0.45 against BOTH initial/ and translation/): 7
 
 $ python3 tools/quran-audit/check_offtopic.py
 files: 114   sections examined: 5551   threshold: <15% echo
-flagged: 12
+flagged: 4   (all four verified as false positives -- see section 6)
 ```
 
 The 7 translation flags are register variants, each verified side-by-side against both
@@ -42,7 +42,9 @@ substitution and none was altered.
 | Translation-line-only drift | `040.md` vv 31/48/50/63/73 | **0 remaining** |
 | Appended text / run-on translation lines | `026.md` ×6, `011.md` v117 | **0 remaining** |
 | Template-filler phrases (4 regex patterns) | 141 phrases across the corpus | **0 remaining** |
-| Off-topic sections (<15% echo) | 25 flagged | **12 remaining** |
+| Off-topic sections (<15% echo) | 25 flagged | **0 genuine remaining** (4 detector false positives) |
+| Commentary body describing a *different* verse | `037.md` (7 verified) | **0 remaining** — realigned from `initial/037.md` |
+| Leaked drafting scaffolding (self-correction, citation-hunting) | `037.md` v139, `032.md` ×4, `083.md` | **0 remaining** — 10 hits, all fixed |
 
 A corpus-wide boilerplate scan confirmed the template class affected exactly two files:
 `036.md` at 100% and `074.md` at 96%. Every other file scored 0%.
@@ -122,10 +124,33 @@ scores 0 of 182 mismatch.
 | `073.md` | 20 | 302 | 370 | 1,240 | 8,387 |
 | `067.md` | 30 | 318 | 392 | 571 | 12,228 |
 
-**Off-topic flags — 12.** `018.md` v75 · `026.md` vv 132, 176 · `037.md` vv 50, 61, 62, 66,
-85, 87, 182 · `040.md` v3 · `067.md` v10. The `037.md` hits are depth artifacts — bodies of
-88–161 words under-echo by construction — not subject drift. Each needs reading before any
-change.
+**Off-topic flags — 4, all verified false positives.**
+
+> **Correction.** This report previously stated the `037.md` hits were "depth artifacts —
+> bodies of 88–161 words under-echo by construction — not subject drift." That was wrong.
+> Reading them showed they were genuine: `037.md` v62's body discussed *man ʿaṣaynā
+> al-rasūl* (33:66–67 content) under a heading about the tree of Zaqqūm, and v182's discussed
+> "We have preferred some of them over others" (2:253 content). All 7 were realigned from
+> `initial/037.md`'s apparatus and now score 0 flags.
+
+The 4 that remain were each read and are detector artifacts, not subject drift:
+
+| Section | Echo | Why it fails |
+|---|---|---|
+| `018.md` v75 | 0.0% | Body quotes the verse in Arabic transliteration (*qāla a-lam aqul laka…*) rather than the English wording; it engages Khiḍr, Moses, patience and the repetition of v72 throughout |
+| `026.md` v132 | 0.0% | Body covers vv 132–134 collectively; `initial/026.md` carries **no** commentary note for these verses, so there is no source vocabulary to echo |
+| `026.md` v176 | 14.3% | One point under threshold; echoes *inhabitants* and *thicket*, misses *messengers* only because the body says *message* |
+| `067.md` v10 | 0.0% | Pure inflection: verse says "had we **listened**… **understood**", body says "**listening** and **understanding**" |
+
+The detector is lemma-blind and does not read transliteration. A stemming patch was tried and
+**rejected**: it raised corpus flags from 11 to 45 and introduced false positives in `040.md`
+and `007.md` where there had been none. The four are documented rather than "fixed."
+
+A real bug *was* found and fixed: `body_lines()` dropped entirely-bold lines as headings, so
+mini-headings carrying the verse's own vocabulary were excluded from the body. `040.md` v3's
+headings are literally "Forgiver of Sin", "Accepter of Repentance", "Severe in Retribution",
+"Possessor of Bounty" — the exact words of the verse — yet it scored 12.5% echo, and 100% once
+headings were retained.
 
 **`074.md`.** Structurally valid and correct after the scaffolding strip, but now thin:
 min 392 / median 436 / max 793 across 25,610 words. It needs depth rebuilt from
@@ -136,12 +161,38 @@ are exact. Left in place by decision — the pattern is the file's own style.
 
 ---
 
+## 8. Defect class found by reading, not by any checker
+
+**Leaked drafting scaffolding.** Five locations contained the author's own deliberation
+rather than commentary. None was caught by `validate.py`, `check_translations.py`, or
+`check_offtopic.py`, because in every case the Markdown was well-formed and the text was
+about the right verse. It surfaced only from reading section bodies directly.
+
+| Location | What was there |
+|---|---|
+| `037.md` v139 | The body *was* the drafting monologue: "The verse begins the Jonah narrative: 'And Lot, when he said…' **Wait — actually** v139 starts with Jonah… **Let me correct** the content." Rebuilt from `initial/037.md` [139]/[142] |
+| `032.md` ×4 | Citation-hunting left in the prose: `40:47? — actually … Let me be careful`, `41:32? — actually`, `35:26? — actually`, `15:82? — … — wait` |
+| `083.md` | A guess-chain over a ḥadīth narrator: "Ibn ʿUmar? — no; it is narrated from Abū Hurayrah? — the wording is: Najdī ibn ʿUmar? Let me state it as transmitted" |
+
+Every citation was verified against `initial/` **before** the deliberation was stripped —
+67:8, 41:31–32, 43:25 / 30:47 / 7:136, and 15:82 / 26:149 / 89:9 all check out. The `083.md`
+narrator guesses were all three wrong; the narrator is **al-Nuʿmān ibn Bashīr** (Bukhārī 52),
+verified externally, since `initial/` does not record this ḥadīth.
+
+This class is now covered by `check_scaffolding.py`. The tool was validated by running it
+against the pre-fix files: **10 hits detected before the fix, 0 after.** Its patterns also
+match quoted scripture ("Let me kill Moses" is Pharaoh at 40:26; "Say: 'Wait — we too are
+waiting'" is 6:158), so it prints context for human judgement rather than asserting a count.
+
+---
+
 ## 7. Reproducing the gates
 
 ```
 python3 tools/quran-audit/validate.py
 python3 tools/quran-audit/check_translations.py [--sura N] [--verbose]
 python3 tools/quran-audit/check_offtopic.py     [--sura N] [--verbose]
+python3 tools/quran-audit/check_scaffolding.py  [--context N] [--sura N]
 python3 tools/quran-audit/extract_source.py <sura> <lo> <hi>
 python3 tools/quran-audit/fix_translation.py <sura> <verse...> --dry-run
 ```

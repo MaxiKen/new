@@ -69,7 +69,12 @@ def body_lines(block):
         if st.startswith(">"):          # blockquote = translation / cross-ref
             continue
         if st.startswith("**") and st.endswith("**"):
-            continue                    # mini-heading, not prose
+            # Mini-heading: strip the bold markers but KEEP the words. Headings
+            # carry the verse's own vocabulary (e.g. 040.md v3's headings are
+            # "Forgiver of Sin", "Accepter of Repentance", ...), so dropping them
+            # produced false positives at 0% echo for on-topic sections.
+            out.append(st.strip("*").strip())
+            continue
         if st == "---":
             continue
         out.append(st)

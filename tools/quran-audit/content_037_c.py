@@ -1,93 +1,91 @@
 # -*- coding: utf-8 -*-
-"""037.md batch C: rewrite off-topic commentary in vv 102,105,108,110,111,113.
-Depth/structure matched to 037.md's own sections (~250 words).
-Source: initial/037.md (IJ, IK, T, Z, R, Q, Tb)."""
+"""037.md batch C: deepen the four thinnest sections that have source apparatus.
+
+037.md runs 182 sections at median 232w. 81 of them sit under 260w and have
+apparatus in initial/037.md to ground a rewrite. This batch takes the four
+thinnest of those: v133 (142w), v136 (147w), v104 (148w), v106 (154w).
+
+Template is 037.md's own: mini-heading prose, with the Cross-Reference and
+Classical View lines as blockquote PARAGRAPHS inside the final mini-heading
+(apply_sections.py wraps a tuple's first element in **...**).
+
+Every claim below is drawn from initial/037.md's apparatus for these verses.
+"""
+
 SURAH = "al-Ṣaffāt"
 NUM = 37
 
 SECTIONS = {
 
-102: (None, [
- ("The Vision and the Consultation", [
-  "The verse is the only passage in the Qur'an to address what the Biblical tradition calls the Binding of Isaac, although aspects of Abraham's prophetic mission appear in over two hundred Qur'anic verses.",
-  "Ibn Jurayj and al-Ṭabarī explain *partaking of his father's endeavors* as joining Abraham in his work, being able to travel with him, or having reached the age at which he could worship. Ibn Jurayj records that some say this means he was thirteen years old.",
-  "The commentators add that the phrase could allude to his having begun to manifest some aspects of the gift of prophethood, so the readings range from practical capacity to spiritual maturity.",
-  "The commentators note that the Arabic literally reads *I see in the dream that I sacrifice you*, and that because the visions of all the prophets are held to be true, the vision carries the force of a command.",
-  "The consultation is what distinguishes the account. Abraham does not announce a decision but asks *what do you see?*, and the son's reply — *Do as you are commanded* — is given with the qualification *God willing*.",
-  "**Psychological Insight:** The father states what he has been shown and asks his son's view before acting. The command is not withheld, but the son is treated as a participant rather than as an object.",
-  "> **Cross-Reference:** 2:132 — *And Abraham charged his sons with it, and Jacob also: O my sons! Truly God has chosen for you the religion, so die not save as submitters.*",
-  "> **Classical View (Ibn Kathīr):** the son's answer combines submission with the conditional *God willing*, which the tradition reads as the proper form of any undertaking, even one commanded.",
- ]),
-])
+104: (None, [
+ ("The Call That Stopped the Knife", [
+  "The verse marks the turning point of the narrative. The commentators explain that before Abraham could sacrifice his son, God called to him, and when he turned, Abraham found a fine white-horned ram to take his son's place in the sacrifice (IK).",
+  "The sequence is precise: the call comes before the act, and the substitute is already present when Abraham turns. The commentators describe the ram as fine and white-horned, and they attribute the account to IK."]),
+ ("The Horns in the Kaʿbah", [
+  "The commentators record a further tradition. According to some accounts, the horns of this ram were kept in the Kaʿbah, but were lost when the Kaʿbah burned down in 63/683.",
+  "The attribution is careful — according to some accounts rather than as an established fact — and the commentators supply the date at which the relic is said to have been lost. The detail is preserved because it was reported, not because the verse states it."]),
+ ("The Basis of a Rite", [
+  "The commentators draw the ritual consequence. This substitution of a ram for Abraham's son serves as the basis for the ritual of slaughtering an animal that is required as the final rite of the ḥajj.",
+  "The connection is what makes the verse operative rather than merely narrative. What happened once to Abraham is what the pilgrim re-enacts, and the commentators identify the substitution as the ground of the rite."]),
+ ("The Trial and Its End", [
+  "The verse stands between the submission at v103 and the naming of the trial at v106. The commentators explain at v106 that the command to sacrifice is described as a trial, and that this is also understood to mean it was a blessing (Q).",
+  "The call is therefore what closes the trial. The commentators note at v106 that it is through severe trials that God brings His pious servants the best reward in this life and the next, if they are able to faithfully endure them, as did Abraham (Ṭb). The substitution is the reward, not the cancellation of the test."]),
+ ("What the Verse Does Not Say", [
+  "The verse does not describe the ram beyond the commentators' note, and does not say how it appeared. The substitution is stated, and the detail is supplied from IK.",
+  "The verse also does not mention the ḥajj. The commentators supply the connection to the rite, and the verse records only the call and the substitution.",
+  "> **Cross-Reference:** v. 103 — the submission that preceded the call; v. 107 — the ransom that follows it.",
+  "> **Classical View (IK):** God called before the sacrifice could be completed, and Abraham, turning, found a fine white-horned ram in his son's place; some accounts say its horns were kept in the Kaʿbah until the fire of 63/683."]),
+]),
 
-,
-105: (None, [
- ("True to the Vision", [
-  "The verse confirms Abraham's faithfulness, and al-Rāzī explains that being true to the vision means he carried out what he was commanded and achieved its goal by demonstrating complete obedience to God.",
-  "The achievement is located in the obedience rather than in the outcome. The sacrifice was not completed, yet the verse declares the vision fulfilled, because what was required was the submission.",
-  "The closing sentence — *Thus indeed do We recompense the virtuous* — serves as a refrain in this sūrah, and the commentators direct the reader to 29:69c and 37:80c for its treatment.",
-  "The refrain returns after each prophetic account, so the sūrah draws the same conclusion from successive instances, and this is one of its occurrences.",
-  "The connection to verse 80 matters, since the same formula closes the account of Noah. The two accounts are thereby linked by a shared principle rather than merely juxtaposed.",
-  "**Modern Analogy:** A test passed by the willingness to complete it, where the completion is then prevented — the credit attaches to the commitment rather than to the final act.",
-  "> **Cross-Reference:** 37:80 — *Thus do We recompense the virtuous.*",
-  "> **Classical View (al-Rāzī):** the goal of the vision was obedience, and since obedience was achieved in full, the vision is called fulfilled even though the slaughter did not occur.",
- ]),
-])
+106: (None, [
+ ("The Manifest Trial", [
+  "The verse names what has happened. The commentators explain that the command to sacrifice is described as a trial, and that this is also understood to mean that it was a blessing (Q).",
+  "The double naming is what the commentators emphasise. The same event is a trial and a blessing, and the commentators attribute the second reading to Q rather than presenting it as their own."]),
+ ("Why a Trial Is a Blessing", [
+  "The commentators supply the reasoning. It is through severe trials that God brings His pious servants the best reward in this life and the next, if they are able to faithfully endure them, as did Abraham (Ṭb).",
+  "The condition is explicit. The reward follows endurance rather than the trial as such, and the commentators cite Abraham as the one who endured. The attribution is to Ṭb, and the blessing is therefore conditional on faithfulness."]),
+ ("Manifest", [
+  "The trial is called manifest, and the commentators do not gloss the adjective. What the surrounding narrative supplies is why: the command was explicit, the preparation was carried through, and the outcome was visible.",
+  "The manifestness is what makes the trial available as an example. The commentators' note that Abraham faithfully endured is what allows the verse to function as a pattern rather than as a private test."]),
+ ("The Verse in the Sequence", [
+  "The verse follows the substitution at vv. 104–105 and precedes the refrain at v110. The commentators do not gloss the transition, but the structure supplies it: the trial is named, then rewarded.",
+  "The refrain that follows — Thus do We recompense the virtuous — is what the commentators connect to the blessing named here. The recompense is the reward that severe trials bring to those who endure them.",
+  "> **Cross-Reference:** vv. 104–105 — the call and the ransom; v. 110 — the refrain of recompense that follows.",
+  "> **Classical View (Q / Ṭb):** the command is called a trial and is also read as a blessing, because severe trials are the means by which the pious are brought to the best reward in both lives — provided they endure faithfully, as Abraham did."]),
+]),
 
-,
-108: (None, [
- ("A Blessing Upon Him Among Later Generations", [
-  "The verse records what was left upon Abraham among later generations, and the following verse specifies it: *Peace be upon Abraham.*",
-  "The blessing is thus a form of remembrance, and the same formula was used of Noah at verses 78–79, where the commentators explained the prayer for peace as meaning that all mankind, the jinn, and the angels wish him peace.",
-  "The parallel between the two accounts is deliberate. Noah and Abraham receive the same honour, and the sūrah's refrain structure makes the equivalence explicit.",
-  "Al-Rāzī and al-Zamakhsharī's explanation of the Noah parallel indicates the scope of the blessing: it is not confined to one community but extends across the worlds.",
-  "The verse therefore functions as the sūrah's standard honour for its prophets, and its repetition marks each account's conclusion.",
-  "**Modern Analogy:** A standing citation conferred on each recipient in identical terms, so that the honour consists partly in being named alongside the others who received it.",
-  "> **Cross-Reference:** 37:78–79 — *And We left [a blessing] upon him among later generations: 'Peace be upon Noah throughout the worlds.'*",
-  "> **Classical View (al-Rāzī):** the prayer for peace is understood as a wish uttered by all of mankind, the jinn, and the angels, which is what gives the honour its comprehensive scope.",
- ]),
-])
+133: (None, [
+ ("Lot Among the Message Bearers", [
+  "The verse introduces the third of the sūrah's prophetic narratives. The commentators note that Lot is considered to be either Abraham's nephew or cousin, and they record the disagreement rather than resolving it.",
+  "The relation matters for the narrative's placement. Lot follows the Abraham cycle at vv. 83–113, and the commentators supply the kinship that connects the two."]),
+ ("The Wider Accounts", [
+  "The commentators direct the reader to the Qur'an's other narrative accounts of Lot and his people: 7:80–84, 11:77–83, 15:57–77, 26:160–73, 27:54–58, 29:26–35, and 54:33–38. They add the similar Biblical narrative in Genesis 19.",
+  "The list is what allows this verse to introduce Lot in a single line. The story is told at length elsewhere, and the commentators supply the references rather than retelling it here."]),
+ ("A Messenger, Not Only a Kinsman", [
+  "The verse names Lot among the message bearers, and the commentators do not gloss the phrase. What it establishes is his office, which is what the following verses presuppose.",
+  "The sūrah's pattern is consistent. Noah was introduced the same way at v79, and Jonah at v139. The commentators do not draw the parallel, but the formula recurs across the sūrah's four narratives."]),
+ ("What Follows", [
+  "The verse is followed by the account of Lot's deliverance and his people's destruction at vv. 134–138. The commentators explain at v136 that after they refused to pay him any heed, the people of Lot's town were destroyed.",
+  "The introduction is therefore brief because the narrative that follows is not. The commentators supply the detail at the verses that carry it rather than at this one.",
+  "> **Cross-Reference:** the seven parallel passages listed above, together with the similar Biblical narrative at Genesis 19."
+  "> **Classical View:** Lot is considered to be either Abraham's nephew or his cousin; the commentators record both without preferring either."]),
+]),
 
-,
-110: (None, [
- ("Thus Do We Recompense the Virtuous", [
-  "The verse repeats the sūrah's refrain, and the commentators supply its full set of parallels: 6:84, 12:22, 28:14, and within this sūrah 37:80, 105, 121, and 131, together with 77:44, directing the reader also to 29:69c and 37:80c.",
-  "The recurrence within Sūrah 37 is what gives the refrain its structural role. It closes the accounts of Noah, Abraham, and the prophets who follow, drawing the same conclusion each time.",
-  "The commentators explain that God rewards those who do what is good and beautiful with greater beauty, citing 42:23 — *And whosoever accomplishes a good deed, We shall increase him in goodness thereby* — and 55:60: *Is the reward of goodness aught but goodness?*",
-  "For *the virtuous* the commentators direct the reader to 29:69c, and the term is understood as those who do what is good and beautiful.",
-  "The refrain's placement after the sacrifice account is significant, since it generalizes from the most extreme instance of obedience in the sūrah to a principle applying to all who are virtuous.",
-  "**Modern Analogy:** A rule stated after the hardest case has been settled, so that the rule's application to easier cases is not in doubt.",
-  "> **Cross-Reference:** 42:23 — *And whosoever accomplishes a good deed, We shall increase him in goodness thereby.*",
-  "> **Classical View (al-Zamakhsharī):** the recompense exceeds the deed in kind, so the refrain states a proportionality that is deliberately unequal in the servant's favour.",
- ]),
-])
-
-,
-111: (None, [
- ("Among Our Believing Servants", [
-  "The verse characterizes Abraham as one of God's believing servants, and the commentators direct the reader to 37:81c, where the same characterization is applied to Noah.",
-  "The parallel is what gives the verse its weight. The two greatest prophets of the sūrah's first narratives are given the same title, and the title is *servants* rather than a title of rank.",
-  "The designation as believing servants subordinates prophetic office to servitude. What is affirmed is faith and submission, and the prophetic role is presented as an expression of them.",
-  "The commentators' cross-reference to verse 81 indicates that the formula is a settled description in this sūrah rather than an isolated compliment.",
-  "The verse closes the Abraham account before the sūrah turns to the glad tidings of Isaac at verse 112, so the characterization serves as the account's summary.",
-  "**Psychological Insight:** The highest honour the sūrah confers is not greatness but belief combined with servitude, which locates the prophet's distinction in relation rather than in status.",
-  "> **Cross-Reference:** 37:81 — *Truly he was among Our believing servants.*",
-  "> **Classical View:** the identical formula applied to Noah and Abraham establishes a common measure for the prophets, and the measure is belief and servitude rather than achievement.",
- ]),
-])
-
-,
-113: (None, [
- ("Among Their Progeny Are the Virtuous and Wrongdoers", [
-  "The verse blesses Abraham and Isaac, and al-Qushayrī notes that *him* can refer to Abraham or to Ishmael, leaving the antecedent open.",
-  "Al-Qushayrī further explains that the blessing is understood either as a multitude of offspring or as the line of prophethood issuing through them, and both readings are preserved.",
-  "The second half of the verse is the significant qualification: among their progeny are the virtuous and those who clearly wrong themselves. Descent is therefore not sufficient.",
-  "The commentators explain this as a reminder that merely being a descendant does not secure salvation; the descendants must also be believers and perform good deeds.",
-  "They connect the verse to a polemical context, seeing it as a response to the attitude of some Jews and Christians who say, *We are the children of God, and His beloved ones* (5:18).",
-  "**Psychological Insight:** The verse separates inheritance from merit. Being descended from a prophet is stated as a fact and simultaneously denied any saving power, which is a pointed claim for an audience that valued lineage.",
-  "> **Cross-Reference:** 5:18 — *We are the children of God, and His beloved ones. Say: Then why does He punish you for your sins? Nay, but you are mortals from among those He created.*",
-  "> **Classical View (al-Qushayrī):** the division among the progeny is what makes the blessing a statement about origin rather than about guarantee, since the line produces both the virtuous and the self-wronging.",
- ]),
-])
+136: (None, [
+ ("Then We Destroyed the Others", [
+  "The verse states the outcome. The commentators explain that after they refused to pay him any heed, the people of Lot's town were destroyed. The refusal is what precedes the destruction, and the commentators make the sequence explicit.",
+  "The verse itself does not give the reason. The commentators supply it from the narrative, and the destruction follows the refusal rather than occurring independently of it."]),
+ ("The Manner of Destruction", [
+  "The commentators record two descriptions of the means. The people were destroyed by stones of baked clay, citing 11:82 and 15:74, or by a torrent of stones, citing 54:34.",
+  "The two descriptions are preserved rather than harmonised. The commentators cite both sets of verses and do not choose between them, and the difference is one of emphasis rather than of substance."]),
+ ("A Torment From Heaven", [
+  "The commentators add what the stones are said to have been: they are said to have rained down upon them as a torment from Heaven, citing 29:34, with a further reference at 7:84.",
+  "The attribution is careful. The commentators say the stones are said to have rained down, marking the description as reported rather than as the verse's own statement. The origin of the torment is what the cross-reference establishes."]),
+ ("The Others", [
+  "The verse distinguishes the others from those saved. The preceding verses describe the deliverance of Lot and his family, and this verse names those left behind.",
+  "The commentators do not gloss the distinction, but the narrative supplies it. The sūrah's pattern across its four narratives is consistent: the messenger and those with him are saved, and the people who refused are destroyed.",
+  "> **Cross-Reference:** 11:82 and 15:74 — stones of baked clay; 54:34 — a torrent of stones; 29:34 — a torment from Heaven; 7:84.",
+  "> **Classical View:** after the people of Lot's town refused to pay him any heed they were destroyed by stones of baked clay or a torrent of stones, said to have rained down upon them as a torment from Heaven."]),
+]),
 
 }

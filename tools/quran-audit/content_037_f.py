@@ -1,122 +1,85 @@
 # -*- coding: utf-8 -*-
-"""037.md batch F (final): rewrite the last 8 off-topic sections
-vv 169,170,171,174,177,178,180,181.
-Depth/structure matched to 037.md's own sections (~250 words).
-Source: initial/037.md (IJ, IK, Q, R, Z, Ja'far al-Sadiq)."""
+"""037.md batch F: deepen vv 79, 86, 89, 146 from source apparatus.
+
+Continues the pass over 037.md's thin sections with apparatus:
+v89 (161w), v79 (162w), v146 (162w), v86 (165w).
+
+Guards carried from batch C's two duprate failures:
+  - never re-quote the verse translation verbatim in the opening prose
+  - never repeat a blockquote's wording verbatim in the prose above it
+"""
+
 SURAH = "al-Ṣaffāt"
 NUM = 37
 
 SECTIONS = {
 
-169: (None, [
- ("Then We Would Indeed Be God's Sincere Servants", [
-  "The verse completes the wish expressed at verse 168, and the two together report what the disbelievers used to say: if only they had a reminder from those of old, then they would indeed be God's sincere servants.",
-  "The conditional form is what the verse turns on. The sincerity is promised on a condition, and verse 170 immediately reports that when the condition was met they disbelieved.",
-  "The phrase *God's sincere servants* connects the verse to the sūrah's repeated formula at verses 40, 74, 128, and 160, where the same designation marks those who are exempt from the general condemnation.",
-  "The wish is therefore framed in the sūrah's own terms. The disbelievers invoke the very status the sūrah reserves for the faithful, and the following verse reports that they did not attain it.",
-  "The verse's placement between the claim at verse 168 and the contradiction at verse 170 is what gives it its force, since the promise and its failure are stated in immediate sequence.",
-  "**Psychological Insight:** The verse records a conditional commitment made in advance, and the following verse reports the outcome when the condition was satisfied — a pattern familiar from anyone who has promised to act differently once given what they said they needed.",
-  "> **Cross-Reference:** 37:168 — *'If only we had a reminder from those of old,'*",
-  "> **Classical View:** the commentators read the two verses together as a claim and its refutation, since the reminder did come and the promised sincerity did not follow.",
- ]),
-])
+79: (None, [
+ ("A Greeting That Outlasts the Flood", [
+  "The verse closes the Noah cycle with a benediction. The commentators explain that the prayer for peace upon Noah throughout the worlds means: May all of mankind, the jinn, and the angels wish him peace (R, Z).",
+  "The gloss supplies the scope. The worlds are not a vague generality but three named orders of beings, and the commentators attribute the reading to R and Z."]),
+ ("The Only Surviving Line", [
+  "The commentators explain why the benediction is universal. As the only line of human beings to survive the flood, Noah's progeny endured. He was also blessed with being remembered well, in a manner befitting his status, by later generations (IK).",
+  "The two blessings are distinct. The first concerns descent — every later human being comes through him — and the second concerns remembrance. The commentators attribute the second to IK."]),
+ ("Left as a Sign", [
+  "The commentators connect the story to a purpose. His story is thus left as a sign for the worlds, citing 29:15 with a further reference at 54:15.",
+  "The connection explains the placement of the benediction. What is remembered is not only the man but the account, and the commentators cite the verse that names it a sign."]),
+ ("The Wider Accounts", [
+  "The commentators note that these verses give the broad contours of Noah's story, and they direct the reader to the fuller treatments: 11:25–48, 23:23–30, 26:105–21, and Sūrah 71. Additional brief accounts are found in 7:59–64, 10:71–73, 21:76–77, 29:14–15, and 54:9–15.",
+  "The list is what allows the sūrah's account to be brief. The commentators supply the references rather than retelling the narrative, and the benediction here is the close of a summary rather than of a full account.",
+  "> **Cross-Reference:** 11:25–48; 23:23–30; 26:105–21; Sūrah 71 — the detailed accounts; 7:59–64; 10:71–73; 21:76–77; 29:14–15; 54:9–15 — the brief ones; 29:15 and 54:15 — the story left as a sign.",
+  "> **Classical View (R, Z / IK):** the greeting means that all mankind, jinn, and angels are to wish him peace; as the sole surviving line his progeny endured, and he was blessed with being remembered well by later generations in a manner befitting his status."]),
+]),
 
-,
-170: (None, [
- ("But They Disbelieved in It — So Soon They Will Know", [
-  "The verse contradicts the wish expressed at verses 168–169, and its two clauses are deliberately juxtaposed: they disbelieved, and they will know.",
-  "The contradiction is what the verse exists to state. The disbelievers had said that with a reminder they would be God's sincere servants, and the verse reports that when the reminder came they disbelieved in it.",
-  "The second clause — *So soon they will know* — is a warning rather than an argument, and it is completed at verses 171–173, which set out what they will know.",
-  "The verse therefore functions as the pivot of the passage, turning from the report of the claim to the statement of the consequence.",
-  "The commentators connect the verse to the following declaration that God's Word has already gone forth to the messengers, which is what gives the warning its basis.",
-  "**Psychological Insight:** The verse records the failure of a conditional promise, and the warning that follows is not a threat of the arbitrary but a statement that the outcome is already determined.",
-  "> **Cross-Reference:** 37:171 — *For indeed Our Word has already gone forth unto Our message bearers.*",
-  "> **Classical View:** the commentators read the verse as the refutation of the claim at verses 168–169, since the reminder was given and the promised sincerity did not follow.",
- ]),
-])
+86: (None, [
+ ("A Question With Four Readings", [
+  "The verse is the second in Abraham's exchange with his people. The commentators note that its subtle grammatical structure allows it to be read in several different ways, and they set out four.",
+  "The first: Do you perform perversion and worship gods other than God! (IJ). The second: Do you desire gods apart from God out of perversion (R, Z)."]),
+ ("The Third and Fourth", [
+  "The commentators continue: Do you desire perversion — gods apart from God? (R). Or: Do you desire gods apart from God in perversion? (R).",
+  "Three of the four readings are attributed to R, and the commentators preserve all four without preferring any. The differences concern whether perversion is the act, the motive, or an appositive naming the gods themselves."]),
+ ("What All Four Share", [
+  "The commentators state the common ground. In all four readings, the verse is an expression of rebuke and amazement.",
+  "The note is what makes the multiplicity manageable. The grammatical ambiguity does not produce ambiguity of sense, and the commentators identify the two registers the verse carries in every reading."]),
+ ("Why Abraham Argues Here", [
+  "The commentators place the verse in the wider pattern: this is one of several passages in which Abraham argues with his people regarding the inanity of their idolatry, citing 2:258, 6:83, and 21:51–67.",
+  "They add the observation about placement. As al-Rāzī observes, the Qur'an invokes the story of Abraham in the context of the Prophet Muhammad's disputations with the idolaters, because even the idolatrous Arabs had great respect for Abraham as one of their most prominent forefathers; see 43:26–27. The rebuke carries weight because it comes from a forefather the audience honours.",
+  "> **Cross-Reference:** 2:258; 6:83; 21:51–67 — Abraham's disputations elsewhere; 43:26–27 — the idolaters' respect for their forefathers.",
+  "> **Classical View (IJ / R, Z):** the verse admits four readings according to its grammatical structure, but in every one of them it is an expression of rebuke and amazement."]),
+]),
 
-,
-171: (None, [
- ("Our Word Has Already Gone Forth to Our Messengers", [
-  "The verse states the basis of the warning at verse 170, and it is completed at verses 172–173: that they will surely be helped, and that God's host will surely be victorious.",
-  "The phrase *has already gone forth* is what gives the verse its force. The word is not prospective but already issued, so the outcome is presented as settled.",
-  "The commentators connect the verse to the sūrah's treatment of the prophets, each of whose accounts closes with the refrain *Thus indeed do We recompense the virtuous*, and the messengers' help is what those accounts illustrate.",
-  "The verse addresses the messengers collectively rather than individually, which matches the sūrah's structure of successive prophetic accounts drawn together by a common refrain.",
-  "The declaration therefore answers the disbelievers' challenge at verses 167–169 and their mockery of the promised punishment at verse 176.",
-  "**Modern Analogy:** A decision recorded before the contest begins, so that the announcement is not a prediction but a report of what has already been settled.",
-  "> **Cross-Reference:** 37:172 — *That they will surely be helped.*",
-  "> **Classical View:** the commentators read the verse as stating that the help of the messengers is already decreed, which is what the sūrah's successive prophetic accounts illustrate.",
- ]),
-])
+89: (None, [
+ ("A Glance at the Stars", [
+  "The verse reports what Abraham said. The commentators first explain what preceded it: cast a glance at the stars is an idiomatic expression meaning to contemplate something, interpreted here to mean that Abraham cast his glance upward while contemplating what to do.",
+  "The idiom is what the commentators supply. The glance is not astrology but deliberation, and they note the interpretive move explicitly."]),
+ ("Three Readings of the Sickness", [
+  "The commentators record three explanations of the claim. Some say he feigned reading his own future, which is then the basis for his claiming to be sick (IJ). His claim to be sick could also mean that his heart was sickened because of the worshipping of other gods (IJ, IK), or that he was feigning an illness in order to avoid going to a religious festival where idol worship would have occurred (IK, Ṭ).",
+  "The three readings differ substantially. The first makes the sickness a continuation of the feigned astrological reading, the second makes it a metaphor for revulsion, and the third makes it a pretext for absence. The commentators preserve all three."]),
+ ("The Ḥadīth on Abraham's Three Statements", [
+  "The commentators cite a report bearing directly on the question. The Prophet Muhammad is reported to have said: Abraham did not lie, save three times: two were for the sake of God, his saying, Truly I am sick, and his saying, Nay, but it was the largest of them that did this, citing 21:63; and his saying regarding Sarah, She is my sister (Ṭ).",
+  "The report is what makes the disagreement consequential. It counts this statement among three, distinguishes two of them as being for the sake of God, and denies that they were lies. The commentators attribute it to Ṭ."]),
+ ("How the Report Bears on the Readings", [
+  "The report does not resolve which of the three readings is correct, but it constrains them. If the statement was not a lie, the reading that makes it straightforward feigning requires qualification, and the reading that takes it as a sickness of the heart fits the denial more directly.",
+  "The commentators do not draw this inference explicitly. They record the readings and the report side by side, and leave the relation between them to the reader.",
+  "> **Cross-Reference:** 21:63 — the second of the three statements; 43:26–27 — the idolaters' respect for their forefathers.",
+  "> **Classical View (IJ, IK, Ṭ):** the claim of sickness is read either as a feigned astrological prediction, or as a heart sickened by the worship of other gods, or as a pretext for avoiding a festival of idol worship; and the Prophet is reported to have said that Abraham did not lie save three times, two of them for the sake of God, this being one of them."]),
+]),
 
-,
-174: (None, [
- ("Turn Away From Them for a Time", [
-  "The verse instructs the Prophet to turn away from the disbelievers, and the commentators set out two readings of the instruction.",
-  "On one hand, al-Rāzī and others explain that he is told to turn away so that he can concentrate upon tending to the believers, as in 51:54–55: *So turn away from them, for thou shalt not be blamed. And remind, for truly the reminder benefits the believers.*",
-  "On the other hand, he is told to turn away because God will deal justly with them in due time, as in 54:6: *So turn away from them on the Day wherein the Caller will call unto a terrible thing.*",
-  "The commentators record several interpretations of *for a time*, and all are preserved: until death (IJ, Q), until the Day of Resurrection (R), until the Command is given to fight the disbelievers (IJ), until the Battle of Badr (IJ, Q, R), or until the conquest of Makkah (IJ, Q, R).",
-  "Some claim on this basis that the verse has been abrogated by other verses enjoining the Prophet and his followers to fight (IJ, IK, Q), and the commentators direct the reader to the commentary on 9:1–5 and 9:29.",
-  "**Modern Analogy:** A directive to disengage temporarily, where the duration is itself disputed and the interpretations differ by a matter of months or of centuries.",
-  "> **Cross-Reference:** 51:54 — *So turn away from them, for thou shalt not be blamed.*",
-  "> **Classical View:** the commentators record five readings of *for a time* — until death, the Resurrection, the command to fight, Badr, or the conquest of Makkah — and some hold the verse abrogated by the verses enjoining fighting.",
- ]),
-])
-
-,
-177: (None, [
- ("Evil Will Be the Morning of Those Who Were Warned", [
-  "The verse describes the punishment alighting in the midst of the disbelievers, and the commentators explain that it will come upon them when they least expect it.",
-  "They cite 29:53: *And it will surely come upon them suddenly, while they are unaware*, and direct the reader also to 21:40, 26:201–2, and 39:56.",
-  "The image of morning is what gives the verse its force. Morning is ordinarily a time of safety and routine, and the verse uses it to mark the moment when the expected does not happen.",
-  "The phrase *those who were warned* is significant, since it recalls the warning they mocked at verse 176, where they asked when the promise would come to pass if the Prophet were truthful.",
-  "The verse therefore answers the challenge at verse 176 by describing the manner of the punishment's arrival rather than its timing, which is what the challenge demanded.",
-  "**Psychological Insight:** The verse locates the disaster in an ordinary moment, and the reference to those who were warned makes the point that the warning was given and dismissed.",
-  "> **Cross-Reference:** 29:53 — *And they ask thee to hasten the punishment. And were it not for a term appointed, the punishment would surely have come upon them. And it will surely come upon them suddenly, while they are unaware.*",
-  "> **Classical View:** the commentators read the verse as describing the suddenness of the punishment, citing 29:53 and the parallels at 21:40, 26:201–2, and 39:56.",
- ]),
-])
-
-,
-178: (None, [
- ("Turn Away From Them for a Time — Repeated", [
-  "The verse repeats the instruction given at verse 174, and the repetition is what the commentators treat as significant rather than redundant.",
-  "The instruction at verse 174 was followed by the declaration of the messengers' help at verses 171–173 and the description of the punishment at verses 176–177, and the repetition returns to the directive after those assurances.",
-  "The commentators record the same range of interpretations for *for a time* as at verse 174: until death, until the Day of Resurrection, until the Command to fight, until Badr, or until the conquest of Makkah.",
-  "The repetition therefore frames the intervening material. The instruction is given, the assurances and warnings are set out, and the instruction is given again.",
-  "The verse is followed at verse 179 by the parallel repetition of *and observe; for they will soon observe*, which completes the framing.",
-  "**Modern Analogy:** A directive restated after the reasoning has been supplied, so that the audience receives the instruction both before and after the justification.",
-  "> **Cross-Reference:** 37:174 — *So turn away from them for a time.*",
-  "> **Classical View:** the commentators read the repetition as framing the assurances and warnings at verses 171–177, and apply to it the same five interpretations of *for a time* recorded at verse 174.",
- ]),
-])
-
-,
-180: (None, [
- ("Glory Be to Thy Lord, the Lord of Might", [
-  "The verse is the sūrah's closing doxology, and the commentators supply its parallels at 23:91 and 37:159.",
-  "They set out two levels of meaning for *above that which they ascribe*, and both are preserved. On one level it refers to the partners that the idolaters ascribe to God (IJ).",
-  "On another level it refers to God's complete transcendence beyond all that is other than Him (Q), and to the inability of any human description of God to attain to God's true Nature, since *naught is like unto Him* (42:11).",
-  "In this vein the commentators report that the sixth Shiite Imam, Jaʿfar al-Ṣādiq, said: *Whosoever likens God to His creatures assigns partners unto Him. God does not resemble anything, and nothing resembles Him. And whatever occurs to the mind, He is other than that.*",
-  "The epithet *the Lord of Might* is what connects the doxology to the sūrah's opening declaration that the heavens are ranged, since the might is that by which the arrangement is maintained.",
-  "**Psychological Insight:** The two readings operate at different levels — one denies a specific false attribution, the other denies that any attribution can reach its object — and the commentators hold both rather than choosing.",
-  "> **Cross-Reference:** 42:11 — *Naught is like unto Him, and He is the All-Hearing, the All-Seeing.*",
-  "> **Classical View (Jaʿfar al-Ṣādiq):** whoever likens God to His creatures assigns partners to Him; God does not resemble anything and nothing resembles Him, and whatever occurs to the mind, He is other than that.",
- ]),
-])
-
-,
-181: (None, [
- ("Peace Be Upon the Messengers", [
-  "The verse is a salutation upon the messengers, and it forms part of the sūrah's closing sequence together with verses 180 and 182.",
-  "The formula echoes the honour conferred on individual prophets earlier in the sūrah — *Peace be upon Noah throughout the worlds* at verse 79, *Peace be upon Abraham* at verse 109, *Peace be upon Moses and Aaron* at verse 120, and *Peace be upon Elias* at verse 130.",
-  "What distinguishes this verse is that the salutation is collective. The individual honours are gathered into a single address to the messengers as a whole.",
-  "The commentators connect the verse to the sūrah's repeated characterization of its prophets as *believing servants*, so that the collective salutation completes the series of individual honours.",
-  "The verse is followed by the final doxology at verse 182, *And praise be to God, Lord of the worlds*, which closes the sūrah.",
-  "**Modern Analogy:** A closing citation that names the whole class after the individual recipients have been honoured one by one, so that the series ends with a collective recognition.",
-  "> **Cross-Reference:** 37:79 — *'Peace be upon Noah throughout the worlds.'*",
-  "> **Classical View:** the commentators read the verse as gathering the individual salutations conferred on Noah, Abraham, Moses and Aaron, and Elias into a single collective address to the messengers.",
- ]),
-])
+146: (None, [
+ ("A Gourd Tree Over Him", [
+  "The verse describes what followed the casting forth. The commentators explain that the gourd tree is understood to be beneficial for both the shade and the nourishment it provides (IK).",
+  "The two benefits answer the two needs of one cast out. The commentators attribute the reading to IK, and the pairing is what makes the plant suitable rather than arbitrary."]),
+ ("The Choice of Plant", [
+  "The commentators do not explain why a gourd specifically, but their note supplies the ground: it gives both shade and food. A plant chosen for one benefit alone would answer only half the need.",
+  "The description is functional rather than botanical. The commentators identify what the tree does for him rather than what it is, and the verse names it without elaboration."]),
+ ("The Parallel in the Book of Jonah", [
+  "The commentators note a Biblical parallel. In the Book of Jonah, the tree appears at the end of the story, at 4:6–10, growing and withering in a miraculous fashion.",
+  "The commentators supply the reference without harmonising the two accounts. The Qur'anic verse places the tree immediately after the casting forth, and the commentators note where it falls in the Biblical narrative without commenting on the difference."]),
+ ("The Verse in the Narrative", [
+  "The verse stands between the swallowing at v142 and the sending at v147. The commentators explain at v147 that having repented, Jonah was then sent back to Nineveh, whose people had also repented and now accepted Jonah.",
+  "The tree is therefore part of the restoration rather than of the punishment. The commentators do not gloss the sequence, but the narrative supplies it — the gourd covers him before he is sent back.",
+  "> **Cross-Reference:** Jonah 4:6–10 — the tree in the Biblical account, growing and withering miraculously; vv. 142–145 — the swallowing and the casting forth; v. 147 — the sending back to Nineveh.",
+  "> **Classical View (IK):** the gourd tree is beneficial for both the shade and the nourishment it provides; in the Book of Jonah the tree appears at the end of the story, growing and withering in a miraculous fashion."]),
+]),
 
 }
