@@ -229,7 +229,7 @@ echoed the verse strongly enough to pass `check_offtopic.py`.
 |---|---|---|
 | `007.md` | 100 | 0.099 (v162) |
 | `010.md` | 30 | 0.082 (v93) |
-| `017.md` | **12** | **0.088 (v38)** — was 34 / 0.114, see Group H |
+| `017.md` | **8** | **0.065 (v21)** — was 34 / 0.114, see Group H |
 | `014.md` | 16 | 0.078 (v46) |
 | `039.md` | 16 | 0.080 (v46) |
 | `025.md` | 15 | 0.092 (v32) |
@@ -843,6 +843,86 @@ both ways (fails on an injected orphan, passes on the clean corpus).
 
 ---
 
+## Group J — Inconsistent ḥadīth citation across files (OPEN)
+
+Found while clearing `017.md` v51. The section cited the two-fingers ḥadīth
+twice in eleven lines with two different Muslim numbers, one of which —
+**2940** — appears nowhere else in the corpus. Correcting it meant checking the
+ḥadīth against every other file that quotes it, and the result is that **one
+report is cited thirteen different ways across thirteen files**.
+
+The ḥadīth: *"I and the Hour have been sent like these two"* — the Prophet ﷺ
+joining his index and middle fingers.
+
+| File | Citation as written | Narrator given |
+|---|---|---|
+| `004.md:1930` | al-Tirmidhī 2338 | — |
+| `006.md:4493` | al-Bukhārī 6504; Muslim 2951 | — |
+| `016.md:5208` | al-Bukhārī 6504; Muslim 2951 | — |
+| `017.md:1960` | al-Bukhārī 6504; Muslim 2950 | — |
+| `017.md:1966` | Muslim **2940** → **corrected to 2951** | — |
+| `022.md:402` | al-Bukhārī 4936; Muslim 2950 | Sahl ibn Saʿd |
+| `025.md:2030` | al-Bukhārī **6505**; Muslim **867** | — |
+| `029.md:288` | al-Bukhārī 6504; Muslim **2683** | — |
+| `030.md:1444` | al-Bukhārī **6500, 6036** | — |
+| `047.md:1537` | al-Bukhārī 4936; Muslim 2950 | Sahl ibn Saʿd al-Sāʿidī |
+| `052.md:484` | al-Bukhārī **6503**; Muslim 2951 | Sahl ibn Saʿd |
+| `053.md:1925` | al-Bukhārī **6500** | — |
+| `054.md:128` | al-Bukhārī 4936, 6504; Muslim 2950–2951 | — |
+| `070.md:223` | al-Bukhārī 6504; Muslim 2950 | Sahl ibn Saʿd **and ʿĀʾishah** |
+| `079.md:3524` | al-Bukhārī 6504; Muslim 2950 | — |
+
+Distinct numbers in circulation: al-Bukhārī **4936, 6036, 6500, 6503, 6504,
+6505**; Muslim **867, 2683, 2950, 2951**; al-Tirmidhī **2338**.
+
+### What is and is not an error
+
+Not every variance is a defect. al-Bukhārī 4936 (Book of Afflictions) and 6504
+(Book of *Riqāq*) are two genuine placements of the same report, and Muslim 2950
+and 2951 are two genuine narrations from Sahl ibn Saʿd. A file citing 4936 and
+another citing 6504 can both be right.
+
+The outliers are the ones that need attention, in ascending order of confidence
+that they are wrong:
+
+- **`017.md` Muslim 2940 — corrected this pass.** No corpus support, and it
+  duplicated the role of 2950 cited eleven lines earlier. This was a typo.
+- **`025.md` Muslim 867 and al-Bukhārī 6505.** Muslim 867 is in the Book of
+  Mosques and does not carry this report; 6505 is outside the *Riqāq* range
+  where 6503–6504 sit.
+- **`029.md` Muslim 2683.** Pairs a correct al-Bukhārī number with a Muslim
+  number that belongs to a different report.
+- **`030.md` al-Bukhārī 6036 and `052.md` 6503, `053.md` 6500.** Plausible
+  near-misses on 6504; not verifiable from the corpus alone.
+
+### Why this is recorded rather than fixed
+
+Resolving it requires deciding which pairing is authoritative, and the standing
+constraint on this work is that content comes from `initial/` and `translation/`
+only, with no external databases. `initial/017.md:297` attributes the report to
+**Ṭ (al-Ṭabarī)** and gives no collection number at all, so the ground-truth
+sources do not settle the question. Harmonising thirteen files to a plurality
+count would be a guess dressed as a correction.
+
+The plurality, for the record, is **al-Bukhārī 6504** (7 of 15 instances) with
+**Muslim 2950** (5) and **2951** (4) close behind. If a decision is taken, that
+pairing plus a narrator — Sahl ibn Saʿd, who is named in four files — is the
+form the corpus already leans toward.
+
+One error of the same class *was* fixed this pass because it was decidable from
+the corpus alone: `017.md` v35's lead-in attributed the merchant ḥadīth to
+al-Bukhārī 2079, while seven files cite it consistently as al-Tirmidhī 1209 and
+two others show 2079 to be a different report entirely (the option to revoke a
+transaction). Where the corpus is unanimous, it settles the question; where it
+is merely varied, it does not.
+
+**Status: OPEN — needs a decision.** No gate covers it: `validate.py` checks
+structure, not citation identity. A checker that flags the same quotation text
+appearing under different collection numbers would find this class
+mechanically, and would be worth adding before any further ḥadīth-heavy work.
+
+---
+
 ## What is already complete
 
 | File | Status |
@@ -868,7 +948,7 @@ both ways (fails on an injected orphan, passes on the clean corpus).
 | Degenerate prose, severe band | `007.md` 10 sections >= 0.100 duprate -> 0, rebuilt from `initial/007.md` |
 | Malformed bold mini-headings | `017.md` 111 `****Heading****` -> **0**; `validate.py` gates `^\*{4,}` — see Group H1 |
 | Redundant inserted blocks, severe band | `017.md` 5 sections >= 0.09 duprate -> **0**; depth rebuilt where the apparatus supported it — see Group H2/H3 |
-| Redundant inserted blocks, moderate band | `017.md` 29 -> **12** sections over the gate (17 cleared, worst 0.114 -> 0.088); 759 w floor withdrawn as an artifact — see Group H5b/H5c |
+| Redundant inserted blocks, moderate band | `017.md` 29 -> **8** sections over the gate (21 cleared, worst 0.114 -> 0.065); 759 w floor withdrawn as an artifact — see Group H5b/H5c |
 | Automated sentence-trimming | **tried and rejected** — cleared the gate for 26/28 sections but stranded mid-sentence antecedents; reverted and deleted — see Group H5a |
 | Mis-citation in a removed block | `017.md` v34's block attributed 4:10's text to 4:2; the section itself was correct and the error was not carried into the fold |
 | Conflicting ḥadīth citation | `017.md` v44 cited Abū Dāwūd 2550 and 2877 for one ḥadīth -> aligned to the corpus consensus, Muslim 1955 — see Group H4 |
@@ -909,10 +989,10 @@ both ways (fails on an injected orphan, passes on the clean corpus).
    > times in 1,118 words, which only a rewrite fixes; `017.md`'s was a
    > duplicated block, which an excision fixes.
 
-2. **Group H5 — the 12 remaining blocks in `017.md`.** Worst is v38 (0.088);
-   the rest are v19, v21, v24, v25, v26, v33, v35, v39, v51, v54, v75. 17
-   sections were cleared this pass, taking the file from 34 over the gate to 12
-   and its worst from 0.114 to 0.088.
+2. **Group H5 — the 8 remaining blocks in `017.md`.** Worst is v21 (0.065);
+   the rest are v19, v24, v25, v26, v33, v54, v75. 21 sections have been
+   cleared, taking the file from 34 over the gate to 8 and its worst from 0.114
+   to 0.065.
 
    Treatment is **remove, fold, and rebuild only where the apparatus supports
    it** — never automated sentence-trimming (H5a, tried and rejected) and never
@@ -944,5 +1024,18 @@ both ways (fails on an injected orphan, passes on the clean corpus).
    400-word line. Re-measured this pass, both figures hold. Monitor rather than
    treat as complete.
 
-6. **Groups D, E, F** — no action; recorded so they are not re-investigated.
+6. **Group J — inconsistent ḥadīth citation. Needs a decision, not more
+   analysis.** One report is cited thirteen ways across thirteen files, with six
+   distinct al-Bukhārī numbers and four distinct Muslim numbers. The evidence
+   table is in Group J. Two errors of the class were fixed where the corpus was
+   unanimous (`017.md` v35's al-Bukhārī 2079 for al-Tirmidhī 1209; v51's Muslim
+   2940 for 2951). The rest cannot be settled from `initial/` and `translation/`
+   alone, which attribute the report to al-Ṭabarī with no number. The plurality
+   is al-Bukhārī 6504 with Muslim 2950/2951 from Sahl ibn Saʿd. Harmonising to
+   a plurality would be a guess dressed as a correction, so this waits on a
+   decision. Adding a gate that flags identical quotation text under differing
+   collection numbers would find the class mechanically and is worth doing
+   before any further ḥadīth-heavy work.
+
+7. **Groups D, E, F** — no action; recorded so they are not re-investigated.
    **Groups G, H1–H4, I** — closed this pass.
