@@ -33,9 +33,12 @@ tool is deliberately narrower: it only touches sentences that are already
 incoherent.
 
 Usage:
-    repair_degen.py --dry-run [--verse N ...]
-    repair_degen.py --apply   [--verse N ...]
-    repair_degen.py --show N                   # full before/after for a section
+    repair_degen.py [--sura N] --dry-run [verse ...]
+    repair_degen.py [--sura N] --apply   [verse ...]
+    repair_degen.py [--sura N] --show N        # full before/after for a section
+
+--sura defaults to 7. The classifier and the loop templates are not specific
+to 007.md; they match the nominalisation defect wherever it appears.
 """
 import collections
 import re
@@ -44,7 +47,10 @@ import sys
 sys.path.insert(0, __file__.rsplit('/', 1)[0])
 from check_degeneracy import sections, degen_score  # noqa: E402
 
-TARGET = 'expanded/007.md'
+# Default target; override with --sura N. The tool was written against
+# 007.md but the defect is corpus-wide, so the sura is a parameter.
+DEFAULT_SURAH = 7
+TARGET = f'expanded/{DEFAULT_SURAH:03d}.md'
 
 # (a) frame-then-kernel: strip everything up to and including the first colon
 FRAME_KERNEL = [
@@ -234,6 +240,13 @@ def main():
     args = sys.argv[1:]
     apply_ = '--apply' in args
     show = '--show' in args
+
+    global TARGET
+    if '--sura' in args:
+        i = args.index('--sura')
+        TARGET = f'expanded/{int(args[i + 1]):03d}.md'
+        del args[i:i + 2]
+
     verses = [int(a) for a in args if a.isdigit()]
 
     secs = sections(TARGET)
