@@ -32,6 +32,15 @@ is left to introduce the Arabic instead:
     after:   ...rejected the truth: *wa'lladhīna kafarū lahum sharābun min
               ḥamīmin...*. The Arabic term *ḥamīm* refers to...
 
+A second, mirrored form occurs in most other files and is handled the same
+way -- keep the Arabic, drop the duplicated English gloss that follows it:
+
+    before:  *Quli Allāhumma fāṭira ... yakhtalifūn* — "Say: O God!
+              Originator of the heavens and the earth, ... they differ."
+              *Fāṭir* is from *faṭara*, to split...
+    after:   *Quli Allāhumma fāṭira ... yakhtalifūn*. *Fāṭir* is from
+              *faṭara*, to split...
+
 Nothing else in the section is touched. Only constructs whose English overlaps
 the section's own translation by at least MIN_OVERLAP characters are
 candidates, so a genuine cross-reference quotation (which quotes some *other*
@@ -62,6 +71,8 @@ MIN_WORDS = 400
 
 # *"<English>"* (*<Arabic>*)  -- the construct to dismantle
 CONSTRUCT = re.compile(r'\*["“](.+?)["”]\*\s*\(\*(.+?)\*\)', re.S)
+# *<Arabic>* — "<English>"  -- the mirror form (039.md, 014.md, 011.md ...)
+ARABIC_FIRST = re.compile(r'\*([^*"“”]+)\*\s*[\u2014\u2013-]\s*["“](.+?)["”]', re.S)
 # a quote with no Arabic after it
 LONE_QUOTE = re.compile(r'\*["“](.+?)["”]\*', re.S)
 WS = re.compile(r'\s+')
@@ -101,21 +112,36 @@ def transform(body, translation, verbose=False):
         if ln.lstrip().startswith('>'):
             out.append(ln)          # the translation line is never touched
             continue
-        res, pos = '', 0
+        # Both forms are matched in one pass over the line by position, so a
+        # line carrying each is handled correctly.
+        cands = []
         for m in CONSTRUCT.finditer(ln):
             eng, ar = m.group(1), m.group(2)
-            if longest_common_run(squash(eng), tr) < MIN_OVERLAP:
-                continue            # quotes some other verse; leave it alone
-            lead = ln[pos:m.start()]
-            before = (res + lead).rstrip()
-            nxt = ln[m.end():m.end() + 1]
-            if before.endswith((':', ';', ',', '\u2014', '-')):
-                # the colon that introduced the English now introduces the Arabic
-                rep = f'*{ar}*'
+            if longest_common_run(squash(eng), tr) >= MIN_OVERLAP:
+                cands.append((m.start(), m.end(), ar, eng, 'eng-first'))
+        for m in ARABIC_FIRST.finditer(ln):
+            ar, eng = m.group(1), m.group(2)
+            if longest_common_run(squash(eng), tr) >= MIN_OVERLAP:
+                cands.append((m.start(), m.end(), ar, eng, 'ar-first'))
+        cands.sort()
+        res, pos = '', 0
+        for st, en, ar, eng, kind in cands:
+            if st < pos:
+                continue            # overlapping match; already consumed
+            lead = ln[pos:st]
+            if kind == 'ar-first':
+                # keep the Arabic, drop the duplicated English gloss after it
+                rep = f'*{ar.strip()}*'
             else:
-                rep = f' The Arabic reads *{ar}*' + ('' if nxt == '.' else '.')
+                before = (res + lead).rstrip()
+                nxt = ln[en:en + 1]
+                if before.endswith((':', ';', ',', '\u2014', '-')):
+                    # the colon that introduced the English now introduces the Arabic
+                    rep = f'*{ar}*'
+                else:
+                    rep = f' The Arabic reads *{ar}*' + ('' if nxt == '.' else '.')
             res += lead + rep
-            pos = m.end()
+            pos = en
             edits += 1
             if verbose:
                 samples.append((lead[-70:], eng[:70], ar[:70]))
@@ -206,7 +232,14 @@ def main():
         new_whole, nw, _ = transform(d['whole'], d['translation'])
         after = census.duprate(new_whole)[0]
         wafter = len(re.findall(r"[\w'’\-]+", new_body))
-        if wafter < MIN_WORDS:
+        # The floor is a guard against pushing a healthy section into a depth
+        # defect, not a reason to leave verbatim duplication in an already-thin
+        # one. 039.md's sections average 387w (42 of 75 already under 400)
+        # against 001.md's 1942w, so an absolute floor would refuse to fix
+        # precisely the file that most needs it. Removing the English gloss of
+        # an Arabic line that stays costs words but no information: the reader
+        # still has the > **translation** line above and the Arabic in place.
+        if wbefore >= MIN_WORDS > wafter:
             thin += 1
         if after >= before:
             nohelp += 1
@@ -227,7 +260,7 @@ def main():
     print(f'edited                      : {fixed}')
     print(f'cleared the gate            : {cleared}')
     print(f'no improvement, skipped     : {nohelp}')
-    print(f'body under {MIN_WORDS}w after    : {thin}')
+    print(f'pushed under {MIN_WORDS}w by the edit : {thin}')
 
     if apply_:
         lines = open(path, encoding='utf-8').read().replace('\r\n', '\n').split('\n')

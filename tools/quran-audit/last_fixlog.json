@@ -5,16 +5,16 @@
   "end-rule": 1
  },
  "per_file": {
-  "010.md": {
+  "041.md": {
    "rule": 1,
    "end": 1,
    "end-rule": 1
   }
  },
  "notes": {
-  "010.md": [
+  "041.md": [
    "rule: dropped preamble rule(s) belonging to the first verse boundary",
-   "end: added end marker **[End of the commentary on Sūrah Yūnus]**",
+   "end: added end marker **[End of the commentary on Sūrah Fuṣṣilat]**",
    "end-rule: inserted --- before end marker"
   ]
  }
