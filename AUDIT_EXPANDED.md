@@ -76,6 +76,7 @@ substitution and none was altered.
 | Degenerate prose, severe band | `007.md`, 10 sections | **0 remaining** — rebuilt from `initial/007.md` |
 | Malformed bold mini-headings | `017.md`, 111 headings | **0 remaining** — `****H****` normalised to `**H**`; gate hardened |
 | Redundant inserted blocks, severe band | `017.md`, 5 sections | **0 remaining** — excised on per-section evidence, depth rebuilt |
+| Redundant inserted blocks, moderate band | `017.md`, 29 sections | **0 remaining** — all 111 blocks resolved; file off the duplication census, worst now 0.013 |
 | Conflicting ḥadīth citation | `017.md` v44 | **resolved** — aligned to the corpus consensus (Muslim 1955) |
 | Orphan connector lines | 3 files, 4 lines | **0 remaining** — bare `and` stranded between blockquotes; gate hardened |
 
@@ -244,10 +245,14 @@ across **24,771** words. It needs depth rebuilt from `initial/074.md`.
 > the H2 heading line gives min 382 / median 422, still not 392 / 436), so they were taken
 > against an earlier state of the file. The numbers above are what `074.md` measures now.
 
-**`017.md` — 29 sections still over the duplication gate.** Worst is v45 (0.089).
-These are **not** degenerate prose and must not be rebuilt from scratch: each carries an
-inserted block that restates part of its own section while also adding material, and the 29
-blocks together hold 11,577 words including 1,129 content words found nowhere else in their
+**`017.md` — CLOSED: 0 sections over the duplication gate.** The file no longer appears in
+the census; its worst section is now 0.013 (v100), against 0.114 when the pass began. All
+29 remaining blocks were resolved by remove-and-test, with 9 folds, 2 rebuilds on apparatus
+the sections had never used (v54, v75) and the rest needing nothing. The diagnosis below is
+retained because it is what made the treatment correct: these were **not** degenerate prose
+and must not be rebuilt from scratch — each carried an
+inserted block that restated part of its own section while also adding material, and the 29
+blocks together held 11,577 words including 1,129 content words found nowhere else in their
 sections. Treatment is trim and fold. Full method, evidence and bucketed worklist:
 `REMAINING_ISSUES.md` Group H5.
 
@@ -314,8 +319,9 @@ python3 tools/quran-audit/fix_017_blocks.py /tmp/017.bak [--dry-run] <verse...>
 `017.md` blocks from a **pre-fix copy** (`/tmp/017.bak`), because the blocks were
 identified by their malformed `****` markers and `fix_headings.py` preserves line
 counts, so the copy's relative offsets stay valid against the current file. That
-copy is a working artifact, not committed; regenerate it from history with
-`git show <sha>:expanded/017.md > /tmp/017.bak` using a revision that still
+copy is a working artifact, not committed — `/tmp` does not survive a sandbox reset, and
+this one was lost and regenerated mid-pass. Regenerate it with
+`git show 6eb8b1f:expanded/017.md > /tmp/017.bak` — the base commit, which still
 carries the `****` markers. Position-based identification is the only reliable
 method — locating a block by "the Nth heading in the section" picks the wrong
 one.

@@ -49,6 +49,8 @@ check_scaffolding.py   114 files, 0 genuine hits
 test_skeleton.py       18/18 checks passed (NEW this pass)
 normalize.py           files written: 0 on the whole corpus (idempotent)
 fix_orphan_connectors.py  0 orphan connectors remaining (NEW this pass)
+census.py              235 sections >= 0.030 duprate in 22 files, ZERO >= 0.100
+                       017.md no longer appears; worst section there is 0.013
 ```
 
 Repro from the repo root:
@@ -63,7 +65,11 @@ python3 tools/quran-audit/census.py              # depth + duplication census
 python3 tools/quran-audit/fix_separators.py --dry-run
 python3 tools/quran-audit/fix_headings.py     --dry-run
 python3 tools/quran-audit/fix_orphan_connectors.py        # Group I scan
-python3 tools/quran-audit/block017.py /tmp/017.bak --list # Group H block locator
+# Group H block locator. The pre-fix copy is NOT in the repo -- /tmp does not
+# survive a sandbox reset, so regenerate it from the base commit first:
+git show 6eb8b1f:expanded/017.md > /tmp/017.bak
+python3 tools/quran-audit/block017.py /tmp/017.bak --list   # all 111 blocks
+python3 tools/quran-audit/fix_017_blocks.py /tmp/017.bak --dry-run <v> [<v> ...]
 python3 tools/quran-audit/novel_sentences.py --all        # Group H novelty report
 ```
 
@@ -157,7 +163,7 @@ sections have source apparatus to build from.
 
 ---
 
-## Group B — Repetitive prose (264 sections; 15 fixed across two passes)
+## Group B — Repetitive prose (235 sections; `017.md` fully cleared)
 
 **Method, stated so the number is checkable.** Per section, tokenise the whole
 section (heading through body, lowercased), form 10-grams, and take the fraction
@@ -229,7 +235,7 @@ echoed the verse strongly enough to pass `check_offtopic.py`.
 |---|---|---|
 | `007.md` | 100 | 0.099 (v162) |
 | `010.md` | 30 | 0.082 (v93) |
-| `017.md` | **8** | **0.065 (v21)** — was 34 / 0.114, see Group H |
+| `017.md` | **0** | **CLEARED** — was 34 / 0.114; worst now 0.013 (v100). See Group H |
 | `014.md` | 16 | 0.078 (v46) |
 | `039.md` | 16 | 0.080 (v46) |
 | `025.md` | 15 | 0.092 (v32) |
@@ -251,9 +257,9 @@ Next targets by severity: `007.md` v162 (0.099), `007.md` v25 (0.098),
 `025.md` v32 (0.093). `007.md` holds seven of the eight worst sections and is
 now the file to work on; `017.md`'s severe band is closed (Group H).
 
-> **What the remaining 264 are, and are not.** The ten `007.md` sections
+> **What the remaining 235 are, and are not.** The ten `007.md` sections
 > cleared earlier were *degenerate output* — a 10-gram recurring ten times in
-> 1,118 words. The 264 that remain are a different thing: prose with a
+> 1,118 words. The 235 that remain are a different thing: prose with a
 > repetitive register, or (in `017.md`'s case) an inserted block that restates
 > part of its own section while also adding material. Treating them as
 > degenerate and rebuilding from scratch would destroy recoverable scholarship.
@@ -553,7 +559,7 @@ have mutated the shipped corpus during its own run.
 
 ---
 
-## Group H — Inserted blocks in `017.md` (111; headings CLOSED, severe band CLOSED)
+## Group H — Inserted blocks in `017.md` (111) — **CLOSED**
 
 `017.md` is not like the other files. Every one of its 111 sections carries
 exactly one block that a **different generator** spliced in after the rest of
@@ -655,7 +661,7 @@ consensus, so removing the block loses no attribution.
 > no internal source to arbitrate the numbering, so the corpus's own consistent
 > attribution is the available evidence.
 
-### H5 — The remaining 29 blocks: **do not bulk-delete**
+### H5 — The remaining 29 blocks: **do not bulk-delete** — **CLOSED (29/29)**
 
 The 29 sections still over the gate are **not** degenerate prose. Measured:
 
@@ -784,11 +790,28 @@ Applied, and the two cases that prompted the rule:
 the variance is visible and deliberate rather than overlooked — they are not
 defects and are not queued for work.
 
-**Status: OPEN.** Severe band closed; 17 sections cleared (v45, v37, v40, v28,
-v30, v31, v32, v34, v36, v41, v46, v48, v49, v50, v53, v55, v29); **12 remain**
-— v19, v21, v24, v25, v26, v33, v35, v38, v39, v51, v54, v75 — worst 0.088
-(v38). Each still needs its substance tested by direct search before removal,
-since the marker comparison produces false positives (H5b).
+**Status: CLOSED — all 29 cleared.**
+
+| Batch | Sections | Note |
+|---|---|---|
+| severe band | v42, v43, v44, v52, v56 | H2/H3; v43 and v56 rebuilt on apparatus |
+| template | v45 | worked end to end, H5b |
+| fully redundant | v28, v30, v31, v36, v41, v46, v48, v49 | batch removal; v48 and v49 then rebuilt (H3) |
+| pure removal | v29, v32, v37, v40, v53, v55 | substance already in the section |
+| folded | v34 (4:10), v50 (52:35–36), v35 (*mīzān*), v51 (63:11), v33 (al-Basūs), v21 (*ghibṭah*), v24 (*istiʿārah*), v19 (Ibn ʿAbbās ḥadīth), v25 (*istiqāmah*) | citation verified before each fold |
+| restated own section | v38, v39, v26 | v38 rebuilt on the two-scope point; v39's ḥadīth citation moved to v22 |
+| rebuilt | v54, v75 | unused apparatus: the mercy/punishment formula cluster; the Thaqīf occasion |
+
+`017.md` no longer appears in the duplication census. Its worst section is now
+**v100 at 0.013**. Depth after all removals and rebuilds, per `census.py`:
+**111 sections, min 552 w, median 969 w, max 1,934 w, 108,777 w**, with 0
+sections under 260 w and 0 under 400 w.
+
+Three citation errors were caught by verifying citations against the corpus
+rather than trusting them, and are recorded where they belong: `017.md` v34's
+block attributed 4:10's text to 4:2 (H5b); v35's lead-in attributed al-Tirmidhī
+1209 to al-Bukhārī 2079; v51 cited a nonexistent Muslim 2940. The last is one
+instance of the class in Group J.
 
 ### H6 — Block identification is position-based, and why that matters
 
@@ -948,7 +971,7 @@ mechanically, and would be worth adding before any further ḥadīth-heavy work.
 | Degenerate prose, severe band | `007.md` 10 sections >= 0.100 duprate -> 0, rebuilt from `initial/007.md` |
 | Malformed bold mini-headings | `017.md` 111 `****Heading****` -> **0**; `validate.py` gates `^\*{4,}` — see Group H1 |
 | Redundant inserted blocks, severe band | `017.md` 5 sections >= 0.09 duprate -> **0**; depth rebuilt where the apparatus supported it — see Group H2/H3 |
-| Redundant inserted blocks, moderate band | `017.md` 29 -> **8** sections over the gate (21 cleared, worst 0.114 -> 0.065); 759 w floor withdrawn as an artifact — see Group H5b/H5c |
+| Redundant inserted blocks, moderate band | `017.md` 29 -> **0**; all 111 blocks resolved and the file is off the duplication census (worst now 0.013); 759 w floor withdrawn as an artifact — see Group H5b/H5c/H5 |
 | Automated sentence-trimming | **tried and rejected** — cleared the gate for 26/28 sections but stranded mid-sentence antecedents; reverted and deleted — see Group H5a |
 | Mis-citation in a removed block | `017.md` v34's block attributed 4:10's text to 4:2; the section itself was correct and the error was not carried into the fold |
 | Conflicting ḥadīth citation | `017.md` v44 cited Abū Dāwūd 2550 and 2877 for one ḥadīth -> aligned to the corpus consensus, Muslim 1955 — see Group H4 |
@@ -989,10 +1012,20 @@ mechanically, and would be worth adding before any further ḥadīth-heavy work.
    > times in 1,118 words, which only a rewrite fixes; `017.md`'s was a
    > duplicated block, which an excision fixes.
 
-2. **Group H5 — the 8 remaining blocks in `017.md`.** Worst is v21 (0.065);
-   the rest are v19, v24, v25, v26, v33, v54, v75. 21 sections have been
-   cleared, taking the file from 34 over the gate to 8 and its worst from 0.114
-   to 0.065.
+2. **Group H5 — CLOSED.** All 111 inserted blocks in `017.md` are resolved and
+   the file no longer appears in the duplication census; its worst section is
+   now 0.013 (v100), against 0.114 when the pass began. The batch table and the
+   final depth figures are in Group H5. No further work is queued here.
+
+   The method that closed it is the part worth carrying forward, because it is
+   what the rejected automation got wrong: **remove the block, then test what
+   the section actually lost by searching it directly for the substantive
+   term** — not by comparing marker sets, which reported unique content in v26,
+   v32, v53 and v55 that was plainly present. Nine sections needed a fold, two
+   needed a rebuild on apparatus the section had never used (v54, v75), and the
+   rest needed nothing. Every citation was checked against `extract_source.py`
+   or against the corpus before it was written, which is how three citation
+   errors surfaced — one of them a nonexistent ḥadīth number.
 
    Treatment is **remove, fold, and rebuild only where the apparatus supports
    it** — never automated sentence-trimming (H5a, tried and rejected) and never
