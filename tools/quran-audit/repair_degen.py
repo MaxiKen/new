@@ -75,8 +75,28 @@ LOOP = [
     r'the earth is the earth that God has established',
     r'is the request that is the asking of',
     r'the two forms are the two forms of the same act',
+    # generalised tautology: "is the N that is the N", "are the N who are in the
+    # state of", "is the N who is in the one who is". These are the dominant
+    # shape in 007.md and are contentless by construction.
+    r'\bis the (\w+) that is the \1\b',
+    r'\bare the (\w+) that are the \1\b',
+    r'\bis the (\w+) who is in the one who is\b',
+    r'\bare the (\w+) who are in the state of\b',
+    r'\bis the (\w+) that is in the form of the\b',
+    r'\band the \w+ is the \w+ that is\b',
 ]
 RE_LOOP = [re.compile(p, re.I) for p in LOOP]
+
+# Trailing tautology clause. Many sentences are half informative and half loop:
+# "...is the statement that is the casting of themselves upon the mercy of God,
+# rather than offering the excuses, and the casting of themselves upon the mercy
+# of God is the casting that is the contrition." Deleting the whole sentence
+# loses the first half; deleting nothing keeps the loop. So strip only the
+# trailing clause, and only when it is strictly tautological and what remains is
+# still a sentence worth having.
+TAUT_CLAUSE = re.compile(
+    r',\s*and (?:the|this|that|these|those) (?P<n>\w+)[^.]{0,120}?'
+    r'\bis the (?P=n) that is\b[^.]*\.?\s*$', re.I)
 
 # (c) framed opener carrying a quotation
 FRAME_OPENER = re.compile(
@@ -92,7 +112,12 @@ SCHOLARS = re.compile(r'(al-Ṭabarī|al-Rāzī|al-Qurṭubī|Ibn Kathīr|al-Zam
                       r'al-Ḥasan|Ibn Masʿūd|al-Suddī|al-Baghawī|Exodus|'
                       r'Gospel|Torah|Psalms)', re.I)
 
-SENT = re.compile(r'(?<=[.!?])\s+(?=[A-Z*">])')
+# Sentence boundary. The optional closing punctuation after [.!?] matters:
+# 007.md's prose ends quotations with the period inside the quote marks, so a
+# naive (?<=[.!?])\s+ never splits at '"...their own hands." The logic of...'
+# and whole trailing loops survive as part of the preceding sentence.
+SENT = re.compile(r'(?:(?<=[.!?])|(?<=[.!?]["\'”’)\*])|(?<=[.!?]["\'”’)\*]{2}))'
+                  r'\s+(?=[A-Z*">])')
 WORDS = re.compile(r"[\w'’\-]+")
 
 
@@ -172,6 +197,14 @@ def repair_sentence(s, depth=0, trans=''):
     if any(rx.search(t) for rx in RE_LOOP):
         if not (HAS_QUOTE.search(t) or HAS_CITE.search(t) or SCHOLARS.search(t)):
             return '', 'delete'
+        # The sentence is looped but carries something worth keeping -- a quote,
+        # a citation or a scholar. Try to save it by pruning the tautological
+        # tail instead of dropping the whole sentence.
+        pruned = TAUT_CLAUSE.sub('.', t)
+        if pruned != t and len(WORDS.findall(pruned)) >= 12:
+            inner = dethe(pruned.strip())
+            if not any(rx.search(inner) for rx in RE_LOOP):
+                return inner, 'prune'
 
     return s, 'keep'
 
