@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-11
 **Branch:** `arena/01a08c61-new`
-**Scope:** 114 files, 6,229 sections, 6,292,058 words in `expanded/`
+**Scope:** 114 files, 6,236 sections, 6,316,569 words in `expanded/`
 **Reference file:** `expanded/001.md` — confirmed correct by the user, never modified.
 
 Every figure below was produced by running the named tool or script against the
@@ -16,7 +16,7 @@ could not be established, it is marked **unbounded** and the reason is given.
 ```
 validate.py            PASSED 114/114, FAILED 0
 check_translations.py  6,235 checked, 0 missing translation lines, 7 flagged
-check_offtopic.py      114 files, 5,551 sections examined, 4 flagged
+check_offtopic.py      114 files, 5,544 sections examined, 4 flagged
 check_scaffolding.py   114 files, 0 genuine hits
 ```
 
@@ -37,14 +37,14 @@ Six files sit below a 400-word median section. Measured ranges:
 
 | File | Sections | Min | Median | Max | Words | <260 w | <400 w |
 |---|---|---|---|---|---|---|---|
-| `037.md` | 182 | 139 | 245 | 899 | 48,835 | 105 | 160 |
-| `026.md` | 227 | 65 | 258 | 874 | 70,109 | 117 | 149 |
+| `037.md` | 182 | 166 | 309 | 899 | 59,527 | 61 | 143 |
+| `026.md` | 227 | 65 | 258 | 874 | 70,034 | 117 | 149 |
 | `069.md` | 52 | 245 | 323 | 415 | 17,329 | 2 | 49 |
 | `075.md` | 40 | 287 | 360 | 909 | 15,504 | 0 | 28 |
 | `073.md` | 20 | 302 | 370 | 1,240 | 8,387 | 0 | 13 |
 | `067.md` | 30 | 318 | 392 | 571 | 12,228 | 0 | 16 |
 
-Corpus-wide: **226 sections under 260 w** and **507 under 400 w**, of 6,229 measured.
+Corpus-wide: **182 sections under 260 w** and **490 under 400 w**, of 6,236 measured.
 
 For comparison, the completed files sit far higher: `021.md` median 1,037 w,
 `040.md` 937 w, `011.md` 914 w, `007.md` 730 w, `036.md` 516 w, `074.md` 436 w.
@@ -256,20 +256,93 @@ flags from 11 to 45 and created false positives in previously-clean files
 
 ---
 
-## Group E — Verified benign (7, no action required)
+## Group E — Translation lines: 16 real defects found and fixed
 
-Translation-line flags from `check_translations.py`. Each was compared side by side
-against both `initial/` and `translation/` and confirmed to be a register variant,
-not a wrong-verse substitution:
+This group was previously recorded as **7 benign flags, no action required**. That
+conclusion was **wrong** and is retracted. It rested on `check_translations.py`,
+whose overlap coefficient uses `min(|A|,|B|)` as the denominator — which lets a
+*different* verse pass whenever the own-verse text is short. `037.md` v156 scored
+0.75 against text belonging to `11:96`.
 
-| Section | Score vs `initial/` | Expanded wording | Source wording |
-|---|---|---|---|
-| `010.md` v91 | 0.36 | "Now? When thou didst disobey before…" | "Now, though previously you disobeyed…" |
-| `050.md` v25 | 0.40 | "Hindering the good, a transgressor, full of doubt" | "every hinderer of good, every transgressor, every doubter" |
-| `068.md` v3 | 0.20 | "a reward never cut off" | "a reward unceasing" |
-| `068.md` v10 | 0.33 | "habitual swearer, contemptible in character" | (variant phrasing) |
-| `068.md` v13, v25 | — | register variants | |
-| `094.md` v7 | — | register variant | |
+### E1 — The method that works
+
+A low score is not evidence of a defect, and a high score is not evidence of
+correctness. Two separate tests are needed:
+
+1. **Own-verse match** — normalise, take tokens of length ≥2, Jaccard against
+   *both* `initial/` and `translation/` for that verse. Below 0.90 → read it.
+   (Tokens ≥2, not >3: a `len(w)>3` filter empties the token set on short verses
+   like `Yā. Sīn.` and scores 0.00 on an exact match. That artifact manufactured
+   ~64 false flags and was rejected.)
+2. **Exact-match to a different verse** — build a normalised-string index of the
+   whole corpus; a line that is verbatim another verse is a definite substitution.
+
+Neither threshold alone is sufficient. The control that exposed this:
+**`001.md`, the user-confirmed reference, itself scores 0.67 and 0.76 at v5 and
+v7**, because it blends both sources ("You alone we worship, and from You alone
+we seek help"). Legitimate hybrids exist, so every survivor must be *read*.
+
+### E2 — Corpus-wide result
+
+| Test | Result |
+|---|---|
+| Exact match to a different verse | **0 genuine** (2 hits, both benign) |
+| Lines below 0.90 against both own-verse sources | 609, of which the great majority are paraphrase register |
+| Files whose *median* is below 0.90 | 12 — see E4 |
+
+The 2 exact-match hits are not defects: `026:67` differs from its own verse only
+by *but*/*though* (and matches the sūrah's repeated refrain at 26:8/103/121), and
+`055:63` differs only by a trailing em-dash.
+
+### E3 — The 16 lines corrected
+
+All replaced from `initial/` via `fix_translation.py` (dry-run first) and verified
+at own-verse match **1.00**. Re-verified intact after five branch resets.
+
+| Section | Was carrying | Should read |
+|---|---|---|
+| `011.md` v13 | `11:35` | own verse |
+| `037.md` v95 | `21:66` | own verse |
+| `037.md` v130 | `19:15` | own verse |
+| `037.md` v156 | `11:96` | own verse |
+| `037.md` v117 | `2:53` ("Scripture and the Criterion") | "the Book that makes clear" |
+| `037.md` v167 | cf. `26:153` ("one of those possessed") | "Indeed, they used to say" |
+| `037.md` v114 | favour given *through* them to another | "We were gracious unto Moses and Aaron" |
+| `037.md` v118 | purpose clause, 2nd person | past tense, dual: "guided the two of them" |
+| `037.md` v175 | "a covenant… a clear proof" (unrelated) | "and observe them; for they will soon observe" |
+| `037.md` v149 | dropped "your Lord" — the point of the challenge | "does your Lord have daughters" |
+| `037.md` v165 | third person ("among them are those") | first person ("truly we are those") |
+| `037.md` v146 | run-on with v145's text glued on | "We caused a gourd tree to grow over him" |
+| `026.md` v150, v172, v205, v210 | following verses glued on | own verse only |
+
+### E4 — Bodies had to be rebuilt, not just the lines
+
+**Correcting a translation line without rebuilding its body creates a fresh
+misalignment**, because the body had been written to describe the wrong verse.
+`check_offtopic.py` does **not** catch this class. Twelve bodies were rebuilt from
+the source apparatus: `037.md` vv 95, 130, 156, 117, 165, 167, 114, 118, 175, 149,
+49, plus v179 (whose line was correct but whose body described Isaac and Jacob).
+
+`037.md` v49 is a distinct sub-class: its body glossed the verse as
+*ka-annahunna al-yāqūt wa-l-marjān* and explained *yāqūt* as rubies and *marjān*
+as coral. That is the imagery of **55:58**, not `37:49`, whose apparatus concerns
+*bayḍ* (eggs) and its relation to whiteness. The invented transliteration is gone;
+no `yāqūt`/`marjān` remains in the file.
+
+### E5 — The 12 paraphrase-register files
+
+These sit below a 0.90 median **file-wide**, so the deviation is a consistent
+editorial register rather than corruption. Sampling confirmed each says the right
+thing for the right verse (`108:3` "it is your hater who is cut off" for "thine
+enemy shall be the one without posterity"; `004:128` "fears from her husband
+ill-treatment or aversion" for "fears animosity or desertion").
+
+`108.md` `094.md` `087.md` `068.md` `040.md` `048.md` `073.md` `102.md` `010.md`
+`071.md` `050.md` `016.md`
+
+**Left in place.** Normalising them to `initial/` would be a stylistic
+unification across ~1,100 sections, not a correctness fix, and it would move them
+away from the register `001.md` itself uses.
 
 ---
 
