@@ -664,12 +664,15 @@ vocabulary; `v48` 44%; `v25` 46%; `v21` 45%. Deleting these blocks would
 destroy recoverable scholarship and drop several sections below the depth
 floor.
 
-The correct treatment is **trim, then fold**: remove the block, and carry its
-genuinely novel sentences into the heading they belong under.
+The correct treatment is **remove, fold, and rebuild**: excise the block, carry
+its genuinely novel content into the heading it belongs under, and author
+replacement depth from `initial/017.md`'s apparatus. v45 is worked end to end as
+the template.
 
 ```
 python3 tools/quran-audit/novel_sentences.py --all --min 0.25
 python3 tools/quran-audit/novel_sentences.py 45 --min 0.0   # one section, all sentences
+python3 tools/quran-audit/fix_017_blocks.py /tmp/017.bak --dry-run <verse>
 ```
 
 `novel_sentences.py` scores every sentence of a block by the fraction of its
@@ -685,17 +688,67 @@ so the handful worth keeping can be read rather than guessed.
 > **complaint**: they know they are not receiving, and they **prefer** it that
 > way." Only sentence-level inspection surfaces it.
 
-Worklist, by how much of the block survives a trim:
+### H5a — Automated sentence-trimming was tried and **REJECTED**
 
-| Bucket | Sections | Treatment |
+Because the blocks mix restatement with original material, the obvious
+automation is to score each sentence and delete the redundant ones in place,
+keeping the novel ones. It was built and measured. **It clears the gate and
+destroys the prose.**
+
+Measured first, and the numbers looked good: sentence-level excision clears the
+0.030 gate for **26 of the 28** sections, and holds the median section at
+**854 w** against 743 w for wholesale block removal, with 6 sections below the
+floor instead of 17. Applied to 12 sections, all 12 cleared.
+
+Then the results were read. Three examples:
+
+| Verse | Surviving text after the trim | Defect |
 |---|---|---|
-| 0 sentences ≥0.25 novelty | v37 | remove block outright; nothing to fold |
-| 1–2 | v38, v40, v26, v32, v33, v35 | remove; fold at most two clauses |
-| 3–5 | v24, v28, v29, v30, v31, v34, v36, v41, v45, v46, v53, v55 | remove; fold the substantive clauses, discard framing |
-| 6–10 | v19, v21, v25, v39, v48, v49, v50, v51, v54, v75 | **rewrite, not remove** — the block is mostly new; trim the restating sentences in place |
+| v53 | "The second half of the verse identifies the adversary's method with precision." | Announces content that was deleted; the sentence now points at nothing |
+| v33 | "The two together convert vengeance into law…" | "The two" has no antecedent — the sentence naming them was deleted. The heading still promises "Three Options", which the text no longer enumerates |
+| v24 | "The word *dhull* is chosen with **equal care**…" | "equal" compares against a deleted sentence; the paragraph then jumps to a ḥadīth about death with no transition |
 
-**Status: OPEN.** The severe band is closed and the treatment is proven end to
-end on v45; the 29 remain.
+A back-reference detector caught three such breaks (`This…`, `Its…`, `Both…`)
+but **missed all three of the examples above**, because their dangling
+references are mid-sentence, not sentence-initial. No cheap heuristic finds
+them: the reference is grammatical, and only a reader who knows what was deleted
+can see the gap.
+
+The structural reason is decisive. **81 of the 111 blocks are a single
+paragraph** (29 have two, one has three), so there is no safe granularity
+between "sentence" and "whole block". Paragraph-level trimming collapses into
+block removal for most of the file, and sentence-level trimming leaves fragments
+that no longer cohere.
+
+The 12 sections that were trimmed have been **reverted byte-for-byte** and the
+tool deleted. `novel_sentences.py` is kept — its scoring is what identifies the
+content worth preserving — but nothing applies that scoring mechanically.
+
+> **Do not rebuild this.** The gate measures 10-gram repetition and cannot see
+> a missing antecedent. Passing it is necessary and nowhere near sufficient.
+
+### H5b — Worklist
+
+Removal is safe and coherent by construction, since a block is a heading plus a
+self-contained paragraph: excising it leaves the original section intact. What
+varies is how much depth must be rebuilt afterwards, and how much novel content
+must be folded in first.
+
+| Section | Now | After removal | Treatment |
+|---|---|---|---|
+| v37 | 1,180 | 790 | remove; **0** novel sentences, nothing to fold |
+| v32, v36, v40 | 1,131 / 1,341 / 1,080 | 785 / 918 / 742 | remove; fold at most a clause or two |
+| v28, v38, v49 | 1,136 / 860 / 957 | 754 / 517 / 538 | remove, fold, **rebuild depth** |
+| v25, v34, v46, v48, v51 | — | 632 / 819 / 674 / 435 / 779 | remove, fold, rebuild where under ~600 |
+| v41, v50, v53, v55 | — | 702 / 476 / 744 / 589 | remove, fold, **rebuild depth** |
+| v19, v21, v24, v26, v29, v30, v31, v33, v35, v39, v54, v75 | — | 742 / 752 / 978 / 765 / 722 / 630 / 759 / 896 / 808 / 784 / 524 / 450 | remove, fold; rebuild v54, v75 |
+
+No section falls under the corpus's 400-word Group A floor after removal
+(minimum would be 435), so none of this is a Group A violation. The rebuilds are
+to keep `017.md` internally even — it has no section below 759 w today — and to
+replace scholarship the blocks were carrying.
+
+**Status: OPEN.** Severe band closed; v45 done as the template; 28 remain.
 
 ### H6 — Block identification is position-based, and why that matters
 
