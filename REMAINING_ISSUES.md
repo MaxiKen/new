@@ -229,7 +229,7 @@ echoed the verse strongly enough to pass `check_offtopic.py`.
 |---|---|---|
 | `007.md` | 100 | 0.099 (v162) |
 | `010.md` | 30 | 0.082 (v93) |
-| `017.md` | **29** | **0.089 (v45)** — was 34 / 0.114, see Group H |
+| `017.md` | **12** | **0.088 (v38)** — was 34 / 0.114, see Group H |
 | `014.md` | 16 | 0.078 (v46) |
 | `039.md` | 16 | 0.080 (v46) |
 | `025.md` | 15 | 0.092 (v32) |
@@ -631,9 +631,15 @@ added, so each was rebuilt from material the section did not already contain:
 | v42 | 612 | **835** | 17:42 supposes gods *with* Him (*maʿahu*) where 21:22 supposes gods *other than* God (*illā Allāh*); the emphatic apodosis *idhan la-btaghaw*; the apparatus's ontological conclusion that granting the rivals' existence ends the refutation |
 | v56 | 631 | **890** | The verse's test run at the end: 28:64 (the same command issued on the Day of Judgment, and they do not answer) and the repudiation cluster at 10:28 and 16:86, closing on 6:17 |
 
-`017.md` is now 111 sections, **min 759 w, median 1,055 w, max 1,975 w,
-119,274 w total**, with **no section below 724 w and none under 400 w**. All
-five rebuilt sections measure 0.000–0.008 duplication.
+At this point in the pass `017.md` measured 111 sections, min 759 w, median
+1,055 w, max 1,975 w, 119,274 w total, with no section under 400 w. All five
+rebuilt sections measure 0.000–0.008 duplication.
+
+> **Superseded by H5c.** The 759 w minimum was an artifact of the blocks
+> themselves and is withdrawn as a target. Later removals in H5b lowered it.
+> `017.md` currently measures **min 584 w, median 1,009 w, 114,244 w total, 0
+> sections under 400 w**. The rebuilds recorded in the table above stand — each
+> was justified by unused apparatus, not by a word count.
 
 ### H4 — Conflicting ḥadīth citation found while removing v44 — **CLOSED**
 
@@ -744,11 +750,45 @@ must be folded in first.
 | v19, v21, v24, v26, v29, v30, v31, v33, v35, v39, v54, v75 | — | 742 / 752 / 978 / 765 / 722 / 630 / 759 / 896 / 808 / 784 / 524 / 450 | remove, fold; rebuild v54, v75 |
 
 No section falls under the corpus's 400-word Group A floor after removal
-(minimum would be 435), so none of this is a Group A violation. The rebuilds are
-to keep `017.md` internally even — it has no section below 759 w today — and to
-replace scholarship the blocks were carrying.
+(minimum would be 435), so none of this is a Group A violation.
 
-**Status: OPEN.** Severe band closed; v45 done as the template; 28 remain.
+### H5c — The 759-word floor is an artifact, and is **withdrawn**
+
+Earlier in this Group the rebuilds after the severe-band removals were justified
+as keeping `017.md` "internally even", because no section of the file sat below
+759 w. That reasoning does not survive measurement. The 759 w floor was produced
+**by the blocks themselves**: with all 111 blocks removed, `017.md` measures
+min 326 w, median 669 w. The floor was not a property of the file's original
+composition but of a later insertion inflating every section at once.
+
+The corpus standard is Group A's **400 words**, not a per-file minimum. So the
+rule going forward is:
+
+> Rebuild depth only where a section is thin **for its verse** — where the
+> apparatus in `initial/017.md` supplies material the section has not used. Do
+> not rebuild to reach a number. `system_instructions.md` forbids filler, and
+> padding a complete section to hit an artifact floor is exactly that.
+
+Applied, and the two cases that prompted the rule:
+
+| Verse | Words | Verdict |
+|---|---|---|
+| v43 | 369 → **1,030** | genuinely thin, and the apparatus plus the sūrah's own text supplied real material (H3) — rebuild correct |
+| v48 | 430 → **975** | same: two forms of the sorcery charge, the recurrences at 26:153/185 and 17:101, 4:114 (H3) — rebuild correct |
+| v49 | 533 → **1,013** | same: 6:94, 18:48 and the ram ḥadīth were unused apparatus — rebuild correct |
+| v50 | **596** | **no rebuild.** The verse is the single clause *"Say: Be you of stone, or of iron,"* and the section already works through the hypothetical, the *a fortiori*, 36:79, 30:27's *wa huwa ahwanu ʿalayhi*, the fragment's rhetorical form, the 52:35–36 trilemma, and origination against rearrangement. The apparatus for vv 49–51 is exhausted. More would be filler |
+| v55 | **584** | **no rebuild.** Four headings already cover the frame of universal knowledge, the hierarchy with 2:253 and 2:285, the *Zabūr* with 34:10 and the mountains and birds, and the placement after the false deities. `initial/017.md` carries no further note on this verse |
+
+`017.md` now measures **min 584 w, median 1,009 w**, with **0 sections under
+400 w** and 10 under the withdrawn 759 w figure. Those 10 are recorded here so
+the variance is visible and deliberate rather than overlooked — they are not
+defects and are not queued for work.
+
+**Status: OPEN.** Severe band closed; 17 sections cleared (v45, v37, v40, v28,
+v30, v31, v32, v34, v36, v41, v46, v48, v49, v50, v53, v55, v29); **12 remain**
+— v19, v21, v24, v25, v26, v33, v35, v38, v39, v51, v54, v75 — worst 0.088
+(v38). Each still needs its substance tested by direct search before removal,
+since the marker comparison produces false positives (H5b).
 
 ### H6 — Block identification is position-based, and why that matters
 
@@ -827,7 +867,10 @@ both ways (fails on an injected orphan, passes on the clean corpus).
 | Residual scaffolding leaks | 5 locations, 10 hits -> 0, with `check_scaffolding.py` added and validated 10 -> 0 |
 | Degenerate prose, severe band | `007.md` 10 sections >= 0.100 duprate -> 0, rebuilt from `initial/007.md` |
 | Malformed bold mini-headings | `017.md` 111 `****Heading****` -> **0**; `validate.py` gates `^\*{4,}` — see Group H1 |
-| Redundant inserted blocks, severe band | `017.md` 5 sections >= 0.09 duprate -> **0**; depth rebuilt so no section fell below the file's floor — see Group H2/H3 |
+| Redundant inserted blocks, severe band | `017.md` 5 sections >= 0.09 duprate -> **0**; depth rebuilt where the apparatus supported it — see Group H2/H3 |
+| Redundant inserted blocks, moderate band | `017.md` 29 -> **12** sections over the gate (17 cleared, worst 0.114 -> 0.088); 759 w floor withdrawn as an artifact — see Group H5b/H5c |
+| Automated sentence-trimming | **tried and rejected** — cleared the gate for 26/28 sections but stranded mid-sentence antecedents; reverted and deleted — see Group H5a |
+| Mis-citation in a removed block | `017.md` v34's block attributed 4:10's text to 4:2; the section itself was correct and the error was not carried into the fold |
 | Conflicting ḥadīth citation | `017.md` v44 cited Abū Dāwūd 2550 and 2877 for one ḥadīth -> aligned to the corpus consensus, Muslim 1955 — see Group H4 |
 | Orphan connector lines | 4 bare `and` lines stranded between blockquotes in 3 files -> **0**; `validate.py` gates the class — see Group I |
 
@@ -866,11 +909,19 @@ both ways (fails on an injected orphan, passes on the clean corpus).
    > times in 1,118 words, which only a rewrite fixes; `017.md`'s was a
    > duplicated block, which an excision fixes.
 
-2. **Group H5 — the 29 remaining blocks in `017.md`.** Worst is v45 (0.089).
-   Treatment is **trim and fold**, not delete: the 29 blocks hold 11,577 words
-   and 1,129 content words found nowhere else in their sections. Bucketed
-   worklist and the proven method are in Group H5; `novel_sentences.py` does the
-   per-section reading. v45 is worked end to end as the template.
+2. **Group H5 — the 12 remaining blocks in `017.md`.** Worst is v38 (0.088);
+   the rest are v19, v21, v24, v25, v26, v33, v35, v39, v51, v54, v75. 17
+   sections were cleared this pass, taking the file from 34 over the gate to 12
+   and its worst from 0.114 to 0.088.
+
+   Treatment is **remove, fold, and rebuild only where the apparatus supports
+   it** — never automated sentence-trimming (H5a, tried and rejected) and never
+   padding to a word count (H5c, the 759 w floor withdrawn as an artifact).
+   Before removing any block, test its substance by **direct search for the
+   term in the section**, not by marker comparison alone: the marker test
+   reported unique content in v32, v53 and v55 that the section already had,
+   from citation-format variance and diacritic stripping (H5b). v45 is worked
+   end to end as the template.
 
 3. **Group B — remainder of `007.md`.** 100 sections still >= 0.030, 42 >=
    0.060, and `007.md` now holds **seven of the eight worst sections in the
