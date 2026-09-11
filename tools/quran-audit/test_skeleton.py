@@ -120,16 +120,31 @@ def main():
         check('non-canonical H2 x1' in out_new,
               'hardened gate reports the non-canonical H2')
 
-        # the pre-hardening gate, straight from git history
-        old = subprocess.run(['git', '-C', ROOT, 'show',
-                              'HEAD:tools/quran-audit/validate.py'],
-                             capture_output=True, text=True).stdout
-        old_path = os.path.join(tmp, 'old_validate.py')
-        open(old_path, 'w', encoding='utf-8').write(old)
-        out_old = run_validator(old_path, tmp)
-        check('stray horizontal rule' not in out_old
-              and 'non-canonical H2' not in out_old,
-              'PRE-hardening gate did NOT report either class (the documented gap)')
+        # The pre-hardening gate, for comparison. HEAD cannot be used as the
+        # reference: once the hardening is committed, HEAD *is* the hardened
+        # gate and this check inverts. Locate a revision of validate.py that
+        # predates the new checks, and SKIP rather than fail if none is
+        # reachable (shallow clone, squash merge, or history rewritten) -- the
+        # gap is documented in REMAINING_ISSUES.md Group G either way, and a
+        # test that fails for want of git history would be a false alarm.
+        old = None
+        for ref in ('HEAD~1', '6eb8b1f'):
+            got = subprocess.run(['git', '-C', ROOT, 'show',
+                                  f'{ref}:tools/quran-audit/validate.py'],
+                                 capture_output=True, text=True)
+            if got.returncode == 0 and 'stray horizontal rule' not in got.stdout:
+                old = got.stdout
+                break
+        if old is None:
+            print('  SKIP  PRE-hardening gate comparison (no pre-hardening '
+                  'revision of validate.py reachable)')
+        else:
+            old_path = os.path.join(tmp, 'old_validate.py')
+            open(old_path, 'w', encoding='utf-8').write(old)
+            out_old = run_validator(old_path, tmp)
+            check('stray horizontal rule' not in out_old
+                  and 'non-canonical H2' not in out_old,
+                  'PRE-hardening gate did NOT report either class (the documented gap)')
 
         subprocess.run([sys.executable,
                         os.path.join(tmp, 'tools/quran-audit/normalize.py'), '114'],
