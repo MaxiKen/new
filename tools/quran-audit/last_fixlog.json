@@ -1,0 +1,1774 @@
+{
+ "total": {
+  "end": 69,
+  "end-rule": 91,
+  "files_written": 113,
+  "quote": 166,
+  "blanks": 73,
+  "intro": 6,
+  "crlf": 57,
+  "meta": 4,
+  "italics": 195,
+  "h1": 5,
+  "glued": 122,
+  "dup": 1,
+  "empty": 36,
+  "intro-ec": 8,
+  "leak": 25,
+  "template": 1,
+  "rule": 1,
+  "hoist": 1,
+  "arabic": 19
+ },
+ "per_file": {
+  "002.md": {
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "003.md": {
+   "quote": 10,
+   "end": 1,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "004.md": {
+   "intro": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "005.md": {
+   "quote": 2,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "006.md": {
+   "quote": 2,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "007.md": {
+   "end": 1,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "008.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "009.md": {
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "010.md": {
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "011.md": {
+   "quote": 11,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "012.md": {
+   "meta": 1,
+   "italics": 111,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "013.md": {
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "014.md": {
+   "quote": 3,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "015.md": {
+   "quote": 7,
+   "files_written": 1
+  },
+  "016.md": {
+   "quote": 2,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "017.md": {
+   "h1": 1,
+   "intro": 1,
+   "quote": 4,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "018.md": {
+   "glued": 1,
+   "dup": 1,
+   "quote": 8,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "019.md": {
+   "quote": 6,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "020.md": {
+   "quote": 15,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "021.md": {
+   "quote": 1,
+   "files_written": 1
+  },
+  "022.md": {
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "023.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "024.md": {
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "025.md": {
+   "crlf": 1,
+   "quote": 7,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "026.md": {
+   "crlf": 1,
+   "quote": 18,
+   "empty": 36,
+   "end": 1,
+   "end-rule": 1,
+   "blanks": 37,
+   "files_written": 1
+  },
+  "027.md": {
+   "crlf": 1,
+   "quote": 9,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "028.md": {
+   "crlf": 1,
+   "intro-ec": 1,
+   "quote": 2,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "029.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "030.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "031.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "032.md": {
+   "crlf": 1,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "033.md": {
+   "crlf": 1,
+   "meta": 1,
+   "intro": 1,
+   "intro-ec": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "034.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "035.md": {
+   "crlf": 1,
+   "quote": 1,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "036.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "037.md": {
+   "crlf": 1,
+   "leak": 22,
+   "glued": 121,
+   "template": 1,
+   "h1": 1,
+   "intro": 1,
+   "intro-ec": 1,
+   "quote": 12,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "038.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "039.md": {
+   "crlf": 1,
+   "quote": 4,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "040.md": {
+   "crlf": 1,
+   "meta": 1,
+   "h1": 1,
+   "intro-ec": 1,
+   "rule": 1,
+   "italics": 84,
+   "quote": 13,
+   "hoist": 1,
+   "end": 1,
+   "end-rule": 1,
+   "blanks": 2,
+   "files_written": 1
+  },
+  "041.md": {
+   "crlf": 1,
+   "quote": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "042.md": {
+   "crlf": 1,
+   "files_written": 1
+  },
+  "043.md": {
+   "crlf": 1,
+   "meta": 1,
+   "intro-ec": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "044.md": {
+   "quote": 5,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "045.md": {
+   "crlf": 1,
+   "quote": 3,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "046.md": {
+   "crlf": 1,
+   "quote": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "047.md": {
+   "crlf": 1,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "048.md": {
+   "crlf": 1,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "049.md": {
+   "crlf": 1,
+   "quote": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "050.md": {
+   "crlf": 1,
+   "quote": 2,
+   "end": 1,
+   "end-rule": 1,
+   "blanks": 2,
+   "files_written": 1
+  },
+  "051.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "052.md": {
+   "crlf": 1,
+   "quote": 1,
+   "end": 1,
+   "files_written": 1
+  },
+  "053.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "054.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "055.md": {
+   "crlf": 1,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "056.md": {
+   "crlf": 1,
+   "quote": 3,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "057.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "058.md": {
+   "crlf": 1,
+   "files_written": 1
+  },
+  "059.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "060.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "061.md": {
+   "crlf": 1,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "062.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "063.md": {
+   "crlf": 1,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "064.md": {
+   "crlf": 1,
+   "end-rule": 1,
+   "blanks": 3,
+   "files_written": 1
+  },
+  "065.md": {
+   "crlf": 1,
+   "files_written": 1
+  },
+  "066.md": {
+   "crlf": 1,
+   "files_written": 1
+  },
+  "067.md": {
+   "crlf": 1,
+   "files_written": 1
+  },
+  "068.md": {
+   "crlf": 1,
+   "h1": 1,
+   "intro": 1,
+   "intro-ec": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "069.md": {
+   "crlf": 1,
+   "files_written": 1
+  },
+  "070.md": {
+   "crlf": 1,
+   "h1": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "071.md": {
+   "crlf": 1,
+   "quote": 4,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "072.md": {
+   "crlf": 1,
+   "files_written": 1
+  },
+  "073.md": {
+   "crlf": 1,
+   "leak": 1,
+   "intro": 1,
+   "intro-ec": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "074.md": {
+   "quote": 2,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "075.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "076.md": {
+   "crlf": 1,
+   "quote": 1,
+   "end-rule": 1,
+   "blanks": 2,
+   "files_written": 1
+  },
+  "077.md": {
+   "files_written": 1
+  },
+  "078.md": {
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "079.md": {
+   "quote": 3,
+   "files_written": 1
+  },
+  "080.md": {
+   "end": 1,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "081.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "082.md": {
+   "crlf": 1,
+   "arabic": 19,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "083.md": {
+   "files_written": 1
+  },
+  "084.md": {
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "085.md": {
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "086.md": {
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "087.md": {
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "088.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "089.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "090.md": {
+   "crlf": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "091.md": {
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "092.md": {
+   "files_written": 1
+  },
+  "093.md": {
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "094.md": {
+   "files_written": 1
+  },
+  "095.md": {
+   "files_written": 1
+  },
+  "096.md": {
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "097.md": {
+   "leak": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "098.md": {
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "099.md": {
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "100.md": {
+   "files_written": 1
+  },
+  "101.md": {
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "102.md": {
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "103.md": {
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "104.md": {
+   "files_written": 1
+  },
+  "105.md": {
+   "leak": 1,
+   "files_written": 1
+  },
+  "106.md": {
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "107.md": {
+   "end": 1,
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "108.md": {
+   "end-rule": 1,
+   "blanks": 1,
+   "files_written": 1
+  },
+  "109.md": {
+   "quote": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "110.md": {
+   "files_written": 1
+  },
+  "111.md": {
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "112.md": {
+   "files_written": 1
+  },
+  "113.md": {
+   "intro-ec": 1,
+   "end": 1,
+   "end-rule": 1,
+   "files_written": 1
+  },
+  "114.md": {
+   "quote": 1,
+   "files_written": 1
+  }
+ },
+ "notes": {
+  "002.md": [
+   "end: added end marker **[End of the commentary on Sūrah al-Baqarah]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "003.md": [
+   "quote: v8: closed unclosed quotation mark",
+   "quote: v9: closed unclosed quotation mark",
+   "quote: v26: closed unclosed quotation mark",
+   "quote: v42: closed unclosed quotation mark",
+   "quote: v45: closed unclosed quotation mark",
+   "quote: v49: closed unclosed quotation mark",
+   "quote: v55: closed unclosed quotation mark",
+   "quote: v72: closed unclosed quotation mark",
+   "quote: v191: closed unclosed quotation mark",
+   "quote: v195: closed unclosed quotation mark",
+   "end: variant end marker '— End of Sūrah Āl ʿImrān 3:200. —' -> **[End of the commentary on Sūrah Āl ʿImrān]**",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "004.md": [
+   "intro: intro heading carried body text -> split into heading + body",
+   "end: added end marker **[End of the commentary on Sūrah al-Nisāʾ]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "005.md": [
+   "quote: v20: closed unclosed quotation mark",
+   "quote: v83: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah al-Māʾidah]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "006.md": [
+   "quote: v80: closed unclosed quotation mark",
+   "quote: v162: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah al-Anʿām]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "007.md": [
+   "end: variant end marker '*End of Sūrah al-Aʿrāf (Chapter 7) — all 206 verse' -> **[End of the commentary on Sūrah al-Aʿrāf]**",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "008.md": [
+   "crlf: 1945 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah al-Anfāl]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "009.md": [
+   "end: added end marker **[End of the commentary on Sūrah al-Tawbah]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "010.md": [
+   "end: added end marker **[End of the commentary on Sūrah Yūnus]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "011.md": [
+   "quote: v2: closed unclosed quotation mark",
+   "quote: v25: closed unclosed quotation mark",
+   "quote: v28: closed unclosed quotation mark",
+   "quote: v36: closed unclosed quotation mark",
+   "quote: v38: closed unclosed quotation mark",
+   "quote: v50: closed unclosed quotation mark",
+   "quote: v53: closed unclosed quotation mark",
+   "quote: v63: closed unclosed quotation mark",
+   "quote: v84: closed unclosed quotation mark",
+   "quote: v88: closed unclosed quotation mark",
+   "quote: v92: closed unclosed quotation mark",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "012.md": [
+   "meta: removed 1 generation-process meta block(s): ['**How This Commentary Reads the Source**']",
+   "italics: v1: removed italic wrapper from translation",
+   "italics: v2: removed italic wrapper from translation",
+   "italics: v3: removed italic wrapper from translation",
+   "italics: v4: removed italic wrapper from translation",
+   "italics: v5: removed italic wrapper from translation",
+   "italics: v6: removed italic wrapper from translation",
+   "italics: v7: removed italic wrapper from translation",
+   "italics: v8: removed italic wrapper from translation",
+   "italics: v9: removed italic wrapper from translation",
+   "italics: v10: removed italic wrapper from translation",
+   "italics: v11: removed italic wrapper from translation",
+   "italics: v12: removed italic wrapper from translation",
+   "italics: v13: removed italic wrapper from translation",
+   "italics: v14: removed italic wrapper from translation",
+   "italics: v15: removed italic wrapper from translation",
+   "italics: v16: removed italic wrapper from translation",
+   "italics: v17: removed italic wrapper from translation",
+   "italics: v18: removed italic wrapper from translation",
+   "italics: v19: removed italic wrapper from translation",
+   "italics: v20: removed italic wrapper from translation",
+   "italics: v21: removed italic wrapper from translation",
+   "italics: v22: removed italic wrapper from translation",
+   "italics: v23: removed italic wrapper from translation",
+   "italics: v24: removed italic wrapper from translation",
+   "italics: v25: removed italic wrapper from translation",
+   "italics: v26: removed italic wrapper from translation",
+   "italics: v27: removed italic wrapper from translation",
+   "italics: v28: removed italic wrapper from translation",
+   "italics: v29: removed italic wrapper from translation",
+   "italics: v30: removed italic wrapper from translation",
+   "italics: v31: removed italic wrapper from translation",
+   "italics: v32: removed italic wrapper from translation",
+   "italics: v33: removed italic wrapper from translation",
+   "italics: v34: removed italic wrapper from translation",
+   "italics: v35: removed italic wrapper from translation",
+   "italics: v36: removed italic wrapper from translation",
+   "italics: v37: removed italic wrapper from translation",
+   "italics: v38: removed italic wrapper from translation",
+   "italics: v39: removed italic wrapper from translation",
+   "italics: v40: removed italic wrapper from translation",
+   "italics: v41: removed italic wrapper from translation",
+   "italics: v42: removed italic wrapper from translation",
+   "italics: v43: removed italic wrapper from translation",
+   "italics: v44: removed italic wrapper from translation",
+   "italics: v45: removed italic wrapper from translation",
+   "italics: v46: removed italic wrapper from translation",
+   "italics: v47: removed italic wrapper from translation",
+   "italics: v48: removed italic wrapper from translation",
+   "italics: v49: removed italic wrapper from translation",
+   "italics: v50: removed italic wrapper from translation",
+   "italics: v51: removed italic wrapper from translation",
+   "italics: v52: removed italic wrapper from translation",
+   "italics: v53: removed italic wrapper from translation",
+   "italics: v54: removed italic wrapper from translation",
+   "italics: v55: removed italic wrapper from translation",
+   "italics: v56: removed italic wrapper from translation",
+   "italics: v57: removed italic wrapper from translation",
+   "italics: v58: removed italic wrapper from translation",
+   "italics: v59: removed italic wrapper from translation",
+   "italics: v60: removed italic wrapper from translation",
+   "italics: v61: removed italic wrapper from translation",
+   "italics: v62: removed italic wrapper from translation",
+   "italics: v63: removed italic wrapper from translation",
+   "italics: v64: removed italic wrapper from translation",
+   "italics: v65: removed italic wrapper from translation",
+   "italics: v66: removed italic wrapper from translation",
+   "italics: v67: removed italic wrapper from translation",
+   "italics: v68: removed italic wrapper from translation",
+   "italics: v69: removed italic wrapper from translation",
+   "italics: v70: removed italic wrapper from translation",
+   "italics: v71: removed italic wrapper from translation",
+   "italics: v72: removed italic wrapper from translation",
+   "italics: v73: removed italic wrapper from translation",
+   "italics: v74: removed italic wrapper from translation",
+   "italics: v75: removed italic wrapper from translation",
+   "italics: v76: removed italic wrapper from translation",
+   "italics: v77: removed italic wrapper from translation",
+   "italics: v78: removed italic wrapper from translation",
+   "italics: v79: removed italic wrapper from translation",
+   "italics: v80: removed italic wrapper from translation",
+   "italics: v81: removed italic wrapper from translation",
+   "italics: v82: removed italic wrapper from translation",
+   "italics: v83: removed italic wrapper from translation",
+   "italics: v84: removed italic wrapper from translation",
+   "italics: v85: removed italic wrapper from translation",
+   "italics: v86: removed italic wrapper from translation",
+   "italics: v87: removed italic wrapper from translation",
+   "italics: v88: removed italic wrapper from translation",
+   "italics: v89: removed italic wrapper from translation",
+   "italics: v90: removed italic wrapper from translation",
+   "italics: v91: removed italic wrapper from translation",
+   "italics: v92: removed italic wrapper from translation",
+   "italics: v93: removed italic wrapper from translation",
+   "italics: v94: removed italic wrapper from translation",
+   "italics: v95: removed italic wrapper from translation",
+   "italics: v96: removed italic wrapper from translation",
+   "italics: v97: removed italic wrapper from translation",
+   "italics: v98: removed italic wrapper from translation",
+   "italics: v99: removed italic wrapper from translation",
+   "italics: v100: removed italic wrapper from translation",
+   "italics: v101: removed italic wrapper from translation",
+   "italics: v102: removed italic wrapper from translation",
+   "italics: v103: removed italic wrapper from translation",
+   "italics: v104: removed italic wrapper from translation",
+   "italics: v105: removed italic wrapper from translation",
+   "italics: v106: removed italic wrapper from translation",
+   "italics: v107: removed italic wrapper from translation",
+   "italics: v108: removed italic wrapper from translation",
+   "italics: v109: removed italic wrapper from translation",
+   "italics: v110: removed italic wrapper from translation",
+   "italics: v111: removed italic wrapper from translation",
+   "end: added end marker **[End of the commentary on Sūrah Yūsuf]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "013.md": [
+   "end: added end marker **[End of the commentary on Sūrah al-Raʿd]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "014.md": [
+   "quote: v6: closed unclosed quotation mark",
+   "quote: v11: closed unclosed quotation mark",
+   "quote: v35: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah Ibrāhīm]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "015.md": [
+   "quote: v6: closed unclosed quotation mark",
+   "quote: v28: closed unclosed quotation mark",
+   "quote: v34: closed unclosed quotation mark",
+   "quote: v41: closed unclosed quotation mark",
+   "quote: v58: closed unclosed quotation mark",
+   "quote: v63: closed unclosed quotation mark",
+   "quote: v68: closed unclosed quotation mark"
+  ],
+  "016.md": [
+   "quote: v68: closed unclosed quotation mark",
+   "quote: v69: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah al-Naḥl]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "017.md": [
+   "h1: H1 -> # Sūrah al-Isrāʾ (Chapter 17) — Expanded Verse-by-Verse Commentary",
+   "intro: inserted ## Introduction to the Sūrah",
+   "quote: v50: closed unclosed quotation mark",
+   "quote: v63: closed unclosed quotation mark",
+   "quote: v64: closed unclosed quotation mark",
+   "quote: v90: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah al-Isrāʾ]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "018.md": [
+   "glued: split heading glued mid-line: '## Sūrah al-Kahf 18:103\\n'",
+   "dup: v103: dropped empty duplicate heading",
+   "quote: v14: closed unclosed quotation mark",
+   "quote: v35: closed unclosed quotation mark",
+   "quote: v37: closed unclosed quotation mark",
+   "quote: v67: closed unclosed quotation mark",
+   "quote: v78: closed unclosed quotation mark",
+   "quote: v87: closed unclosed quotation mark",
+   "quote: v95: closed unclosed quotation mark",
+   "quote: v103: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah al-Kahf]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "019.md": [
+   "quote: v24: closed unclosed quotation mark",
+   "quote: v27: closed unclosed quotation mark",
+   "quote: v30: closed unclosed quotation mark",
+   "quote: v42: closed unclosed quotation mark",
+   "quote: v47: closed unclosed quotation mark",
+   "quote: v64: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah Maryam]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "020.md": [
+   "quote: v11: closed unclosed quotation mark",
+   "quote: v21: closed unclosed quotation mark",
+   "quote: v25: closed unclosed quotation mark",
+   "quote: v36: closed unclosed quotation mark",
+   "quote: v46: closed unclosed quotation mark",
+   "quote: v52: closed unclosed quotation mark",
+   "quote: v54: closed unclosed quotation mark",
+   "quote: v57: closed unclosed quotation mark",
+   "quote: v63: closed unclosed quotation mark",
+   "quote: v68: closed unclosed quotation mark",
+   "quote: v72: closed unclosed quotation mark",
+   "quote: v92: closed unclosed quotation mark",
+   "quote: v105: closed unclosed quotation mark",
+   "quote: v117: closed unclosed quotation mark",
+   "quote: v123: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah Ṭā Hā]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "021.md": [
+   "quote: v66: closed unclosed quotation mark"
+  ],
+  "022.md": [
+   "end: added end marker **[End of the commentary on Sūrah al-Ḥajj]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "023.md": [
+   "crlf: 6355 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah al-Muʾminūn]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "024.md": [
+   "end: added end marker **[End of the commentary on Sūrah al-Nūr]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "025.md": [
+   "crlf: 4094 CRLF -> LF",
+   "quote: v7: closed unclosed quotation mark",
+   "quote: v18: closed unclosed quotation mark",
+   "quote: v19: closed unclosed quotation mark",
+   "quote: v27: closed unclosed quotation mark",
+   "quote: v41: closed unclosed quotation mark",
+   "quote: v42: closed unclosed quotation mark",
+   "quote: v65: closed unclosed quotation mark",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "026.md": [
+   "crlf: 3998 CRLF -> LF",
+   "quote: v10: closed unclosed quotation mark",
+   "quote: v12: closed unclosed quotation mark",
+   "quote: v34: closed unclosed quotation mark",
+   "quote: v36: closed unclosed quotation mark",
+   "quote: v39: closed unclosed quotation mark",
+   "quote: v47: closed unclosed quotation mark",
+   "quote: v50: closed unclosed quotation mark",
+   "quote: v54: closed unclosed quotation mark",
+   "quote: v72: closed unclosed quotation mark",
+   "quote: v75: closed unclosed quotation mark",
+   "quote: v92: closed unclosed quotation mark",
+   "quote: v97: closed unclosed quotation mark",
+   "empty: v104: section is empty (needs regeneration)",
+   "quote: v112: closed unclosed quotation mark",
+   "empty: v122: section is empty (needs regeneration)",
+   "empty: v125: section is empty (needs regeneration)",
+   "empty: v126: section is empty (needs regeneration)",
+   "empty: v127: section is empty (needs regeneration)",
+   "empty: v133: section is empty (needs regeneration)",
+   "empty: v134: section is empty (needs regeneration)",
+   "quote: v136: closed unclosed quotation mark",
+   "empty: v140: section is empty (needs regeneration)",
+   "empty: v142: section is empty (needs regeneration)",
+   "empty: v143: section is empty (needs regeneration)",
+   "empty: v144: section is empty (needs regeneration)",
+   "empty: v145: section is empty (needs regeneration)",
+   "empty: v147: section is empty (needs regeneration)",
+   "empty: v148: section is empty (needs regeneration)",
+   "empty: v151: section is empty (needs regeneration)",
+   "empty: v152: section is empty (needs regeneration)",
+   "quote: v153: closed unclosed quotation mark",
+   "quote: v155: closed unclosed quotation mark",
+   "empty: v161: section is empty (needs regeneration)",
+   "empty: v162: section is empty (needs regeneration)",
+   "empty: v163: section is empty (needs regeneration)",
+   "empty: v164: section is empty (needs regeneration)",
+   "quote: v168: closed unclosed quotation mark",
+   "empty: v173: section is empty (needs regeneration)",
+   "empty: v175: section is empty (needs regeneration)",
+   "empty: v177: section is empty (needs regeneration)",
+   "empty: v178: section is empty (needs regeneration)",
+   "empty: v179: section is empty (needs regeneration)",
+   "empty: v180: section is empty (needs regeneration)",
+   "empty: v182: section is empty (needs regeneration)",
+   "empty: v183: section is empty (needs regeneration)",
+   "quote: v185: closed unclosed quotation mark",
+   "empty: v186: section is empty (needs regeneration)",
+   "empty: v191: section is empty (needs regeneration)",
+   "empty: v204: section is empty (needs regeneration)",
+   "empty: v206: section is empty (needs regeneration)",
+   "empty: v207: section is empty (needs regeneration)",
+   "empty: v209: section is empty (needs regeneration)",
+   "empty: v211: section is empty (needs regeneration)",
+   "empty: v212: section is empty (needs regeneration)",
+   "end: variant end marker '— End of Sūrah al-Shuʿarāʾ —' -> **[End of the commentary on Sūrah al-Shuʿarāʾ]**",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "027.md": [
+   "crlf: 8835 CRLF -> LF",
+   "quote: v8: closed unclosed quotation mark",
+   "quote: v20: closed unclosed quotation mark",
+   "quote: v22: closed unclosed quotation mark",
+   "quote: v27: closed unclosed quotation mark",
+   "quote: v29: closed unclosed quotation mark",
+   "quote: v34: closed unclosed quotation mark",
+   "quote: v36: closed unclosed quotation mark",
+   "quote: v54: closed unclosed quotation mark",
+   "quote: v67: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah al-Naml]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "028.md": [
+   "crlf: 10429 CRLF -> LF",
+   "intro-ec: added **Expanded Commentary** after intro heading",
+   "quote: v33: closed unclosed quotation mark",
+   "quote: v76: closed unclosed quotation mark",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "029.md": [
+   "crlf: 2651 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah al-ʿAnkabūt]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "030.md": [
+   "crlf: 1579 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah al-Rūm]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "031.md": [
+   "crlf: 1532 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah Luqmān]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "032.md": [
+   "crlf: 912 CRLF -> LF",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "033.md": [
+   "crlf: 3804 CRLF -> LF",
+   "meta: removed 1 generation-process meta block(s): ['## Editorial and Source Note']",
+   "intro: intro heading '## Introduction' -> ## Introduction to the Sūrah",
+   "intro-ec: added **Expanded Commentary** after intro heading",
+   "end: added end marker **[End of the commentary on Sūrah al-Aḥzāb]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "034.md": [
+   "crlf: 1735 CRLF -> LF",
+   "end: variant end marker \"*End of Sūrah Saba' (Chapter 34) — all fifty-four \" -> **[End of the commentary on Sūrah Saba']**",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "035.md": [
+   "crlf: 3945 CRLF -> LF",
+   "quote: v34: closed unclosed quotation mark",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "036.md": [
+   "crlf: 2757 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah Yā Sīn]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "037.md": [
+   "crlf: 2694 CRLF -> LF",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "leak: removed [System Memory Check] directive",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:57]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:58]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:59]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:60]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:61]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:62]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:63]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:64]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:65]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:66]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:67]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:68]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:69]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:70]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:71]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:72]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:73]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:74]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:75]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:76]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:77]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:78]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:79]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:80]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:81]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:82]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:83]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:84]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:85]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:86]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:87]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:88]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:89]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:90]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:91]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:92]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:93]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:94]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:95]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:96]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:97]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:98]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:99]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:100]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:101]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:102]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:103]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:104]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:105]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:106]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:107]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:108]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:109]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:110]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:111]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:112]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:113]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:114]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:115]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:116]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:117]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:118]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:119]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:120]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:121]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:122]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:123]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:124]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:125]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:126]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:127]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:128]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:129]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:130]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:131]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:132]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:133]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:134]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:135]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:136]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:137]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:138]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:139]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:140]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:141]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:142]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:143]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:144]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:145]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:146]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:147]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:148]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:149]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:150]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:151]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:152]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:153]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:154]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:155]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:156]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:157]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:158]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:159]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:160]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:161]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:162]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:163]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:164]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:165]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:166]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:167]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:168]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:169]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:170]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:171]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:172]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:173]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:174]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:175]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:176]\\n'",
+   "glued: split heading glued mid-line: '## Sūrah al-Ṣaffāt [37:177]\\n'",
+   "template: file contains unexpanded ${n} template token (left for regeneration)",
+   "h1: H1 -> # Sūrah al-Ṣaffāt (Chapter 37) — Expanded Verse-by-Verse Commentary",
+   "intro: inserted ## Introduction to the Sūrah",
+   "intro-ec: added **Expanded Commentary** after intro heading",
+   "quote: v29: closed unclosed quotation mark",
+   "quote: v96: closed unclosed quotation mark",
+   "quote: v98: closed unclosed quotation mark",
+   "quote: v103: closed unclosed quotation mark",
+   "quote: v106: closed unclosed quotation mark",
+   "quote: v120: closed unclosed quotation mark",
+   "quote: v131: closed unclosed quotation mark",
+   "quote: v133: closed unclosed quotation mark",
+   "quote: v139: closed unclosed quotation mark",
+   "quote: v149: closed unclosed quotation mark",
+   "quote: v161: closed unclosed quotation mark",
+   "quote: v162: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah al-Ṣaffāt]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "038.md": [
+   "crlf: 3016 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah Ṣād]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "039.md": [
+   "crlf: 2122 CRLF -> LF",
+   "quote: v11: closed unclosed quotation mark",
+   "quote: v14: closed unclosed quotation mark",
+   "quote: v39: closed unclosed quotation mark",
+   "quote: v53: closed unclosed quotation mark",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "040.md": [
+   "crlf: 2445 CRLF -> LF",
+   "meta: removed 1 generation-process meta block(s): ['*Verse-by-verse expanded commentary on Sūrah Ghāfir (chapter']",
+   "h1: H1 -> # Sūrah Ghāfir (Chapter 40) — Expanded Verse-by-Verse Commentary",
+   "intro-ec: added **Expanded Commentary** after intro heading",
+   "rule: removed stray --- above the intro heading",
+   "italics: v1: removed italic wrapper from translation",
+   "italics: v2: removed italic wrapper from translation",
+   "italics: v3: removed italic wrapper from translation",
+   "italics: v4: removed italic wrapper from translation",
+   "italics: v5: removed italic wrapper from translation",
+   "italics: v6: removed italic wrapper from translation",
+   "italics: v7: removed italic wrapper from translation",
+   "quote: v7: closed unclosed quotation mark",
+   "italics: v8: removed italic wrapper from translation",
+   "italics: v9: removed italic wrapper from translation",
+   "italics: v10: removed italic wrapper from translation",
+   "quote: v10: closed unclosed quotation mark",
+   "italics: v11: removed italic wrapper from translation",
+   "quote: v11: closed unclosed quotation mark",
+   "italics: v12: removed italic wrapper from translation",
+   "italics: v13: removed italic wrapper from translation",
+   "italics: v14: removed italic wrapper from translation",
+   "italics: v15: removed italic wrapper from translation",
+   "italics: v16: removed italic wrapper from translation",
+   "italics: v17: removed italic wrapper from translation",
+   "italics: v18: removed italic wrapper from translation",
+   "italics: v19: removed italic wrapper from translation",
+   "italics: v20: removed italic wrapper from translation",
+   "italics: v21: removed italic wrapper from translation",
+   "italics: v22: removed italic wrapper from translation",
+   "italics: v23: removed italic wrapper from translation",
+   "italics: v24: removed italic wrapper from translation",
+   "quote: v24: closed unclosed quotation mark",
+   "italics: v25: removed italic wrapper from translation",
+   "italics: v26: removed italic wrapper from translation",
+   "quote: v26: closed unclosed quotation mark",
+   "italics: v27: removed italic wrapper from translation",
+   "quote: v27: closed unclosed quotation mark",
+   "italics: v28: removed italic wrapper from translation",
+   "quote: v28: closed unclosed quotation mark",
+   "italics: v29: removed italic wrapper from translation",
+   "italics: v30: removed italic wrapper from translation",
+   "quote: v30: closed unclosed quotation mark",
+   "italics: v31: removed italic wrapper from translation",
+   "italics: v32: removed italic wrapper from translation",
+   "italics: v33: removed italic wrapper from translation",
+   "italics: v34: removed italic wrapper from translation",
+   "italics: v35: removed italic wrapper from translation",
+   "italics: v36: removed italic wrapper from translation",
+   "quote: v36: closed unclosed quotation mark",
+   "italics: v37: removed italic wrapper from translation",
+   "italics: v38: removed italic wrapper from translation",
+   "quote: v38: closed unclosed quotation mark",
+   "italics: v39: removed italic wrapper from translation",
+   "italics: v40: removed italic wrapper from translation",
+   "italics: v41: removed italic wrapper from translation",
+   "italics: v42: removed italic wrapper from translation",
+   "italics: v43: removed italic wrapper from translation",
+   "italics: v44: removed italic wrapper from translation",
+   "italics: v45: removed italic wrapper from translation",
+   "italics: v46: removed italic wrapper from translation",
+   "quote: v46: closed unclosed quotation mark",
+   "italics: v47: removed italic wrapper from translation",
+   "italics: v48: removed italic wrapper from translation",
+   "italics: v49: removed italic wrapper from translation",
+   "italics: v50: removed italic wrapper from translation",
+   "italics: v51: removed italic wrapper from translation",
+   "italics: v52: removed italic wrapper from translation",
+   "italics: v53: removed italic wrapper from translation",
+   "italics: v54: removed italic wrapper from translation",
+   "italics: v55: removed italic wrapper from translation",
+   "italics: v56: removed italic wrapper from translation",
+   "italics: v57: removed italic wrapper from translation",
+   "italics: v58: removed italic wrapper from translation",
+   "italics: v59: removed italic wrapper from translation",
+   "italics: v60: removed italic wrapper from translation",
+   "quote: v60: closed unclosed quotation mark",
+   "italics: v61: removed italic wrapper from translation",
+   "italics: v62: removed italic wrapper from translation",
+   "italics: v63: removed italic wrapper from translation",
+   "italics: v64: removed italic wrapper from translation",
+   "italics: v65: removed italic wrapper from translation",
+   "italics: v66: removed italic wrapper from translation",
+   "quote: v66: closed unclosed quotation mark",
+   "italics: v67: removed italic wrapper from translation",
+   "italics: v68: removed italic wrapper from translation",
+   "italics: v69: removed italic wrapper from translation",
+   "italics: v70: removed italic wrapper from translation",
+   "italics: v71: removed italic wrapper from translation",
+   "italics: v72: removed italic wrapper from translation",
+   "italics: v73: removed italic wrapper from translation",
+   "italics: v74: removed italic wrapper from translation",
+   "italics: v75: removed italic wrapper from translation",
+   "hoist: v76: hoisted buried verse-translation blockquote to canonical position",
+   "italics: v77: removed italic wrapper from translation",
+   "italics: v78: removed italic wrapper from translation",
+   "italics: v79: removed italic wrapper from translation",
+   "italics: v80: removed italic wrapper from translation",
+   "italics: v81: removed italic wrapper from translation",
+   "italics: v82: removed italic wrapper from translation",
+   "italics: v83: removed italic wrapper from translation",
+   "italics: v84: removed italic wrapper from translation",
+   "italics: v85: removed italic wrapper from translation",
+   "end: added end marker **[End of the commentary on Sūrah Ghāfir]**",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "041.md": [
+   "crlf: 1442 CRLF -> LF",
+   "quote: v13: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah Fuṣṣilat]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "042.md": [
+   "crlf: 1835 CRLF -> LF"
+  ],
+  "043.md": [
+   "crlf: 4048 CRLF -> LF",
+   "meta: removed 1 generation-process meta block(s): ['**Source, quotation, and interpretive conventions**']",
+   "intro-ec: added **Expanded Commentary** after intro heading",
+   "end: added end marker **[End of the commentary on Sūrah al-Zukhruf]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "044.md": [
+   "quote: v18: closed unclosed quotation mark",
+   "quote: v23: closed unclosed quotation mark",
+   "quote: v35: closed unclosed quotation mark",
+   "quote: v47: closed unclosed quotation mark",
+   "quote: v49: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah al-Dukhān]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "045.md": [
+   "crlf: 1385 CRLF -> LF",
+   "quote: v28: closed unclosed quotation mark",
+   "quote: v34: closed unclosed quotation mark",
+   "quote: v35: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah al-Jāthiyah]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "046.md": [
+   "crlf: 1262 CRLF -> LF",
+   "quote: v30: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah al-Aḥqāf]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "047.md": [
+   "crlf: 3379 CRLF -> LF",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "048.md": [
+   "crlf: 1356 CRLF -> LF",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "049.md": [
+   "crlf: 1791 CRLF -> LF",
+   "quote: v17: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah al-Ḥujurāt]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "050.md": [
+   "crlf: 2014 CRLF -> LF",
+   "quote: v24: closed unclosed quotation mark",
+   "quote: v28: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah Qāf]**",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "051.md": [
+   "crlf: 2358 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah al-Dhāriyāt]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "052.md": [
+   "crlf: 2606 CRLF -> LF",
+   "quote: v26: closed unclosed quotation mark",
+   "end: variant end marker '*End of Sūrah al-Ṭūr (Chapter 52) — all 49 verses ' -> **[End of the commentary on Sūrah al-Ṭūr]**"
+  ],
+  "053.md": [
+   "crlf: 2118 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah al-Najm]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "054.md": [
+   "crlf: 4475 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah al-Qamar]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "055.md": [
+   "crlf: 2958 CRLF -> LF",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "056.md": [
+   "crlf: 4742 CRLF -> LF",
+   "quote: v47: closed unclosed quotation mark",
+   "quote: v49: closed unclosed quotation mark",
+   "quote: v66: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah al-Wāqiʿah]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "057.md": [
+   "crlf: 950 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah al-Ḥadīd]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "058.md": [
+   "crlf: 977 CRLF -> LF"
+  ],
+  "059.md": [
+   "crlf: 1123 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah al-Ḥashr]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "060.md": [
+   "crlf: 982 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah al-Mumtaḥanah]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "061.md": [
+   "crlf: 626 CRLF -> LF",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "062.md": [
+   "crlf: 474 CRLF -> LF",
+   "end: variant end marker '*End of the expanded commentary on Sūrah al-Jumuʿa' -> **[End of the commentary on Sūrah al-Jumuʿah]**",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "063.md": [
+   "crlf: 758 CRLF -> LF",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "064.md": [
+   "crlf: 865 CRLF -> LF",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "065.md": [
+   "crlf: 729 CRLF -> LF"
+  ],
+  "066.md": [
+   "crlf: 633 CRLF -> LF"
+  ],
+  "067.md": [
+   "crlf: 967 CRLF -> LF"
+  ],
+  "068.md": [
+   "crlf: 2456 CRLF -> LF",
+   "h1: H1 -> # Sūrah al-Qalam (Chapter 68) — Expanded Verse-by-Verse Commentary",
+   "intro: intro heading '## Expanded Verse-by-Verse Commentary' -> ## Introduction to the Sūrah",
+   "intro-ec: added **Expanded Commentary** after intro heading",
+   "end: added end marker **[End of the commentary on Sūrah al-Qalam]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "069.md": [
+   "crlf: 1715 CRLF -> LF"
+  ],
+  "070.md": [
+   "crlf: 1307 CRLF -> LF",
+   "h1: H1 -> # Sūrah al-Maʿārij (Chapter 70) — Expanded Verse-by-Verse Commentary",
+   "end: added end marker **[End of the commentary on Sūrah al-Maʿārij]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "071.md": [
+   "crlf: 1440 CRLF -> LF",
+   "quote: v2: closed unclosed quotation mark",
+   "quote: v5: closed unclosed quotation mark",
+   "quote: v10: closed unclosed quotation mark",
+   "quote: v26: closed unclosed quotation mark",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "072.md": [
+   "crlf: 1982 CRLF -> LF"
+  ],
+  "073.md": [
+   "crlf: 692 CRLF -> LF",
+   "leak: removed [System Memory Check] directive",
+   "intro: intro heading '## Introduction' -> ## Introduction to the Sūrah",
+   "intro-ec: added **Expanded Commentary** after intro heading",
+   "end: added end marker **[End of the commentary on Sūrah al-Muzzammil]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "074.md": [
+   "quote: v24: closed unclosed quotation mark",
+   "quote: v43: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah al-Muddaththir]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "075.md": [
+   "crlf: 1467 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah al-Qiyāmah]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "076.md": [
+   "crlf: 1458 CRLF -> LF",
+   "quote: v9: closed unclosed quotation mark",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "078.md": [
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "079.md": [
+   "quote: v10: closed unclosed quotation mark",
+   "quote: v17: closed unclosed quotation mark",
+   "quote: v18: closed unclosed quotation mark"
+  ],
+  "080.md": [
+   "end: end marker -> **[End of the commentary on Sūrah ʿAbasa]**",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "081.md": [
+   "crlf: 1190 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah al-Takwīr]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "082.md": [
+   "crlf: 1409 CRLF -> LF",
+   "arabic: v1: dropped Arabic-script translation line",
+   "arabic: v2: dropped Arabic-script translation line",
+   "arabic: v3: dropped Arabic-script translation line",
+   "arabic: v4: dropped Arabic-script translation line",
+   "arabic: v5: dropped Arabic-script translation line",
+   "arabic: v6: dropped Arabic-script translation line",
+   "arabic: v7: dropped Arabic-script translation line",
+   "arabic: v8: dropped Arabic-script translation line",
+   "arabic: v9: dropped Arabic-script translation line",
+   "arabic: v10: dropped Arabic-script translation line",
+   "arabic: v11: dropped Arabic-script translation line",
+   "arabic: v12: dropped Arabic-script translation line",
+   "arabic: v13: dropped Arabic-script translation line",
+   "arabic: v14: dropped Arabic-script translation line",
+   "arabic: v15: dropped Arabic-script translation line",
+   "arabic: v16: dropped Arabic-script translation line",
+   "arabic: v17: dropped Arabic-script translation line",
+   "arabic: v18: dropped Arabic-script translation line",
+   "arabic: v19: dropped Arabic-script translation line",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "084.md": [
+   "end: added end marker **[End of the commentary on Sūrah al-Inshiqāq]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "085.md": [
+   "end: added end marker **[End of the commentary on Sūrah al-Burūj]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "086.md": [
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "087.md": [
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "088.md": [
+   "crlf: 1200 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah al-Ghāshiyah]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "089.md": [
+   "crlf: 1136 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah al-Fajr]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "090.md": [
+   "crlf: 670 CRLF -> LF",
+   "end: added end marker **[End of the commentary on Sūrah al-Balad]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "091.md": [
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "093.md": [
+   "end: added end marker **[End of the commentary on Sūrah al-Ḍuḥā]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "096.md": [
+   "end: added end marker **[End of the commentary on Sūrah al-ʿAlaq]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "097.md": [
+   "leak: removed [System Memory Check] directive",
+   "end: added end marker **[End of the commentary on Sūrah al-Qadr]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "098.md": [
+   "end: added end marker **[End of the commentary on Sūrah al-Bayyinah]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "099.md": [
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "101.md": [
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "102.md": [
+   "end: added end marker **[End of the commentary on Sūrah al-Takāthur]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "103.md": [
+   "end: added end marker **[End of the commentary on Sūrah al-ʿAṣr]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "105.md": [
+   "leak: removed [System Memory Check] directive"
+  ],
+  "106.md": [
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "107.md": [
+   "end: variant end marker '*End of the expanded commentary on Sūrah al-Māʿūn ' -> **[End of the commentary on Sūrah al-Māʿūn]**",
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "108.md": [
+   "end-rule: inserted --- before end marker",
+   "blanks: collapsed consecutive blank lines"
+  ],
+  "109.md": [
+   "quote: v1: closed unclosed quotation mark",
+   "end: added end marker **[End of the commentary on Sūrah al-Kāfirūn]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "111.md": [
+   "end: added end marker **[End of the commentary on Sūrah al-Masad]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "113.md": [
+   "intro-ec: added **Expanded Commentary** after intro heading",
+   "end: added end marker **[End of the commentary on Sūrah al-Falaq]**",
+   "end-rule: inserted --- before end marker"
+  ],
+  "114.md": [
+   "quote: v1: closed unclosed quotation mark"
+  ]
+ }
+}
