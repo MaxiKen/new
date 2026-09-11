@@ -49,7 +49,7 @@ check_scaffolding.py   114 files, 0 genuine hits
 test_skeleton.py       18/18 checks passed (NEW this pass)
 normalize.py           files written: 0 on the whole corpus (idempotent)
 fix_orphan_connectors.py  0 orphan connectors remaining (NEW this pass)
-census.py              187 sections >= 0.030 duprate in 22 files, ZERO >= 0.100
+census.py              96 sections >= 0.030 duprate in 16 files, ZERO >= 0.100
                        017.md no longer appears; worst section there is 0.013
 ```
 
@@ -163,7 +163,7 @@ sections have source apparatus to build from.
 
 ---
 
-## Group B — Repetitive prose (187 sections; `017.md` fully cleared, `007.md` down to 52)
+## Group B — Repetitive prose (96 sections; `017.md`, `025.md`, `010.md` fully cleared)
 
 **Method, stated so the number is checkable.** Per section, tokenise the whole
 section (heading through body, lowercased), form 10-grams, and take the fraction
@@ -257,9 +257,9 @@ Next targets by severity: `007.md` v162 (0.099), `007.md` v25 (0.098),
 `025.md` v32 (0.093). `007.md` holds seven of the eight worst sections and is
 now the file to work on; `017.md`'s severe band is closed (Group H).
 
-> **What the remaining 187 are, and are not.** The ten `007.md` sections
+> **What the remaining 96 are, and are not.** The ten `007.md` sections
 > cleared earlier were *degenerate output* — a 10-gram recurring ten times in
-> 1,118 words. The 187 that remain are a different thing: prose with a
+> 1,118 words. The 96 that remain are a different thing: prose with a
 > repetitive register, or (in `017.md`'s case) an inserted block that restates
 > part of its own section while also adding material. Treating them as
 > degenerate and rebuilding from scratch would destroy recoverable scholarship.
@@ -1036,39 +1036,119 @@ mechanically, and would be worth adding before any further ḥadīth-heavy work.
    from citation-format variance and diacritic stripping (H5b). v45 is worked
    end to end as the template.
 
-3. **Group B — remainder, now led by `025.md`, not `007.md`.** 187 sections
-   still >= 0.030 in 22 files, ZERO >= 0.100. `007.md` has been worked down
-   from 100 to **52** (15 >= 0.060, worst v17 at 0.078) by a mix of authored
-   rebuilds and mechanical frame-stripping — see "Group B progress" below.
+3. **Group B — remainder. Three defect classes, now separated and diagnosed.**
+   96 sections still >= 0.030 in 16 files, ZERO >= 0.100. Down from 235 at the
+   start of the pass and 199 at the start of this session.
 
-   **The severity ranking has changed since this list was written.** `007.md`
-   no longer holds the worst sections in the corpus. The eight worst are now:
-   `025.md` v32 0.092, `025.md` v36 0.090, `025.md` v60 0.089, `076.md` v15
-   0.087, `025.md` v53 0.087, `025.md` v61 0.085, `025.md` v37 0.083,
-   `010.md` v93 0.082. **`025.md` holds five of the eight** and 15 sections
-   >= 0.030 overall, at high word counts (976–1139w), which is why its ratios
-   stay elevated despite the length.
+   The remaining sections are not one defect. Working `025.md`, `010.md`,
+   `039.md`, `034.md` and `014.md` established that Group B contains three
+   distinct classes, each needing a different tool. **Diagnose before
+   rebuilding** — an authored rebuild is expensive and is only the right answer
+   for class (c).
+
+   **(a) Verse re-quotation** — the body quotes the section's own verse again
+   immediately under the `> **translation**` line that already displays it.
+   This was the single largest cause: 1,302 sections corpus-wide contain it and
+   135 of the 172 sections flagged at the time were flagged only because of it.
+   Three surface forms occur:
+
+       010.md:  <lead-in>: *"<English>"* (*<Arabic>*)
+       039.md:  *<Arabic>* — "<English>"
+       034.md:  *<English>* — *<Arabic>*      (both italic, English unquoted)
+
+   Diagnosis: removing the translation line from the measured span dropped
+   `010.md` from 30 flagged sections to 0, `034.md` 8 to 0 and `039.md` 16 to
+   1. That identifies the construct as the cause rather than a correlate.
+   `expanded/001.md` — the user-confirmed reference skeleton — never does this;
+   its longest verbatim overlap between a verse and its own body is 30–40
+   characters of incidental phrase against 60+ systematically elsewhere, so the
+   construct is a deviation from the reference and not a house convention.
+   **Tool: `dequote_body.py`.** It keeps the Arabic (which duplicates nothing
+   and appears nowhere else in the section) and drops only the redundant
+   English, leaving the colon to introduce the Arabic instead.
+   **CLEARED:** `010.md` 30 -> 0, `039.md` 16 -> 1, `034.md` 8 -> 2, plus 15
+   sections across `011`, `045`, `076`, `056`, `004`, `002`, `030`, `041`.
+   **Scope decision:** applied only to sections already over the gate. 1,167
+   sections contain the same construct but pass, and were deliberately left
+   alone; normalizing them corpus-wide is a larger stylistic change that was
+   not asked for.
+
+   **(b) Recapitulation blocks** — a whole mini-heading block near the end of
+   the section restates the section, often re-quoting verses or ḥadīth already
+   quoted above it. This is the `017.md` defect that Group H closed.
+   **Tool: `strip_recap.py`**, which finds them by intra-section content-word
+   shingle overlap and so needs no pre-insertion backup (unlike
+   `novel_sentences.py`, which depended on `/tmp/017.bak`). It plans the
+   smallest removal set that clears the gate while keeping >= 400 words, and
+   reports each removed block's novel sentences for salvage.
+   **CLEARED:** `025.md` 15 -> 0. Removing exactly one block per section took
+   all 15 to duprate 0.011 or below. Evidence they were recaps and not real
+   material: in v30, v40 and v55 the removed block re-quoted a ḥadīth already
+   quoted elsewhere in the same section (al-Bukhārī 5027, 6312, 6502), and
+   `025.md` v32's recap re-quoted Qur'an 17:106 and 11:120, both already
+   blockquoted above it. Four novel sentences were grafted back into surviving
+   blocks rather than lost.
+
+   **(c) Filler-clause loops** — machine-generated nominalisations that recurse,
+   the `007.md` defect. **Tool: `repair_degen.py`.** `014.md` turned out to be
+   this class with new surface templates; three fixed clauses accounted for
+   essentially all of its duplication, measured as repeated 8-grams:
+
+       174x  is the one that the sūrah's argument requires
+       118x  is the one that the sūrah's justice requires
+        51x  is therefore a statement about the character of
+        34x  and the character is the one that the
+
+   Each asserts that something is what the sūrah requires without saying what.
+   These templates are now in the tool. **CLEARED:** `014.md` 16 -> 6.
+
+   **The depth guard, and why `014.md` was stripped selectively.** Stripping
+   all 16 of `014.md`'s sections cleared 15 and cut the file from 16,087 to
+   8,435 words, pushing five sections to 270–380w in a file whose minimum was
+   760w and median 980w. That is precisely the trade the standing policy
+   forbids: clear the gate only where the result keeps >= 400 words, otherwise
+   a duplication defect becomes a depth defect. So the strip was applied to the
+   10 sections that clear and keep their depth, and **v38, v43, v44, v45, v46,
+   v51 were left at their original 831–978w for authored rebuilds.** v44 was
+   excluded because it does not clear either way (0.043), so stripping it would
+   only have cost words.
+
+   Note the guard is relative, not absolute. `validate.py` enforces no
+   word-count gate, and files differ enormously in their natural depth:
+   `001.md` median 1942w, `025.md` 1093w, `014.md` 980w, `010.md` 560w,
+   `039.md` 387w, `034.md` 371w. `039.md` and `034.md` are genuinely thin
+   files — 42 of 75 and 37 of 54 sections respectively are already under 400w
+   before any edit — so an absolute 400w floor would refuse to fix precisely
+   the files that most need it. Removing an English gloss of an Arabic line
+   that stays costs words but no information. The guard now blocks an edit only
+   where it would push a section that *started* above the floor below it.
+   **`039.md` and `034.md` should be raised in Group A (depth), not Group B.**
+
+   **Two different duplication spans exist in the repo — do not mix them.**
+   `check_degeneracy.py` (the hard 0.10 gate) and `repair_degen.py` score the
+   body only. `census.py` (the Group B 0.030 figures) scores the whole section,
+   and its own comment warns that a body-only span gives materially different
+   counts (151 vs 269 at the 0.030 gate) and must not be substituted silently.
+   An early version of `strip_recap.py` made exactly that substitution and
+   consequently found zero flagged sections in files `census` reported 30 in.
+   All figures quoted here were confirmed against `census.py` after applying,
+   never taken from a tool's internal prediction.
 
    Current per-file counts (>= 0.030), largest first:
 
-       007.md  52   010.md  30   039.md  16   014.md  16   025.md  15
-       011.md  12   034.md   8   045.md   7   020.md   6   076.md   4
-       056.md   4   026.md   4   004.md   3   013.md   2   and eight files
-       with 1 each (002 030 033 037 041 042 062 064)
+       007.md  52   011.md   8   020.md   6   014.md   6   045.md   5
+       026.md   4   076.md   3   056.md   2   034.md   2   013.md   2
+       and one each: 033 037 039 042 062 064
 
-   **Recommended next target: `025.md`.** It is smaller than `007.md` (15
-   sections vs 52) but holds the corpus's worst, and its sections are long
-   enough that a rebuild is a substantial authoring job rather than a repair
-   job. `010.md` (30 sections, worst 0.082) is the second target.
-
-   **Apply the lesson from item 1**: check whether each is degenerate output or
-   prose with a repetitive register before rebuilding, and measure what a
-   rewrite would cost in depth. On `007.md` the split was roughly half and
-   half — 33 sections were safely cleared by mechanical frame-stripping, and
-   the rest required authored rebuilds because stripping either failed to
-   clear the gate or dropped the section below the 400-word depth floor.
-   `tools/quran-audit/repair_degen.py --dry-run` classifies a file's sections
-   into frame-kernel / pure-loop / framed-opener and reports which are safe.
+   **Recommended next target: `007.md`** — 52 sections, more than half the
+   corpus remainder, and the only file where the defect is mixed. Roughly 33 of
+   its original 100 were safely cleared mechanically and 12 have been rebuilt
+   from apparatus so far; the rest need authored rebuilds from
+   `initial/007.md` because stripping either fails to clear or drops the
+   section below its depth floor. Then `014.md`'s six held-back sections, then
+   `011.md` (8) and `020.md` (6). The eleven files with 1–5 sections are
+   cheap pickings and several are probably class (a) or (c) in a form the tools
+   do not yet match — run `--dry-run` on each before authoring anything.
 
 4. **Group A, depth** — 524 sections under 400 w, 198 under 260 w (figures
    unchanged this pass; the measure is stated above the Group A table and must
