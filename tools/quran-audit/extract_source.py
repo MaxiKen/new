@@ -32,6 +32,12 @@ while i < len(lines):
     if m:
         a = int(m.group(1))
         b = int(m.group(2)) if m.group(2) else a
+        # Markers abbreviate the end verse: **124-28** means 124-128, and
+        # **108-9** means 108-109. Restore the elided leading digits, otherwise
+        # the range inverts (124..28 is empty) and the note is silently dropped.
+        if b < a:
+            sa, sb = str(a), str(b)
+            b = int(sa[:len(sa) - len(sb)] + sb)
         buf = [m.group(3).strip()]
         i += 1
         while (i < len(lines) and lines[i].strip()

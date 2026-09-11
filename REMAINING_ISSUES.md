@@ -49,21 +49,36 @@ Corpus-wide: **226 sections under 260 w** and **507 under 400 w**, of 6,229 meas
 For comparison, the completed files sit far higher: `021.md` median 1,037 w,
 `040.md` 937 w, `011.md` 914 w, `007.md` 730 w, `036.md` 516 w, `074.md` 436 w.
 
-### A1 — Hard limit: sections that cannot be grounded
+### A1 — Nearly every thin section can be grounded
 
-101 of the thin sections have **no commentary note in `initial/`** for their verse.
-There is no source apparatus to build a rewrite from, so deepening them would mean
-writing commentary with no source behind it.
+An earlier revision of this file reported **101 ungroudable sections**. That
+figure was **wrong**, and the error is worth recording because it nearly caused
+a real omission.
+
+`initial/` abbreviates the end of a verse range in its markers: `**124-28**`
+means verses 124–128, and `**108-9**` means 108–109. The parsing code computed
+`range(124, 29)`, which is empty, so every abbreviated range marker was silently
+dropped and its verses counted as having no source note.
+
+With the abbreviation rule applied, the groundability census becomes:
 
 | | Groundable | Ungroundable |
 |---|---|---|
-| Under 260 w | 143 | 81 |
-| 260–400 w | 171 | 20 |
-| **Total** | **314** | **101** |
+| Under 260 w | 205 | **1** |
+| 260–400 w | 204 | 0 |
+| **Total** | **409** | **1** |
 
-`037.md` and `026.md` carry 81 of the 101 ungroudable sections between them.
+The single exception is `026.md` v110 (71 w), which has no note in
+`initial/026.md` — that file covers 226 of its 227 verses.
 
-**Decision needed:** leave the 101 thin, or write them without source support?
+The same fix was applied to `tools/quran-audit/extract_source.py`, which had the
+same bug and returned "(no commentary)" for verses that do have a shared range
+note. Verified: `v109` and `v124`, which previously printed nothing, now return
+their `[108–109]` and `[124–128]` notes, while `v107`'s per-verse note is
+unchanged.
+
+**Consequence:** the depth work in Group A is not blocked. 409 of the 410 thin
+sections have source apparatus to build from.
 
 ---
 
@@ -114,17 +129,65 @@ al-rasūl* (content belonging to 33:66–67) under a heading about the tree of
 Zaqqūm; v182's discussed "We have preferred some of them over others" (2:253)
 under a heading about Jonah.
 
-### Status: all 99 remaining sections have now been read
+### Status: bounded by reading, and 18 of 32 now fixed
 
-This group was previously recorded as unbounded. It is now bounded. Every one of
-the 99 unread promoted-range sections was read against its own verse translation,
-giving **32 misaligned sections**:
+This group was previously recorded as unbounded. Reading every one of the 99
+unread promoted-range sections against its own verse translation bounded it at
+**32 misaligned sections**. Of those, **18 are now fixed** and **14 remain**:
 
 ```
-vv 58, 60, 70, 74, 75, 81, 82, 83, 90, 91, 92, 94, 99,
-   107, 109, 124, 126, 127, 128, 137, 138, 143, 150, 151,
-   154, 160, 162, 164, 166, 168, 172, 173
+FULL LIST (32):
+  vv 58, 60, 70, 74, 75, 81, 82, 83, 90, 91, 92, 94, 99,
+     107, 109, 124, 126, 127, 128, 137, 138, 143, 150, 151,
+     154, 160, 162, 164, 166, 168, 172, 173
+
+FIXED (18) — batches G, H, I, J, K:
+  vv 58, 60, 70, 74, 75, 81, 82, 83, 90, 91, 92, 94, 99, 107,
+     150, 154, 160, 164
+
+REMAINING (14) — all ungroudable, see C2:
+  vv 109, 124, 126, 127, 128, 137, 138, 143, 151, 162, 166, 168, 172, 173
 ```
+
+Every fix was verified after application: the section's opening prose was
+re-read against its own verse translation, and all 18 now describe the verse
+they are headed by. All 18 score under the 0.030 duplication gate.
+
+### C2 — The 14 remaining misaligned sections ARE groundable (earlier claim retracted)
+
+An earlier revision of this file claimed these 14 had no source note and
+presented a decision between writing them unsourced or leaving them misaligned.
+**That claim was false** and the decision it framed was unnecessary.
+
+The cause was the abbreviated-range bug described in A1: `initial/037.md` covers
+these verses inside shared range markers, and the parser dropped every such
+marker. With the rule applied, coverage is:
+
+| Verses | Covered by marker | Per-verse note |
+|---|---|---|
+| 109 | `108-9` | no — range only |
+| 124, 126, 127, 128 | `124-28` | no — range only |
+| 137, 138 | `137-38` | no — range only |
+| 143 | `143-44` | no — range only |
+| 151 | `149-53`, `151-52` | no — range only |
+| 162 | `161-63` | no — range only |
+| 166 | `165-66` | no — range only |
+| 168 | `167-70` | no — range only |
+| 172, 173 | `171-73` | no — range only |
+
+All 14 have apparatus; none has a note naming its own verse alone. The notes are
+substantive, not stubs — `124-28` runs 87 words on Baal and the arraignment,
+`143-44` runs 165 words including a Prophetic saying, `167-70` runs 114 words on
+the pre-Qur'anic promise, `171-73` runs 107 words with a quotation of 40:51–52.
+
+A shared range note is in fact the likely *cause* of the misalignment: when
+`normalize.py` promoted unheaded prose into per-verse headings, verses covered
+only by a collective note had no verse-specific source to align against. But it
+is ample material to rebuild from.
+
+**No decision is needed.** These 14 can be fixed from source, and the only
+caveat is that the resulting commentary will speak to the passage rather than to
+the individual verse, since that is what the source provides.
 
 Three were re-read in full to confirm the classification is not a headline
 artifact:
