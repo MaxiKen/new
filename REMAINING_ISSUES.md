@@ -101,9 +101,7 @@ Range across all 303: **0.030 – 0.200**.
 
 ---
 
-## Group C — Unverified promoted content in `037.md` (correctness risk, UNBOUNDED)
-
-This is the one issue with no reliable count, and it is the highest-risk item.
+## Group C — Misaligned bodies in `037.md` (correctness risk, NOW BOUNDED: 32 sections)
 
 `037.md` had **61 verse headings** at the pre-work baseline and **182 now**. The
 formatter `normalize.py` promoted roughly 21,326 words of unheaded prose into 121
@@ -116,20 +114,57 @@ al-rasūl* (content belonging to 33:66–67) under a heading about the tree of
 Zaqqūm; v182's discussed "We have preferred some of them over others" (2:253)
 under a heading about Jonah.
 
-Status:
+### Status: all 99 remaining sections have now been read
 
-- **7** misalignments found and fixed this session (vv 50, 61, 62, 66, 85, 87, 182)
-- **25** sections rebuilt in total from source apparatus (22 inside the promoted range)
-- **99** promoted-range sections have **not been individually read**
+This group was previously recorded as unbounded. It is now bounded. Every one of
+the 99 unread promoted-range sections was read against its own verse translation,
+giving **32 misaligned sections**:
 
-Why the count is unbounded: no current checker reliably detects this class.
-`check_offtopic.py` only catches bodies that under-echo their own translation; a
-body can describe the wrong verse while still echoing enough vocabulary to pass.
-A source-note overlap metric was built and **failed validation** — a control run
-flagged 46% of `011.md` and 62% of `040.md`, both verified clean. The 7 found are
-therefore a floor, not a total.
+```
+vv 58, 60, 70, 74, 75, 81, 82, 83, 90, 91, 92, 94, 99,
+   107, 109, 124, 126, 127, 128, 137, 138, 143, 150, 151,
+   154, 160, 162, 164, 166, 168, 172, 173
+```
 
-**Only remedy:** read the remaining 99 promoted-range sections.
+Three were re-read in full to confirm the classification is not a headline
+artifact:
+
+| Section | Heading's verse | Body actually describes |
+|---|---|---|
+| `037.md` v58 | "Are we then not to die," | "He who spends his wealth to be purified" (92:18) |
+| `037.md` v154 | "What ails you? How do you judge?" | "We are the Descenders" and Qur'anic preservation (15:9) |
+| `037.md` v172 | "that they will surely be helped," | "We have made for you an example" (33:21 cross-ref) |
+
+The common shape is an **offset**: the body describes an adjacent or nearby verse,
+as though the unheaded prose was sliced against the wrong heading boundaries when
+`normalize.py` promoted it. v74 describes v75, v75 describes v76, v83 describes
+v84, v107 describes v105, v109 describes v107, v127 describes v130, v143 describes
+v146.
+
+Already fixed earlier this session: vv 50, 61, 62, 66, 85, 87, 182 (7 sections).
+Rebuilt in total from source apparatus: 25 sections (22 inside the promoted range).
+
+### Why no tool detects this class
+
+Five automated metrics were built against this defect and **all five failed
+validation**:
+
+1. 4-gram exact match — 0.0% everywhere, no signal.
+2. Paired "own note vs best other note" — claimed 67% of `037.md`; a control run
+   flagged 46% of `011.md` and 62% of `040.md`, both verified clean.
+3. Transliteration-absent — matched `**Expanded Commentary**` in all 182 sections.
+4. Stemming patch to `check_offtopic.py` — raised flags 11 to 45, introducing
+   false positives into previously-clean files.
+5. Quote-owner lookup by token overlap — degenerate: verse `37:58` ("Are we then
+   not to die,") has a single token longer than three characters, so it scored
+   1.00 against any quote containing "then", producing four impossible matches.
+
+`check_offtopic.py` remains useful but only catches bodies that under-echo their
+own translation; a body can describe the wrong verse while echoing enough
+vocabulary to pass. It found 7 of these 39.
+
+**Reading is the only reliable method, and it has now been applied.** The list of
+32 above is the complete set within the promoted range as read.
 
 ---
 
