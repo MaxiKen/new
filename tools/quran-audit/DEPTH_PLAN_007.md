@@ -1166,3 +1166,55 @@ Gates: cross-quotes **1,750 EXACT / 0 DRIFT / 0 ELLIPSIS / 0 VICINITY** (four ne
 exact); validate 114/114; check_filler **FAILING 0**, below 0, above 0, reduced-floor 18,
 tics 0.19/1k, chains 0.12/1k, dup 0.062, repeated sentences 0. File 274,562 words.
 Ten of 45 drafted: 7:143, 7:46, 7:54, 7:157, 7:172, 7:176, 7:182, 7:78, 7:91, 7:175.
+
+### 10.8 Tranche 22 — Group B: 7:85, 7:31, 7:33
+
+All three read in full. Five of the thirteen heads proposed in §3.1–§3.3 were struck as
+duplicates, which is the highest strike rate so far and confirms that the legal sections were
+better covered than their head counts suggested.
+
+**7:85 → 1,741w, three heads** (five proposed; two struck):
+- *struck* — "Goodwill as the Verse's Own Reward". "That Is Better for You, If You Are
+  ˹Truly˺ Believers" already makes the point that the clause is an argument from advantage
+  rather than from fear, with 11:88 quoted.
+- *struck* — the cheating ḥadīth. The section already carries the grain-heap report **with a
+  collection and number**: "(Muslim 102, from Abū Hurayrah)". That citation had never been
+  live-checked, so it was verified this turn: sunnah.com/muslim:102, Book of Faith, chapter
+  (43), titled for the saying *man ghashshanā falaysa minnā*, from Abū Hurayrah — the heap of
+  eatables, the hand thrust in, the fingers moistened, the rain explanation, and the rebuke
+  about placing the drenched part where people could see it. **The existing number is correct
+  and was left unchanged.**
+- *drafted* — **Kayl and Mīzān: Two Instruments**; **Bakhs and Taṭfīf, and the Sūrah Named
+  After the Offence** (83:1–3 quoted, with the asymmetry as the offence's definition); **The
+  Forest Version of the Same Commands** (26:181–182 quoted, with Ibn Kathīr's identification
+  and the observation that the shorter telling keeps only what cannot be argued with).
+
+**7:31 → 1,536w, two heads** (four proposed; two struck):
+- *struck* — "The Default of Permissibility with a Limit", already stated by "The Occasion
+  Reported for the Command": both are permissions with a limit attached.
+- *struck* — "Ṭawāf as the Occasion's Legal Residue", covered by the same head together with
+  al-Ṭabarī's reports on naked circumambulation.
+- *drafted* — **Adornment Beyond the Minimum** (the juristic distinction between the
+  obligatory covering and the adornment the verse asks for, with Ibn Kathīr); **Extravagance
+  and Vanity as Two Faults** (Sunan Ibn Mājah 3600 and 3605, al-Bukhārī in suspended form,
+  Aḥmad, graded good; the amount-against-motive axis, which the existing Isrāf-and-Tabdhīr
+  head draws by direction instead).
+
+**7:33 → 1,579w, two heads** (four proposed; two struck):
+- *struck* — "The Anʿām Parallel", already carried by "The Parallel Lists" with 6:151 quoted.
+- *struck* — "Sulṭān: Authority as the Test of Association", already carried by "No Authority
+  Sent Down", which defines *sulṭān* and notes its earlier use at 7:71.
+- *drafted* — **Divine Jealousy as the Reason for the First Prohibition** (Ṣaḥīḥ Muslim 1499a,
+  whose Arabic carries this verse's own phrase, so the report supplies a reason rather than a
+  definition); **Ithm and Baghy on the Two Axes** (as-Suddī and Mujāhid named, with Ibn
+  Kathīr's synthesis of the inward and social directions).
+
+**Text defect fixed.** 7:85 carried a stray `, .` — "Madyan is the town of commerce, . The
+sūrah's arrangement" — a truncation artifact from an earlier tranche. A sweep of the whole file
+for that and related patterns found exactly one instance; corrected.
+
+Gates: cross-quotes **1,755 EXACT / 0 DRIFT / 0 ELLIPSIS / 0 VICINITY** (five new spans, all
+exact); validate 114/114; check_filler **FAILING 0**, below 0, above 0, reduced-floor 18,
+tics 0.19/1k, chains 0.12/1k, dup 0.062, repeated sentences 0. File 275,471 words.
+**Thirteen of 45 drafted.** Remaining: 7:32, 7:28, 7:156, 7:148 (Group B); Group C (9);
+Group A (19).
