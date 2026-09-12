@@ -148,3 +148,18 @@ are pre-session old-prose: 20:88/20:90, 31:13, 2:55/2:2, 7:155, 6:103, 7:143,
 2:51 (Bukhārī 3667 clause — number is pre-existing old prose, unverified this
 session), 2:58. Gate snapshot: filler below 228 / above 0 / FAILING 231 (none in
 2:17–58); validate 114/114; manual checks examined: 8, no issues.
+
+**Batch 8 — 2:59–2:66** (this commit). All eight sections to band; the deepest
+2:62 raised 1,018→1,634 (ceiling 2,100) with three new heads (twin verse 2:112;
+the 2:111 demand; al-Ghazālī's reach + 3:85 boundary). Other heads: 7:162
+substitution told twice; taḥrīf doctrine; 7:160 twelve springs; 3:112 disgrace
+exception; 2:61 craving-as-catechism; 4:154 mount retold; 7:163/7:166/5:60
+Sabbath-triad; 2:66 example-method; sacred time. New-quote defects fixed before
+commit: four ASCII+curly nestings de-nested (2:60/61/62/63), one drafting
+artifact removed ("— no;" residue at 2:62), 2:63 my own quotes aligned to the
+translation's wording ("Hold firmly…", "observe its teachings"), 2:61 chain
+reworded, 2:64 own-span cited (2:63). Remaining cited DRIFTs in 2:59–2:66 (10)
+are pre-session old-prose artifacts (incl. two unpaired-quote artifacts at 2:62
+and Archer "haply/reverent" wording) — documented. Gate snapshot: filler below
+220 / above 0 / FAILING 221 (none in 2:17–66); cross-quotes EXACT 181, DRIFT
+318, VICINITY 28, FAILED 0; validate 114/114; manual checks examined: 8.
