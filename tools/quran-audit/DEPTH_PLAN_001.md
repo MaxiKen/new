@@ -124,16 +124,23 @@ naming the 29:61–63 / 31:25 / 39:38 parallels that the old `cf.` list carried.
   report is aligned to the translation's wording (a Qur'anic quotation inside a
   ḥadīth quotation is still a Qur'anic quotation, §3.1).
 
-## 5. Batch log
+## 5. Batch log (complete — all counts measured by `check_filler.py` itself)
 
-| Batch | Sections | Before (body words) | After (body words) | Heads added | Heads struck | Gate results |
+| Batch | Sections | Before (body words) | After (body words) | Heads added | Heads struck | Gate results after batch |
 |---|---|---|---|---|---|---|
-| A | Introduction, 1:1, 1:2 | 1,725 / 1,453 | — | 0 | 0 | — |
-| B | 1:3, 1:4 | 1,517 / 1,480 | — | 0 | 0 | — |
-| C | 1:5, 1:6 | 1,659 / 1,634 | — | 0 | 0 | — |
-| D | 1:7 | 2,040 | — | 0 | 0 | — |
+| A | Introduction, 1:1, 1:2 | 1,725 / 1,453 | 1,760 / 1,453 | 0 | 0 | filler FAILING 0 (11,543 w); x-quotes DRIFT 50 / VICINITY 3 / EXACT 14 / UNCITED 54; validate 114/114; census 0 <260/<400; translations 0 flagged |
+| B | 1:3, 1:4 | 1,517 / 1,480 | 1,544 / 1,497 | 0 | 0 | filler FAILING 0 (11,587 w); x-quotes DRIFT 41 / VICINITY 2 / EXACT 28 / UNCITED 51; validate 114/114 |
+| C | 1:5, 1:6 | 1,659 / 1,634 | 1,658 / 1,635 | 0 | 0 | filler FAILING 0 (11,587 w); x-quotes DRIFT 25 / VICINITY 1 / EXACT 45 / UNCITED 52; validate 114/114 |
+| D | 1:7 + full sweep | 2,040 | 2,098 | 0 | 0 | filler FAILING 0 (11,645 w); x-quotes DRIFT 0 / VICINITY 0 / EXACT 70 / UNCITED 50; validate 114/114; census 13,754 w, 0 <260/<400; translations 0 flagged |
 
-(Filled in as each batch lands.)
+Batch D's sweep touched 1:1/1:3/1:4/1:5/1:6 lines as well (curly-register
+normalization and pairing fixes only — no word-count movement in those
+sections: 1:1 1,760 / 1:2 1,453 / 1:3 1,544 / 1:4 1,497 / 1:5 1,658 /
+1:6 1,635). Final bands: 1:1 1,760 (Tier-1 ≤1,800), 1:2 1,453, 1:5 1,658,
+1:6 1,635, 1:7 2,098 (Deepest ≤2,100), 1:3 1,544, 1:4 1,497 (Tier-1
+≤1,800). Net words added over baseline `0864ef9`: 11,645 − 11,508 = 137,
+measured against the baseline commit, all inside re-sourced quotation spans
+and the four citation/prose adjustments logged in §3.
 
 ## 6. Vocabulary decisions
 
@@ -148,9 +155,61 @@ naming the 29:61–63 / 31:25 / 39:38 parallels that the old `cf.` list carried.
 
 ## 10. Corrections log
 
-(Running record of errors found in this plan or in the baseline as the work
-proceeds; see §10.1 onward. Nothing recorded yet.)
+Running record of errors found in this plan or in the baseline as the work
+proceeds.
 
-### 10.1
+### 10.1 — 43:87 span typo (Batch A, caught pre-apply)
 
-(placeholder — see below as entries are added)
+The 43:87 replacement span was first written with a missing closing bracket
+(`If you ask them ˹O Prophet who created them…`). The batch script's
+`SPAN_CHECKS` verbatim-asserts (each new span must be a literal substring of
+the cited verse in `translation/`) failed the dry run and the typo was fixed
+before anything was written. These asserts are kept in every batch script.
+
+### 10.2 — 25:60 absent from the gate's drift worklist
+
+The old-rendering quote at 1:3 (*"And what is al-Raḥmān?"* citing 25:60)
+never appeared in `check_cross_quotes.py`'s DRIFT list (its straight-quoted
+form did not pair as a detectable span at baseline). It was re-anchored in
+Batch B as a §3.1 quality fix, not a gate-mandated one:
+*"What is ‘the Most Compassionate’?"* (25:60).
+
+### 10.3 — DEEPEST list finalized as {1:2, 1:5, 1:6, 1:7}
+
+The original working plan carried only 1:7 as Deepest. After measuring the
+baseline (1:2 1,453 / 1:5 1,659 / 1:6 1,634 / 1:7 2,040), all four were
+confirmed as the sūrah's doctrinal cruxes, each at or above the Tier-1
+ceiling or compressing only by losing sourced material; `check_filler.py`
+was configured accordingly in commit `4049af1` (floor 1,400, ceiling 2,100).
+007's invariants were re-verified unchanged after the gate edit (277,675 w,
+FAILING 0, 1,780 EXACT).
+
+### 10.4 — Batch D pattern bug: citation parentheses consumed
+
+The Batch D script's `curly()`/`unwrap()` regexes included the citation
+parenthesis in the match but the replacement string re-typed only the opening
+`(`, silently dropping the citation text of 37 spans (dangling `(` at the
+application point). Detected in the post-apply gate run (cited spans fell
+71 → 34 with DRIFT 0 — a suspicious signature), repaired in one scripted
+pass (38 context-anchored replacements, each asserted unique), and re-gated
+to DRIFT 0 / EXACT 70.
+
+### 10.5 — three pairing hazards behind false DRIFT readings
+
+(a) A short straight-quoted word earlier on the line shifts straight-quote
+pairing: `"justice"` at 1:4 paired across the prose into the 75:3–4 quote.
+(b) A U+2019 apostrophe inside a straight-quoted span breaks the gate's
+straight class (the 11:56 span `Lord’s`). (c) Double-wrapped spans — an ASCII
+double around an inner curly pair (seven of them, incl. 15:87, 96:1, 33:43,
+9:128, 25:60, 2:282, 2:177) — make the inner pair invisible to the curly
+class and let the ASCII quotes pair across prose. All were resolved by the
+Batch D curly-register sweep; the last remaining prose pairing (the
+two-word straight quotes `"Judgment"` / `"the Requiter,"` on the dīn line at
+1:4) was converted to curly doubles to reach DRIFT 0.
+
+### 10.6 — pre-existing artifact noted, not fixed
+
+Line 552 (1:7) contains the garbled phrase "Erra and beledig categories" in
+prose predating this session. Correcting existing commentary wording is
+outside the permitted edit classes of the standardization prompt, so it was
+left in place and flagged here for a future cleanup pass.
