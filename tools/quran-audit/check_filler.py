@@ -100,6 +100,42 @@ SHORT_VERSE = {
     '7:192': "continuation clause of 7:191, eight words in translation",
 }
 
+# --- chapter 2 (Sūrah al-Baqarah) exceptions ---------------------------------
+# Added under STANDARDIZATION_PROMPT.md §14, parallel to the 007 sets so the
+# 007 entries above are untouched. Membership is objective and auditable:
+# every entry is a verse of fourteen words or fewer in translation/002.txt
+# *and* a fragment of one of the kinds named above. The chapter's other short
+# verses -- 2:42 (11w) and 2:43 (12w) on truth and worship, 2:152 (13w) on
+# remembrance with its hadith apparatus, 2:244 (13w) the fighting command,
+# 2:278 (14w) the riba command -- are complete commands, not fragments, and
+# stay in the full band because there is real scholarship to fill them with.
+# Entries added one at a time with a reason; never in bulk.
+SHORT_VERSE_2 = {
+    '2:1':   "muqatta'at: Alif-Lam-Mim, one word in translation",
+    '2:12':  "one-clause rebuttal completing the hypocrites' dialogue of 2:11",
+    '2:52':  "one-clause divine reply of forgiveness continuing the calf scene of 2:51",
+    '2:192': "one-clause divine reply closing the fight scene of 2:190-191",
+    '2:227': "continuation clause of 2:226's four-month ruling, twelve words",
+}
+
+# --- chapter 2 tier lists (parallel to 007's; see DEPTH_PLAN_002.md) ---------
+# The five deepest: the verse on faiths outside the covenant (2:62), the most
+# disputed by the classical exegetes; the Pedestal Verse (2:255), the
+# chapter's densest statement of the divine attributes; the no-compulsion
+# verse (2:256), the most disputed legal principle in the sūrah; the longest
+# verse in the Qur'an (2:282), the debt-and-witnessing code; and the closing
+# prayer on capacity (2:286).
+DEEPEST_2 = {'2:62', '2:255', '2:256', '2:282', '2:286'}
+TIER1_2 = DEEPEST_2 | {
+    '2:30', '2:34', '2:37', '2:40', '2:47', '2:80', '2:102',
+    '2:106', '2:124', '2:143', '2:154', '2:155', '2:158',
+    '2:178', '2:183', '2:184', '2:185', '2:186', '2:187',
+    '2:190', '2:191', '2:197', '2:216', '2:217', '2:221',
+    '2:228', '2:229', '2:230', '2:233', '2:249', '2:257',
+    '2:258', '2:259', '2:260', '2:261', '2:268', '2:275',
+    '2:279', '2:284', '2:285',
+}
+
 
 def depth_floor(key, lo):
     """Floor for section `key` ('7:25'); the band floor unless excepted.
@@ -107,10 +143,13 @@ def depth_floor(key, lo):
     Tier-1 sections carry their own floor (TIER1_FLOOR), raised from the
     band floor once every listed section had been drafted to it. Sections
     demoted out of TIER1 return to the band floor; no commentary is cut.
+    The sets are selected by chapter prefix so 007's list cannot bleed
+    into another chapter or vice versa.
     """
-    if key in SHORT_VERSE:
+    chapter = key.split(':')[0]
+    if key in SHORT_VERSE_BY_CHAPTER.get(chapter, {}):
         return REDUCED_FLOOR
-    if key in TIER1:
+    if key in TIER1_BY_CHAPTER.get(chapter, set()):
         return TIER1_FLOOR
     return lo
 
@@ -148,12 +187,17 @@ TIER1 = DEEPEST | {
     '7:157', '7:172', '7:175', '7:176', '7:182',
 }
 
+SHORT_VERSE_BY_CHAPTER = {'7': SHORT_VERSE, '2': SHORT_VERSE_2}
+DEEPEST_BY_CHAPTER = {'7': DEEPEST, '2': DEEPEST_2}
+TIER1_BY_CHAPTER = {'7': TIER1, '2': TIER1_2}
+
 
 def depth_ceiling(key, hi):
     """Ceiling for section `key`; the band ceiling unless raised."""
-    if key in DEEPEST:
+    chapter = key.split(':')[0]
+    if key in DEEPEST_BY_CHAPTER.get(chapter, set()):
         return DEEPEST_CEILING
-    if key in TIER1:
+    if key in TIER1_BY_CHAPTER.get(chapter, set()):
         return TIER1_CEILING
     return hi
 
