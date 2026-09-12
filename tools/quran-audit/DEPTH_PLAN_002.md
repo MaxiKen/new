@@ -119,3 +119,20 @@ checked / 0 flagged; 007 unchanged (277,675w, FAILING 0).
 
 **Next:** batch 6 ascending from 2:43 (≈243 sections below floor; next Tier-1s at
 2:47, 2:80).
+
+**Batch 6 — 2:43–2:50** (this commit). All eight sections to band (2:47 Tier-1 at
+1,431); +17 heads; nine blocks (11:114 hours; 3:43 Mary's parallel; afalā
+taʿqilūn count; ʿĀʾishah's "His character was the Qur'an" — **unnumbered by
+design: the report is verified as hers but no collection-number was verified, so
+none is printed**; 2:153 pair; Muslim 223 — **verified** ("prayer is a light…
+patience is illumination," Abū Mālik al-Ashʿarī); 23:2 humility tag; 18:110
+meeting-hope; 2:156 return-formula; 2:122 doubled address; 14:7
+gratitude-increase; 2:143 witness-community; 2:123 twin formula; 3:30 account;
+7:136 drowning; 10:92 preserved corpse; 26:63 strike). Old-prose alignments in
+range: 2:43 gloss → "Establish prayer, pay alms-tax"; two chain-shapes in 2:44
+reworded. Remaining cited DRIFTs in 2:43–2:50 (18) are pre-session old-prose
+quotes (22:54, 2:4, 5:20, 43:32, 31:33, 2:255/20:109, 79:24, 21:35, 10:90–91,
+42:45, 26:61–62, 4:1-ellipsis at 2:35's list, 3:91/5:36 vicinity) — documented.
+Gate snapshot: filler below 235 / above 0 / FAILING 236 (none in 2:17–50);
+cross-quotes EXACT 165, DRIFT 317, VICINITY 28, FAILED 0; validate 114/114;
+007 unchanged.
