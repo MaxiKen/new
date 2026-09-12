@@ -3,12 +3,11 @@
 Audit log for the execution of `tools/quran-audit/STANDARDIZATION_PROMPT.md` on
 `expanded/002.md`, written to the format of `DEPTH_PLAN_007.md`.
 
-**Status at the last commit of this file:** tranches 1–3 complete (verses 1–36
-of 286). Every section in verses 1–36 is now inside its configured band: the
-late blocks of tranche 3 carried 2:34 to 1,581 words, inside its Tier-1 band.
-The two remaining shortfalls inside the first three batches are 2:19 (125
-words) and 2:21 in batch 13–24 territory (`A.1`); the chapter-wide worklist is
-§9, and the method for the remaining verses is §11.
+**Status at the last commit of this file:** tranches 1–3 complete, and verses
+1–36 are closed — every one of the first thirty-six sections is inside its
+configured band, with no section in the range below its floor. The batch totals
+are in `A.1`, the chapter-wide worklist in §9, and the method for the remaining
+verses in §11.
 
 The gold standard is `expanded/007.md` (277,675 words, `check_filler` FAILING 0,
 1,780 EXACT cited spans, 0 DRIFT). Chapter 2 is measured against 007's
@@ -326,8 +325,10 @@ glosses left the cited-population entirely, which is the intended outcome).
 
 ### 9.1 Depth
 
-Chapter totals at the last commit: 228,582 words in 286 sections, 251 sections
-below their configured floor, 127,785 words of outstanding depth work. The
+Chapter totals at the last commit: 229,205 words in 286 sections, 248 sections
+below their configured floor, 127,517 words of outstanding depth work. Batch A.1
+shows that batches 1-3 (verses 1-36) are now closed: no section in them is
+below its floor. The
 per-batch table is in the appendix (§A.1).
 
 The batch order is fixed: verses 1–12, 13–24, 25–36, and so on, ascending, so
@@ -427,32 +428,32 @@ chapter-aware patch did not disturb the gold standard.
 
 ### A.1 Depth worklist by batch of twelve verses
 
-| verses | words now | outstanding to floor |
-| --- | --- | --- |
-| 1–12 | 15,087 | 125 |
-| 13–24 | 14,997 | 143 |
-| 25–36 | 16,208 | 0 |
-| 37–48 | 9,821 | 5,179 |
-| 49–60 | 10,023 | 4,156 |
-| 61–72 | 8,363 | 6,637 |
-| 73–84 | 8,451 | 6,549 |
-| 85–96 | 8,387 | 6,213 |
-| 97–108 | 8,297 | 6,703 |
-| 109–120 | 8,129 | 6,471 |
-| 121–132 | 7,581 | 7,219 |
-| 133–144 | 8,890 | 5,910 |
-| 145–156 | 7,870 | 7,130 |
-| 157–168 | 8,415 | 6,585 |
-| 169–180 | 9,406 | 5,794 |
-| 181–192 | 9,936 | 4,964 |
-| 193–204 | 9,959 | 4,669 |
-| 205–216 | 9,730 | 4,670 |
-| 217–228 | 9,361 | 5,139 |
-| 229–240 | 8,262 | 7,138 |
-| 241–252 | 7,543 | 7,257 |
-| 253–264 | 9,414 | 6,386 |
-| 265–276 | 7,556 | 7,044 |
-| 277–286 | 6,896 | 5,704 |
+| verses | words now | outstanding to floor | state |
+| --- | --- | --- | --- |
+| 1–12 | 15,332 | 0 | closed |
+| 13–24 | 15,375 | 0 | closed |
+| 25–36 | 16,208 | 0 | closed |
+| 37–48 | 9,821 | 5,179 | pending |
+| 49–60 | 10,023 | 4,156 | pending |
+| 61–72 | 8,363 | 6,637 | pending |
+| 73–84 | 8,451 | 6,549 | pending |
+| 85–96 | 8,387 | 6,213 | pending |
+| 97–108 | 8,297 | 6,703 | pending |
+| 109–120 | 8,129 | 6,471 | pending |
+| 121–132 | 7,581 | 7,219 | pending |
+| 133–144 | 8,890 | 5,910 | pending |
+| 145–156 | 7,870 | 7,130 | pending |
+| 157–168 | 8,415 | 6,585 | pending |
+| 169–180 | 9,406 | 5,794 | pending |
+| 181–192 | 9,936 | 4,964 | pending |
+| 193–204 | 9,959 | 4,669 | pending |
+| 205–216 | 9,730 | 4,670 | pending |
+| 217–228 | 9,361 | 5,139 | pending |
+| 229–240 | 8,262 | 7,138 | pending |
+| 241–252 | 7,543 | 7,257 | pending |
+| 253–264 | 9,414 | 6,386 | pending |
+| 265–276 | 7,556 | 7,044 | pending |
+| 277–286 | 6,896 | 5,704 | pending |
 
 ### A.2 Cited spans still failing `check_cross_quotes.py`
 
