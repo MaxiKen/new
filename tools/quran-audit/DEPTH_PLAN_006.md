@@ -98,3 +98,21 @@ Struck: §24 first choice (36:65/24:24 sealed-mouths head) — both verses
 already blockquoted in §23, the neighboring section; cross-section
 duplication. Replaced with the ḥadīth-narrative version (Muslim 2968),
 distinct material. Gates: quotes 820 EXACT / 0 bad, filler −3.
+
+### Batch 3 (vv. 25–36): 93 → 86 failing
+
+| verse | head added | +words | lands |
+|---|---|---|---|
+| 6:29 | Nothing Destroys Us but Time: 45:24 (*dahr*; Bukhārī 4826/Muslim 2246 verified via search) | 183 | 1238 ✓ |
+| 6:30 | Did No Warner Come to You: 67:8–9 (keepers' *taqrīr*) | 53 | 1225 ✓ |
+| 6:31 | I Wish I Had Never Taken So-and-So: 25:28 (*fulān*; 25:29 inline) | 111 | 1278 ✓ |
+| 6:32 | Today We Will Ignore Them: 7:51 (measure for measure; 6:70 forward) | 63 | 1248 ✓ |
+| 6:33 | Why Not a Great Man: 43:31 (status objection; 43:32 bare) | 96 | 1285 ✓ |
+| 6:34 | Until Our Help Came: 12:110 (*istay'asa*; translation's resolution noted) | 71 | 1235 ✓ |
+| 6:36 | Hearts They Do Not Understand With: 7:179 (*ghāfilūn*) | 85 | 1243 ✓ |
+
+Struck: §31 first choice (78:40 dust-wish) — motif already used in the new
+§24 head; replaced with the bad-company regret (25:27–29). §32 first choice
+(29:64/57:20 parallel) — both already blockquoted in §32; replaced with the
+Judgment sentence on the players (7:51). Gates: quotes 829 EXACT / 0 bad
+(the inline single-quoted 25:29 span is gate-checked and EXACT), filler −7.
