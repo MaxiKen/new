@@ -1,2 +1,5 @@
 __pycache__/
 *.pyc
+# generated audit output: per-section rewrite drafts and batch artifacts.
+# Reproducible from the gates; kept out of Git.
+out/

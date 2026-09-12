@@ -1273,3 +1273,52 @@ tics 0.19/1k, chains 0.12/1k, dup 0.062, repeated sentences 0. File 275,881 word
 
 **Group B complete. Fifteen of 43 drafted; four demoted** (7:178, 7:187, 7:32, 7:148). The
 gate's Tier-1 list stands at 43 verses. Remaining: Group C (9 sections) and Group A (19).
+
+### 10.10 Tranche 24 — 7:90, 7:97, and two more demotions
+
+**Concordance claims are now counted from `translation/` before drafting.** This caught two
+errors in the plan's own numbers, and produced the two heads that were drafted.
+
+- The plan said the sūrah's *khusr* / *khāsir* verdict-word occurs seven times and listed 7:9
+  among them. Counted from the translation it occurs **six** times — 7:23, 7:90, 7:92, 7:99,
+  7:149, 7:178 — and 7:9 is not one of them ("they have doomed themselves").
+- The plan said the suddenness word runs through 7:95, 7:97, 7:98, 7:99, 7:182, 7:187 and
+  6:44. Counted, the surprise family occurs **three** times in the sūrah — 7:4, 7:95, 7:187 —
+  and the two questions of 7:97–98 do not use it at all. The important find was 7:4, which the
+  plan had not noticed: the sūrah's fourth verse already states the whole pattern.
+
+**7:90 → 1,547w, one head** (three proposed; two struck):
+- *struck* — the three-descriptions harmonisation, drafted in 7:91 at tranche 19; repeating it
+  here would be cross-section duplication rather than depth.
+- *struck* — "Following a Prophet as Material Loss", already carried by "The Cost of Conversion
+  in a Trading Town".
+- *drafted* — **The Word's Six Occurrences, and Who Speaks It**: the six verses counted, then
+  distributed by speaker — twice by penitents against themselves, in sentences differing only
+  in the order of their two requests (forgiven then shown mercy at 7:23; shown mercy then
+  forgiven at 7:149), once by the chiefs against other people, three times as God's verdict.
+
+**7:97 → 1,537w, one head** (three proposed; two struck):
+- *struck* — "Night as the Time of Exposure", already carried by "The Sleep of the Secure" and
+  its Isrāʾ rule.
+- *struck* — "Amān and the Four Questions": the series is three questions (7:97, 7:98, 7:99),
+  not four, and "The Question the Reader Must Answer" already places the reader among them.
+- *drafted* — **The Pattern Announced in the Fourth Verse**: “Our torment took them by surprise
+  ˹while sleeping˺ at night or midday.” (7:4) carries both hours in one clause before any town
+  is named, and the sūrah spends ninety-three verses turning it into two questions; the third
+  occurrence of the word applies it to the Hour itself, quoted from 7:187.
+
+**Correction 8 — 7:92 demoted.** Both heads proposed for it are already carried: "As If They
+Had Never Lived There" and "The Erasure Formula and the Ruins Left Behind" already quote
+Hūd's Thamūd and Madyan closings and 29:38, and "Dwelt in Sufficiency" gives the *gh-n-y* root.
+The *jāthimīn* head was drafted at 7:78 and the word is not in this verse. 8 sub-heads,
+1,352 words, inside the standard band.
+
+**Correction 9 — 7:98 demoted.** Both heads proposed are already carried: "The Play of the
+Prosperous" and "The Word for Play" cover *yalʿabūn* and the *lahw*/*laʿib* pairing, and "The
+Daytime and Its Confidence" states the whole-human-clock point directly. 7 sub-heads,
+1,299 words, inside the standard band.
+
+Gates: cross-quotes **1,761 EXACT / 0 DRIFT / 0 ELLIPSIS / 0 VICINITY** (two new spans, both
+exact); validate 114/114; check_filler **FAILING 0**, below 0, above 0, reduced-floor 18,
+tics 0.19/1k, chains 0.12/1k, dup 0.062, repeated sentences 0. File 276,201 words.
+**Seventeen of 41 drafted; six demoted** (7:178, 7:187, 7:32, 7:148, 7:92, 7:98).
