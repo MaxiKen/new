@@ -2,19 +2,21 @@
  "total": {
   "rule": 1,
   "end": 1,
-  "end-rule": 1
+  "end-rule": 1,
+  "files_written": 1
  },
  "per_file": {
-  "014.md": {
+  "007.md": {
    "rule": 1,
    "end": 1,
-   "end-rule": 1
+   "end-rule": 1,
+   "files_written": 1
   }
  },
  "notes": {
-  "014.md": [
+  "007.md": [
    "rule: dropped preamble rule(s) belonging to the first verse boundary",
-   "end: added end marker **[End of the commentary on Sūrah Ibrāhīm]**",
+   "end: added end marker **[End of the commentary on Sūrah al-Aʿrāf]**",
    "end-rule: inserted --- before end marker"
   ]
  }
