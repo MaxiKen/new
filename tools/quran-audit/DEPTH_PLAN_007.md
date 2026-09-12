@@ -922,18 +922,35 @@ from `translation/`.
 | Words added | +11,250 | **~+12,000** |
 | Sections over their (new) ceiling | 43 of 43 | **0 of 46** |
 
-### 8.5 Execution order (unchanged from §7.5, with two insertions)
+### 8.5 Execution order — complete; outcome recorded against each step
 
-1. Clear the 11-item **[Q]** verification queue — in progress.
-2. Group D (deepest doctrine): 7:143, 7:46, 7:54, 7:157, 7:176, 7:178, 7:172, 7:187.
-3. Group B (rulings): 7:85, 7:31, 7:33, 7:32, 7:28, 7:156, 7:148.
-4. **New: the promoted destruction pair 7:78 and 7:91**, plus **7:175**.
-5. Group C (comparative): 7:90, 7:92, 7:56, 7:75, 7:97, 7:98, 7:99, 7:88, 7:128.
-6. Group A thin: 7:22, 7:27, 7:37, 7:38, 7:43, 7:44, 7:53, 7:69, 7:73, 7:89.
-7. Group A dense: the 21 single-head additions.
-8. Update `validate.py` for the tier-relative band; refresh the 18-entry exception list.
-9. Full gate run per tranche: `check_filler.py`, `check_cross_quotes.py`, `validate.py`,
-   `census.py`. Commit per tranche to `arena/01a094c2-new`; PR #89 open.
+1. Clear the 11-item **[Q]** verification queue — **done**, §9. Six items are citable with
+   collection and number, four only as reports attributed to named exegetes, and one by
+   collection, book and chapter with an-Nawawī's qualifier mandatory.
+2. Group D (deepest doctrine) — 7:143, 7:46, 7:54, 7:157, 7:176, 7:172 **drafted**; 7:178 and
+   7:187 **demoted** (see the tranche log in §10). The *istidrāj* material was found to belong at
+   7:182–183 rather than 7:178, so 7:182 was promoted and drafted in its place.
+3. Group B (rulings) — 7:85, 7:31, 7:33, 7:28, 7:156 **drafted**; 7:32 and 7:148 **demoted**
+   (Corrections 6 and 7).
+4. The promoted pair 7:78 and 7:91, plus 7:175 — **all three drafted**, and all three left the
+   reduced-floor exception list for the full Tier-1 band.
+5. Group C (comparative) — 7:90, 7:97, 7:56, 7:75, 7:99, 7:88 **drafted**, one head each;
+   7:92, 7:98 and 7:128 **demoted** (Corrections 8, 9 and 10).
+6. Group A thin — 7:22, 7:27, 7:37, 7:44 **drafted**, one head each; 7:38, 7:43, 7:53, 7:69,
+   7:73 and 7:89 **demoted** (Corrections 11 and 12).
+7. Group A dense — **all nine demoted** (Correction 12). This step was costed at "21 single-head
+   additions"; the work order as written carried 10 heads across 9 sections, and each named a
+   topic its section already had a head for, in three cases in the same words.
+8. Tier-relative band — enforced in `check_filler.py` through `depth_floor` and `depth_ceiling`,
+   not in `validate.py`, which checks structure only and carries no band logic. The exception
+   list stands at 18 entries after 7:78 and 7:91 were removed at step 4.
+9. Full gate run per tranche — **done for all ten tranches** (`check_filler.py`,
+   `check_cross_quotes.py`, `validate.py`, `census.py`), one commit each to
+   `arena/01a094c2-new`, with a summary posted to PR #89.
+
+Net: **25 Tier-1 sections drafted, 22 demoted, 1 promoted in (7:182), from 46 originally
+listed.** No existing commentary was cut at any point; every demotion returns a section to the
+standard 1,200–1,400 band, and all 22 remain inside it.
 
 ---
 
