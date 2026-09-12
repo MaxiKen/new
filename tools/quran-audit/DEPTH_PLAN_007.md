@@ -1398,3 +1398,60 @@ only the three intended files. The remote history was never affected; tranche 24
 `tools/quran-audit/.gitignore` now excludes `out/`, so the generated per-section rewrite drafts
 and batch artifacts cannot be committed again. They are reproducible from the gates and are not
 part of the deliverable.
+
+### 10.13 Tranche 26 — 7:22, 7:27, 7:37, and the demotion of 7:73
+
+Group A thin, batch 1: four sections inspected, three heads drafted, nine proposed heads struck,
+one section demoted.
+
+**7:22 → 1,575w, one head** (four proposed; three struck):
+- *struck* — "Satan's Oath as the Instrument": 7:21's own section is titled "The First Perjured
+  Oath" and already carries the *qasam* morphology, the manufactured standing, 2:224 and 3:77.
+  A grep across all 114 translation files confirms **7:21 is the only verse in the Qurʾān that
+  records Satan swearing**, so the fact belongs to that section and not to a second one.
+- *struck* — "Hubūṭ as Legal Status": 2:36 twice, 7:24 and 20:123 already present.
+- *struck* — "ʿAmal: The First Kind of Work": the concordance does not hold — 7:176 contains no
+  *ʿamal* word in this translation (it is the dog simile) — and the existing head already calls
+  *yakhṣifāni* "the first recorded human labor".
+- *drafted* — **The Tree Named, and Not Named**: the Qurʾān never identifies the tree; 7:19 and
+  2:35 differ in the permission and are word for word identical in the prohibition; and the only
+  name the tree ever carries is the one inside the whisper (20:120), which is the tempter's own
+  advertisement rather than information from God.
+
+**7:27 → 1,510w, one head** (three proposed; two struck):
+- *struck* — "The Unseen Vantage as a Creedal Premise": two existing heads ("The Asymmetry of
+  Vision", "Seeing Without Being Seen") already carry it.
+- *struck* — "7:26 and 7:27 as One Unit" as a separate head; folded into the one drafted, where
+  the sequence does the work.
+- *drafted* — **The Garment That Cannot Be Stripped**: 7:26's two provided garments against its
+  third, which is practised and is the only one called best, and 7:27's removal of the first.
+  Neither *taqwā* nor "righteousness" appears anywhere in the 7:27 section; 7:26 was cited there
+  only inside the count of the four *yā banī Ādam* vocatives.
+
+**7:37 → 1,586w, one head** (four proposed; three struck):
+- *struck* — "A Formula Counted": "The Two Crimes That Head the List" already quotes 6:21 and
+  6:93 verbatim and cites 11:18 and 39:32.
+- *struck* — "Naṣīb min al-Kitāb": the existing head already gives both classical readings with
+  al-Ṭabarī and al-Qurṭubī named, so 3:145 would be a further citation of one settled point.
+- *struck* — "Tawaffā and Its Agents": 32:11, 6:61, 8:50 and 47:27 already quoted, and the
+  contrast between the two descriptions of soul-taking already drawn.
+- *drafted* — **The Same Confession, Twice in This Sūrah**: 7:23 against 7:37 — a petition offered
+  by the living and answered with a residence, provision and an appointed stay (7:24–25), against
+  a testimony taken at the moment of death with no petition after it.
+
+**Correction 11 — 7:73 demoted.** All four proposed heads' sources are already present: 26:155
+twice, 91:13 twice, "appointed day" twice, "turn to drink" three times, 11:65 once with "three"
+three times, "hamstring" twice. The single absent source — 26:189's day of the cloud — was drafted
+at 7:91 in tranche 19 as part of the three-descriptions harmonisation, so repeating it here would
+be cross-section duplication. 7 sub-heads, 1,399 words.
+
+**Verification-queue item 10 resolved better than planned.** The queue said to drop the three-day
+count at Thamūd unless a named exegete carried it, falling back on 11:65–66 verbatim. **11:65
+states the count itself** — “You have ˹only˺ three ˹more˺ days to enjoy life in your homes— this
+is an unfailing promise!” — so the interval is Qurʾānic rather than traditional. The section
+already carries it; the fallback is unnecessary and no change was needed.
+
+Gates: cross-quotes **1,777 EXACT / 0 DRIFT / 0 ELLIPSIS / 0 VICINITY** (eight new spans, all
+exact); validate 114/114; check_filler **FAILING 0**, below 0, above 0, reduced-floor 18,
+tics 0.19/1k, chains 0.12/1k, dup 0.062, repeated sentences 0. File 277,467 words.
+**Twenty-four of 39 drafted; eight demoted.**
