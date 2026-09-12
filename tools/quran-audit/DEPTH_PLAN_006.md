@@ -221,3 +221,21 @@ Base-word estimates ran low on §64 (838 actual): needed a +62w *tanzīh*
 paragraph after the script landed 1169. Detection check: all 9 new spans
 gate-seen and EXACT (one line double-printed by overlapping check ranges, not a
 double gate entry). Gates: quotes 869 EXACT / 0 bad, filler −3.
+
+### Batch 6b (vv. 65–67, 69, 72): 64 → 59 failing
+
+| verse | head added | +words | lands |
+|---|---|---|---|
+| 6:65 | Their Hearts Are Divided: 59:14 (anatomy of faction; unreason vs *yafqahūn*) | 138 | 1206 ✓ |
+| 6:66 | Your Duty Is Only to Deliver: 42:48 (*ḥafīẓ* restates *wakīl*; denial conceded) | 121 | 1221 ✓ |
+| 6:67 | You Will Certainly Know Before Long: 38:88 (*ḥīn* undisclosed; certainty without a date) | 126 | 1206 ✓ |
+| 6:69 | Depart from Them Courteously: 73:10 (*hajran jamīlā*; manner of the 68–69 sequence) | 118 | 1242 ✓ |
+| 6:72 | Leaving None Behind: 18:47 (the gathering staged; bare earth, no exemptions) | 133+71 | 1264 ✓ |
+
+Struck: §69 first choice (4:140 withdrawal parallel) — its opening clause already
+blockquoted in §68 (L5273); replaced with the courteous-departure verse (73:10),
+fresh. Note: translation/038.txt:88 carries a stray trailing `”` (no opener);
+sliced the bq to end at "before long." Lesson: the filler's word counter runs
+~30 under script split()-counts (blockquotes/heads excluded?) — §72 landed 1194
+and needed a +71w Ṭabarī mercy paragraph. Detection check: all 5 new spans
+EXACT. Gates: quotes 874 EXACT / 0 bad, filler −5.
