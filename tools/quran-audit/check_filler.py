@@ -4,7 +4,10 @@
 Measures the things that make expanded prose read as padding rather than
 scholarship, per verse section and per file:
 
-  depth    words per section against a target band (default 1200-1600).
+  depth    words per section against a target band (default 1200-1600), with
+           an explicit, reason-carrying reduced floor for the minority of
+           verses that are muqatta'at, a single dialogue clause or a
+           scene-closing fragment (see SHORT_VERSE below).
   tics     formulaic connective phrases per 1,000 words ("It is worth
            noting", "In other words", "The point is", ...).
   chains   self-referential sentence shapes per 1,000 words
@@ -54,6 +57,50 @@ CHAIN_RX = [
 
 QUOTE_SPAN = re.compile(r'[\u201c\u2018"\u00ab]([^\u201d\u2019"\u00bb]{12,})[\u201d\u2019"\u00bb]')
 WORDS = re.compile(r"[\w\u02b9\u02bc\u02bf\u02c8\u02c9\u2019'-]+")
+
+# --- auditable depth exception -------------------------------------------
+# The band assumes a verse has enough surface to sustain it. A minority of
+# verses do not: the muqatta'at, a single dialogue clause, or a sentence that
+# closes a scene and takes its sense from the verse before it. Writing those
+# to the full band is padding, which is precisely what this gate exists to
+# stop, so they carry a reduced floor (REDUCED_FLOOR) and the same ceiling.
+#
+# Membership is objective and auditable: every entry is a verse of fourteen
+# words or fewer in translation/NNN.txt *and* a fragment of one of the kinds
+# named above. Short verses that are not fragments -- 7:55 on the manners of
+# supplication, 7:166 on the metamorphosis, 7:183 on istidraj, 7:199 on
+# forbearance and turning away, 7:5 on the cry of the destroyed cities --
+# stay in the full band, because there is real scholarship to fill them with.
+# Entries are added one at a time with a reason; never in bulk.
+REDUCED_FLOOR = 700
+SHORT_VERSE = {
+    '7:1':   "muqatta'at: the four disjointed letters, one word in translation",
+    '7:14':  "Iblis's one-clause appeal for respite",
+    '7:15':  "one-clause divine reply granting the respite",
+    '7:21':  "one-clause oath by which Iblis swore to them",
+    '7:76':  "one-clause rejection by the arrogant party",
+    '7:78':  "scene-closer: the earthquake and the prone bodies",
+    '7:81':  "one-clause rebuke within Lut's speech",
+    '7:91':  "scene-closer: the earthquake and the prone bodies",
+    '7:107': "scene: the staff thrown down and becoming a snake",
+    '7:109': "one-clause accusation by the chiefs of Pharaoh's people",
+    '7:111': "one-clause reply deferring Moses and his brother",
+    '7:112': "purpose clause continuing 7:111, six words in translation",
+    '7:114': "one-clause reply granting the magicians their wage",
+    '7:118': "scene-closer: the truth prevailed and the illusion failed",
+    '7:119': "scene-closer: Pharaoh's people defeated and humiliated",
+    '7:120': "scene: the magicians falling down prostrate, six words",
+    '7:121': "opening clause of the magicians' declaration, completed in 7:122",
+    '7:122': "continuation clause of 7:121, six words in translation",
+    '7:125': "one-clause reply of the magicians on returning to their Lord",
+    '7:192': "continuation clause of 7:191, eight words in translation",
+}
+
+
+def depth_floor(key, lo):
+    """Floor for section `key` ('7:25'); the band floor unless excepted."""
+    return REDUCED_FLOOR if key in SHORT_VERSE else lo
+
 
 
 def sections(path):
@@ -113,7 +160,8 @@ def prose_sentences(text):
     return out
 
 
-def scan(path, band, max_tics, max_chain, max_dup, max_repeat):
+def scan(path, band, max_tics, max_chain, max_dup, max_repeat, sura=None):
+    lo, hi = band
     secs = sections(path)
     rows = []
     allsent = collections.Counter()
@@ -125,14 +173,14 @@ def scan(path, band, max_tics, max_chain, max_dup, max_repeat):
         sents = prose_sentences(text)
         allsent.update(sents)
         rows.append(dict(verse=v, line=ln, words=w,
+                         floor=depth_floor('%d:%d' % (sura, v), lo) if sura else lo,
                          tics=tics, tics_1k=round(1000 * tics / w, 2) if w else 0,
                          chains=chains, chains_1k=round(1000 * chains / w, 2) if w else 0,
                          dup=round(dup, 4), dup_grams=dupes, sentences=len(sents)))
-    lo, hi = band
     repeated = {s: c for s, c in allsent.items() if c > 1}
     for r in rows:
         r['fails'] = sorted(
-            ([ 'depth<%d' % lo] if r['words'] < lo else []) +
+            ([ 'depth<%d' % r['floor']] if r['words'] < r['floor'] else []) +
             (['depth>%d' % hi] if r['words'] > hi else []) +
             (['tics>%.1f' % max_tics] if r['tics_1k'] > max_tics else []) +
             (['chains>%.1f' % max_chain] if r['chains_1k'] > max_chain else []) +
@@ -144,7 +192,8 @@ def scan(path, band, max_tics, max_chain, max_dup, max_repeat):
         words_min=min(words) if words else 0,
         words_median=int(statistics.median(words)) if words else 0,
         words_max=max(words) if words else 0,
-        below_band=sum(1 for r in rows if r['words'] < lo),
+        below_band=sum(1 for r in rows if r['words'] < r['floor']),
+        reduced_floor=sum(1 for r in rows if r['floor'] != lo),
         above_band=sum(1 for r in rows if r['words'] > hi),
         tics_total=sum(r['tics'] for r in rows),
         tics_1k=round(1000 * sum(r['tics'] for r in rows) / max(sum(words), 1), 2),
@@ -182,16 +231,16 @@ def main():
         p = os.path.join(EXP, '%03d.md' % n)
         if not os.path.exists(p):
             continue
-        r = scan(p, (lo, hi), a.max_tics, a.max_chain, a.max_dup, a.max_repeat)
+        r = scan(p, (lo, hi), a.max_tics, a.max_chain, a.max_dup, a.max_repeat, sura=n)
         out.append(r)
         fails = len(r['failing_sections'])
         bad += fails
         print('%s  %4d sections  %8d words  band %s  min %d / med %d / max %d  '
-              'below %d above %d  tics %.2f/1k  chains %.2f/1k  dup %.3f  '
-              'repeated sentences %d  FAILING %d'
+              'below %d above %d  reduced-floor %d  tics %.2f/1k  chains %.2f/1k  '
+              'dup %.3f  repeated sentences %d  FAILING %d'
               % (r['file'], r['sections'], r['words_total'], a.band, r['words_min'],
                  r['words_median'], r['words_max'], r['below_band'], r['above_band'],
-                 r['tics_1k'], r['chains_1k'], r['worst_dup'],
+                 r['reduced_floor'], r['tics_1k'], r['chains_1k'], r['worst_dup'],
                  r['repeated_sentences'], fails))
         for s, c in r['repeated_examples'][:4]:
             print('    %dx  %s' % (c, s[:100]))
