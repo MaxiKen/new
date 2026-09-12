@@ -163,3 +163,17 @@ are pre-session old-prose artifacts (incl. two unpaired-quote artifacts at 2:62
 and Archer "haply/reverent" wording) — documented. Gate snapshot: filler below
 220 / above 0 / FAILING 221 (none in 2:17–66); cross-quotes EXACT 181, DRIFT
 318, VICINITY 28, FAILED 0; validate 114/114; manual checks examined: 8.
+
+**Batch 9 — 2:67–2:74** (this commit). The cow episode + the hardened hearts:
+all eight sections to band (1,212–1,345); +20 heads, 26 blocks (2 heads/section
+plus addenda). Quote set: 2:67 mock-question; 2:68 age-specification; 2:69
+bright-yellow; 2:70 sameness-confession + Allah-willing; 2:71 unworked cow +
+"now you have come with the truth" + "hesitantly!"; 2:72 the murder + disclosure;
+2:73 strike + purpose-clause; 2:74 hardness + yielding rocks + never unaware —
+all verified EXACT (new-quote defects: none; every own-verse span cited (2:NN)).
+Chain-shapes reworded: 2:68/2:72 (three "of the X of the" shapes). Gate
+snapshot: filler below 212 / above 0 / FAILING 213 (none in 2:17–74);
+cross-quotes EXACT 197, DRIFT 318, VICINITY 28, FAILED 0; validate 114/114;
+manual checks examined: 8, none flagged. Remaining cited DRIFTs in 2:67–2:74
+are pre-session old-prose quotes (not re-listed individually — the standing
+in-prose remediation pass will align them chapter-wide).
