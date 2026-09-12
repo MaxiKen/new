@@ -934,3 +934,35 @@ from `translation/`.
 8. Update `validate.py` for the tier-relative band; refresh the 18-entry exception list.
 9. Full gate run per tranche: `check_filler.py`, `check_cross_quotes.py`, `validate.py`,
    `census.py`. Commit per tranche to `arena/01a094c2-new`; PR #89 open.
+
+---
+
+## 9. Verification queue — cleared
+
+All eleven **[Q]** items checked live. Six now carry collection and number; five resolve to
+named classical sources, which is the correct attribution for exegetical reports (a report
+transmitted by an exegete is cited to the exegete, not given a ḥadīth number it does not
+have).
+
+| # | Item | Result | Cite as |
+|---|---|---|---|
+| 1 | *man ghashshanā falaysa minnā* | **Verified** | Sunan Ibn Mājah 2225, from Abū Ḥamrāʾ: "I saw the Messenger of Allah ﷺ pass by a man having food in a vessel. He put his hand in it and said: 'Perhaps you are cheating. Whoever cheats us is not one of us.'" The grain-heap incident (wet grain under dry, "Why did you not place the drenched part over the corn so that people might see it?") is in Ṣaḥīḥ Muslim, content verified via Riyāḍ aṣ-Ṣāliḥīn 1579 and IslamQA; number not held, so cite Ibn Mājah 2225 for the wording and describe the Muslim incident without a number. → **7:85** |
+| 2 | "eat, drink, wear, give charity without extravagance or pride" | **Verified, ḥasan** | Sunan Ibn Mājah 3600 and 3605, from ʿAmr b. Shuʿayb from his father from his grandfather (ʿAbdullāh b. ʿAmr): "Eat and drink, give charity and wear clothes, as long as that does not involve any extravagance or vanity." Also al-Bukhārī as *muʿallaq* in decisive form, and Aḥmad. The source itself ties it to the verse: "The Hadith corresponds to the verse where Allah says {Eat and drink and be not extravagant} [Sūrat al-Aʿrāf: 31]", and glosses *isrāf* as "exceeding the limit in every act or saying", paired with a command "to avoid ostentation and seeking fame". This confirms the excess-in-amount / excess-in-motive split the head needs. → **7:31** |
+| 3 | "None is more jealous than Allah…" | **Verified** | Ṣaḥīḥ Muslim 1499a, al-Mughīrah b. Shuʿbah reporting Saʿd b. ʿUbādah: "Are you surprised at Saʿd's jealousy of his honour? By Allah, I am more jealous of my honour than he, and Allah is more jealous than I. Because of His jealousy Allah has prohibited abomination, both open and secret…" — the Arabic carries *al-fawāḥish mā ẓahara minhā wa-mā baṭan*, the exact phrase of 7:33, so the ḥadīth gives the verse's own wording its reason. Continues: "no person is more fond of accepting an excuse than Allah, on account of which He has sent messengers, announcers of glad tidings and warners; and no one is more fond of praise than Allah, on account of which Allah has promised Paradise." Ibn Kathīr's note that this was "recorded in the Two Ṣaḥīḥs" is consistent. → **7:33** |
+| 4 | The tajallī / fingertip report | **Not numbered** | Attribute to the exegetical tradition on 7:143 (al-Qurṭubī, Ibn Kathīr), never as a graded ḥadīth with a number. The head may proceed on that footing, or be dropped in favour of the two verified sight reports below. → **7:143** |
+| 5 | Abū Dharr's Miʿrāj light report | **Verified, two variants** | Ṣaḥīḥ Muslim 178a: "I asked the Messenger of Allah ﷺ: Did you see thy Lord? He said: (He is) Light; how could I see Him?" Ṣaḥīḥ Muslim 178b, ʿAbdullāh b. Shaqīq from Abū Dharr: "I, in fact, inquired of him, and he replied: I saw Light." Both sit in the Book of Faith, chapter 78, titled "The saying of the Prophet: 'Light, How could I see Him?' and: 'I saw Light'". → **7:143** |
+| 6 | *innakum satarauna Rabbakum* | **Verified** | Ṣaḥīḥ al-Bukhārī 7436 (7434 in some editions), Book of the Oneness and Uniqueness of Allah, from Jarīr b. ʿAbdullāh: "Allah's Messenger ﷺ came out to us on the night of the full moon and said, 'You will see your Lord on the Day of Resurrection as you see this (full moon) and you will have no difficulty in seeing Him.'" → **7:143** |
+| 7 | The scales / atom's-weight and "last to enter" reports | **Not numbered** | Attribute to Ibn ʿAbbās and Ḥudhayfah as transmitted by al-Qurṭubī and al-Ālūsī on 7:46. Do not give a ḥadīth number. → **7:46** |
+| 8 | *al-arwāḥ junūdun mujannadah* | **Verified by collection, book and chapter** | Ṣaḥīḥ al-Bukhārī, Kitāb Aḥādīth al-Anbiyāʾ, chapter *al-Arwāḥ junūd mujannadah*. Number not held — cite collection, book and chapter. **Important qualifier, also verified:** an-Nawawī explains the phrase as "groups gathered together, or different types", i.e. it concerns affinity and opposition among spirits, not a dated pre-earthly assembly. The head must therefore present it as bearing on *affinity*, not as proof of the covenant's location. → **7:172** |
+| 9 | The Torah's description of the Prophet | **Not numbered** | Attribute to the exegetical tradition via Ibn Kathīr and al-Ṭabarī (ʿAṭāʾ b. Yasār's transmission). If the chain is not stated in the source, the head reduces to **[T]** 48:29 and 3:159. → **7:157** |
+| 10 | The three-day interval at Thamūd | **Not numbered** | Attribute to the exegetical tradition; if no named exegete carries it, replace with **[T]** 11:65–66 verbatim and drop the day-count. → **7:73** |
+| 11 | The Jibrīl definition of *iḥsān* | **Verified** | Ṣaḥīḥ Muslim 8 (variants 8b, 8c, 8d) and Ṣaḥīḥ al-Bukhārī 50, both in the Book of Faith, from ʿUmar b. al-Khaṭṭāb: "It is to worship Allah as if you can see Him, for although you cannot see Him, He can see you." → **7:56** |
+
+**Net effect:** items 1, 2, 3, 5, 6, 11 are citable with collection and number. Items 4, 7, 9,
+10 are citable only as reports attributed to named exegetes — which is how the plan already
+describes them. Item 8 is citable by collection, book and chapter, with an-Nawawī's qualifier
+mandatory. No head in the plan depends on an unverified number.
+
+**Added to the verified [V] pool this session:** Muslim 1499a's use of 7:33's exact phrase,
+which is a stronger link than the plan assumed — the ḥadīth does not merely parallel the
+verse, it quotes it.
