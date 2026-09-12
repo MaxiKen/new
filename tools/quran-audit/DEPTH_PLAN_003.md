@@ -24,7 +24,8 @@ session, not recalled.
 | tics / chains / dup / repeats | 0.05 / 0.27 / 0.017 / 0 | all already inside threshold |
 | `validate.py` | 114/114 PASSED | |
 | `check_cross_quotes.py 3` | 1,767 spans · 417 cited · 1,350 uncited | **DRIFT 393 · VICINITY 20 · EXACT 4** |
-| `census.py --sura 3` | 200 sections · 0 below 260 · 0 below 400 | |
+| `census.py --sura 3` | 200 sections · 0 below 260 · 0 below 400 |
+| `check_translations.py --sura 3` | 200 checked · 0 flagged (see correction 1 — a green run here is not evidence) | |
 | Blockquotes matching `translation/003.txt` | **0 of 200** | all were the `initial/` rendering |
 | `(S:V)` citations in body prose | 326 (1.6 per section) | 007 carries 2,988 (14.5) |
 
@@ -35,8 +36,8 @@ authoritative translation**, and **only four of 417 cited quotations were exact*
 
 ## 1. Tier-1 list as chosen (§8)
 
-Selected by the six density criteria applied to `translation/003.txt`. 40 of 200 verses = 20%,
-inside the specified 15–25%. Now coded in `check_filler.py`.
+Selected by the six density criteria applied to `translation/003.txt`. 41 of 200 verses = 20.5%,
+inside the specified 15–25%. 3:8 was added after drafting — see correction 14. Now coded in `check_filler.py`.
 
 ### DEEPEST (5) — floor 1,400, ceiling 2,100
 
@@ -48,9 +49,9 @@ inside the specified 15–25%. Now coded in `check_filler.py`.
 | 3:103 | The rope of Allah and the prohibition of division. The chapter's ecclesiology in one verse. |
 | 3:190 | The alternation of night and day and *ulū al-albāb*. The doxology the chapter closes on. |
 
-### TIER1 (35 further) — floor 1,400, ceiling 1,800
+### TIER1 (36 further) — floor 1,400, ceiling 1,800
 
-3:2, 3:3, 3:18, 3:19, 3:26, 3:27, 3:31, 3:33, 3:37, 3:42, 3:45, 3:49, 3:55, 3:61, 3:64, 3:67,
+3:2, 3:3, 3:8, 3:18, 3:19, 3:26, 3:27, 3:31, 3:33, 3:37, 3:42, 3:45, 3:49, 3:55, 3:61, 3:64, 3:67,
 3:79, 3:81, 3:85, 3:92, 3:96, 3:102, 3:104, 3:110, 3:130, 3:133, 3:136, 3:144, 3:145, 3:159,
 3:169, 3:180, 3:185, 3:195, 3:200.
 
@@ -61,7 +62,7 @@ Grouped by the criterion that qualified each:
 - **Covenant, oath or eschatological scene** — 3:19, 3:81, 3:85, 3:133, 3:136, 3:169
 - **Named prophetic episode with narrative consequences** — 3:33, 3:37, 3:42, 3:45, 3:49, 3:55,
   3:61, 3:67, 3:79
-- **Formula repeated elsewhere, so it can be counted** — 3:31, 3:64, 3:144, 3:159, 3:185, 3:195, 3:200
+- **Formula repeated elsewhere, so it can be counted** — 3:8, 3:31, 3:64, 3:144, 3:159, 3:185, 3:195, 3:200
 
 ### SHORT_VERSE (8) — reduced floor 700
 
@@ -108,6 +109,22 @@ the pastoral reading and the "concealment has no location" argument — were mer
 because both rest on the same preposition and would have restated each other.
 
 Corpus totals moved 150,300 → 154,031 body words (**+3,731**); below-floor 199 → 194.
+
+### Batch 2 — verses 3:8 to 3:12
+
+| Verse | Before | Added | After | Floor | Result |
+|---|---|---|---|---|---|
+| 3:8 | 832 | 592 | 1,424 | 1,400 | clears, Tier-1 band (see correction 14) |
+| 3:9 | 830 | 451 | 1,281 | 1,200 | clears |
+| 3:10 | 894 | 330 | 1,224 | 1,200 | clears |
+| 3:11 | 787 | 447 | 1,234 | 1,200 | clears |
+| 3:12 | 776 | 474 | 1,250 | 1,200 | clears |
+
+Heads added: 12. Three paragraphs were extended after the dry-run projection showed 3:9, 3:11
+and 3:12 landing within a few words of their floor — the applier prints before/after against the
+ceiling precisely so this is caught before the write rather than after.
+
+Corpus totals moved 154,031 → 156,323 body words; below-floor 194 → 181.
 
 ---
 
@@ -192,6 +209,22 @@ this session's own working assumptions.
     offset. Both were caught by an assertion inside the apply loop, so no partial write
     reached the file.
 
+14. **The Tier-1 list was wrong about 3:8.** It was not selected up front, and the section then
+    ran to 1,424 words against the standard ceiling of 1,400. §15's rule settles it: a verse that
+    carries a repeated formula or a divine attribute is Tier-1. 3:8 carries both — the
+    prayer-for-firmness formula it shares with 2:250, and the closing name *al-Wahhāb*. It was
+    added to `TIER1` with the justifying head written into the source comment, rather than
+    trimming content to fit a list that had missed it. This is the same failure mode 007 logged
+    at §10, where 22 of 46 Tier-1 verdicts were wrong; the difference here is that the error was
+    an omission caught by the dry-run projection rather than by reading.
+
+15. **A `paraphras` and a chain shape slipped into batch 2.** "an English paraphrase" in the 3:10
+    additions and "the narratives of the middle of the chapter" in the 3:11 additions. Neither
+    tripped a gate — `paraphras` only counts as VICINITY inside a citation window, and the corpus
+    chain rate stayed at 0.32/1k — but both are prohibited shapes and both were fixed. The lesson
+    is that the gates set a ceiling, not a target; the style scan has to be run on new prose
+    independently of them.
+
 ---
 
 ## 5. Gate results at the last commit
@@ -199,11 +232,12 @@ this session's own working assumptions.
 | Gate | Result |
 |---|---|
 | `validate.py` | **114/114 PASSED, 0 FAILED** |
-| `check_filler.py --sura 3 --band 1200-1400` | 154,031 words · below 186 · above 0 · reduced-floor 8 · tics 0.07/1k · chains 0.32/1k · dup 0.032 · repeated sentences 0 · **FAILING 186** |
-| `check_cross_quotes.py 3` | 1,765 spans · 447 cited · **EXACT 238 · DRIFT 209 · VICINITY 0 · NOVERSE 0 · ELLIPSIS 0** · uncited 1,318 |
+| `check_filler.py --sura 3 --band 1200-1400` | 156,323 words · below 181 · above 0 · reduced-floor 8 · tics 0.07/1k · chains 0.32/1k · dup 0.032 · repeated sentences 0 · **FAILING 182** |
+| `check_cross_quotes.py 3` | 1,782 spans · 462 cited · **EXACT 253 · DRIFT 209 · VICINITY 0 · NOVERSE 0 · ELLIPSIS 0** · uncited 1,320 |
 | `census.py --sura 3` | 200 sections · 0 below 260 · 0 below 400 |
+| `check_translations.py --sura 3` | 200 checked · 0 flagged (see correction 1 — a green run here is not evidence) |
 
-Movement on the quotation gate since baseline: EXACT 4 → 238, DRIFT 393 → 209,
+Movement on the quotation gate since baseline: EXACT 4 → 253, DRIFT 393 → 209,
 VICINITY 20 → 0. `validate.py` was 114/114 before and is 114/114 after every edit.
 
 007 regression check (§14 requirement): `check_filler.py --sura 7` still reports **277,675
@@ -225,10 +259,10 @@ as failure:
 
 This is the honest statement of the gap, so the next session does not have to rediscover it.
 
-1. **Depth is the open gate.** 186 of 200 sections are below their floor. Closing them means
+1. **Depth is the open gate.** 181 of 200 sections are below their floor. Closing them means
    roughly **+110,000 body words** at 007's shape (8–10 unique mini-headings, ~160 words per
-   head, ~80-word paragraphs). Batch 1 added 3,731 words across five sections. At that rate
-   the chapter needs around thirty more batches.
+   head, ~80-word paragraphs). Batches 1 and 2 added 6,023 words across ten
+   sections. At that rate the chapter needs around nineteen more batches.
 
 2. **209 DRIFT spans remain.** These are quotations still in the `initial/` rendering. The
    tooling that fixed the first 191 is a difflib aligner plus guard rails; the residue needs

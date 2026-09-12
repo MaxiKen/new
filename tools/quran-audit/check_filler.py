@@ -170,7 +170,9 @@ TIER1 = DEEPEST | {
 # covenant or eschatological scene, a named prophetic episode with narrative
 # consequences, a formula the Qurʾān repeats elsewhere so it can be counted,
 # or a term the exegetical tradition disputes with identifiable positions.
-# 40 of 200 verses (20%). Reasoning per verse is in DEPTH_PLAN_003.md §1.
+# 41 of 200 verses (20.5%). Reasoning per verse is in DEPTH_PLAN_003.md §1.
+# 3:8 was added after drafting: it carries the repeated prayer-for-firmness
+# formula (compare 2:250) and closes on a divine name, al-Wahhāb.
 # The five deepest: 3:7 (muḥkam / mutashābih, disputed with ten-plus recorded
 # positions), 3:59 (the Adam likeness, the christological crux), 3:97 (the
 # ḥajj obligation and its conditions of ability), 3:103 (the rope of Allah and
@@ -178,7 +180,7 @@ TIER1 = DEEPEST | {
 # ulū al-albāb).
 DEEPEST |= {'3:7', '3:59', '3:97', '3:103', '3:190'}
 TIER1 |= DEEPEST | {
-    '3:2', '3:3', '3:18', '3:19', '3:26', '3:27',
+    '3:2', '3:3', '3:8', '3:18', '3:19', '3:26', '3:27',
     '3:31', '3:33', '3:37', '3:42', '3:45', '3:49',
     '3:55', '3:61', '3:64', '3:67', '3:79', '3:81',
     '3:85', '3:92', '3:96', '3:102', '3:104', '3:110',
