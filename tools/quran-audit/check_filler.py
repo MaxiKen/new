@@ -100,6 +100,22 @@ SHORT_VERSE = {
     '7:192': "continuation clause of 7:191, eight words in translation",
 }
 
+# Chapter 3 (Āl ʿImrān). Same conjunctive test: fourteen words or fewer in
+# translation/003.txt *and* one of the three fragment kinds. Short verses that
+# are not fragments stay in the full band: 3:2 and 3:5 (divine names and
+# omniscience), 3:131 and 3:132 (standalone commands with live fiqh and ʿaqīdah
+# material), 3:150, 3:158 and 3:196 each carry a complete argument of their own.
+SHORT_VERSE |= {
+    '3:1':   "muqattaʿāt: the three disjointed letters, one word in translation",
+    '3:34':  "scene-closer of the ʿImrān-family passage; takes its sense from 3:33",
+    '3:48':  "single clause of the angels' address to Mary, completed in 3:49",
+    '3:63':  "scene-closer of the Najrān debate; takes its sense from 3:61–62",
+    '3:82':  "scene-closer of the prophets' covenant; takes its sense from 3:81",
+    '3:94':  "scene-closer of the food-of-Israel passage; takes its sense from 3:93",
+    '3:138': "scene-closer of the Uḥud reflection; takes its sense from 3:137",
+    '3:141': "continuation clause of 3:140, nine words in translation",
+}
+
 
 def depth_floor(key, lo):
     """Floor for section `key` ('7:25'); the band floor unless excepted.
@@ -146,6 +162,28 @@ TIER1 = DEEPEST | {
     '7:44', '7:54', '7:56', '7:75', '7:78', '7:85',
     '7:88', '7:90', '7:91', '7:97', '7:99', '7:156',
     '7:157', '7:172', '7:175', '7:176', '7:182',
+}
+
+# --- chapter 3 (Āl ʿImrān) tier lists -------------------------------------
+# Selected by the §8 density criteria applied to translation/003.txt: a legal
+# ruling or its conditions, a divine name or act stated doctrinally, a
+# covenant or eschatological scene, a named prophetic episode with narrative
+# consequences, a formula the Qurʾān repeats elsewhere so it can be counted,
+# or a term the exegetical tradition disputes with identifiable positions.
+# 40 of 200 verses (20%). Reasoning per verse is in DEPTH_PLAN_003.md §1.
+# The five deepest: 3:7 (muḥkam / mutashābih, disputed with ten-plus recorded
+# positions), 3:59 (the Adam likeness, the christological crux), 3:97 (the
+# ḥajj obligation and its conditions of ability), 3:103 (the rope of Allah and
+# the prohibition of division), 3:190 (the alternation of night and day and
+# ulū al-albāb).
+DEEPEST |= {'3:7', '3:59', '3:97', '3:103', '3:190'}
+TIER1 |= DEEPEST | {
+    '3:2', '3:3', '3:18', '3:19', '3:26', '3:27',
+    '3:31', '3:33', '3:37', '3:42', '3:45', '3:49',
+    '3:55', '3:61', '3:64', '3:67', '3:79', '3:81',
+    '3:85', '3:92', '3:96', '3:102', '3:104', '3:110',
+    '3:130', '3:133', '3:136', '3:144', '3:145', '3:159',
+    '3:169', '3:180', '3:185', '3:195', '3:200',
 }
 
 
