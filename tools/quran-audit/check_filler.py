@@ -79,7 +79,7 @@ WORDS = re.compile(r"[\w\u02b9\u02bc\u02bf\u02c8\u02c9\u2019'-]+")
 # zullah of 26:189, and Ibn Kathir holds on 26:176 that the companions of
 # al-Aykah were the people of Madyan. They are listed in TIER1 below.
 REDUCED_FLOOR = 700
-SHORT_VERSE = {
+SHORT_VERSE_007 = {
     '7:1':   "muqatta'at: the four disjointed letters, one word in translation",
     '7:14':  "Iblis's one-clause appeal for respite",
     '7:15':  "one-clause divine reply granting the respite",
@@ -100,6 +100,35 @@ SHORT_VERSE = {
     '7:192': "continuation clause of 7:191, eight words in translation",
 }
 
+# --- chapter 2 (al-Baqarah) -------------------------------------------------
+# Same objective test as 007: fourteen words or fewer in translation/002.txt
+# *and* a fragment of one of the three named kinds. Ten verses of al-Baqarah
+# fall under fourteen words; five of those ten are fragments and five are not.
+# The five that are not -- listed here so the exclusion is auditable rather
+# than silent -- stay in the full band because their material is real:
+#   2:42  an imperative (do not mix truth with falsehood) with the whole
+#         tahrif polemic behind it;
+#   2:43  an imperative naming prayer, alms-tax and bowing with the
+#         congregation;
+#   2:152 an imperative pair (remember Me / thank Me) that is one of the
+#         sūrah's memorised formulas;
+#   2:244 an imperative (fight in the cause of Allah) carrying two divine
+#         names;
+#   2:278 an imperative on outstanding interest, the legal crux of 275-281.
+SHORT_VERSE_002 = {
+    '2:1':   "muqatta'at: Alif-Lam-Mim, one word in translation",
+    '2:12':  "scene-closing verdict on the hypocrites' claim in 2:11; takes "
+             "its sense from the exchange it closes",
+    '2:52':  "scene-closer: forgiveness after the calf, taking its sense from "
+             "the forty nights and the calf of 2:51",
+    '2:192': "scene-closer: the cease-fire clause of the fighting passage, "
+             "eleven words in translation",
+    '2:227': "continuation clause closing the ila' ruling of 2:226, twelve "
+             "words in translation",
+}
+
+SHORT_VERSE_BY_SURA = {2: SHORT_VERSE_002, 7: SHORT_VERSE_007}
+
 
 def depth_floor(key, lo):
     """Floor for section `key` ('7:25'); the band floor unless excepted.
@@ -108,9 +137,10 @@ def depth_floor(key, lo):
     band floor once every listed section had been drafted to it. Sections
     demoted out of TIER1 return to the band floor; no commentary is cut.
     """
-    if key in SHORT_VERSE:
+    sura = int(key.split(':')[0])
+    if key in SHORT_VERSE_BY_SURA.get(sura, {}):
         return REDUCED_FLOOR
-    if key in TIER1:
+    if key in TIER1_BY_SURA.get(sura, set()):
         return TIER1_FLOOR
     return lo
 
@@ -140,20 +170,59 @@ def depth_floor(key, lo):
 TIER1_FLOOR = 1400
 TIER1_CEILING = 1800
 DEEPEST_CEILING = 2100
-DEEPEST = {'7:143', '7:46', '7:85', '7:54'}
-TIER1 = DEEPEST | {
+DEEPEST_007 = {'7:143', '7:46', '7:85', '7:54'}
+TIER1_007 = DEEPEST_007 | {
     '7:22', '7:27', '7:28', '7:31', '7:33', '7:37',
     '7:44', '7:54', '7:56', '7:75', '7:78', '7:85',
     '7:88', '7:90', '7:91', '7:97', '7:99', '7:156',
     '7:157', '7:172', '7:175', '7:176', '7:182',
 }
 
+# --- chapter 2 (al-Baqarah) -----------------------------------------------
+# Sixty-four of the chapter's 286 verses (22%) are listed. The selection rule
+# is section 6 of tools/quran-audit/STANDARDIZATION_PROMPT.md: a verse is a
+# Tier-1 candidate if it carries a legal ruling or a ruling's conditions, a
+# divine attribute stated doctrinally, a covenant or oath or eschatological
+# scene, a named prophetic episode with narrative consequences, a formula the
+# Qur'an repeats elsewhere, or a term the tradition disputes with identifiable
+# positions. Every entry below carries at least one of the six; the head that
+# justifies each is recorded in tools/quran-audit/DEPTH_PLAN_002.md, and a
+# section found on reading to have already consumed the material is removed
+# from this set and logged there as demoted, exactly as on 007.
+#
+# The five deepest are the sūrah's own cruxes, the verses whose material is
+# disputed at length by named authorities: the khilafah dialogue with the
+# angels (30), the nights of the fast and the limits of i'tikaf (187), the
+# Pedestal Verse (255), the prohibition of interest with its war-verse (275),
+# and the closing petition (286).
+DEEPEST_002 = {'2:30', '2:187', '2:255', '2:275', '2:286'}
+TIER1_002 = DEEPEST_002 | {
+    '2:2', '2:3', '2:7', '2:23', '2:26', '2:27', '2:34',
+    '2:37', '2:40', '2:48', '2:54', '2:62', '2:65', '2:67',
+    '2:74', '2:79', '2:83', '2:87', '2:97', '2:102', '2:106',
+    '2:115', '2:124', '2:127', '2:143', '2:144', '2:152',
+    '2:153', '2:154', '2:158', '2:163', '2:164', '2:173',
+    '2:177', '2:178', '2:180', '2:183', '2:185', '2:186',
+    '2:191', '2:196', '2:219', '2:222', '2:228', '2:229',
+    '2:230', '2:233', '2:234', '2:238', '2:245', '2:249',
+    '2:253', '2:256', '2:257', '2:258', '2:260', '2:261',
+    '2:282', '2:285',
+}
+
+TIER1_BY_SURA = {2: TIER1_002, 7: TIER1_007}
+DEEPEST_BY_SURA = {2: DEEPEST_002, 7: DEEPEST_007}
+
+# Both names retained so nothing that imported the 007 sets can break.
+DEEPEST = DEEPEST_007
+TIER1 = TIER1_007
+
 
 def depth_ceiling(key, hi):
     """Ceiling for section `key`; the band ceiling unless raised."""
-    if key in DEEPEST:
+    sura = int(key.split(':')[0])
+    if key in DEEPEST_BY_SURA.get(sura, set()):
         return DEEPEST_CEILING
-    if key in TIER1:
+    if key in TIER1_BY_SURA.get(sura, set()):
         return TIER1_CEILING
     return hi
 
