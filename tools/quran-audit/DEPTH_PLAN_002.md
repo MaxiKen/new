@@ -570,3 +570,84 @@ Classes: **D** = DRIFT, **V** = VICINITY. Line numbers are current as of the tra
   word (`cf.`, `vicinity`, `sense`, `context`, `account`, `parallel`).
 * Cited spans in the chapter: 249 (EXACT 189). Uncited quoted spans: 1,474.
 * Sections still short of a floor: 251; the shortest five are 2:270 (342w), 2:252 (400w), 2:277 (405w), 2:250 (414w), 2:244 (424w).
+
+---
+
+## 12. Traits of 007 that chapter 2 lacks and the prompt does not mention
+
+Measured on `expanded/007.md` and the current `expanded/002.md` with the same
+counting rules the gate uses. Every row below is a property of the gold
+standard that this chapter does not have, and that
+`STANDARDIZATION_PROMPT.md` nowhere asks for: it fixes the skeleton, the
+bands, the quote rules and five style metrics (tics, chains, 10-gram
+duplication, repeated sentences, no `###`), but it sets no target for
+sentence length, paragraph length, heading granularity, or where blockquotes
+may be used.
+
+| trait | 007 | 002 | measured how |
+| --- | --- | --- | --- |
+| mini-headings per section | **11.1** (2,280 over 206 sections) | **4.6** (1,305 over 286) | `**…**` lines at line level |
+| body words per mini-heading | **116** | **174** | body words ÷ heads |
+| paragraphs per section | **17.6** | **5.3** | non-head prose lines |
+| mean sentence length | **25.6 words** | **56.9 words** | split on `[.!?]` |
+| median / 90th-percentile sentence | **24 / 43** | **40 / 118** | as above |
+| longest sentence in the file | **139 words** | **696 words** | as above |
+| sentences over 60 words | **1.9 %** | **29.2 %** | as above |
+| sentences over 150 words | **0** | **269** (50 of them over 300) | as above |
+| blockquotes that are not the verse | **5** in 206 sections | **224** in 286 sections | lines starting `>` but not `> **` |
+| of those, ḥadīth or attributed sayings | **1** | **173** | attribution keywords |
+| `cf.` hedged citations | **0** | **39** in 37 sections | literal `cf.` |
+| em dashes per 1,000 body words | **10.9** | **32.7** | character count |
+| italicised transliterations per 1,000 words | **8.4** | **21.8** | `*…*` spans |
+
+Three of these have direct gate consequences and the rest are register:
+
+* **Blockquote discipline.** 007 reserves the blockquote for scripture: 206
+  verse blockquotes and exactly five others (three Qurʾānic quotations of
+  other verses, one ḥadīth-style report, one Ibn ʿAṭāʾ Allāh maxim). 002
+  blockquotes 224 other items, 173 of them ḥadīth and attributed sayings. The
+  prompt defines the verse blockquote in the skeleton but never restricts the
+  construct, and `check_cross_quotes.py` skips only `> **` lines — so the
+  chapter's extra blockquotes are scanned as quoted spans. Eight of the 63
+  cited-span rows still failing sit on them.
+* **`cf.` hedges.** 007 has none anywhere in the file; every quoted span is
+  one it can stand behind verbatim, which is why 007 reports 1,780 EXACT
+  against 0 DRIFT. 002 carries 39 `cf.` citations in 37 sections (13 % of the
+  chapter). The gate classifies each as VICINITY and the prompt mentions `cf.`
+  only inside the qualifier regex, never as a practice to avoid.
+* **Sentence and paragraph length.** The prompt bans repeated sentences and
+  asks for "short, readable paragraphs", but nothing measures sentence length.
+  The chapter's inherited prose averages 56.9 words per sentence with 269
+  sentences over 150 words; 007 has none over 139. This is the largest
+  unmeasured distance between the two files, and it is inherited, not drafted
+  in this pass: the material added in tranches 1–4 averages 46.7 words per
+  sentence, closer to the inherited register than to 007's.
+
+Two further rows are *reverse* gaps, recorded so the comparison is not
+one-sided: 002 cites a ḥadīth collection in 76 % of its sections against 007's
+33 %, and names an exegete (al-Ṭabarī, Ibn Kathīr, al-Qurṭubī, al-Rāzī) in
+61 % against 007's 10 %, which presents the positions without naming the
+holder. Neither is a defect; the prompt asks for both.
+
+## 13. Corrections made while comparing
+
+Three quotations lost or truncated by the blockquote-verbatim pass
+(`fix_blockquotes.py`, commit `7da368b`) were restored from the branch-start
+text or the translation file:
+
+1. **§2:13, line 516.** The blockquote had been emptied to `> ** (Qur'an
+   30:30)`, leaving the citation shell with no text. Restored as a verbatim
+   span of 30:30 from `translation/030.txt`.
+2. **§2:7, line 551.** The span read `have made for every prophet
+   enemies—devilish humans and` — a mid-sentence fragment that dropped *jinn*
+   and the rest of the clause. Restored to the full contiguous span of 6:112.
+3. **§2:129, line 3524.** Emptied to `> ** — ** (Aḥmad 2/129; …)`, losing the
+   report the sentence introduces. Restored to the branch-start quotation, and
+   the trailing parenthesis changed from "commentators on 2:129" to
+   "commentators at this verse" so that the page-reference `Aḥmad 2/129` is no
+   longer read by the gate as a citation of Qurʾān 2:129.
+
+EXACT cited spans 192 → 194, DRIFT unchanged at 32, VICINITY unchanged at 28,
+`validate.py` PASSED 114/114. A full re-scan for other losses from that pass
+compared every quoted line against the branch-start commit: no other line lost
+text.
