@@ -200,3 +200,24 @@ blockquoted in §59 as Bukhārī 4627/4697; replaced with the atom verse
 (34:3), absent chapter-wide. Batch scripts now also fail on curly-in-straight
 spans. Detection check: all 9 new spans gate-seen and EXACT. Gates: quotes
 860 EXACT / 0 bad, filler −5.
+
+### Batch 6a (vv. 61, 63, 64): 67 → 64 failing
+
+| verse | head added | +words | lands |
+|---|---|---|---|
+| 6:61 | Every Soul Shall Taste Death: 29:57 (*dhā'iqah*; return-bridge to v. 62) | 103 | 1253 ✓ |
+| 6:63 | The Vow of the Hypocrites: 9:75–76 (Medinan twin of the storm-vow) | part of 267 | 1207 ✓ |
+| 6:63 | The Call from the Darkness: 21:87–88 (Jonah's *taḍarruʿ+khufyah*; standing promise) | part of 267 | 1207 ✓ |
+| 6:64 | Whatever Blessings You Have Are from Allah: 16:53–54 (cry→rescue→relapse in two verses) | part of 393 | 1231 ✓ |
+| 6:64 | A Sound Child, Then Partners: 7:189–90 (vow/betrayal in childbirth; *tanzīh* close) | part of 393 | 1231 ✓ |
+
+Struck: §61 first choice (7:34 no-delay) — quoted 3× already (L180, L4697, L5150);
+replaced with the taste-verse in its return-clause form (29:57), fresh.
+§63 first choice (10:22 storm parallel) — its best slice already blockquoted at
+L3107; replaced with the hypocrites' vow (9:75–76), fresh. §64 first choice
+(39:8 forget-the-One) — first clause already blockquoted at L3209; replaced with
+16:53–54 (fresh) plus 7:189–190 (mentioned quoteless in-section, now quoted).
+Base-word estimates ran low on §64 (838 actual): needed a +62w *tanzīh*
+paragraph after the script landed 1169. Detection check: all 9 new spans
+gate-seen and EXACT (one line double-printed by overlapping check ranges, not a
+double gate entry). Gates: quotes 869 EXACT / 0 bad, filler −3.
