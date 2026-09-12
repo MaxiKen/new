@@ -116,3 +116,27 @@ Struck: §31 first choice (78:40 dust-wish) — motif already used in the new
 (29:64/57:20 parallel) — both already blockquoted in §32; replaced with the
 Judgment sentence on the players (7:51). Gates: quotes 829 EXACT / 0 bad
 (the inline single-quoted 25:29 span is gate-checked and EXACT), filler −7.
+
+### Batch 4a (vv. 37–43): 86 → 81 failing
+
+| verse | head added | +words | lands |
+|---|---|---|---|
+| 6:37 | Signs Are Only with Allah: 29:50 (offices divided) | 63 | 1253 ✓ |
+| 6:40 | Show Me What They Have Created: 46:4 (three demands; 46:5–6 bare) | 172 | 1240 ✓ |
+| 6:41 | I Am Truly Near: 2:186 (*fa-l-yastajībū lī*; verb of 6:36 returns) | 83 | 1234 ✓ |
+| 6:42 | Adversity, Then Prosperity, Then Seizure: 7:95 (four beats; 7:94 inline) | 178 | 1235 ✓ |
+| 6:43 | Woe to the Hearts Hardened against Remembrance: 39:22 (*wayl*) | 118 | 1250 ✓ |
+
+Struck: §40 first choice (ship scene, 29:65) — sea passages already quoted
+in §40 and §41; replaced with the creation challenge (46:4). §41 first
+choice (27:62, the desperate answered) — already blockquoted in §41;
+replaced with nearness (2:186).
+
+Gate incident: one DRIFT — the unreferenced inline quote "if what you say
+is true" in the new §40 head was proximity-linked by the gate to the next
+sentence's (46:5–6). Fixed by removing the inline quote. Standing rule from
+here on: an inline quoted span always carries its own immediate (S:V), or
+the sentence goes quoteless. A failed /tmp patch (straight-vs-curly
+apostrophe in the match string, applied with `;` so the batch ran
+unpatched) left §42 six words short; topped up by direct edit with
+pre-checked prose. Gates after fix: quotes 834 EXACT / 0 bad, filler −5.
