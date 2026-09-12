@@ -264,3 +264,20 @@ topped up with two more heads (31:13, 41:30) → 1457. TIER1_6 roster (24):
 125, 141, 145, 151, 160, 165; deepest {59,103,151}. Remaining Tier-1/deepest
 shortfalls after 7a: 103, 122, 125, 141, 145, 151, 160. Detection check: all
 7 new spans EXACT. Gates: quotes 881 EXACT / 0 bad, filler −4.
+
+### Batch 7b (vv. 84, 85, 87, 89): 55 → 51 failing
+
+| verse | head added | +words | lands |
+|---|---|---|---|
+| 6:84 | Prophethood and Revelation for His Descendants: 29:27 (gift-inventory; vindication + rank) | 116 | 1270 ✓ |
+| 6:85 | They Both Ate Food: 5:75 (full bq; creatureliness-test; Mary *ṣiddīqah*) | 187 | 1222 ✓ |
+| 6:87 | O My Son, Come Aboard with Us: 11:42–43 (blood's limit enacted; mercy not inherited) | 141 | 1234 ✓ |
+| 6:89 | They Give Preference over Themselves: 59:9 (Anṣār portrait; *īthār*; unselfishness) | 159 | 1225 ✓ |
+
+No strikes: 29:27 and 59:9 fresh; 11:42–43 mentioned quoteless in-section (now
+quoted); 5:75's first clause inline in-section, now quoted in full for the
+three new clauses. The 11:43 bq carries Allah's (curly ’) so it uses “”
+delimiters per standing rule — detected EXACT. Refined lesson: the filler
+counts PROSE words only (blockquotes excluded) — size prose, not split-total,
+to the shortfall. Detection check: all 7 new spans EXACT. Gates: quotes 888
+EXACT / 0 bad, filler −4.
