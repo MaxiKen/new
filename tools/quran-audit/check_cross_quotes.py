@@ -93,7 +93,7 @@ def main():
     # quoted spans per line: curly double, ascii double, curly single
     span_res = [
         re.compile(r'\u201c([^\u201c\u201d]{12,700})\u201d'),
-        re.compile(r'"([^"]{12,700})"'),
+        re.compile(r'"([^"“”‘’]{12,700})"'),
         re.compile(r'\u2018([^\u2018\u2019]{12,700})\u2019'),
     ]
     rows = []
@@ -108,29 +108,38 @@ def main():
                     continue
                 taken.append((a, b))
                 q = m.group(1)
-                # citation window: after the quote, else before
-                after = l[b:b + 90]
-                before = l[max(0, a - 90):a]
+                if len(norm(q).split()) < 3:
+                    continue
+                # citation window: after the quote, else before.  The window is
+                # wide and the parenthesis may be long, because a citation often
+                # carries an explanatory clause; a narrow window silently skipped
+                # such spans, which is the one failure mode this gate must not
+                # have.  Spans with no citation at all are reported as UNCITED
+                # rather than dropped.
+                after = l[b:b + 400]
+                before = l[max(0, a - 400):a]
                 cite = None
-                mm = re.search(r'\*{0,2}[\s,;]*\(([^()]*)\)', after)
+                # a reference in the few words immediately before the span wins:
+                # "(20:117, where Adam is told, "...")" cites the inner quote by
+                # the reference that introduces it, not by whatever parenthesis
+                # happens to follow.
+                mb = re.search(r'(\d{1,3}:\d{1,3}(?:\s*[–-]\s*\d{1,3})?)[^()\d]{0,60}$', before)
+                mm = re.search(r'\*{0,2}[\s,;]*\(([^()]{0,300})\)', after)
+                if mb and (not mm or mm.start() > 6):
+                    cite = mb.group(1)
                 if mm:
                     cite = mm.group(1)
                 else:
-                    mm2 = re.search(r'\(([^()]*)\)\s*[:\u2014\-]?\s*\*{0,2}\s*$', before)
+                    mm2 = re.search(r'\(([^()]{0,300})\)\s*[:\u2014\-]?\s*\*{0,2}\s*$', before)
                     if mm2:
                         cite = mm2.group(1)
-                if cite is None:
+                if cite is not None and (HADITH.search(cite) or
+                                         HADITH.search(l[max(0, a - 60):b + 60])):
                     continue
-                if HADITH.search(cite) or HADITH.search(l[max(0, a - 60):b + 60]):
-                    continue
-                rr = refs_in(cite)
-                if not rr:
-                    continue
-                if len(norm(q).split()) < 3:
-                    continue
+                rr = refs_in(cite) if cite else []
                 rows.append(dict(line=i + 1, section=secof[i], quote=q,
-                                 cite=cite.strip(), refs=rr,
-                                 qualified=bool(QUAL.search(cite))))
+                                 cite=(cite or '').strip(), refs=rr,
+                                 qualified=bool(cite and QUAL.search(cite))))
     # dedupe identical (line, quote)
     seen = set(); uniq = []
     for r in rows:
@@ -139,6 +148,9 @@ def main():
         seen.add(k); uniq.append(r)
 
     for r in uniq:
+        if not r['refs']:
+            r['cls'] = 'UNCITED'; r['miss'] = []
+            continue
         nq = norm(r['quote'])
         words = nq.split()
         # candidate reference texts: each ref alone, and all refs joined in order
@@ -176,15 +188,21 @@ def main():
             if best is None or len(miss) < len(best[1]):
                 best = ('DRIFT', miss)
         r['cls'], r['miss'] = best
-    order = {'DRIFT': 0, 'NOVERSE': 1, 'ELLIPSIS': 2, 'EXACT': 3, 'VICINITY': 4}
+    order = {'DRIFT': 0, 'NOVERSE': 1, 'ELLIPSIS': 2, 'VICINITY': 3, 'UNCITED': 4, 'EXACT': 5}
     uniq.sort(key=lambda r: (order.get(r['cls'], 9), r['section'], r['line']))
     counts = {}
     for r in uniq:
         counts[r['cls']] = counts.get(r['cls'], 0) + 1
-    print('quoted spans with a Quranic citation: %d' % len(uniq))
-    for k in ('DRIFT', 'NOVERSE', 'ELLIPSIS', 'EXACT', 'VICINITY'):
+    cited = sum(v for k, v in counts.items() if k != 'UNCITED')
+    print('quoted spans: %d  (with a Quranic citation: %d, uncited: %d)'
+          % (len(uniq), cited, counts.get('UNCITED', 0)))
+    for k in ('DRIFT', 'NOVERSE', 'ELLIPSIS', 'VICINITY', 'EXACT', 'UNCITED'):
         if counts.get(k):
             print('  %-9s %d' % (k, counts[k]))
+    if '--show-uncited' in sys.argv:
+        for r in uniq:
+            if r['cls'] == 'UNCITED':
+                print('  UNCITED L%-6d \u00a7%s  %s' % (r['line'], r['section'], r['quote'][:110]))
     if as_json:
         json.dump(uniq, open(as_json, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
         print('wrote', as_json)
