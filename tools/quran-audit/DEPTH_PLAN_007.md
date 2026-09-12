@@ -966,3 +966,86 @@ mandatory. No head in the plan depends on an unverified number.
 **Added to the verified [V] pool this session:** Muslim 1499a's use of 7:33's exact phrase,
 which is a stronger link than the plan assumed — the ḥadīth does not merely parallel the
 verse, it quotes it.
+
+---
+
+## 10. Implementation log
+
+Running record of what has been drafted, and of corrections to the plan above where the
+survey proved wrong on inspection. This section supersedes the earlier ones where they
+conflict.
+
+### 10.1 Tranche 18 — 7:143 and 7:46 (committed `3159d3f`)
+
+Both deepest sites expanded to the 2,100 cap. 7:143 → 2,100w with seven heads; 7:46 → 2,086w
+with seven heads. Gates: cross-quotes 1,734 EXACT / 0 DRIFT / 0 ELLIPSIS / 0 VICINITY (five
+new Qur'anic spans, all exact); validate 114/114; tics 0.19/1k, chains 0.12/1k, dup 0.062 —
+all unchanged, so the additions introduced no filler.
+
+`check_filler.py` gained the tier-relative ceiling in the same commit: `TIER1_CEILING` 1,800
+and `DEEPEST_CEILING` 2,100 over an explicit 46-verse list, with a comment recording where
+the list came from. The band floor stays at 1,200 during the expansion and is raised to
+1,400 for Tier 1 once all 46 sections are drafted, so the gate never fails on sections whose
+tranche has not landed yet.
+
+### 10.2 Tranche 19 — the three promotions (7:78, 7:91, 7:175)
+
+7:78 → 1,503w with six heads: rajfah against ṣayḥah across 11:67, 54:31 and 69:5; the
+sentence shared with Madyan, which is word-identical apart from one comma; *jāthimīn* and its
+five occurrences, all with the same phrase for the place; 54:31's twigs of fence-builders as
+the only description of the aftermath's appearance; 69:4–5's Striking Disaster as the thing
+denied rather than the thing that arrived; and 29:37–38's ruins addressed to the Meccans.
+
+7:91 → 1,502w with six heads: the three descriptions harmonised with Ibn Kathīr on 26:176;
+the omission of "their brother" at 26:176–177 against 29:36, 7:85 and 11:84, with Ibn
+Kathīr's reason; *diyārihim* against *dārihim*, flagged as an inference from grammar rather
+than a report; the shared sentence with Thamūd; 26:157's regret preceding the punishment; and
+7:92's erasure closing the account.
+
+7:175 → 1,538w with one head: the three candidates and their transmitters, with al-Bāqir's
+generalisation and Mawdūdī's caution as the two poles of the tradition's handling.
+
+Gates after tranche 19: **cross-quotes 1,743 EXACT / 0 DRIFT / 0 ELLIPSIS / 0 VICINITY**
+(nine new Qur'anic spans, all exact); **validate 114/114**; **check_filler FAILING 0** —
+below band 0, above band 0, reduced-floor 18, tics 0.19/1k, chains 0.12/1k, dup 0.062,
+repeated sentences 0. File: 273,242 words.
+
+### 10.3 Corrections to the plan, found on inspection
+
+The survey mis-scored two sections. Both are recorded here rather than silently fixed,
+because they change what remains to be drafted.
+
+1. **7:175 already carried 15 sub-heads at 1,346 words**, not a Tier-3 gap. Two of the three
+   heads proposed for it in §8.3 were therefore duplicates and have been **struck**:
+   - the *insilākh* head — the section already has "The Word for Stripping Out", which
+     defines the root *s-l-kh* as taking a skin off an animal or a husk off a seed and draws
+     an exact grammatical parallel with 36:37;
+   - the singular-to-plural head — already covered by "The Man's Example and the Next Verse".
+   Only the identity survey was genuinely new, and it was new because the existing head
+   "The Commentators' Identification" names Balʿam alone, without transmitters.
+2. **§4.6 heads 1 and 2 for 7:176 are struck.** The three candidates and Mawdūdī's caution
+   are now in 7:175, where the narrative setup belongs. 7:176 keeps two new heads: the two
+   readings of the dog (literal tongue against general misguidance) and the parable's
+   placement in the verse's own argument, which turns the singular case plural in the words
+   *famsal al-qawm alladhīna kadhdhabū bi-āyātinā*.
+
+**Lesson carried into the remaining tranches:** the head count in `/tmp/heads_t1.json` was
+extracted correctly, but Tier-3 sections were never head-surveyed, so any promotion of a
+Tier-3 section must be preceded by a head extraction. Two sections were promoted; one of them
+(7:175) turned out to be dense. Before drafting 7:54, 7:157, 7:172, 7:176, 7:187 and the rest
+of Group D, their existing heads must be read in full, not just counted — several already
+carry material the plan assumed was absent.
+
+### 10.4 Remaining work
+
+| Group | Sections | Heads outstanding |
+|---|---|---|
+| D | 7:54 (5), 7:157 (4), 7:172 (3), 7:176 (2, revised), 7:178 (3), 7:187 (2) | 19 |
+| B | 7:85 (5), 7:31 (4), 7:33 (4), 7:32 (4), 7:28 (3), 7:156 (3), 7:148 (2) | 25 |
+| C | 7:56 (4), 7:75 (3), 7:90 (3), 7:97 (3), 7:92 (2), 7:88 (2), 7:98 (2), 7:99 (2), 7:128 (1) | 22 |
+| A thin | 7:37 (4), 7:73 (4), 7:22 (4), 7:27 (3), 7:38 (3), 7:43 (3), 7:44 (3), 7:53 (3), 7:69 (3), 7:89 (3) | 33 |
+| A dense | 7:155 (2), 7:137, 7:146, 7:158, 7:160, 7:169, 7:188, 7:189, 7:203 (1 each) | 10 |
+| Final | raise the Tier-1 band floor from 1,200 to 1,400 in `check_filler.py` | — |
+
+109 heads outstanding across 41 sections, roughly +9,800 words. Each tranche runs the four
+gates and commits separately.
