@@ -180,3 +180,23 @@ spans to curly-double delimiters, which the gate's first pattern accepts.
 Standing rule: any span containing ’/‘/’ uses “...” delimiters; every batch
 ends with a per-line detection check of its new spans. Gates after fix:
 quotes 851 EXACT / 0 bad, filler −4.
+
+### Batch 5b (vv. 55–59): 72 → 67 failing
+
+| verse | head added | +words | lands |
+|---|---|---|---|
+| 6:55 | Other Than the Believers' Way: 4:115 (*sabīl al-mu'minīn*; al-Shāfiʿī on consensus) | 167 | 1228 ✓ |
+| 6:56 | Enmity and Hatred until You Believe: 60:4 (*barā'ah*; expiry clause inline) | 109 | 1260 ✓ |
+| 6:57 | Do the Wicked Realize What They Ask to Hasten: 10:50–51 (*āl'āna*) | 67 | 1241 ✓ |
+| 6:58 | While You Are in Their Midst: 8:33 (two restrainers; Ibn ʿAbbās two-securities report) | 123 | 1223 ✓ |
+| 6:59 | Not an Atom's Weight: 34:3 (deepest; *dharrah* + smaller; philosophers answered again) | 202 | 1583 ✓ deepest |
+
+Struck: §55 first choice (11:1 perfected-then-detailed) — *tafsīl* theme
+saturated (41:3 blockquoted, 11:1 listed); replaced with the contrast-path
+(4:115). §58 first choice (8:32 dare) — already blockquoted in §57;
+replaced with the answer (8:33), absent in both sections. §59 first choice
+(five-keys ḥadīth, remembered as Bukhārī 4778) — the ḥadīth is already
+blockquoted in §59 as Bukhārī 4627/4697; replaced with the atom verse
+(34:3), absent chapter-wide. Batch scripts now also fail on curly-in-straight
+spans. Detection check: all 9 new spans gate-seen and EXACT. Gates: quotes
+860 EXACT / 0 bad, filler −5.
