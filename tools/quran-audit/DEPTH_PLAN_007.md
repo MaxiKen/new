@@ -859,3 +859,78 @@ as-Suddī and Mujāhid; the *aʿrāf*-is-not-purgatory distinction and the 7:47 
 8. Full gate run after each tranche: `check_filler.py`, `check_cross_quotes.py`, `validate.py`,
    `census.py` — with the band check updated if Option A is chosen.
 9. Commit per tranche to `arena/01a094c2-new`; PR #89 already open.
+
+---
+
+## 8. Decision record (approved)
+
+Three decisions taken; they supersede §7.3's open options and §2's open findings.
+
+### 8.1 Ceiling — Option A: the band becomes tier-relative
+
+| Section class | Count | Band |
+|---|---|---|
+| Tier 1, standard | 43 (now 46 with the promotions below) | **1,400 – 1,800 words** |
+| Tier 1, deepest — 7:143, 7:46, 7:85, 7:54 | 4 | **up to 2,100 words** |
+| Tier 2 / Tier 3 / borderline | 163 | **1,200 – 1,400 words** (unchanged) |
+| Reduced-floor exceptions | 20 → **18** | **700 words** (unchanged, minus 7:78 and 7:91) |
+
+Consequences to implement:
+- **No existing commentary is cut.** The "no content removed for depth" finding stands.
+- `validate.py` and the census/band check must record the tier-relative band, with the 46
+  Tier-1 verses listed explicitly rather than by a threshold rule, so the exception is
+  auditable and cannot drift.
+- The 25 thin sections absorb most of the increase; the 18 dense sections absorb their
+  21 single-head additions only.
+- Projected file size: 269,247 → ~280,500 words.
+
+### 8.2 Dense sections — all 21 additions approved
+
+The single-head additions for the 18 sections with 13–16 existing heads are approved as
+listed in §5.2 and §6, including the pure cross-verse-chain heads (7:137 merism, 7:146 ṣarf,
+7:158 universal address, 7:160 arithmetic, 7:188 ghayb, 7:203 baṣāʾir, 7:128 instruction
+form). Each remains bound to a named source or a counted cross-verse chain quoted verbatim
+from `translation/`.
+
+### 8.3 Structure — both promotions approved
+
+- **7:78 and 7:91 leave the reduced-floor exception list** and move to the full Tier-1 band
+  (1,400–1,800). Each gains ~3 heads carrying the destruction harmonisation:
+  - **[V]** *rajfah* (7:91, 11:94's *ṣayḥah*) and *ẓullah* (26:189) as three descriptions of
+    one event, per Ibn Kathīr on 26:176 — Madyan *is* al-Aykah, "according to the most
+    correct view"; the minority view of two or three nations recorded against it.
+  - **[V]** the *diyārihim* / *dārihim* asymmetry between 11:94 and 7:91.
+  - **[T]** 26:189 verbatim ("overtaken by the torment of the day of the ˹deadly˺ cloud")
+    and 11:94 verbatim, set against 7:78 and 7:91 for the Thamūd and Madyan parallel.
+  - **[V]** *jāthimīn* as prone and lifeless.
+  - The exception list drops from 20 entries to 18; §7.1's totals shift accordingly
+    (46 Tier-1 sections, ~134 new heads, ~+12,000 words).
+- **7:175 is promoted from Tier 3 to Tier 1** and receives ~3 heads:
+  - **[V]** the three candidates for the man's identity with their chains (§4.6 head 1),
+    housed here rather than in 7:176 so that 7:176 keeps its 15 heads on the parable itself.
+  - **[V]** Mawdūdī's caution that the identity is not established by Qurʾān or ḥadīth.
+  - **[T]** 7:175 verbatim as the narrative setup whose singular subject 7:176 then makes
+    plural.
+
+### 8.4 Revised totals
+
+| | Before decisions | After decisions |
+|---|---|---|
+| Sections in scope | 43 | **46** |
+| Reduced-floor exceptions | 20 | **18** |
+| New heads | 125 | **~134** |
+| Words added | +11,250 | **~+12,000** |
+| Sections over their (new) ceiling | 43 of 43 | **0 of 46** |
+
+### 8.5 Execution order (unchanged from §7.5, with two insertions)
+
+1. Clear the 11-item **[Q]** verification queue — in progress.
+2. Group D (deepest doctrine): 7:143, 7:46, 7:54, 7:157, 7:176, 7:178, 7:172, 7:187.
+3. Group B (rulings): 7:85, 7:31, 7:33, 7:32, 7:28, 7:156, 7:148.
+4. **New: the promoted destruction pair 7:78 and 7:91**, plus **7:175**.
+5. Group C (comparative): 7:90, 7:92, 7:56, 7:75, 7:97, 7:98, 7:99, 7:88, 7:128.
+6. Group A thin: 7:22, 7:27, 7:37, 7:38, 7:43, 7:44, 7:53, 7:69, 7:73, 7:89.
+7. Group A dense: the 21 single-head additions.
+8. Update `validate.py` for the tier-relative band; refresh the 18-entry exception list.
+9. Full gate run per tranche: `check_filler.py`, `check_cross_quotes.py`, `validate.py`,
+   `census.py`. Commit per tranche to `arena/01a094c2-new`; PR #89 open.
