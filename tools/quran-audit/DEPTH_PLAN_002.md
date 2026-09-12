@@ -136,3 +136,15 @@ quotes (22:54, 2:4, 5:20, 43:32, 31:33, 2:255/20:109, 79:24, 21:35, 10:90–91,
 Gate snapshot: filler below 235 / above 0 / FAILING 236 (none in 2:17–50);
 cross-quotes EXACT 165, DRIFT 317, VICINITY 28, FAILED 0; validate 114/114;
 007 unchanged.
+
+**Batch 7 — 2:51–2:58** (this commit). All eight sections to band (1,204–1,265);
++17 heads; 19 blocks (20:80 Ṭûr appointment; forty as formation; 2:52 pardon
+grammar + thanks purpose; 5:12 covenant terms; 7:148 lowing idol; 20:85 Sâmiri;
+2:54 severity weighed; 4:153 demand lineage; 2:56 witnesses + taught
+resurrection; 20:80 manna/quails; 2:57 cloud-shade; 7:161 gate-echo; 2:58
+increase to the virtuous). New-quote defects: zero (all 18 cited DRIFTs in range
+are pre-session old-prose: 20:88/20:90, 31:13, 2:55/2:2, 7:155, 6:103, 7:143,
+41:13, 22:46, 7:155, 10:44, 31:12, 14:8 — documented). Chain-shapes reworded:
+2:51 (Bukhārī 3667 clause — number is pre-existing old prose, unverified this
+session), 2:58. Gate snapshot: filler below 228 / above 0 / FAILING 231 (none in
+2:17–58); validate 114/114; manual checks examined: 8, no issues.
