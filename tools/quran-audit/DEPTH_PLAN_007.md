@@ -1107,3 +1107,62 @@ raised-ceiling 46, tics 0.19/1k, chains 0.12/1k, dup 0.062, repeated sentences 0
 99 heads outstanding across 38 sections, roughly +8,900 words. Every remaining section is read
 in full before drafting, because three of the first eight inspections found duplicates the
 head-count survey could not see.
+
+### 10.7 Tranche 21 — 7:157, 7:172, and two more corrections
+
+Both sections read in full before drafting. Each lost heads to material already present.
+
+**7:157 → 1,696w, two heads** (four were proposed in §4.4; two struck):
+- *struck* — "Why an Imperfection Becomes the Proof". The section already has "The Unlettered
+  Prophet and the Description in the Earlier Books", which derives *ummī* from *umm*, gives the
+  second derivation from *ummah*, and states the evidential point explicitly: a man who could
+  not read the earlier scriptures could not have taken his account of them from them. It also
+  already quotes 29:48, 61:6 and 2:146.
+- *struck* — "The Burdens Named: Cutting the Cloth, Killing the Self, the Sabbath". The
+  section already has "The Burdens, and What the Tradition Reports of Them", which names the
+  self-killing after the calf with 2:54 quoted, the cutting away of a soiled garment, and the
+  confinement of worship to designated places, and which handles such reports with the correct
+  caution about Isrāʾīliyyāt.
+- *drafted* — **Iṣr and Aghlāl: The Words Precisely.** Neither existing burden-head gives the
+  nouns their lexical weight: *iṣr* as a burden heavy enough to stop movement, *aghlāl* as the
+  plural of *ghull*, the cuff binding a criminal's hands to his neck, and Maʿārif's consequence
+  that both denote punishment rather than religious requirement — which sets the clause's
+  direction, since lifting a penalty is not the same act as lifting a rite.
+- *drafted* — **The Description as the Tradition Reports It.** Ibn Kathīr's transmission from
+  ʿAṭāʾ b. Yasār (witness over the nations, *al-Mutawakkil*, not harsh, not quarrelsome, not
+  crying out in the markets, not returning evil for evil), cited as the tradition transmits it
+  with no grade of its own, and anchored to three checkable spans: “This is their description
+  in the Torah.” (48:29), the description of his company (48:29), and the temperament clause
+  (3:159).
+
+**7:172 → 1,644w, two heads** (three proposed in §4.5; one struck):
+- *struck* — "Two Excuses Closed by One Verse", already covered by "The Next Verse's Second
+  Excuse".
+- *drafted* — **Souls as Troops Collected Together.** The section had no ḥadīth. Cited by
+  collection, book and chapter (Ṣaḥīḥ al-Bukhārī, Book of the Accounts of the Prophets,
+  chapter *al-arwāḥ junūd mujannadah*), with al-Nawawī's qualifier made mandatory: the phrase
+  means groups or kinds, and the saying concerns affinity, so it cannot settle whether the
+  testimony was a literal assembly or the constitution of a nature.
+- *drafted* — **Innate Knowledge and the Messenger.** The kalām question the section did not
+  carry: 7:172 places knowledge at the origin while “And We would never punish ˹a people˺
+  until We have sent a messenger ˹to warn them˺.” (17:15) limits punishment. The resolution
+  turns on the two objects — lordship against law — and the verse's purpose clause blocks the
+  plea of unawareness about the Lord, not about a ruling.
+
+**Correction 4 — 7:187 demoted out of Tier 1.** §4.8 proposed two heads. Both are duplicates:
+"Kaʾannaka Ḥafiyyun ʿAnhā" is already carried by "As If You Were Well Informed About It" and
+by the closing irony in "The Knowledge of the Hour and the Things Withheld"; "Suddenness as the
+Hour's Defining Attribute" is already carried by "It Will Come Upon You All of a Sudden", which
+states the manner and the Book's pairing of warning with suddenness. The section holds 15
+sub-heads at 1,390 words, inside the standard band, and has nothing unconsumed. Removed from
+the gate's list, which now stands at 45 verses.
+
+**Correction 5 — a head was assigned to the wrong verse in §3.6.** "The Four Verbs of Loyalty,
+Separately Weighed" was listed under 7:156. The four verbs — believing in him, honouring him,
+helping him, following the light — are in 7:157, and are already covered there by "Who
+Succeeds" and "The Conditions of Success". The head is struck from both lists.
+
+Gates: cross-quotes **1,750 EXACT / 0 DRIFT / 0 ELLIPSIS / 0 VICINITY** (four new spans, all
+exact); validate 114/114; check_filler **FAILING 0**, below 0, above 0, reduced-floor 18,
+tics 0.19/1k, chains 0.12/1k, dup 0.062, repeated sentences 0. File 274,562 words.
+Ten of 45 drafted: 7:143, 7:46, 7:54, 7:157, 7:172, 7:176, 7:182, 7:78, 7:91, 7:175.
