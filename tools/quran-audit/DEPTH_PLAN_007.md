@@ -1218,3 +1218,58 @@ exact); validate 114/114; check_filler **FAILING 0**, below 0, above 0, reduced-
 tics 0.19/1k, chains 0.12/1k, dup 0.062, repeated sentences 0. File 275,471 words.
 **Thirteen of 45 drafted.** Remaining: 7:32, 7:28, 7:156, 7:148 (Group B); Group C (9);
 Group A (19).
+
+### 10.9 Tranche 23 — 7:28, 7:156, and two demotions
+
+**7:28 → 1,543w, two heads** (three proposed; one struck):
+- *struck* — "The Third Prohibition", already carried by "The Epistemic Sins", which names
+  7:33's list and quotes 2:169 and 16:116.
+- *drafted* — **The Refutation Denies an Attribution, Not a Command** (the reply contests the
+  report, not the possibility of divine command, with 2:268 quoted as the same act attributed
+  to the opposite agent); **Fāḥishah as a Technical Term** (7:80, 7:33 and 4:19 quoted,
+  establishing one sense — what exceeds a recognised limit — across acts of different kinds).
+
+**7:156 → 1,434w, one head** (three proposed; two struck):
+- *struck* — the mercy tension, already carried by "The Torment Willed and the Mercy
+  Encompassing", which states the asymmetry, draws the rule from it and quotes 40:7.
+- *struck* — the four verbs of loyalty (see Correction 5: they are in 7:157).
+- *drafted* — **Zakah Named Before the Law Was Quantified**: a Meccan verse conditions mercy on
+  an alms-tax with no rate, threshold or list of recipients, against 9:60's eight categories
+  and 8:41's fifth of the spoils. "The Condition Attached" notes the desert context; the
+  chronology of disclosure was absent.
+
+**Correction 6 — 7:32 demoted out of Tier 1.** All four heads proposed in §3.5 are already
+carried: "The Question That Indicts the Questioner" covers the rhetorical challenge and the
+point that the adornment is God's, not a human possession; "For the Enjoyment of the Believers
+in This Worldly Life" covers the two-world ownership with al-Ṭabarī's readings; "The Long
+History of Pious Prohibition" and "Two Pieties the Verse Rejects by Name" cover the ascetic
+objection, including Anas b. Mālik's report of the three men; and the epistemic closing clause
+is covered in the same head. 7 sub-heads, 1,391 words, inside the standard band.
+
+**Correction 7 — 7:148 demoted, and the plan's §3.7 was wrong about the verse.** The two heads
+proposed for 7:148 were "Suʾ al-Khulaf: Have You Deceived Your People After Me?" and "Fāḥishah
+Applied to an Act of Worship". Neither belongs to 7:148. This verse is the calf: "his people
+made from their ˹golden˺ jewellery an idol of a calf that made a lowing sound", and it ends
+"Still they took it as a god and were wrongdoers" — there is no *fāḥishah* in it. Moses's
+return, the rebuke and the Tablets are at 7:150, and even there this repository's translation
+reads "What an evil thing you committed in my absence!", not the wording the plan quoted.
+The head list those proposals were built on does not correspond to the file. 7:148's actual 15
+sub-heads (raw material, sound and silence, the failure to check, the Samaritan, Aaron's
+warning, the verb of adoption) match its content and consume it. Demoted.
+
+**Method change, mandatory for the remaining tranches:** cached head lists are not evidence.
+Every section's heads are extracted from `expanded/007.md` immediately before drafting, and the
+verse text is read from `translation/007.txt` in the same step, so that a head is never
+proposed for content the verse does not contain.
+
+**Two text defects fixed in 7:28.** "The Epistemic Sins" said 7:33 lists *four* forbidden
+things while enumerating five, contradicting 7:33's own section, which correctly says five;
+corrected to five. The same sentence also ran on without a terminator — "(7:33) Sūrah
+al-Baqarah warns" — corrected. A sweep for the same classes of defect found no others.
+
+Gates: cross-quotes **1,759 EXACT / 0 DRIFT / 0 ELLIPSIS / 0 VICINITY** (four new spans, all
+exact); validate 114/114; check_filler **FAILING 0**, below 0, above 0, reduced-floor 18,
+tics 0.19/1k, chains 0.12/1k, dup 0.062, repeated sentences 0. File 275,881 words.
+
+**Group B complete. Fifteen of 43 drafted; four demoted** (7:178, 7:187, 7:32, 7:148). The
+gate's Tier-1 list stands at 43 verses. Remaining: Group C (9 sections) and Group A (19).

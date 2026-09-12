@@ -123,16 +123,16 @@ def depth_floor(key, lo):
 # exception stays auditable and cannot drift. Entries are added one at a
 # time with the head that justifies them, and removed when reading the
 # section shows its heads already consume the material; never in bulk.
-# 7:178 and 7:187 were listed and then removed on that ground -- see
-# DEPTH_PLAN_007.md sections 10.5 and 10.6.
+# 7:178, 7:187, 7:32 and 7:148 were listed and then removed on that
+# ground -- see DEPTH_PLAN_007.md sections 10.5 to 10.9.
 TIER1_CEILING = 1800
 DEEPEST_CEILING = 2100
 DEEPEST = {'7:143', '7:46', '7:85', '7:54'}
 TIER1 = DEEPEST | {
-    '7:22', '7:27', '7:28', '7:31', '7:32', '7:33', '7:37', '7:38', '7:43',
+    '7:22', '7:27', '7:28', '7:31', '7:33', '7:37', '7:38', '7:43',
     '7:44', '7:53', '7:54', '7:56', '7:69', '7:73', '7:75', '7:78', '7:85',
     '7:88', '7:89', '7:90', '7:91', '7:92', '7:97', '7:98', '7:99', '7:128',
-    '7:137', '7:146', '7:148', '7:155', '7:156', '7:157', '7:158', '7:160',
+    '7:137', '7:146', '7:155', '7:156', '7:157', '7:158', '7:160',
     '7:169', '7:172', '7:175', '7:176', '7:182', '7:188', '7:189',
     '7:203',
 }
