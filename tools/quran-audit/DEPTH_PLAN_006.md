@@ -229,6 +229,7 @@ double gate entry). Gates: quotes 869 EXACT / 0 bad, filler −3.
 | 6:65 | Their Hearts Are Divided: 59:14 (anatomy of faction; unreason vs *yafqahūn*) | 138 | 1206 ✓ |
 | 6:66 | Your Duty Is Only to Deliver: 42:48 (*ḥafīẓ* restates *wakīl*; denial conceded) | 121 | 1221 ✓ |
 | 6:67 | You Will Certainly Know Before Long: 38:88 (*ḥīn* undisclosed; certainty without a date) | 126 | 1206 ✓ |
+
 | 6:69 | Depart from Them Courteously: 73:10 (*hajran jamīlā*; manner of the 68–69 sequence) | 118 | 1242 ✓ |
 | 6:72 | Leaving None Behind: 18:47 (the gathering staged; bare earth, no exemptions) | 133+71 | 1264 ✓ |
 
@@ -239,3 +240,27 @@ sliced the bq to end at "before long." Lesson: the filler's word counter runs
 ~30 under script split()-counts (blockquotes/heads excluded?) — §72 landed 1194
 and needed a +71w Ṭabarī mercy paragraph. Detection check: all 5 new spans
 EXACT. Gates: quotes 874 EXACT / 0 bad, filler −5.
+
+### Batch 7a (vv. 77, 78, 81, 82): 59 → 55 failing
+
+| verse | head added | +words | lands |
+|---|---|---|---|
+| 6:77 | That Is the Guidance of Allah: 39:23 (guidance-conditional as doctrine; Book-vehicle) | part of 283 | 1290 ✓ |
+| 6:77 | Like an Old Palm Stalk: 36:39 (moon's mansions; monthly setting; astrologers answered) | part of 283 | 1290 ✓ |
+| 6:78 | Do Not Prostrate to the Sun or the Moon: 41:37 (luminaries demoted to signs; v.79 as law) | 165 | 1238 ✓ |
+| 6:81 | Whose Hearts Tremble: 8:2 (*wajal*/increase/*tawakkul*; fear rightly placed) | 150 | 1235 ✓ |
+| 6:82 | Be Cool and Safe: 21:69 (*bardan wa salāman*; *amn* enacted) | 124 | 1457 ✓ Tier-1 |
+| 6:82 | The Verse the Prophet Cited: 31:13 (direct bq; Luqmān's first lesson) | part of 265 | 1457 ✓ Tier-1 |
+| 6:82 | Do Not Fear, Nor Grieve: 41:30 (angels' descent; fear+grief covered) | part of 265 | 1457 ✓ Tier-1 |
+
+Struck: §77 first choice (28:56 guidance) — already blockquoted at L2756;
+replaced with 39:23's guidance clause (fresh). §78 first choice (11:54 Hūd's
+disavowal) — already blockquoted at L1435; replaced with 41:37 (fresh), the
+arc-closing command. §81 first choices (39:36 sufficiency, 3:175 fear-Me) —
+both already blockquoted in §80 (L6037/6039); replaced with 8:2 (fresh).
+GATE INCIDENT: §82 is Tier-1 (floor 1400) — first landed 1240 and failed;
+topped up with two more heads (31:13, 41:30) → 1457. TIER1_6 roster (24):
+1, 12, 14, 19, 25, 38, 44, 54, 59, 70, 76, 82, 91, 93, 99, 103, 108, 122,
+125, 141, 145, 151, 160, 165; deepest {59,103,151}. Remaining Tier-1/deepest
+shortfalls after 7a: 103, 122, 125, 141, 145, 151, 160. Detection check: all
+7 new spans EXACT. Gates: quotes 881 EXACT / 0 bad, filler −4.
