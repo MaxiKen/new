@@ -140,3 +140,19 @@ the sentence goes quoteless. A failed /tmp patch (straight-vs-curly
 apostrophe in the match string, applied with `;` so the batch ran
 unpatched) left §42 six words short; topped up by direct edit with
 pre-checked prose. Gates after fix: quotes 834 EXACT / 0 bad, filler −5.
+
+### Batch 4b (vv. 44–48): 81 → 76 failing
+
+| verse | head added | +words | lands |
+|---|---|---|---|
+| 6:44 | The Man with Two Gardens: 18:34, 42 (farḥ parable; 18:37–41 bare) | 154 | 1426 ✓ Tier-1 |
+| 6:45 | Until We Mowed Them Down: 21:15 (*ḥaṣīd/khāmid*; 21:14 bare) | 64 | 1235 ✓ |
+| 6:46 | Is There Any Creator Besides Allah: 35:3 (provision challenge) | 62 | 1257 ✓ |
+| 6:47 | By Night While Asleep, By Day at Play: 7:97–98 (modes mapped) | 136 | 1258 ✓ |
+| 6:48 | We Never Punish until We Send a Messenger: 17:15 (justice capstone) | 80 | 1256 ✓ |
+
+Struck: §45 first choice (15:66 remnant) — already blockquoted in §45;
+replaced with the harvest image (21:15). §46 first choice (28:71–72 night
+and day) — already blockquoted in §46; replaced with the provision
+challenge (35:3). Standing practice confirmed: patches to /tmp scripts are
+verified before applying. Gates: quotes 840 EXACT / 0 bad, filler −5.
