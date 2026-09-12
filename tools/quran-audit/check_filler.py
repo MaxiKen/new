@@ -148,6 +148,64 @@ TIER1 = DEEPEST | {
     '7:157', '7:172', '7:175', '7:176', '7:182',
 }
 
+# --- chapter 1: Sūrat al-Fātiḥah -----------------------------------------
+# Added by the standardisation run recorded in DEPTH_PLAN_001.md. Keys carry
+# the sura number, so 007's literals above are untouched and its measured
+# figures are unchanged; the sets are only widened by union.
+#
+# All seven verses are Tier-1. The 15-25% heuristic is calibrated on a
+# 206-verse chapter and has no purchase on a seven-verse one; the governing
+# rule here is the length rule's own clause that sections already above the
+# standard band are left alone, because the ceiling exists to stop padding and
+# not to force cuts. Every one of the seven was already drafted above 1,400
+# words before this run, and every one carries a Tier-1 marker on its own
+# verse text as read from translation/001.txt:
+#   1:1  three divine names stated doctrinally (Allāh, al-Raḥmān, al-Raḥīm),
+#        a formula counted from translation/ at exactly two places in the
+#        whole Book (1:1 and 27:30), and a term disputed with identifiable
+#        positions -- the basmalah's verse-status, Shāfiʿī and Jaʿfarī against
+#        Ḥanafī and Mālikī.
+#   1:2  a divine act and attribute (rubūbiyyah, "Lord of all worlds", a
+#        phrase counted at 42 places across 21 suras) and the ḥamd closing
+#        formula, counted at 10:10, 39:75 and 37:182.
+#   1:3  two divine names, and a distinction the tradition disputes with
+#        named positions (Ibn ʿAbbās through al-Ṭabarī against the synonym
+#        reading al-Ṭabarī also records).
+#   1:4  a divine attribute in two canonical readings (Mālik / Malik) and an
+#        eschatological scene, with the weighing and the atom's weight quoted
+#        from 7:8-9, 40:16-17 and 99:7-8.
+#   1:5  the covenant verse -- the ḥadīth qudsī's "between Myself and My
+#        servant" -- a ruling's condition (the prayer's pillar) and a disputed
+#        term (the definition of ʿibādah).
+#   1:6  the chapter's most repeated formula: "Straight Path" counted at 30
+#        places across 20 suras, plus "Straight Way" at 6 more, and the
+#        layers of hidāyah disputed as signposting, tawfīq, increase and
+#        arrival.
+#   1:7  eschatological categories, a named report with a live grading
+#        dispute (ʿAdī b. Ḥātim through al-Tirmidhī) and an identification
+#        the commentators argue.
+#
+# Three are deepest, each on a written ground:
+#   1:1  the only verse whose canonical status is itself litigated across four
+#        legal schools, carried alongside the morphology of both mercy names
+#        and the derivation dispute over Allāh.
+#   1:5  the structural pivot of the sura and the covenant itself: the ḥaṣr
+#        grammar, the definition of worship, and the effort/tawakkul synthesis
+#        later jurisprudence and ethics both build on.
+#   1:7  the three-category doctrine of mankind, the passive-participle
+#        theology of maghḍūb, the semantic range of ḍalāl across 56 counted
+#        occurrences in 35 suras, and the ʿAdī b. Ḥātim grading dispute.
+#
+# SHORT_VERSE gains no chapter-1 entry. Five verses are fourteen words or
+# fewer in translation/001.txt (1:1 ten, 1:2 nine, 1:3 five, 1:4 six, 1:6 six)
+# but none is a muqattaʿah, a single dialogue clause or a scene-closer taking
+# its sense from the verse before it; each is a full doctrinal statement with
+# real scholarship behind it, so the reduced floor does not apply. The
+# summary line's reduced-floor counter counts floors *below* the band floor
+# and therefore stays at 0 for this chapter, as it stays at 18 for 007.
+DEEPEST |= {'1:1', '1:5', '1:7'}
+TIER1 |= {'1:1', '1:2', '1:3', '1:4', '1:5', '1:6', '1:7'}
+
 
 def depth_ceiling(key, hi):
     """Ceiling for section `key`; the band ceiling unless raised."""
