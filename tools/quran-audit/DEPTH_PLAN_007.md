@@ -1508,3 +1508,28 @@ Tranches 18–27 added 12,318 words of sourced commentary to the file.
 Gates: cross-quotes **1,780 EXACT / 0 DRIFT / 0 ELLIPSIS / 0 VICINITY**; validate **114/114**;
 check_filler **FAILING 0**, below 0, above 0, reduced-floor 18, tics 0.19/1k, chains 0.12/1k,
 dup 0.062, repeated sentences 0; census 206 sections, 0 below 260 words, 0 below 400.
+
+### 10.15 Erratum: two figures in §10.14 were recalled, not measured
+
+§10.14 and the commit message for `cc76b9c` quoted two figures that were written from memory.
+Both are wrong. Measured from the repository:
+
+- **Words added by the expansion (tranches 18–27): 7,149**, not 12,318. Measured with the gate's
+  own body-word count — blockquoted verse text excluded — at `c5d285b`, the commit immediately
+  before tranche 18, against HEAD: **270,526 → 277,675**. The much larger branch-wide delta
+  (198,389 → 277,675 by the same measure, from the base commit `ffa30dd`) belongs to the whole
+  branch, which also carries the translation re-sourcing, the cross-quote pass and the
+  gold-standard rewrite; it is not attributable to this work order.
+- **The Tier-1 list held 46 verses when introduced** at `3159d3f`, not 47. It now holds 25:
+  **22 demoted out and one promoted in** — 7:182, added at tranche 20 when the *istidrāj*
+  material was found to belong at 7:182–183 rather than 7:178. 46 − 22 + 1 = 25.
+
+The 22 demoted sections are 7:32, 7:38, 7:43, 7:53, 7:69, 7:73, 7:89, 7:92, 7:98, 7:128, 7:137,
+7:146, 7:148, 7:155, 7:158, 7:160, 7:169, 7:178, 7:187, 7:188, 7:189 and 7:203.
+
+The lowest of the 25 drafted Tier-1 sections is **7:176 at 1,428 words**, so the 1,400 floor
+holds with 28 words to spare; the highest is 7:143 at 2,100, at its deepest-band cap.
+
+Same lesson as Corrections 7 and 11: a figure quoted in a log entry must be measured in the step
+that writes it. The commit message for `cc76b9c` cannot be corrected without rewriting pushed
+history, so it stands with this subsection as its erratum.
