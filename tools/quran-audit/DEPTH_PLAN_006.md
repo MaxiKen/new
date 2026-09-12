@@ -156,3 +156,27 @@ replaced with the harvest image (21:15). §46 first choice (28:71–72 night
 and day) — already blockquoted in §46; replaced with the provision
 challenge (35:3). Standing practice confirmed: patches to /tmp scripts are
 verified before applying. Gates: quotes 840 EXACT / 0 bad, filler −5.
+
+### Batch 5a (vv. 49–54): 76 → 72 failing
+
+| verse | head added | +words | lands |
+|---|---|---|---|
+| 6:49 | Are the Believer and the Rebel Equal: 32:18–20 (two outcomes; 32:19 inline) + So He Made Them Forget Themselves: 59:19 (two-step forgetting; 2:27, 9:24 bare) | 299 | 1255 ✓ |
+| 6:51 | All Intercession Belongs to Allah: 39:44 (ownership, not only permission) | 91 | 1255 ✓ |
+| 6:53 | It Is We Who Distribute: 43:32 (*qasamnā*; *sukhriyyan*) | 138 | 1247 ✓ |
+| 6:54 | Do Not Lose Hope in Allah's Mercy: 39:53 (*asrafū*; *jamīʿan*; 4:48 bare) | 135 | 1524 ✓ Tier-1 |
+
+Struck: §51 first choice (32:4, no protector/intercessor) — the clause
+already expounded in §51; replaced with ownership (39:44). §53 first choice
+(25:20, trial through others) — already blockquoted in §53; replaced with
+the apportioning verse (43:32).
+
+Gate incident (detection, not accuracy): the cross-quote gate's
+straight-double pattern excludes spans containing curly characters, so six
+new blockquotes with ’ (6:94, 2:186, 35:3, 32:20, 43:32, 39:53) and two
+straight-single inline spans (32:19, 25:29) were parsed as no row at all —
+exact by script check, but gate-invisible. Fixed by converting those eight
+spans to curly-double delimiters, which the gate's first pattern accepts.
+Standing rule: any span containing ’/‘/’ uses “...” delimiters; every batch
+ends with a per-line detection check of its new spans. Gates after fix:
+quotes 851 EXACT / 0 bad, filler −4.
