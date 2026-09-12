@@ -108,9 +108,9 @@ def depth_floor(key, lo):
     band floor once every listed section had been drafted to it. Sections
     demoted out of TIER1 return to the band floor; no commentary is cut.
     """
-    if key in SHORT_VERSE:
+    if key in _SHORT_ALL:
         return REDUCED_FLOOR
-    if key in TIER1:
+    if key in _TIER1_ALL:
         return TIER1_FLOOR
     return lo
 
@@ -148,12 +148,45 @@ TIER1 = DEEPEST | {
     '7:157', '7:172', '7:175', '7:176', '7:182',
 }
 
+# --- chapter 6 lists (Sūrat al-Anʿām) --------------------------------------
+# Same machinery as above, keyed by '6:V' strings so the 007 sets are
+# untouched. Selection, dedup tests, demotions and the head that justifies
+# each entry are recorded in tools/quran-audit/DEPTH_PLAN_006.md.
+#
+# SHORT_VERSE_6 is empty by decision, not by omission: the six verses of
+# fourteen words or fewer (6:4, 6:11, 6:18, 6:23, 6:49, 6:85) are all
+# self-contained statements — a doctrinal sentence, a complete imperative,
+# an attribute pair, an eschatological declaration, a threat, a prophet
+# list — none of them a muqatta'at, a dialogue clause, or a scene-closing
+# fragment. All stay in the full band.
+#
+# TIER1_6: the eleven sections already above the standard ceiling (they
+# need the raised ceiling, not cuts) plus thirteen dense sections with
+# demonstrated unconsumed material. DEEPEST_6: the three cruxes whose
+# material is disputed at length by named authorities — the keys of the
+# unseen (6:59), the vision verse (6:103), and the first revealed
+# commandments (6:151).
+SHORT_VERSE_6 = {}
+DEEPEST_6 = {'6:59', '6:103', '6:151'}
+TIER1_6 = DEEPEST_6 | {
+    '6:1', '6:12', '6:14', '6:19', '6:25', '6:38', '6:44', '6:54',
+    '6:70', '6:76', '6:82', '6:91', '6:93', '6:99', '6:108',
+    '6:122', '6:125', '6:141', '6:145', '6:160', '6:165',
+}
+
+# Union views used by depth_floor / depth_ceiling. Keys carry their chapter
+# ('7:V' vs '6:V'), so per-chapter membership cannot collide.
+_SHORT_ALL = dict(SHORT_VERSE)
+_SHORT_ALL.update(SHORT_VERSE_6)
+_TIER1_ALL = set(TIER1) | set(TIER1_6)
+_DEEPEST_ALL = set(DEEPEST) | set(DEEPEST_6)
+
 
 def depth_ceiling(key, hi):
     """Ceiling for section `key`; the band ceiling unless raised."""
-    if key in DEEPEST:
+    if key in _DEEPEST_ALL:
         return DEEPEST_CEILING
-    if key in TIER1:
+    if key in _TIER1_ALL:
         return TIER1_CEILING
     return hi
 
