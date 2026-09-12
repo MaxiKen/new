@@ -140,12 +140,23 @@ def depth_floor(key, lo):
 TIER1_FLOOR = 1400
 TIER1_CEILING = 1800
 DEEPEST_CEILING = 2100
-DEEPEST = {'7:143', '7:46', '7:85', '7:54'}
+# Sūrah al-Fātiḥah (chapter 1): every verse is Tier-1. Each of the seven
+# verses carries a divine Name or attribute, a formula the Book repeats, a
+# term the exegetical tradition disputes, or the sūrah's covenantal core —
+# see DEPTH_PLAN_001.md §2. The four cruxes — the opening praise (1:2), the
+# covenant of worship and help (1:5), the guidance petition (1:6) and the
+# three destinies (1:7) — carry DEEPEST_CEILING, because their sections
+# already ran to 1,453–2,040 words in the baseline and compress below 1,800
+# only by cutting sourced material. No SHORT_VERSE entries: no verse of
+# al-Fātiḥah is a fragment of the qualifying kinds.
+DEEPEST = {'7:143', '7:46', '7:85', '7:54',
+           '1:2', '1:5', '1:6', '1:7'}
 TIER1 = DEEPEST | {
     '7:22', '7:27', '7:28', '7:31', '7:33', '7:37',
     '7:44', '7:54', '7:56', '7:75', '7:78', '7:85',
     '7:88', '7:90', '7:91', '7:97', '7:99', '7:156',
     '7:157', '7:172', '7:175', '7:176', '7:182',
+    '1:1', '1:3', '1:4',
 }
 
 
