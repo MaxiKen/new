@@ -1322,3 +1322,79 @@ Gates: cross-quotes **1,761 EXACT / 0 DRIFT / 0 ELLIPSIS / 0 VICINITY** (two new
 exact); validate 114/114; check_filler **FAILING 0**, below 0, above 0, reduced-floor 18,
 tics 0.19/1k, chains 0.12/1k, dup 0.062, repeated sentences 0. File 276,201 words.
 **Seventeen of 41 drafted; six demoted** (7:178, 7:187, 7:32, 7:148, 7:92, 7:98).
+
+### 10.11 Tranche 25 — Group C complete: 7:56, 7:75, 7:88, 7:99, and the demotion of 7:128
+
+Of the 22 heads proposed for Group C's nine sections, **six were drafted, thirteen struck as
+already carried, and three sections demoted.** The mandatory method decided it: for each
+proposed head, grep the section body for the citations it depends on. A head whose sources are
+already quoted is a citation upgrade to an existing head, not new depth.
+
+Two further concordance errors in the plan, both caught by counting from `translation/`:
+- 7:75's *al-malaʾ* list included 7:113, which is not a chiefs verse, and omitted 7:103.
+  Counted, the word occurs **eight** times: 7:60, 66, 75, 88, 90, 103, 109, 127.
+- 7:88's expulsion list included 7:11, which is Iblīs's respite. In sūrah 7 the verb occurs
+  **twice**, at 7:82 and 7:88.
+
+**7:56 → 1,434w, one head** (four proposed; three struck):
+- *struck* — "Corruption After Repair as a Legal Category": "Corruption With a History" already
+  quotes 2:11–12, 30:41 and 26:151–152, and already names 7:74 and 7:85 as the sūrah's other
+  two uses of the verb.
+- *struck* — "Khawf and Ṭamaʿ as a Fixed Pair": 21:90 and 32:16 each appear twice already.
+- *struck* — "Mercy Is Near": an existing head of that exact title, which already glosses
+  *qarībun mina al-muḥsinīn* and quotes 2:186.
+- *drafted* — **Iḥsān, Defined by the Only Report That Defines It**: the section glosses
+  *muḥsinīn* as "good-doers" but never defines the term; the Jibrīl ḥadīth does, and it defines
+  *iḥsān* as an act of worship performed under the sense of being seen (Ṣaḥīḥ Muslim 8; Ṣaḥīḥ
+  al-Bukhārī 50, ʿUmar) — which is what hope and fear describe from the inside.
+
+**7:75 → 1,568w, one head** (three proposed; two struck):
+- *struck* — "The Lowly as the Book's Constituency": the identically-scoped existing head
+  already quotes 26:111, 11:27, 6:52 and 18:28; 28:5 would be a fifth citation of one point.
+- *struck* — "Are You Certain? as a Weapon": "A Question About Others' Faith" already makes the
+  social-not-epistemic argument, and "The Question the Elite Ask the Poor" already quotes
+  34:31–33 from the same Sabaʾ material the proposal drew on.
+- *drafted* — **The Chiefs Counted, and the Adjectives Added**: the eight occurrences across five
+  prophetic careers, then the modifiers — the noun bare where chiefs address a prophet (7:60),
+  *kāfir* where the rejection is put on record (7:66), *mustakbir* only at 7:75 and 7:88, the two
+  verses where the chiefs dispose of believers rather than argue with a messenger.
+
+**7:88 → 1,499w, one head** (two proposed; one struck):
+- *struck* — "Coercion Cannot Produce Faith": an existing head of that exact title, with 2:256
+  already quoted twice.
+- *struck* — "Expulsion as the Sūrah's Recurring Threat": "Expulsion in the Sūrah's Other
+  Histories" already quotes 26:116, 26:167 and 17:76, and the neighbouring head quotes 11:94–95.
+- *drafted* — **The Other Expulsion in This Sūrah**: 7:82 against 7:88, which the section never
+  cites — a communal demand with no condition and an admitted reason (chastity) against a chiefs'
+  demand with a price attached (return to our faith).
+
+**7:99 → 1,525w, one head** (two proposed; one struck):
+- *struck* — "Makr Allāh": 3:54, 8:30, *makr* and "planners" are all already in the section.
+- *drafted* — **The Two Forbidden Errors, Named Together**: 12:87 and 15:56, neither present,
+  assigning despair of mercy and security from planning to the same two classes — the faithless
+  and the astray — as two ways of getting God's relation to the world wrong.
+
+**Correction 10 — 7:128 demoted.** Its single proposed head quotes 2:153 and 2:45; both are
+already present, and "The Discipline of Seeking Help" quotes 2:153 verbatim. 15 sub-heads,
+1,393 words — the most heavily covered section in Group C.
+
+**Group C final tally:** 9 sections inspected, 6 drafted (+6 heads, ~+1,000 words), 3 demoted
+(7:92, 7:98, 7:128).
+
+Gates: cross-quotes **1,769 EXACT / 0 DRIFT / 0 ELLIPSIS / 0 VICINITY** (eight new spans, all
+exact); validate 114/114; check_filler **FAILING 0**, below 0, above 0, reduced-floor 18,
+tics 0.19/1k, chains 0.12/1k, dup 0.062, repeated sentences 0. File 276,878 words.
+**Twenty-one of 40 drafted; seven demoted.**
+
+### 10.12 Repository note — a truncated local history, and the `out/` artifacts
+
+Pushing tranche 24 revealed that the local branch had been reset to the base commit `ffa30dd`,
+so the tranche-24 commit had swept in **219 generated files** under
+`tools/quran-audit/out/rewrites/007/` (18,139 lines) that had never been on the remote. Recovery:
+fetch the remote tip, `git reset --mixed` to it — which preserves the working tree — and recommit
+only the three intended files. The remote history was never affected; tranche 24 pushed as
+`fc6e63f` on top of `5b53749`.
+
+`tools/quran-audit/.gitignore` now excludes `out/`, so the generated per-section rewrite drafts
+and batch artifacts cannot be committed again. They are reproducible from the gates and are not
+part of the deliverable.
