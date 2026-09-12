@@ -72,6 +72,12 @@ WORDS = re.compile(r"[\w\u02b9\u02bc\u02bf\u02c8\u02c9\u2019'-]+")
 # forbearance and turning away, 7:5 on the cry of the destroyed cities --
 # stay in the full band, because there is real scholarship to fill them with.
 # Entries are added one at a time with a reason; never in bulk.
+#
+# 7:78 and 7:91 were on this list as scene-closers and have been removed.
+# Both carry live scholarly material that is not scene-closing: the same
+# destruction is described as rajfah here, as sayhah at 11:94 and as the
+# zullah of 26:189, and Ibn Kathir holds on 26:176 that the companions of
+# al-Aykah were the people of Madyan. They are listed in TIER1 below.
 REDUCED_FLOOR = 700
 SHORT_VERSE = {
     '7:1':   "muqatta'at: the four disjointed letters, one word in translation",
@@ -79,9 +85,7 @@ SHORT_VERSE = {
     '7:15':  "one-clause divine reply granting the respite",
     '7:21':  "one-clause oath by which Iblis swore to them",
     '7:76':  "one-clause rejection by the arrogant party",
-    '7:78':  "scene-closer: the earthquake and the prone bodies",
     '7:81':  "one-clause rebuke within Lut's speech",
-    '7:91':  "scene-closer: the earthquake and the prone bodies",
     '7:107': "scene: the staff thrown down and becoming a snake",
     '7:109': "one-clause accusation by the chiefs of Pharaoh's people",
     '7:111': "one-clause reply deferring Moses and his brother",
@@ -100,6 +104,44 @@ SHORT_VERSE = {
 def depth_floor(key, lo):
     """Floor for section `key` ('7:25'); the band floor unless excepted."""
     return REDUCED_FLOOR if key in SHORT_VERSE else lo
+
+
+# --- tier-relative ceiling ------------------------------------------------
+# The band ceiling assumes no single verse carries more argument than the
+# ceiling can hold. A surveyed minority of Sūrat al-Aʿrāf does: the sections
+# in TIER1 are those whose verse surface, content units, legal markers and
+# uncited candidate parallels all indicate material the section had not
+# consumed. The survey, the approvals and the verification of every external
+# source cited are recorded in tools/quran-audit/DEPTH_PLAN_007.md, which
+# lists the sub-heads each section already carried and the sub-heads added.
+# They carry TIER1_CEILING. The four deepest -- the request to see God, the
+# people of the heights, the market commands and the throne verse -- carry
+# DEEPEST_CEILING, because their material is disputed at length by named
+# authorities and compresses below that ceiling only by losing the dispute.
+#
+# Membership is an explicit verse list, not a threshold rule, so the
+# exception stays auditable and cannot drift. Entries are added one at a
+# time with the head that justifies them; never in bulk.
+TIER1_CEILING = 1800
+DEEPEST_CEILING = 2100
+DEEPEST = {'7:143', '7:46', '7:85', '7:54'}
+TIER1 = DEEPEST | {
+    '7:22', '7:27', '7:28', '7:31', '7:32', '7:33', '7:37', '7:38', '7:43',
+    '7:44', '7:53', '7:54', '7:56', '7:69', '7:73', '7:75', '7:78', '7:85',
+    '7:88', '7:89', '7:90', '7:91', '7:92', '7:97', '7:98', '7:99', '7:128',
+    '7:137', '7:146', '7:148', '7:155', '7:156', '7:157', '7:158', '7:160',
+    '7:169', '7:172', '7:175', '7:176', '7:178', '7:187', '7:188', '7:189',
+    '7:203',
+}
+
+
+def depth_ceiling(key, hi):
+    """Ceiling for section `key`; the band ceiling unless raised."""
+    if key in DEEPEST:
+        return DEEPEST_CEILING
+    if key in TIER1:
+        return TIER1_CEILING
+    return hi
 
 
 
@@ -188,6 +230,7 @@ def scan(path, band, max_tics, max_chain, max_dup, max_repeat, sura=None):
         allsent.update(sents)
         rows.append(dict(verse=v, line=ln, words=w,
                          floor=depth_floor('%d:%d' % (sura, v), lo) if sura else lo,
+                         ceiling=depth_ceiling('%d:%d' % (sura, v), hi) if sura else hi,
                          tics=tics, tics_1k=round(1000 * tics / w, 2) if w else 0,
                          chains=chains, chains_1k=round(1000 * chains / w, 2) if w else 0,
                          dup=round(dup, 4), dup_grams=dupes, sentences=len(sents)))
@@ -195,7 +238,7 @@ def scan(path, band, max_tics, max_chain, max_dup, max_repeat, sura=None):
     for r in rows:
         r['fails'] = sorted(
             ([ 'depth<%d' % r['floor']] if r['words'] < r['floor'] else []) +
-            (['depth>%d' % hi] if r['words'] > hi else []) +
+            (['depth>%d' % r['ceiling']] if r['words'] > r['ceiling'] else []) +
             (['tics>%.1f' % max_tics] if r['tics_1k'] > max_tics else []) +
             (['chains>%.1f' % max_chain] if r['chains_1k'] > max_chain else []) +
             (['dup>%.2f' % max_dup] if r['dup'] > max_dup else []))
@@ -208,7 +251,8 @@ def scan(path, band, max_tics, max_chain, max_dup, max_repeat, sura=None):
         words_max=max(words) if words else 0,
         below_band=sum(1 for r in rows if r['words'] < r['floor']),
         reduced_floor=sum(1 for r in rows if r['floor'] != lo),
-        above_band=sum(1 for r in rows if r['words'] > hi),
+        above_band=sum(1 for r in rows if r['words'] > r['ceiling']),
+        raised_ceiling=sum(1 for r in rows if r['ceiling'] != hi),
         tics_total=sum(r['tics'] for r in rows),
         tics_1k=round(1000 * sum(r['tics'] for r in rows) / max(sum(words), 1), 2),
         chains_1k=round(1000 * sum(r['chains'] for r in rows) / max(sum(words), 1), 2),
