@@ -1455,3 +1455,56 @@ Gates: cross-quotes **1,777 EXACT / 0 DRIFT / 0 ELLIPSIS / 0 VICINITY** (eight n
 exact); validate 114/114; check_filler **FAILING 0**, below 0, above 0, reduced-floor 18,
 tics 0.19/1k, chains 0.12/1k, dup 0.062, repeated sentences 0. File 277,467 words.
 **Twenty-four of 39 drafted; eight demoted.**
+
+### 10.14 Tranche 27 — the final tranche: 7:44, fourteen demotions, and the Tier-1 floor
+
+**One head drafted, fourteen sections demoted, the Tier-1 floor raised to 1,400. The §8.5 work
+order is complete.**
+
+**7:44 → 1,581w, one head** — *The Greeting the Book Gives Three Times*: the greeting is absent
+from this verse's call across the barrier, and the Book gives it three times, always spoken by
+angels and always in one shape, salutation then the ground for it — 16:32 at the taking of the
+soul, 39:73 at the gates, 13:24 inside the Garden. The only greeting in the whole passage comes
+two verses later, from the people on the heights, who greet a party they have not yet joined.
+Verified against `translation/007.txt`: 7:46 does contain it.
+
+**Correction 12 — fourteen sections demoted together**, in two groups.
+
+*Group A thin (5): 7:38, 7:43, 7:53, 7:69, 7:89.* Every proposed head's topic is already an
+existing head, usually under a near-identical title: 7:38's "Ḍiʿf Doubled: Two Senses" against
+*"For Each Is Double"*, which already states that the doubling is not of torture, and its
+jinn-and-men head against "An Assembly of Jinn and Men"; 7:43's *ghill* head against 15:47
+already quoted under "Ghill: Fever and Collar in the Breast"; 7:53's intercession head against
+two existing heads on intercession, its return-request head against 23:99, 32:12 and 35:37 all
+already present, and its "ruining themselves" head against an existing head of that name; 7:69's
+monuments head against 26:129 already present with "monument" and "build" in the body; 7:89's
+three heads against *"Unless Allah Wills"*, "The Prayer for Judgment", and the
+fabricating-a-lie formula already counted at 7:37.
+
+*Group A dense (9): 7:137, 7:146, 7:155, 7:158, 7:160, 7:169, 7:188, 7:189, 7:203.* These carry
+13–16 sub-heads each and the plan proposed one head apiece, two for 7:155. Each proposal names a
+topic the section already has a head for, sometimes in the same words — 7:146's "Ṣarf and the
+Correspondence of Turning" against "The Correspondence of Turning"; 7:160's "Twelve Springs for
+Twelve Tribes: The Arithmetic" against *"Twelve Tribes, Twelve Springs"* and "The Identical
+Account in Al-Baqarah"; 7:137's merism against "The East and the West"; 7:203's *baṣāʾir* against
+*"An Insight From Your Lord"*; 7:155's two heads against "The Same Seventy in the Other Account"
+and against 7:143, which is a drafted section on the request to see. Their shortfalls ran from 4
+to 60 words. Inventing scholarship to close a four-word gap is the padding this standard exists
+to prevent.
+
+**The final work-order step is done.** `TIER1_FLOOR = 1400` is now enforced by `depth_floor`, so
+every listed section must carry at least 1,400 words. All 25 remaining Tier-1 sections clear it;
+the lowest is 7:176 at 1,428. Sections demoted out of the list return to the 1,200 band floor.
+**No commentary was cut at any point in this work** — every demotion is a bookkeeping correction,
+and all 22 demoted sections remain inside the standard band.
+
+Also fixed: the summary line's `reduced-floor` counter counted any section whose floor differs
+from the band floor, so raising the Tier-1 floor made it report 43. It now counts only floors
+*below* the band floor, which is what the label says; the true figure is 18.
+
+**Final tally of the expansion:** 25 Tier-1 sections drafted, 22 demoted, 47 listed at the start.
+Tranches 18–27 added 12,318 words of sourced commentary to the file.
+
+Gates: cross-quotes **1,780 EXACT / 0 DRIFT / 0 ELLIPSIS / 0 VICINITY**; validate **114/114**;
+check_filler **FAILING 0**, below 0, above 0, reduced-floor 18, tics 0.19/1k, chains 0.12/1k,
+dup 0.062, repeated sentences 0; census 206 sections, 0 below 260 words, 0 below 400.

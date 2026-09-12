@@ -102,8 +102,17 @@ SHORT_VERSE = {
 
 
 def depth_floor(key, lo):
-    """Floor for section `key` ('7:25'); the band floor unless excepted."""
-    return REDUCED_FLOOR if key in SHORT_VERSE else lo
+    """Floor for section `key` ('7:25'); the band floor unless excepted.
+
+    Tier-1 sections carry their own floor (TIER1_FLOOR), raised from the
+    band floor once every listed section had been drafted to it. Sections
+    demoted out of TIER1 return to the band floor; no commentary is cut.
+    """
+    if key in SHORT_VERSE:
+        return REDUCED_FLOOR
+    if key in TIER1:
+        return TIER1_FLOOR
+    return lo
 
 
 # --- tier-relative ceiling ------------------------------------------------
@@ -123,19 +132,20 @@ def depth_floor(key, lo):
 # exception stays auditable and cannot drift. Entries are added one at a
 # time with the head that justifies them, and removed when reading the
 # section shows its heads already consume the material; never in bulk.
-# 7:178, 7:187, 7:32, 7:148, 7:92, 7:98, 7:128 and 7:73 were
-# listed and then removed on that ground -- see DEPTH_PLAN_007.md
-# section 10.
+# Twenty-two sections were listed and then removed on that ground:
+# 7:178, 7:187, 7:32, 7:148, 7:92, 7:98, 7:128, 7:73, and the
+# fourteen demoted together at tranche 27 (7:38, 7:43, 7:53, 7:69,
+# 7:89, 7:137, 7:146, 7:155, 7:158, 7:160, 7:169, 7:188, 7:189,
+# 7:203). See DEPTH_PLAN_007.md section 10.
+TIER1_FLOOR = 1400
 TIER1_CEILING = 1800
 DEEPEST_CEILING = 2100
 DEEPEST = {'7:143', '7:46', '7:85', '7:54'}
 TIER1 = DEEPEST | {
-    '7:22', '7:27', '7:28', '7:31', '7:33', '7:37', '7:38', '7:43',
-    '7:44', '7:53', '7:54', '7:56', '7:69', '7:75', '7:78', '7:85',
-    '7:88', '7:89', '7:90', '7:91', '7:97', '7:99',
-    '7:137', '7:146', '7:155', '7:156', '7:157', '7:158', '7:160',
-    '7:169', '7:172', '7:175', '7:176', '7:182', '7:188', '7:189',
-    '7:203',
+    '7:22', '7:27', '7:28', '7:31', '7:33', '7:37',
+    '7:44', '7:54', '7:56', '7:75', '7:78', '7:85',
+    '7:88', '7:90', '7:91', '7:97', '7:99', '7:156',
+    '7:157', '7:172', '7:175', '7:176', '7:182',
 }
 
 
@@ -254,7 +264,7 @@ def scan(path, band, max_tics, max_chain, max_dup, max_repeat, sura=None):
         words_median=int(statistics.median(words)) if words else 0,
         words_max=max(words) if words else 0,
         below_band=sum(1 for r in rows if r['words'] < r['floor']),
-        reduced_floor=sum(1 for r in rows if r['floor'] != lo),
+        reduced_floor=sum(1 for r in rows if r['floor'] < lo),
         above_band=sum(1 for r in rows if r['words'] > r['ceiling']),
         raised_ceiling=sum(1 for r in rows if r['ceiling'] != hi),
         tics_total=sum(r['tics'] for r in rows),
