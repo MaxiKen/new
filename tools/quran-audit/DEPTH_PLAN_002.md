@@ -59,3 +59,63 @@ complete commands, full band.
 ## Corrections list (§17.3)
 
 (to be appended)
+
+## Batch log (prologue + verses, ascending)
+
+**Batch 1 — prologue + 2:1–2:8** (commit 23858c4). Sections 9 of 9 to band
+(1,392/1,393/1,369/1,355/1,382/1,370/1,380/1,394 + prologue); +14 heads; blockquote
+remediation for the range. Ḥadīth used: Jibrīl hadith cited as Ṣaḥīḥ Muslim 8 +
+al-Bukhārī 50 (ʿUmar) — **verified** (Bukhārī 50 = Book of Belief, the asking of
+Jibrīl; Muslim 8 is the canonical parallel); Bukhārī 33 three-signs of the
+hypocrite (Abū Hurayrah) — **verified** (three signs: lying, breaking promises,
+betraying trusts); the "fourth completes it" sentence is unnumbered in the file and
+was left unnumbered (Bukhārī 34 carries the four-sign version).
+
+**Batch 2 — 2:9–2:16** (commit 2b07465). All eight sections to band
+(1,400/1,400/1,399/1,373/1,398/1,387/1,397/1,400); +20 heads. Defects fixed in
+batch: 63:4 span pair demoted to italics; own-verse citations added at 2:14, 2:15,
+2:16; "trades"→"trade" (2:86 agreement). Ḥadīth: Muslim 102 (grain-cheating, Abū
+Hurayrah) — **verified** (Book of Faith, "he who deceives is not of me");
+Bukhārī 52 + Muslim 1599 (the heart governs the body, an-Nuʿmān ibn Bashīr) —
+**verified** (both collections, same report).
+
+**Batch 3 — 2:17–2:24** (commit 1f020ab). Sections to 1,337–1,412; +18 heads incl.
+the 2:22 chain fix. Post-pass: 17:97 wording aligned, own-verse citations added
+(2:19, 2:20×2, 2:21), *O humanity!* italicised, two scaffolding leaks removed,
+al-Walīd paragraph rewritten (fabricated fragment deleted), 21:98 and 3:133
+rendered as wording. 2:17 left over ceiling in this commit; trimmed to 1,399 in
+batch 5's pass.
+
+**Batch 4 — 2:25–2:34** (commit 2fdbc4d). All ten sections past their floors
+(Tier-1 2:30/2:34 at ≥1,400; 2:32 raised 1,138→1,211); +30 heads; body +5,332
+words. Own-verse citations added at 2:25×2, 2:26×2, 2:28, 2:29×2, 2:30, 2:31,
+2:33×2, 2:34; 66:6 span corrected to verbatim; pre-existing 18:50 span aligned.
+Ḥadīth: Muslim 2824 (no eye has seen; Abū Hurayrah) — **verified**; Bukhārī 2067 +
+Muslim **2557** (kinship ties, Anas) — **verified; file's "Muslim 2556" corrected
+to 2557**; Muslim 486 — **verified with narrator correction: ʿĀʾishah (the night
+prostration duʿāʾ), not Ibn ʿAbbās; the tahajjud frame was replaced with the
+ʿĀʾishah scene and the duʿāʾ wording**.
+
+**Batch 5 — 2:35–2:42** (this commit). All eight sections to band, including
+Tier-1 2:37 (1,411) and 2:40 (1,408); 2:17 ceiling trim landed (1,399); +15 heads;
+nine blocks. Verse work: 7:19 + 20:120 (tree), 2:36 residence clause + 20:123,
+7:23 repentance prayer + Muslim 2759 (**verified**: "Allah spreads out His Hand…
+until the sun rises from the west"), tawwāb name-count, 10:62 immunity formula,
+3:131, 3:187 covenant-taken, 2:122/2:152 remembrance formula, 2:97 confirmation,
+16:95 trade, 2:41 trade wording, 3:71 twin verse, 2:43 worship-pair with 19:31,
+19:55, 20:14. Old-prose quotes aligned in the range: 2:2, 6:104, 7:157, 2:37
+(inspired words), 2:37 names, 2:40 covenant clause, 2:152, 2:41 trade, 3:77, 2:146,
+19:31, 19:55, 20:14, 7:180, 2:29, 2:33 secrets, 2:30 knowledge, 7:20, 7:21, 29:2.
+Defect class closed in range: ASCII-wrapper-around-curly nesting removed at 2:25,
+2:26 (29:2), 2:30, 2:35, 2:36; one stray "(2:25)" restored out of the 2:25
+blockquote. Remaining cited DRIFTs in 2:25–2:42 (14) are pre-session old-prose
+quotes — list verified this batch: 2:26 (22:73, 9:124–125), 2:27 (7:172, 4:1,
+47:22), 2:28 (76:1×2, 36:78–79), 2:29 (11:61 — verbatim but ˹˺-bracketed), 2:31
+(7:180 fixed; remainder), 2:34 (48:29×2), 2:35 (4:1 ellipsis form). Gate snapshot
+at this commit: filler below 243 / above 0 / FAILING 244 (all outside 2:17–42),
+tics 0.04/1k, chains 0.32/1k, dup 0.039, 0 repeated; cross-quotes EXACT 151,
+DRIFT 318, VICINITY 28, FAILED 0; validate 114/114; check_translations 286
+checked / 0 flagged; 007 unchanged (277,675w, FAILING 0).
+
+**Next:** batch 6 ascending from 2:43 (≈243 sections below floor; next Tier-1s at
+2:47, 2:80).
