@@ -3,8 +3,8 @@
 Audit log for the execution of `tools/quran-audit/STANDARDIZATION_PROMPT.md` on
 `expanded/002.md`, written to the format of `DEPTH_PLAN_007.md`.
 
-**Status at the last commit of this file:** tranches 1–3 complete, and verses
-1–36 are closed — every one of the first thirty-six sections is inside its
+**Status at the last commit of this file:** tranches 1–4 complete, and verses
+1–48 are closed — every one of the first forty-eight sections is inside its
 configured band, with no section in the range below its floor. The batch totals
 are in `A.1`, the chapter-wide worklist in §9, and the method for the remaining
 verses in §11.
@@ -243,6 +243,46 @@ Twelve of the tranche's cited spans were generated through the marker helper
 and are therefore exact by construction; EXACT rows rose 176 → 189 with no new
 DRIFT.
 
+### Tranche 4 — verses 37–48 (+5,964 words; chapter 229,205 → 235,169)
+
+The first batch of genuinely thin sections outside the Adam cycle (2:37 at 656
+words, 2:39 at 668, 2:46 and 2:47 at 753). Fourteen new heads; the three that
+did the most work are:
+
+* 2:37 "The Sequence at the Door: Taught, Turned, Chosen, Guided" — 2:37 read
+  with 7:23 and 20:122, distributing the return across four movements and
+  fixing the tradition's reading of Adam's supplication as the first
+  *istighfār*.
+* 2:40 "The Grammar of the Pledge: 'Fulfil, and It Shall Be Fulfilled'" — the
+  active/passive asymmetry of *awfū* / *ūfī*, and the fronted pronoun
+  *iyyāya* as the verse's statement about political conduct.
+* 2:48 "The Day Made the Object of Awe" and "The Syntax of No Substitution" —
+  *lā tajzī nafsun ʿan nafsin shayʾan* read as payment-on-behalf, with the
+  indefinite *shayʾan* closing the scale at both ends; 2:254's market-language
+  of the same day.
+
+Tier-1 sections in this batch: 2:37, 2:40 and 2:48, all three now inside the
+1,400–1,800 band (1,357 → cleared to 1,400+ on the final top-up, 1,469, 1,529).
+
+### 9.4 The style dimensions of the gate (tics, chains, duplication)
+
+Depth is not the only failing dimension. `check_filler.py` also fails a section
+for repeated connective patterns (`is the X that is`, `of the X of the`,
+`the X is the Y of the`), for filler tics, and for 10-gram duplication, and
+these are measured per thousand words. At the tranche-4 commit the chapter's
+aggregate rates are tics 0.05/1k and chains 0.39/1k, well inside the tool's
+0.5/1k and 1.5/1k section thresholds, but a number of *individual* sections
+exceed 1.5/1k because the inherited prose is dense in those patterns. The
+strategy for them is dilution rather than rewriting: the no-cut rule forbids
+rewriting inherited commentary, and a section's chain *rate* falls as
+chain-free depth is added, so each tranche's additions are written without
+those three shapes. Three sentences added in tranches 1–4 were found to carry
+the `the X is the Y of the` shape and were rephrased (the severance clause in
+§2:27, the promise clause in §2:38, and the garment/concealment clause in
+§2:42); `check_filler` FAILING fell from 247 to 244 as a result. The residue is
+itemized in the tool's own failing list, and each of those sections will clear
+itself as its depth work lands.
+
 ---
 
 ## 7. Demotions and struck headings
@@ -325,10 +365,10 @@ glosses left the cited-population entirely, which is the intended outcome).
 
 ### 9.1 Depth
 
-Chapter totals at the last commit: 229,205 words in 286 sections, 248 sections
-below their configured floor, 127,517 words of outstanding depth work. Batch A.1
-shows that batches 1-3 (verses 1-36) are now closed: no section in them is
-below its floor. The
+Chapter totals at the last commit: 235,163 words in 286 sections, 236 sections
+below their configured floor, 122,338 words of outstanding depth work. Appendix A.1
+shows that batches 1-4 (verses 1-48) are closed: no section in them is below
+its floor. The
 per-batch table is in the appendix (§A.1).
 
 The batch order is fixed: verses 1–12, 13–24, 25–36, and so on, ascending, so
@@ -433,7 +473,7 @@ chapter-aware patch did not disturb the gold standard.
 | 1–12 | 15,332 | 0 | closed |
 | 13–24 | 15,375 | 0 | closed |
 | 25–36 | 16,208 | 0 | closed |
-| 37–48 | 9,821 | 5,179 | pending |
+| 37–48 | 15,779 | 0 | closed |
 | 49–60 | 10,023 | 4,156 | pending |
 | 61–72 | 8,363 | 6,637 | pending |
 | 73–84 | 8,451 | 6,549 | pending |
