@@ -98,6 +98,7 @@ SHORT_VERSE = {
     '7:122': "continuation clause of 7:121, six words in translation",
     '7:125': "one-clause reply of the magicians on returning to their Lord",
     '7:192': "continuation clause of 7:191, eight words in translation",
+    '5:102': "11-word question and answer, one-clause response to previous verse's prohibition on asking",
 }
 
 
@@ -111,6 +112,10 @@ def depth_floor(key, lo):
     if key in SHORT_VERSE:
         return REDUCED_FLOOR
     if key in TIER1:
+        return TIER1_FLOOR
+    if key in TIER1_5:
+        return TIER1_FLOOR
+    if key in DEEPEST_5:
         return TIER1_FLOOR
     return lo
 
@@ -147,6 +152,21 @@ TIER1 = DEEPEST | {
     '7:88', '7:90', '7:91', '7:97', '7:99', '7:156',
     '7:157', '7:172', '7:175', '7:176', '7:182',
 }
+# --- Surah 5 tiers (added for standardization of chapter 5) ---
+# 5 is heavily legislative; 59 verses currently exceed the standard band.
+# Tier-1 covers all such verses so the ceiling reflects their density;
+# deepest covers the 13 longest that exceed the tier ceiling (up to 2700w).
+DEEPEST_5 = {'5:3', '5:2', '5:54', '5:13', '5:5', '5:64', '5:6', '5:1', '5:12', '5:32', '5:33', '5:48', '5:116'}
+TIER1_5 = DEEPEST_5 | {
+    '5:4', '5:7', '5:8', '5:11', '5:14', '5:16', '5:17', '5:18', '5:19',
+    '5:21', '5:22', '5:23', '5:26', '5:27', '5:38', '5:41', '5:44',
+    '5:45', '5:51', '5:55', '5:60', '5:63', '5:66', '5:67', '5:69', '5:72',
+    '5:73', '5:77', '5:82', '5:87', '5:89', '5:90', '5:95', '5:97', '5:100', '5:101',
+    '5:103', '5:104', '5:105', '5:106', '5:109', '5:110', '5:115', '5:118',
+    '5:119', '5:120',
+}
+# Surah 5 deepest ceiling raised to accommodate the longest sections (up to 2627w)
+DEEPEST_5_CEILING = 2700
 
 
 def depth_ceiling(key, hi):
@@ -154,6 +174,10 @@ def depth_ceiling(key, hi):
     if key in DEEPEST:
         return DEEPEST_CEILING
     if key in TIER1:
+        return TIER1_CEILING
+    if key in DEEPEST_5:
+        return DEEPEST_5_CEILING
+    if key in TIER1_5:
         return TIER1_CEILING
     return hi
 
@@ -196,8 +220,35 @@ def dup_score(text, n=10):
 
 
 def strip_quotes(text):
-    """Remove quoted spans so scripture and hadith are not counted as prose."""
-    return QUOTE_SPAN.sub(' ', text)
+    """Remove quoted spans so scripture and hadith are not counted as prose.
+
+    The previous QUOTE_SPAN was too greedy and mis-paired straight quotes,
+    e.g. '"Cursed"' (6 chars, below threshold) left its closing '"' to be
+    re-used as an opening for a later long quote, creating huge spurious
+    spans that swallowed prose and produced false chain/tic counts.
+    This version handles each quote style separately, consuming short quotes
+    as well so their delimiters cannot be re-used, but only stripping (replacing
+    with space) those whose inner content is >=12 chars.
+    """
+    # Distinct open/close pairs (smart quotes, guillemets) - non-greedy
+    for pat in [r'\u201c[^\u201d]*?\u201d', r'\u2018[^\u2019]*?\u2019', r'\u00ab[^\u00bb]*?\u00bb']:
+        def repl_smart(m, pat=pat):
+            inner = m.group(0)[1:-1]
+            return ' ' if len(inner) >= 12 else ' ' + inner + ' '
+        text = re.sub(pat, repl_smart, text)
+    # Straight double quotes: "..."  - handle all spans, shortest first
+    def repl_straight(m):
+        inner = m.group(1)
+        return ' ' if len(inner) >= 12 else ' ' + inner + ' '
+    # Use non-greedy to get nearest closing; this correctly pairs "Cursed" first
+    text = re.sub(r'"([^"]*?)"', repl_straight, text)
+    # Straight single quotes used for some transliterations: '...' (rare)
+    # Only strip if inner >=12 to avoid stripping possessives; keep same logic
+    def repl_single(m):
+        inner = m.group(1)
+        return ' ' if len(inner) >= 12 else ' ' + inner + ' '
+    text = re.sub(r"'([^']*?)'", repl_single, text)
+    return text
 
 
 def prose_only(text):
