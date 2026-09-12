@@ -1049,3 +1049,61 @@ carry material the plan assumed was absent.
 
 109 heads outstanding across 41 sections, roughly +9,800 words. Each tranche runs the four
 gates and commits separately.
+
+### 10.5 Tranche 20 — 7:54, 7:176, 7:182, and a second correction
+
+Read in full before drafting, as §10.3 requires. Two more corrections fell out.
+
+**Correction 2 — the istidrāj heads were assigned to the wrong verse.** §4.7 placed the
+istidrāj material under 7:178. 7:178 is the guidance-and-loss verse ("Whoever Allah guides is
+truly guided…"), and istidrāj is at 7:182–183. The three heads proposed for 7:178 therefore
+belonged elsewhere, and 7:178 — already carrying 14 sub-heads at 1,313 words, covering the
+doctrine, its parallels, the misreading it prevents, the vocabulary of loss, the two senses of
+guidance and the placement of the rule — has no unconsumed material. **7:178 is demoted out of
+Tier 1** and removed from the gate's list; it stays at 1,313 words inside the standard band.
+
+**Correction 3 — 7:182 promoted in its place.** 7:182 carries 14 sub-heads at 1,377 words and
+covers the gradual drawing, the verb, the mechanism elsewhere in the Qurʾān, Āl ʿImrān's
+warning, the illusion of increase and the doctrine of respite — but **no ḥadīth at all**, on a
+doctrine that the ḥadīth defines. That is a real gap. It receives the verified report of
+ʿUqbah b. ʿĀmir (Musnad Aḥmad 17311, ḥasan per al-Arnaʾūṭ) with 6:44 quoted verbatim, and
+is added to the gate's Tier-1 list. The list stays at 46 verses: 7:178 out, 7:182 in.
+
+**Struck as duplicates after reading:**
+- 7:54 "Thumma and the Question of Sequence" — the section's existing "The Bearers of the
+  Throne" already states the exegetes' reading of the Throne as dominion rather than location,
+  which is where the sequence question lands. 7:54 takes four heads, not five.
+- 7:176 "The Parable's Placement in the Verse's Argument" — already covered by "The Example of
+  the People Who Deny Our Signs", which quotes the generalising clause. 7:176 takes one head.
+- 7:182 "D-R-J: The Root and Its Motion" and "Satirical Postponement" — already covered by
+  "The Verb of Gradual Ruin", "The Illusion of Increase" and "The Mercy That Looks Like Time".
+  7:182 takes one head.
+
+**Drafted:** 7:54 → 1,801w (Mālik's four-part answer on *istawā*; the seven-verse formula
+counted from this repository, with 20:5 quoted; al-Māzharī's *khalq*/*amr* as two domains with
+17:85; delegated authority as still His command). 7:176 → 1,428w (the two readings of the dog,
+Ibn Isḥāq's literal tongue against the general condition). 7:182 → 1,520w (the verified ḥadīth
+and 6:44).
+
+Gates: cross-quotes **1,746 EXACT / 0 DRIFT / 0 ELLIPSIS / 0 VICINITY** (three new spans, all
+exact); validate 114/114; check_filler **FAILING 0**, below 0, above 0, reduced-floor 18,
+raised-ceiling 46, tics 0.19/1k, chains 0.12/1k, dup 0.062, repeated sentences 0. File
+273,925 words.
+
+**Section word counts after tranche 20:** 7:143 = 2,100; 7:46 = 2,089; 7:54 = 1,801;
+7:175 = 1,537; 7:182 = 1,520; 7:91 = 1,512; 7:78 = 1,511; 7:176 = 1,428. Eight of 46 drafted.
+
+### 10.6 Revised remaining work
+
+| Group | Sections (heads outstanding) | Heads |
+|---|---|---|
+| D | 7:157 (4), 7:172 (3), 7:187 (2) | 9 |
+| B | 7:85 (5), 7:31 (4), 7:33 (4), 7:32 (4), 7:28 (3), 7:156 (3), 7:148 (2) | 25 |
+| C | 7:56 (4), 7:75 (3), 7:90 (3), 7:97 (3), 7:92 (2), 7:88 (2), 7:98 (2), 7:99 (2), 7:128 (1) | 22 |
+| A thin | 7:37 (4), 7:73 (4), 7:22 (4), 7:27 (3), 7:38 (3), 7:43 (3), 7:44 (3), 7:53 (3), 7:69 (3), 7:89 (3) | 33 |
+| A dense | 7:155 (2), 7:137 (1), 7:146 (1), 7:158 (1), 7:160 (1), 7:169 (1), 7:188 (1), 7:189 (1), 7:203 (1) | 10 |
+| Struck | 7:178 (demoted), 7:176 head 4, 7:54 head 5, 7:182 heads 2–3, 7:175 heads 2–3 | −7 |
+
+99 heads outstanding across 38 sections, roughly +8,900 words. Every remaining section is read
+in full before drafting, because three of the first eight inspections found duplicates the
+head-count survey could not see.
