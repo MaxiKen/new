@@ -144,6 +144,19 @@ def strip_quotes(text):
     return QUOTE_SPAN.sub(' ', text)
 
 
+def prose_only(text):
+    """Commentary prose alone: blockquoted lines out, then quoted spans out.
+
+    Tics and chains are properties of the commentary, not of scripture. A shape
+    like 'the A of the B of the C' inside a quotation belongs to the translation
+    being quoted -- scoring it as a chain would penalise the very exactness that
+    check_cross_quotes.py demands, and would make verbatim quotation cost more
+    than paraphrase.
+    """
+    body = '\n'.join(l for l in text.split('\n') if not l.startswith('>'))
+    return strip_quotes(body)
+
+
 SENT = re.compile(r'(?<=[.!?])\s+(?=[\u0027\u2018\u201c*A-Z0-9])([^.!?\n]{60,400}[.!?])')
 
 
@@ -167,8 +180,9 @@ def scan(path, band, max_tics, max_chain, max_dup, max_repeat, sura=None):
     allsent = collections.Counter()
     for v, ln, text in secs:
         w = body_words(text)
-        tics = tic_count(text)
-        chains = chain_count(text)
+        prose = prose_only(text)
+        tics = tic_count(prose)
+        chains = chain_count(prose)
         dup, dupes = dup_score(text)
         sents = prose_sentences(text)
         allsent.update(sents)
