@@ -85,3 +85,16 @@ genuine head: 5:3's seal).
 
 Struck: none (all first-choice candidates absent by grep). Gates: skeleton
 0, translations 0, quotes 817 EXACT / 0 bad, filler −5.
+
+### Batch 2 (vv. 13–24): 96 → 93 failing
+
+| verse | head added | +words | lands |
+|---|---|---|---|
+| 6:19 | A Warner to the Whole World: 25:1 (*nadhran lil-ʿālamīn*; 25:1 blockquote, 34:28 inline) | 132 | 1520 ✓ Tier-1 |
+| 6:22 | The Sūrah Answers Itself: 6:94 (*ayna* answered; 6:94 span sliced programmatically) | 101 | 1237 ✓ |
+| 6:24 | Thighs, Flesh, and Bones: Muslim 2968 (verified via search; 4:42 blockquote) | 225 | 1244 ✓ |
+
+Struck: §24 first choice (36:65/24:24 sealed-mouths head) — both verses
+already blockquoted in §23, the neighboring section; cross-section
+duplication. Replaced with the ḥadīth-narrative version (Muslim 2968),
+distinct material. Gates: quotes 820 EXACT / 0 bad, filler −3.
