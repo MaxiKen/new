@@ -1,4 +1,4 @@
-Rewrite "expanded/{{NNN}}.md" From Verified Source Material
+Rewrite "new/{{NNN}}.md" From Verified Source Material
 
 Replace "{{N}}" with the chapter number and "{{NNN}}" with its zero-padded form.
 
@@ -20,7 +20,7 @@ initial/{{NNN}}.md
 
 and the established writing standard in:
 
-expanded/007.md
+new/007.md
 
 However, you must then generate the new commentary yourself from that learned material.
 
@@ -60,7 +60,7 @@ It does not provide the textual structure of the new commentary.
 
 Use the files for different purposes.
 
-"expanded/007.md"
+"new/007.md"
 
 This is the quality and writing standard.
 
@@ -254,7 +254,7 @@ Instead ask:
 
 Then independently construct the commentary.
 
-The structure should emerge from the content and meaning of the verse, while still following the overall quality standard established by "expanded/007.md".
+The structure should emerge from the content and meaning of the verse, while still following the overall quality standard established by "new/007.md".
 
 ---
 
@@ -264,11 +264,11 @@ Every verse must be generated as a separate file.
 
 For example:
 
-verse/011_001.md
-verse/011_002.md
-verse/011_003.md
+new/verse/011_001.md
+new/verse/011_002.md
+new/verse/011_003.md
 ...
-verse/011_XXX.md
+new/verse/011_XXX.md
 
 Generate them one verse at a time, in ascending order.
 
@@ -321,7 +321,7 @@ The task is complete only when:
 
 9. Verse Structure
 
-Each individual verse should follow the established structure and formatting of "expanded/007.md".
+Each individual verse should follow the established structure and formatting of "new/007.md".
 
 General form:
 
@@ -343,7 +343,7 @@ Original prose...
 
 Original prose...
 
-Follow the actual conventions established by "expanded/007.md".
+Follow the actual conventions established by "new/007.md".
 
 Use the structure as a model, not as a template to mechanically fill with transformed source text.
 
@@ -532,7 +532,7 @@ If anything fails, rewrite the affected verse before continuing.
 
 After all individual verse files have been completed and checked, merge them in ascending order into:
 
-expanded/{{NNN}}.md
+new/{{NNN}}.md
 
 The merge operation is permitted because it is an assembly operation, not a rewriting operation.
 
@@ -673,11 +673,11 @@ Do not treat the initial commentary as text to be edited.
 
 Instead:
 
-«Study the verified source material deeply, understand it, verify and supplement it with reliable evidence, reason about the verse independently, and write a substantially expanded original commentary in your own prose while following the quality and structural standard of "expanded/007.md".»
+«Study the verified source material deeply, understand it, verify and supplement it with reliable evidence, reason about the verse independently, and write a substantially expanded original commentary in your own prose while following the quality and structural standard of "new/007.md".»
 
 The source files provide the knowledge.
 
-"expanded/007.md" provides the standard.
+"new/007.md" provides the standard.
 
 "translation/{{NNN}}.txt" provides the exact translation.
 
