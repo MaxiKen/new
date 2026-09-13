@@ -98,6 +98,25 @@ SHORT_VERSE = {
     '7:122': "continuation clause of 7:121, six words in translation",
     '7:125': "one-clause reply of the magicians on returning to their Lord",
     '7:192': "continuation clause of 7:191, eight words in translation",
+    # --- Sūrat Āl ʿImrān (chapter 3) -------------------------------------
+    # Same conjunctive test, applied verse by verse against translation/003.txt.
+    # Fifteen verses of chapter 3 are fourteen words or fewer; ten of those are
+    # also fragments of one of the three qualifying kinds.  The five short
+    # verses that are NOT fragments stay in the full band because there is real
+    # scholarship to fill them with: 3:2 (al-Ḥayy al-Qayyūm, 13w), 3:5 (divine
+    # omniscience, 12w), 3:132 (obedience to the Messenger, 11w), 3:158 (death,
+    # martyrdom and the gathering, 13w) and 3:196 (the prosperity of the
+    # disbelievers, 13w).
+    '3:1':   "muqatta'at: Alif-Lam-Mim, one word in translation",
+    '3:34':  "scene-closer: the chosen lines are descendants of one another",
+    '3:48':  "single clause within the annunciation speech begun at 3:45",
+    '3:63':  "scene-closer to the Jesus narrative: if they turn away",
+    '3:82':  "scene-closer to the covenant of the prophets: whoever turns back",
+    '3:94':  "scene-closer to the challenge over the food law",
+    '3:131': "scene-closer to the usury prohibition: guard yourselves",
+    '3:138': "scene-closer to vv. 136-137: this is an insight to humanity",
+    '3:141': "continuation clause of 3:140, begins on 'and', nine words",
+    '3:150': "scene-closer to 3:149: Allah is your Guardian",
 }
 
 
@@ -147,6 +166,38 @@ TIER1 = DEEPEST | {
     '7:88', '7:90', '7:91', '7:97', '7:99', '7:156',
     '7:157', '7:172', '7:175', '7:176', '7:182',
 }
+
+# --- Sūrat Āl ʿImrān (chapter 3) ------------------------------------------
+# Selected against the STANDARDIZATION_PROMPT §8 criteria -- a legal ruling
+# or its conditions; a divine attribute, name or act stated doctrinally; a
+# covenant, oath or eschatological scene; a named prophetic episode with
+# narrative consequences; a formula the Qur'an repeats elsewhere so it can be
+# counted across chapters; a term the exegetical tradition disputes with
+# identifiable positions.  46 of 200 verses (23%), inside the 15-25% rule.
+# The five deepest are the chapter's theological and legal cruxes, each disputed
+# at length by named authorities:
+#   3:7   muhkam and mutashabih, and the waqf on "illa Allah" -- the
+#         hermeneutical crux; al-Tabari, al-Razi, Ibn Kathir and al-Qurtubi
+#         divide on whether the well-grounded in knowledge share the meaning.
+#   3:18  the tawhid verse: Allah Himself, the angels and the people of
+#         knowledge bear witness; the Maintainer of justice.
+#   3:59  the likeness of Jesus is the likeness of Adam -- the Christological
+#         crux of the Madinan debate with Najran.
+#   3:64  the common word -- the covenant formula addressed to the People of
+#         the Book, repeated across the corpus and countable.
+#   3:97  the first House and the obligation of pilgrimage, with its condition
+#         ("whoever is able to find a way to it") and its schools' positions.
+DEEPEST_3 = {'3:7', '3:18', '3:59', '3:64', '3:97'}
+TIER1_3 = DEEPEST_3 | {
+    '3:19',  '3:27',  '3:31',  '3:35',  '3:42',  '3:45',  '3:49',
+    '3:50',  '3:55',  '3:61',  '3:67',  '3:75',  '3:77',  '3:81',
+    '3:85',  '3:92',  '3:93',  '3:96',  '3:102', '3:103', '3:104',
+    '3:110', '3:130', '3:134', '3:139', '3:144', '3:145', '3:152',
+    '3:159', '3:161', '3:169', '3:179', '3:180', '3:181', '3:185',
+    '3:187', '3:190', '3:191', '3:195', '3:199', '3:200',
+}
+DEEPEST = DEEPEST | DEEPEST_3
+TIER1 = TIER1 | TIER1_3
 
 
 def depth_ceiling(key, hi):
