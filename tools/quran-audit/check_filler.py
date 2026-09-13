@@ -78,6 +78,13 @@ WORDS = re.compile(r"[\w\u02b9\u02bc\u02bf\u02c8\u02c9\u2019'-]+")
 # destruction is described as rajfah here, as sayhah at 11:94 and as the
 # zullah of 26:189, and Ibn Kathir holds on 26:176 that the companions of
 # al-Aykah were the people of Madyan. They are listed in TIER1 below.
+#
+# Chapter 1 carries NO reduced-floor entries. Every one of its seven verses is
+# a complete doctrinal statement with a live exegetical literature: none is a
+# muqatta', a single dialogue clause or a scene-closing fragment, so the
+# conjunctive test above excludes all of them even though five of the seven
+# are fourteen words or fewer in translation/001.txt. A short verse that is not
+# a fragment stays in the full band.
 REDUCED_FLOOR = 700
 SHORT_VERSE = {
     '7:1':   "muqatta'at: the four disjointed letters, one word in translation",
@@ -140,13 +147,46 @@ def depth_floor(key, lo):
 TIER1_FLOOR = 1400
 TIER1_CEILING = 1800
 DEEPEST_CEILING = 2100
-DEEPEST = {'7:143', '7:46', '7:85', '7:54'}
-TIER1 = DEEPEST | {
+
+# --- Sūrat al-Aʿrāf (chapter 7), the gold standard -------------------------
+# See tools/quran-audit/DEPTH_PLAN_007.md section 10 for the survey, the
+# approvals and the 22 demotions. Unchanged by the chapter-1 work.
+DEEPEST_007 = {'7:143', '7:46', '7:85', '7:54'}
+TIER1_007 = DEEPEST_007 | {
     '7:22', '7:27', '7:28', '7:31', '7:33', '7:37',
     '7:44', '7:54', '7:56', '7:75', '7:78', '7:85',
     '7:88', '7:90', '7:91', '7:97', '7:99', '7:156',
     '7:157', '7:172', '7:175', '7:176', '7:182',
 }
+
+# --- Sūrat al-Fātiḥah (chapter 1) ------------------------------------------
+# Every one of the seven verses satisfies at least one of the section 8
+# criteria for Tier-1: a divine Name or attribute stated doctrinally (1:1 the
+# basmalah and the Names al-Raḥmān/al-Raḥīm, 1:2 rabb al-ʿālamīn, 1:3 the two
+# Names again, 1:4 mālik/malik yawm al-dīn), a creedal covenant (1:5 the
+# worship-and-help treaty), a formula the Qurʾān repeats across chapters (1:6
+# al-ṣirāṭ al-mustaqīm, the sūrah's most echoed phrase), and a term the
+# exegetical tradition disputes with identifiable positions (1:7 the identity
+# of those with displeasure upon them and of the astray). A 7-verse chapter
+# cannot honour the 15-25% ratio without excluding verses that plainly carry
+# those markers, so the qualitative test was applied and the deviation from
+# the ratio is recorded here and in DEPTH_PLAN_001.md.
+#
+# The four deepest are those whose material is disputed at length by named
+# authorities and compresses below 2,100 words only by losing the dispute:
+# 1:1 (is the basmalah a verse? al-Ṭabarī, al-Qurṭubī, Ibn Kathīr and the
+# schools divide), 1:4 (the two canonical readings mālik/malik, al-Qurṭubī,
+# al-Ṭabarī and al-Zamakhsharī recording both), 1:5 (the pivot verse of the
+# ḥadīth qudsī, iltifāt, the definition of ʿibādah disputed by Ibn Taymiyyah
+# and al-Qurṭubī), and 1:7 (the identification of the three categories, from
+# Ibn ʿAbbās through al-Ṭabarī to al-Ālūsī, with the ʿAdī ibn Ḥātim report
+# graded differently by the commentators and the ḥadīth critics).
+DEEPEST_001 = {'1:1', '1:4', '1:5', '1:7'}
+TIER1_001 = DEEPEST_001 | {'1:2', '1:3', '1:6'}
+
+DEEPEST = DEEPEST_007 | DEEPEST_001
+TIER1 = TIER1_007 | TIER1_001
+
 
 
 def depth_ceiling(key, hi):
