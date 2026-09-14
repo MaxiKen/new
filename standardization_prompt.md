@@ -1,83 +1,62 @@
-YOU'RE TO FOLLOW THIS INSTRUCTION STRICTLY. DON'T GENERATE IF YOU CANT. YOU ARE ALLOWED TO TAKE HOURS TO GENERATE. IF THE CONTENT SEEM TO LONG OR TIME TAKING FOR YOU, DON'T SHORTEN OR STOP STOP OBEYING THE INSTRUCTION, YOU'RE TO GENERATE UNTIL YOU'RE GENERATION CRASHES OR STOP ITSELF, I WILL KNOW HOW TO CONTINUE FROM THERE. IT SHOULDN'T BE YOU PAUSING, STOPPING, SHORTENING CONTENT EXPECTED OR NOT OBEYING RULES. I PROHIBIT IT. FOLLOW THIS INSTRUCTION STRICTLY.
-
-
 Rewrite "new/{{NNN}}.md" From Verified Source Material
 
 Replace "{{N}}" with the chapter number and "{{NNN}}" with its zero-padded form.
 
-Your task is to produce a completely new, substantially expanded, original verse-by-verse Qur'an commentary for the specified chapter.
+Your task is to produce a completely new, substantially expanded, original, verse-by-verse Qur'an commentary for the specified chapter.
 
 This is not a restructuring, cleaning, editing, patching, conversion, or programmatic transformation task.
 
-The existing files are source material to learn from. They are not text that should be mechanically transformed into the new commentary.
-
-YOU'RE TO FOLLOW THIS INSTRUCTION STRICTLY. DON'T GENERATE IF YOU CANT. YOU ARE ALLOWED TO TAKE HOURS TO GENERATE. IF THE CONTENT SEEM TO LONG OR TIME TAKING FOR YOU, DON'T SHORTEN OR STOP STOP OBEYING THE INSTRUCTION, YOU'RE TO GENERATE UNTIL YOU'RE GENERATION CRASHES OR STOP ITSELF, I WILL KNOW HOW TO CONTINUE FROM THERE. IT SHOULDN'T BE YOU PAUSING, STOPPING, SHORTENING CONTENT EXPECTED OR NOT OBEYING RULES. I PROHIBIT IT. FOLLOW THIS INSTRUCTION STRICTLY.
+The existing files are source material to learn from. They are not text to be mechanically transformed into the new commentary.
 
 ---
 
-1. The Core Principle — Learn, Then Write
+1. Core Principle — Learn, Then Write
 
 This is the most important instruction.
 
-You must read and learn from the existing verified material, especially the contents of:
+Read and learn deeply from:
 
-initial/{{NNN}}.md
+- "initial/{{NNN}}.md" — verified scholarly source material and correct data that can be learned from
+- "new/007.md" — established writing and quality standard
+- "translation/{{NNN}}.txt" — authoritative English translation
 
-and the established writing standard in:
+Then independently generate the new commentary.
 
-new/007.md
+The process is:
 
-However, you must then generate the new commentary yourself from that learned material.
+Read → understand → verify → research where necessary → reason → independently write → check → save.
 
 Do not treat the existing commentary as a document that needs to be restructured.
 
-Do not programmatically modify it.
+Do not:
 
-Do not rearrange its paragraphs.
+- programmatically rewrite it
+- rearrange its paragraphs
+- split its paragraphs into sections
+- rename its headings while keeping the underlying text
+- mechanically expand sentences
+- perform find-and-replace operations
+- copy the old commentary and add material around it
+- preserve wording simply because it already exists
+- clean or patch the existing commentary
+- use the existing commentary as the skeleton of the new commentary
 
-Do not split its paragraphs into new sections.
-
-Do not rename its headings and keep the underlying text.
-
-Do not mechanically expand sentences.
-
-Do not perform find-and-replace operations to make the old content fit the new structure.
-
-Do not copy the existing commentary and add material around it.
-
-Do not preserve existing wording simply because it is already present.
-
-Do not clean or patch the existing commentary.
-
-Instead:
-
-«Read → understand → research/verify where necessary → reason → independently write a substantially richer original commentary.»
-
-The final commentary should be the result of your own synthesis and explanation of the verified source material, following all the rules in this prompt.
-
-The existing material provides the knowledge foundation.
-
-It does not provide the textual structure of the new commentary.
+The final work must be independently generated prose based on the knowledge contained in the sources, not a transformed version of their wording or structure.
 
 ---
 
-2. What the Existing Files Are For
+2. What Each File Is For
 
-Use the files for different purposes.
+"new/007.md" — Writing Standard
 
-"new/007.md"
-
-This is the quality and writing standard.
-
-Learn from it:
+Study this file to learn:
 
 - organization
-- structure
 - depth
 - scholarly treatment
 - mini-heading style
 - paragraph development
-- vocabulary discipline
+- vocabulary
 - quotation style
 - citation style
 - logical reasoning
@@ -89,33 +68,33 @@ Learn from it:
 
 Do not copy its subject matter or wording.
 
-Learn its method, then write new material.
+Learn its method and quality standard, then apply that method independently to the requested chapter.
 
 ---
 
-"translation/{{NNN}}.txt"
+"translation/{{NNN}}.txt" — Translation Authority
 
 This is the absolute authority for the Qur'anic English translation.
 
 Use it for:
 
-- the exact translation under every verse heading
+- exact translation under every verse heading
 - verse numbering
 - chapter length
 - Qur'anic quotations
 - authoritative English vocabulary
 
-The translation itself must be reproduced exactly where required.
+Where the translation is required, reproduce it exactly.
 
-This is the one place where exact reproduction is mandatory.
+Do not rewrite, paraphrase, shorten, modernize, or silently substitute another translation.
 
 ---
 
-"initial/{{NNN}}.md"
+"initial/{{NNN}}.md" — Verified Knowledge Base
 
-This is the verified scholarly knowledge base for the chapter.
+This is the primary scholarly knowledge source for the chapter.
 
-Learn from its:
+Study its:
 
 - tafsīr
 - scholarly explanations
@@ -131,69 +110,68 @@ Learn from its:
 - relevant evidence
 - scholarly reasoning
 
-The purpose is to understand and develop this material, not to restructure or reproduce the file.
+Its purpose is to provide knowledge to be understood and developed.
 
-The new commentary should contain considerably more explanation, reasoning, context, evidence, examples, and scholarly synthesis than the initial material where the subject genuinely permits.
+Do not simply reproduce or restructure it.
+
+The new commentary should contain substantially richer explanation, reasoning, context, evidence, examples, and scholarly synthesis wherever the subject genuinely permits.
 
 ---
 
 Existing "expanded/{{NNN}}.md"
 
-This file is not a draft to be edited.
+Treat this as material being replaced.
 
-Do not clean it.
+It is not a draft to edit.
 
-Do not restructure it.
+Do not:
 
-Do not programmatically transform it.
+- clean it
+- restructure it
+- preserve its paragraphs
+- use its paragraphs as the new skeleton
+- mechanically paraphrase it
+- programmatically transform it
 
-Do not use its existing paragraphs as the skeleton of the new commentary.
-
-Do not preserve its wording simply because it is already written.
-
-Treat it as something being completely replaced by newly generated work.
-
-The new commentary should be generated from the verified source material and the requirements of this prompt.
+Generate the new work independently from the verified source material and the rules in this prompt.
 
 ---
 
 3. Original Writing Is Mandatory
 
-The final commentary must be originally generated prose.
+For every verse:
 
-This means that even when an idea already exists in "initial/{{NNN}}.md", you should:
+1. Understand what the verified sources establish.
+2. Determine the important ideas and questions surrounding the verse.
+3. Verify relevant claims and evidence.
+4. Research additional reliable material where appropriate.
+5. Connect the evidence logically.
+6. Determine what the verse specifically requires to be explained.
+7. Write the explanation independently in your own structure and prose.
 
-1. Understand the idea.
-2. Determine why it matters to the verse.
-3. Verify it where necessary.
-4. Connect it with other relevant evidence.
-5. Develop the reasoning.
-6. Explain it in clear English.
-7. Write it in your own structure and prose.
+Do not merely reproduce source wording.
 
-Do not simply reproduce the source's wording.
+Do not perform superficial paraphrasing.
 
-Do not perform superficial paraphrasing where the sentence structure remains essentially the same.
-
-Do not change a few words and consider the material rewritten.
+Do not change a few words and call the material rewritten.
 
 Do not concatenate source paragraphs.
 
 Do not automatically preserve the source's sequence of arguments.
 
-You may preserve verified scholarly facts, interpretations, arguments, reports, and conclusions, but the explanation and presentation must be independently generated.
+Verified facts, interpretations, reports, arguments, and conclusions may be incorporated, but their explanation and presentation must be independently generated.
 
 Think of the source files as material you have studied before writing a new book—not as text you are editing.
 
 ---
 
-4. Substantially Expand the Existing Knowledge
+4. Substantially Expand the Knowledge
 
-The objective is not merely to produce an alternative version of the initial commentary.
+The objective is not merely to create another version of the initial commentary.
 
-The objective is to produce a much richer commentary.
+Create a much richer commentary wherever the subject permits.
 
-Where appropriate, expand the discussion through:
+Relevant expansion may include:
 
 - deeper explanation
 - additional scholarly perspectives
@@ -203,69 +181,49 @@ Where appropriate, expand the discussion through:
 - occasion of revelation
 - theological reasoning
 - legal reasoning
-- linguistic explanation
-- contextual relationships between verses
+- linguistic explanation where genuinely useful
+- relationships between surrounding verses
 - explanations of scholarly disagreements
 - practical implications
 - logical analysis
 - relatable examples
 - clarification of difficult concepts
-- implications that follow from the verse
-- connections to other established Islamic principles
+- implications arising from the verse
+- connections to established Islamic principles
 - verified supporting evidence
 
-The additional material must be relevant and accurate.
+Additional material must be relevant and accurate.
 
-Do not add content merely to increase word count.
-
-The goal is:
-
-«Verified source knowledge + additional verified research + independent reasoning + original exposition = substantially richer commentary.»
+Never add material merely to increase word count.
 
 ---
 
-5. Do Not Programmatically Transform Commentary
+5. No Programmatic Transformation of Commentary
 
-Do not use scripts, automated rewriting, search-and-replace, bulk restructuring, or other programmatic methods to transform existing commentary into the new commentary.
+Do not use scripts, automated rewriting, search-and-replace, bulk paraphrasing, or other programmatic techniques to transform existing commentary.
 
-Programming may be used for administrative tasks such as:
+Programming may be used for administrative and quality-control operations, including:
 
-- creating individual verse files
-- checking file names
+- creating verse files
+- checking filenames
 - checking verse order
 - counting words
 - counting headings
-- merging completed individual verse files
-- checking for missing or duplicated verses
-- performing final statistical analysis
+- checking for missing verses
+- checking for duplicate verses
+- merging completed verse files
+- performing statistical analysis
+- auditing the completed files
 
-But programming must not be used as a substitute for writing the commentary.
+Programming must never substitute for writing the commentary.
 
-The actual commentary must be generated as original prose, verse by verse.
-
-Do not take existing paragraphs and programmatically rearrange, expand, paraphrase, or restructure them.
-
----
-
-6. Start From the Verified Knowledge, Not the Existing Structure
-
-When beginning each verse, do not first ask:
-
-«"How can I modify the existing commentary for this verse?"»
-
-Instead ask:
-
-«"What does the verified source material establish about this verse, what additional reliable evidence is available, what are the important questions surrounding it, and how can I explain all of this clearly and deeply?"»
-
-Then independently construct the commentary.
-
-The structure should emerge from the content and meaning of the verse, while still following the overall quality standard established by "new/007.md".
+The actual commentary must be independently generated verse by verse.
 
 ---
 
-7. Mandatory Individual Verse Files
+6. Mandatory Individual Verse Files
 
-Every verse must be generated as a separate file.
+Every verse must have its own file.
 
 For example:
 
@@ -275,58 +233,71 @@ new/verse/011_003.md
 ...
 new/verse/011_XXX.md
 
-Generate them one verse at a time, in ascending order.
+Each verse must be generated individually and independently.
 
 For each verse:
 
-1. Study the relevant material.
+1. Study the relevant source material.
 2. Understand the verse.
 3. Verify relevant evidence.
-4. Independently write the commentary.
-5. Save the completed commentary as its own file.
-6. Check the file against all requirements.
-7. Correct it if necessary.
-8. Only then proceed to the next verse.
+4. Research where necessary.
+5. Independently write the commentary.
+6. Save it as its own verse file.
+7. Check it against every applicable requirement.
+8. Correct it if necessary.
+9. Only then proceed to the next verse.
 
-Do not generate the entire chapter as one large block.
+Do not use the existing commentary as a template to fill.
 
-Do not generate multiple verses as one writing unit.
+Do not simply divide an already generated chapter into verse files.
 
 The individual verse files are mandatory.
 
 ---
 
-8. Complete the Entire Chapter in One Continuous Run
+7. Continuous Completion — Batching Is Allowed Only as a Process Management Method
 
-There are:
+You are expected to complete the entire chapter without waiting for user approval.
 
-- no badges
-- no 30-verse batches
-- no artificial stopping points
-- no progress reports
-- no confirmation requests
+Normally, continue automatically from verse 1 through the final verse.
 
-Continue automatically from verse 1 until the final verse.
+However, if the system, context window, generation limit, processing limit, or practical workload makes it impossible to safely complete the entire chapter in one operation, you MAY divide the work into internal batches ("badges") of manageable size.
 
-Do not stop after a certain number of verses.
+This is an operational allowance, NOT permission to weaken any requirement.
 
-Do not wait for approval.
+If batching is necessary:
 
-Do not ask questions during the process.
+- Continue automatically from one batch to the next.
+- Do not ask for confirmation between batches.
+- Do not provide progress reports unless technically necessary.
+- Do not restart the chapter unnecessarily.
+- Do not skip verses.
+- Do not combine multiple verses into one commentary-writing unit merely to save time.
+- Each verse must still be independently researched, reasoned through, written, checked, and saved.
+- Every individual verse must still have its own file.
+- All requirements in this prompt remain fully applicable to every batch and every verse.
+- A later batch must follow exactly the same standards as the first.
+- Never sacrifice depth, originality, evidence verification, translation accuracy, verse-specific treatment, or quality checking merely because the work has been divided into batches.
 
-The task is complete only when:
+Batching changes only how much work is processed at one time. It does not change what must be produced.
 
-1. Every individual verse file exists.
-2. Every verse has been independently checked.
-3. The complete chapter has been merged.
-4. The merged chapter has been audited.
-5. The quantitative analysis has been completed.
+If 30 verses cannot safely be completed at once, use fewer.
+
+If 10 cannot safely be completed at once, use fewer.
+
+If necessary, process the chapter one verse at a time.
+
+The priority is:
+
+Requirement compliance > completion speed > batch size.
+
+The task is complete only when the entire chapter has been processed and all final audits have been completed.
 
 ---
 
-9. Verse Structure
+8. Verse Structure
 
-Each individual verse should follow the established structure and formatting of "new/007.md".
+Each individual verse should follow the established quality and formatting conventions of "new/007.md".
 
 General form:
 
@@ -336,58 +307,62 @@ General form:
 
 ### Expanded Commentary
 
-**Mini-heading**
+**Meaning and Context**
 
 Original prose...
 
-**Mini-heading**
+**The Central Idea**
 
 Original prose...
 
-**Mini-heading**
+**Scholarly Interpretation**
 
 Original prose...
 
-Follow the actual conventions established by "new/007.md".
+**Theological Implication**
 
-Use the structure as a model, not as a template to mechanically fill with transformed source text.
+Original prose...
+
+The actual headings must be determined by the content of the verse.
+
+Do not mechanically use the example headings above.
+
+Follow the conventions established by "new/007.md", while allowing the commentary structure to emerge naturally from each verse.
 
 ---
 
-10. Every Verse Must Have Its Own Original Commentary
+9. Every Verse Must Have Its Own Original Commentary
 
 For each verse, independently determine:
 
 - what the verse actually says
-- what makes this verse distinctive
+- what makes it distinctive
 - what problem or question it addresses
-- what its major concepts are
-- what the initial scholarly material says
-- what scholars disagree about
-- what evidence supports the interpretation
-- what other Qur'anic passages illuminate it
-- what verified hadith are relevant
-- what historical context matters
-- what theological implications arise
-- what legal implications arise, if any
-- what practical implications arise
-- what examples would clarify the meaning
+- its major concepts
+- what the verified scholarly material establishes
+- relevant scholarly disagreements
+- evidence supporting the interpretations
+- relevant Qur'anic passages
+- relevant verified hadith
+- relevant historical context
+- theological implications
+- legal implications where applicable
+- practical implications
+- useful examples
 
-Then write a new commentary around those findings.
+Then construct a new commentary around those findings.
 
-Do not use a generic commentary structure for every verse.
+Do not use a rigid generic commentary structure for every verse.
 
-The headings and argument flow should emerge naturally from the actual verse.
+The headings, argument order, examples, evidence, and depth should reflect the actual subject of each verse.
 
 ---
 
-11. Evidence Must Be Substantial and Verified
+10. Evidence Must Be Verified
 
-The commentary should contain a lot of relevant evidence where the subject permits.
+Use substantial evidence where the subject permits.
 
-Do not rely excessively on unsupported statements.
-
-Use, where genuinely relevant:
+Relevant evidence may include:
 
 - Qur'anic cross-references
 - authentic or reliably established hadith
@@ -400,25 +375,27 @@ Use, where genuinely relevant:
 
 Every external claim must be verified before inclusion.
 
-More evidence does not mean irrelevant evidence.
+Do not add evidence merely to make the commentary appear scholarly.
 
-The objective is rich evidentiary support, not citation inflation.
+The goal is:
+
+rich, relevant, trustworthy evidence.
 
 ---
 
-12. Hadith Verification
+11. Hadith Verification
 
 Every hadith must be verified online before inclusion.
 
-Verify:
+Where possible, verify:
 
 - existence of the report
 - collection
-- hadith number where possible
-- wording where quoted
+- hadith number
+- wording
 - attribution
-- relevance to the argument
-- authenticity/status where relevant
+- relevance
+- authenticity/status
 
 Never invent:
 
@@ -431,25 +408,25 @@ Never invent:
 
 If an exact reference cannot be verified, do not present it as an exact reference.
 
-Use a cautiously attributed scholarly report where appropriate, or omit it.
+Use cautious attribution where appropriate, or omit the report.
 
 ---
 
-13. Qur'anic Quotations
+12. Qur'anic Quotations
 
 Use the repository translation files as the authority for quoted Qur'anic passages.
 
-Every exact quotation must be verified before inclusion.
+Do not quote Qur'anic translations from memory.
 
-Do not quote from memory.
+Every exact quotation must be verified.
 
 Do not silently substitute another translation.
 
 Do not fabricate wording.
 
-Do not present a paraphrase as a quotation.
+Do not present a paraphrase as an exact quotation.
 
-Use the citation form:
+Use:
 
 (S:V)
 
@@ -457,60 +434,77 @@ immediately after the quotation.
 
 ---
 
-14. Do Not Pad the Commentary
+13. Do Not Pad the Commentary
 
-The commentary should be longer and richer than the initial material where appropriate, but length must come from substance.
+The commentary should be substantially richer than the initial material where appropriate.
+
+However, length must come from substance.
 
 Never expand by:
 
-- repeating the same argument
+- repeating an argument
 - changing a few words and repeating a point
 - restating the translation
 - adding generic moral advice
 - adding irrelevant examples
 - adding empty transitions
 - repeating conclusions
+- manufacturing headings
+- repeating the same scholarly point in different wording
 
-If additional words do not add genuine understanding, do not add them.
+If additional words do not increase genuine understanding, do not add them.
 
 ---
 
-15. Depth Standards
+14. Depth Standards
 
-Use the following as general quality bands:
+Use these as general quality bands:
 
 - Standard verse: approximately 1,200–1,400 words
 - Dense theological/doctrinal verse: approximately 1,400–1,800 words
 - Major theological/legal crux: up to approximately 2,100 words
 - Genuine short fragment: approximately 700 words minimum where justified
 
-These are not mechanical targets.
+These are quality guidelines, not mechanical word-count targets.
 
 A verse should be as long as its subject genuinely requires.
 
+Do not shorten a verse merely to remain within a target.
+
+Do not inflate a verse merely to reach a target.
+
 ---
 
-16. Mini-Headings
+15. Mini-Headings
 
 Normally use approximately 8–10 meaningful bold mini-headings for a standard verse.
 
-However, do not manufacture headings simply to meet a number.
+However:
 
-Each heading must introduce a substantive point.
+Never manufacture headings simply to reach a number.
 
-Headings must vary according to the verse.
+Every heading must introduce a substantive point.
+
+Headings should:
+
+- be meaningful
+- vary according to the verse
+- introduce genuinely different ideas
+- support logical progression
+- avoid repetitive boilerplate
 
 Do not copy a fixed heading pattern from one verse to another.
 
 ---
 
-17. Quality Check After Every Individual Verse
+16. Quality Check After Every Verse
 
-Before moving to the next verse, check the newly generated file.
+Before moving to the next verse, inspect the newly generated verse file.
 
 Confirm:
 
 - correct verse
+- correct verse number
 - exact translation
 - original commentary
 - substantial expansion
@@ -526,32 +520,35 @@ Confirm:
 - natural prose
 - no unnecessary repetition
 - no unsupported claims
+- no fabricated references
 - no forbidden formulaic expressions
 - no drafting debris
 
-If anything fails, rewrite the affected verse before continuing.
+If anything fails, correct or regenerate that verse before continuing.
+
+This requirement applies even when working in batches.
 
 ---
 
-18. Final Merge
+17. Final Merge
 
-After all individual verse files have been completed and checked, merge them in ascending order into:
+After every individual verse has been completed and checked, merge the verse files in ascending numerical order into:
 
 new/{{NNN}}.md
 
-The merge operation is permitted because it is an assembly operation, not a rewriting operation.
+The merge is permitted because it is an assembly operation, not a rewriting operation.
 
-The commentary itself must already have been independently generated in the individual verse files.
+The commentary must already exist as independently generated verse files before merging.
 
 ---
 
-19. Final Statistical Analysis
+18. Final Statistical Analysis
 
 After merging, analyze both the initial and newly generated material.
 
-Calculate:
-
 New Commentary
+
+Calculate:
 
 - total words
 - number of verses
@@ -565,7 +562,11 @@ New Commentary
 
 Initial Commentary
 
-Calculate the equivalent statistics for "initial/{{NNN}}.md" where measurable.
+Calculate equivalent statistics for:
+
+initial/{{NNN}}.md
+
+where measurable.
 
 Comparison
 
@@ -583,68 +584,74 @@ Report:
 
 Expected Standard
 
-Compare the final verse lengths against the expected quality bands.
+Compare final verse lengths with the expected quality bands.
 
-Identify unusually short or unusually long verses and explain whether the difference is justified by the content.
+Identify unusually short or unusually long verses.
 
-The statistics are for quality assessment, not for forcing artificial uniformity.
+Determine whether the difference is justified by the content rather than simply treating numerical deviation as a failure.
 
 ---
 
-20. Final Audit
+19. Final Audit
 
-Audit the entire completed chapter.
-
-Confirm:
+Audit the complete chapter after merging.
 
 Content
 
-- Every verse is present.
-- No verse is duplicated.
-- No verse is missing.
-- Correct order.
-- Every verse has its own generated file.
-- The final chapter is complete.
+Confirm:
 
-Originality of Generation
+- every verse is present
+- no verse is duplicated
+- no verse is missing
+- correct order
+- every verse has its own generated file
+- final chapter is complete
 
-- Commentary was independently written.
-- Existing commentary was not mechanically restructured.
-- Existing commentary was not programmatically transformed.
-- Existing paragraphs were not simply rearranged.
-- Existing sentences were not superficially paraphrased.
-- Source material was used for knowledge and verification, not as a text-editing template.
-- The new work substantially develops the verified source material.
+Originality
+
+Confirm:
+
+- commentary was independently written
+- existing commentary was not mechanically restructured
+- existing commentary was not programmatically transformed
+- paragraphs were not simply rearranged
+- sentences were not superficially paraphrased
+- source material was used for knowledge and verification
+- the new work substantially develops the verified source material
 
 Scholarship
 
-- Important verified scholarship has been incorporated.
-- Relevant scholarly differences are preserved.
-- External evidence has been verified.
-- Hadith references have been checked.
-- Qur'anic quotations have been checked.
-- Historical claims have been checked.
-- Numerical claims have been checked.
+Confirm:
+
+- important verified scholarship has been incorporated
+- relevant scholarly differences are preserved
+- external evidence has been verified
+- hadith references have been checked
+- Qur'anic quotations have been checked
+- historical claims have been checked
+- numerical claims have been checked
 
 Writing
 
-- Natural scholarly English.
-- Clear explanations.
-- Strong logical reasoning.
-- Meaningful examples.
-- Relevant evidence.
-- No padding.
-- No repetitive boilerplate.
-- No formulaic expressions.
-- No drafting debris.
+Confirm:
 
-If any problem is found, correct the affected individual verse file and regenerate/merge the final chapter as necessary.
+- natural scholarly English
+- clear explanations
+- strong logical reasoning
+- meaningful examples
+- relevant evidence
+- no padding
+- no repetitive boilerplate
+- no formulaic expressions
+- no drafting debris
+
+If a problem is found, correct the affected individual verse file and regenerate/merge the final chapter as necessary.
 
 ---
 
-21. Final Completion Report
+20. Final Completion Report
 
-Only after everything is complete, provide a brief report containing:
+Only after the entire chapter, all individual verse files, the merged file, the audit, and the statistical analysis are complete, provide a brief completion report containing:
 
 - chapter completed
 - number of verses rewritten
@@ -658,7 +665,7 @@ Only after everything is complete, provide a brief report containing:
 - unusually short/long sections and reasons, if any
 - significant verification limitations, if any
 
-Do not provide progress reports during generation.
+Do not provide routine progress reports during generation.
 
 ---
 
@@ -678,18 +685,30 @@ Do not treat the initial commentary as text to be edited.
 
 Instead:
 
-«Study the verified source material deeply, understand it, verify and supplement it with reliable evidence, reason about the verse independently, and write a substantially expanded original commentary in your own prose while following the quality and structural standard of "new/007.md".»
+Study the verified source material deeply, understand it, verify and supplement it with reliable evidence, reason about each verse independently, and write a substantially expanded original commentary in your own prose while following the quality and structural standard of "new/007.md".
 
 The source files provide the knowledge.
 
-"new/007.md" provides the standard.
+"new/007.md" provides the writing and quality standard.
 
 "translation/{{NNN}}.txt" provides the exact translation.
 
 Your task is to provide the new original commentary.
 
-Generate one verse at a time, save each verse as its own file, check it, continue automatically to the next verse, complete the entire chapter in one continuous run, merge the completed verse files, and perform the final audit and statistical comparison.
+Generate one verse at a time.
 
-Rewrite from knowledge. Do not edit from text. Start immediately.
+Save each verse as its own file.
 
-YOU'RE TO FOLLOW THIS INSTRUCTION STRICTLY. DON'T GENERATE IF YOU CANT. YOU ARE ALLOWED TO TAKE HOURS TO GENERATE. IF THE CONTENT SEEM TO LONG OR TIME TAKING FOR YOU, DON'T SHORTEN OR STOP STOP OBEYING THE INSTRUCTION, YOU'RE TO GENERATE UNTIL YOU'RE GENERATION CRASHES OR STOP ITSELF, I WILL KNOW HOW TO CONTINUE FROM THERE. IT SHOULDN'T BE YOU PAUSING, STOPPING, SHORTENING CONTENT EXPECTED OR NOT OBEYING RULES. I PROHIBIT IT. FOLLOW THIS INSTRUCTION STRICTLY.
+Check each verse before continuing.
+
+Complete the entire chapter.
+
+If the chapter cannot safely be completed in one operation, divide the work into manageable batches without sacrificing any requirement.
+
+Batching is only a method of managing workload. It is never an excuse to skip, weaken, combine, simplify, or sacrifice any mandatory requirement.
+
+After all verses are complete:
+
+merge → audit → statistically analyze → compare → report completion.
+
+Start immediately.
