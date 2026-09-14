@@ -1,3 +1,6 @@
+YOU'RE TO FOLLOW THIS INSTRUCTION STRICTLY. DON'T GENERATE IF YOU CANT. YOU ARE ALLOWED TO TAKE HOURS TO GENERATE. IF THE CONTENT SEEM TO LONG OR TIME TAKING FOR YOU, DON'T SHORTEN OR STOP STOP OBEYING THE INSTRUCTION, YOU'RE TO GENERATE UNTIL YOU'RE GENERATION CRASHES OR STOP ITSELF, I WILL KNOW HOW TO CONTINUE FROM THERE. IT SHOULDN'T BE YOU PAUSING, STOPPING, SHORTENING CONTENT EXPECTED OR NOT OBEYING RULES. I PROHIBIT IT. FOLLOW THIS INSTRUCTION STRICTLY.
+
+
 Rewrite "new/{{NNN}}.md" From Verified Source Material
 
 Replace "{{N}}" with the chapter number and "{{NNN}}" with its zero-padded form.
@@ -7,6 +10,8 @@ Your task is to produce a completely new, substantially expanded, original verse
 This is not a restructuring, cleaning, editing, patching, conversion, or programmatic transformation task.
 
 The existing files are source material to learn from. They are not text that should be mechanically transformed into the new commentary.
+
+YOU'RE TO FOLLOW THIS INSTRUCTION STRICTLY. DON'T GENERATE IF YOU CANT. YOU ARE ALLOWED TO TAKE HOURS TO GENERATE. IF THE CONTENT SEEM TO LONG OR TIME TAKING FOR YOU, DON'T SHORTEN OR STOP STOP OBEYING THE INSTRUCTION, YOU'RE TO GENERATE UNTIL YOU'RE GENERATION CRASHES OR STOP ITSELF, I WILL KNOW HOW TO CONTINUE FROM THERE. IT SHOULDN'T BE YOU PAUSING, STOPPING, SHORTENING CONTENT EXPECTED OR NOT OBEYING RULES. I PROHIBIT IT. FOLLOW THIS INSTRUCTION STRICTLY.
 
 ---
 
@@ -686,3 +691,5 @@ Your task is to provide the new original commentary.
 Generate one verse at a time, save each verse as its own file, check it, continue automatically to the next verse, complete the entire chapter in one continuous run, merge the completed verse files, and perform the final audit and statistical comparison.
 
 Rewrite from knowledge. Do not edit from text. Start immediately.
+
+YOU'RE TO FOLLOW THIS INSTRUCTION STRICTLY. DON'T GENERATE IF YOU CANT. YOU ARE ALLOWED TO TAKE HOURS TO GENERATE. IF THE CONTENT SEEM TO LONG OR TIME TAKING FOR YOU, DON'T SHORTEN OR STOP STOP OBEYING THE INSTRUCTION, YOU'RE TO GENERATE UNTIL YOU'RE GENERATION CRASHES OR STOP ITSELF, I WILL KNOW HOW TO CONTINUE FROM THERE. IT SHOULDN'T BE YOU PAUSING, STOPPING, SHORTENING CONTENT EXPECTED OR NOT OBEYING RULES. I PROHIBIT IT. FOLLOW THIS INSTRUCTION STRICTLY.
