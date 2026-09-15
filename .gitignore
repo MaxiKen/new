@@ -1,0 +1,6 @@
+# derived, regenerable with: python3 scripts/pipeline.py start <chap>
+source_by_verse/
+__pycache__/
+*.pyc
+# scratch
+new/.frames_scratch.txt
