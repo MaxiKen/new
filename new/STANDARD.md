@@ -145,6 +145,13 @@ attribution — the writer must.
 - **Simple English.** Prefer short sentences, common words, and plain structure over ornate or academic diction. A heading must still state a claim, but in words a general reader can follow. Aim for 160–220 words per section that read as worth reading on their own — developed, not thin.
 - **More per heading.** A heading is worth reading only if its section delivers. With median ≥115w (aim 160–220w), avoid headings followed by brief paragraphs; merge thin sections.
 
+## 5b. Self-containment — one verse at a time
+
+- **Each verse explains only itself.** Stay inside your verse: its translation line, its source chunk, and your own verified additions about *that* verse. Do **not** explain the next verse, do not summarize the next verse’s main point, and do not make the next verse redundant. The verses are connected, but each commentary must be complete on its own without stealing the next verse’s job.
+- **Simple rule:** If a reader could skip the next verse because you already told its point, you have gone too far.
+- **Allowed:** One short bridging sentence at the very end to show connection (e.g., “The next verse will take this further.”). Not a paragraph, not a heading, not a developed argument.
+- **Gate:** `scripts/check.py` checks the next verse’s translation. If your commentary contains a 15-word run from the next verse’s translation (beyond a brief bridge), it fails `NEXT_VERSE`.
+
 ## 6. Anti-patterns — each one is measured, so they cannot be argued away
 
 | defect | why it is the drift signature | gate |

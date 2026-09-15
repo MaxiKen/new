@@ -158,6 +158,12 @@ passage. Maximum 2, count toward the 3–12 heading total but sit at the end as 
 - Add your own verified content: at least one extra checked fact/cross-reference/linguistic note beyond the per-verse source, verified via `web_search`/`fetch_page`.
 - Use simple English: short sentences, common words, plain structure; keep scholarly accuracy without ornate diction. Each heading must still state a claim and deliver 160–220 words that are worth reading alone.
 
+## 4b. SELF-CONTAINMENT — ONE VERSE, ONE POINT (ENFORCED)
+
+- Each verse explains **only itself** — its own translation line + its own source chunk + your own verified additions about *that* verse.
+- Do NOT explain the next verse. Do NOT summarize the next verse's main point. Do NOT make the next verse's commentary redundant. If they are connected, show the connection in **one** brief sentence at the very end, not a section.
+- Gate: `check.py` fails `NEXT_VERSE` if your commentary contains a 15-word verbatim run from the next verse's translation. Keep next-verse words out of this verse.
+
 ## 5. EVIDENCE — FACT-CHECKED, OR MARKED UNVERIFIED
 
 This is a rule, not a suggestion. `scripts/check.py` cannot verify hadith/report

@@ -260,6 +260,22 @@ def check(v, body, chap, src_text=None, need_heading=True):
                     untagged += 1
         if untagged:
             errs.append(f"QUOTETAG {untagged} untagged Qur'anic quotation(s) — run fix_quotetags.py")
+    # NEXT_VERSE self-containment: do not explain the next verse (15-word run from next translation fails)
+    tr_next = ROOT / "translation" / f"{chap}.txt"
+    if tr_next.exists():
+        tr_next_map = {}
+        for line in tr_next.read_text(encoding="utf-8", errors="replace").splitlines():
+            mm = re.match(r"^\s*(\d+)\s*\|\s*(.*)$", line)
+            if mm:
+                tr_next_map[int(mm.group(1))] = mm.group(2).strip()
+        nxt = v + 1
+        if nxt in tr_next_map:
+            nxt_norm = tr_next_map[nxt]
+            # use longest_run on normalized prose vs next translation
+            run_next = longest_run(all_prose, nxt_norm)
+            if run_next >= 15:
+                errs.append(f"NEXT_VERSE {run_next}-word run from next verse {chap}:{nxt} — keep each verse self-contained (one brief bridge sentence allowed, not the point of the next verse)")
+
     if src_text:
         own = all_prose
         A, B = shingles(own), shingles(src_text)
