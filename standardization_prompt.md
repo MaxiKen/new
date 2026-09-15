@@ -101,9 +101,9 @@ it; never quote it from memory, never paraphrase, modernise, shorten, or substit
 another translation.
 
 **Depth.**
-- 700–2,300 words per verse; aim for 1,000–1,500.
-- 3–12 bold mini-headings; aim for 5–8.
-- **median section ≥95 words, aim for 160–220.** A heading followed by two or three
+- 950–2,300 words per verse; aim for 1,000–1,500 (simple English, more per heading — each heading worth reading).
+- 4–12 bold mini-headings; aim for 5–8 (median ≥115w, aim 160–220w). Every section is a developed argument — merge thin sections.
+- **median section ≥115 words, aim for 160–220.** A heading followed by two or three
   sentences is a defect. This single number is the one the reference chapter violated on
   its last 89 verses — 15 tiny sections instead of 7 real ones, the same content cut
   finer. If you are heading toward that, merge sections rather than writing less.
@@ -152,6 +152,12 @@ passage. Maximum 2, count toward the 3–12 heading total but sit at the end as 
 
 ---
 
+## 4a. VOICE — PRESENTER, NOT REPORTER
+
+- Never hedge as `the source material says`, `according to the source`, `the source notes`. Present claims as your own — the source is what you studied, not what you quote.
+- Add your own verified content: at least one extra checked fact/cross-reference/linguistic note beyond the per-verse source, verified via `web_search`/`fetch_page`.
+- Use simple English: short sentences, common words, plain structure; keep scholarly accuracy without ornate diction. Each heading must still state a claim and deliver 160–220 words that are worth reading alone.
+
 ## 5. EVIDENCE — FACT-CHECKED, OR MARKED UNVERIFIED
 
 This is a rule, not a suggestion. `scripts/check.py` cannot verify hadith/report
@@ -183,7 +189,7 @@ attribution — you must.
 
 Do not assess your own capacity; that judgement is where chapters get quietly shortened.
 
-- **One verse per file write. Maximum 5 verses per turn. These are constants.**
+- **One verse per file write. Maximum 20 verses per turn. These are constants.**
 - Continue from the last PASS in the ledger without asking for approval, and without
   progress reports (a one-line `011: 42/206` only if a session is about to end).
 - Never combine two verses into one writing unit, ever. If a turn ends mid-chapter, the
@@ -236,8 +242,8 @@ Never edit a number in this prompt by hand to make a file pass.
 ## FINAL
 
 Set `SURAH`. Read `new/STANDARD.md`, the one source chunk, the one translation line.
-For each verse: reason, write independently, save as its own file, run the gate, update
-the ledger. One verse per write, five per turn. No `###`, no untagged quotation, no
+For each verse: reason, write independently in simple English as your own verified statement (never `the source material says` — present as writer; add at least one extra verified fact beyond the source chunk), save as its own file, run the gate, update
+the ledger. One verse per write, twenty per turn. No `###`, no untagged quotation, no
 translation drift, no paraphrase of `initial/`, no reader-frames, no padding. Never open
 `expanded/`, never write `new/007.md`. A verse is done at exit 0. Complete the whole
 chapter, then merge → gate → statistics → report.

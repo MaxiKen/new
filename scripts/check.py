@@ -10,11 +10,11 @@ A rule the reference itself violates is not a rule, it is a contradiction, and
 models resolve contradictions by dropping the numbers.
 
   metric                     healthy 1-117      drifted 118-206    gate
-  bold mini-headings/verse   mean 6.6, max 12   mean 14.6, max 22  <=12 FAIL, >9 WARN
-  MEDIAN section words       min 99,  mean 186  max 92.5, mean 66  >=95 FAIL, <130 WARN
+  bold mini-headings/verse   mean 6.6, max 12   mean 14.6, max 22  <4 or >12 FAIL, >9 WARN
+  MEDIAN section words       min 99,  mean 186  max 92.5, mean 66  >=115 FAIL, <130 WARN
   reader-frame tic /verse    max 1              mean 3.7, max 15   <=2 FAIL
   plain cross-ref headings   max 2              max 2              <=2 FAIL
-  words/verse                ~1298              ~1250              700-2300
+  words/verse                ~1298              ~1250              950-2300
   6-gram overlap vs initial  0.16%              13.0% (expanded)   <=2.5% FAIL
   longest verbatim run       0-11 words         128 words          <25 FAIL
 
@@ -36,12 +36,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-MAX_HEADINGS, MIN_HEADINGS = 12, 3
+MAX_HEADINGS, MIN_HEADINGS = 12, 4
 WARN_HEADINGS = 9
-MEDIAN_MIN_FAIL, MEDIAN_MIN_WARN = 95, 130
+MEDIAN_MIN_FAIL, MEDIAN_MIN_WARN = 115, 130
 MAX_FRAMES_FAIL = 2
 MAX_XREF = 2
-MIN_WORDS, MAX_WORDS = 700, 2300
+MIN_WORDS, MAX_WORDS = 950, 2300
 SHINGLE_N, MAX_OVERLAP, MAX_RUN = 6, 2.5, 25
 MERGE_TARGET_MEDIAN, MERGE_MAX_H = 165, 9
 
@@ -52,7 +52,10 @@ BANNED = ["in conclusion", "it is important to note", "it is worth noting",
           "navigate the", "unpack the", "rich tapestry", "in the modern world",
           "let's dive", "it is worth noting", "it is worth noticing",
           "it is worth pausing", "it is worth comparing", "it is worth setting",
-          "it is worth isolating", "it should be noted that", "worth dwelling on"]
+          "it is worth isolating", "it should be noted that", "worth dwelling on",
+          "the source material says", "the source says", "according to the source",
+          "the source notes", "as noted in the source", "source material",
+          "as per the source", "the source indicates", "according to the sources"]
 # matched only at sentence start, where they are dead giveaways
 LEAD_IN = ["to summarize", "in summary", "furthermore, it", "additionally, it"]
 DEBRIS = ["TODO", "FIXME", "XXX", "[insert", "lorem ipsum", "placeholder",

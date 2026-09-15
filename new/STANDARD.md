@@ -11,7 +11,7 @@ If you repair the reference, regenerate this file — never hand-edit a rule.
 
 | property | reference range | what to aim for |
 |---|---|---|
-| bold mini-headings per verse | 3–12 (mean 6.6) | 5–8 |
+| bold mini-headings per verse | 4–12 (mean 6.6) | 5–8 |
 | median section length | 108–353 words (mean 191) | 160–220 |
 | total words per verse | 827–2140 (mean 1369) | 1,000–1,500 |
 | cross-reference sections | 0–2 | 0–2 |
@@ -21,8 +21,8 @@ If you repair the reference, regenerate this file — never hand-edit a rule.
 
 Hard limits enforced by `scripts/check.py` (a verse that trips one is regenerated,
 not argued with):
-median section ≥95w; 3–12 headings;
-700–2300 words; ≤2 reader-frames;
+median section ≥115w; 4–12 headings;
+950–2300 words; ≤2 reader-frames;
 ≤2 cross-ref headings; verbatim run <25 words.
 
 ## 2. Structure of a verse file
@@ -138,15 +138,22 @@ attribution — the writer must.
 - **No decorative evidence.** Relevant and verified, or nothing. The fact-check
   record is part of the gate.
 
+## 5a. Voice — present as your own, add value, use simple English
+
+- **Presenter voice, not source reporter.** Never write `the source material says`, `according to the source`, `the source notes`. Present every claim as your own verified statement. The source was what you *studied*, not what you *cite*.
+- **Add your own verified content.** Beyond the per-verse source chunk, include at least one additional verified fact, cross-reference, or linguistic/historical note that you have checked (with `web_search`/`fetch_page`) — to make the commentary more comprehensive than the source alone. Cite only what you checked.
+- **Simple English.** Prefer short sentences, common words, and plain structure over ornate or academic diction. A heading must still state a claim, but in words a general reader can follow. Aim for 160–220 words per section that read as worth reading on their own — developed, not thin.
+- **More per heading.** A heading is worth reading only if its section delivers. With median ≥115w (aim 160–220w), avoid headings followed by brief paragraphs; merge thin sections.
+
 ## 6. Anti-patterns — each one is measured, so they cannot be argued away
 
 | defect | why it is the drift signature | gate |
 |---|---|---|
 | `The sūrah's readers are shown that X` | hedges the point behind an attention-director | ≤2 per verse |
-| 14–16 tiny sections | the actual collapse of this chapter: same words, cut finer | median section ≥95w |
+| 14–16 tiny sections | the actual collapse of this chapter: same words, cut finer | median section ≥115w |
 | same 4 words open >3 sentences | a new tic replacing the old one | FAIL above 4 |
 | duplicated sentences | padding, forbidden by the no-padding rule | >1 dup = FAIL |
-| `It is worth noting`, `delve`, `tapestry` … | filler with no claim in it | FAIL |
+| `It is worth noting`, `delve`, `tapestry`, `the source material says` … | filler with no claim / source-attribution hedge | FAIL |
 | a 25-word run from the source | paraphrase passed off as rewriting | FAIL |
 | heading that names rather than claims (`**Language**`) | a label is not an argument | style |
 
