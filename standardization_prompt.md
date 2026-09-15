@@ -152,21 +152,30 @@ passage. Maximum 2, count toward the 3–12 heading total but sit at the end as 
 
 ---
 
-## 5. EVIDENCE
+## 5. EVIDENCE — FACT-CHECKED, OR MARKED UNVERIFIED
+
+This is a rule, not a suggestion. `scripts/check.py` cannot verify hadith/report
+attribution — you must.
 
 - **Qur'anic quotations.** Take wording from `translation/` only; never from memory.
   Every exact quotation carries `({C}:{V})` immediately after it — no exceptions, since
   `QUOTETAG` fails the verse otherwise. `python3 scripts/fix_quotetags.py {SURAH}` audits
   a finished chapter for this.
-- **Hadith and reports.** Verify before including: existence, collection, number,
-  wording, attribution, grade. Never invent a number, chain, collection, grade or
-  attribution.
-  - Web tool available → verify, then cite (`Musnad Aḥmad 17311, graded ḥasan by
-    al-Arnāʾūṭ`), and include only what you actually checked.
-  - No web access → do **not** fabricate a reference and do **not** drop the requirement.
-    Attribute cautiously (`it is reported that…`, no number), or omit the report, and
-    record `UNVERIFIED` in the verse file plus the final report.
-- Do not add evidence to look scholarly. Relevant and verified, or nothing.
+- **Hadith, athar, and any external reference** (tafsīr claim, historical, linguistic,
+  scientific — any factual assertion beyond the translation line). Verify **before**
+  including for: existence, exact wording, collection + number, attribution
+  (Prophet ﷺ / Companion / Successor), and grade where applicable. Never invent a
+  number, chain, collection, grade or attribution.
+  - Web tool available → `web_search` + `fetch_page` (sunnah.com, etc.), verify,
+    then cite only what you actually checked (`Ṣaḥīḥ al-Bukhārī 4557`,
+    `Musnad Aḥmad 17311, graded ḥasan by al-Arnāʾūṭ`).
+  - No web access / wording not found / number mismatched → do **not** fabricate and
+    do **not** silently drop the requirement. Attribute cautiously (`it is reported
+    that…`, no number), or omit, **and** record `[UNVERIFIED: <what and why>]` in the
+    verse file plus the final report. A verse with an unverified claim and no
+    `UNVERIFIED` mark is a failure.
+- Do not add evidence to look scholarly. Relevant and verified, or nothing. The
+  fact-check record is part of the gate.
 
 ---
 

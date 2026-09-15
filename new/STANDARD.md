@@ -112,7 +112,33 @@ The words of 7:23 are a confession with two requests attached, and the Book reco
 The difference between the two passages is instructive. Mūsā's wrong was a single act with a body left in the sand; the wrong of 7:23 was an act of obedience to a prohibition, committed by two people together, and followed by an expulsion. Both confessions name the self as the object of the wrong: I have wronged my soul, and we 
 ```
 
-## 5. Anti-patterns — each one is measured, so they cannot be argued away
+## 5. Evidence — fact-checked, or marked UNVERIFIED
+
+Every claim that can be checked must be checked before it is written. This is a
+rule, not a recommendation. `scripts/check.py` cannot verify hadith/report
+attribution — the writer must.
+
+- **Qur'an.** Wording from `translation/` only; never from memory. Every exact
+  quotation carries `({C}:{V})` immediately after it. `QUOTETAG` fails the verse
+  otherwise. Run `python3 scripts/fix_quotetags.py {SURAH}` on a finished chapter.
+- **Hadith, athar, and any external reference** (tafsīr report, historical,
+  linguistic, scientific). Verify **before** inclusion for: existence, exact
+  wording, collection + number, attribution (Prophet ﷺ / Companion / Successor),
+  and grade where applicable (`ṣaḥīḥ`, `ḥasan`, `ḍaʿīf` with who graded it).
+  Verify via `web_search` + `fetch_page` (sunnah.com, etc.) and cite **only what
+  you actually checked**, e.g. `Ṣaḥīḥ al-Bukhārī 4557`, `Musnad Aḥmad 17311
+  graded ḥasan by al-Arnāʾūṭ`. **Never invent** a number, chain, collection,
+  or grade.
+- **If a report cannot be verified** (no web access, wording not found, number
+  mismatched, grade unavailable): do **not** fabricate and do **not** silently
+  drop the requirement. Either attribute cautiously with **no citation**
+  (`it is reported that…`) or omit it, **and** insert `[UNVERIFIED: <what and
+  why>]` in the verse file and list it in the final chapter report (§7). A
+  verse with an unverified claim and no `UNVERIFIED` mark is a failure.
+- **No decorative evidence.** Relevant and verified, or nothing. The fact-check
+  record is part of the gate.
+
+## 6. Anti-patterns — each one is measured, so they cannot be argued away
 
 | defect | why it is the drift signature | gate |
 |---|---|---|
@@ -135,7 +161,7 @@ The difference between the two passages is instructive. Mūsā's wrong was a sin
 Same claim, same evidence, one fewer hedge. Prefer that transformation everywhere.
 Do not swap the frame for another fixed frame — `MONOTONY` will catch it.
 
-## 6. The gate contract
+## 7. The gate contract
 
 ```bash
 python3 scripts/check.py split initial 007       # per-verse source chunks, once
