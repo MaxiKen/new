@@ -117,9 +117,9 @@ their **expression and arrangement are not**. If your paragraph order matches th
 source's, you are restructuring, not writing. `initial/` is what you studied before
 writing the book, not the book.
 
-**Cross-reference tier (optional, not required).** You may end a verse with 0–2 plain
-(non-bold) Title-Case heading lines, each introducing a short paragraph on a parallel
-passage. Maximum 2, no duplicates, and they never replace a real mini-heading section.
+**Cross-reference tier (optional, not required).** You may end a verse with 0–2 **bold**
+Title-Case heading lines (`**...**` — **all headings are bold**), each introducing a short paragraph on a parallel
+passage. Maximum 2, count toward the 3–12 heading total but sit at the end as the tail, and they never replace a real mini-heading section.
 
 ---
 

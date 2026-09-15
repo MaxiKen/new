@@ -46,9 +46,9 @@ median section ≥95w; 3–12 headings;
 - Bold `**...**` lines are the mini-headings. **No `###` headings anywhere.**
 - Every section is a developed argument of 130–270 words. A heading followed by
   two or three sentences is a defect: merge it into a neighbour.
-- Optional second tier: 0–2 **cross-reference sections** at the end, each a PLAIN
-  (non-bold) Title-Case line naming the parallel, then a short paragraph. These do
-  not count as mini-headings.
+- Optional second tier: 0–2 **cross-reference sections** at the end, each a **bold** Title-Case line
+  (`**...**`) naming the parallel, then a short paragraph. **All headings are bold**
+  — the tail counts toward the 3–12 heading total but sits at the end.
 - `**Expanded Commentary**` is the one fixed line; everything else is content-driven.
 
 ## 3. Model verse — study this, then write your own
@@ -101,11 +101,11 @@ shown* — the prose asserts.
 
 ## 4. The cross-reference tier
 
-From verse 7:23 — plain heading, then one short paragraph. Note it is
+From verse 7:23 — **bold** heading, then one short paragraph. Note it is
 *appended*, not interleaved, and it never becomes the whole commentary:
 
 ```markdown
-The Same Confession From a Different Servant
+**The Same Confession From a Different Servant**
 
 The words of 7:23 are a confession with two requests attached, and the Book records the same confession from a servant in a different situation. Mūsā, after the blow that killed, pleads: *“My Lord! I have definitely wronged my soul, so forgive me.”* (28:16), and the verse reports the outcome in three words: *“So He forgave him”* (28:16). The structure is the one 7:23 uses — an address, an admission in the first person, a request — and the admission in both cases is placed on the speaker rather than on a circumstance.
 
