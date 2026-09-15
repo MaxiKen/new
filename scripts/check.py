@@ -242,9 +242,9 @@ def check(v, body, chap, src_text=None, need_heading=True):
         body_src = " ".join(own.values())
         # the first blockquote IS the verse under commentary; a tag inside it would be
         # wrong, so it is excluded from the scan (appendix cross-ref quotes are still checked)
-        scan_body = re.sub(r"(?:^\s*>.*(?:\n|$))+", lambda m: "\n" * m.group(0).count("\n"), body, count=1)
+        scan_body = re.sub(r"(?:^\s*>.*(?:\n|$))+", lambda m: "\n" * m.group(0).count("\n"), body, count=1, flags=re.M)
         untagged = 0
-        hspans = [(b.start(), b.end()) for b in re.finditer(r"^\*\*.*?\*\*\s*$", body, re.M)]
+        hspans = [(b.start(), b.end()) for b in re.finditer(r"^\*\*.*?\*\*\s*$", scan_body, re.M)]
         for qm in re.finditer(r"[“]([^”]{24,})[”]", scan_body):
             if any(a <= qm.start() < b for a, b in hspans):
                 continue          # quoted-phrase mini-heading, not a cited quotation
