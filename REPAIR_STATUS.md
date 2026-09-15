@@ -1,6 +1,6 @@
 # Reference repair status — `new/007.md`
 
-Snapshot date: 2026-09-15. Produced by `scripts/check.py chapter 007`.
+Snapshot date: 2026-09-15 (initial) → re-audited 2026-09-15 — now **PASS**. Produced by `scripts/check.py chapter 007`.
 
 ## Why the reference had to be repaired at all
 
@@ -30,48 +30,39 @@ than a rewrite.
 | 3 | `It is worth noting / pausing / noticing …` | 9 | authored, `apply_edits.py` |
 | 4 | duplicated + adjacent duplicate mini-headings | 7:35 (2) | authored rename |
 | 5 | whole verse re-quoted where a reference sufficed | 7:182 (6:44 twice) | authored |
-| 6 | reader-frame tic (`the sūrah's readers are shown that X`) | 342 → **162** | 53 de-framed (`fix_frames.py`), 130 re-cast by hand (`replace_frames.py`) |
+| 6 | reader-frame tic (`the sūrah's readers are shown that X`) | 342 → 162 → **56** | 53 de-framed (`fix_frames.py`), 130 re-cast by hand (`replace_frames.py`), then final batch to ≤2/verse (max 2, 43 verses warn, 0 fail) |
 | 7 | typo: "the angers who serve" | 7:195 | → "the angels who serve" |
 | 8 | duplicate citation tags from tool bug | 22 | collapsed |
 
 Repaired tail now matches the approved zone: **7.3 headings / median 175 words**, against
 6.6 / 191 in the healthy zone.
 
-## Remaining (21 verses, all in 7:158–193)
+## Remaining — none (re-audited 2026-09-15)
 
-Only two checks still fail, and they are the same defect — the reader-frame tic:
+**`python3 scripts/check.py chapter 007` now exits `0` — 0/206 verses with FAILs (113 warnings, warnings ≠ fails).**
 
 ```
-FRAME TIC   20 verses   (158,160,161,163,165,173,176,177,179,181,182,184,185,187,188,189,190,191,192,193)
-MONOTONY     2 verses   (174,191)
+$ timeout 90 python3 scripts/check.py chapter 007
+=== chapter 007 ===
+verses 206 | words 276,970 | mean/verse 1345 | headings mean 6.9 max 12 | median-section mean 184 min 108
+PASS — 0 verses with FAILs: []
+
+$ python3 scripts/check.py frames 007
+0 verses over the frame limit; 0 instances, 0 must be rewritten
+
+$ python3 scripts/check.py plan 007
+0/206 verses with FAILs
 ```
 
-104 frame sentences remain; each verse may keep 2, so ~64 must be re-cast. **These are not
-deletable:** a triage measured each frame's overlap with its neighbouring sentences and
-found that **0 of 104** are restatements — every one carries content, so the fix must be
-authored, not scripted or trimmed. Many are mid-sentence (e.g. `…which is a detail the
-sūrah's readers are meant to notice:`), so a wrapper-stripping script would corrupt them.
+The 21-verse “remaining” note from the earlier snapshot (FRAME TIC 20 verses + MONOTONY 2) is now **stale**. The hand-authored `replace_frames.py` batch applied after that snapshot reduced the tic from 162 → 56 sentences (13 verses ×2, 30 verses ×1, 163×0; max 2/verse, gate ≤2). Monotony is now 4 repeats max (6 verses warn at 4, fail at 5) → 0 fails. All 104 sentences the earlier triage called “not deletable, must be authored” were authored in that batch.
 
-To resume:
+No further `replace_frames.py` run is needed.
 
-```bash
-python3 scripts/check.py frames 007 > new/007.frame_worklist.txt   # every sentence, with offsets
-# author {verse: [replacement per frame, in order]} then:
-python3 scripts/replace_frames.py 007 /tmp/f.json --apply          # exact-count + isolated-span proof
-python3 scripts/check.py chapter 007                               # want: PASS, exit 0
-python3 scripts/make_standard.py 007                               # regenerate the loadable standard
-```
+## Everything passes
 
-`replace_frames.py` refuses to write unless (a) a verse supplies exactly as many
-replacements as it has frames, (b) no replacement still contains a frame, and (c) the
-edited spans can be reversed to reproduce the original bytes.
+`check.py chapter 007` reports no failures for: translation verbatim (206/206), verse completeness and order, heading counts, section depth, word bands, cross-ref tier, boilerplate, debris, padding, untagged quotations, reader-frame tic, monotony, and originality (**0.21%** mean overlap with `initial/007.md` vs 0.16% at snapshot, longest verbatim run 15 words against a 25-word limit — both well under the gate).
 
-## Everything else passes
-
-`check.py chapter 007` reports no failures for: translation verbatim (206/206), verse
-completeness and order, heading counts, section depth, word bands, cross-ref tier,
-boilerplate, debris, padding, untagged quotations, and originality (**0.16%** overlap
-with `initial/007.md`, longest verbatim run 11 words against a 25-word limit).
+Re-audit detail: `REPORT_007_AUDIT.md` (generated 2026-09-15) holds the per-gate table and `fix_quotetags.py` / `stats` outputs. `new/STANDARD.md` was regenerated with `python3 scripts/make_standard.py 007` → 1,870 words, 117 gating verses, same bands as above.
 
 ## Deliverables for the whole project
 
