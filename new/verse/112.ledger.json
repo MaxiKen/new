@@ -1,0 +1,54 @@
+{
+ "chapter": "112",
+ "verses_total": 4,
+ "verses": {
+  "1": {
+   "status": "PASS",
+   "words": 1519,
+   "headings": 7,
+   "med_section": 217,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "215db20e4c9b",
+   "ts": "2026-09-16T16:37:06"
+  },
+  "2": {
+   "status": "PASS",
+   "words": 1409,
+   "headings": 7,
+   "med_section": 194,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "d18624c6a72b",
+   "ts": "2026-09-16T16:37:06"
+  },
+  "3": {
+   "status": "PASS",
+   "words": 1512,
+   "headings": 7,
+   "med_section": 214,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "cc799a625ffa",
+   "ts": "2026-09-16T16:37:06"
+  },
+  "4": {
+   "status": "PASS",
+   "words": 1278,
+   "headings": 6,
+   "med_section": 210,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "bc0f2df41f20",
+   "ts": "2026-09-16T16:37:06"
+  }
+ },
+ "created": "2026-09-16T16:19:00",
+ "updated": "2026-09-16T16:45:51",
+ "assembled": {
+  "ts": "2026-09-16T16:45:51",
+  "sha": "07e4961e4d09",
+  "words": 5730,
+  "verses": 4
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "chapter": "113",
+ "verses_total": 5,
+ "verses": {
+  "1": {
+   "status": "PASS",
+   "words": 1398,
+   "headings": 7,
+   "med_section": 201,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "a226435ecf62",
+   "ts": "2026-09-16T16:38:24"
+  },
+  "2": {
+   "status": "PASS",
+   "words": 1159,
+   "headings": 6,
+   "med_section": 192,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "13a6829ee370",
+   "ts": "2026-09-16T16:38:24"
+  },
+  "3": {
+   "status": "PASS",
+   "words": 1364,
+   "headings": 7,
+   "med_section": 204,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "27521530ed8a",
+   "ts": "2026-09-16T16:38:24"
+  },
+  "4": {
+   "status": "PASS",
+   "words": 1271,
+   "headings": 6,
+   "med_section": 198,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "faf7e5e97704",
+   "ts": "2026-09-16T16:41:28"
+  },
+  "5": {
+   "status": "PASS",
+   "words": 1406,
+   "headings": 7,
+   "med_section": 202,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "73bdd6344be0",
+   "ts": "2026-09-16T16:41:28"
+  }
+ },
+ "created": "2026-09-16T16:19:00",
+ "updated": "2026-09-16T16:45:51",
+ "assembled": {
+  "ts": "2026-09-16T16:45:51",
+  "sha": "701b13ae0425",
+  "words": 6611,
+  "verses": 5
+ }
+}
