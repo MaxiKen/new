@@ -1,7 +1,7 @@
 {
  "chapter": "069",
  "created": "2026-09-17",
- "updated": "2026-09-17T05:12:50",
+ "updated": "2026-09-17T05:17:54",
  "verses": {
   "1": {
    "status": "PASS",
@@ -145,73 +145,73 @@
   },
   "15": {
    "status": "PASS",
-   "words": 1044,
-   "headings": 8,
-   "med_section": 130,
+   "words": 1040,
+   "headings": 7,
+   "med_section": 132,
    "frames": 0,
-   "warnings": 1,
-   "sha": "70a5efddac79",
-   "ts": "2026-09-17T05:12:09"
+   "warnings": 0,
+   "sha": "bbc93a4865ae",
+   "ts": "2026-09-17T05:17:53"
   },
   "16": {
    "status": "PASS",
-   "words": 1022,
-   "headings": 8,
-   "med_section": 128,
+   "words": 1018,
+   "headings": 7,
+   "med_section": 132,
    "frames": 0,
-   "warnings": 1,
-   "sha": "0497df90004c",
-   "ts": "2026-09-17T05:12:09"
+   "warnings": 0,
+   "sha": "36555286a03b",
+   "ts": "2026-09-17T05:17:53"
   },
   "17": {
    "status": "PASS",
-   "words": 1028,
-   "headings": 8,
-   "med_section": 128,
+   "words": 1025,
+   "headings": 7,
+   "med_section": 131,
    "frames": 0,
-   "warnings": 1,
-   "sha": "a265b2d17239",
-   "ts": "2026-09-17T05:12:09"
+   "warnings": 0,
+   "sha": "c50a4e6aa2ad",
+   "ts": "2026-09-17T05:17:53"
   },
   "18": {
    "status": "PASS",
-   "words": 1029,
-   "headings": 8,
-   "med_section": 128,
+   "words": 1025,
+   "headings": 7,
+   "med_section": 131,
    "frames": 0,
-   "warnings": 1,
-   "sha": "ecad6b77e878",
-   "ts": "2026-09-17T05:12:09"
+   "warnings": 0,
+   "sha": "0ff4d4373962",
+   "ts": "2026-09-17T05:17:53"
   },
   "19": {
    "status": "PASS",
-   "words": 1006,
-   "headings": 8,
-   "med_section": 126,
+   "words": 1002,
+   "headings": 7,
+   "med_section": 131,
    "frames": 0,
-   "warnings": 1,
-   "sha": "fc6d23a3f465",
-   "ts": "2026-09-17T05:12:09"
+   "warnings": 0,
+   "sha": "94a80ab93b72",
+   "ts": "2026-09-17T05:17:53"
   },
   "20": {
    "status": "PASS",
-   "words": 995,
-   "headings": 8,
-   "med_section": 126,
+   "words": 992,
+   "headings": 7,
+   "med_section": 131,
    "frames": 0,
-   "warnings": 1,
-   "sha": "406cd54fbf2d",
-   "ts": "2026-09-17T05:12:09"
+   "warnings": 0,
+   "sha": "2fe794d6b9dc",
+   "ts": "2026-09-17T05:17:53"
   },
   "21": {
    "status": "PASS",
-   "words": 1044,
-   "headings": 9,
-   "med_section": 121,
+   "words": 1031,
+   "headings": 6,
+   "med_section": 176,
    "frames": 0,
-   "warnings": 1,
-   "sha": "f354cf5534da",
-   "ts": "2026-09-17T05:12:09"
+   "warnings": 0,
+   "sha": "fc17a476ef39",
+   "ts": "2026-09-17T05:17:53"
   },
   "22": {
    "status": "PASS",
@@ -245,13 +245,13 @@
   },
   "25": {
    "status": "PASS",
-   "words": 1084,
-   "headings": 9,
-   "med_section": 125,
+   "words": 1075,
+   "headings": 7,
+   "med_section": 132,
    "frames": 0,
-   "warnings": 1,
-   "sha": "4d0a73345ce3",
-   "ts": "2026-09-17T05:12:10"
+   "warnings": 0,
+   "sha": "f9d9e28d3d2b",
+   "ts": "2026-09-17T05:17:53"
   },
   "26": {
    "status": "PASS",
@@ -265,13 +265,13 @@
   },
   "27": {
    "status": "PASS",
-   "words": 1022,
-   "headings": 9,
-   "med_section": 115,
+   "words": 1010,
+   "headings": 6,
+   "med_section": 162,
    "frames": 0,
-   "warnings": 1,
-   "sha": "946f29ef3227",
-   "ts": "2026-09-17T05:12:10"
+   "warnings": 0,
+   "sha": "9d702baf31ca",
+   "ts": "2026-09-17T05:17:53"
   },
   "28": {
    "status": "PASS",
@@ -325,13 +325,13 @@
   },
   "33": {
    "status": "PASS",
-   "words": 979,
-   "headings": 8,
-   "med_section": 127,
+   "words": 970,
+   "headings": 6,
+   "med_section": 142,
    "frames": 0,
-   "warnings": 1,
-   "sha": "a59d01a999e8",
-   "ts": "2026-09-17T05:12:10"
+   "warnings": 0,
+   "sha": "1f5fbd24f983",
+   "ts": "2026-09-17T05:17:53"
   },
   "34": {
    "status": "PASS",
@@ -385,13 +385,13 @@
   },
   "39": {
    "status": "PASS",
-   "words": 956,
-   "headings": 7,
-   "med_section": 122,
+   "words": 967,
+   "headings": 6,
+   "med_section": 171,
    "frames": 0,
-   "warnings": 1,
-   "sha": "38929a62781c",
-   "ts": "2026-09-17T05:12:11"
+   "warnings": 0,
+   "sha": "58245aa166b1",
+   "ts": "2026-09-17T05:17:53"
   },
   "40": {
    "status": "PASS",
@@ -405,13 +405,13 @@
   },
   "41": {
    "status": "PASS",
-   "words": 968,
-   "headings": 9,
-   "med_section": 118,
+   "words": 965,
+   "headings": 6,
+   "med_section": 158,
    "frames": 0,
-   "warnings": 1,
-   "sha": "37045d5421a5",
-   "ts": "2026-09-17T05:12:11"
+   "warnings": 0,
+   "sha": "37bb8e7cf5ae",
+   "ts": "2026-09-17T05:17:53"
   },
   "42": {
    "status": "PASS",
@@ -526,9 +526,9 @@
  },
  "verses_total": 52,
  "assembled": {
-  "ts": "2026-09-17T05:12:50",
-  "sha": "7e157b54cd9d",
-  "words": 52034,
+  "ts": "2026-09-17T05:17:54",
+  "sha": "bebe94c172dd",
+  "words": 51977,
   "verses": 52
  }
 }
