@@ -182,3 +182,29 @@ verify 003: 200/200 PASS claims hold
 $ python3 scripts/pipeline.py status 003
 chapter 003: 200/200 PASS  (0 remaining)
 ```
+
+
+## Compliance receipt and the one measurement caveat
+
+`python3 scripts/pipeline.py receipt 003 --write` → `new/003.COMPLIANCE.md` → **VERDICT: PASS**
+(chapter gate exit 0, ledger hashes match every file, merged text reproduces the verses).
+
+An independent re-implementation of every rule — blockquote equality against
+`translation/003.txt`, no `###`, 950–2,300 words, 4–12 headings, median section ≥115w,
+≤2.5% six-gram overlap, no 25-word run — was run against all 200 files separately from
+`scripts/check.py`:
+
+```
+verses 200 | defects: 0
+worst overlap vs the FULL initial/003.md: 2.25% (verse 113)
+thinnest median section: 115w (verse 160)
+```
+
+**Caveat, stated plainly.** The gate's 950-word floor counts the whole verse body —
+the translation blockquote and the mini-heading lines included. Measured on the
+commentary prose alone (blockquote and headings excluded) the chapter runs
+min **847**, mean **967**; 31 verses sit under 900 words of prose. Nothing is
+gate-breaking, and every section is developed, but a reviewer who wants the floor
+applied to prose only would want those verses enlarged. 3:179's overlap was also
+rewritten after the independent audit showed 2.54% against the full initial file
+(gate: 2.21% against its own chunk) — it now sits at 1.17%.
