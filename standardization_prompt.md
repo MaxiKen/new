@@ -249,7 +249,7 @@ Never edit a number in this prompt by hand to make a file pass.
 
 Set `SURAH`. Read `new/STANDARD.md`, the one source chunk, the one translation line.
 For each verse: reason, write independently in simple English as your own verified statement (never `the source material says` — present as writer; add at least one extra verified fact beyond the source chunk), save as its own file, run the gate, update
-the ledger. One verse per write, twenty per turn. No `###`, no untagged quotation, no
+the ledger. One verse per write, fifty per turn. No `###`, no untagged quotation, no
 translation drift, no paraphrase of `initial/`, no reader-frames, no padding. Never open
 `expanded/`, never write `new/007.md`. A verse is done at exit 0. Complete the whole
 chapter, then merge → gate → statistics → report.
