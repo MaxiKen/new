@@ -493,14 +493,79 @@ def split(kind, chap):
     intro = text[:ms[0].start()]
     if intro.strip():
         (out / f"{chap}_000_intro.md").write_text(intro.strip(), encoding="utf-8")
+    # commentary blocks are headed **N** or **N-M**; a block headed by an earlier
+    # verse frequently carries the only commentary its neighbours have, so every
+    # chunk is given the full commentary of the block that covers it. Without this,
+    # verses inside a multi-verse block are split off with nothing but their
+    # translation line — which is how thin, unsourced verses get written.
+    def _commentary(s):
+        lines = [ln for ln in s.split("\n")
+                 if not ln.startswith(">") and ln.strip() not in ("", "***")]
+        return "\n".join(lines).strip()
+
+    heads = list(re.finditer(r"^\*\*(\d+(?:\s*[\u2013\-,\s]\s*\d+)*)\*\*\s*", text, re.M))
+    blocks = []
+    for j, h in enumerate(heads):
+        nums = [int(x) for x in re.findall(r"\d+", h.group(1))]
+        a, b = nums[0], nums[-1]
+        if b < a:                                   # abbreviated, e.g. **106-7**
+            b = int(str(a)[:len(str(a)) - len(str(b))] + str(b))
+        raw = text[h.start():(heads[j + 1].start() if j + 1 < len(heads) else len(text))]
+        blk = f'**{h.group(1)}** ' + _commentary(raw[h.end() - h.start():])
+        blocks.append((a, b, blk, _commentary(raw[h.end() - h.start():])))
+    carried = []
     for i, m in enumerate(ms):
         e = ms[i + 1].start() if i + 1 < len(ms) else len(text)
         v = int(m.group(1))
-        (out / f"{chap}_{v:03d}.md").write_text(text[m.start():e].strip(), encoding="utf-8")
+        body = text[m.start():e].strip()
+        for a, b, blk, inner in blocks:
+            if a <= v <= b:
+                if inner and inner not in _commentary(body):
+                    body = body + "\n\n" + blk
+                    carried.append(v)
+                break
+        (out / f"{chap}_{v:03d}.md").write_text(body + "\n", encoding="utf-8")
+    if carried:
+        print(f"  attached a shared commentary block to {len(carried)} chunk(s) "
+              f"whose verse is covered by an earlier block: {carried[:12]}"
+              f"{' ...' if len(carried) > 12 else ''}")
     sizes = [len((out / f"{chap}_{int(m.group(1)):03d}.md").read_text(encoding="utf-8").split()) for m in ms]
     print(f"{kind}/{chap}.md -> {len(ms)} chunks in {out.relative_to(ROOT)}/")
     print(f"  mean chunk {statistics.mean(sizes):.0f} words (~{statistics.mean(sizes)*1.3:.0f} tok) "
           f"vs whole file {len(text.split()):,} words (~{len(text)//4:,} tok)")
+    return 0
+
+
+def sources(chap):
+    """Gate the input layer: every per-verse chunk must carry commentary, not just
+    the translation line. A chunk that is translation-only means the verse was
+    written without its source, which is how thin verses happen."""
+    d = ROOT / "source_by_verse" / chap
+    if not d.exists():
+        print(f"FAIL: {d.relative_to(ROOT)} missing — run `check.py split initial {chap}`")
+        return 1
+    thin, terse = [], []
+    n = 0
+    for f in sorted(d.glob(f"{chap}_*.md")):
+        if "_000" in f.name:
+            continue
+        n += 1
+        body = " ".join(ln for ln in f.read_text(encoding="utf-8").split("\n")
+                        if not ln.startswith(">") and ln.strip() not in ("", "***"))
+        w = len(body.split())
+        if w < 3:
+            thin.append((f.name, w))
+        elif w < 40:
+            terse.append((f.name, w))
+    print(f"source chunks {chap}: {n} | commentary under 40w: {len(terse)} | translation-only: {len(thin)}")
+    for name, w in terse:
+        print(f"  note {name}: {w}w of commentary — the source is terse for this verse")
+    for name, w in thin:
+        print(f"  FAIL {name}: {w}w of commentary — the split attached nothing to this verse")
+    if thin:
+        print(f"FAIL — regenerate the chunks with `check.py split initial {chap}`")
+        return 1
+    print("PASS — every chunk carries commentary for its own verse")
     return 0
 
 
@@ -538,6 +603,8 @@ if __name__ == "__main__":
         sys.exit(merge(a[1], "--apply" in a))
     if cmd == "split":
         sys.exit(split(a[1], a[2]))
+    if cmd == "sources":
+        sys.exit(sources(a[1]))
     if cmd == "frames":
         ch = a[1] if len(a) > 1 else "007"
         text = (ROOT / "new" / f"{ch}.md").read_text(encoding="utf-8", errors="replace")
