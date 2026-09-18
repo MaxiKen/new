@@ -1,0 +1,508 @@
+{
+ "chapter": "003",
+ "verses_total": 200,
+ "verses": {
+  "1": {
+   "status": "PASS",
+   "words": 982,
+   "headings": 5,
+   "med_section": 176,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "627c0622fb6f",
+   "ts": "2026-09-18T07:20:19"
+  },
+  "2": {
+   "status": "PASS",
+   "words": 987,
+   "headings": 5,
+   "med_section": 199,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "0be0e803b556",
+   "ts": "2026-09-18T07:20:19"
+  },
+  "3": {
+   "status": "PASS",
+   "words": 959,
+   "headings": 5,
+   "med_section": 171,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "e7101786c6e7",
+   "ts": "2026-09-18T07:20:19"
+  },
+  "4": {
+   "status": "PASS",
+   "words": 954,
+   "headings": 5,
+   "med_section": 181,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "41e1cae39372",
+   "ts": "2026-09-18T07:20:47"
+  },
+  "5": {
+   "status": "PASS",
+   "words": 1013,
+   "headings": 5,
+   "med_section": 201,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "bebf1dbf2e4d",
+   "ts": "2026-09-18T07:21:00"
+  },
+  "6": {
+   "status": "PASS",
+   "words": 1020,
+   "headings": 5,
+   "med_section": 212,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "a22021aab082",
+   "ts": "2026-09-18T07:21:00"
+  },
+  "7": {
+   "status": "PASS",
+   "words": 1084,
+   "headings": 6,
+   "med_section": 162,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "54237ad20f0b",
+   "ts": "2026-09-18T07:21:48"
+  },
+  "8": {
+   "status": "PASS",
+   "words": 996,
+   "headings": 6,
+   "med_section": 153,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "766c92c4f70c",
+   "ts": "2026-09-18T07:22:03"
+  },
+  "9": {
+   "status": "PASS",
+   "words": 1046,
+   "headings": 5,
+   "med_section": 174,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "09e7b937c550",
+   "ts": "2026-09-18T07:22:04"
+  },
+  "10": {
+   "status": "PASS",
+   "words": 986,
+   "headings": 5,
+   "med_section": 182,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "02066cfbf8a7",
+   "ts": "2026-09-18T07:22:52"
+  },
+  "11": {
+   "status": "PASS",
+   "words": 963,
+   "headings": 5,
+   "med_section": 167,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "655159e23d48",
+   "ts": "2026-09-18T07:22:52"
+  },
+  "12": {
+   "status": "PASS",
+   "words": 1017,
+   "headings": 6,
+   "med_section": 158,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "ecc04cd1df09",
+   "ts": "2026-09-18T07:22:52"
+  },
+  "13": {
+   "status": "PASS",
+   "words": 1038,
+   "headings": 5,
+   "med_section": 170,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "c06cfb1d432f",
+   "ts": "2026-09-18T07:22:57"
+  },
+  "14": {
+   "status": "PASS",
+   "words": 1038,
+   "headings": 6,
+   "med_section": 166,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "dab70c8d3889",
+   "ts": "2026-09-18T07:23:51"
+  },
+  "15": {
+   "status": "PASS",
+   "words": 955,
+   "headings": 6,
+   "med_section": 142,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "9c4ead8027da",
+   "ts": "2026-09-18T07:23:51"
+  },
+  "16": {
+   "status": "PASS",
+   "words": 1106,
+   "headings": 7,
+   "med_section": 152,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "71821491d625",
+   "ts": "2026-09-18T07:24:03"
+  },
+  "17": {
+   "status": "PASS",
+   "words": 986,
+   "headings": 6,
+   "med_section": 155,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "187664744a82",
+   "ts": "2026-09-18T07:24:03"
+  },
+  "18": {
+   "status": "PASS",
+   "words": 1048,
+   "headings": 6,
+   "med_section": 156,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "68d3df2b0290",
+   "ts": "2026-09-18T07:25:02"
+  },
+  "19": {
+   "status": "PASS",
+   "words": 982,
+   "headings": 6,
+   "med_section": 150,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "e65afa0d676c",
+   "ts": "2026-09-18T07:25:02"
+  },
+  "20": {
+   "status": "PASS",
+   "words": 1021,
+   "headings": 6,
+   "med_section": 148,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "28312ddd27db",
+   "ts": "2026-09-18T07:25:02"
+  },
+  "21": {
+   "status": "PASS",
+   "words": 1037,
+   "headings": 6,
+   "med_section": 160,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "eaeac0146f21",
+   "ts": "2026-09-18T07:25:02"
+  },
+  "22": {
+   "status": "PASS",
+   "words": 993,
+   "headings": 6,
+   "med_section": 166,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "cf8ae52d39a2",
+   "ts": "2026-09-18T07:25:55"
+  },
+  "23": {
+   "status": "PASS",
+   "words": 987,
+   "headings": 6,
+   "med_section": 154,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "400962cbc50c",
+   "ts": "2026-09-18T07:25:55"
+  },
+  "25": {
+   "status": "PASS",
+   "words": 1028,
+   "headings": 6,
+   "med_section": 162,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "eadd06954d56",
+   "ts": "2026-09-18T07:25:55"
+  },
+  "24": {
+   "status": "PASS",
+   "words": 954,
+   "headings": 6,
+   "med_section": 154,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "c341d0a97cd1",
+   "ts": "2026-09-18T07:25:57"
+  },
+  "26": {
+   "status": "PASS",
+   "words": 1032,
+   "headings": 7,
+   "med_section": 141,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "b33d52a16ba4",
+   "ts": "2026-09-18T07:27:20"
+  },
+  "28": {
+   "status": "PASS",
+   "words": 1010,
+   "headings": 7,
+   "med_section": 136,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "1ffdeaa1dbe7",
+   "ts": "2026-09-18T07:27:20"
+  },
+  "29": {
+   "status": "PASS",
+   "words": 1109,
+   "headings": 8,
+   "med_section": 128,
+   "frames": 0,
+   "warnings": 1,
+   "sha": "c7f0da47851e",
+   "ts": "2026-09-18T07:27:20"
+  },
+  "30": {
+   "status": "PASS",
+   "words": 1047,
+   "headings": 7,
+   "med_section": 138,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "fb1c871f252b",
+   "ts": "2026-09-18T07:27:20"
+  },
+  "31": {
+   "status": "PASS",
+   "words": 964,
+   "headings": 7,
+   "med_section": 134,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "dcb0d694ac4e",
+   "ts": "2026-09-18T07:27:20"
+  },
+  "27": {
+   "status": "PASS",
+   "words": 1069,
+   "headings": 7,
+   "med_section": 131,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "314f951fcfba",
+   "ts": "2026-09-18T07:28:13"
+  },
+  "32": {
+   "status": "PASS",
+   "words": 983,
+   "headings": 7,
+   "med_section": 133,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "50e422bce473",
+   "ts": "2026-09-18T07:28:24"
+  },
+  "33": {
+   "status": "PASS",
+   "words": 1004,
+   "headings": 7,
+   "med_section": 129,
+   "frames": 0,
+   "warnings": 1,
+   "sha": "d7deff998fda",
+   "ts": "2026-09-18T07:28:24"
+  },
+  "34": {
+   "status": "PASS",
+   "words": 1001,
+   "headings": 7,
+   "med_section": 131,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "5ab7b176be71",
+   "ts": "2026-09-18T07:28:24"
+  },
+  "35": {
+   "status": "PASS",
+   "words": 964,
+   "headings": 7,
+   "med_section": 134,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "e814532142f3",
+   "ts": "2026-09-18T07:28:24"
+  },
+  "36": {
+   "status": "PASS",
+   "words": 1119,
+   "headings": 7,
+   "med_section": 139,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "6d552778d814",
+   "ts": "2026-09-18T07:29:08"
+  },
+  "37": {
+   "status": "PASS",
+   "words": 1077,
+   "headings": 7,
+   "med_section": 144,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "b5b72dedb613",
+   "ts": "2026-09-18T07:29:08"
+  },
+  "38": {
+   "status": "PASS",
+   "words": 1014,
+   "headings": 7,
+   "med_section": 137,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "3a89102c2d52",
+   "ts": "2026-09-18T07:29:08"
+  },
+  "39": {
+   "status": "PASS",
+   "words": 1015,
+   "headings": 7,
+   "med_section": 140,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "44cc50e895b9",
+   "ts": "2026-09-18T07:29:49"
+  },
+  "40": {
+   "status": "PASS",
+   "words": 1025,
+   "headings": 7,
+   "med_section": 151,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "65bedc20f62a",
+   "ts": "2026-09-18T07:29:49"
+  },
+  "41": {
+   "status": "PASS",
+   "words": 1088,
+   "headings": 7,
+   "med_section": 146,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "40fee23df2fb",
+   "ts": "2026-09-18T07:29:49"
+  },
+  "42": {
+   "status": "PASS",
+   "words": 1018,
+   "headings": 7,
+   "med_section": 129,
+   "frames": 0,
+   "warnings": 1,
+   "sha": "4f1beb343eb7",
+   "ts": "2026-09-18T07:30:27"
+  },
+  "43": {
+   "status": "PASS",
+   "words": 964,
+   "headings": 7,
+   "med_section": 132,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "0a6302876ec9",
+   "ts": "2026-09-18T07:30:27"
+  },
+  "44": {
+   "status": "PASS",
+   "words": 1075,
+   "headings": 7,
+   "med_section": 151,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "44ccce7563bd",
+   "ts": "2026-09-18T07:30:29"
+  },
+  "45": {
+   "status": "PASS",
+   "words": 1032,
+   "headings": 7,
+   "med_section": 137,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "9dfd78ad241b",
+   "ts": "2026-09-18T07:31:14"
+  },
+  "46": {
+   "status": "PASS",
+   "words": 989,
+   "headings": 7,
+   "med_section": 143,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "42abf07f3bcc",
+   "ts": "2026-09-18T07:31:14"
+  },
+  "47": {
+   "status": "PASS",
+   "words": 1013,
+   "headings": 7,
+   "med_section": 130,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "60ebf4446743",
+   "ts": "2026-09-18T07:31:39"
+  },
+  "48": {
+   "status": "PASS",
+   "words": 966,
+   "headings": 7,
+   "med_section": 132,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "8400f459a199",
+   "ts": "2026-09-18T07:31:39"
+  },
+  "49": {
+   "status": "PASS",
+   "words": 1203,
+   "headings": 7,
+   "med_section": 161,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "ef72652ec8f2",
+   "ts": "2026-09-18T07:32:07"
+  },
+  "50": {
+   "status": "PASS",
+   "words": 1072,
+   "headings": 7,
+   "med_section": 140,
+   "frames": 0,
+   "warnings": 0,
+   "sha": "92684e17e499",
+   "ts": "2026-09-18T07:32:07"
+  }
+ },
+ "created": "2026-09-18T07:16:49",
+ "updated": "2026-09-18T07:32:07"
+}
