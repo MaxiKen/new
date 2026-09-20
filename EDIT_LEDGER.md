@@ -12,7 +12,7 @@ Order: sequential from Sūrah 001. Resume exactly where the ledger says.
 | chapter | status | edited through | notes |
 |---|---|---|---|
 | 001 | DONE | all (intro + 1:1–1:7) | 15,321 → 12,303 words. Qudsī Muslim 395 now quoted in full once (intro) instead of 5×; faʿlān/faʿīl grammar only at 1:3; fixed garbled "Erra and beledig" in 1:7. All hadith/citations preserved. |
-| 002 | IN PROGRESS | intro + 2:1–2:13 | 2:14 onward untouched (original generated text). Resume at `## Sūrah al-Baqarah 2:14`. Work in batches of ~5 verses: read range, hand-write edited batch to `.edit_batch.md`, splice between verse headers, delete scratch. |
+| 002 | IN PROGRESS | intro + 2:1–2:35 | 2:36 onward untouched (original generated text). Resume at `## Sūrah al-Baqarah 2:36`. Work in batches of ~5 verses: read range, hand-write edited batch to `.edit_batch.md`, splice between verse headers, delete scratch. 237,849 → 233,570 words so far. |
 
 Method (per batch, chapter 002 onward):
 1. `grep -n "^## Sūrah al-Baqarah 2:N$"` to find batch boundaries.
