@@ -1,0 +1,78 @@
+name,codes,legend_rows,p1_equivalent,colour_hex,colour_dE_median,p1_support,confidence,area_km2,n_colour_clusters
+Alluvium,Al,1,Alluvium,#fafdb1,3.3,0.187,medium,31.91,1
+"Sands,Gravels and Clay",MWS,2,"Sands, Gravels and Clay",#e6e67e,5.2,0.69,high,10401.03,7
+Sands and Pebbles,AB,3,Sands and Pebbles,#f0fd80,0.7,0.02,medium,1966.27,1
+"Sand, Clay and Mangrove Swamps",MS,4,"Sand, Clay and Swamp",#96aafe,6.4,0.074,medium,6422.91,4
+"Sands, Clays, siltstones and limestones",Cst,6,"Sands, Clays, Siltstones and limestones",#f2fe5a,12.1,0.844,medium,88318.3,15
+Sand and Clay,Bnst,7,Sand and Clay,#fefebe,2.6,0.843,high,21801.98,3
+Younger Basalt,b,8,Younger Basalt,#dadafd,20.2,0.335,low,10996.9,12
+Basalt,bb,9,Basalt,#867efd,8.1,0.807,high,6597.77,10
+"Lignite,Claystone and shale",OAlgs,10,"Lignite, Claystone and shale",#fefe4e,4.8,0.163,low,6015.79,5
+Clay clayey sands and shale,Issh,11,"Clay clayey sands and shale; Clay, Clayey Sands and Shale",#fecae2,5.2,0.456,medium,5566.85,3
+Sandstone and Clay,Gwss; Wss,"12, 14",Sandstone and Clay,#fefe62,7.0,0.804,medium,23992.68,13
+Sandstones and Clays,Glcl,13,Sandstones and Clays,#dcd671,3.1,0.0,medium,46.55,1
+Shale and limestone,ANsh; Esh,"15, 28",Shale and Limestone,#cfd972,8.2,0.4,low,7473.96,33
+Clay and Shale with Limestone Intercalations,Imsh,16,Clay and Shale with Limestone Intercalations,#cedd6e,21.3,0.263,low,6362.73,12
+"Sandstone,shale and Clay",Kss,17,"Sandstone, shale and clay",#eefe4e,9.0,0.738,medium,25729.02,13
+Shale,Dsh,18,,#dadeb3,4.4,,low,1779.58,4
+"Sandstone,Siltstone,Shale and ironstone",Gss,20,"Sandstone, Siltstone, Shale and Ironstone",#e6feaa,3.0,0.045,medium,4167.93,4
+False - bedded sandstone,Ajst,21,False - Bedded Sandstone,#cefea6,1.3,0.647,high,9292.38,2
+"Coal, shale and sandstone",Ncsh,22,"Coal, Shale and Sandstone",#b3feb7,2.6,0.281,medium,1426.77,2
+"Sandstone, limestone, Coal",Ncsh,23,"Sandstone, Limestone, Coal",#b7e798,2.5,0.045,medium,1393.41,3
+Sandstone and Limestone,Asl,24,Sandstone and Limestone,#c6f6b2,3.0,0.498,high,2785.11,3
+"Coal,Sandstone and Shale",Mcst,25,"Coal candstone and shale; Coal, Sandstone and Shale",#080303,39.5,0.526,low,9589.18,41
+Sandstone and Ironstone,Bssf,26,Sandstone and Ironstone,#d6fe86,5.5,0.315,medium,3240.81,3
+Shale and mudstone,Nsh,27,Shale and Mudstone,#daa203,36.5,0.484,low,29261.73,16
+"Sandstone, siltstone and shale",Tst,29,"Sandstone, Siltstone and Shale",#9ed6be,22.0,0.226,medium,8621.02,14
+"Sandstone, clays and shale",Wss,31,"Sandstones, Clays and Shale",#beee9a,1.4,0.003,medium,1413.01,1
+Clays and loose sandstone,Wcs,32,Clays and loose sandstone,#a2fec2,1.2,0.006,medium,1999.38,1
+Shale (Phosphate nodules),Wsh,33,Shale (Phosphate nodules),#badc73,3.9,0.089,medium,693.01,4
+"Sandstone,shale and sandyshale",Lass,36,"Sandstone, shale and sandyshale",#becaba,3.8,0.478,high,3706.05,3
+Feldspathic sandstone and siltstone,NPss,37,Feldspathic sandstone and siltstone,#7adeb2,11.4,0.713,high,43032.81,13
+Pebbles and grit,Glpg,38,Pebbles and Grit,#a0aa3e,21.1,0.361,low,2125.72,10
+Clay grit and pebbles,Glss,39,Clay Grit and Pebbles,#a2f266,9.4,0.496,low,12405.04,8
+Gravel and sand,Glgss,40,Gravel and Sand,#b2d282,4.6,0.369,high,4655.51,6
+"Blackshale, siltstone and sandstone",Esh; Fsh,"41, 43","Black shale, siltstone and sandstone; Blackshale, Siltstone and Sandstone",#afb481,15.0,0.247,low,635.0,7
+Sandstone,Awst; Ess,"42, 45",Sandstone,#eefe66,16.5,0.509,low,103755.31,51
+Limestone and Siltstone,Mlst,44,,#b9e3a1,1.2,,medium,223.77,1
+"Shale, sandyclay, calcerous sandstones",Yls,46,"Shale, Sandclay, Calcerous sandstones",#a9da8b,11.7,0.173,medium,93.8,2
+Feldspathic sandstone calcerous sandstone and shelly limestone,Bss,47,Feldspathic sandstone calcerous sandstone and shelly limestone,#8aa964,17.3,0.376,low,4697.51,13
+Shale and limestone with sandstone intercalations,Arlsh,48,Shale and Limestone with Sandstone Intercalations,#9db1a8,23.9,0.303,low,2473.33,20
+Quartz porphyry,MyP,49,Quartz porphyry,#fdcafd,2.6,0.0,medium,301.27,1
+Granite and granite porphery,MyG,50,Granite and Granite Porphery,#d38cdb,4.8,0.06,low,220.79,1
+Ignimbrite,Myl,51,Ignimbrite,#e6baf9,3.0,0.058,medium,659.13,2
+"Syenite, quartz-syenite and gabbro",Mys,52,"Syenite, Quartz-Syenite and Gabbro",#e5bec6,2.6,0.067,medium,876.69,2
+Porphyry / quartz porphyry,MyP,54,Porphyry/Quartz Porphyry,#d4b9c4,5.6,0.155,low,755.36,5
+Rhyolite,Jyr; r,"55, 56",Rhyolite,#ce8dd3,14.1,0.343,low,4178.81,21
+Biotite granite,JyG,57,Biotite Granite,#da8ae2,1.6,0.377,medium,5146.98,2
+Trachy- andesine,JyA,58,Trachy - andesine,#fd73e0,0.7,0.0,medium,215.66,1
+Pegmatite,P,59,Pegmatite,#c0967a,1.3,0.008,medium,284.09,1
+Dolerite,D,60,Dolerite,#989898,10.9,0.029,low,5241.51,11
+Bauchite quartz- diorite,ODh,61,Hypersthene quartz-diorite,#aaaaa9,5.0,0.001,medium,38430.11,10
+Biotite and biotite hornblende granodiorite,OGd,62,Biotite and biotite Hornblende granodiorite,#fe9aaa,2.2,0.041,medium,3116.33,2
+"Syenite,mainly of pyroxene diorite composition",OGS,63,"Syenite, mainly of Pyroxenen Diorite composition",#cecece,2.4,0.017,medium,707.0,2
+Coarse biotite and biotite muscovite granite,OSq,64,"Coarse, Porphyritic biotite and biotite muscovite granite",#acae94,26.2,0.209,low,536.91,3
+Coarse hornblende granite,OGh,65,Coarse Porphyritic homblende granite,#fe7356,3.5,0.019,medium,7267.02,4
+Fine-grained biotite granite,OGf,66,Fine-grained biotite granite,#fec6d6,3.6,0.032,medium,2965.66,3
+Medium-to coarse-grained biotite granite,OGm,67,Medium-to coarse-Grained Biotite granite,#fe8eba,10.1,0.407,medium,24518.1,15
+"Undifferentiated granite,migmatite and granite Gneiss",OGu,68,"Undifferentiated Migmatite and granite, Gneiss porphyroblastic",#d97965,10.5,0.118,low,1370.24,6
+Charnockitic rocks,OGCh,69,Charnockitic Rocks,#b27e46,5.0,0.057,low,1780.92,4
+Gabbro and quartz gabbro,OGr,70,Gabbro and quartz gabbro and meta intrusives,#a5aab9,31.1,0.389,low,2977.51,12
+"Amphibole Schist,Amphibolite",Sa,72,"Amphibole Schist, Amphibolite",#9adaf2,20.2,0.304,low,8243.3,7
+Banded Iron Formation,BIF,73,Banded Iron Formation,#d1d28b,5.1,0.065,low,538.72,6
+"Slate phylite and meta siltstone, locally hornfelstic / carbonaceous",Sp,74,"Slate phylite and meta siltstone, locally hornfelstic/carbonaceous",#7abafe,8.5,0.524,high,4652.77,6
+Marble,m,75,Marble,#62a63a,23.3,0.654,low,10058.22,6
+Fine-grained flaggy quartzite and Quartz Schist.,Sf,76,Fine-grained flaggy quartzite and Quartz Schist,#9ebae6,5.5,0.274,medium,4549.03,4
+Pelitic Schist / Muscovite Schist,MS,78,Pelitic Schist/Muscovite Schist,#fafcc9,2.2,0.123,medium,103.34,1
+"Undifferentiated schists,including phyllities.",Su,79,"Undifferentiated Schists, including Phyllites",#7ac2d9,6.5,0.113,medium,24265.75,11
+Meta-conglomerate,Mc,80,Meta-conglomerate,#72c233,14.2,0.472,low,9635.42,11
+Biotite Garnet Gneiss Schist,bS,81,Biotite Garnet Gneiss Schist,#deba76,13.6,0.315,low,5043.85,17
+Biotite hornblende gneiss,bG-h,82,Biotite Hornblende Gneiss,#dbb27b,5.3,0.032,low,491.27,8
+Porphyroblastic Gneiss,OPg,83,porphroblastic Gneiss,#fe7a7e,54.3,0.573,low,82690.37,45
+Granite Gneiss,GG,84,Granite Gneiss,#d0bf91,15.6,0.642,low,54.94,1
+Granulite and gneiss,Ge,85,Quartz feldspathic granulite and gneiss,#ecc96d,5.1,0.0,low,297.47,1
+Migmatitic augen gneiss,MaG,87,Migmatitic augen Gneiss,#f3f3c5,6.8,0.79,medium,517.36,3
+Migmatitic gneiss,MG,88,Migmatitic Gneiss,#feb64e,16.4,0.606,low,84363.93,32
+Migmatite,M,89,Migmatite,#ded276,6.4,0.551,high,88877.59,12
+"Silicified, sheared rocks, large quartz veins",qs,90,"Silicified, sheared rocks, large quartz veins",#defe47,23.8,0.461,low,5882.46,6
+Mylonites interlayered with amphibolites,aMy,92,Mylonites interlayened with Amphibolites,#7ba2fc,0.8,0.0,medium,483.04,1

@@ -1,0 +1,87 @@
+p1_entry,p1_label,colour_hex,colour_group,mapped_p2_rows
+1,Ignimbrite,#caecca,1,51
+2,"Lignite, Claystone and shale",#feec6d,2,10
+3,Limestone,#8fd4cf,3,19;30
+4,Marble,#ffffae,4,75
+5,Medium-to coarse-Grained Biotite granite,#bcbedc,5,67
+6,Meta Volcanic Meta Sedimentary including pebbly schist,#ff7d6d,6,71
+7,Meta-conglomerate,#80b1d4,7,80
+8,Migmatite,#ffb262,8,89
+9,Migmatitic Gneiss,#b2dc77,9,88
+10,Migmatitic augen Gneiss,#ffcae2,10,87
+11,Mylonites,#d8d9db,11,91
+12,Mylonites interlayened with Amphibolites,#be80bc,12,92
+13,Pebbles and Grit,#caebc9,1,38
+14,Pegmatite,#feec71,2,59
+15,Pelitic Schist/Muscovite Schist,#8ed3cf,3,78
+16,Porphyritic Granite/Coarse porphyritic biotite and biotite hornblende granite,#fffeaf,4,
+17,Porphyry/Quartz Porphyry,#bcbddc,5,54
+18,Quartz feldspathic granulite and gneiss,#ff7e6e,6,85
+19,Quartz porphyry,#80b1d4,7,49
+20,"Quartzite, massive and schistose, also occuring as ridges",#ffb161,8,77
+21,Rhyolite,#b4dd71,9,55;56
+22,Sand and Clay,#ffcae1,10,7
+23,"Sand, Clay and Swamp",#d8d9da,11,4;5
+24,Sands and Pebbles,#be80bb,12,3
+25,"Sands, Clays, Siltstones and limestones",#cbecc8,1,6
+26,"Sands, Gravels and Clay",#feeb70,2,2
+27,Sandstone,#90d3ce,3,42;45
+28,Sandstone and Clay,#fefeb2,4,12;14
+29,Sandstone and Ironstone,#bcbcdb,5,26
+30,Sandstone and Limestone,#ff7d6d,6,24
+31,"Sandstone, Limestone, Coal",#80b1d3,7,23
+32,"Sandstone, Siltstone and Shale",#ffb163,8,29
+33,"Sandstone, Siltstone, Shale and Ironstone",#b2dc74,9,20
+34,"Sandstone, shale and clay",#ffc9e1,10,17
+35,"Sandstone, shale and sandyshale",#d8d9da,11,36
+36,Alluvium,#91d4ce,3,1
+37,"Amphibole Schist, Amphibolite",#fffeaf,4,72
+38,Banded Gneiss/Biotite Gneiss,#bcbddb,5,86
+39,Banded Iron Formation,#ff7c6e,6,73
+40,Basalt,#80b2d5,7,9
+41,Biotite Garnet Gneiss Schist,#ffb161,8,81
+42,Biotite Granite,#b3de71,9,57
+43,Biotite Hornblende Gneiss,#ffcbe2,10,82
+44,Biotite and biotite Hornblende granodiorite,#d9d9db,11,62
+45,"Black shale, siltstone and sandstone",#be7fbb,12,41;43
+46,"Blackshale, Siltstone and Sandstone",#caecc9,1,41;43
+47,Charnockitic Rocks,#ffec72,2,69
+48,Clay Grit and Pebbles,#8ed3ce,3,39
+49,Clay and Shale with Limestone Intercalations,#fffeb0,4,16
+50,Clay clayey sands and shale,#bbbcdc,5,11
+51,"Clay, Clayey Sands and Shale",#ff7d6d,6,11
+52,Clays and loose sandstone,#7fb1d5,7,32
+53,Coal candstone and shale,#ffb161,8,25
+54,"Coal, Sandstone and Shale",#b1dc74,9,25
+55,"Coal, Shale and Sandstone",#ffc8e2,10,22
+56,Coarse Porphyritic homblende granite,#d8d8da,11,65
+57,Coarse porphyritic porphyroblastic mica granite,#bd80bc,12,
+58,"Coarse, Porphyritic biotite and biotite muscovite granite",#caebca,1,64
+59,Dolerite,#feec72,2,60
+60,False - Bedded Sandstone,#8fd3ce,3,21
+61,Feldspathic sandstone and siltstone,#fffeb0,4,37
+62,Feldspathic sandstone calcerous sandstone and shelly limestone,#bcbddb,5,47
+63,Fine-grained biotite granite,#ff7f6f,6,66
+64,Fine-grained flaggy quartzite and Quartz Schist,#7fb1d4,7,76
+65,Gabbro and quartz gabbro and meta intrusives,#ffb162,8,70
+66,Granite Gneiss,#b3dd6f,9,84
+67,Granite and Granite Porphery,#ffc9e1,10,50;53
+68,Gravel and Sand,#d9d9da,11,40
+69,Hypersthene quartz-diorite,#bf7fbd,12,61
+70,Sandstones and Clays,#c080bd,12,13
+71,"Sandstones, Clays and Shale",#caebc8,1,31
+72,Shale (Phosphate nodules),#ffec70,2,33
+73,Shale and Limestone,#8ed3cf,3,15;28
+74,Shale and Limestone with Sandstone Intercalations,#fefeaf,4,48
+75,Shale and Mudstone,#bbbcdd,5,27
+76,"Shale, Limestone and Sandstone",#ff7d6f,6,35
+77,"Shale, Sandclay, Calcerous sandstones",#80b1d4,7,46
+78,"Silicified, sheared rocks, large quartz veins",#ffb363,8,90
+79,"Slate phylite and meta siltstone, locally hornfelstic/carbonaceous",#b2dd73,9,74
+80,"Syenite, Quartz-Syenite and Gabbro",#fecae3,10,52
+81,"Syenite, mainly of Pyroxenen Diorite composition",#d8d8da,11,63
+82,Trachy - andesine,#bd80bb,12,58
+83,"Undifferentiated Schists, including Phyllites",#caebc7,1,79
+84,"Undifferentiated Migmatite and granite, Gneiss porphyroblastic",#feeb70,2,68
+85,Younger Basalt,#8ed3cc,3,8
+86,porphroblastic Gneiss,#fefeae,4,83

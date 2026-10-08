@@ -1,0 +1,93 @@
+p2_row,code,legend_label,colour_hex,p1_entry,p1_entry_label,p1_extra_entries,label_has_polygon
+1,Al,Alluvium,#f4feb5,36,Alluvium,,yes
+2,MWS,"Sands,Gravels and Clay",#e4e57e,26,"Sands, Gravels and Clay",,yes
+3,AB,Sands and Pebbles,#f0fe82,24,Sands and Pebbles,,yes
+4,MS,"Sand, Clay and Mangrove Swamps",#96aafe,23,"Sand, Clay and Swamp",,yes
+5,SDsm,"Sand,Clay and Swamp",#fdfc8b,23,"Sand, Clay and Swamp",,no
+6,Cst,"Sands, Clays, siltstones and limestones",#f1fc93,25,"Sands, Clays, Siltstones and limestones",,yes
+7,Bnst,Sand and Clay,#fefebe,22,Sand and Clay,,yes
+8,b,Younger Basalt,#d8d8fc,85,Younger Basalt,,yes
+9,bb,Basalt,#847efc,40,Basalt,,yes
+10,OAlgs,"Lignite,Claystone and shale",#ebfd81,2,"Lignite, Claystone and shale",,yes
+11,Issh,Clay clayey sands and shale,#ffc9e0,50,Clay clayey sands and shale,51,yes
+12,Gwss,Sandstone and Clay,#fcfc8d,28,Sandstone and Clay,,yes
+13,Glcl,Sandstones and Clays,#dbd778,70,Sandstones and Clays,,yes
+14,Wss,Sandstone and Clay,#d0feb5,28,Sandstone and Clay,,yes
+15,Esh,Shale and limestone,#a8da7e,73,Shale and Limestone,,yes
+16,Imsh,Clay and Shale with Limestone Intercalations,#ccde77,49,Clay and Shale with Limestone Intercalations,,yes
+17,Kss,"Sandstone,shale and Clay",#ebf882,34,"Sandstone, shale and clay",,yes
+18,Dsh,Shale,#dbdeb1,,,,yes
+19,Kls,Limestone,#83e499,3,Limestone,,no
+20,Gss,"Sandstone,Siltstone,Shale and ironstone",#e5fea8,33,"Sandstone, Siltstone, Shale and Ironstone",,yes
+21,Ajst,False - bedded sandstone,#cefea6,60,False - Bedded Sandstone,,yes
+22,Ncsh,"Coal, shale and sandstone",#b3feb7,55,"Coal, Shale and Sandstone",,yes
+23,Ncsh,"Sandstone, limestone, Coal",#b6e498,31,"Sandstone, Limestone, Coal",,yes
+24,Asl,Sandstone and Limestone,#c5f4b0,30,Sandstone and Limestone,,yes
+25,Mcst,"Coal,Sandstone and Shale",#a6f3bf,54,"Coal, Sandstone and Shale",53,yes
+26,Bssf,Sandstone and Ironstone,#d6ff87,29,Sandstone and Ironstone,,yes
+27,Nsh,Shale and mudstone,#d4ed8a,75,Shale and Mudstone,,yes
+28,ANsh,Shale and Limestone,#ccd778,73,Shale and Limestone,,no
+29,Tst,"Sandstone, siltstone and shale",#9cd6bd,32,"Sandstone, Siltstone and Shale",,yes
+30,Glls,Limestone,#7feb96,3,Limestone,,no
+31,Wss,"Sandstone, clays and shale",#bdec9b,71,"Sandstones, Clays and Shale",,yes
+32,Wcs,Clays and loose sandstone,#a3fcc2,52,Clays and loose sandstone,,yes
+33,Wsh,Shale (Phosphate nodules),#bade79,72,Shale (Phosphate nodules),,yes
+34,Ts,Siltstone and Sandstone,#dbdeb1,,,,no
+35,Psh,"Shale,limestone and sandstone",#79dfb0,76,"Shale, Limestone and Sandstone",,no
+36,Lass,"Sandstone,shale and sandyshale",#bcc9b8,35,"Sandstone, shale and sandyshale",,yes
+37,NPss,Feldspathic sandstone and siltstone,#7bdfb0,61,Feldspathic sandstone and siltstone,,yes
+38,Glpg,Pebbles and grit,#9bca78,13,Pebbles and Grit,,yes
+39,Glss,Clay grit and pebbles,#adea7f,48,Clay Grit and Pebbles,,yes
+40,Glgss,Gravel and sand,#b2d183,68,Gravel and Sand,,yes
+41,Fsh,"Blackshale, siltstone and sandstone",#acf79a,46,"Blackshale, Siltstone and Sandstone",45,yes
+42,Ess,Sandstone,#b2e272,27,Sandstone,,yes
+43,Esh,"Blackshale, siltstone and sandstone",#c9eaa2,46,"Blackshale, Siltstone and Sandstone",45,yes
+44,Mlst,Limestone and Siltstone,#b9e6a3,,,,yes
+45,Awst,Sandstone,#b9e7c2,27,Sandstone,,yes
+46,Yls,"Shale, sandyclay, calcerous sandstones",#b6e192,77,"Shale, Sandclay, Calcerous sandstones",,yes
+47,Bss,Feldspathic sandstone calcerous sandstone and shelly limestone,#c2d4aa,62,Feldspathic sandstone calcerous sandstone and shelly limestone,,yes
+48,Arlsh,Shale and limestone with sandstone intercalations,#add397,74,Shale and Limestone with Sandstone Intercalations,,yes
+49,MyP,Quartz porphyry,#ffc8ff,19,Quartz porphyry,,yes
+50,MyG,Granite and granite porphery,#d98be2,67,Granite and Granite Porphery,,yes
+51,Myl,Ignimbrite,#e7bbf8,1,Ignimbrite,,yes
+52,Mys,"Syenite, quartz-syenite and gabbro",#e7bec6,80,"Syenite, Quartz-Syenite and Gabbro",,yes
+53,MGp,Granites and granite porphyry,#e7beff,67,Granite and Granite Porphery,,no
+54,MyP,Porphyry / quartz porphyry,#d5b9c7,17,Porphyry/Quartz Porphyry,,yes
+55,r,Rhyolite,#decccc,21,Rhyolite,,yes
+56,Jyr,Rhyolite,#c190c7,21,Rhyolite,,yes
+57,JyG,Biotite granite,#da8ae3,42,Biotite Granite,,yes
+58,JyA,Trachy- andesine,#ff73e0,82,Trachy - andesine,,yes
+59,P,Pegmatite,#c19578,14,Pegmatite,,yes
+60,D,Dolerite,#9b9b9b,59,Dolerite,,yes
+61,ODh,Bauchite quartz- diorite,#b2b2b2,,,69,yes
+62,OGd,Biotite and biotite hornblende granodiorite,#ff9bab,44,Biotite and biotite Hornblende granodiorite,,yes
+63,OGS,"Syenite,mainly of pyroxene diorite composition",#cccccc,81,"Syenite, mainly of Pyroxenen Diorite composition",,yes
+64,OSq,Coarse biotite and biotite muscovite granite,#ffecb9,58,"Coarse, Porphyritic biotite and biotite muscovite granite",,yes
+65,OGh,Coarse hornblende granite,#fe7457,56,Coarse Porphyritic homblende granite,,yes
+66,OGf,Fine-grained biotite granite,#ffc7d4,63,Fine-grained biotite granite,,yes
+67,OGm,Medium-to coarse-grained biotite granite,#ff8eba,5,Medium-to coarse-Grained Biotite granite,,yes
+68,OGu,"Undifferentiated granite,migmatite and granite Gneiss",#dc7f6e,84,"Undifferentiated Migmatite and granite, Gneiss porphyroblastic",,yes
+69,OGCh,Charnockitic rocks,#b07d44,47,Charnockitic Rocks,,yes
+70,OGr,Gabbro and quartz gabbro,#ffe1ff,65,Gabbro and quartz gabbro and meta intrusives,,yes
+71,MV,Meta Volcanic Meta Sedimentary including pebbly schist,#fff9e4,6,Meta Volcanic Meta Sedimentary including pebbly schist,,no
+72,Sa,"Amphibole Schist,Amphibolite",#72dffe,37,"Amphibole Schist, Amphibolite",,yes
+73,BIF,Banded Iron Formation,#e0e096,39,Banded Iron Formation,,yes
+74,Sp,"Slate phylite and meta siltstone, locally hornfelstic / carbonaceous",#79b9ff,79,"Slate phylite and meta siltstone, locally hornfelstic/carbonaceous",,yes
+75,m,Marble,#53ce59,4,Marble,,yes
+76,Sf,Fine-grained flaggy quartzite and Quartz Schist.,#9eb9e6,64,Fine-grained flaggy quartzite and Quartz Schist,,yes
+77,Qs,"Quartzite, massive and schistose, also occuring as ridges",#f6ffae,20,"Quartzite, massive and schistose, also occuring as ridges",,no
+78,MS,Pelitic Schist / Muscovite Schist,#ffffcf,15,Pelitic Schist/Muscovite Schist,,yes
+79,Su,"Undifferentiated schists,including phyllities.",#7ac1d9,83,"Undifferentiated Schists, including Phyllites",,yes
+80,Mc,Meta-conglomerate,#a3e772,7,Meta-conglomerate,,yes
+81,bS,Biotite Garnet Gneiss Schist,#dfba74,41,Biotite Garnet Gneiss Schist,,yes
+82,bG-h,Biotite hornblende gneiss,#d0b37a,43,Biotite Hornblende Gneiss,,yes
+83,OPg,Porphyroblastic Gneiss,#fdeab0,86,porphroblastic Gneiss,,yes
+84,GG,Granite Gneiss,#ffeab9,66,Granite Gneiss,,yes
+85,Ge,Granulite and gneiss,#ebc977,18,Quartz feldspathic granulite and gneiss,,yes
+86,bG,Banded gneiss / biotite gneiss,#fff2c0,38,Banded Gneiss/Biotite Gneiss,,no
+87,MaG,Migmatitic augen gneiss,#fff5bc,10,Migmatitic augen Gneiss,,yes
+88,MG,Migmatitic gneiss,#dfc477,9,Migmatitic Gneiss,,yes
+89,M,Migmatite,#ded377,8,Migmatite,,yes
+90,qs,"Silicified, sheared rocks, large quartz veins",#f0ff86,78,"Silicified, sheared rocks, large quartz veins",,yes
+91,My,Mylonites,#fee4a8,11,Mylonites,,no
+92,aMy,Mylonites interlayered with amphibolites,#7aa3fd,12,Mylonites interlayened with Amphibolites,,yes
