@@ -1,0 +1,87 @@
+legend_id,name,legend_original,ngsa_code,formation,age,province,seed_lon,seed_lat,fill_hex
+L01,Ignimbrite,Ignimbrite [Ignimbrite],Myl,Per-Alkaline Younger Granite Series,Jurassic,Jos Plateau,9.15,9.65,#7643E0
+L02,"Lignite, Claystone and Shale","Lignite, Claystone and shale",OAlgs,Ogwashi-Asaba Formation,Oligocene/Miocene,South-central (Delta),6.45,6.55,#F99825
+L03,Limestone,Limestone,Kls/Glls,Kalambaina / Dukamaje Formation (Sokoto/Rima Group),Palaeocene / Senonian,NW Sokoto north,5.55,13.15,#2552F9
+L04,Marble,Marble,m,Meta-Sedimentary/Meta-Volcanic Series (lens),Pre-Cambrian,W (Igbeti marble),4.45,8.35,#64E082
+L05,Medium- to Coarse-Grained Biotite Granite,Medium-to coarse-Grained Biotite granite,OGm,Pan-African Older Granite Series,Pre-Cambrian,NE (Bauchi/Yobe),9.95,11.85,#F9A270
+L06,Meta-Volcanic and Meta-Sedimentary including Pebbly Schist,Meta Volcanic Meta Sedimentary including pebbly schist,MV,Meta-Sedimentary/Meta-Volcanic Series (schist belt),Pre-Cambrian,W schist belt north,4.05,10.85,#E02192
+L07,Meta-conglomerate,Meta-conglomerate,Mc,Meta-Sedimentary/Meta-Volcanic Series,Pre-Cambrian,W (Kwara/Ekiti),4.95,8.15,#25F9CC
+L08,Migmatite,Migmatite [Migmatite],M,Migmatite-Gneiss Complex,Pre-Cambrian,Central (Kaduna),7.15,10.95,#F2F925
+L09,Migmatitic Gneiss,Migmatitic Gneiss,MG,Migmatite-Gneiss Complex,Pre-Cambrian,Central north (Katsina),7.85,11.35,#C064E0
+L10,Migmatitic Augen Gneiss,Migmatitic augen Gneiss,MaG,Migmatite-Gneiss Complex,Pre-Cambrian,Central NW (Zamfara),6.75,11.15,#4AF999
+L11,Mylonites,Mylonites,My,Cataclastic Rocks (shear zone),Pre-Cambrian,Zungeru shear,5.05,9.15,#E0A164
+L12,Mylonites Interlayered with Amphibolites,Mylonites Interlayed with Amphibolites,aMy,Cataclastic Rocks (Ifewara shear),Pre-Cambrian,Ifewara shear,4.85,7.85,#6E4AF9
+L13,Pebbles and Grit,Pebbles and Grit,Glpg,Gundumi-Illo Formation,Turonian pre-Maastrichtian,NW Bida fringe,5.15,10.35,#64C2E0
+L14,Pegmatite,Pegmatite,P,Pan-African Older Granite Series (veins/dykes),Pre-Cambrian,Central (FCT/Kaduna),7.05,9.35,#64E0DF
+L15,Pelitic Schist / Muscovite Schist,Pelitic Schist/Muscovite Schist,MS,Meta-Sedimentary/Meta-Volcanic Series,Pre-Cambrian,W (Niger),4.65,10.75,#C7F970
+L16,Porphyritic Granite / Coarse Porphyritic Biotite and Biotite-Hornblende Granite,Porphyritic Granite/Coarse porphyritic biotite and biotite hornblende granite,OGH/OSq,Pan-African Older Granite Series (batholith),Pre-Cambrian,Central (Kaduna/Plateau),8.65,10.35,#4AD7F9
+L17,Porphyry / Quartz Porphyry,Porphyry/Quartz Porphyry,MyP,Per-Alkaline Younger Granite Series,Jurassic,Jos Plateau north,9.05,9.85,#C1E021
+L18,Quartz-Feldspathic Granulite and Gneiss,Quartz feldspathic granulite and gneiss,Ge,Migmatite-Gneiss Complex (granulite),Pre-Cambrian,Central (Kogi/Benue),7.95,8.05,#F925BD
+L19,Quartz Porphyry,Quartz porphyry,MyP,Per-Alkaline Younger Granite Series,Jurassic,Jos Plateau,9.35,9.45,#25F92D
+L20,"Quartzite, Massive and Schistose, also occurring as Ridges","Quartzite, massive and schistose, also occuring as ridges",Qs,Meta-Sedimentary/Meta-Volcanic Series (ridges),Pre-Cambrian,W (Kwara/Oyo),3.55,9.15,#2162E0
+L21,Rhyolite,Rhyolite,r/Jyr,Younger Granite volcanics (ring dykes),Jurassic,Jos Plateau north,9.35,10.05,#E770F9
+L22,Sand and Clay,Sand and Clay,Bnst,Benin Formation (coastal plain sands),Pleistocene/Pliocene,"South (Benin Fm, large)",5.95,6.35,#43E0C6
+L23,"Sand, Clay and Swamp","Sand, Clay and Swamp",SDsm,Sombreiro Deltaic Formation,Pleistocene/Pliocene,SE delta swamp,6.95,4.95,#F970E8
+L24,Sands and Pebbles,Sands and Pebbles,AB,Abandoned Beach Ridges,Holocene (Neogene),SW coast (Lagos),3.6,6.55,#90E021
+L25,"Sands, Clays, Siltstones and Limestones","Sands, Clays, Siltstones and limestones",Cst,Chad Formation,Pleistocene/Pliocene,NE Chad Basin (large),13.15,12.55,#5EE043
+L26,"Sands, Gravels and Clay","Sands, Gravels and Clay",MWS,"Meander belt, back swamps, fresh water swamps",Holocene (Neogene),Niger Delta,5.55,5.35,#4A7EF9
+L27,Sandstone,Sandstone,Ess/Awst,Eze-Aku Group / Awi-Mfamosing Fm,Turonian / Albian-Cenomanian,SE (Cross River),8.55,6.05,#E0C164
+L28,Sandstone and Clay,Sandstone and Clay,Gwss,Gwandu Formation,Middle Eocene,NW Sokoto (large),5.05,12.45,#70F9A3
+L29,Sandstone and Ironstone,Sandstone and Ironstone,Bssf,Bassange Formation,Coniacian,Middle Benue,9.55,8.75,#F97082
+L30,Sandstone and Limestone,Sandstone and Limestone,Asl,Abeokuta Formation (Dahomey Basin),Coniacian/Maastrichtian,SW Dahomey (Ogun),3.65,7.35,#E02161
+L31,"Sandstone, Limestone, Coal","Sandstone, Limestone, Coal",Ncsh,Nsukka Formation lateral,Coniacian/Maastrichtian,SE Anambra,7.05,6.35,#CD25F9
+L32,"Sandstone, Siltstone and Shale","Sandstone, Siltstone and Shale",Tst/Ts,Taloka Formation / Rima Group,Coniacian / Senonian,NW (Zamfara south),5.35,11.15,#F9C570
+L33,"Sandstone, Siltstone, Shale and Ironstone","Sandstone, Siltstone, Shale and Ironstone",Gss,Gombe Formation,Coniacian/Maastrichtian,NE (Gombe),11.05,10.55,#4AF9C6
+L34,"Sandstone, Shale and Clay","Sandstone, shale and clay",Kss,Kerri-Kerri Formation,Palaeocene,"NE (Kerri-Kerri, large)",10.65,11.25,#8170F9
+L35,"Sandstone, Shale and Sandy Shale","Sandstone, shale and sandyshale",Lass,Lafia-Wukari Formation,Turonian pre-Maastrichtian,Middle Benue,9.15,8.35,#21E040
+L36,Alluvium,Alluvium,Al,"Sediments (Recent alluvium, river channels, delta)",Recent,Niger Delta / rivers,6.05,4.85,#E06464
+L37,"Amphibole Schist, Amphibolite","Amphibole Schist, Amphibolite",Sa,Meta-Sedimentary/Meta-Volcanic Series,Pre-Cambrian,W schist belt,3.95,10.15,#70E9F9
+L38,Banded Gneiss / Biotite Gneiss,Banded Gneiss/Biotite Gneiss,bG,Migmatite-Gneiss Complex,Pre-Cambrian,Central (Kaduna/Niger),7.35,9.65,#E03F21
+L39,Banded Iron Formation,Banded Iron Formation,BIF,Meta-Sedimentary/Meta-Volcanic Series (SE of Kabba),Pre-Cambrian,Kogi (Kabba),6.35,7.95,#E0C543
+L40,Basalt,Basalt,bb,Older Basalt (volcanic),Tertiary to Recent,Jos east / central,9.85,9.85,#7FF94A
+L41,Biotite-Garnet Gneiss Schist,Biotite Garnet Gneiss Schist,bS,Migmatite-Gneiss Complex,Pre-Cambrian,W (Oyo/Kwara),3.45,8.85,#F970A5
+L42,Biotite Granite,Biotite Granite,JyG,Younger Granite Series,Jurassic,Jos Plateau SW,8.85,9.05,#43E09E
+L43,Biotite-Hornblende Gneiss,Biotite Homblende Gneiss [Homblende=Hornblende],bG-h,Migmatite-Gneiss Complex,Pre-Cambrian,SW (Ondo/Ekiti),4.95,7.35,#43ADE0
+L44,Biotite and Biotite-Hornblende Granodiorite,Biotite and biotite Hornblende granodiorite,OGd,Pan-African Older Granite Series,Pre-Cambrian,Central north (Kano),8.35,11.15,#70F980
+L45,"Black Shale, Siltstone and Sandstone","Black shale, siltstone and sandstone",Fsh,Fika Formation (NE variant),Turonian pre-Maastrichtian,NE (Fika),11.65,11.15,#E07021
+L46,"Blackshale, Siltstone and Sandstone","Blackshale, Siltstone and Sandstone",Esh,Eze-Aku Group (SE variant),Turonian,SE (Abakaliki),8.15,6.95,#9A4AF9
+L47,Charnockitic Rocks,Charnockitic Rocks,OGCh,Pan-African Older Granite Series (Oban Massif),Pre-Cambrian,SE Oban Massif,8.45,5.55,#54F925
+L48,"Clay, Grit and Pebbles",Clay Grit and Pebbles,Glss,Gundumi-Illo Formation,Turonian pre-Maastrichtian,W Bida fringe,4.75,9.85,#F9F14A
+L49,Clay and Shale with Limestone Intercalations,Clay and Shale with Limestone Intercalations,Imsh,Imo Group (Imo Shale),Lower Eocene,SE (Imo),7.1,5.75,#A4F970
+L50,Clay Clayey Sands and Shale,Clay clayey sands and shale,Issh,Ilaro Formation,Upper Eocene,SW Dahomey (Ogun),3.35,6.95,#8364E0
+L51,"Clay, Clayey Sands and Shale","Clay, Clayey Sands and Shale",Issh-var,Ilaro Formation lateral (Dahomey Basin),Upper Eocene,SW Dahomey west,3.05,6.85,#52F94A
+L52,Clays and Loose Sandstone,Clays and loose sandstone,Wcs,Rima Group (Dukamaje/Wurno),Senonian,NW (Kebbi),4.65,11.55,#F94AD6
+L53,Coal Sandstone and Shale,Coal candstone and shale [candstone=sandstone],Mcst-var,Mamu Formation lateral (coal measures),Coniacian,SE (Ebonyi),7.85,6.65,#F96F4A
+L54,"Coal, Sandstone and Shale","Coal, Sandstone and Shale",Mcst,Mamu Formation (coal measures),Coniacian,SE (Mamu),7.55,6.45,#64E0A2
+L55,"Coal, Shale and Sandstone","Coal, Shale and Sandstone",Ncsh,Nsukka Formation,Coniacian/Maastrichtian,SE (Nsukka),7.65,6.95,#D3E043
+L56,Coarse Porphyritic Hornblende Granite,Coarse Porphyritic hornblende granite,OGH,Pan-African Older Granite Series,Pre-Cambrian,Central north (Katsina),7.25,11.75,#2588F9
+L57,Coarse Porphyritic Porphyroblastic Mica Granite,Coarse porphyritic porphyroblastic mica granite,OGm-var,Pan-African Older Granite Series,Pre-Cambrian,Central NW (Zamfara),6.45,12.45,#C2E064
+L58,Coarse Porphyritic Biotite and Biotite-Muscovite Granite,"Coarse, Porphyritic biotite and biotite muscovite granite",OSq,Pan-African Older Granite Series,Pre-Cambrian,Central north (Jigawa),8.15,12.05,#F04AF9
+L59,Dolerite,Dolerite,D,Pan-African Older Granite Series (dykes),Pre-Cambrian,Central (Niger),6.55,10.35,#F9C54A
+L60,False-Bedded Sandstone,False - Bedded Sandstone,Ajst,Ajali Formation,Coniacian/Maastrichtian,SE Anambra (Enugu),7.35,6.75,#70C6F9
+L61,Feldspathic Sandstone and Siltstone,Feldspathic sandstone and siltstone,NPss,Nupe Formation (Nupe Group),Turonian pre-Maastrichtian,Bida Basin (large),6.05,9.15,#F92587
+L62,"Feldspathic Sandstone, Calcareous Sandstone and Shelly Limestone",Feldspathic sandstone calcareous sandstone and shelly limestone,Bss,Bima Formation,Albian,Upper Benue (Bima),11.35,9.55,#4385E0
+L63,Fine-Grained Biotite Granite,Fine-grained biotite granite,OGf,Pan-African Older Granite Series,Pre-Cambrian,Central NE (Jigawa/Bauchi),9.15,11.35,#21E09E
+L64,Fine-Grained Flaggy Quartzite and Quartz Schist,Fine-grained flaggy quartzite and Quartz Schist,Sf,Meta-Sedimentary/Meta-Volcanic Series,Pre-Cambrian,W (Oyo),3.85,8.15,#F94A53
+L65,Gabbro and Quartz Gabbro and Meta Intrusives,Gabbro and quartz gabbro and meta Intrusives,OGr,Pan-African Older Granite Series (mafic),Pre-Cambrian,East (Taraba),11.65,8.45,#E064A4
+L66,Granite Gneiss,Granite Gneiss,GG,Migmatite-Gneiss Complex,Pre-Cambrian,Central NE (Kaduna),8.15,10.75,#7082F9
+L67,Granite and Granite Porphyry,Granite and Granite Porphyry,MyG/MGp,Per-Alkaline Younger Granite Series,Jurassic,Jos Plateau west,8.95,9.35,#E06484
+L68,Gravel and Sand,Gravel and Sand,Glgss,Gundumi-Illo Formation,Turonian pre-Maastrichtian,S Bida fringe,5.65,8.55,#A021E0
+L69,Hypersthene Quartz-Diorite,Hypersthene quartz-diorite,ODh,Pan-African Older Granite Series,Pre-Cambrian,Central (FCT/Nasarawa),7.65,9.15,#6F21E0
+L70,Sandstones and Clays,Sandstones and Clays,Glcl,Gwandu/Ilo lateral (Sokoto),Middle Eocene,NW Sokoto west,4.35,12.15,#E04F43
+L71,"Sandstones, Clays and Shale","Sandstones, Clays and Shale",Wss,Rima Group (Dukamaje/Wurno),Senonian,NW (Zamfara),5.95,11.65,#21E0CF
+L72,Shale (Phosphate Nodules),Shale (Phosphate nodules),Wsh,Rima Group (Dukamaje/Wurno),Senonian,NW Sokoto,5.85,12.75,#A3E064
+L73,Shale and Limestone,Shale and Limestone,Esh/ANsh,Imo Group / Awgu Formation,Lower Eocene / Coniacian,SE (Imo/Awgu),7.55,5.85,#E043AC
+L74,Shale and Limestone with Sandstone Intercalations,Shale and Limestone with Sandstone Intercalations,Arlsh,Asu River Group,Albian,SE Lower Benue,8.25,6.45,#25F1F9
+L75,Shale and Mudstone,Shale and Mudstone,Nsh,Nkporo Formation (incl. Enugu Shale),Coniacian,SE (Nkporo),7.9,6.15,#2131E0
+L76,"Shale, Limestone and Sandstone","Shale, Limestone and Sandstone",Psh,Pindiga Formation,Turonian pre-Maastrichtian,Gongola (Pindiga),11.15,9.95,#E064E0
+L77,"Shale, Sandclay, Calcareous Sandstones","Shale, Sandclay, Calcareous sandstones",Yls,Yola-Bima-Yolde Formation,Albian/Cenomanian,Upper Benue (Yola),12.15,9.15,#BCF925
+L78,"Silicified, Sheared Rocks, Large Quartz Veins","Silicified, sheared rocks, large quartz veins",qs,Cataclastic Rocks (Kalangai-Zungeru-Ifewara),Pre-Cambrian,Central shear,5.35,10.15,#33E021
+L79,"Slate, Phyllite and Meta-Siltstone, locally Hornfelsic/Carbonaceous","Slate phyllite and meta siltstone, locally hornfelstic/carbonaceous",Sp,Meta-Sedimentary/Meta-Volcanic Series,Pre-Cambrian,W (Kwara),4.15,8.75,#9725F9
+L80,"Syenite, Quartz-Syenite and Gabbro","Syenite, Quartz-Syenite and Gabbro",Mys,Per-Alkaline Younger Granite Series,Jurassic,Jos Plateau east,9.55,9.65,#4AAAF9
+L81,"Syenite, mainly of Pyroxene Diorite Composition","Syenite, mainly of Pyroxenen Diorite composition",OGS,Pan-African Older Granite Series,Pre-Cambrian,Central north (Kano),8.85,11.35,#E0435F
+L82,Trachy-Andesine,Trachy - andesine,JyA,Younger Granite Series,Jurassic,Jos Plateau SE,9.75,9.25,#F96225
+L83,"Undifferentiated Schists, including Phyllites","Undifferentiated Schists, including Phyllities",Su,Meta-Sedimentary/Meta-Volcanic Series,Pre-Cambrian,W (Oyo/Osun),3.75,7.55,#E043D4
+L84,"Undifferentiated Migmatite and Granite, Gneiss Porphyroblastic","Undifferentiated Migmatite and granite, Gneiss porphyroblastic",OGu,Pan-African Older Granite Series (undiff.),Pre-Cambrian,"East (Taraba/Adamawa, large)",11.15,8.75,#4E43E0
+L85,Younger Basalt,Younger Basalt,b,Newer Basalt (volcanic plateau),Tertiary to Recent,Biu Plateau,11.85,10.65,#6465E0
+L86,Porphyroblastic Gneiss,porphroblastic Gneiss [porphro=porphyro],OPg,Migmatite-Gneiss Complex,Pre-Cambrian,Central (Kogi/Kwara),6.85,8.15,#86E043
