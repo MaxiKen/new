@@ -1,0 +1,87 @@
+legend_id,name,color_hex
+1,"Alluvium",#8FD3CE
+2,"Amphibole Schist, Amphibolite",#FFFFB0
+3,"Banded Gneiss/Biotite Gneiss",#BCBDDB
+4,"Banded Iron Formation",#FF7D6E
+5,"Basalt",#7FB1D4
+6,"Biotite Garnet Gneiss Schist",#FFB262
+7,"Biotite Granite",#B3DD70
+8,"Biotite Hornblende Gneiss",#FFCBE3
+9,"Biotite and biotite Hornblende granodiorite",#D9D9DB
+10,"Black shale, siltstone and sandstone",#BE80BC
+11,"Blackshale, Siltstone and Sandstone",#CAECC9
+12,"Charnockitic Rocks",#FEEC71
+13,"Clay Grit and Pebbles",#8FD3CE
+14,"Clay and Shale with Limestone Intercalations",#FFFFB0
+15,"Clay clayey sands and shale",#BCBDDB
+16,"Clay, Clayey Sands and Shale",#FF7D6E
+17,"Clays and loose sandstone",#7FB1D4
+18,"Coal candstone and shale",#FFB262
+19,"Coal, Sandstone and Shale",#B3DD70
+20,"Coal, Shale and Sandstone",#FFCBE3
+21,"Coarse Porphyritic hornblende granite",#D9D9DB
+22,"Coarse porphyritic porphyroblastic mica granite",#BE80BC
+23,"Coarse, Porphyritic biotite and biotite muscovite granite",#CAECC9
+24,"Dolerite",#FEEC71
+25,"False - Bedded Sandstone",#8FD3CE
+26,"Feldspathic sandstone and siltstone",#FFFFB0
+27,"Feldspathic sandstone calcerous sandstone and shelly limestone",#BCBDDB
+28,"Fine-grained biotite granite",#FF7D6E
+29,"Fine-grained flaggy quartzite and Quartz Schist",#7FB1D4
+30,"Gabbro and quartz gabbro and meta intrusives",#FFB262
+31,"Granite Gneiss",#B3DD70
+32,"Granite and Granite Porphery",#FFCBE3
+33,"Gravel and Sand",#D9D9DB
+34,"Hypersthene quartz-diorite",#BE80BC
+35,"Ignim brite",#CAECC9
+36,"Lignite, Claystone and shale",#FEEC71
+37,"Limestone",#8FD3CE
+38,"Marble",#FFFFB0
+39,"Medium-to coarse-Grained Biotite granite",#BCBDDB
+40,"Meta Volcanic Meta Sedimentary including pebbly schist",#FF7D6E
+41,"Meta-conglomerate",#7FB1D4
+42,"Migmatite",#FFB262
+43,"Migmatitic Gneiss",#B3DD70
+44,"Migmatitic augen Gneiss",#FFCBE3
+45,"Mylonites",#D9D9DB
+46,"Mylonites Interlayered with Amphibolites",#BE80BC
+47,"Pebbles and Grit",#CAECC9
+48,"Pegmatite",#FEEC71
+49,"Pelitic Schist/Muscovite Schist",#8FD3CE
+50,"Porphyritic Granite/Coarse porphyritic biotite and biotite hornblende granite",#FFFFB0
+51,"Porphyry/Quartz Porphyry",#BCBDDB
+52,"Quartz feldspathic granulite and gneiss",#FF7D6E
+53,"Quartz porphyry",#7FB1D4
+54,"Quartzite, massive and schistose, also occuring as ridges",#FFB262
+55,"Rhyolite",#B3DD70
+56,"Sand and Clay",#FFCBE3
+57,"Sand, Clay and Swamp",#D9D9DB
+58,"Sands and Pebbles",#BE80BC
+59,"Sands, Clays, Siltstones and limestones",#CAECC9
+60,"Sands, Gravels and Clay",#FEEC71
+61,"Sandstone",#8FD3CE
+62,"Sandstone and Clay",#FFFFB0
+63,"Sandstone and Ironstone",#BCBDDB
+64,"Sandstone and Limestone",#FF7D6E
+65,"Sandstone, Limestone, Coal",#7FB1D4
+66,"Sandstone, Siltstone and Shale",#FFB262
+67,"Sandstone, Siltstone, Shale and Ironstone",#B3DD70
+68,"Sandstone, shale and clay",#FFCBE3
+69,"Sandstone, shale and sandyclay",#D9D9DB
+70,"Sandstones and Clays",#BE80BC
+71,"Sandstones, Clays and Shale",#CAECC9
+72,"Shale (Phosphate nodules)",#FEEC71
+73,"Shale and Limestone",#8FD3CE
+74,"Shale and Limestone with Sandstone Intercalations",#FFFFB0
+75,"Shale and Mudstone",#BCBDDB
+76,"Shale, Limestone and Sandstone",#FF7D6E
+77,"Shale, Sandclay, Calcerous sandstones",#7FB1D4
+78,"Silicified, sheared rocks, large quartz veins",#FFB262
+79,"Slate phylite and meta siltstone, locally hornfelstic/carbonaceous",#B3DD70
+80,"Syenite, Quartz-Syenite and Gabbro",#FFCBE3
+81,"Syenite, mainly of Pyroxenen Diorite composition",#D9D9DB
+82,"Trachy - andesine",#BE80BC
+83,"Undifferentiated Schists, including Phyllities",#CAECC9
+84,"Undifferentiated Migmatite and granite, Gneiss porphyroblastic",#FEEC71
+85,"Younger Basalt",#8FD3CE
+86,"porphroblastic Gneiss",#FFFFB0

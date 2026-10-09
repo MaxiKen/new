@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.py[cod]
+segmentation.npz
+segmentation_preview.png
+mask_preview.png
