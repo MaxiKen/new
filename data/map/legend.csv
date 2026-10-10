@@ -1,7 +1,7 @@
 id,code,name,color,legend_y,count,candidates
 1,Al,Alluvium,#ecff65,214,79,"[1, 10]"
 2,MWS,"Sands, gravels and clay",#e4e57d,250,17,[2]
-3,AB,Sands and pebbles,#f0ff82,286,14,"[3, 90]"
+3,AB,Sands and pebbles,#f0ff82,286,15,"[3, 90]"
 4,MS,"Sand, clay and mangrove swamps",#96aaff,322,15,[4]
 5,SDsm,"Sand, clay and swamp",#fcfb4d,358,8,[5]
 6,Cst,"Sands, clays, siltstones and limestones",#f0ff5a,394,4,[6]
@@ -31,14 +31,14 @@ id,code,name,color,legend_y,count,candidates
 30,Glls,Limestone,#63f286,1259,0,"[19, 30]"
 31,Wss,"Sandstone, clays and shale",#bdec9b,1295,4,[31]
 32,Wcs,Clays and loose sandstone,#a3fcc2,1331,1,[32]
-33,Wsh,Shale (phosphate nodules),#b9e06d,1367,4,[33]
+33,Wsh,Shale (phosphate nodules),#b9e06d,1367,3,[33]
 34,Ts,Siltstone and sandstone,#dbdeb1,1403,26,"[18, 34]"
 35,Psh,"Shale, limestone and sandstone",#79ddb0,1440,5,"[35, 37]"
 36,Lass,"Sandstone, shale and sandy shale",#bcc8b8,1476,3,[36]
 37,NPss,Feldspathic sandstone and siltstone,#79deb0,1512,27,"[35, 37]"
-38,Glpg,Pebbles and grit,#94ce67,1548,33,[38]
+38,Glpg,Pebbles and grit,#94ce67,1548,34,[38]
 39,Glss,"Clay, grit and pebbles",#a3f066,1584,11,[39]
-40,Glgss,Gravel and sand,#b2d181,1620,25,[40]
+40,Glgss,Gravel and sand,#b2d181,1620,26,[40]
 41,Fsh,"Black shale, siltstone and sandstone",#acf69b,1656,2,[41]
 42,Ess,Sandstone,#b2e370,1692,11,[42]
 43,Esh,"Black shale, siltstone and sandstone",#98d64f,1728,13,[43]
@@ -79,18 +79,18 @@ id,code,name,color,legend_y,count,candidates
 78,MS,Pelitic schist / muscovite schist,#f2f600,2990,12,[78]
 79,Su,"Undifferentiated schists, including phyllites",#79c1d9,3026,61,[79]
 80,Mc,Meta-conglomerate,#a3e770,3062,0,[80]
-81,bS,Biotite garnet gneiss schist,#dfba74,3098,36,[81]
+81,bS,Biotite garnet gneiss schist,#dfba74,3098,37,[81]
 82,bG-h,Biotite hornblende gneiss,#d8b25a,3134,16,[82]
-83,OPg,Porphyroblastic gneiss,#dab131,3170,36,[83]
+83,OPg,Porphyroblastic gneiss,#dab131,3170,37,[83]
 84,GG,Granite gneiss,#ffb44c,3207,69,[84]
 85,Ge,Granulite and gneiss,#ecc96d,3243,6,[85]
 86,bG,Banded gneiss / biotite gneiss,#daa000,3279,35,[86]
 87,MaG,Migmatitic augen gneiss,#e6b300,3315,2,[87]
 88,MG,Migmatitic gneiss,#dfc477,3351,22,[88]
-89,M,Migmatite,#ded377,3387,54,[89]
+89,M,Migmatite,#ded377,3387,53,[89]
 90,qs,"Silicified, sheared rocks, large quartz veins",#f0ff86,3423,9,"[3, 90]"
 91,My,Mylonites,#ffc945,3459,1,[91]
 92,aMy,Mylonites interlayered with amphibolites,#7aa3ff,3495,2,[92]
-93,OGp,Unresolved map code OGp; no matching legend code,#ff797f,0,149,[93]
+93,OGp,Unresolved map code OGp; no matching legend code,#ff797f,0,150,[93]
 94,S,Unresolved map code S; no matching legend code,#6774ff,0,1,[94]
 95,WATER,Mapped water / water-color interpretation; not geology,#99d8eb,0,107,[95]

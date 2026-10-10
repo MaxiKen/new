@@ -6,6 +6,7 @@ const number = new Intl.NumberFormat('en');
 const issueLabels = {
   'annotation-heavy': 'Annotation-heavy reconstruction',
   'narrow-body': 'Narrow bodies / possible artifacts',
+  'band-repaired': 'Filled annotation bands / halos',
   'continuity-restored': 'Restored continuous bodies',
   'similar-colors': 'Indistinguishable legend colors',
   'unresolved-code': 'Unmatched map codes',
@@ -14,6 +15,7 @@ const issueLabels = {
 const state = { data: null, width: 0, height: 0, scale: 1, fitScale: 1, x: 0, y: 0,
   mode: 'clean', split: .5, contacts: true, selected: null, highlighted: null,
   issue: 'continuity-restored', issueIndex: -1, sourceReady: false, ready: false };
+let repairs = null, repairIndex = -1;
 let continuity = null, restoredIndex = -1, showPrevious = false, removedPaths = [];
 let fillPaths = [], contactPaths = [], contactBoxes = [], framePending = false;
 const overviewCaches = new Map();
@@ -102,6 +104,26 @@ function nextRestored() {
   else fit(change.bbox,60);
   showPrevious=true;$('show-previous-splits').checked=true;$('previous-notice').hidden=false;
   $('restored-position').textContent=`${restoredIndex+1} of ${continuity.changes.length} reviewed ancestry groups · ${change.previousIds.length} prior fragments`;
+  requestDraw();
+}
+function nextRepair() {
+  if (!repairs?.areas.length) return;
+  repairIndex=(repairIndex+1)%repairs.areas.length;
+  const area=repairs.areas[repairIndex];
+  select(state.data.features.findIndex(f=>f.id===area.featureId));
+  setMode('clean');
+  showPrevious=false;$('show-previous-splits').checked=false;$('previous-notice').hidden=true;
+  const b=area.bbox,x=(b[0]+b[2])/2,y=(b[1]+b[3])/2;
+  const half=Math.max(80,(b[2]-b[0])/2+35,(b[3]-b[1])/2+35);
+  fit([x-half,y-half,x+half,y+half],30);
+  $('repair-position').textContent=`${repairIndex+1} of ${repairs.areas.length} local areas · ${area.pixels} source pixels filled. Use Compare to inspect the original photo.`;
+  requestDraw();
+}
+function checkSeparated() {
+  if(!repairs?.sourceChecks.length)return;
+  const check=repairs.sourceChecks[0];select(null);setMode('compare');fit(check.bbox,30);
+  showPrevious=false;$('show-previous-splits').checked=false;$('previous-notice').hidden=true;
+  $('repair-position').textContent=`Kept separate: polygons ${check.featureIds.join(' and ')}. The original photo shows another unit between the two pink lenses.`;
   requestDraw();
 }
 function drawPhoto() {
@@ -271,6 +293,8 @@ $('clear-highlight').addEventListener('click',()=>{state.highlighted=null;$('cle
 $('clear-selection').addEventListener('click',()=>select(null));
 $('next-issue').addEventListener('click',nextIssue);
 $('next-restored').addEventListener('click',nextRestored);
+$('next-repair').addEventListener('click',nextRepair);
+$('check-separated').addEventListener('click',checkSeparated);
 $('compare-restored').addEventListener('click',()=>setMode('compare'));
 $('show-previous-splits').addEventListener('change',e=>{showPrevious=e.target.checked;$('previous-notice').hidden=!showPrevious;requestDraw();});
 document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
@@ -292,6 +316,12 @@ async function initialize() {
     $('restored-count').textContent=number.format(continuity.summary.restoredContinuousBodies);
     $('removed-count').textContent=number.format(continuity.summary.previousInternalSeamsRemoved);
     $('next-restored').disabled=!continuity.changes.length;
+    const repairsResponse=await fetch('/data/repairs.json');
+    if(!repairsResponse.ok)throw new Error('Annotation-repair review could not be loaded.');
+    repairs=await repairsResponse.json();
+    $('repair-pixels').textContent=number.format(repairs.summary.repairedSourcePixels);
+    $('next-repair').disabled=!repairs.areas.length;
+    $('check-separated').disabled=!repairs.sourceChecks.length;
     state.ready=true; resize(); fit(data.extent); state.fitScale=state.scale;
     $('loading').hidden=true; $('class-count').textContent=number.format(data.stats.classCount);
     $('feature-count').textContent=number.format(data.stats.featureCount); $('contact-count').textContent=number.format(data.stats.contactCount);

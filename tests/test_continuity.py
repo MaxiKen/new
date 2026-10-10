@@ -62,13 +62,69 @@ class ContinuityTests(unittest.TestCase):
         seeds=a.copy();seeds[12:17,18:22]=0;band=seeds==0
         fixed,changed,_=self.repair(a,seeds,band)
         np.testing.assert_array_equal(a,fixed);self.assertFalse(changed.any())
-    def test_no_recoloring_when_target_already_connected_around_band(self):
+    def test_untrusted_annotation_halo_inside_one_body_is_filled(self):
         a=np.ones((30,40),np.uint8);a[8:22,18:22]=2
         seeds=a.copy();seeds[8:22,18:22]=0;band=seeds==0
         fixed,changed,_=self.repair(a,seeds,band)
-        np.testing.assert_array_equal(a,fixed);self.assertFalse(changed.any())
+        self.assertTrue(changed.any());self.assertTrue(np.all(fixed==1))
     def test_palette_equivalence_not_global_dissolve(self):
         self.canon[2]=1;a=np.ones((12,20),np.uint8);a[:,7:12]=3;a[:,12:]=2
         ids,_=connected_bodies(a,self.canon)
         self.assertEqual(ids.max(),3);self.assertNotEqual(ids[5,2],ids[5,15])
+
+class ObliqueContinuityTests(unittest.TestCase):
+    setUp=ContinuityTests.setUp
+    repair=ContinuityTests.repair
+    def oblique(self, mirrored=False):
+        y,x=np.indices((70,70))
+        band=(x+y>=54)&(x+y<=84)  # 31 px axially, about 22 px normally
+        a=np.ones(band.shape,np.uint8);a[band]=2
+        seeds=a.copy();seeds[band]=0
+        if mirrored:return a[:,::-1],seeds[:,::-1],band[:,::-1]
+        return a,seeds,band
+    def test_diagonal_annotation_band_rejoins(self):
+        for mirrored in (False,True):
+            a,seeds,band=self.oblique(mirrored)
+            fixed,changed,_=self.repair(a,seeds,band)
+            self.assertTrue(changed.any())
+            ids,_=connected_bodies(fixed,self.canon)
+            if mirrored:self.assertEqual(ids[0,-1],ids[-1,0])
+            else:self.assertEqual(ids[0,0],ids[-1,-1])
+            self.assertFalse(np.any(changed & ~band))
+    def test_diagonal_repair_respects_physical_gap_limit(self):
+        a,seeds,band=self.oblique()
+        _,changed,_=self.repair(a,seeds,band,gap=15)
+        self.assertFalse(changed.any())
+    def test_diagonal_water_not_crossed(self):
+        a,seeds,band=self.oblique();a[band]=95
+        fixed,changed,_=self.repair(a,seeds,band,water=band)
+        self.assertFalse(changed.any());np.testing.assert_array_equal(fixed,a)
+    def test_oblique_other_reliable_geology_protected(self):
+        a,seeds,band=self.oblique();seeds[35,35]=2
+        fixed,changed,_=self.repair(a,seeds,band)
+        self.assertEqual(fixed[35,35],2);self.assertFalse(changed[35,35])
+        # Any source-evidenced donor component must remain connected.
+        ids,_=connected_bodies(fixed,self.canon)
+        self.assertEqual(len(np.unique(ids[fixed==2])),1)
+    def test_turning_photo_does_not_change_diagonal_repair(self):
+        a,seeds,band=self.oblique()
+        fixed,_,_=self.repair(a,seeds,band)
+        rotated,_,_=self.repair(np.rot90(a),np.rot90(seeds),np.rot90(band))
+        np.testing.assert_array_equal(fixed,np.rot90(rotated,-1))
+
+class VisiblePaintTests(unittest.TestCase):
+    def test_thin_real_unit_without_eroded_core_blocks_join(self):
+        a=np.ones((25,40),np.uint8);a[:,18:23]=2
+        reliable=a.copy();reliable[:,18:23]=0
+        observed=np.zeros_like(a);observed[:,20]=2
+        fixed,changed,_=repair_annotation_bands(a,reliable,reliable==0,np.ones(a.shape,bool),
+            np.zeros(a.shape,bool),np.arange(96,dtype=np.uint8),observed=observed)
+        np.testing.assert_array_equal(fixed,a);self.assertFalse(changed.any())
+    def test_real_enclosed_unit_not_deleted_as_halo(self):
+        a=np.ones((25,40),np.uint8);a[7:17,18:23]=2
+        reliable=a.copy();reliable[a==2]=0;observed=np.where(a==2,2,0).astype('uint8')
+        fixed,changed,_=repair_annotation_bands(a,reliable,a==2,np.ones(a.shape,bool),
+            np.zeros(a.shape,bool),np.arange(96,dtype=np.uint8),observed=observed)
+        np.testing.assert_array_equal(fixed,a);self.assertFalse(changed.any())
+
 if __name__=='__main__': unittest.main()

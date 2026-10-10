@@ -5,11 +5,11 @@ report=json.loads((OUT/'validation.json').read_text())
 assert report['allValid'] and report['internalGapCount']==0 and report['noBlackOrNearBlackFills']
 shutil.copyfile(ROOT/'docs/NOTES.md',OUT/'README.md')
 shutil.copyfile(ROOT/'docs/NOTES.md',WEB/'NOTES.md')
-destination=WEB/'NGSA_geology_v6.zip'
+destination=WEB/'NGSA_geology_v7.zip'
 with zipfile.ZipFile(destination,'w',zipfile.ZIP_DEFLATED) as z:
     for file in sorted(OUT.iterdir()):
-        if file.is_file():z.write(file,arcname='NGSA_geology_v6/'+file.name)
-    z.write(WEB/'source.jpg',arcname='NGSA_geology_v6/source_reference.jpg')
+        if file.is_file():z.write(file,arcname='NGSA_geology_v7/'+file.name)
+    z.write(WEB/'source.jpg',arcname='NGSA_geology_v7/source_reference.jpg')
 with zipfile.ZipFile(destination) as z:
     assert z.testzip() is None
     assert len([n for n in z.namelist() if n.endswith('.shp')])==3

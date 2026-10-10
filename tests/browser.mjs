@@ -39,7 +39,9 @@ try {
   assert.equal(await blackPixels(),0,'Clean canvas contains opaque black/near-black pixels');
   await page.screenshot({path:'.cache/browser/desktop.png',fullPage:true});
   const continuity = await (await fetch(`${base}/data/continuity.json`)).json();
-  assert.equal(quality.revision,6);
+  assert.equal(quality.revision,7);
+  assert.equal(await page.locator('.revision').textContent(),'REVISION 07');
+  assert.equal(await page.locator('.continuity-review .verified').textContent(),'VS V5');
   assert.ok(continuity.summary.restoredContinuousBodies>0);
   assert.equal(await page.locator('#restored-count').textContent(),new Intl.NumberFormat('en').format(continuity.summary.restoredContinuousBodies));
   await page.locator('#next-restored').click();
@@ -69,6 +71,20 @@ try {
   await page.locator('[data-mode="clean"]').click();
   await page.locator('#clear-selection').click();await page.locator('#fit').click();
 
+
+  const repairReport=await (await fetch(`${base}/data/repairs.json`)).json();
+  assert.equal(await page.locator('#repair-pixels').textContent(),new Intl.NumberFormat('en').format(repairReport.summary.repairedSourcePixels));
+  await page.locator('#next-repair').click();
+  assert.equal(await page.locator('#inspect-title').textContent(),`Polygon ${new Intl.NumberFormat('en').format(repairReport.areas[0].featureId)}`);
+  assert.equal(await page.locator('#show-previous-splits').isChecked(),false);
+  assert.ok((await page.locator('#repair-position').textContent()).includes('source pixels filled'));
+  await page.waitForTimeout(150);assert.equal(await blackPixels(),0);
+  await page.screenshot({path:'.cache/browser/annotation-fill.png',fullPage:true});
+  await page.locator('#check-separated').click();
+  assert.equal(await page.locator('[data-mode="compare"]').getAttribute('aria-pressed'),'true');
+  assert.ok((await page.locator('#repair-position').textContent()).includes(repairReport.sourceChecks[0].featureIds.join(' and ')));
+  await page.screenshot({path:'.cache/browser/protected-lenses.png',fullPage:true});
+  await page.locator('[data-mode="clean"]').click();await page.locator('#fit').click();
 
   const before = await page.locator('#zoom-label').textContent();
   await page.locator('#zoom-in').click(); await page.waitForTimeout(100);
@@ -104,7 +120,7 @@ try {
   const downloadPromise = page.waitForEvent('download');
   await page.locator('.download').click();
   const download = await downloadPromise;
-  assert.equal(download.suggestedFilename(),'NGSA_geology_v6.zip');
+  assert.equal(download.suggestedFilename(),'NGSA_geology_v7.zip');
   assert.equal(await download.failure(),null);
 
   await page.setViewportSize({width:390,height:844});
@@ -115,5 +131,5 @@ try {
   await page.screenshot({path:'.cache/browser/mobile.png',fullPage:false,timeout:60000});
   assert.equal(await page.locator('.download').isVisible(),true);
   assert.deepEqual(errors,[]);
-  console.log('PASS: continuity navigation, historic-seam overlay rendering, ancestry IDs, real Chromium desktop/mobile rendering, clean-map black-pixel check, source distinction, inspection, anomaly navigation, comparison, zoom, legend, contact toggle, ZIP download.');
+  console.log('PASS: localized annotation fills, protected separate-lens review, continuity navigation, historic-seam overlay rendering, ancestry IDs, real Chromium desktop/mobile rendering, clean-map black-pixel check, source distinction, inspection, anomaly navigation, comparison, zoom, legend, contact toggle, ZIP download.');
 } finally { await browser.close(); }

@@ -1,8 +1,8 @@
 {
-  "revision": 6,
+  "revision": 7,
   "built": "2026-10-10",
-  "featureCount": 1588,
-  "contactCount": 4067,
+  "featureCount": 1592,
+  "contactCount": 4064,
   "classCount": 83,
   "blackFillClasses": 0,
   "interiorGaps": 0,
@@ -25,29 +25,39 @@
   "height": 3336,
   "sourceSha256": "07fd0ff6611caee58d81add0333cd23a0ad8a557f2eebf7429012e6cee5ed552",
   "issueCounts": {
-    "annotation-heavy": 1140,
-    "narrow-body": 314,
-    "similar-colors": 209,
+    "annotation-heavy": 1133,
+    "narrow-body": 335,
+    "band-repaired": 371,
+    "continuity-restored": 316,
+    "similar-colors": 210,
     "water": 107,
-    "unresolved-code": 150,
-    "continuity-restored": 322
+    "unresolved-code": 151
   },
   "refinement": {
-    "photo_evidence_arcs": 3460,
-    "arcs_reduced": 48,
+    "photo_evidence_arcs": 3466,
+    "arcs_reduced": 95,
     "smoothing_sigma_pixels": 2.2,
     "max_proposed_shift_pixels": 4.5
   },
   "continuity": {
     "blackStrokeSplittingEnabled": false,
     "maxGapPixels": 24,
-    "supportedBandPixels": 73,
-    "rejectedOrConflictingBandPixels": 2238,
+    "scanAxes": [
+      "horizontal",
+      "vertical",
+      "diagonal-down",
+      "diagonal-up"
+    ],
+    "distanceUnit": "Euclidean source pixels",
+    "trustedBodiesProtected": true,
+    "supportedBandPixels": 11283,
+    "rejectedOrConflictingBandPixels": 138436,
     "connectedBodiesBeforeBandRepair": 1594,
-    "connectedBodiesAfterBandRepair": 1588,
+    "connectedBodiesAfterBandRepair": 1592,
     "waterPixelsUnchanged": true,
     "reliableClassPixelsUnchanged": true,
-    "rationale": "Dark strokes never subdivide an existing color component. Local gap repair requires same-family original-color endpoints, no water, no reliable other unit."
+    "visibleSourcePaintUnchanged": true,
+    "rationale": "Dark strokes never subdivide an existing color component. Four-axis gap repair requires matching original-color endpoints, no water or reliable other unit; trusted bodies cannot be split. Only fully masked, wholly untrusted annotation fragments may be consumed."
   },
   "limitations": [
     "Automated geological draft, not exhaustive manual verification.",
@@ -60,10 +70,10 @@
     "baselineCommit": "a62427bf26b3861fe58221a3f718626daa0455d8",
     "baselineSha256": "fae56e173aa23c96b73f74821fc106488215de73fed75e30029012ae0ae598e2",
     "previousFeatureCount": 2443,
-    "currentFeatureCount": 1588,
-    "restoredContinuousBodies": 318,
-    "previousInternalSeamsRemoved": 732,
-    "sourceSupportedBandPixels": 73,
+    "currentFeatureCount": 1592,
+    "restoredContinuousBodies": 316,
+    "previousInternalSeamsRemoved": 730,
+    "sourceSupportedBandPixels": 11283,
     "policy": "Connected colors are not split by dark overprints; no proximity-only or global same-color dissolve.",
     "caution": "Ancestry/overlap evidence, not exhaustive geological verification. IDs changed: use previousIds for tracing reviewed merges."
   }

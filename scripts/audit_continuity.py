@@ -1,11 +1,11 @@
-"""Trace revision-5 fragments to revision-6 continuous bodies for visual review.
+"""Trace revision-5 fragments to current continuous bodies for visual review.
 
 This is an overlap/ancestry audit, not proof of geological identity. The
 original photo remains available to inspect every restored candidate.
 """
 from pathlib import Path
 import subprocess,json,hashlib,csv,shapefile
-from collections import defaultdict
+from collections import defaultdict, Counter
 import numpy as np,shapely as sh
 from shapely.geometry import Polygon,LineString
 from shapely.strtree import STRtree
@@ -17,6 +17,11 @@ else:blob=subprocess.check_output(['git','show',f'{BASE}:public/data/map.json'],
 if hashlib.sha256(blob).hexdigest()!='fae56e173aa23c96b73f74821fc106488215de73fed75e30029012ae0ae598e2':
     raise ValueError('Baseline cache does not match the named revision-5 commit')
 old=json.loads(blob);new=json.loads((WEB/'map.json').read_text())
+# Idempotent: ancestry tags are regenerated; direct band-repair flags are
+# independent and survive. Never accumulate stale previous IDs on reruns.
+for f in new['features']:
+    f['issues']=[v for v in f['issues'] if v!='continuity-restored']
+    f.pop('previousIds',None)
 def polygons(data):
     return np.array([sh.make_valid(Polygon(f['rings'][0],f['rings'][1:])) for f in data['features']],object)
 a=polygons(old);b=polygons(new);tree=STRtree(b);otree=STRtree(a)
@@ -74,7 +79,8 @@ for g,row in zip(geometries,rows):
     values=list(row)
     if len(values)<len(fields):values.append(0)
     n=lookup.get(int(row['poly_id']),0);values[[f[0] for f in fields].index('prior_n')]=n
-    if n:values[names.index('contact_qa')]='CONTINUITY_RESTORED'
+    direct='band-repaired' in new['features'][int(row['poly_id'])-1]['issues']
+    values[names.index('contact_qa')]='CONTINUITY_RESTORED' if n else ('ANNOTATION_BAND_REPAIR' if direct else 'COLOR_CONTACT_DRAFT')
     w.shape(g);w.record(*values)
 w.close()
 for ext in ['shp','shx','dbf']:(ROOT/f'.cache/build/audited.{ext}').replace(OUT/f'ngsa_geology.{ext}')
@@ -82,7 +88,7 @@ with open(OUT/'continuity_crosswalk.csv','w') as f:
     writer=csv.writer(f,lineterminator='\n');writer.writerow(['previous_revision','previous_poly_id','current_poly_id','retained_area_fraction','same_palette_family'])
     for oi,(ni,fraction) in sorted(best.items()):writer.writerow([5,old['features'][oi]['id'],new['features'][ni]['id'],round(fraction,6),True])
 new['stats']['continuityReview']=summary
-new['stats']['issueCounts']['continuity-restored']=sum('continuity-restored' in f['issues'] for f in new['features'])
+new['stats']['issueCounts']=dict(Counter(issue for f in new['features'] for issue in f['issues']))
 (WEB/'map.json').write_text(json.dumps(new,separators=(',',':')))
 for folder in [OUT,WEB]:(folder/'quality.json').write_text(json.dumps(new['stats'],indent=2))
 print(json.dumps(summary,indent=2))

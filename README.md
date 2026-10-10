@@ -21,17 +21,22 @@ The viewer supports:
 - Click-to-inspect singlepart polygon attributes and review flags.
 - Searchable legend; highlighting never removes polygons from the coverage.
 - A continuity-review queue with previous IDs and an optional coral overlay of removed revision-5 cuts.
+- Localized annotation-fill review and a source-photo check of two correctly separated bodies.
 - A navigable anomaly queue, including restored connections, narrow bodies, annotation-heavy regions, similar colors and unresolved codes.
 - One-copy shared-contact display in a non-black color.
 - A direct shapefile ZIP download.
 
 **The original-photo view still has black annotations by design. It is not the cleaned layer.**
 
-## Continuity correction (revision 6)
+## Continuity correction (revision 7)
 
 The former dark-stroke splitter was creating false pieces inside already-connected geological colors. **It has been removed.** Black labels, roads and overprinted lines are no longer reasons to subdivide one connected color body.
 
-The ancestry audit identifies **318 reconstructed continuous regions and 732 removed internal revision-5 seams**. Six additional local repairs (73 native pixels) reconnect matching original-color evidence across short annotation bands. Repairs cannot cross water, change reliable geology, or cut another component. This is **not a global dissolve by color or a proximity-only merge**: genuinely disconnected same-colored regions retain separate IDs.
+The cumulative ancestry audit identifies **316 reconstructed continuous regions and 730 removed internal revision-5 seams**. These are cumulative comparisons with revision 5, not 316 new repairs in this pass. Revision 7 fills **11,283 annotation-band pixels across 371 bodies**, using horizontal, vertical and both diagonal directions. Repairs protect visible original paint, reliable geology, water and source-evidenced body continuity. Wholly untrusted annotation halos may be filled even when the surrounding unit is already connected around them. This is **not a global dissolve by color or a proximity-only merge**.
+
+The closer source review also rejected a false connection between two pink OGp lenses with another unit visibly between them. The new visible-paint safeguard leaves those bodies separate. The feature total is therefore not required to fall on every pass: avoiding an incorrect join is as important as repairing a false split.
+
+Use **Inspect next filled band** for localized new repairs, and **Check two bodies kept separate** for that source-photo counterexample. The repair queue is distinct from the cumulative revision-5 ancestry queue. Both can be compared directly against the unchanged photo.
 
 In the preview, choose **Inspect next restored connection**. Coral lines are the *previous removed cuts*, not current boundaries. **Compare current view with photo** keeps the location and zoom. Turn off the coral overlay for the clean result.
 
@@ -39,14 +44,14 @@ Feature IDs have changed. `continuity_crosswalk.csv` and `continuity_review.json
 
 ## GIS deliverable
 
-Download **[`public/data/NGSA_geology_v6.zip`](public/data/NGSA_geology_v6.zip)**, or use the viewer's Download button. Keep the shapefile companion files together.
+Download **[`public/data/NGSA_geology_v7.zip`](public/data/NGSA_geology_v7.zip)**, or use the viewer's Download button. Keep the shapefile companion files together.
 
 - `ngsa_geology`: individual polygon features, not a country-wide multipart dissolve by color.
 - `shared_contacts`: each boundary once, with neighboring polygon IDs.
 - `mapped_footprint`: auxiliary coverage union, not an official national border.
 - QGIS styles, source reference crop/world file, legend and QA reports.
 
-The current build has **1,588 singlepart polygons** and **4,067 shared contact arcs**. Independent checks find **no internal gaps, no overlapping interiors, no black/near-black fill classes**, and coverage of all **422,325 tested black interior source pixels**.
+The current build has **1,592 singlepart polygons** and **4,064 shared contact arcs**. Independent checks find **no internal gaps, no overlapping interiors, no black/near-black fill classes**, and coverage of all **422,325 tested black interior source pixels**.
 
 These are geometry/processing checks, **not geological verification**. Uncertain assignments remain flagged. The original datum is unconfirmed and WGS84 is assumed. Read **[method, attributes and limitations](docs/NOTES.md)** before using the output.
 
@@ -57,6 +62,7 @@ python -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/python scripts/build_map.py
 .venv/bin/python scripts/audit_continuity.py
+.venv/bin/python scripts/audit_repairs.py
 .venv/bin/python scripts/validate_exports.py
 .venv/bin/python scripts/package_map.py
 ```
@@ -78,7 +84,7 @@ npm run test:browser
 
 Browser tests use Playwright and an npm-bundled headless Chromium. On Linux x86-64, the test harness extracts the NSS libraries included in that package into ignored `.cache/`, avoiding an additional browser download or OS package install. `BASE_URL` can point tests at another running instance.
 
-Twenty Python tests include continuity across black bands, prevention of false joins across water/other geology, protection of existing bodies, and preservation of separate same-colored regions. Export validation also asserts **zero shared seams between equivalent-color adjacent features** in this continuity-first output.
+Twenty-seven Python tests include continuity across black bands, prevention of false joins across water/other geology, protection of existing bodies, and preservation of separate same-colored regions. Export validation also asserts **zero shared seams between equivalent-color adjacent features** in this continuity-first output.
 
 Real-browser tests cover continuity navigation/ancestry, removed-seam overlay rendering, preserved comparison zoom, clean-map black-pixel exclusion, intentional black pixels in the source-photo view, selection, anomaly navigation, legend search/highlight, comparison, zoom, contact visibility, download, and responsive grid sizing. Screenshots are saved under ignored `.cache/browser/`.
 

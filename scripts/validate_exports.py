@@ -1,6 +1,7 @@
 """Validate persisted outputs independently of intermediate build geometry."""
 from pathlib import Path
 import json, sys, zipfile, xml.etree.ElementTree as ET
+from collections import Counter
 import numpy as np
 import shapefile
 import shapely as sh
@@ -51,6 +52,7 @@ def validate():
     method=json.loads((OUT/'continuity_method.json').read_text())
     assert method['blackStrokeSplittingEnabled'] is False
     assert method['waterPixelsUnchanged'] and method['reliableClassPixelsUnchanged']
+    assert method['visibleSourcePaintUnchanged'] and method['trustedBodiesProtected']
     audit=json.loads((WEB/'continuity.json').read_text())
     assert audit['summary']['currentFeatureCount']==len(g)
     assert len(audit['changes'])==audit['summary']['restoredContinuousBodies']
@@ -61,6 +63,25 @@ def validate():
     assert len(data['features'])==len(g)
     assert set(f['id'] for f in data['features'])==set(ids)
     assert no_black_palette([c['color'] for c in data['classes']])
+    # Review counts must be regenerated, not accumulated on audit reruns.
+    actual_counts=dict(Counter(issue for f in data['features'] for issue in f['issues']))
+    assert actual_counts==data['stats']['issueCounts']
+    assert actual_counts.get('continuity-restored',0)==len(audit['changes'])
+    repairs=json.loads((WEB/'repairs.json').read_text())
+    assert sum(a['pixels'] for a in repairs['areas'])==repairs['summary']['repairedSourcePixels']==method['supportedBandPixels']
+    assert len(repairs['areas'])==repairs['summary']['localizedRepairAreas']
+    assert actual_counts['band-repaired']==repairs['summary']['affectedBodies']
+    assert all(a['featureId'] in by_id for a in repairs['areas'])
+    # Verify the native-photo counterexample against the EXPORTED GIS layer.
+    t=data['transform'];lens=[]
+    for x,y in [(2410,2610),(2442,2610)]:
+        px=x-data['stats']['crop'][0]+.5;py=y-data['stats']['crop'][1]+.5
+        p=sh.Point(t[0]*px+t[1]*py+t[2],t[3]*px+t[4]*py+t[5])
+        hits=tree.query(p,predicate='intersects');assert len(hits)==1
+        row=records[int(hits[0])];assert row['class_id']==93;lens.append(row['poly_id'])
+    assert lens[0]!=lens[1], 'A real intervening unit was bridged'
+    assert lens==repairs['sourceChecks'][0]['featureIds']
+
     # Browser coordinates are only rounded for rendering. Match their bounds
     # and feature IDs, and do not treat the display JSON as the GIS source.
     for f in data['features']:
@@ -69,7 +90,7 @@ def validate():
     quality=json.loads((OUT/'quality.json').read_text())
     assert quality['blackPixelsCovered']==quality['blackPixelsTested']
     assert quality['interiorGaps']==0 and not quality['overlaps']
-    report=dict(noArtificialSameFamilySeams=True,darkStrokeSplitterDisabled=True,continuityAncestryMatchesGis=True,featureCount=len(g),sharedContactCount=len(lines),allSinglepart=True,allValid=True,uniquePolygonIds=True,noBlackOrNearBlackFills=True,internalGapCount=0,nonoverlappingInteriors=True,exactSharedEdges=True,noDuplicatedContacts=True,allGeographicLeftRightReferencesValid=True,webFeatureIdsMatchShapefile=True,stylesXmlValid=True,blackSourcePixelsCovered=quality['blackPixelsCovered'],caution='Topology validation is not geological verification. Datum remains assumed; source-photo comparison retains black annotations by design.')
+    report=dict(nativeSeparateLensCheckPassed=True,annotationRepairTotalsMatch=True,reviewCountsConsistent=True,noArtificialSameFamilySeams=True,darkStrokeSplitterDisabled=True,continuityAncestryMatchesGis=True,featureCount=len(g),sharedContactCount=len(lines),allSinglepart=True,allValid=True,uniquePolygonIds=True,noBlackOrNearBlackFills=True,internalGapCount=0,nonoverlappingInteriors=True,exactSharedEdges=True,noDuplicatedContacts=True,allGeographicLeftRightReferencesValid=True,webFeatureIdsMatchShapefile=True,stylesXmlValid=True,blackSourcePixelsCovered=quality['blackPixelsCovered'],caution='Topology validation is not geological verification. Datum remains assumed; source-photo comparison retains black annotations by design.')
     (OUT/'validation.json').write_text(json.dumps(report,indent=2));(WEB/'validation.json').write_text(json.dumps(report,indent=2))
     print(json.dumps(report,indent=2))
     return report
