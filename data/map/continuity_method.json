@@ -1,0 +1,20 @@
+{
+  "blackStrokeSplittingEnabled": false,
+  "maxGapPixels": 24,
+  "scanAxes": [
+    "horizontal",
+    "vertical",
+    "diagonal-down",
+    "diagonal-up"
+  ],
+  "distanceUnit": "Euclidean source pixels",
+  "trustedBodiesProtected": true,
+  "supportedBandPixels": 11283,
+  "rejectedOrConflictingBandPixels": 138436,
+  "connectedBodiesBeforeBandRepair": 1594,
+  "connectedBodiesAfterBandRepair": 1592,
+  "waterPixelsUnchanged": true,
+  "reliableClassPixelsUnchanged": true,
+  "visibleSourcePaintUnchanged": true,
+  "rationale": "Dark strokes never subdivide an existing color component. Four-axis gap repair requires matching original-color endpoints, no water or reliable other unit; trusted bodies cannot be split. Only fully masked, wholly untrusted annotation fragments may be consumed."
+}

@@ -1,0 +1,14 @@
+{
+  "name": "ngsa-map-review",
+  "private": true,
+  "version": "7.0.0",
+  "description": "Local interactive review of an NGSA geological map interpretation",
+  "scripts": {
+    "dev": "python server.py --host 0.0.0.0 --port 3000",
+    "test:browser": "node tests/browser.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@sparticuz/chromium": "^153.0.0"
+  }
+}
