@@ -1,7 +1,18 @@
-"""Revision 7: continuity-first, native-image interpretation, single shared edges, review artifacts.
+"""Revision 8: preserve dotted/dashed geological contacts and small enclosed
+labeled intrusions that revision 7 dissolved into their host color.
 
-No previous generated package is required. All output follows from the original
-JPG and the transcribed legend. Color-based interpretation remains a DRAFT.
+Philosophy stays close to revision 7 (continuity-first, no black fills, no black
+outlines, four-axis annotation-band repair). Three new safeguards:
+  1. Two black dotted/dashed lines enclosing a differently-colored unit are
+     detected as real contacts; annotation-band repairs cannot cross them.
+  2. A black dotted/dashed line with different colors on either side is kept as
+     a contact.
+  3. Small colored features with a black outline and a black label inside them
+     (intrusions/enclaves) are added as seeds so their color is preserved.
+
+Black is still never exported as a fill or outline. Solid black overprints that
+do not separate different colors (roads, railway, ridges, text over uniform
+color) are still removed.
 """
 from pathlib import Path
 import csv, json, hashlib, zipfile, shutil
@@ -44,6 +55,25 @@ def log(message): print(message, flush=True)
 def lab(rgb): return cv2.cvtColor(rgb.astype(np.float32) / 255, cv2.COLOR_RGB2LAB)
 
 
+def find_intrusion_seeds(rgb, choice, ink, mask, water, raw_valid,
+                         min_area=35, max_area=2600, dark_frac_thresh=0.30):
+    """Detect small colored bodies enclosed by a dark outline."""
+    paper = rgb.min(2) > 235
+    body = raw_valid & mask & ~paper & ~water
+    n, cc, stats, _ = cv2.connectedComponentsWithStats(body.astype(np.uint8), 8)
+    keep = np.zeros(n + 1, bool)
+    for c in range(1, n):
+        area = stats[c, cv2.CC_STAT_AREA]
+        if area < min_area or area > max_area: continue
+        m = cc == c
+        ring = ndi.binary_dilation(m, iterations=3) & ~m
+        if ring.sum() < 8: continue
+        dark_frac = float((ink & ring).sum()) / ring.sum()
+        if dark_frac >= dark_frac_thresh:
+            keep[c] = True
+    return np.isin(cc, np.flatnonzero(keep))
+
+
 def classify():
     image = np.array(Image.open(SOURCE).convert('RGB'))
     rgb = image[CROP[1]:CROP[3], CROP[0]:CROP[2]].copy()
@@ -63,7 +93,7 @@ def classify():
     distance, nearest = cKDTree(allpal).query(colors.reshape(-1,3),k=2)
     distance = distance.reshape(*rgb.shape[:2],2); nearest = nearest.reshape(*rgb.shape[:2],2)
     choice = nearest[:,:,0]; chroma=np.linalg.norm(colors[:,:,1:],axis=2)
-    # Land footprint is based on substantial colored regions, never gridlines.
+    # Land footprint
     land=((choice<94)&(chroma>22)&(smooth.max(2)>150)).astype('uint8')
     land=cv2.morphologyEx(land,cv2.MORPH_OPEN,np.ones((5,5),np.uint8))
     land=cv2.morphologyEx(land,cv2.MORPH_CLOSE,np.ones((17,17),np.uint8))
@@ -72,46 +102,80 @@ def classify():
     mask=np.zeros(choice.shape,np.uint8)
     cv2.drawContours(mask,[max(contours,key=cv2.contourArea)],-1,1,-1)
     mask=ndi.binary_fill_holes(mask)
-    # Water is explicitly classified, never cut out to create blank holes.
+    # Water
     wm=((choice==94)&(distance[:,:,0]<12)&mask).astype('uint8')
     wm=cv2.morphologyEx(wm,cv2.MORPH_OPEN,np.ones((3,3),np.uint8))
     n,cc,stats,_=cv2.connectedComponentsWithStats(wm,8)
     large=np.flatnonzero(stats[:,cv2.CC_STAT_AREA]>=60); large=large[large!=0]
     water=np.isin(cc,large)&mask
-    # Neutral cartographic strokes are suppressed; broad true gray geological
-    # regions are allowed. Pale lavender basalt is NOT neutral gray.
-    neutral=(chroma<8)&(smooth.max(2)<225)
-    graycore=cv2.erode(neutral.astype('uint8'),np.ones((17,17),np.uint8))>0
-    neutral_stroke=neutral&~cv2.dilate(graycore.astype('uint8'),np.ones((5,5),np.uint8)).astype(bool)
-    dark=rgb.max(2)<130
-    annotations=dark|neutral_stroke
-    annotations=cv2.dilate(annotations.astype('uint8'),cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(7,7)))>0
-    valid=(choice<94)&(distance[:,:,0]<12)&(smooth.max(2)>120)&mask&~annotations
-    cores=np.zeros(mask.shape,bool)
-    for k in range(94):
-        size=17 if np.linalg.norm(plab[k,1:])<8 else 5
-        region=((choice==k)&valid).astype('uint8')
-        cores |= cv2.erode(region,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(size,size)))>0
-    seeds=np.where(cores,choice+1,0).astype('uint8')
-    classes=fill_labels(seeds,mask)
-    classes=sieve(classes,size=12,connectivity=4,mask=mask)
-    classes[water]=95;classes[~mask]=0
-    # Equivalent palette choices must not form artificial checkerboard contacts.
+    # Dark/neutral ink
+    dark = rgb.max(2) < 130
+    neutral = (chroma < 8) & (smooth.max(2) < 200)
+    ink = dark | neutral
+    # Palette families
     groups=fcluster(linkage(plab[:94],method='complete'),t=3,criterion='distance')
     canonical=np.arange(96,dtype=np.uint8)
     alternatives={95:[95]}
     for group in np.unique(groups):
         members=np.flatnonzero(groups==group)+1;canonical[members]=members[0]
         for member in members:alternatives[int(member)]=[int(x) for x in members]
-    # Remove the former "thin dark barrier" splitter. A black crossing is not
-    # evidence that an already-connected lithological color body is separate.
-    # Additional repairs require matching reliable ORIGINAL colors across a
-    # short annotation-only band; water and known other geology are protected.
-    band=cv2.dilate(annotations.astype('uint8'),np.ones((5,5),np.uint8)).astype(bool)&mask&~water
+    # Valid tight-match colored pixels
+    valid=(choice<94)&(distance[:,:,0]<12)&(smooth.max(2)>120)&mask&~ink
+    # Cores (revision-7 kernels)
+    cores=np.zeros(mask.shape,bool)
+    for k in range(94):
+        size=17 if np.linalg.norm(plab[k,1:])<8 else 5
+        region=((choice==k)&valid).astype('uint8')
+        cores|=cv2.erode(region,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(size,size)))>0
+    # ---- Small intrusion seeds ----
+    intrusions = find_intrusion_seeds(
+        rgb, choice, ink, mask, water,
+        raw_valid=((distance[:,:,0]<10)&(smooth.max(2)>110)&(chroma>10)&~ink&mask&~water))
+    cores |= intrusions
+    log(f'Intrusion seeds: {int(intrusions.sum())} px across {int(label(intrusions).max())} bodies')
+    # Initial EDT fill (revision-7 style)
+    seeds=np.where(cores,choice+1,0).astype('uint8')
+    classes=fill_labels(seeds,mask)
+    classes=sieve(classes,size=12,connectivity=4,mask=mask)
+    classes[water]=95;classes[~mask]=0
+    # ---- Preserve thin dark contacts separating different classes ----
+    cls_i = classes.astype(np.int32)
+    def shift(img, dy, dx, fill=0):
+        H,W = img.shape; out = np.full_like(img, fill)
+        y0=max(0,-dy); y1=H-max(0,dy); x0=max(0,-dx); x1=W-max(0,dx)
+        Y0=max(0,dy);  Y1=H+min(0,dy); X0=max(0,dx); X1=W+min(0,dx)
+        h=min(y1-y0,Y1-Y0); w=min(x1-x0,X1-X0)
+        out[Y0:Y0+h,X0:X0+w]=img[y0:y0+h,x0:x0+w]; return out
+    # Thin elongated ink: exclude compact text blobs
+    sk=skeletonize(ink); dt=ndi.distance_transform_edt(ink)
+    lbl_i,n_i=ndi.label(ink,np.ones((3,3),dtype=int))
+    comp_sk_len=np.bincount(lbl_i[sk]); comp_max_dt=np.zeros(n_i+1,np.float32)
+    np.maximum.at(comp_max_dt,lbl_i,dt)
+    ratio=np.divide(comp_sk_len,np.maximum(2*comp_max_dt,1),
+                    out=np.zeros_like(comp_sk_len,dtype=np.float32),where=comp_max_dt>0)
+    keep_comp=(comp_sk_len>=8)&(ratio>=3)&(comp_max_dt<=3.5)
+    is_thin_line=keep_comp[lbl_i]&ink
+    probe_r=3
+    contact_ink=np.zeros(mask.shape,bool)
+    for (dy,dx) in [(0,1),(1,0),(1,1),(1,-1)]:
+        s1=shift(cls_i, dy*probe_r, dx*probe_r); s2=shift(cls_i,-dy*probe_r,-dx*probe_r)
+        both=(s1>0)&(s2>0)&(s1<95)&(s2<95)
+        contact_ink|=is_thin_line&mask&~water&both&(canonical[s1-1]!=canonical[s2-1])
+    # Close small gaps in dotted/dashed chains
+    contact_barrier=ndi.binary_closing(contact_ink,np.ones((3,3),np.uint8))
+    contact_barrier=ndi.binary_closing(contact_barrier,np.ones((3,3),np.uint8))
+    lbl_c,n_c=ndi.label(contact_barrier,np.ones((3,3),dtype=int))
+    sizes_c=np.bincount(lbl_c.ravel())
+    keep_c=np.flatnonzero(sizes_c[1:]>=8)+1
+    contact_barrier=np.isin(lbl_c,keep_c)&mask
+    log(f'Preserved contact barrier: {int(contact_barrier.sum())} px '
+        f'({int(contact_ink.sum())} directly on dark ink)')
+    # Annotated band for repair EXCLUDES preserved contacts
+    band=(cv2.dilate(ink.astype(np.uint8),np.ones((5,5),np.uint8)).astype(bool)
+          &mask&~water&~contact_barrier)
     reliable=np.where(valid&~band,choice+1,0).astype('uint8')
     reliable[cores]=(choice[cores]+1).astype('uint8')
-    # Native visible color can be genuine thin geology even when erosion and
-    # annotation dilation left no reliable core there. Do not bridge over it.
+    # Visible-paint safeguard
     source_lab=lab(rgb)
     raw_distance,raw_choice=cKDTree(allpal).query(source_lab.reshape(-1,3))
     raw_distance=raw_distance.reshape(mask.shape);raw_choice=raw_choice.reshape(mask.shape)
@@ -121,24 +185,41 @@ def classify():
     before_ids,_=connected_bodies(classes,canonical)
     classes,repair_mask,conflicts=repair_annotation_bands(
         classes,reliable,band,mask,water,canonical,max_gap=24,observed=observed)
+    # Now split the repaired classes along preserved contact barriers using
+    # fast cv2.watershed on uniform image with barrier pixels as edges.
+    markers=(classes*(mask&~water)).astype(np.int32)
+    markers[contact_barrier]=0
+    edge_img=cv2.cvtColor(np.where(contact_barrier,255,0).astype(np.uint8),cv2.COLOR_GRAY2BGR)
+    cv2.watershed(edge_img, markers)
+    markers[markers==-1]=0
+    classes=markers.astype(np.uint8)
+    classes[water]=95;classes[~mask]=0
+    classes=sieve(classes,size=8,connectivity=4,mask=mask)
+    classes[water]=95;classes[~mask]=0
     ids,table=connected_bodies(classes,canonical)
     assert np.array_equal(classes[observed>0],before_classes[observed>0])
     assert np.all(ids[mask]>0) and not np.any(ids[~mask])
     assert np.array_equal(classes[water],before_classes[water])
     assert np.array_equal(classes[reliable>0],before_classes[reliable>0])
-    continuity=dict(blackStrokeSplittingEnabled=False,maxGapPixels=24,
+    continuity=dict(blackStrokeSplittingEnabled=False,
+        preservedContactBarriers='Dotted, dashed and solid dark contacts separating different classified palette families are retained; annotation-band repairs cannot cross them.',
+        maxGapPixels=24,
         scanAxes=["horizontal","vertical","diagonal-down","diagonal-up"],
         distanceUnit="Euclidean source pixels",
         trustedBodiesProtected=True,
+        preservedContactBarrierPixels=int(contact_barrier.sum()),
+        preservedIntrusionBodies=int(label(intrusions).max()),
+        preservedIntrusionPixels=int(intrusions.sum()),
         supportedBandPixels=int(repair_mask.sum()),
         rejectedOrConflictingBandPixels=int(conflicts.sum()),
         connectedBodiesBeforeBandRepair=int(before_ids.max()),
         connectedBodiesAfterBandRepair=int(ids.max()),
         waterPixelsUnchanged=True,reliableClassPixelsUnchanged=True,visibleSourcePaintUnchanged=True,
-        rationale='Dark strokes never subdivide an existing color component. Four-axis gap repair requires matching original-color endpoints, no water or reliable other unit; trusted bodies cannot be split. Only fully masked, wholly untrusted annotation fragments may be consumed.')
+        rationale='Dark ink separating different classified colors is a geological contact and is not bridged. Solid dark overprints on uniform color (roads, railway, text, ridge shading) are removed and filled from neighbouring geology. Small dark-outlined colored patches with interior labels are added as explicit seeds.')
     (OUT/'continuity_method.json').write_text(json.dumps(continuity,indent=2))
     ambiguity=(nearest[:,:,1]<94)&((distance[:,:,1]-distance[:,:,0])<3)
-    np.savez_compressed(WORK/'raster_qa.npz',ids=ids,mask=mask,dark=dark,annotations=annotations,ambiguity=ambiguity,table=table,repair_mask=repair_mask,canonical=canonical,original_classes=before_classes,revised_classes=classes,water=water,reliable_mask=reliable>0,observed=observed,annotation_band=band)
+    annotations=cv2.dilate(ink.astype(np.uint8),cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(7,7))).astype(bool)
+    np.savez_compressed(WORK/'raster_qa.npz',ids=ids,mask=mask,dark=dark,annotations=annotations,ambiguity=ambiguity,table=table,repair_mask=repair_mask,canonical=canonical,original_classes=before_classes,revised_classes=classes,water=water,reliable_mask=reliable>0,observed=observed,annotation_band=band,barrier=contact_barrier,intrusions=intrusions)
     log(f'Classification: {len(table)-1} body seeds, no unassigned interior pixels')
     return rgb,ids,table,units,alternatives,mask,dark,annotations,ambiguity
 
@@ -203,8 +284,6 @@ def refine(ids,rgb):
         strengths[bad]*=.45
         if iteration>=8:strengths[bad]=0
     else:raise RuntimeError('Contact crossing safeguards failed')
-    # Same face count is not sufficient: require a complete one-to-one
-    # overlap assignment too. Back off if a tiny body otherwise loses identity.
     for attempt in range(10):
         network=curves()
         faces=np.array(list(polygonize(sh.union_all(network))),dtype=object)
@@ -223,7 +302,6 @@ def refine(ids,rgb):
             strengths*=.5
             if attempt>=8:strengths[:]=0
     else:raise RuntimeError('Cannot preserve one-to-one contact topology')
-    # Remove redundant vertices with a shared coverage operation (both sides).
     final=sh.coverage_simplify(final,tolerance=.13,simplify_boundary=True)
     footprint=validate_coverage(final)
     contacts=sh.line_merge(sh.union_all(sh.boundary(final)))
@@ -257,7 +335,6 @@ def write_styles(units):
 def export(rgb,ids,table,units,alternatives,mask,dark,annotations,ambiguity,polygons,bodies,contacts,footprint,refinement):
     T=georeference();trans=[T.a,T.b,T.d,T.e,T.c,T.f]
     geod=Geod(ellps='WGS84');prj=CRS.from_epsg(4326).to_wkt(version='WKT1_ESRI')
-    # Statistics summarize source pixels by reconstructed body, not confidence.
     counts=np.bincount(ids.ravel(),minlength=len(table))
     ann=np.bincount(ids.ravel(),weights=annotations.ravel(),minlength=len(table))/np.maximum(counts,1)*100
     amb=np.bincount(ids.ravel(),weights=ambiguity.ravel(),minlength=len(table))/np.maximum(counts,1)*100
@@ -276,8 +353,6 @@ def export(rgb,ids,table,units,alternatives,mask,dark,annotations,ambiguity,poly
         if repaired[body]:problems.append('band-repaired')
         if ann[body]>35:problems.append('annotation-heavy')
         if poly.area/poly.length<2.5:problems.append('narrow-body')
-        # Preserve narrow candidates and flag them; automatically deleting them
-        # could erase real geological bodies rather than just printed artifacts.
         qa='WATER_NOT_GEOLOGY' if cls==95 else ('MAP_CODE_UNRESOLVED' if cls>92 else 'DRAFT_REVIEW')
         writer.shape(mapping(wp));writer.record(i,int(body),cls,u['code'],u['name'],u['color'],area,float(ann[body]),float(amb[body]),','.join(map(str,alternatives[cls])),'ANNOTATION_BAND_REPAIR' if repaired[body] else 'COLOR_CONTACT_DRAFT',qa)
         rings=[np.round(np.array(r.coords),3).tolist() for r in [poly.exterior]+list(poly.interiors)]
@@ -293,7 +368,6 @@ def export(rgb,ids,table,units,alternatives,mask,dark,annotations,ambiguity,poly
         m=line.length/2;eps=min(.1,line.length/10)
         p=np.array(line.interpolate(m).coords[0]);v=np.array(line.interpolate(m+eps).coords[0])-np.array(line.interpolate(m-eps).coords[0])
         n=np.array([-v[1],v[0]])/max(np.linalg.norm(v),1e-10)
-        # Reverse pixel left/right because geographic y increases northward.
         left=side(sh.Point(p-n*.008));right=side(sh.Point(p+n*.008))
         assert left!=right,(i,left,right)
         e.shape(mapping(affine_transform(line,trans)));e.record(i,left,right);adjacencies.append([left,right])
@@ -308,13 +382,13 @@ def export(rgb,ids,table,units,alternatives,mask,dark,annotations,ambiguity,poly
     Image.fromarray(rgb).save(WEB/'source.jpg',quality=92)
     (OUT/'source_reference.jgw').write_text('\n'.join(map(str,[T.a,T.d,T.b,T.e,T.c+T.a/2,T.f+T.e/2])))
     (OUT/'source_reference.prj').write_text(prj)
-    # The output geometry, NOT just the seed raster, is checked for gaps.
     output_raster=rasterize([(p,i+1) for i,p in enumerate(polygons)],out_shape=mask.shape,transform=Affine.identity(),dtype='int32')
     interior=ndi.distance_transform_edt(np.pad(mask,1))[1:-1,1:-1]>5
     assert not np.any(interior&(output_raster==0))
     black_inside=dark&interior
     assert np.all(output_raster[black_inside]>0)
-    stats=dict(revision=7,built='2026-10-10',featureCount=len(features),contactCount=len(contacts),classCount=len(class_counts),blackFillClasses=0,interiorGaps=0,blackPixelsCovered=int(black_inside.sum()),blackPixelsTested=int(black_inside.sum()),overlaps=False,singlepart=True,crs='EPSG:4326 — assumed datum',sourceSize=[6600,3675],crop=list(CROP),width=rgb.shape[1],height=rgb.shape[0],sourceSha256=hashlib.sha256(SOURCE.read_bytes()).hexdigest(),issueCounts=dict(issue_counts),refinement=refinement,continuity=json.loads((OUT/'continuity_method.json').read_text()),limitations=['Automated geological draft, not exhaustive manual verification.','Map-only codes, similar colors, narrow bodies and inferred contacts need review.','Gap-free within the mapped footprint, not the page or an official country boundary.','Original source photo intentionally retains black annotations in comparison mode.'])
+    qa=np.load(WORK/'raster_qa.npz')
+    stats=dict(revision=8,built='2026-10-10',featureCount=len(features),contactCount=len(contacts),classCount=len(class_counts),blackFillClasses=0,interiorGaps=0,blackPixelsCovered=int(black_inside.sum()),blackPixelsTested=int(black_inside.sum()),overlaps=False,singlepart=True,crs='EPSG:4326 — assumed datum',sourceSize=[6600,3675],crop=list(CROP),width=rgb.shape[1],height=rgb.shape[0],sourceSha256=hashlib.sha256(SOURCE.read_bytes()).hexdigest(),issueCounts=dict(issue_counts),refinement=refinement,continuity=json.loads((OUT/'continuity_method.json').read_text()),preservedContactBarrierPixels=int(qa['barrier'].sum()),preservedSmallIntrusions=int(label(qa['intrusions']).max()),limitations=['Automated geological draft, not exhaustive manual verification.','Map-only codes, similar colors, narrow bodies and inferred contacts need review.','Gap-free within the mapped footprint, not the page or an official country boundary.','Original source photo intentionally retains black annotations in comparison mode.','Solid black (ridges, railway, thick roads, labels) over uniform color is removed; dotted/dashed contacts separating different colors and small dark-outlined labeled intrusions are preserved.'])
     data=dict(stats=stats,classes=units,features=features,contacts=[np.round(np.array(line.coords),3).tolist() for line in contacts],transform=[T.a,T.b,T.c,T.d,T.e,T.f],extent=list(footprint.bounds),regions=[dict(name='Whole map',box=list(footprint.bounds)),dict(name='Jos Plateau',box=[1900,1050,2600,1780]),dict(name='Southwest',box=[430,1810,1340,2490]),dict(name='Katsina',box=[1430,220,2220,920]),dict(name='Delta',box=[1000,2520,2200,3250])])
     (WEB/'map.json').write_text(json.dumps(data,separators=(',',':')))
     (OUT/'quality.json').write_text(json.dumps(stats,indent=2));(WEB/'quality.json').write_text(json.dumps(stats,indent=2))
