@@ -1,9 +1,9 @@
 {
-  "revision": 7,
+  "revision": 8,
   "built": "2026-10-10",
-  "featureCount": 1592,
-  "contactCount": 4064,
-  "classCount": 83,
+  "featureCount": 4746,
+  "contactCount": 12730,
+  "classCount": 91,
   "blackFillClasses": 0,
   "interiorGaps": 0,
   "blackPixelsCovered": 422325,
@@ -25,22 +25,22 @@
   "height": 3336,
   "sourceSha256": "07fd0ff6611caee58d81add0333cd23a0ad8a557f2eebf7429012e6cee5ed552",
   "issueCounts": {
-    "annotation-heavy": 1133,
-    "narrow-body": 335,
-    "band-repaired": 371,
-    "continuity-restored": 316,
-    "similar-colors": 210,
-    "water": 107,
-    "unresolved-code": 151
+    "annotation-heavy": 4061,
+    "narrow-body": 3021,
+    "band-repaired": 831,
+    "similar-colors": 574,
+    "unresolved-code": 215,
+    "water": 115
   },
   "refinement": {
-    "photo_evidence_arcs": 3466,
-    "arcs_reduced": 95,
+    "photo_evidence_arcs": 8950,
+    "arcs_reduced": 392,
     "smoothing_sigma_pixels": 2.2,
     "max_proposed_shift_pixels": 4.5
   },
   "continuity": {
     "blackStrokeSplittingEnabled": false,
+    "preservedContactBarriers": "Dotted, dashed and solid dark contacts that separate different classified palette families are retained; annotation-band repairs do not cross them.",
     "maxGapPixels": 24,
     "scanAxes": [
       "horizontal",
@@ -50,31 +50,25 @@
     ],
     "distanceUnit": "Euclidean source pixels",
     "trustedBodiesProtected": true,
-    "supportedBandPixels": 11283,
-    "rejectedOrConflictingBandPixels": 138436,
-    "connectedBodiesBeforeBandRepair": 1594,
-    "connectedBodiesAfterBandRepair": 1592,
+    "preservedContactBarrierPixels": 118676,
+    "preservedIntrusionBodies": 676,
+    "preservedIntrusionPixels": 252024,
+    "supportedBandPixels": 13244,
+    "rejectedOrConflictingBandPixels": 78105,
+    "connectedBodiesBeforeBandRepair": 4754,
+    "connectedBodiesAfterBandRepair": 4746,
     "waterPixelsUnchanged": true,
     "reliableClassPixelsUnchanged": true,
     "visibleSourcePaintUnchanged": true,
-    "rationale": "Dark strokes never subdivide an existing color component. Four-axis gap repair requires matching original-color endpoints, no water or reliable other unit; trusted bodies cannot be split. Only fully masked, wholly untrusted annotation fragments may be consumed."
+    "rationale": "Dark ink separating different classified colors is treated as a geological contact and is not bridged. Solid dark overprints on uniform color (roads, railway, text, ridge shading) are removed and filled from neighbouring geology. Small dark-outlined colored patches with interior labels are added as explicit seeds."
   },
+  "preservedContactBarrierPixels": 118676,
+  "preservedSmallIntrusions": 676,
   "limitations": [
     "Automated geological draft, not exhaustive manual verification.",
     "Map-only codes, similar colors, narrow bodies and inferred contacts need review.",
     "Gap-free within the mapped footprint, not the page or an official country boundary.",
-    "Original source photo intentionally retains black annotations in comparison mode."
-  ],
-  "continuityReview": {
-    "baselineRevision": 5,
-    "baselineCommit": "a62427bf26b3861fe58221a3f718626daa0455d8",
-    "baselineSha256": "fae56e173aa23c96b73f74821fc106488215de73fed75e30029012ae0ae598e2",
-    "previousFeatureCount": 2443,
-    "currentFeatureCount": 1592,
-    "restoredContinuousBodies": 316,
-    "previousInternalSeamsRemoved": 730,
-    "sourceSupportedBandPixels": 11283,
-    "policy": "Connected colors are not split by dark overprints; no proximity-only or global same-color dissolve.",
-    "caution": "Ancestry/overlap evidence, not exhaustive geological verification. IDs changed: use previousIds for tracing reviewed merges."
-  }
+    "Original source photo intentionally retains black annotations in comparison mode.",
+    "Solid black (ridges, railway, thick roads, labels) over uniform color is removed; dotted/dashed contacts separating different colors and small dark-outlined labeled intrusions are preserved."
+  ]
 }

@@ -2,7 +2,7 @@
 
 A reproducible **draft** interpretation of the supplied NGSA geological map, with a local interactive viewer and an ESRI shapefile package.
 
-**Black is not a geological feature.** The derived map has no black/near-black fills or black outlines. Labels and cartographic strokes are filled from surrounding geological colors. The untouched photo is available only in clearly labelled comparison modes.
+**Black is not a geological feature.** The derived map has no black/near-black fills or black outlines. Dotted/dashed black contacts that separate different units and small dark-outlined labeled intrusions are preserved as color boundaries; solid black overprints over uniform color (roads, railway, ridges, text) are filled from surrounding geology. The untouched photo is available only in clearly labelled comparison modes.
 
 ## View it
 
@@ -28,30 +28,28 @@ The viewer supports:
 
 **The original-photo view still has black annotations by design. It is not the cleaned layer.**
 
-## Continuity correction (revision 7)
+## Contact & small-feature preservation (revision 8)
 
-The former dark-stroke splitter was creating false pieces inside already-connected geological colors. **It has been removed.** Black labels, roads and overprinted lines are no longer reasons to subdivide one connected color body.
+Revision 7 removed false splits caused by dark strokes, but it also erased legitimate printed features. Revision 8 adds three targeted safeguards while keeping the continuity-first policy (no global dissolve by color, no dark-stroke subdivision of connected bodies):
 
-The cumulative ancestry audit identifies **316 reconstructed continuous regions and 730 removed internal revision-5 seams**. These are cumulative comparisons with revision 5, not 316 new repairs in this pass. Revision 7 fills **11,283 annotation-band pixels across 371 bodies**, using horizontal, vertical and both diagonal directions. Repairs protect visible original paint, reliable geology, water and source-evidenced body continuity. Wholly untrusted annotation halos may be filled even when the surrounding unit is already connected around them. This is **not a global dissolve by color or a proximity-only merge**.
+- **Two dotted/dashed lines enclosing a new color are preserved.** Thin elongated dark strokes (compact text blobs are filtered out by length/width ratio) whose two sides show different classified palette families become barriers that annotation-band repair cannot cross. Short gaps between adjacent dark dots are bridged so each dotted/dashed chain forms a complete boundary. After repair the classified regions are split at those barriers with watershed segmentation, turning the preserved ink into real polygon edges (rendered in non-black shared-contact color, not black).
+- **A dotted/dashed line with a different color on each side is kept** by the same detector.
+- **Small dark-outlined colored patches with a black label on them** (intrusions, enclaves, plugs, etc.) are detected before the EDT fill and added as explicit seeds. Their interior color is preserved instead of being dissolved into the surrounding large body.
 
-The closer source review also rejected a false connection between two pink OGp lenses with another unit visibly between them. The new visible-paint safeguard leaves those bodies separate. The feature total is therefore not required to fall on every pass: avoiding an incorrect join is as important as repairing a false split.
+Solid black overprints that do NOT separate different colors — railway lines, ridge hatchuring with ticks, thick roads, town/place-name text over uniform geology — are still removed and filled from neighboring colors.
 
-Use **Inspect next filled band** for localized new repairs, and **Check two bodies kept separate** for that source-photo counterexample. The repair queue is distinct from the cumulative revision-5 ancestry queue. Both can be compared directly against the unchanged photo.
+The cumulative ancestry audit comparing to revision 5 is still available, and the visible-paint safeguard that prevents bridging two clearly separated OGp lenses is retained.
 
 In the preview, choose **Inspect next restored connection**. Coral lines are the *previous removed cuts*, not current boundaries. **Compare current view with photo** keeps the location and zoom. Turn off the coral overlay for the clean result.
 
-Feature IDs have changed. `continuity_crosswalk.csv` and `continuity_review.json` trace supported previous-to-current ancestry. The audit is geometric evidence, **not independent geological verification**. Indistinguishable colors and residual annotation halos still need review.
-
 ## GIS deliverable
 
-Download **[`public/data/NGSA_geology_v7.zip`](public/data/NGSA_geology_v7.zip)**, or use the viewer's Download button. Keep the shapefile companion files together.
+Download **[`public/data/NGSA_geology_v8.zip`](public/data/NGSA_geology_v8.zip)**, or use the viewer's Download button. Keep the shapefile companion files together.
 
 - `ngsa_geology`: individual polygon features, not a country-wide multipart dissolve by color.
 - `shared_contacts`: each boundary once, with neighboring polygon IDs.
 - `mapped_footprint`: auxiliary coverage union, not an official national border.
 - QGIS styles, source reference crop/world file, legend and QA reports.
-
-The current build has **1,592 singlepart polygons** and **4,064 shared contact arcs**. Independent checks find **no internal gaps, no overlapping interiors, no black/near-black fill classes**, and coverage of all **422,325 tested black interior source pixels**.
 
 These are geometry/processing checks, **not geological verification**. Uncertain assignments remain flagged. The original datum is unconfirmed and WGS84 is assumed. Read **[method, attributes and limitations](docs/NOTES.md)** before using the output.
 
@@ -69,8 +67,6 @@ python -m venv .venv
 
 The geometry pipeline uses the original JPG plus the transcribed legend, without external geology datasets. The historical ancestry-comparison step additionally reads revision 5 at commit `a62427bf26b3861fe58221a3f718626daa0455d8`; retain that Git history (or `.cache/baseline/map_v5.json`) when rerunning the audit. A shallow clone may need that commit fetched first. The published validation does not require the intermediate cache.
 
-Only broad neutral regions may qualify as actual gray geological fills. Pale colored units are handled separately from gray annotations. Contacts are built as one shared network, smoothed by arclength, locally guided by the photo, and checked for crossings and face preservation. Water remains explicit rather than blank. See the method notes for inference limits.
-
 ## Tests
 
 ```sh
@@ -83,19 +79,5 @@ npm run test:browser
 ```
 
 Browser tests use Playwright and an npm-bundled headless Chromium. On Linux x86-64, the test harness extracts the NSS libraries included in that package into ignored `.cache/`, avoiding an additional browser download or OS package install. `BASE_URL` can point tests at another running instance.
-
-Twenty-seven Python tests include continuity across black bands, prevention of false joins across water/other geology, protection of existing bodies, and preservation of separate same-colored regions. Export validation also asserts **zero shared seams between equivalent-color adjacent features** in this continuity-first output.
-
-Real-browser tests cover continuity navigation/ancestry, removed-seam overlay rendering, preserved comparison zoom, clean-map black-pixel exclusion, intentional black pixels in the source-photo view, selection, anomaly navigation, legend search/highlight, comparison, zoom, contact visibility, download, and responsive grid sizing. Screenshots are saved under ignored `.cache/browser/`.
-
-## Repository layout
-
-```
-scripts/       native-image interpretation, geometry checks and packaging
-public/        standalone viewer, source crop, display data and download ZIP
-data/map/      geographic shapefiles, style files, provenance and QA reports
-tests/         geometric regression tests and real-browser interaction tests
-docs/          method and limitations
-```
 
 The server exposes **only `public/`**, never the repository, `.git` or credentials. Browser requests use relative same-origin URLs; the preview accepts its proxied host and binds to `0.0.0.0`. No source photographs were modified.

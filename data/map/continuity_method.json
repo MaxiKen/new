@@ -1,5 +1,6 @@
 {
   "blackStrokeSplittingEnabled": false,
+  "preservedContactBarriers": "Dotted, dashed and solid dark contacts that separate different classified palette families are retained; annotation-band repairs do not cross them.",
   "maxGapPixels": 24,
   "scanAxes": [
     "horizontal",
@@ -9,12 +10,15 @@
   ],
   "distanceUnit": "Euclidean source pixels",
   "trustedBodiesProtected": true,
-  "supportedBandPixels": 11283,
-  "rejectedOrConflictingBandPixels": 138436,
-  "connectedBodiesBeforeBandRepair": 1594,
-  "connectedBodiesAfterBandRepair": 1592,
+  "preservedContactBarrierPixels": 118676,
+  "preservedIntrusionBodies": 676,
+  "preservedIntrusionPixels": 252024,
+  "supportedBandPixels": 13244,
+  "rejectedOrConflictingBandPixels": 78105,
+  "connectedBodiesBeforeBandRepair": 4754,
+  "connectedBodiesAfterBandRepair": 4746,
   "waterPixelsUnchanged": true,
   "reliableClassPixelsUnchanged": true,
   "visibleSourcePaintUnchanged": true,
-  "rationale": "Dark strokes never subdivide an existing color component. Four-axis gap repair requires matching original-color endpoints, no water or reliable other unit; trusted bodies cannot be split. Only fully masked, wholly untrusted annotation fragments may be consumed."
+  "rationale": "Dark ink separating different classified colors is treated as a geological contact and is not bridged. Solid dark overprints on uniform color (roads, railway, text, ridge shading) are removed and filled from neighbouring geology. Small dark-outlined colored patches with interior labels are added as explicit seeds."
 }
