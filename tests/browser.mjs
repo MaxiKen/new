@@ -38,6 +38,37 @@ try {
   await page.waitForTimeout(200);
   assert.equal(await blackPixels(),0,'Clean canvas contains opaque black/near-black pixels');
   await page.screenshot({path:'.cache/browser/desktop.png',fullPage:true});
+  const continuity = await (await fetch(`${base}/data/continuity.json`)).json();
+  assert.equal(quality.revision,6);
+  assert.ok(continuity.summary.restoredContinuousBodies>0);
+  assert.equal(await page.locator('#restored-count').textContent(),new Intl.NumberFormat('en').format(continuity.summary.restoredContinuousBodies));
+  await page.locator('#next-restored').click();
+  assert.equal(await page.locator('#inspect-title').textContent(),`Polygon ${new Intl.NumberFormat('en').format(continuity.changes[0].featureId)}`);
+  assert.equal(await page.locator('#show-previous-splits').isChecked(),true);
+  assert.equal(await page.locator('#previous-notice').isVisible(),true);
+  assert.ok((await page.locator('.previous-id-list').textContent()).includes('Previous IDs:'));
+  await page.waitForTimeout(200);
+  assert.equal(await blackPixels(),0,'Continuity overlay reintroduced black');
+  const checksum=()=>page.evaluate(()=>{const c=document.querySelector('#map'),a=c.getContext('2d').getImageData(0,0,c.width,c.height).data;let n=0;for(let i=0;i<a.length;i+=4)n+=a[i]+a[i+1]+a[i+2];return n;});
+  const withRemoved=await checksum();
+  await page.screenshot({path:'.cache/browser/continuity-desktop.png',fullPage:true});
+  await page.locator('#show-previous-splits').uncheck();await page.waitForTimeout(150);
+  assert.notEqual(await checksum(),withRemoved,'Removed-seam overlay must actually change the canvas');
+  assert.equal(await page.locator('#previous-notice').isVisible(),false);
+  await page.locator('#next-restored').click();
+  assert.equal(await page.locator('#inspect-title').textContent(),`Polygon ${new Intl.NumberFormat('en').format(continuity.changes[1].featureId)}`);
+  await page.waitForTimeout(150);
+  const restoredZoom=await page.locator('#zoom-label').textContent();
+  assert.notEqual(restoredZoom,'100%','Restored-connection navigation must zoom into its seam');
+  await page.locator('#compare-restored').click();
+  await page.waitForTimeout(150);
+  assert.equal(await page.locator('#zoom-label').textContent(),restoredZoom,'Photo comparison must preserve the continuity inspection location');
+  assert.equal(await page.locator('#source-notice').isVisible(),true);
+  await page.screenshot({path:'.cache/browser/continuity-photo.png',fullPage:true});
+  await page.locator('#show-previous-splits').uncheck();
+  await page.locator('[data-mode="clean"]').click();
+  await page.locator('#clear-selection').click();await page.locator('#fit').click();
+
 
   const before = await page.locator('#zoom-label').textContent();
   await page.locator('#zoom-in').click(); await page.waitForTimeout(100);
@@ -73,7 +104,7 @@ try {
   const downloadPromise = page.waitForEvent('download');
   await page.locator('.download').click();
   const download = await downloadPromise;
-  assert.equal(download.suggestedFilename(),'NGSA_geology_v5.zip');
+  assert.equal(download.suggestedFilename(),'NGSA_geology_v6.zip');
   assert.equal(await download.failure(),null);
 
   await page.setViewportSize({width:390,height:844});
@@ -84,5 +115,5 @@ try {
   await page.screenshot({path:'.cache/browser/mobile.png',fullPage:false,timeout:60000});
   assert.equal(await page.locator('.download').isVisible(),true);
   assert.deepEqual(errors,[]);
-  console.log('PASS: real Chromium desktop/mobile rendering, clean-map black-pixel check, source distinction, inspection, anomaly navigation, comparison, zoom, legend, contact toggle, ZIP download.');
+  console.log('PASS: continuity navigation, historic-seam overlay rendering, ancestry IDs, real Chromium desktop/mobile rendering, clean-map black-pixel check, source distinction, inspection, anomaly navigation, comparison, zoom, legend, contact toggle, ZIP download.');
 } finally { await browser.close(); }

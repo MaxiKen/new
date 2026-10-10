@@ -1,6 +1,9 @@
 {
-  "featureCount": 2443,
-  "sharedContactCount": 6635,
+  "noArtificialSameFamilySeams": true,
+  "darkStrokeSplitterDisabled": true,
+  "continuityAncestryMatchesGis": true,
+  "featureCount": 1588,
+  "sharedContactCount": 4067,
   "allSinglepart": true,
   "allValid": true,
   "uniquePolygonIds": true,

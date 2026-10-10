@@ -1,4 +1,4 @@
-"""Revision 5: native-image interpretation, single shared edges, review artifacts.
+"""Revision 6: continuity-first, native-image interpretation, single shared edges, review artifacts.
 
 No previous generated package is required. All output follows from the original
 JPG and the transcribed legend. Color-based interpretation remains a DRAFT.
@@ -28,6 +28,7 @@ import shapefile
 from pyproj import CRS, Geod
 from xml.sax.saxutils import escape
 from geometry import fill_labels, no_black_palette, smooth_samples, validate_coverage
+from continuity import repair_annotation_bands, connected_bodies
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'data/map'
@@ -102,44 +103,31 @@ def classify():
     for group in np.unique(groups):
         members=np.flatnonzero(groups==group)+1;canonical[members]=members[0]
         for member in members:alternatives[int(member)]=[int(x) for x in members]
-    base=label(canonical[classes],connectivity=1).astype('int32')
-    hist=np.bincount(base.ravel().astype(np.int64)*96+classes.ravel(),minlength=(base.max()+1)*96).reshape(-1,96)
-    dominant=hist.argmax(1)
-    # Conservative same-color contact candidates, not a dissolve by fill.
-    heavy=ndi.distance_transform_edt(dark)>1.8
-    heavy=cv2.dilate(heavy.astype('uint8'),np.ones((7,7),np.uint8))>0
-    thin=dark&~heavy
-    for kernel in [np.ones((1,90),np.uint8),np.ones((90,1),np.uint8)]:
-        thin &= ~cv2.morphologyEx(thin.astype('uint8'),cv2.MORPH_OPEN,kernel).astype(bool)
-    barrier=cv2.morphologyEx(thin.astype('uint8'),cv2.MORPH_CLOSE,np.ones((3,3),np.uint8))
-    barrier=cv2.dilate(barrier,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(3,3)))>0
-    regions=label(np.where(barrier,0,base),connectivity=1)
-    sizes=np.bincount(regions.ravel());sizes[0]=0
-    _,first=np.unique(regions,return_index=True);owners=base.ravel()[first]
-    by_body={}
-    for sub in np.flatnonzero(sizes>=120):by_body.setdefault(int(owners[sub]),[]).append(int(sub))
-    lookup=np.zeros(len(sizes),np.int32);table=[[0,0,0]]
-    for b in range(1,len(dominant)):
-        subs=by_body.get(b,[]) if dominant[b]!=95 else []
-        if len(subs)>=2:
-            for sub in subs:
-                lookup[sub]=len(table);table.append([int(dominant[b]),b,1])
-        else:
-            lookup[np.flatnonzero(owners==b)]=len(table);table.append([int(dominant[b]),b,0])
-    table=np.array(table,dtype=np.int32)
-    body_seeds=lookup[regions];body_seeds[annotations&~water]=0
-    _,basefirst=np.unique(base,return_index=True)
-    counts=np.bincount(body_seeds.ravel(),minlength=len(table))
-    for i in range(1,len(table)):
-        if counts[i]==0:body_seeds.ravel()[basefirst[table[i,1]]]=i
-    ids=fill_labels(body_seeds,mask)
-    # No water expansion into the reconstructed land annotation bands.
-    wrong=mask&~water&(table[ids,0]==95)
-    if wrong.any():
-        landseeds=np.where(table[body_seeds,0]==95,0,body_seeds)
-        landfill=fill_labels(landseeds,mask);ids[wrong]=landfill[wrong]
+    # Remove the former "thin dark barrier" splitter. A black crossing is not
+    # evidence that an already-connected lithological color body is separate.
+    # Additional repairs require matching reliable ORIGINAL colors across a
+    # short annotation-only band; water and known other geology are protected.
+    band=cv2.dilate(annotations.astype('uint8'),np.ones((5,5),np.uint8)).astype(bool)&mask&~water
+    reliable=np.where(valid&~band,choice+1,0).astype('uint8')
+    reliable[cores]=(choice[cores]+1).astype('uint8')
+    before_classes=classes.copy()
+    before_ids,_=connected_bodies(classes,canonical)
+    classes,repair_mask,conflicts=repair_annotation_bands(
+        classes,reliable,band,mask,water,canonical,max_gap=24)
+    ids,table=connected_bodies(classes,canonical)
+    assert np.all(ids[mask]>0) and not np.any(ids[~mask])
+    assert np.array_equal(classes[water],before_classes[water])
+    assert np.array_equal(classes[reliable>0],before_classes[reliable>0])
+    continuity=dict(blackStrokeSplittingEnabled=False,maxGapPixels=24,
+        supportedBandPixels=int(repair_mask.sum()),
+        rejectedOrConflictingBandPixels=int(conflicts.sum()),
+        connectedBodiesBeforeBandRepair=int(before_ids.max()),
+        connectedBodiesAfterBandRepair=int(ids.max()),
+        waterPixelsUnchanged=True,reliableClassPixelsUnchanged=True,
+        rationale='Dark strokes never subdivide an existing color component. Local gap repair requires same-family original-color endpoints, no water, no reliable other unit.')
+    (OUT/'continuity_method.json').write_text(json.dumps(continuity,indent=2))
     ambiguity=(nearest[:,:,1]<94)&((distance[:,:,1]-distance[:,:,0])<3)
-    np.savez_compressed(WORK/'raster_qa.npz',ids=ids,mask=mask,dark=dark,annotations=annotations,ambiguity=ambiguity,table=table)
+    np.savez_compressed(WORK/'raster_qa.npz',ids=ids,mask=mask,dark=dark,annotations=annotations,ambiguity=ambiguity,table=table,repair_mask=repair_mask,canonical=canonical,original_classes=before_classes,revised_classes=classes,water=water,reliable_mask=reliable>0)
     log(f'Classification: {len(table)-1} body seeds, no unassigned interior pixels')
     return rgb,ids,table,units,alternatives,mask,dark,annotations,ambiguity
 
@@ -204,21 +192,26 @@ def refine(ids,rgb):
         strengths[bad]*=.45
         if iteration>=8:strengths[bad]=0
     else:raise RuntimeError('Contact crossing safeguards failed')
-    # A narrow body may still cause an extra polygonized face without a proper
-    # crossing. Back off globally if necessary; never silently lose a feature.
-    for attempt in range(6):
+    # Same face count is not sufficient: require a complete one-to-one
+    # overlap assignment too. Back off if a tiny body otherwise loses identity.
+    for attempt in range(10):
         network=curves()
         faces=np.array(list(polygonize(sh.union_all(network))),dtype=object)
-        if len(faces)==len(initial):break
-        strengths*=.5
-    else:raise RuntimeError('Shared-network face count changed')
-    pairs=STRtree(initial).query(faces,predicate='intersects')
-    overlap=sh.area(sh.intersection(faces[pairs[0]],initial[pairs[1]]))
-    score=2*overlap/(sh.area(faces[pairs[0]])+sh.area(initial[pairs[1]]))
-    good=score>0
-    costs=coo_matrix((1.00001-score[good],(pairs[0,good],pairs[1,good])),shape=(len(faces),len(initial))).tocsr()
-    rr,cc=min_weight_full_bipartite_matching(costs);order=np.empty(len(initial),int);order[cc]=rr
-    final=faces[order]
+        try:
+            if len(faces)!=len(initial):raise ValueError('Face count changed')
+            pairs=STRtree(initial).query(faces,predicate='intersects')
+            overlap=sh.area(sh.intersection(faces[pairs[0]],initial[pairs[1]]))
+            score=2*overlap/(sh.area(faces[pairs[0]])+sh.area(initial[pairs[1]]))
+            good=score>0
+            costs=coo_matrix((1.00001-score[good],(pairs[0,good],pairs[1,good])),shape=(len(faces),len(initial))).tocsr()
+            rr,cc=min_weight_full_bipartite_matching(costs)
+            order=np.empty(len(initial),int);order[cc]=rr
+            final=faces[order];validate_coverage(final)
+            break
+        except (ValueError,AssertionError):
+            strengths*=.5
+            if attempt>=8:strengths[:]=0
+    else:raise RuntimeError('Cannot preserve one-to-one contact topology')
     # Remove redundant vertices with a shared coverage operation (both sides).
     final=sh.coverage_simplify(final,tolerance=.13,simplify_boundary=True)
     footprint=validate_coverage(final)
@@ -260,6 +253,8 @@ def export(rgb,ids,table,units,alternatives,mask,dark,annotations,ambiguity,poly
     writer=shapefile.Writer(str(OUT/'ngsa_geology'),shapeType=shapefile.POLYGON,encoding='utf-8')
     for f in [('poly_id','N',10,0),('body_id','N',10,0),('class_id','N',3,0),('unit_code','C',12,0),('lithology','C',130,0),('hex_color','C',7,0),('area_km2','F',16,3),('ann_pct','F',6,1),('ambig_pct','F',6,1),('candidates','C',60,0),('contact_qa','C',24,0),('qa_status','C',24,0)]:writer.field(*f)
     features=[];class_counts=Counter();issue_counts=Counter()
+    repair_mask=np.load(WORK/'raster_qa.npz')['repair_mask']
+    repaired=np.bincount(ids[repair_mask],minlength=len(table))
     for i,(poly,body) in enumerate(zip(polygons,bodies),1):
         cls,original,split=map(int,table[body]);u=units[cls-1]
         wp=sh.orient_polygons(affine_transform(poly,trans));area=abs(geod.geometry_area_perimeter(wp)[0])/1e6
@@ -267,13 +262,13 @@ def export(rgb,ids,table,units,alternatives,mask,dark,annotations,ambiguity,poly
         if cls==95:problems.append('water')
         elif cls>92:problems.append('unresolved-code')
         if len(alternatives[cls])>1:problems.append('similar-colors')
-        if split:problems.append('contact-review')
+        if repaired[body]:problems.append('continuity-restored')
         if ann[body]>35:problems.append('annotation-heavy')
         if poly.area/poly.length<2.5:problems.append('narrow-body')
         # Preserve narrow candidates and flag them; automatically deleting them
         # could erase real geological bodies rather than just printed artifacts.
         qa='WATER_NOT_GEOLOGY' if cls==95 else ('MAP_CODE_UNRESOLVED' if cls>92 else 'DRAFT_REVIEW')
-        writer.shape(mapping(wp));writer.record(i,int(body),cls,u['code'],u['name'],u['color'],area,float(ann[body]),float(amb[body]),','.join(map(str,alternatives[cls])),'SPLIT_NEEDS_REVIEW' if split else 'COLOR_CONTACT_DRAFT',qa)
+        writer.shape(mapping(wp));writer.record(i,int(body),cls,u['code'],u['name'],u['color'],area,float(ann[body]),float(amb[body]),','.join(map(str,alternatives[cls])),'CONTINUITY_RESTORED' if repaired[body] else 'COLOR_CONTACT_DRAFT',qa)
         rings=[np.round(np.array(r.coords),3).tolist() for r in [poly.exterior]+list(poly.interiors)]
         features.append(dict(id=i,body=int(body),classId=cls,area=round(area,3),annotation=round(float(ann[body]),1),ambiguity=round(float(amb[body]),1),issues=problems,bbox=[round(v,3) for v in poly.bounds],rings=rings))
         class_counts[cls]+=1;issue_counts.update(problems)
@@ -298,7 +293,7 @@ def export(rgb,ids,table,units,alternatives,mask,dark,annotations,ambiguity,poly
         (OUT/f'{name}.prj').write_text(prj);(OUT/f'{name}.cpg').write_text('UTF-8')
     for u in units:u.update(count=class_counts[u['id']],candidates=alternatives[u['id']])
     with open(OUT/'legend.csv','w') as file:
-        w=csv.DictWriter(file,fieldnames=units[0].keys());w.writeheader();w.writerows(units)
+        w=csv.DictWriter(file,fieldnames=units[0].keys(),lineterminator='\n');w.writeheader();w.writerows(units)
     Image.fromarray(rgb).save(WEB/'source.jpg',quality=92)
     (OUT/'source_reference.jgw').write_text('\n'.join(map(str,[T.a,T.d,T.b,T.e,T.c+T.a/2,T.f+T.e/2])))
     (OUT/'source_reference.prj').write_text(prj)
@@ -308,7 +303,7 @@ def export(rgb,ids,table,units,alternatives,mask,dark,annotations,ambiguity,poly
     assert not np.any(interior&(output_raster==0))
     black_inside=dark&interior
     assert np.all(output_raster[black_inside]>0)
-    stats=dict(revision=5,built='2026-10-10',featureCount=len(features),contactCount=len(contacts),classCount=len(class_counts),blackFillClasses=0,interiorGaps=0,blackPixelsCovered=int(black_inside.sum()),blackPixelsTested=int(black_inside.sum()),overlaps=False,singlepart=True,crs='EPSG:4326 — assumed datum',sourceSize=[6600,3675],crop=list(CROP),width=rgb.shape[1],height=rgb.shape[0],sourceSha256=hashlib.sha256(SOURCE.read_bytes()).hexdigest(),issueCounts=dict(issue_counts),refinement=refinement,limitations=['Automated geological draft, not exhaustive manual verification.','Map-only codes, similar colors, narrow bodies and inferred contacts need review.','Gap-free within the mapped footprint, not the page or an official country boundary.','Original source photo intentionally retains black annotations in comparison mode.'])
+    stats=dict(revision=6,built='2026-10-10',featureCount=len(features),contactCount=len(contacts),classCount=len(class_counts),blackFillClasses=0,interiorGaps=0,blackPixelsCovered=int(black_inside.sum()),blackPixelsTested=int(black_inside.sum()),overlaps=False,singlepart=True,crs='EPSG:4326 — assumed datum',sourceSize=[6600,3675],crop=list(CROP),width=rgb.shape[1],height=rgb.shape[0],sourceSha256=hashlib.sha256(SOURCE.read_bytes()).hexdigest(),issueCounts=dict(issue_counts),refinement=refinement,continuity=json.loads((OUT/'continuity_method.json').read_text()),limitations=['Automated geological draft, not exhaustive manual verification.','Map-only codes, similar colors, narrow bodies and inferred contacts need review.','Gap-free within the mapped footprint, not the page or an official country boundary.','Original source photo intentionally retains black annotations in comparison mode.'])
     data=dict(stats=stats,classes=units,features=features,contacts=[np.round(np.array(line.coords),3).tolist() for line in contacts],transform=[T.a,T.b,T.c,T.d,T.e,T.f],extent=list(footprint.bounds),regions=[dict(name='Whole map',box=list(footprint.bounds)),dict(name='Jos Plateau',box=[1900,1050,2600,1780]),dict(name='Southwest',box=[430,1810,1340,2490]),dict(name='Katsina',box=[1430,220,2220,920]),dict(name='Delta',box=[1000,2520,2200,3250])])
     (WEB/'map.json').write_text(json.dumps(data,separators=(',',':')))
     (OUT/'quality.json').write_text(json.dumps(stats,indent=2));(WEB/'quality.json').write_text(json.dumps(stats,indent=2))

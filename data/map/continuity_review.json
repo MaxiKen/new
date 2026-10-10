@@ -1,0 +1,6806 @@
+{
+  "summary": {
+    "baselineRevision": 5,
+    "baselineCommit": "a62427bf26b3861fe58221a3f718626daa0455d8",
+    "baselineSha256": "fae56e173aa23c96b73f74821fc106488215de73fed75e30029012ae0ae598e2",
+    "previousFeatureCount": 2443,
+    "currentFeatureCount": 1588,
+    "restoredContinuousBodies": 318,
+    "previousInternalSeamsRemoved": 732,
+    "sourceSupportedBandPixels": 73,
+    "policy": "Connected colors are not split by dark overprints; no proximity-only or global same-color dissolve.",
+    "caution": "Ancestry/overlap evidence, not exhaustive geological verification. IDs changed: use previousIds for tracing reviewed merges."
+  },
+  "changes": [
+    {
+      "featureId": 939,
+      "previousIds": [
+        296,
+        315,
+        332,
+        356,
+        366,
+        382,
+        387,
+        412,
+        505,
+        525,
+        531,
+        536,
+        605,
+        651,
+        673,
+        691,
+        694,
+        769,
+        794,
+        839,
+        927,
+        973,
+        1168,
+        1209,
+        1223,
+        1306,
+        1420,
+        1468
+      ],
+      "retainedFractions": [
+        0.9399,
+        1.0,
+        0.9058,
+        0.9705,
+        0.9819,
+        0.987,
+        0.9983,
+        0.9959,
+        0.994,
+        0.9969,
+        0.9119,
+        0.9996,
+        0.9392,
+        0.9631,
+        0.9787,
+        0.9452,
+        0.922,
+        0.886,
+        0.9932,
+        0.8827,
+        0.9784,
+        0.9862,
+        0.8897,
+        0.9901,
+        0.9881,
+        0.981,
+        0.9215,
+        0.9855
+      ],
+      "removedContacts": 30,
+      "bbox": [
+        953.503,
+        648.0,
+        2119.877,
+        1734.0
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 1324,
+      "previousIds": [
+        1194,
+        1202,
+        1217,
+        1226,
+        1249,
+        1413,
+        1444,
+        1554,
+        1557,
+        1596,
+        1721,
+        1735,
+        1776,
+        1817,
+        1833,
+        1840,
+        1890,
+        1937,
+        2014,
+        2072
+      ],
+      "retainedFractions": [
+        1.0,
+        0.8866,
+        0.9781,
+        0.9611,
+        0.9231,
+        0.9752,
+        0.9791,
+        0.9786,
+        0.9931,
+        0.9796,
+        0.9995,
+        0.9874,
+        0.9019,
+        0.949,
+        0.986,
+        0.9575,
+        0.9474,
+        0.8957,
+        0.9707,
+        0.9825
+      ],
+      "removedContacts": 27,
+      "bbox": [
+        228.0,
+        1497.171,
+        839.0,
+        2280.739
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 1354,
+      "previousIds": [
+        1567,
+        1594,
+        1609,
+        1626,
+        1638,
+        1660,
+        1666,
+        1682,
+        1748,
+        1927,
+        1929,
+        1955,
+        1956,
+        2073,
+        2107,
+        2119
+      ],
+      "retainedFractions": [
+        0.9865,
+        0.9947,
+        0.995,
+        0.9277,
+        0.9976,
+        0.9844,
+        0.9948,
+        0.9977,
+        0.9849,
+        1.0,
+        0.9823,
+        0.9892,
+        0.9813,
+        0.9663,
+        0.9388,
+        0.9868
+      ],
+      "removedContacts": 22,
+      "bbox": [
+        758.368,
+        1669.598,
+        1448.0,
+        2340.001
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 821,
+      "previousIds": [
+        943,
+        947,
+        977,
+        1088,
+        1096,
+        1171,
+        1174,
+        1176,
+        1190,
+        1215,
+        1242,
+        1262,
+        1296
+      ],
+      "retainedFractions": [
+        0.9394,
+        0.9771,
+        0.9817,
+        0.9493,
+        0.9702,
+        0.9903,
+        0.9675,
+        1.0,
+        1.0,
+        0.9603,
+        0.8843,
+        0.9319,
+        0.9551
+      ],
+      "removedContacts": 16,
+      "bbox": [
+        1986.0,
+        1240.0,
+        2211.816,
+        1599.295
+      ],
+      "classId": 57
+    },
+    {
+      "featureId": 131,
+      "previousIds": [
+        37,
+        46,
+        82,
+        85,
+        102,
+        122,
+        142,
+        152,
+        163,
+        179,
+        203
+      ],
+      "retainedFractions": [
+        0.9886,
+        0.9667,
+        0.9942,
+        1.0,
+        0.9868,
+        0.96,
+        0.8709,
+        0.9966,
+        0.9434,
+        0.9852,
+        0.9597
+      ],
+      "removedContacts": 14,
+      "bbox": [
+        938.972,
+        175.857,
+        1454.141,
+        578.0
+      ],
+      "classId": 40
+    },
+    {
+      "featureId": 1144,
+      "previousIds": [
+        770,
+        872,
+        1368,
+        1499,
+        1527,
+        1534,
+        1625,
+        1706,
+        1770
+      ],
+      "retainedFractions": [
+        0.9468,
+        1.0,
+        0.9925,
+        0.9812,
+        0.9879,
+        0.9894,
+        0.9736,
+        0.9037,
+        0.9924
+      ],
+      "removedContacts": 10,
+      "bbox": [
+        757.0,
+        1149.305,
+        1659.283,
+        2012.0
+      ],
+      "classId": 37
+    },
+    {
+      "featureId": 497,
+      "previousIds": [
+        295,
+        298,
+        424,
+        466,
+        526,
+        624,
+        642,
+        782
+      ],
+      "retainedFractions": [
+        0.8666,
+        1.0,
+        0.9873,
+        0.9891,
+        0.9924,
+        0.9599,
+        0.9926,
+        0.994
+      ],
+      "removedContacts": 9,
+      "bbox": [
+        1856.0,
+        517.0,
+        2707.143,
+        1178.0
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 538,
+      "previousIds": [
+        702,
+        722,
+        734,
+        751,
+        753,
+        846
+      ],
+      "retainedFractions": [
+        0.8793,
+        1.0,
+        1.0,
+        1.0,
+        0.9872,
+        0.9868
+      ],
+      "removedContacts": 9,
+      "bbox": [
+        517.162,
+        1087.942,
+        620.1,
+        1218.0
+      ],
+      "classId": 82
+    },
+    {
+      "featureId": 698,
+      "previousIds": [
+        388,
+        570,
+        704,
+        727,
+        807,
+        873,
+        915,
+        990,
+        1025,
+        1095
+      ],
+      "retainedFractions": [
+        0.881,
+        0.982,
+        0.9577,
+        0.9899,
+        0.9068,
+        0.9423,
+        0.977,
+        0.948,
+        0.9551,
+        0.9627
+      ],
+      "removedContacts": 9,
+      "bbox": [
+        1447.274,
+        797.298,
+        1680.787,
+        1449.761
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 103,
+      "previousIds": [
+        40,
+        41,
+        55,
+        60,
+        77,
+        112,
+        128,
+        138,
+        167
+      ],
+      "retainedFractions": [
+        0.9653,
+        0.9846,
+        0.9742,
+        0.988,
+        0.9591,
+        0.9499,
+        0.961,
+        0.9625,
+        0.9658
+      ],
+      "removedContacts": 8,
+      "bbox": [
+        1021.868,
+        138.0,
+        1414.412,
+        527.305
+      ],
+      "classId": 39
+    },
+    {
+      "featureId": 324,
+      "previousIds": [
+        430,
+        451,
+        463,
+        468,
+        510
+      ],
+      "retainedFractions": [
+        0.9346,
+        0.935,
+        1.0,
+        0.99,
+        0.9817
+      ],
+      "removedContacts": 8,
+      "bbox": [
+        2218.0,
+        803.434,
+        2447.0,
+        939.0
+      ],
+      "classId": 67
+    },
+    {
+      "featureId": 881,
+      "previousIds": [
+        687,
+        758,
+        763,
+        825,
+        890,
+        930,
+        962,
+        1141,
+        1189,
+        1251,
+        1327,
+        1347,
+        1387
+      ],
+      "retainedFractions": [
+        1.0,
+        0.8129,
+        0.9867,
+        1.0,
+        0.9469,
+        0.9516,
+        0.9452,
+        0.985,
+        0.8649,
+        0.9151,
+        0.9914,
+        0.9683,
+        0.985
+      ],
+      "removedContacts": 8,
+      "bbox": [
+        440.0,
+        1096.33,
+        781.288,
+        1676.177
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 888,
+      "previousIds": [
+        1225,
+        1312,
+        1317,
+        1328,
+        1333,
+        1374,
+        1395
+      ],
+      "retainedFractions": [
+        0.9764,
+        0.9945,
+        0.9899,
+        0.9503,
+        0.9956,
+        0.9875,
+        0.9893
+      ],
+      "removedContacts": 8,
+      "bbox": [
+        1694.342,
+        1484.735,
+        1767.0,
+        1686.0
+      ],
+      "classId": 4
+    },
+    {
+      "featureId": 916,
+      "previousIds": [
+        1079,
+        1087,
+        1313,
+        1398,
+        1425,
+        1436
+      ],
+      "retainedFractions": [
+        0.9869,
+        0.9131,
+        0.9824,
+        1.0,
+        0.9888,
+        0.9368
+      ],
+      "removedContacts": 8,
+      "bbox": [
+        2298.543,
+        1298.983,
+        2568.244,
+        1712.965
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 1177,
+      "previousIds": [
+        1193,
+        1219,
+        1227,
+        1263,
+        1274,
+        1498,
+        1547,
+        1752,
+        1827
+      ],
+      "retainedFractions": [
+        0.9837,
+        0.8697,
+        1.0,
+        0.9787,
+        0.8877,
+        0.9757,
+        0.9845,
+        0.9883,
+        0.9759
+      ],
+      "removedContacts": 8,
+      "bbox": [
+        2053.254,
+        1373.805,
+        3474.993,
+        2059.0
+      ],
+      "classId": 1
+    },
+    {
+      "featureId": 1439,
+      "previousIds": [
+        2144,
+        2147,
+        2185,
+        2190,
+        2191,
+        2195,
+        2207,
+        2224,
+        2250
+      ],
+      "retainedFractions": [
+        0.9602,
+        0.9557,
+        0.977,
+        0.9674,
+        0.9708,
+        0.9122,
+        0.9689,
+        0.9662,
+        0.9795
+      ],
+      "removedContacts": 8,
+      "bbox": [
+        25.778,
+        2318.628,
+        729.0,
+        2509.685
+      ],
+      "classId": 1
+    },
+    {
+      "featureId": 640,
+      "previousIds": [
+        720,
+        721,
+        778,
+        913,
+        926,
+        1009,
+        1011
+      ],
+      "retainedFractions": [
+        0.9921,
+        0.9886,
+        0.9913,
+        0.99,
+        0.9794,
+        0.991,
+        0.9726
+      ],
+      "removedContacts": 7,
+      "bbox": [
+        3157.862,
+        1057.0,
+        3498.0,
+        1374.699
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 1233,
+      "previousIds": [
+        1778,
+        1794,
+        1880,
+        1889,
+        1892,
+        1908,
+        1938
+      ],
+      "retainedFractions": [
+        0.976,
+        0.9266,
+        0.9661,
+        0.914,
+        0.9451,
+        0.9801,
+        0.8728
+      ],
+      "removedContacts": 7,
+      "bbox": [
+        707.0,
+        1950.0,
+        827.0,
+        2153.0
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 1332,
+      "previousIds": [
+        1803,
+        1852,
+        1913,
+        1922,
+        2029,
+        2067,
+        2082,
+        2085
+      ],
+      "retainedFractions": [
+        0.8873,
+        0.8878,
+        0.95,
+        0.9714,
+        0.9381,
+        0.9946,
+        0.9854,
+        0.8942
+      ],
+      "removedContacts": 7,
+      "bbox": [
+        494.904,
+        1993.0,
+        595.393,
+        2304.215
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 1460,
+      "previousIds": [
+        2137,
+        2160,
+        2166,
+        2211,
+        2232,
+        2264,
+        2278
+      ],
+      "retainedFractions": [
+        0.9611,
+        0.9715,
+        0.9787,
+        0.9727,
+        0.9338,
+        0.9994,
+        0.9864
+      ],
+      "removedContacts": 7,
+      "bbox": [
+        2089.525,
+        2298.952,
+        2359.502,
+        2594.0
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 1495,
+      "previousIds": [
+        2298,
+        2312,
+        2313,
+        2322,
+        2325
+      ],
+      "retainedFractions": [
+        0.9929,
+        1.0,
+        0.9848,
+        0.9933,
+        0.9662
+      ],
+      "removedContacts": 7,
+      "bbox": [
+        1861.52,
+        2472.0,
+        2189.238,
+        2698.135
+      ],
+      "classId": 48
+    },
+    {
+      "featureId": 227,
+      "previousIds": [
+        223,
+        240,
+        242,
+        307,
+        321,
+        349
+      ],
+      "retainedFractions": [
+        0.9562,
+        0.9865,
+        0.9957,
+        0.9999,
+        0.9836,
+        0.9959
+      ],
+      "removedContacts": 6,
+      "bbox": [
+        954.0,
+        532.705,
+        1106.744,
+        790.0
+      ],
+      "classId": 67
+    },
+    {
+      "featureId": 382,
+      "previousIds": [
+        241,
+        250,
+        429,
+        479,
+        509,
+        528,
+        612
+      ],
+      "retainedFractions": [
+        0.9603,
+        0.9932,
+        0.9857,
+        0.9876,
+        0.9755,
+        0.9992,
+        0.9495
+      ],
+      "removedContacts": 6,
+      "bbox": [
+        796.0,
+        585.0,
+        999.779,
+        1038.0
+      ],
+      "classId": 4
+    },
+    {
+      "featureId": 499,
+      "previousIds": [
+        643,
+        658,
+        668,
+        681,
+        706,
+        754,
+        780
+      ],
+      "retainedFractions": [
+        0.9447,
+        0.9965,
+        0.9593,
+        0.9586,
+        0.864,
+        0.9827,
+        0.9549
+      ],
+      "removedContacts": 6,
+      "bbox": [
+        782.0,
+        1045.936,
+        899.855,
+        1180.657
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 157,
+      "previousIds": [
+        47,
+        190,
+        196,
+        245
+      ],
+      "retainedFractions": [
+        0.9827,
+        0.9895,
+        1.0,
+        0.9865
+      ],
+      "removedContacts": 5,
+      "bbox": [
+        728.785,
+        36.299,
+        1264.0,
+        634.441
+      ],
+      "classId": 29
+    },
+    {
+      "featureId": 584,
+      "previousIds": [
+        608,
+        657,
+        895,
+        916,
+        919,
+        925
+      ],
+      "retainedFractions": [
+        1.0,
+        0.9964,
+        0.9888,
+        0.9985,
+        0.9773,
+        0.9733
+      ],
+      "removedContacts": 5,
+      "bbox": [
+        2273.274,
+        907.682,
+        2605.618,
+        1280.596
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 918,
+      "previousIds": [
+        1108,
+        1216,
+        1240,
+        1293,
+        1437
+      ],
+      "retainedFractions": [
+        0.9894,
+        0.9531,
+        0.9725,
+        0.9729,
+        0.9761
+      ],
+      "removedContacts": 5,
+      "bbox": [
+        1401.54,
+        1436.725,
+        1612.441,
+        1716.017
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 1075,
+      "previousIds": [
+        1529,
+        1553,
+        1586,
+        1588,
+        1604,
+        1673
+      ],
+      "retainedFractions": [
+        0.8238,
+        0.9639,
+        0.9967,
+        1.0,
+        0.9798,
+        0.9717
+      ],
+      "removedContacts": 5,
+      "bbox": [
+        805.044,
+        1742.0,
+        939.0,
+        1936.0
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 1284,
+      "previousIds": [
+        1846,
+        1884,
+        1902,
+        1911,
+        1965,
+        2003
+      ],
+      "retainedFractions": [
+        0.9381,
+        1.0,
+        0.9878,
+        0.9618,
+        0.9805,
+        0.9597
+      ],
+      "removedContacts": 5,
+      "bbox": [
+        1122.0,
+        2053.036,
+        1292.7,
+        2211.682
+      ],
+      "classId": 76
+    },
+    {
+      "featureId": 1557,
+      "previousIds": [
+        2356,
+        2361,
+        2383,
+        2393,
+        2407
+      ],
+      "retainedFractions": [
+        0.9604,
+        0.8107,
+        0.9656,
+        0.958,
+        0.9139
+      ],
+      "removedContacts": 5,
+      "bbox": [
+        1716.469,
+        2770.382,
+        2031.0,
+        2992.527
+      ],
+      "classId": 1
+    },
+    {
+      "featureId": 245,
+      "previousIds": [
+        94,
+        178,
+        224,
+        379
+      ],
+      "retainedFractions": [
+        0.9951,
+        0.9963,
+        0.9982,
+        0.9964
+      ],
+      "removedContacts": 4,
+      "bbox": [
+        1951.0,
+        171.924,
+        2979.792,
+        815.862
+      ],
+      "classId": 6
+    },
+    {
+      "featureId": 269,
+      "previousIds": [
+        44,
+        48,
+        75,
+        76,
+        333,
+        378,
+        417
+      ],
+      "retainedFractions": [
+        0.9535,
+        1.0,
+        1.0,
+        1.0,
+        0.9826,
+        0.9943,
+        0.9777
+      ],
+      "removedContacts": 4,
+      "bbox": [
+        2353.651,
+        173.574,
+        3329.01,
+        858.0
+      ],
+      "classId": 1
+    },
+    {
+      "featureId": 316,
+      "previousIds": [
+        449,
+        476,
+        494,
+        496
+      ],
+      "retainedFractions": [
+        0.8907,
+        0.9432,
+        0.9967,
+        0.9081
+      ],
+      "removedContacts": 4,
+      "bbox": [
+        2402.492,
+        857.588,
+        2479.004,
+        929.645
+      ],
+      "classId": 58
+    },
+    {
+      "featureId": 376,
+      "previousIds": [
+        400,
+        484,
+        493,
+        538,
+        602
+      ],
+      "retainedFractions": [
+        0.9852,
+        0.9833,
+        0.9731,
+        0.9899,
+        0.9925
+      ],
+      "removedContacts": 4,
+      "bbox": [
+        913.774,
+        721.522,
+        1088.087,
+        1026.0
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 688,
+      "previousIds": [
+        548,
+        896,
+        910,
+        957,
+        985,
+        1081
+      ],
+      "retainedFractions": [
+        0.994,
+        0.9803,
+        0.9893,
+        0.9705,
+        0.9799,
+        0.9952
+      ],
+      "removedContacts": 4,
+      "bbox": [
+        3316.728,
+        895.684,
+        3772.109,
+        1439.972
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 755,
+      "previousIds": [
+        428,
+        970,
+        1034,
+        1179
+      ],
+      "retainedFractions": [
+        0.9908,
+        0.9988,
+        1.0,
+        0.9945
+      ],
+      "removedContacts": 4,
+      "bbox": [
+        2529.0,
+        640.0,
+        2987.787,
+        1513.127
+      ],
+      "classId": 17
+    },
+    {
+      "featureId": 795,
+      "previousIds": [
+        843,
+        905,
+        907,
+        958,
+        1212,
+        1254
+      ],
+      "retainedFractions": [
+        0.9624,
+        0.9726,
+        0.9879,
+        0.955,
+        0.9907,
+        0.9996
+      ],
+      "removedContacts": 4,
+      "bbox": [
+        2701.917,
+        1081.883,
+        3165.729,
+        1568.008
+      ],
+      "classId": 47
+    },
+    {
+      "featureId": 958,
+      "previousIds": [
+        1453,
+        1480,
+        1484,
+        1490
+      ],
+      "retainedFractions": [
+        0.9636,
+        0.9094,
+        0.9581,
+        0.9931
+      ],
+      "removedContacts": 4,
+      "bbox": [
+        751.966,
+        1583.0,
+        917.0,
+        1758.349
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 1020,
+      "previousIds": [
+        1533,
+        1544,
+        1563,
+        1578
+      ],
+      "retainedFractions": [
+        0.8276,
+        0.984,
+        0.9834,
+        0.9782
+      ],
+      "removedContacts": 4,
+      "bbox": [
+        1164.0,
+        1738.571,
+        1276.0,
+        1854.0
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 1158,
+      "previousIds": [
+        1654,
+        1692,
+        1766,
+        1773,
+        1800
+      ],
+      "retainedFractions": [
+        0.9265,
+        0.9475,
+        0.9926,
+        0.9841,
+        0.9714
+      ],
+      "removedContacts": 4,
+      "bbox": [
+        1747.0,
+        1757.724,
+        1993.0,
+        2032.361
+      ],
+      "classId": 1
+    },
+    {
+      "featureId": 1269,
+      "previousIds": [
+        1708,
+        1821,
+        1978
+      ],
+      "retainedFractions": [
+        0.948,
+        0.9056,
+        0.9851
+      ],
+      "removedContacts": 4,
+      "bbox": [
+        1939.768,
+        1902.665,
+        2196.943,
+        2198.0
+      ],
+      "classId": 42
+    },
+    {
+      "featureId": 1331,
+      "previousIds": [
+        1923,
+        1958,
+        1985,
+        2047,
+        2084
+      ],
+      "retainedFractions": [
+        0.9543,
+        0.9908,
+        0.9462,
+        0.985,
+        0.9814
+      ],
+      "removedContacts": 4,
+      "bbox": [
+        696.709,
+        2081.273,
+        826.0,
+        2304.0
+      ],
+      "classId": 86
+    },
+    {
+      "featureId": 1346,
+      "previousIds": [
+        2016,
+        2058,
+        2062,
+        2108
+      ],
+      "retainedFractions": [
+        0.9517,
+        0.987,
+        0.9868,
+        0.9945
+      ],
+      "removedContacts": 4,
+      "bbox": [
+        2273.0,
+        2199.981,
+        2520.458,
+        2330.0
+      ],
+      "classId": 83
+    },
+    {
+      "featureId": 1381,
+      "previousIds": [
+        2096,
+        2098,
+        2136,
+        2161,
+        2169
+      ],
+      "retainedFractions": [
+        0.9865,
+        0.9808,
+        0.935,
+        0.9798,
+        0.9887
+      ],
+      "removedContacts": 4,
+      "bbox": [
+        849.0,
+        2246.533,
+        1409.919,
+        2397.014
+      ],
+      "classId": 16
+    },
+    {
+      "featureId": 1471,
+      "previousIds": [
+        2138,
+        2258,
+        2268,
+        2281,
+        2297
+      ],
+      "retainedFractions": [
+        0.9753,
+        1.0,
+        0.9725,
+        0.9935,
+        0.9285
+      ],
+      "removedContacts": 4,
+      "bbox": [
+        1667.269,
+        2344.568,
+        2012.0,
+        2632.061
+      ],
+      "classId": 48
+    },
+    {
+      "featureId": 106,
+      "previousIds": [
+        72,
+        97,
+        111,
+        170
+      ],
+      "retainedFractions": [
+        0.968,
+        0.986,
+        0.9856,
+        0.9657
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        1007.0,
+        293.206,
+        1207.0,
+        531.0
+      ],
+      "classId": 29
+    },
+    {
+      "featureId": 320,
+      "previousIds": [
+        460,
+        488,
+        498,
+        502
+      ],
+      "retainedFractions": [
+        0.9888,
+        0.968,
+        0.9891,
+        0.9882
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        3241.064,
+        786.959,
+        3625.0,
+        934.423
+      ],
+      "classId": 17
+    },
+    {
+      "featureId": 343,
+      "previousIds": [
+        546,
+        552,
+        553
+      ],
+      "retainedFractions": [
+        0.82,
+        0.9615,
+        0.8205
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        2219.0,
+        907.559,
+        2380.0,
+        971.861
+      ],
+      "classId": 51
+    },
+    {
+      "featureId": 357,
+      "previousIds": [
+        560,
+        567,
+        574
+      ],
+      "retainedFractions": [
+        0.9457,
+        0.977,
+        0.9234
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        2174.094,
+        951.0,
+        2240.0,
+        996.325
+      ],
+      "classId": 56
+    },
+    {
+      "featureId": 375,
+      "previousIds": [
+        533,
+        555,
+        572,
+        595
+      ],
+      "retainedFractions": [
+        0.9659,
+        1.0,
+        0.9692,
+        0.9847
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        2961.0,
+        904.888,
+        3138.0,
+        1023.0
+      ],
+      "classId": 47
+    },
+    {
+      "featureId": 393,
+      "previousIds": [
+        537,
+        588,
+        621,
+        629
+      ],
+      "retainedFractions": [
+        0.8888,
+        0.918,
+        0.9977,
+        0.9941
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        2078.563,
+        836.151,
+        2235.258,
+        1057.755
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 424,
+      "previousIds": [
+        244,
+        247,
+        285,
+        423,
+        672
+      ],
+      "retainedFractions": [
+        0.8899,
+        0.9931,
+        0.9581,
+        0.9851,
+        0.9934
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        1581.751,
+        464.0,
+        2014.0,
+        1086.211
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 510,
+      "previousIds": [
+        647,
+        680,
+        792,
+        793
+      ],
+      "retainedFractions": [
+        0.9634,
+        0.9174,
+        0.9622,
+        0.9959
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        2061.0,
+        960.507,
+        2326.457,
+        1187.877
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 544,
+      "previousIds": [
+        828,
+        842,
+        852
+      ],
+      "retainedFractions": [
+        0.8678,
+        0.8535,
+        0.8022
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        2136.555,
+        1161.851,
+        2193.978,
+        1222.998
+      ],
+      "classId": 54
+    },
+    {
+      "featureId": 577,
+      "previousIds": [
+        811,
+        847,
+        882,
+        903
+      ],
+      "retainedFractions": [
+        0.9988,
+        0.9817,
+        0.9203,
+        0.9778
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        2386.954,
+        1154.072,
+        2543.889,
+        1265.408
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 586,
+      "previousIds": [
+        832,
+        879,
+        909,
+        937
+      ],
+      "retainedFractions": [
+        0.973,
+        0.9883,
+        0.9968,
+        0.8553
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        2091.0,
+        1137.0,
+        2237.0,
+        1283.857
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 617,
+      "previousIds": [
+        863,
+        911,
+        928,
+        981
+      ],
+      "retainedFractions": [
+        0.9451,
+        0.996,
+        0.8144,
+        0.9653
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        1324.0,
+        1205.0,
+        1441.244,
+        1334.0
+      ],
+      "classId": 92
+    },
+    {
+      "featureId": 648,
+      "previousIds": [
+        886,
+        933,
+        974,
+        975,
+        1023
+      ],
+      "retainedFractions": [
+        0.9927,
+        0.9796,
+        0.9141,
+        0.9644,
+        0.9871
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        2197.0,
+        1190.972,
+        2506.0,
+        1384.908
+      ],
+      "classId": 88
+    },
+    {
+      "featureId": 652,
+      "previousIds": [
+        979,
+        991,
+        1018,
+        1028
+      ],
+      "retainedFractions": [
+        0.9784,
+        0.9617,
+        0.9862,
+        0.9948
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        1583.755,
+        1281.0,
+        1652.136,
+        1390.0
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 752,
+      "previousIds": [
+        1118,
+        1144,
+        1173
+      ],
+      "retainedFractions": [
+        0.9934,
+        0.9041,
+        0.9796
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        349.544,
+        1430.0,
+        403.307,
+        1504.826
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 801,
+      "previousIds": [
+        1128,
+        1131,
+        1237,
+        1268
+      ],
+      "retainedFractions": [
+        1.0,
+        1.0,
+        0.9908,
+        0.9952
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        2949.834,
+        1469.6,
+        3256.55,
+        1572.0
+      ],
+      "classId": 46
+    },
+    {
+      "featureId": 841,
+      "previousIds": [
+        1222,
+        1258,
+        1289,
+        1329
+      ],
+      "retainedFractions": [
+        0.9843,
+        0.9867,
+        0.978,
+        0.9847
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        1554.205,
+        1450.0,
+        1687.626,
+        1623.0
+      ],
+      "classId": 68
+    },
+    {
+      "featureId": 864,
+      "previousIds": [
+        1064,
+        1161,
+        1334,
+        1369
+      ],
+      "retainedFractions": [
+        0.9194,
+        1.0,
+        0.9567,
+        0.9837
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        2148.0,
+        1403.062,
+        2333.658,
+        1655.488
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 910,
+      "previousIds": [
+        1244,
+        1353,
+        1360,
+        1433
+      ],
+      "retainedFractions": [
+        0.9802,
+        0.9817,
+        0.9463,
+        0.9837
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        2487.204,
+        1486.0,
+        2785.402,
+        1708.926
+      ],
+      "classId": 37
+    },
+    {
+      "featureId": 922,
+      "previousIds": [
+        1250,
+        1315,
+        1331,
+        1446
+      ],
+      "retainedFractions": [
+        0.9895,
+        0.9958,
+        0.8658,
+        0.9748
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        2270.588,
+        1530.97,
+        2351.425,
+        1719.0
+      ],
+      "classId": 9
+    },
+    {
+      "featureId": 933,
+      "previousIds": [
+        1220,
+        1359,
+        1404,
+        1463
+      ],
+      "retainedFractions": [
+        0.9341,
+        0.9739,
+        0.9897,
+        0.9729
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        2376.558,
+        1532.065,
+        2541.0,
+        1729.627
+      ],
+      "classId": 47
+    },
+    {
+      "featureId": 990,
+      "previousIds": [
+        1414,
+        1460,
+        1503,
+        1538
+      ],
+      "retainedFractions": [
+        0.9912,
+        0.8857,
+        0.9922,
+        0.9715
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        2132.576,
+        1565.0,
+        2313.758,
+        1797.07
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 1093,
+      "previousIds": [
+        1475,
+        1657,
+        1667,
+        1688
+      ],
+      "retainedFractions": [
+        0.9865,
+        0.8088,
+        0.956,
+        0.975
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        123.898,
+        1582.662,
+        208.061,
+        1949.996
+      ],
+      "classId": 86
+    },
+    {
+      "featureId": 1182,
+      "previousIds": [
+        1674,
+        1746,
+        1792,
+        1843
+      ],
+      "retainedFractions": [
+        0.9705,
+        0.9925,
+        0.9917,
+        0.9771
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        2304.529,
+        1855.021,
+        2641.134,
+        2070.3
+      ],
+      "classId": 48
+    },
+    {
+      "featureId": 1245,
+      "previousIds": [
+        1859,
+        1879,
+        1882,
+        1891,
+        1952
+      ],
+      "retainedFractions": [
+        0.9528,
+        0.814,
+        0.9196,
+        0.9985,
+        0.9823
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        1349.0,
+        2042.271,
+        1459.068,
+        2164.295
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 1310,
+      "previousIds": [
+        2012,
+        2027,
+        2045
+      ],
+      "retainedFractions": [
+        0.9807,
+        0.9078,
+        0.9665
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        2153.724,
+        2118.715,
+        2282.0,
+        2255.0
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 1314,
+      "previousIds": [
+        2021,
+        2048,
+        2051
+      ],
+      "retainedFractions": [
+        0.9756,
+        0.9432,
+        0.9591
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        1978.468,
+        2184.472,
+        2118.0,
+        2264.09
+      ],
+      "classId": 42
+    },
+    {
+      "featureId": 1357,
+      "previousIds": [
+        2054,
+        2064,
+        2125
+      ],
+      "retainedFractions": [
+        0.9785,
+        0.9745,
+        0.9959
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        615.775,
+        2172.288,
+        740.055,
+        2346.73
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 1390,
+      "previousIds": [
+        1998,
+        2111,
+        2150,
+        2181
+      ],
+      "retainedFractions": [
+        0.9655,
+        0.9526,
+        0.9806,
+        0.9347
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        1941.642,
+        2178.56,
+        2184.0,
+        2417.09
+      ],
+      "classId": 15
+    },
+    {
+      "featureId": 1440,
+      "previousIds": [
+        2056,
+        2174,
+        2177,
+        2249
+      ],
+      "retainedFractions": [
+        0.9894,
+        0.9773,
+        0.9918,
+        0.9498
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        1399.551,
+        2156.0,
+        1606.651,
+        2511.0
+      ],
+      "classId": 1
+    },
+    {
+      "featureId": 1492,
+      "previousIds": [
+        2115,
+        2159,
+        2208,
+        2282,
+        2319
+      ],
+      "retainedFractions": [
+        0.9636,
+        0.9878,
+        0.9773,
+        0.9896,
+        0.916
+      ],
+      "removedContacts": 3,
+      "bbox": [
+        1508.181,
+        2296.38,
+        1662.131,
+        2679.836
+      ],
+      "classId": 16
+    },
+    {
+      "featureId": 52,
+      "previousIds": [
+        79,
+        84,
+        86
+      ],
+      "retainedFractions": [
+        0.9933,
+        0.9158,
+        0.9653
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1702.424,
+        187.592,
+        2049.405,
+        382.0
+      ],
+      "classId": 39
+    },
+    {
+      "featureId": 59,
+      "previousIds": [
+        8,
+        100,
+        101
+      ],
+      "retainedFractions": [
+        0.9932,
+        0.9543,
+        0.9806
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        845.693,
+        33.234,
+        1048.009,
+        406.0
+      ],
+      "classId": 33
+    },
+    {
+      "featureId": 100,
+      "previousIds": [
+        110,
+        133,
+        160
+      ],
+      "retainedFractions": [
+        0.9723,
+        0.9499,
+        0.9261
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1301.089,
+        348.18,
+        1404.603,
+        522.0
+      ],
+      "classId": 74
+    },
+    {
+      "featureId": 166,
+      "previousIds": [
+        57,
+        233,
+        252,
+        259
+      ],
+      "retainedFractions": [
+        0.8987,
+        0.9242,
+        0.9853,
+        0.9711
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1328.342,
+        291.0,
+        1543.0,
+        664.113
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 178,
+      "previousIds": [
+        258,
+        273,
+        274
+      ],
+      "retainedFractions": [
+        0.9037,
+        0.9559,
+        0.8022
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1171.317,
+        613.0,
+        1222.0,
+        680.0
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 205,
+      "previousIds": [
+        281,
+        299,
+        318
+      ],
+      "retainedFractions": [
+        0.9824,
+        0.9908,
+        0.9309
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1538.689,
+        646.0,
+        1605.119,
+        745.671
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 222,
+      "previousIds": [
+        144,
+        181,
+        345
+      ],
+      "retainedFractions": [
+        0.9797,
+        0.9592,
+        0.9693
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1193.898,
+        388.042,
+        1343.777,
+        782.37
+      ],
+      "classId": 62
+    },
+    {
+      "featureId": 229,
+      "previousIds": [
+        127,
+        350
+      ],
+      "retainedFractions": [
+        0.99,
+        0.995
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        423.042,
+        39.315,
+        941.0,
+        792.639
+      ],
+      "classId": 12
+    },
+    {
+      "featureId": 259,
+      "previousIds": [
+        316,
+        340,
+        402
+      ],
+      "retainedFractions": [
+        0.9766,
+        0.9914,
+        0.9665
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1273.0,
+        537.902,
+        1387.566,
+        850.0
+      ],
+      "classId": 74
+    },
+    {
+      "featureId": 281,
+      "previousIds": [
+        317,
+        371,
+        441
+      ],
+      "retainedFractions": [
+        0.9695,
+        0.857,
+        0.9732
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1423.925,
+        719.764,
+        1509.844,
+        881.692
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 297,
+      "previousIds": [
+        389,
+        458,
+        462
+      ],
+      "retainedFractions": [
+        0.9834,
+        0.9724,
+        0.9859
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        2074.0,
+        784.938,
+        2264.219,
+        899.646
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 302,
+      "previousIds": [
+        348,
+        454,
+        467
+      ],
+      "retainedFractions": [
+        0.9665,
+        0.9789,
+        0.9155
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1395.553,
+        682.41,
+        1563.751,
+        904.277
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 308,
+      "previousIds": [
+        418,
+        422,
+        485
+      ],
+      "retainedFractions": [
+        0.95,
+        0.8752,
+        0.9991
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        2823.0,
+        122.619,
+        4047.431,
+        923.27
+      ],
+      "classId": 6
+    },
+    {
+      "featureId": 392,
+      "previousIds": [
+        522,
+        620,
+        622
+      ],
+      "retainedFractions": [
+        0.9632,
+        0.9784,
+        0.9248
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1437.008,
+        835.872,
+        1517.636,
+        1055.0
+      ],
+      "classId": 4
+    },
+    {
+      "featureId": 397,
+      "previousIds": [
+        370,
+        396,
+        638
+      ],
+      "retainedFractions": [
+        0.9523,
+        0.9698,
+        0.9849
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1647.095,
+        716.0,
+        1877.796,
+        1060.0
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 435,
+      "previousIds": [
+        566,
+        600,
+        689
+      ],
+      "retainedFractions": [
+        0.9909,
+        0.9978,
+        0.9845
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        671.747,
+        945.0,
+        792.93,
+        1102.0
+      ],
+      "classId": 88
+    },
+    {
+      "featureId": 437,
+      "previousIds": [
+        482,
+        582,
+        690
+      ],
+      "retainedFractions": [
+        0.977,
+        0.9868,
+        0.9666
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1656.0,
+        893.006,
+        1741.0,
+        1103.41
+      ],
+      "classId": 62
+    },
+    {
+      "featureId": 450,
+      "previousIds": [
+        579,
+        710,
+        713
+      ],
+      "retainedFractions": [
+        0.9774,
+        0.9559,
+        0.9683
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        2887.804,
+        930.636,
+        2960.806,
+        1123.22
+      ],
+      "classId": 20
+    },
+    {
+      "featureId": 483,
+      "previousIds": [
+        700,
+        717,
+        749
+      ],
+      "retainedFractions": [
+        0.9857,
+        0.9727,
+        0.9777
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        960.0,
+        1089.267,
+        990.0,
+        1161.284
+      ],
+      "classId": 67
+    },
+    {
+      "featureId": 542,
+      "previousIds": [
+        788,
+        824,
+        853
+      ],
+      "retainedFractions": [
+        0.9741,
+        0.9102,
+        0.9269
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1374.896,
+        1140.176,
+        1410.0,
+        1220.972
+      ],
+      "classId": 82
+    },
+    {
+      "featureId": 581,
+      "previousIds": [
+        875,
+        897,
+        917
+      ],
+      "retainedFractions": [
+        0.9925,
+        0.9389,
+        0.8872
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1480.0,
+        1219.049,
+        1513.988,
+        1279.0
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 601,
+      "previousIds": [
+        708,
+        859,
+        954
+      ],
+      "retainedFractions": [
+        0.884,
+        0.9478,
+        0.9844
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1323.208,
+        1078.758,
+        1458.419,
+        1303.433
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 669,
+      "previousIds": [
+        789,
+        918,
+        1048
+      ],
+      "retainedFractions": [
+        0.8847,
+        0.8513,
+        0.9826
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1226.0,
+        1119.0,
+        1349.542,
+        1413.0
+      ],
+      "classId": 91
+    },
+    {
+      "featureId": 677,
+      "previousIds": [
+        971,
+        1008,
+        1068
+      ],
+      "retainedFractions": [
+        0.9731,
+        0.9994,
+        0.9902
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        2193.77,
+        1266.406,
+        2297.212,
+        1430.42
+      ],
+      "classId": 52
+    },
+    {
+      "featureId": 693,
+      "previousIds": [
+        1058,
+        1059,
+        1072,
+        1089
+      ],
+      "retainedFractions": [
+        1.0,
+        0.9813,
+        0.9054,
+        0.9101
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        2432.955,
+        1359.861,
+        2535.998,
+        1445.0
+      ],
+      "classId": 64
+    },
+    {
+      "featureId": 709,
+      "previousIds": [
+        1031,
+        1067,
+        1113
+      ],
+      "retainedFractions": [
+        0.9755,
+        0.9794,
+        0.9809
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        2690.0,
+        1323.597,
+        2832.0,
+        1462.0
+      ],
+      "classId": 37
+    },
+    {
+      "featureId": 875,
+      "previousIds": [
+        1341,
+        1361,
+        1381
+      ],
+      "retainedFractions": [
+        0.969,
+        0.9218,
+        0.9868
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1566.725,
+        1606.322,
+        1604.0,
+        1670.0
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 883,
+      "previousIds": [
+        1231,
+        1245,
+        1392
+      ],
+      "retainedFractions": [
+        0.9524,
+        0.9392,
+        0.9541
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        407.942,
+        1529.613,
+        497.549,
+        1677.437
+      ],
+      "classId": 83
+    },
+    {
+      "featureId": 905,
+      "previousIds": [
+        1241,
+        1278,
+        1422
+      ],
+      "retainedFractions": [
+        0.8109,
+        0.8254,
+        0.991
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        3265.721,
+        1547.0,
+        3462.987,
+        1700.056
+      ],
+      "classId": 67
+    },
+    {
+      "featureId": 1001,
+      "previousIds": [
+        1303,
+        1495,
+        1552
+      ],
+      "retainedFractions": [
+        0.9301,
+        1.0,
+        0.9816
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        416.311,
+        1559.91,
+        570.512,
+        1825.837
+      ],
+      "classId": 86
+    },
+    {
+      "featureId": 1035,
+      "previousIds": [
+        1335,
+        1577,
+        1602
+      ],
+      "retainedFractions": [
+        0.9326,
+        0.9938,
+        0.968
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        181.04,
+        1453.934,
+        445.0,
+        1880.655
+      ],
+      "classId": 67
+    },
+    {
+      "featureId": 1036,
+      "previousIds": [
+        1419,
+        1505,
+        1605
+      ],
+      "retainedFractions": [
+        0.9843,
+        0.945,
+        0.9851
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1526.763,
+        1646.0,
+        1695.0,
+        1882.765
+      ],
+      "classId": 4
+    },
+    {
+      "featureId": 1107,
+      "previousIds": [
+        1648,
+        1702,
+        1711
+      ],
+      "retainedFractions": [
+        0.9383,
+        0.9799,
+        0.9877
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1012.205,
+        1891.536,
+        1084.732,
+        1966.447
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 1147,
+      "previousIds": [
+        1724,
+        1762,
+        1769,
+        1772
+      ],
+      "retainedFractions": [
+        0.8766,
+        0.904,
+        0.9832,
+        0.974
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1462.817,
+        1948.333,
+        1544.0,
+        2017.0
+      ],
+      "classId": 1
+    },
+    {
+      "featureId": 1190,
+      "previousIds": [
+        1787,
+        1836,
+        1854
+      ],
+      "retainedFractions": [
+        0.9578,
+        0.966,
+        0.9794
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        160.377,
+        1830.0,
+        318.135,
+        2084.0
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 1191,
+      "previousIds": [
+        1771,
+        1830,
+        1847,
+        1856
+      ],
+      "retainedFractions": [
+        0.8861,
+        0.9467,
+        0.9378,
+        0.9832
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        2185.377,
+        1984.0,
+        2327.0,
+        2083.639
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 1193,
+      "previousIds": [
+        1826,
+        1828,
+        1861
+      ],
+      "retainedFractions": [
+        1.0,
+        0.9457,
+        0.957
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        587.496,
+        2012.774,
+        658.0,
+        2088.172
+      ],
+      "classId": 66
+    },
+    {
+      "featureId": 1200,
+      "previousIds": [
+        1758,
+        1799,
+        1875
+      ],
+      "retainedFractions": [
+        0.9134,
+        0.9612,
+        0.8969
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        826.0,
+        1976.0,
+        875.668,
+        2099.071
+      ],
+      "classId": 77
+    },
+    {
+      "featureId": 1237,
+      "previousIds": [
+        1849,
+        1899,
+        1939
+      ],
+      "retainedFractions": [
+        0.958,
+        0.9682,
+        0.8974
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        922.0,
+        2049.0,
+        977.282,
+        2155.065
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 1256,
+      "previousIds": [
+        1801,
+        1916,
+        1969
+      ],
+      "retainedFractions": [
+        0.9285,
+        0.9358,
+        0.9446
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        657.0,
+        1980.851,
+        779.168,
+        2183.871
+      ],
+      "classId": 94
+    },
+    {
+      "featureId": 1260,
+      "previousIds": [
+        1932,
+        1944,
+        1954,
+        1974
+      ],
+      "retainedFractions": [
+        0.9902,
+        1.0,
+        0.8335,
+        0.965
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        591.794,
+        2129.866,
+        650.0,
+        2187.0
+      ],
+      "classId": 71
+    },
+    {
+      "featureId": 1337,
+      "previousIds": [
+        2010,
+        2053,
+        2090
+      ],
+      "retainedFractions": [
+        0.9084,
+        0.9402,
+        0.9909
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        572.983,
+        2182.0,
+        609.0,
+        2310.435
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 1370,
+      "previousIds": [
+        2049,
+        2113,
+        2148
+      ],
+      "retainedFractions": [
+        0.9899,
+        0.9725,
+        0.9622
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        136.081,
+        2092.944,
+        656.0,
+        2370.266
+      ],
+      "classId": 24
+    },
+    {
+      "featureId": 1376,
+      "previousIds": [
+        2095,
+        2134,
+        2146,
+        2157
+      ],
+      "retainedFractions": [
+        1.0,
+        0.945,
+        0.9873,
+        0.9888
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        2178.693,
+        2291.211,
+        2300.748,
+        2375.66
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 1393,
+      "previousIds": [
+        1511,
+        1749,
+        2187
+      ],
+      "retainedFractions": [
+        0.9889,
+        1.0,
+        0.9958
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        2641.0,
+        1562.191,
+        3289.344,
+        2423.389
+      ],
+      "classId": 88
+    },
+    {
+      "featureId": 1399,
+      "previousIds": [
+        2123,
+        2194,
+        2203
+      ],
+      "retainedFractions": [
+        0.9694,
+        0.9627,
+        0.964
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        2314.912,
+        2308.438,
+        2405.0,
+        2441.0
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 1408,
+      "previousIds": [
+        2179,
+        2183,
+        2212
+      ],
+      "retainedFractions": [
+        0.9765,
+        0.9956,
+        0.9737
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1776.0,
+        2309.0,
+        1950.0,
+        2452.0
+      ],
+      "classId": 43
+    },
+    {
+      "featureId": 1419,
+      "previousIds": [
+        1906,
+        2006,
+        2093,
+        2225
+      ],
+      "retainedFractions": [
+        0.9783,
+        0.964,
+        0.9454,
+        0.9881
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1686.417,
+        2096.73,
+        1815.007,
+        2476.017
+      ],
+      "classId": 27
+    },
+    {
+      "featureId": 1421,
+      "previousIds": [
+        2180,
+        2196,
+        2201,
+        2228
+      ],
+      "retainedFractions": [
+        0.8585,
+        0.9901,
+        0.9665,
+        0.9936
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        2211.528,
+        2388.643,
+        2258.578,
+        2477.568
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 1479,
+      "previousIds": [
+        2283,
+        2286,
+        2303
+      ],
+      "retainedFractions": [
+        0.896,
+        0.9317,
+        0.9718
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1704.0,
+        2550.0,
+        1937.021,
+        2644.817
+      ],
+      "classId": 43
+    },
+    {
+      "featureId": 1524,
+      "previousIds": [
+        2348,
+        2350,
+        2362
+      ],
+      "retainedFractions": [
+        0.9769,
+        0.9446,
+        0.9968
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1465.0,
+        2442.834,
+        1822.0,
+        2824.44
+      ],
+      "classId": 11
+    },
+    {
+      "featureId": 1525,
+      "previousIds": [
+        2334,
+        2345,
+        2363
+      ],
+      "retainedFractions": [
+        0.9685,
+        0.956,
+        0.9803
+      ],
+      "removedContacts": 2,
+      "bbox": [
+        1851.0,
+        2648.0,
+        2006.0,
+        2830.923
+      ],
+      "classId": 81
+    },
+    {
+      "featureId": 8,
+      "previousIds": [
+        9,
+        12
+      ],
+      "retainedFractions": [
+        0.9807,
+        0.9812
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        957.535,
+        31.0,
+        998.0,
+        94.0
+      ],
+      "classId": 40
+    },
+    {
+      "featureId": 14,
+      "previousIds": [
+        11,
+        18
+      ],
+      "retainedFractions": [
+        0.9405,
+        0.956
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        985.573,
+        52.65,
+        1069.776,
+        144.0
+      ],
+      "classId": 12
+    },
+    {
+      "featureId": 20,
+      "previousIds": [
+        22,
+        25
+      ],
+      "retainedFractions": [
+        0.9876,
+        0.9411
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1132.109,
+        71.0,
+        1231.914,
+        215.596
+      ],
+      "classId": 34
+    },
+    {
+      "featureId": 26,
+      "previousIds": [
+        31,
+        36
+      ],
+      "retainedFractions": [
+        0.9071,
+        0.9914
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1245.633,
+        115.67,
+        1376.0,
+        275.244
+      ],
+      "classId": 29
+    },
+    {
+      "featureId": 28,
+      "previousIds": [
+        33,
+        39
+      ],
+      "retainedFractions": [
+        0.9028,
+        0.9897
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2971.0,
+        174.013,
+        3197.0,
+        280.764
+      ],
+      "classId": 6
+    },
+    {
+      "featureId": 32,
+      "previousIds": [
+        29,
+        52
+      ],
+      "retainedFractions": [
+        0.9641,
+        0.9876
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1386.364,
+        232.863,
+        1497.0,
+        313.86
+      ],
+      "classId": 39
+    },
+    {
+      "featureId": 34,
+      "previousIds": [
+        51,
+        54
+      ],
+      "retainedFractions": [
+        0.9947,
+        0.9862
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1578.327,
+        258.839,
+        1632.0,
+        315.083
+      ],
+      "classId": 67
+    },
+    {
+      "featureId": 37,
+      "previousIds": [
+        58,
+        61
+      ],
+      "retainedFractions": [
+        0.9713,
+        0.9789
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1522.982,
+        295.05,
+        1561.242,
+        337.0
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 50,
+      "previousIds": [
+        67,
+        81
+      ],
+      "retainedFractions": [
+        0.9748,
+        0.9977
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1390.407,
+        319.0,
+        1411.18,
+        377.059
+      ],
+      "classId": 62
+    },
+    {
+      "featureId": 63,
+      "previousIds": [
+        96,
+        107
+      ],
+      "retainedFractions": [
+        0.9567,
+        0.8562
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1800.326,
+        354.263,
+        1901.371,
+        414.046
+      ],
+      "classId": 62
+    },
+    {
+      "featureId": 76,
+      "previousIds": [
+        121,
+        125
+      ],
+      "retainedFractions": [
+        0.9646,
+        0.9598
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1217.0,
+        405.0,
+        1256.571,
+        448.0
+      ],
+      "classId": 39
+    },
+    {
+      "featureId": 95,
+      "previousIds": [
+        103,
+        156
+      ],
+      "retainedFractions": [
+        0.9893,
+        0.9925
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1621.789,
+        240.946,
+        1995.0,
+        512.234
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 108,
+      "previousIds": [
+        148,
+        173
+      ],
+      "retainedFractions": [
+        0.9519,
+        0.9872
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        911.661,
+        444.37,
+        952.435,
+        535.215
+      ],
+      "classId": 34
+    },
+    {
+      "featureId": 109,
+      "previousIds": [
+        49,
+        175
+      ],
+      "retainedFractions": [
+        0.9843,
+        0.9875
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        972.0,
+        87.106,
+        1350.0,
+        536.096
+      ],
+      "classId": 32
+    },
+    {
+      "featureId": 110,
+      "previousIds": [
+        150,
+        165
+      ],
+      "retainedFractions": [
+        0.8688,
+        0.8857
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1374.855,
+        466.469,
+        1406.245,
+        537.0
+      ],
+      "classId": 73
+    },
+    {
+      "featureId": 113,
+      "previousIds": [
+        172,
+        180
+      ],
+      "retainedFractions": [
+        0.8996,
+        0.9797
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1159.38,
+        471.806,
+        1216.457,
+        541.043
+      ],
+      "classId": 77
+    },
+    {
+      "featureId": 114,
+      "previousIds": [
+        171,
+        182
+      ],
+      "retainedFractions": [
+        0.8822,
+        0.9567
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1336.0,
+        428.0,
+        1418.298,
+        543.0
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 118,
+      "previousIds": [
+        166,
+        186
+      ],
+      "retainedFractions": [
+        0.9646,
+        0.8748
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1296.977,
+        497.844,
+        1329.0,
+        554.124
+      ],
+      "classId": 67
+    },
+    {
+      "featureId": 127,
+      "previousIds": [
+        147,
+        199
+      ],
+      "retainedFractions": [
+        0.9061,
+        0.9704
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1877.944,
+        465.798,
+        1972.0,
+        570.62
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 128,
+      "previousIds": [
+        26,
+        198
+      ],
+      "retainedFractions": [
+        0.9771,
+        0.9671
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        763.0,
+        8.839,
+        1094.0,
+        569.35
+      ],
+      "classId": 39
+    },
+    {
+      "featureId": 136,
+      "previousIds": [
+        205,
+        210
+      ],
+      "retainedFractions": [
+        0.8563,
+        0.8727
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        674.0,
+        549.812,
+        747.0,
+        584.0
+      ],
+      "classId": 39
+    },
+    {
+      "featureId": 140,
+      "previousIds": [
+        209,
+        216
+      ],
+      "retainedFractions": [
+        0.9692,
+        0.972
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1777.311,
+        495.0,
+        1842.219,
+        594.93
+      ],
+      "classId": 83
+    },
+    {
+      "featureId": 169,
+      "previousIds": [
+        235,
+        260
+      ],
+      "retainedFractions": [
+        0.9902,
+        0.9503
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        751.0,
+        566.543,
+        991.178,
+        668.082
+      ],
+      "classId": 39
+    },
+    {
+      "featureId": 179,
+      "previousIds": [
+        254,
+        268
+      ],
+      "retainedFractions": [
+        0.9878,
+        0.941
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1327.236,
+        624.0,
+        1352.637,
+        680.0
+      ],
+      "classId": 67
+    },
+    {
+      "featureId": 180,
+      "previousIds": [
+        270,
+        276
+      ],
+      "retainedFractions": [
+        0.9973,
+        0.9608
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        646.792,
+        560.0,
+        773.0,
+        682.0
+      ],
+      "classId": 14
+    },
+    {
+      "featureId": 191,
+      "previousIds": [
+        279,
+        294
+      ],
+      "retainedFractions": [
+        0.9945,
+        0.9684
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1485.823,
+        649.559,
+        1558.215,
+        715.0
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 194,
+      "previousIds": [
+        278,
+        301
+      ],
+      "retainedFractions": [
+        0.9763,
+        0.9705
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1343.487,
+        634.544,
+        1444.0,
+        726.0
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 195,
+      "previousIds": [
+        289,
+        302
+      ],
+      "retainedFractions": [
+        0.9113,
+        0.984
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1798.932,
+        606.6,
+        1848.525,
+        725.847
+      ],
+      "classId": 76
+    },
+    {
+      "featureId": 206,
+      "previousIds": [
+        293,
+        322
+      ],
+      "retainedFractions": [
+        0.9556,
+        0.9026
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        700.0,
+        686.0,
+        750.0,
+        748.0
+      ],
+      "classId": 77
+    },
+    {
+      "featureId": 220,
+      "previousIds": [
+        249,
+        343
+      ],
+      "retainedFractions": [
+        0.9966,
+        0.9924
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2495.947,
+        394.5,
+        2987.523,
+        775.244
+      ],
+      "classId": 6
+    },
+    {
+      "featureId": 234,
+      "previousIds": [
+        261,
+        331,
+        363
+      ],
+      "retainedFractions": [
+        0.8842,
+        0.9638,
+        0.9717
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1050.854,
+        578.0,
+        1247.0,
+        799.915
+      ],
+      "classId": 74
+    },
+    {
+      "featureId": 239,
+      "previousIds": [
+        351,
+        369
+      ],
+      "retainedFractions": [
+        0.9512,
+        0.982
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1089.886,
+        762.0,
+        1112.321,
+        806.365
+      ],
+      "classId": 87
+    },
+    {
+      "featureId": 242,
+      "previousIds": [
+        339,
+        374
+      ],
+      "retainedFractions": [
+        0.9593,
+        0.9808
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1698.896,
+        602.298,
+        1856.211,
+        808.21
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 243,
+      "previousIds": [
+        304,
+        375
+      ],
+      "retainedFractions": [
+        0.966,
+        0.9722
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2002.679,
+        701.0,
+        2033.952,
+        810.0
+      ],
+      "classId": 62
+    },
+    {
+      "featureId": 263,
+      "previousIds": [
+        362,
+        408
+      ],
+      "retainedFractions": [
+        0.9636,
+        0.9091
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2558.382,
+        736.181,
+        2685.032,
+        851.578
+      ],
+      "classId": 17
+    },
+    {
+      "featureId": 264,
+      "previousIds": [
+        342,
+        410
+      ],
+      "retainedFractions": [
+        0.9767,
+        0.994
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1044.738,
+        725.974,
+        1102.0,
+        853.0
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 278,
+      "previousIds": [
+        398,
+        433
+      ],
+      "retainedFractions": [
+        0.9621,
+        0.8981
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        969.621,
+        829.516,
+        1045.16,
+        875.316
+      ],
+      "classId": 73
+    },
+    {
+      "featureId": 285,
+      "previousIds": [
+        406,
+        439
+      ],
+      "retainedFractions": [
+        0.9934,
+        0.9827
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2286.654,
+        833.652,
+        2348.163,
+        880.429
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 304,
+      "previousIds": [
+        440,
+        473
+      ],
+      "retainedFractions": [
+        0.9937,
+        0.9924
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        3287.0,
+        847.539,
+        3355.434,
+        910.427
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 309,
+      "previousIds": [
+        452,
+        480
+      ],
+      "retainedFractions": [
+        0.9599,
+        0.9863
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        3190.977,
+        854.216,
+        3274.418,
+        922.384
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 315,
+      "previousIds": [
+        393,
+        486
+      ],
+      "retainedFractions": [
+        0.9825,
+        0.9464
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        718.62,
+        652.0,
+        870.615,
+        930.0
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 318,
+      "previousIds": [
+        434,
+        504
+      ],
+      "retainedFractions": [
+        0.9454,
+        0.9809
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        709.438,
+        797.558,
+        826.261,
+        935.024
+      ],
+      "classId": 86
+    },
+    {
+      "featureId": 319,
+      "previousIds": [
+        481,
+        499
+      ],
+      "retainedFractions": [
+        0.9259,
+        0.9321
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        777.0,
+        899.0,
+        830.0,
+        933.091
+      ],
+      "classId": 66
+    },
+    {
+      "featureId": 322,
+      "previousIds": [
+        380,
+        507
+      ],
+      "retainedFractions": [
+        0.9874,
+        0.9795
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2975.273,
+        753.326,
+        3132.0,
+        936.0
+      ],
+      "classId": 37
+    },
+    {
+      "featureId": 327,
+      "previousIds": [
+        501,
+        516
+      ],
+      "retainedFractions": [
+        0.9829,
+        0.9858
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2886.0,
+        910.81,
+        2978.0,
+        945.0
+      ],
+      "classId": 46
+    },
+    {
+      "featureId": 330,
+      "previousIds": [
+        469,
+        520
+      ],
+      "retainedFractions": [
+        0.9472,
+        0.9571
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1567.49,
+        858.0,
+        1611.893,
+        948.0
+      ],
+      "classId": 67
+    },
+    {
+      "featureId": 332,
+      "previousIds": [
+        500,
+        529
+      ],
+      "retainedFractions": [
+        0.9915,
+        0.9898
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2250.0,
+        917.9,
+        2289.234,
+        951.552
+      ],
+      "classId": 57
+    },
+    {
+      "featureId": 333,
+      "previousIds": [
+        483,
+        521
+      ],
+      "retainedFractions": [
+        0.9922,
+        0.9607
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        456.749,
+        878.76,
+        508.824,
+        956.0
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 338,
+      "previousIds": [
+        523,
+        543
+      ],
+      "retainedFractions": [
+        0.9911,
+        0.9747
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2045.754,
+        861.935,
+        2094.624,
+        968.566
+      ],
+      "classId": 67
+    },
+    {
+      "featureId": 339,
+      "previousIds": [
+        527,
+        549
+      ],
+      "retainedFractions": [
+        0.981,
+        0.9401
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        3287.752,
+        904.339,
+        3483.0,
+        970.807
+      ],
+      "classId": 47
+    },
+    {
+      "featureId": 341,
+      "previousIds": [
+        511,
+        547
+      ],
+      "retainedFractions": [
+        0.9643,
+        0.9224
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1386.0,
+        921.072,
+        1409.481,
+        971.0
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 345,
+      "previousIds": [
+        524,
+        557
+      ],
+      "retainedFractions": [
+        0.954,
+        0.9286
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        3048.0,
+        920.918,
+        3098.0,
+        974.062
+      ],
+      "classId": 46
+    },
+    {
+      "featureId": 347,
+      "previousIds": [
+        517,
+        559
+      ],
+      "retainedFractions": [
+        0.9188,
+        0.9747
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        543.574,
+        892.706,
+        585.675,
+        980.49
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 356,
+      "previousIds": [
+        513,
+        540,
+        573
+      ],
+      "retainedFractions": [
+        0.9635,
+        0.9409,
+        0.97
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2453.958,
+        872.389,
+        2587.735,
+        994.08
+      ],
+      "classId": 57
+    },
+    {
+      "featureId": 369,
+      "previousIds": [
+        539,
+        593
+      ],
+      "retainedFractions": [
+        0.9404,
+        0.978
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1066.763,
+        872.0,
+        1122.203,
+        1019.425
+      ],
+      "classId": 67
+    },
+    {
+      "featureId": 372,
+      "previousIds": [
+        544,
+        599
+      ],
+      "retainedFractions": [
+        0.8663,
+        0.9817
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2533.21,
+        956.656,
+        2564.0,
+        1022.294
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 384,
+      "previousIds": [
+        580,
+        610
+      ],
+      "retainedFractions": [
+        0.8909,
+        0.8951
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1996.0,
+        979.0,
+        2049.748,
+        1038.15
+      ],
+      "classId": 49
+    },
+    {
+      "featureId": 386,
+      "previousIds": [
+        597,
+        617
+      ],
+      "retainedFractions": [
+        0.9519,
+        0.9461
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1176.075,
+        996.84,
+        1204.705,
+        1041.142
+      ],
+      "classId": 90
+    },
+    {
+      "featureId": 405,
+      "previousIds": [
+        611,
+        646
+      ],
+      "retainedFractions": [
+        0.8475,
+        0.9794
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        3024.852,
+        1000.0,
+        3071.0,
+        1066.761
+      ],
+      "classId": 39
+    },
+    {
+      "featureId": 410,
+      "previousIds": [
+        618,
+        645
+      ],
+      "retainedFractions": [
+        0.8342,
+        0.987
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2943.578,
+        1016.856,
+        2962.587,
+        1071.0
+      ],
+      "classId": 41
+    },
+    {
+      "featureId": 412,
+      "previousIds": [
+        632,
+        653
+      ],
+      "retainedFractions": [
+        0.9038,
+        0.9664
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1694.427,
+        951.371,
+        1754.0,
+        1073.118
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 416,
+      "previousIds": [
+        561,
+        665
+      ],
+      "retainedFractions": [
+        0.9989,
+        0.9656
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        771.516,
+        950.0,
+        808.145,
+        1078.335
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 420,
+      "previousIds": [
+        667,
+        670
+      ],
+      "retainedFractions": [
+        0.9643,
+        0.9172
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1967.0,
+        1023.826,
+        2050.484,
+        1079.307
+      ],
+      "classId": 66
+    },
+    {
+      "featureId": 425,
+      "previousIds": [
+        619,
+        675
+      ],
+      "retainedFractions": [
+        0.9734,
+        0.9691
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1030.957,
+        1018.0,
+        1061.0,
+        1087.0
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 477,
+      "previousIds": [
+        679,
+        746
+      ],
+      "retainedFractions": [
+        0.9889,
+        0.9238
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1308.0,
+        1018.503,
+        1367.272,
+        1156.0
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 492,
+      "previousIds": [
+        508,
+        768
+      ],
+      "retainedFractions": [
+        0.9998,
+        0.9729
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        874.962,
+        906.0,
+        975.0,
+        1172.189
+      ],
+      "classId": 88
+    },
+    {
+      "featureId": 505,
+      "previousIds": [
+        575,
+        786
+      ],
+      "retainedFractions": [
+        0.9833,
+        0.9909
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        547.0,
+        851.0,
+        733.0,
+        1185.871
+      ],
+      "classId": 37
+    },
+    {
+      "featureId": 511,
+      "previousIds": [
+        759,
+        796
+      ],
+      "retainedFractions": [
+        0.8905,
+        0.9975
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1222.005,
+        1143.545,
+        1261.532,
+        1188.944
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 516,
+      "previousIds": [
+        776,
+        806
+      ],
+      "retainedFractions": [
+        0.8465,
+        0.9034
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2201.224,
+        1120.605,
+        2249.862,
+        1193.0
+      ],
+      "classId": 54
+    },
+    {
+      "featureId": 525,
+      "previousIds": [
+        764,
+        821
+      ],
+      "retainedFractions": [
+        0.9251,
+        0.846
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        828.459,
+        1105.598,
+        881.408,
+        1200.0
+      ],
+      "classId": 67
+    },
+    {
+      "featureId": 527,
+      "previousIds": [
+        767,
+        816
+      ],
+      "retainedFractions": [
+        0.9519,
+        0.8672
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1595.418,
+        1136.151,
+        1634.126,
+        1202.116
+      ],
+      "classId": 67
+    },
+    {
+      "featureId": 536,
+      "previousIds": [
+        775,
+        838
+      ],
+      "retainedFractions": [
+        0.9734,
+        0.9738
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1943.546,
+        1135.0,
+        1979.125,
+        1216.593
+      ],
+      "classId": 57
+    },
+    {
+      "featureId": 543,
+      "previousIds": [
+        809,
+        844
+      ],
+      "retainedFractions": [
+        0.9453,
+        0.9339
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1585.0,
+        1154.844,
+        1622.35,
+        1223.0
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 545,
+      "previousIds": [
+        827,
+        851
+      ],
+      "retainedFractions": [
+        0.9541,
+        0.9795
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        765.0,
+        1172.0,
+        808.249,
+        1224.0
+      ],
+      "classId": 72
+    },
+    {
+      "featureId": 558,
+      "previousIds": [
+        834,
+        870
+      ],
+      "retainedFractions": [
+        0.9323,
+        0.9707
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1045.562,
+        1171.0,
+        1082.399,
+        1237.603
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 563,
+      "previousIds": [
+        819,
+        880
+      ],
+      "retainedFractions": [
+        0.9972,
+        0.993
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2508.994,
+        1170.091,
+        2586.095,
+        1245.45
+      ],
+      "classId": 69
+    },
+    {
+      "featureId": 565,
+      "previousIds": [
+        802,
+        888
+      ],
+      "retainedFractions": [
+        0.8931,
+        0.9509
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1858.083,
+        1166.875,
+        1906.089,
+        1248.0
+      ],
+      "classId": 66
+    },
+    {
+      "featureId": 567,
+      "previousIds": [
+        864,
+        889
+      ],
+      "retainedFractions": [
+        0.9523,
+        0.9
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1292.0,
+        1204.0,
+        1315.851,
+        1253.0
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 576,
+      "previousIds": [
+        877,
+        906
+      ],
+      "retainedFractions": [
+        0.9411,
+        0.9714
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        513.478,
+        1205.0,
+        543.561,
+        1264.175
+      ],
+      "classId": 72
+    },
+    {
+      "featureId": 593,
+      "previousIds": [
+        922,
+        940
+      ],
+      "retainedFractions": [
+        0.9654,
+        0.9232
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        3004.945,
+        1241.0,
+        3060.0,
+        1288.736
+      ],
+      "classId": 46
+    },
+    {
+      "featureId": 619,
+      "previousIds": [
+        945,
+        983
+      ],
+      "retainedFractions": [
+        1.0,
+        0.9765
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        699.0,
+        1289.726,
+        749.0,
+        1334.0
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 629,
+      "previousIds": [
+        944,
+        999
+      ],
+      "retainedFractions": [
+        0.8403,
+        0.9725
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2216.819,
+        1274.502,
+        2279.0,
+        1363.421
+      ],
+      "classId": 57
+    },
+    {
+      "featureId": 631,
+      "previousIds": [
+        984,
+        1002
+      ],
+      "retainedFractions": [
+        0.9598,
+        0.8243
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1833.894,
+        1318.0,
+        1860.0,
+        1365.0
+      ],
+      "classId": 73
+    },
+    {
+      "featureId": 636,
+      "previousIds": [
+        976,
+        1004
+      ],
+      "retainedFractions": [
+        0.9556,
+        0.9687
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2800.0,
+        1123.946,
+        2988.701,
+        1366.736
+      ],
+      "classId": 20
+    },
+    {
+      "featureId": 641,
+      "previousIds": [
+        992,
+        1012
+      ],
+      "retainedFractions": [
+        0.9968,
+        0.8915
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2036.605,
+        1272.718,
+        2103.433,
+        1375.141
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 665,
+      "previousIds": [
+        1039,
+        1050
+      ],
+      "retainedFractions": [
+        0.9739,
+        0.9792
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        3222.577,
+        1380.728,
+        3255.035,
+        1409.233
+      ],
+      "classId": 8
+    },
+    {
+      "featureId": 671,
+      "previousIds": [
+        1032,
+        1055
+      ],
+      "retainedFractions": [
+        0.9964,
+        0.9879
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        3387.709,
+        1294.836,
+        3533.716,
+        1415.0
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 675,
+      "previousIds": [
+        1042,
+        1062
+      ],
+      "retainedFractions": [
+        0.9573,
+        0.9775
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1628.402,
+        1359.415,
+        1675.168,
+        1426.043
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 676,
+      "previousIds": [
+        1045,
+        1063
+      ],
+      "retainedFractions": [
+        0.9928,
+        0.9664
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        3454.173,
+        1394.868,
+        3533.0,
+        1428.0
+      ],
+      "classId": 73
+    },
+    {
+      "featureId": 708,
+      "previousIds": [
+        1040,
+        1110
+      ],
+      "retainedFractions": [
+        0.9834,
+        0.9739
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        326.766,
+        1329.362,
+        417.0,
+        1460.93
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 720,
+      "previousIds": [
+        869,
+        1120
+      ],
+      "retainedFractions": [
+        0.9722,
+        0.9882
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1743.42,
+        1206.313,
+        1841.0,
+        1471.0
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 741,
+      "previousIds": [
+        1129,
+        1135
+      ],
+      "retainedFractions": [
+        1.0,
+        0.988
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        698.437,
+        1439.537,
+        738.0,
+        1494.0
+      ],
+      "classId": 77
+    },
+    {
+      "featureId": 746,
+      "previousIds": [
+        1125,
+        1162
+      ],
+      "retainedFractions": [
+        0.9375,
+        0.9837
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2424.957,
+        1436.0,
+        2448.389,
+        1499.183
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 750,
+      "previousIds": [
+        1145,
+        1166
+      ],
+      "retainedFractions": [
+        0.9767,
+        0.9851
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1770.0,
+        1387.0,
+        1888.0,
+        1504.0
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 754,
+      "previousIds": [
+        1024,
+        1181
+      ],
+      "retainedFractions": [
+        0.9524,
+        0.9848
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        3167.222,
+        1328.0,
+        3428.207,
+        1512.311
+      ],
+      "classId": 46
+    },
+    {
+      "featureId": 759,
+      "previousIds": [
+        1061,
+        1143,
+        1184
+      ],
+      "retainedFractions": [
+        0.9116,
+        0.9854,
+        0.9253
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2641.769,
+        1395.11,
+        2709.0,
+        1520.0
+      ],
+      "classId": 1
+    },
+    {
+      "featureId": 767,
+      "previousIds": [
+        1127,
+        1192
+      ],
+      "retainedFractions": [
+        0.9805,
+        0.9607
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2130.529,
+        1420.678,
+        2186.205,
+        1530.197
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 793,
+      "previousIds": [
+        1235,
+        1261
+      ],
+      "retainedFractions": [
+        0.9851,
+        0.9347
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        742.782,
+        1500.9,
+        803.0,
+        1567.635
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 796,
+      "previousIds": [
+        1257,
+        1265
+      ],
+      "retainedFractions": [
+        0.9168,
+        0.9346
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        470.904,
+        1517.903,
+        547.075,
+        1569.885
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 808,
+      "previousIds": [
+        1256,
+        1273
+      ],
+      "retainedFractions": [
+        0.9688,
+        0.992
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        3326.0,
+        1538.614,
+        3400.0,
+        1580.594
+      ],
+      "classId": 47
+    },
+    {
+      "featureId": 822,
+      "previousIds": [
+        1272,
+        1295
+      ],
+      "retainedFractions": [
+        0.9254,
+        0.9579
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        443.952,
+        1555.756,
+        512.0,
+        1599.0
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 838,
+      "previousIds": [
+        1152,
+        1319
+      ],
+      "retainedFractions": [
+        0.9491,
+        0.9212
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1255.112,
+        1446.0,
+        1355.194,
+        1610.484
+      ],
+      "classId": 1
+    },
+    {
+      "featureId": 843,
+      "previousIds": [
+        1308,
+        1332
+      ],
+      "retainedFractions": [
+        0.998,
+        0.9842
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2058.035,
+        1596.641,
+        2065.897,
+        1625.009
+      ],
+      "classId": 81
+    },
+    {
+      "featureId": 846,
+      "previousIds": [
+        1304,
+        1345
+      ],
+      "retainedFractions": [
+        0.9421,
+        0.8731
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2466.995,
+        1566.924,
+        2495.977,
+        1631.334
+      ],
+      "classId": 1
+    },
+    {
+      "featureId": 849,
+      "previousIds": [
+        1300,
+        1342
+      ],
+      "retainedFractions": [
+        0.99,
+        0.9917
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        610.632,
+        1566.753,
+        678.0,
+        1639.0
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 851,
+      "previousIds": [
+        1338,
+        1346
+      ],
+      "retainedFractions": [
+        0.9972,
+        0.9812
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1879.937,
+        1610.0,
+        1912.545,
+        1641.407
+      ],
+      "classId": 8
+    },
+    {
+      "featureId": 867,
+      "previousIds": [
+        1356,
+        1375
+      ],
+      "retainedFractions": [
+        0.9892,
+        0.9535
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        737.0,
+        1620.69,
+        778.897,
+        1660.958
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 871,
+      "previousIds": [
+        1288,
+        1377
+      ],
+      "retainedFractions": [
+        0.954,
+        0.9442
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1605.0,
+        1519.123,
+        1662.0,
+        1665.64
+      ],
+      "classId": 67
+    },
+    {
+      "featureId": 879,
+      "previousIds": [
+        1363,
+        1384
+      ],
+      "retainedFractions": [
+        0.9794,
+        0.8272
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        3246.771,
+        1628.652,
+        3271.064,
+        1673.065
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 904,
+      "previousIds": [
+        1316,
+        1418
+      ],
+      "retainedFractions": [
+        0.8782,
+        0.9887
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2895.022,
+        1564.061,
+        2995.663,
+        1698.805
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 913,
+      "previousIds": [
+        1397,
+        1431
+      ],
+      "retainedFractions": [
+        0.9535,
+        0.95
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        585.0,
+        1661.0,
+        614.0,
+        1710.289
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 915,
+      "previousIds": [
+        1290,
+        1358,
+        1438
+      ],
+      "retainedFractions": [
+        0.8914,
+        0.8715,
+        0.9813
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1789.885,
+        1517.857,
+        1972.28,
+        1712.772
+      ],
+      "classId": 68
+    },
+    {
+      "featureId": 929,
+      "previousIds": [
+        1428,
+        1454
+      ],
+      "retainedFractions": [
+        0.9922,
+        0.8582
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        886.0,
+        1656.0,
+        928.0,
+        1727.0
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 934,
+      "previousIds": [
+        1452,
+        1461
+      ],
+      "retainedFractions": [
+        0.9835,
+        0.8473
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        919.0,
+        1615.246,
+        1027.0,
+        1729.0
+      ],
+      "classId": 76
+    },
+    {
+      "featureId": 943,
+      "previousIds": [
+        1442,
+        1471
+      ],
+      "retainedFractions": [
+        0.9866,
+        0.9731
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1971.0,
+        1673.564,
+        2074.0,
+        1739.385
+      ],
+      "classId": 57
+    },
+    {
+      "featureId": 949,
+      "previousIds": [
+        1435,
+        1478
+      ],
+      "retainedFractions": [
+        0.9861,
+        0.9523
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        761.877,
+        1675.48,
+        811.498,
+        1747.0
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 956,
+      "previousIds": [
+        1479,
+        1487
+      ],
+      "retainedFractions": [
+        0.983,
+        0.9331
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        936.0,
+        1720.0,
+        993.522,
+        1756.0
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 960,
+      "previousIds": [
+        1439,
+        1491
+      ],
+      "retainedFractions": [
+        0.8795,
+        0.9792
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1569.898,
+        1563.541,
+        1726.164,
+        1759.333
+      ],
+      "classId": 86
+    },
+    {
+      "featureId": 971,
+      "previousIds": [
+        1339,
+        1514
+      ],
+      "retainedFractions": [
+        0.9911,
+        0.9872
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2837.835,
+        1536.71,
+        3174.343,
+        1774.0
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 985,
+      "previousIds": [
+        1458,
+        1526
+      ],
+      "retainedFractions": [
+        0.9654,
+        0.9915
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        3260.906,
+        1666.0,
+        3438.125,
+        1786.654
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 991,
+      "previousIds": [
+        1508,
+        1540
+      ],
+      "retainedFractions": [
+        0.9695,
+        0.9862
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        3127.635,
+        1703.636,
+        3190.0,
+        1798.967
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 997,
+      "previousIds": [
+        1536,
+        1548
+      ],
+      "retainedFractions": [
+        0.9288,
+        0.9625
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1056.949,
+        1767.39,
+        1131.5,
+        1813.412
+      ],
+      "classId": 70
+    },
+    {
+      "featureId": 1019,
+      "previousIds": [
+        1543,
+        1584
+      ],
+      "retainedFractions": [
+        0.9958,
+        0.983
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1637.608,
+        1730.924,
+        1783.027,
+        1853.103
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 1023,
+      "previousIds": [
+        1571,
+        1587
+      ],
+      "retainedFractions": [
+        0.9681,
+        0.9636
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        179.754,
+        1797.88,
+        236.0,
+        1858.371
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 1026,
+      "previousIds": [
+        1575,
+        1591
+      ],
+      "retainedFractions": [
+        0.9709,
+        0.9583
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1429.152,
+        1817.141,
+        1456.667,
+        1864.0
+      ],
+      "classId": 29
+    },
+    {
+      "featureId": 1029,
+      "previousIds": [
+        1532,
+        1595
+      ],
+      "retainedFractions": [
+        0.8127,
+        0.9597
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        282.287,
+        1742.572,
+        359.18,
+        1870.0
+      ],
+      "classId": 88
+    },
+    {
+      "featureId": 1042,
+      "previousIds": [
+        1585,
+        1613
+      ],
+      "retainedFractions": [
+        0.9606,
+        0.9594
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1897.701,
+        1833.0,
+        1968.021,
+        1889.105
+      ],
+      "classId": 15
+    },
+    {
+      "featureId": 1068,
+      "previousIds": [
+        1628,
+        1656
+      ],
+      "retainedFractions": [
+        0.9871,
+        0.9666
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2216.286,
+        1856.0,
+        2293.0,
+        1923.984
+      ],
+      "classId": 15
+    },
+    {
+      "featureId": 1069,
+      "previousIds": [
+        1633,
+        1655
+      ],
+      "retainedFractions": [
+        0.9973,
+        0.9883
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1654.0,
+        1817.558,
+        1893.0,
+        1929.0
+      ],
+      "classId": 36
+    },
+    {
+      "featureId": 1073,
+      "previousIds": [
+        1644,
+        1665
+      ],
+      "retainedFractions": [
+        0.9109,
+        0.9441
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1092.25,
+        1885.344,
+        1152.126,
+        1933.559
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 1079,
+      "previousIds": [
+        1645,
+        1672
+      ],
+      "retainedFractions": [
+        0.9521,
+        0.9915
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2111.863,
+        1891.014,
+        2206.0,
+        1937.468
+      ],
+      "classId": 15
+    },
+    {
+      "featureId": 1099,
+      "previousIds": [
+        1635,
+        1703
+      ],
+      "retainedFractions": [
+        0.9832,
+        0.9271
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        297.0,
+        1854.0,
+        453.156,
+        1958.0
+      ],
+      "classId": 72
+    },
+    {
+      "featureId": 1105,
+      "previousIds": [
+        1647,
+        1705
+      ],
+      "retainedFractions": [
+        0.9435,
+        0.9699
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2205.0,
+        1892.43,
+        2300.0,
+        1965.0
+      ],
+      "classId": 43
+    },
+    {
+      "featureId": 1109,
+      "previousIds": [
+        1658,
+        1713
+      ],
+      "retainedFractions": [
+        0.9509,
+        0.9353
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        853.08,
+        1747.943,
+        971.283,
+        1968.0
+      ],
+      "classId": 77
+    },
+    {
+      "featureId": 1115,
+      "previousIds": [
+        1714,
+        1722
+      ],
+      "retainedFractions": [
+        0.9592,
+        0.8706
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        714.875,
+        1942.865,
+        756.214,
+        1974.0
+      ],
+      "classId": 59
+    },
+    {
+      "featureId": 1119,
+      "previousIds": [
+        1684,
+        1715
+      ],
+      "retainedFractions": [
+        0.9506,
+        0.9926
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        305.397,
+        1902.583,
+        362.0,
+        1975.0
+      ],
+      "classId": 67
+    },
+    {
+      "featureId": 1122,
+      "previousIds": [
+        1717,
+        1728
+      ],
+      "retainedFractions": [
+        0.8507,
+        0.9953
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        777.703,
+        1904.919,
+        840.722,
+        1982.0
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 1136,
+      "previousIds": [
+        1634,
+        1759
+      ],
+      "retainedFractions": [
+        0.9892,
+        0.9756
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2077.0,
+        1805.0,
+        2266.283,
+        2001.97
+      ],
+      "classId": 43
+    },
+    {
+      "featureId": 1143,
+      "previousIds": [
+        1756,
+        1779
+      ],
+      "retainedFractions": [
+        0.9779,
+        0.9528
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        705.0,
+        1719.998,
+        856.027,
+        2012.485
+      ],
+      "classId": 86
+    },
+    {
+      "featureId": 1150,
+      "previousIds": [
+        1737,
+        1783
+      ],
+      "retainedFractions": [
+        0.9246,
+        0.9003
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        809.0,
+        1930.359,
+        861.0,
+        2021.0
+      ],
+      "classId": 86
+    },
+    {
+      "featureId": 1153,
+      "previousIds": [
+        1641,
+        1789
+      ],
+      "retainedFractions": [
+        0.9554,
+        0.927
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        874.681,
+        1897.802,
+        915.451,
+        2022.826
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 1154,
+      "previousIds": [
+        1754,
+        1793
+      ],
+      "retainedFractions": [
+        0.9549,
+        0.9667
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2806.66,
+        1955.225,
+        2848.0,
+        2024.461
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 1169,
+      "previousIds": [
+        1814,
+        1815
+      ],
+      "retainedFractions": [
+        0.9012,
+        0.9211
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2183.681,
+        1999.079,
+        2244.951,
+        2043.42
+      ],
+      "classId": 48
+    },
+    {
+      "featureId": 1183,
+      "previousIds": [
+        1659,
+        1683,
+        1832,
+        1845
+      ],
+      "retainedFractions": [
+        0.9978,
+        0.9993,
+        0.9724,
+        0.9719
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1531.902,
+        1895.0,
+        1780.932,
+        2072.65
+      ],
+      "classId": 27
+    },
+    {
+      "featureId": 1202,
+      "previousIds": [
+        1725,
+        1873
+      ],
+      "retainedFractions": [
+        0.9657,
+        0.9596
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        121.627,
+        1916.921,
+        202.028,
+        2100.002
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 1225,
+      "previousIds": [
+        1858,
+        1917
+      ],
+      "retainedFractions": [
+        0.992,
+        0.9648
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        181.47,
+        2012.152,
+        279.739,
+        2136.0
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 1226,
+      "previousIds": [
+        1848,
+        1901,
+        1920
+      ],
+      "retainedFractions": [
+        0.9198,
+        0.9877,
+        0.9673
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1442.0,
+        2033.0,
+        1511.172,
+        2138.163
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 1247,
+      "previousIds": [
+        1914,
+        1957
+      ],
+      "retainedFractions": [
+        0.9427,
+        0.9572
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1248.872,
+        2097.0,
+        1345.901,
+        2169.717
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 1262,
+      "previousIds": [
+        1936,
+        1973
+      ],
+      "retainedFractions": [
+        0.8134,
+        0.9602
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        546.956,
+        2112.454,
+        613.382,
+        2190.0
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 1270,
+      "previousIds": [
+        1951,
+        1991
+      ],
+      "retainedFractions": [
+        0.9154,
+        0.9124
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        771.083,
+        2122.127,
+        815.0,
+        2199.237
+      ],
+      "classId": 77
+    },
+    {
+      "featureId": 1275,
+      "previousIds": [
+        1961,
+        1990
+      ],
+      "retainedFractions": [
+        0.8269,
+        0.9258
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2150.0,
+        2145.0,
+        2198.879,
+        2200.702
+      ],
+      "classId": 62
+    },
+    {
+      "featureId": 1278,
+      "previousIds": [
+        1786,
+        1996
+      ],
+      "retainedFractions": [
+        0.9307,
+        0.9881
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1695.461,
+        1931.0,
+        1890.548,
+        2205.519
+      ],
+      "classId": 26
+    },
+    {
+      "featureId": 1293,
+      "previousIds": [
+        1980,
+        2020
+      ],
+      "retainedFractions": [
+        0.9143,
+        0.9726
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1169.124,
+        2170.932,
+        1231.808,
+        2228.468
+      ],
+      "classId": 21
+    },
+    {
+      "featureId": 1302,
+      "previousIds": [
+        2008,
+        2036
+      ],
+      "retainedFractions": [
+        0.9132,
+        0.9242
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        406.0,
+        2185.784,
+        466.11,
+        2241.0
+      ],
+      "classId": 73
+    },
+    {
+      "featureId": 1303,
+      "previousIds": [
+        1993,
+        2034
+      ],
+      "retainedFractions": [
+        0.9984,
+        0.9894
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2704.528,
+        2163.982,
+        2764.0,
+        2242.0
+      ],
+      "classId": 88
+    },
+    {
+      "featureId": 1315,
+      "previousIds": [
+        2035,
+        2057
+      ],
+      "retainedFractions": [
+        0.9471,
+        0.9355
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1136.0,
+        2135.0,
+        1435.306,
+        2264.503
+      ],
+      "classId": 27
+    },
+    {
+      "featureId": 1317,
+      "previousIds": [
+        2031,
+        2063
+      ],
+      "retainedFractions": [
+        0.9853,
+        0.9817
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1038.61,
+        2146.974,
+        1186.163,
+        2267.0
+      ],
+      "classId": 79
+    },
+    {
+      "featureId": 1322,
+      "previousIds": [
+        2041,
+        2070
+      ],
+      "retainedFractions": [
+        0.9718,
+        0.9818
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        592.724,
+        2178.131,
+        670.005,
+        2277.673
+      ],
+      "classId": 62
+    },
+    {
+      "featureId": 1325,
+      "previousIds": [
+        2065,
+        2075
+      ],
+      "retainedFractions": [
+        0.9868,
+        0.9944
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2929.0,
+        2184.933,
+        3014.892,
+        2285.048
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 1326,
+      "previousIds": [
+        1874,
+        2077
+      ],
+      "retainedFractions": [
+        0.996,
+        0.9962
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2591.763,
+        2027.86,
+        2742.601,
+        2290.789
+      ],
+      "classId": 84
+    },
+    {
+      "featureId": 1335,
+      "previousIds": [
+        2074,
+        2086
+      ],
+      "retainedFractions": [
+        0.914,
+        0.9876
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1915.847,
+        2259.824,
+        1962.205,
+        2310.18
+      ],
+      "classId": 48
+    },
+    {
+      "featureId": 1338,
+      "previousIds": [
+        2038,
+        2091
+      ],
+      "retainedFractions": [
+        0.8633,
+        0.996
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2181.056,
+        2227.624,
+        2297.579,
+        2311.654
+      ],
+      "classId": 42
+    },
+    {
+      "featureId": 1340,
+      "previousIds": [
+        2092,
+        2102
+      ],
+      "retainedFractions": [
+        0.9506,
+        0.923
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        990.547,
+        2262.0,
+        1130.0,
+        2322.996
+      ],
+      "classId": 27
+    },
+    {
+      "featureId": 1342,
+      "previousIds": [
+        2100,
+        2104
+      ],
+      "retainedFractions": [
+        0.9333,
+        0.9825
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        134.226,
+        2192.053,
+        455.248,
+        2325.723
+      ],
+      "classId": 28
+    },
+    {
+      "featureId": 1343,
+      "previousIds": [
+        2083,
+        2106
+      ],
+      "retainedFractions": [
+        0.9619,
+        0.9099
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1051.541,
+        2187.0,
+        1436.279,
+        2326.072
+      ],
+      "classId": 21
+    },
+    {
+      "featureId": 1355,
+      "previousIds": [
+        2066,
+        2121
+      ],
+      "retainedFractions": [
+        0.919,
+        0.9464
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1870.803,
+        2197.431,
+        1930.0,
+        2341.0
+      ],
+      "classId": 42
+    },
+    {
+      "featureId": 1361,
+      "previousIds": [
+        2097,
+        2129
+      ],
+      "retainedFractions": [
+        0.9811,
+        0.976
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1478.0,
+        2156.451,
+        1665.84,
+        2352.0
+      ],
+      "classId": 22
+    },
+    {
+      "featureId": 1362,
+      "previousIds": [
+        2127,
+        2131
+      ],
+      "retainedFractions": [
+        0.9636,
+        0.9781
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        664.0,
+        2257.093,
+        851.047,
+        2352.646
+      ],
+      "classId": 89
+    },
+    {
+      "featureId": 1371,
+      "previousIds": [
+        2145,
+        2149
+      ],
+      "retainedFractions": [
+        0.9729,
+        0.8758
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        520.0,
+        2338.0,
+        560.213,
+        2370.506
+      ],
+      "classId": 5
+    },
+    {
+      "featureId": 1374,
+      "previousIds": [
+        2141,
+        2152
+      ],
+      "retainedFractions": [
+        0.952,
+        0.9959
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        437.0,
+        2318.0,
+        520.0,
+        2376.017
+      ],
+      "classId": 7
+    },
+    {
+      "featureId": 1375,
+      "previousIds": [
+        2155,
+        2158
+      ],
+      "retainedFractions": [
+        0.9662,
+        0.9342
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        638.141,
+        2341.719,
+        729.0,
+        2376.0
+      ],
+      "classId": 21
+    },
+    {
+      "featureId": 1380,
+      "previousIds": [
+        2162,
+        2163
+      ],
+      "retainedFractions": [
+        0.9705,
+        0.9495
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        315.573,
+        2307.0,
+        426.267,
+        2386.413
+      ],
+      "classId": 7
+    },
+    {
+      "featureId": 1392,
+      "previousIds": [
+        2178,
+        2186
+      ],
+      "retainedFractions": [
+        0.9921,
+        0.9851
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2368.0,
+        2289.701,
+        2503.282,
+        2424.209
+      ],
+      "classId": 93
+    },
+    {
+      "featureId": 1395,
+      "previousIds": [
+        2182,
+        2189
+      ],
+      "retainedFractions": [
+        0.9869,
+        0.9699
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        566.793,
+        2365.006,
+        670.0,
+        2431.33
+      ],
+      "classId": 7
+    },
+    {
+      "featureId": 1414,
+      "previousIds": [
+        2165,
+        2218
+      ],
+      "retainedFractions": [
+        1.0,
+        0.9992
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        334.336,
+        2389.279,
+        539.0,
+        2457.001
+      ],
+      "classId": 1
+    },
+    {
+      "featureId": 1441,
+      "previousIds": [
+        2226,
+        2251
+      ],
+      "retainedFractions": [
+        0.9965,
+        0.9945
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1124.0,
+        2299.449,
+        1446.0,
+        2518.0
+      ],
+      "classId": 11
+    },
+    {
+      "featureId": 1451,
+      "previousIds": [
+        2254,
+        2266
+      ],
+      "retainedFractions": [
+        0.9771,
+        0.9235
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1700.0,
+        2447.0,
+        1818.457,
+        2569.0
+      ],
+      "classId": 43
+    },
+    {
+      "featureId": 1454,
+      "previousIds": [
+        2078,
+        2270
+      ],
+      "retainedFractions": [
+        0.9524,
+        0.9806
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1677.0,
+        1995.771,
+        2010.217,
+        2581.0
+      ],
+      "classId": 15
+    },
+    {
+      "featureId": 1461,
+      "previousIds": [
+        2220,
+        2280
+      ],
+      "retainedFractions": [
+        0.9814,
+        0.9794
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1951.0,
+        2312.858,
+        2136.0,
+        2594.0
+      ],
+      "classId": 43
+    },
+    {
+      "featureId": 1482,
+      "previousIds": [
+        2239,
+        2305
+      ],
+      "retainedFractions": [
+        0.9416,
+        0.9916
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        712.672,
+        2442.85,
+        1053.85,
+        2652.0
+      ],
+      "classId": 1
+    },
+    {
+      "featureId": 1489,
+      "previousIds": [
+        2260,
+        2272,
+        2316
+      ],
+      "retainedFractions": [
+        0.9679,
+        1.0,
+        0.9971
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        712.754,
+        2357.327,
+        1414.483,
+        2676.325
+      ],
+      "classId": 7
+    },
+    {
+      "featureId": 1493,
+      "previousIds": [
+        2271,
+        2321
+      ],
+      "retainedFractions": [
+        0.9784,
+        0.8898
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1606.249,
+        2472.548,
+        1702.0,
+        2686.75
+      ],
+      "classId": 23
+    },
+    {
+      "featureId": 1521,
+      "previousIds": [
+        2357,
+        2360
+      ],
+      "retainedFractions": [
+        0.9274,
+        0.9734
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1738.0,
+        2680.735,
+        1841.403,
+        2813.0
+      ],
+      "classId": 16
+    },
+    {
+      "featureId": 1533,
+      "previousIds": [
+        2364,
+        2375
+      ],
+      "retainedFractions": [
+        0.9966,
+        0.9988
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        988.33,
+        2788.962,
+        1071.0,
+        2864.0
+      ],
+      "classId": 3
+    },
+    {
+      "featureId": 1536,
+      "previousIds": [
+        2367,
+        2376
+      ],
+      "retainedFractions": [
+        0.9609,
+        0.9492
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        2006.0,
+        2806.0,
+        2044.871,
+        2869.0
+      ],
+      "classId": 35
+    },
+    {
+      "featureId": 1556,
+      "previousIds": [
+        2392,
+        2397,
+        2405
+      ],
+      "retainedFractions": [
+        0.9664,
+        0.9671,
+        0.9976
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1942.036,
+        2883.0,
+        2075.004,
+        2991.0
+      ],
+      "classId": 7
+    },
+    {
+      "featureId": 1559,
+      "previousIds": [
+        2385,
+        2409
+      ],
+      "retainedFractions": [
+        0.9831,
+        0.9735
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1014.338,
+        2867.0,
+        1069.645,
+        2994.0
+      ],
+      "classId": 3
+    },
+    {
+      "featureId": 1565,
+      "previousIds": [
+        2255,
+        2418
+      ],
+      "retainedFractions": [
+        0.9097,
+        0.9938
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1044.117,
+        2503.0,
+        1491.262,
+        3042.628
+      ],
+      "classId": 2
+    },
+    {
+      "featureId": 1576,
+      "previousIds": [
+        2410,
+        2416,
+        2431
+      ],
+      "retainedFractions": [
+        1.0,
+        0.9483,
+        0.9924
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1063.0,
+        2920.0,
+        1561.0,
+        3116.0
+      ],
+      "classId": 78
+    },
+    {
+      "featureId": 1581,
+      "previousIds": [
+        2423,
+        2435
+      ],
+      "retainedFractions": [
+        0.9804,
+        0.9801
+      ],
+      "removedContacts": 1,
+      "bbox": [
+        1532.691,
+        2959.298,
+        1961.733,
+        3124.971
+      ],
+      "classId": 1
+    }
+  ]
+}

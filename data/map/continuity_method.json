@@ -1,0 +1,11 @@
+{
+  "blackStrokeSplittingEnabled": false,
+  "maxGapPixels": 24,
+  "supportedBandPixels": 73,
+  "rejectedOrConflictingBandPixels": 2238,
+  "connectedBodiesBeforeBandRepair": 1594,
+  "connectedBodiesAfterBandRepair": 1588,
+  "waterPixelsUnchanged": true,
+  "reliableClassPixelsUnchanged": true,
+  "rationale": "Dark strokes never subdivide an existing color component. Local gap repair requires same-family original-color endpoints, no water, no reliable other unit."
+}

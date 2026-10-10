@@ -37,6 +37,26 @@ def validate():
             actual=ids[int(hits[0])] if len(hits) else 0
             if actual!=row[key]:bad.append((i+1,key,actual,row[key]))
     assert not bad,('Invalid adjacency references',bad[:10])
+    # In this continuity-first product, equivalent-color adjacent interiors
+    # must be a single connected feature, not two pieces cut by a dark stroke.
+    by_id={int(r['poly_id']):r for r in records}
+    same_family=[]
+    for row in edge_records:
+        if not row['left_id'] or not row['right_id']:continue
+        left=by_id[row['left_id']];right=by_id[row['right_id']]
+        candidates={int(x) for x in left['candidates'].split(',')}
+        if int(right['class_id']) in candidates:same_family.append(row['edge_id'])
+    assert not same_family,('Artificial same-family seams remain',same_family[:10])
+    assert all(r['contact_qa']!='SPLIT_NEEDS_REVIEW' for r in records)
+    method=json.loads((OUT/'continuity_method.json').read_text())
+    assert method['blackStrokeSplittingEnabled'] is False
+    assert method['waterPixelsUnchanged'] and method['reliableClassPixelsUnchanged']
+    audit=json.loads((WEB/'continuity.json').read_text())
+    assert audit['summary']['currentFeatureCount']==len(g)
+    assert len(audit['changes'])==audit['summary']['restoredContinuousBodies']
+    assert len(audit['removedContacts'])==audit['summary']['previousInternalSeamsRemoved']
+    assert all(by_id[c['featureId']]['prior_n']==len(c['previousIds']) for c in audit['changes'])
+    assert all(len(c['previousIds'])>=2 and min(c['retainedFractions'])>=.8 for c in audit['changes'])
     data=json.loads((WEB/'map.json').read_text())
     assert len(data['features'])==len(g)
     assert set(f['id'] for f in data['features'])==set(ids)
@@ -49,7 +69,7 @@ def validate():
     quality=json.loads((OUT/'quality.json').read_text())
     assert quality['blackPixelsCovered']==quality['blackPixelsTested']
     assert quality['interiorGaps']==0 and not quality['overlaps']
-    report=dict(featureCount=len(g),sharedContactCount=len(lines),allSinglepart=True,allValid=True,uniquePolygonIds=True,noBlackOrNearBlackFills=True,internalGapCount=0,nonoverlappingInteriors=True,exactSharedEdges=True,noDuplicatedContacts=True,allGeographicLeftRightReferencesValid=True,webFeatureIdsMatchShapefile=True,stylesXmlValid=True,blackSourcePixelsCovered=quality['blackPixelsCovered'],caution='Topology validation is not geological verification. Datum remains assumed; source-photo comparison retains black annotations by design.')
+    report=dict(noArtificialSameFamilySeams=True,darkStrokeSplitterDisabled=True,continuityAncestryMatchesGis=True,featureCount=len(g),sharedContactCount=len(lines),allSinglepart=True,allValid=True,uniquePolygonIds=True,noBlackOrNearBlackFills=True,internalGapCount=0,nonoverlappingInteriors=True,exactSharedEdges=True,noDuplicatedContacts=True,allGeographicLeftRightReferencesValid=True,webFeatureIdsMatchShapefile=True,stylesXmlValid=True,blackSourcePixelsCovered=quality['blackPixelsCovered'],caution='Topology validation is not geological verification. Datum remains assumed; source-photo comparison retains black annotations by design.')
     (OUT/'validation.json').write_text(json.dumps(report,indent=2));(WEB/'validation.json').write_text(json.dumps(report,indent=2))
     print(json.dumps(report,indent=2))
     return report

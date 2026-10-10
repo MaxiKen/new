@@ -1,4 +1,4 @@
-# NGSA geological-map interpretation · revision 5
+# NGSA geological-map interpretation · revision 6
 
 Prepared 10 October 2026 from the supplied **pic NGSA geological-map-of-nigeria-.jpg** (6600 × 3675 pixels). This is a reproducible automated draft, not an official NGSA vector dataset or an exhaustively hand-traced geological map. The source image is unchanged.
 
@@ -22,7 +22,13 @@ Each output record is a singlepart polygon. Different bodies are **not dissolved
 
 The native 4084 × 3336 map crop is classified by sampled legend colors in CIELAB space. Nearly identical palette choices are grouped locally to prevent JPEG speckle becoming checkerboard boundaries, with alternatives retained in attributes. Thin neutral linework and dark annotations are masked. Broad genuine gray units are permitted; pale lavender geology is not treated as gray annotation. A 12-source-pixel speckle sieve generalizes very small bodies.
 
-Dark strokes can recover additional divisions inside similar-colored regions, but roads and faults can imitate such contacts. Substantial internal color components are required, and these divisions are explicitly flagged. Hidden and dashed same-color contacts may still be merged; artificial splits can remain.
+**Continuity correction:** the previous build explicitly inserted thin-dark-stroke barriers inside connected color regions. That was a direct cause of artificial fragmentation. Revision 6 removes that subdivision rule entirely. A connected palette-family component gets one body seed; black crossings cannot cut it. Disconnected bodies remain separate—there is no country-wide color dissolve.
+
+A second, conservative pass examines narrow annotation bands. It requires reliable original-image colors of the same palette family at both ends of a horizontal or vertical run (maximum 24 native pixels), no water, no reliable intervening unit, and agreement where directional evidence competes. A proposed patch must connect two *previously disconnected* matching-color components. Any patch that would cut another existing component is rejected whole. No generic morphological closing, proximity buffer, or unsupported long-distance joining is used. Six accepted repairs changed 73 source pixels; reliable class pixels and water were unchanged. Ambiguous or unsafe candidates are left for review.
+
+The revision-5 ancestry audit finds 318 reconstructed continuous regions containing 732 old internal seams. At least 80% of each listed previous polygon's area must lie in its new same-palette-family parent. Each displayed old seam must separate two such former fragments and now predominantly lie inside the restored region. These are measurable overlap/ancestry criteria—not an assertion that all geological identity has been manually verified.
+
+**Trade-off:** the continuity-first policy can merge genuinely different units that share an indistinguishable color and are separated only by a black contact. The source labels and stratigraphy must resolve those cases. Color equivalence alone is not proof of geological identity. Overprints can still cause false color halos or omitted narrow units; these remain exposed for review.
 
 After noding the shared network, contacts are sampled at uniform distances and smoothed over approximately 2.2 native pixels. Nearby dark-stroke centers guide the line only where sustained photo evidence and differing colors on opposite sides support a contact. Proposed movement is limited to 4.5 pixels. Adjustments that would cross another contact are reduced. Every face must survive one-to-one; junctions and adjacent edges remain common.
 
@@ -34,10 +40,10 @@ This removes the raster-step pattern rather than merely rounding every step. Som
 - **Similar legend colors:** several entries have effectively indistinguishable fills. `candidates` lists alternatives. Body-level majority color is not geological verification.
 - **Narrow bodies:** some may be genuine geology; others may be residual road or label halos. They are retained and flagged rather than deleted indiscriminately.
 - **Annotation-heavy reconstruction:** heavily covered regions depend on inferred neighbors. Annotation percentages include a buffer around strokes, so they are not literally the percentage of printed black ink and are not accuracy scores.
-- **Inferred same-color contacts:** possible road/fault/contact confusion is preserved as `SPLIT_NEEDS_REVIEW`.
+- **Restored continuous regions:** marked `CONTINUITY_RESTORED` where local evidence or revision-5 ancestry supports a reconnection. This is an inference flag, not a verification grade. No new `SPLIT_NEEDS_REVIEW` dark-line subdivisions are generated.
 - **Water interpretation:** separated from geology, but its classification still needs checking against the photo.
 
-The viewer's anomaly queue jumps to individual flagged polygons. Flags overlap and are **not confirmed errors**. Not every legend row is recovered; absence from the output is not evidence that a unit is absent from the source. None of the polygons is certified as fully geologically verified. This revision was rebuilt because earlier generated packages were absent from the checkout; its IDs/counts are new and not asserted to match revisions 1–4.
+The viewer's **Inspect next restored connection** control zooms to an old seam inside a reconnected region. The optional coral overlay is revision-5 history, not current geometry. Photo comparison preserves that location. The general anomaly queue jumps to individual flagged polygons. Flags overlap and are **not confirmed errors**. Not every legend row is recovered; absence from the output is not evidence that a unit is absent from the source. None of the polygons is certified as fully geologically verified. IDs changed in revision 6 as artificial fragments were recombined. Use `continuity_crosswalk.csv` and `continuity_review.json` for supported revision-5 ancestry; unmatched or highly altered fragments are not forced into a crosswalk.
 
 ## GIS use
 
@@ -58,7 +64,8 @@ The download includes the original review crop as `source_reference.jpg` with `.
 | ann_pct | Body-wide source annotation-buffer percentage, not confidence |
 | ambig_pct | Body-wide close first/second color matches, not confidence |
 | candidates | Similar palette class IDs, including the selected class |
-| contact_qa | Inferred split needs review or color-derived contact draft |
+| contact_qa | CONTINUITY_RESTORED or COLOR_CONTACT_DRAFT; neither means verified |
+| prior_n | Number of supported revision-5 parent fragments for an audited merge; 0 when not established |
 | qa_status | Draft, unresolved code, or water—not a verification grade |
 
 ## Coordinates and limitations
@@ -77,8 +84,11 @@ From the repository:
 python -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/python scripts/build_map.py
+.venv/bin/python scripts/audit_continuity.py
 .venv/bin/python scripts/validate_exports.py
 .venv/bin/python scripts/package_map.py
 ```
 
 Native arrays and temporary files go in ignored `.cache/`. `data/map/` contains GIS components and reports. `public/data/` contains viewer data and the portable ZIP. All UI assets run locally without map tiles, third-party fonts or external services.
+
+The audit uses the published revision-5 map at Git commit `a62427bf26b3861fe58221a3f718626daa0455d8` or its cached JSON in `.cache/baseline/map_v5.json`. Keep that history when rebuilding (a shallow clone may need the commit fetched). The baseline SHA-256 is recorded in the audit. Final exported-data validation works without the cache. Revision-5 ZIP is retained for comparison; the current download is `NGSA_geology_v6.zip`.

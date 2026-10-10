@@ -6,14 +6,15 @@ const number = new Intl.NumberFormat('en');
 const issueLabels = {
   'annotation-heavy': 'Annotation-heavy reconstruction',
   'narrow-body': 'Narrow bodies / possible artifacts',
-  'contact-review': 'Inferred same-color contacts',
+  'continuity-restored': 'Restored continuous bodies',
   'similar-colors': 'Indistinguishable legend colors',
   'unresolved-code': 'Unmatched map codes',
   'water': 'Water interpretation',
 };
 const state = { data: null, width: 0, height: 0, scale: 1, fitScale: 1, x: 0, y: 0,
   mode: 'clean', split: .5, contacts: true, selected: null, highlighted: null,
-  issue: 'contact-review', issueIndex: -1, sourceReady: false, ready: false };
+  issue: 'continuity-restored', issueIndex: -1, sourceReady: false, ready: false };
+let continuity = null, restoredIndex = -1, showPrevious = false, removedPaths = [];
 let fillPaths = [], contactPaths = [], contactBoxes = [], framePending = false;
 const overviewCaches = new Map();
 const targetIcon = '<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="6"/><path d="M12 2v5m0 10v5M2 12h5m10 0h5"/></svg>';
@@ -82,6 +83,27 @@ function drawVectors() {
   }
   ctx.restore();
 }
+function drawRemovedSeams() {
+  if (!showPrevious || !continuity) return;
+  const selectedId = state.selected === null ? null : state.data.features[state.selected].id;
+  ctx.save(); worldTransform();ctx.strokeStyle='#d98262';ctx.lineWidth=1.5/state.scale;
+  ctx.lineCap='round';ctx.lineJoin='round';ctx.setLineDash([5/state.scale,3/state.scale]);
+  removedPaths.forEach(({featureId,path})=>{if(selectedId===null || featureId===selectedId)ctx.stroke(path);});
+  ctx.restore();
+}
+function nextRestored() {
+  if (!continuity?.changes.length) return;
+  restoredIndex=(restoredIndex+1)%continuity.changes.length;
+  const change=continuity.changes[restoredIndex];
+  const index=state.data.features.findIndex(f=>f.id===change.featureId);
+  select(index);setMode('clean');
+  const seam=continuity.removedContacts.find(s=>s.featureId===change.featureId);
+  if(seam){const [x,y]=seam.points[Math.floor(seam.points.length/2)];fit([x-140,y-140,x+140,y+140],40);}
+  else fit(change.bbox,60);
+  showPrevious=true;$('show-previous-splits').checked=true;$('previous-notice').hidden=false;
+  $('restored-position').textContent=`${restoredIndex+1} of ${continuity.changes.length} reviewed ancestry groups · ${change.previousIds.length} prior fragments`;
+  requestDraw();
+}
 function drawPhoto() {
   ctx.save(); worldTransform();
   if (state.sourceReady) ctx.drawImage(source, 0, 0, state.data.stats.width, state.data.stats.height);
@@ -103,6 +125,7 @@ function draw() {
     ctx.strokeStyle = '#c99554'; ctx.lineWidth = 1.5; ctx.beginPath();
     ctx.moveTo(state.width * state.split, 0); ctx.lineTo(state.width * state.split, state.height); ctx.stroke();
   }
+  drawRemovedSeams();
   $('zoom-label').textContent = `${Math.round(state.scale / state.fitScale * 100)}%`;
 }
 function resize() {
@@ -153,11 +176,11 @@ function select(index, focus = false) {
   state.selected = index; $('clear-selection').hidden = index === null;
   if (index === null) {
     $('inspect-title').textContent = 'Map overview';
-    $('inspector').innerHTML = `<div class="empty-state"><span class="inspect-icon">${targetIcon}</span><h3>Every body, individually.</h3><p>Click a polygon to see its unit, area, and review flags. Same-colored bodies remain separate features.</p></div>`;
+    $('inspector').innerHTML = `<div class="empty-state"><span class="inspect-icon">${targetIcon}</span><h3>Every body, individually.</h3><p>Click a polygon to see its unit, area, and review flags. Separate bodies stay separate; overprinted lines no longer cut continuous features.</p></div>`;
   } else {
     const f = state.data.features[index], u = state.data.classes[f.classId - 1];
     $('inspect-title').textContent = `Polygon ${number.format(f.id)}`;
-    $('inspector').innerHTML = `<div class="selection"><div class="selected-label"><span class="swatch" style="background:${u.color}"></span><div><strong>${safe(u.code)}</strong><small>CLASS ${u.id} · SINGLEPART FEATURE</small></div></div><p class="selected-name">${safe(u.name)}</p><div class="details-row"><span>Approximate area</span><strong>${number.format(f.area)} km²</strong></div><div class="details-row" title="Source pixels in the annotation buffer, summarized per reconstructed body. Not accuracy."><span>Annotation buffer</span><strong>${f.annotation}%</strong></div><div class="details-row" title="Close first/second color matches. Not accuracy."><span>Color ambiguity</span><strong>${f.ambiguity}%</strong></div><div class="details-row"><span>Candidate class IDs</span><strong>${u.candidates.join(', ')}</strong></div><div>${f.issues.length ? f.issues.map(i => `<span class="flag">${safe(issueLabels[i])}</span>`).join('') : '<span class="flag">Draft · geological review still needed</span>'}</div><button id="compare-selection" class="inspect-compare">Compare this body with the photo ↗</button></div>`;
+    $('inspector').innerHTML = `<div class="selection"><div class="selected-label"><span class="swatch" style="background:${u.color}"></span><div><strong>${safe(u.code)}</strong><small>CLASS ${u.id} · SINGLEPART FEATURE</small></div></div><p class="selected-name">${safe(u.name)}</p><div class="details-row"><span>Approximate area</span><strong>${number.format(f.area)} km²</strong></div><div class="details-row" title="Source pixels in the annotation buffer, summarized per reconstructed body. Not accuracy."><span>Annotation buffer</span><strong>${f.annotation}%</strong></div><div class="details-row" title="Close first/second color matches. Not accuracy."><span>Color ambiguity</span><strong>${f.ambiguity}%</strong></div><div class="details-row"><span>Candidate class IDs</span><strong>${u.candidates.join(', ')}</strong></div><div>${f.issues.length ? f.issues.map(i => `<span class="flag">${safe(issueLabels[i])}</span>`).join('') : '<span class="flag">Draft · geological review still needed</span>'}</div>${f.previousIds?.length ? `<div class="previous-id-list"><strong>Restored from ${f.previousIds.length} v5 fragments</strong><br>Previous IDs: ${f.previousIds.join(', ')}</div>` : ''}<button id="compare-selection" class="inspect-compare">Compare this body with the photo ↗</button></div>`;
     $('compare-selection').addEventListener('click', () => { setMode('compare'); fit(f.bbox, 80); });
     if (focus) { fit(f.bbox, 80); if (state.scale > 3) zoom(3 / state.scale); }
     $('announcement').textContent = `Selected polygon ${f.id}, ${u.code}, ${u.name}. ${f.issues.length} review flags.`;
@@ -247,6 +270,9 @@ $('legend-search').addEventListener('input',legend);
 $('clear-highlight').addEventListener('click',()=>{state.highlighted=null;$('clear-highlight').hidden=true;legend();requestDraw();});
 $('clear-selection').addEventListener('click',()=>select(null));
 $('next-issue').addEventListener('click',nextIssue);
+$('next-restored').addEventListener('click',nextRestored);
+$('compare-restored').addEventListener('click',()=>setMode('compare'));
+$('show-previous-splits').addEventListener('change',e=>{showPrevious=e.target.checked;$('previous-notice').hidden=!showPrevious;requestDraw();});
 document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
 new ResizeObserver(resize).observe(viewport);
 async function initialize() {
@@ -259,6 +285,13 @@ async function initialize() {
     contactBoxes=data.contacts.map(points=>{let a=Infinity,b=Infinity,c=-Infinity,d=-Infinity;for(const [x,y] of points){a=Math.min(a,x);b=Math.min(b,y);c=Math.max(c,x);d=Math.max(d,y);}return[a,b,c,d];});
     contactPaths=data.contacts.map(points=>{const p=new Path2D();p.moveTo(...points[0]);for(let i=1;i<points.length;i++)p.lineTo(...points[i]);return p;});
     await new Promise((resolve,reject)=>{source.onload=()=>{state.sourceReady=true;resolve();};source.onerror=()=>reject(new Error('The comparison photo could not be loaded.'));source.src='/data/source.jpg';});
+    const auditResponse=await fetch('/data/continuity.json');
+    if(!auditResponse.ok)throw new Error('Continuity comparison could not be loaded.');
+    continuity=await auditResponse.json();
+    removedPaths=continuity.removedContacts.map(s=>{const path=new Path2D();path.moveTo(...s.points[0]);s.points.slice(1).forEach(p=>path.lineTo(...p));return {featureId:s.featureId,path};});
+    $('restored-count').textContent=number.format(continuity.summary.restoredContinuousBodies);
+    $('removed-count').textContent=number.format(continuity.summary.previousInternalSeamsRemoved);
+    $('next-restored').disabled=!continuity.changes.length;
     state.ready=true; resize(); fit(data.extent); state.fitScale=state.scale;
     $('loading').hidden=true; $('class-count').textContent=number.format(data.stats.classCount);
     $('feature-count').textContent=number.format(data.stats.featureCount); $('contact-count').textContent=number.format(data.stats.contactCount);

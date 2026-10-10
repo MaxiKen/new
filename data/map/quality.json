@@ -1,8 +1,8 @@
 {
-  "revision": 5,
+  "revision": 6,
   "built": "2026-10-10",
-  "featureCount": 2443,
-  "contactCount": 6635,
+  "featureCount": 1588,
+  "contactCount": 4067,
   "classCount": 83,
   "blackFillClasses": 0,
   "interiorGaps": 0,
@@ -25,23 +25,46 @@
   "height": 3336,
   "sourceSha256": "07fd0ff6611caee58d81add0333cd23a0ad8a557f2eebf7429012e6cee5ed552",
   "issueCounts": {
-    "annotation-heavy": 1901,
-    "narrow-body": 447,
-    "contact-review": 1144,
-    "similar-colors": 325,
+    "annotation-heavy": 1140,
+    "narrow-body": 314,
+    "similar-colors": 209,
     "water": 107,
-    "unresolved-code": 233
+    "unresolved-code": 150,
+    "continuity-restored": 322
   },
   "refinement": {
-    "photo_evidence_arcs": 5739,
-    "arcs_reduced": 77,
+    "photo_evidence_arcs": 3460,
+    "arcs_reduced": 48,
     "smoothing_sigma_pixels": 2.2,
     "max_proposed_shift_pixels": 4.5
+  },
+  "continuity": {
+    "blackStrokeSplittingEnabled": false,
+    "maxGapPixels": 24,
+    "supportedBandPixels": 73,
+    "rejectedOrConflictingBandPixels": 2238,
+    "connectedBodiesBeforeBandRepair": 1594,
+    "connectedBodiesAfterBandRepair": 1588,
+    "waterPixelsUnchanged": true,
+    "reliableClassPixelsUnchanged": true,
+    "rationale": "Dark strokes never subdivide an existing color component. Local gap repair requires same-family original-color endpoints, no water, no reliable other unit."
   },
   "limitations": [
     "Automated geological draft, not exhaustive manual verification.",
     "Map-only codes, similar colors, narrow bodies and inferred contacts need review.",
     "Gap-free within the mapped footprint, not the page or an official country boundary.",
     "Original source photo intentionally retains black annotations in comparison mode."
-  ]
+  ],
+  "continuityReview": {
+    "baselineRevision": 5,
+    "baselineCommit": "a62427bf26b3861fe58221a3f718626daa0455d8",
+    "baselineSha256": "fae56e173aa23c96b73f74821fc106488215de73fed75e30029012ae0ae598e2",
+    "previousFeatureCount": 2443,
+    "currentFeatureCount": 1588,
+    "restoredContinuousBodies": 318,
+    "previousInternalSeamsRemoved": 732,
+    "sourceSupportedBandPixels": 73,
+    "policy": "Connected colors are not split by dark overprints; no proximity-only or global same-color dissolve.",
+    "caution": "Ancestry/overlap evidence, not exhaustive geological verification. IDs changed: use previousIds for tracing reviewed merges."
+  }
 }
