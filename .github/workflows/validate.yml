@@ -1,0 +1,35 @@
+name: Validate geological map and viewer
+on:
+  pull_request:
+  push:
+    branches: [main, 'arena/b6e8ffbc-new']
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - run: python scripts/validate_exports.py
+      - run: npm ci
+      - name: Browser smoke and responsive tests
+        run: |
+          python server.py --host 0.0.0.0 --port 3000 > /tmp/map-viewer.log 2>&1 &
+          npm run test:browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-review
+          path: .cache/browser/
+          if-no-files-found: ignore

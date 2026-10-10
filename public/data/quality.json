@@ -1,0 +1,47 @@
+{
+  "revision": 5,
+  "built": "2026-10-10",
+  "featureCount": 2443,
+  "contactCount": 6635,
+  "classCount": 83,
+  "blackFillClasses": 0,
+  "interiorGaps": 0,
+  "blackPixelsCovered": 422325,
+  "blackPixelsTested": 422325,
+  "overlaps": false,
+  "singlepart": true,
+  "crs": "EPSG:4326 \u2014 assumed datum",
+  "sourceSize": [
+    6600,
+    3675
+  ],
+  "crop": [
+    190,
+    190,
+    4274,
+    3526
+  ],
+  "width": 4084,
+  "height": 3336,
+  "sourceSha256": "07fd0ff6611caee58d81add0333cd23a0ad8a557f2eebf7429012e6cee5ed552",
+  "issueCounts": {
+    "annotation-heavy": 1901,
+    "narrow-body": 447,
+    "contact-review": 1144,
+    "similar-colors": 325,
+    "water": 107,
+    "unresolved-code": 233
+  },
+  "refinement": {
+    "photo_evidence_arcs": 5739,
+    "arcs_reduced": 77,
+    "smoothing_sigma_pixels": 2.2,
+    "max_proposed_shift_pixels": 4.5
+  },
+  "limitations": [
+    "Automated geological draft, not exhaustive manual verification.",
+    "Map-only codes, similar colors, narrow bodies and inferred contacts need review.",
+    "Gap-free within the mapped footprint, not the page or an official country boundary.",
+    "Original source photo intentionally retains black annotations in comparison mode."
+  ]
+}
