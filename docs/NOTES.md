@@ -139,3 +139,24 @@ totals in `data/clean/blocks/report.json`.
 
 Outputs: `NGSA_map_geology_legend_v2.png`, `NGSA_map_geology_legend_v2_gridded.png`
 and the photographic render `NGSA_map_geology_v2_photo.jpg`.
+
+Two additions after the first version-2 pass. `clean_map.py` gained a sixth test for
+marks drawn *inside* open water: the graticule boxed over the sea, the submarine
+canyon lines that carry the rivers offshore, and the blue names written on them. The
+interior of a water body is its closed outline eroded back, so a narrow lagoon has no
+interior and nothing in it is touched, and anything thin that is not water-coloured
+in there is printing. The gulf's own name is left: a water body is geography and gets
+to be named.
+
+`scripts/mosaic.py` reassembles the map from its 121 block drawings beside the sheet's
+legend, and audits the joints: along every printed meridian and parallel of the block
+grid a formation must meet the same formation on the far side. Version 1 cut
+16,777 px of seam (22.0 % of the seam length); the assembled, connected map cuts
+3,897 px (5.1 %). `data/clean/blocks/seams.json` holds both counts.
+
+```
+.venv/bin/python scripts/clean_map.py
+.venv/bin/python scripts/blocks.py
+.venv/bin/python scripts/render_map.py
+.venv/bin/python scripts/mosaic.py
+```
