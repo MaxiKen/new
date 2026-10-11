@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "base": "NGSA_map_geology_legend_isolated.png",
+  "sheetSize": [
+    6268,
+    3540
+  ],
+  "rewrittenPixels": 375165,
+  "crossBoundaryConnectionPixels": 23230,
+  "legendKeysRemoved": {
+    "rows": [
+      "Roads",
+      "Railway",
+      "Rivers"
+    ],
+    "inkPixels": 2218
+  },
+  "rewrittenShareOfMappedArea": 2.778,
+  "shareOfMapArea": 2.778,
+  "residualThinWaterStrokes": 0,
+  "residualUnpaintedInsideFootprint": 0,
+  "mappedWaterPixels": [
+    1209034,
+    1214634
+  ],
+  "grayShadingPixels": [
+    57008,
+    2435
+  ],
+  "legendUnitPixelsChanged": 134966,
+  "unchangedOutsideMapArea": true
+}

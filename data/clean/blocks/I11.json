@@ -1,0 +1,175 @@
+{
+ "cell": "I11",
+ "box": [
+  2845,
+  3248,
+  3174,
+  3336
+ ],
+ "zonePixels": 26320,
+ "geologyPixels": 5,
+ "mappedFraction": 0.0,
+ "formations": [
+  {
+   "id": 63,
+   "code": "OGS",
+   "name": "Syenite, mainly of pyroxene diorite composition",
+   "color": "#cccccc",
+   "pixels": 25,
+   "shareOfBlock": 0.09,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 2,
+   "largest": {
+    "area": 16,
+    "width": 7.0,
+    "length": 6.0,
+    "top_left": [
+     0,
+     74
+    ],
+    "kind": "speck"
+   }
+  }
+ ],
+ "neighbours": [
+  "H10",
+  "I10",
+  "J10",
+  "H11",
+  "J11"
+ ],
+ "edges": {
+  "E": {
+   "neighbour": "J11",
+   "unitsMatched": {
+    "63": {
+     "both": 1,
+     "aOnly": 0,
+     "bOnly": 1
+    },
+    "96": {
+     "both": 75,
+     "aOnly": 1,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "W": {
+   "neighbour": "H11",
+   "unitsMatched": {
+    "63": {
+     "both": 1,
+     "aOnly": 1,
+     "bOnly": 0
+    },
+    "96": {
+     "both": 75,
+     "aOnly": 0,
+     "bOnly": 1
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "N": {
+   "neighbour": "I10",
+   "unitsMatched": {
+    "96": {
+     "both": 329,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  }
+ },
+ "corners": [
+  {
+   "corner": "SE",
+   "blocks": [
+    "H10",
+    "I10",
+    "J10",
+    "H11",
+    "J11"
+   ],
+   "quadrants": {
+    "2": [],
+    "3": []
+   },
+   "jointUnit": null
+  },
+  {
+   "corner": "SW",
+   "blocks": [
+    "H10",
+    "I10",
+    "J10",
+    "H11",
+    "J11"
+   ],
+   "quadrants": {
+    "2": [],
+    "3": []
+   },
+   "jointUnit": null
+  },
+  {
+   "corner": "NE",
+   "blocks": [
+    "H10",
+    "I10",
+    "J10",
+    "H11",
+    "J11"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  },
+  {
+   "corner": "NW",
+   "blocks": [
+    "H10",
+    "I10",
+    "J10",
+    "H11",
+    "J11"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  }
+ ]
+}

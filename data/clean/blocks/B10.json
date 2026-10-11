@@ -1,0 +1,228 @@
+{
+ "cell": "B10",
+ "box": [
+  546,
+  2919,
+  875,
+  3248
+ ],
+ "zonePixels": 108241,
+ "geologyPixels": 0,
+ "mappedFraction": 0.0,
+ "formations": [
+  {
+   "id": 95,
+   "code": "WATER",
+   "name": "Mapped water / water-color interpretation; not geology",
+   "color": "#99d8eb",
+   "pixels": 108241,
+   "shareOfBlock": 100.0,
+   "bodies": 1,
+   "ribbons": 0,
+   "specks": 0,
+   "largest": {
+    "area": 108241,
+    "width": 930.14,
+    "length": 329.0,
+    "top_left": [
+     0,
+     0
+    ],
+    "kind": "body"
+   }
+  }
+ ],
+ "neighbours": [
+  "A9",
+  "B9",
+  "C9",
+  "A10",
+  "C10",
+  "A11",
+  "B11",
+  "C11"
+ ],
+ "edges": {
+  "E": {
+   "neighbour": "C10",
+   "unitsMatched": {
+    "95": {
+     "both": 329,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "W": {
+   "neighbour": "A10",
+   "unitsMatched": {
+    "95": {
+     "both": 329,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "S": {
+   "neighbour": "B11",
+   "unitsMatched": {
+    "95": {
+     "both": 329,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "N": {
+   "neighbour": "B9",
+   "unitsMatched": {
+    "95": {
+     "both": 5,
+     "aOnly": 324,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 1,
+   "repairedPixels": 0,
+   "runs": [
+    {
+     "uid": 95,
+     "start": 3,
+     "stop": 326,
+     "length": 324,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      95
+     ],
+     "heldBack": 972,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
+    }
+   ]
+  }
+ },
+ "corners": [
+  {
+   "corner": "SE",
+   "blocks": [
+    "A9",
+    "B9",
+    "C9",
+    "A10",
+    "C10",
+    "A11",
+    "B11",
+    "C11"
+   ],
+   "quadrants": {
+    "0": [
+     95
+    ],
+    "1": [
+     95
+    ],
+    "2": [
+     95
+    ],
+    "3": [
+     95
+    ]
+   },
+   "jointUnit": 95
+  },
+  {
+   "corner": "SW",
+   "blocks": [
+    "A9",
+    "B9",
+    "C9",
+    "A10",
+    "C10",
+    "A11",
+    "B11",
+    "C11"
+   ],
+   "quadrants": {
+    "0": [
+     95
+    ],
+    "1": [
+     95
+    ],
+    "2": [
+     95
+    ],
+    "3": [
+     95
+    ]
+   },
+   "jointUnit": 95
+  },
+  {
+   "corner": "NE",
+   "blocks": [
+    "A9",
+    "B9",
+    "C9",
+    "A10",
+    "C10",
+    "A11",
+    "B11",
+    "C11"
+   ],
+   "quadrants": {
+    "0": [
+     95
+    ],
+    "1": [
+     95
+    ],
+    "2": [
+     95
+    ],
+    "3": [
+     95
+    ]
+   },
+   "jointUnit": 95
+  },
+  {
+   "corner": "NW",
+   "blocks": [
+    "A9",
+    "B9",
+    "C9",
+    "A10",
+    "C10",
+    "A11",
+    "B11",
+    "C11"
+   ],
+   "quadrants": {
+    "0": [
+     95
+    ],
+    "1": [
+     95
+    ],
+    "2": [
+     95
+    ],
+    "3": [
+     95
+    ]
+   },
+   "jointUnit": 95
+  }
+ ]
+}

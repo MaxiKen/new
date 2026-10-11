@@ -1,0 +1,257 @@
+{
+ "cell": "C11",
+ "box": [
+  875,
+  3248,
+  1203,
+  3336
+ ],
+ "zonePixels": 26240,
+ "geologyPixels": 106,
+ "mappedFraction": 0.4,
+ "formations": [
+  {
+   "id": 95,
+   "code": "WATER",
+   "name": "Mapped water / water-color interpretation; not geology",
+   "color": "#99d8eb",
+   "pixels": 26112,
+   "shareOfBlock": 99.51,
+   "bodies": 1,
+   "ribbons": 0,
+   "specks": 0,
+   "largest": {
+    "area": 26112,
+    "width": 161.0,
+    "length": 328.0,
+    "top_left": [
+     0,
+     0
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 79,
+   "code": "Su",
+   "name": "Undifferentiated schists, including phyllites",
+   "color": "#79c1d9",
+   "pixels": 126,
+   "shareOfBlock": 0.48,
+   "bodies": 0,
+   "ribbons": 1,
+   "specks": 2,
+   "largest": {
+    "area": 113,
+    "width": 5.47,
+    "length": 55.0,
+    "top_left": [
+     324,
+     25
+    ],
+    "kind": "ribbon"
+   }
+  },
+  {
+   "id": 63,
+   "code": "OGS",
+   "name": "Syenite, mainly of pyroxene diorite composition",
+   "color": "#cccccc",
+   "pixels": 2,
+   "shareOfBlock": 0.01,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 2,
+   "largest": {
+    "area": 1,
+    "width": 3.0,
+    "length": 1.0,
+    "top_left": [
+     258,
+     53
+    ],
+    "kind": "speck"
+   }
+  }
+ ],
+ "neighbours": [
+  "B10",
+  "C10",
+  "D10",
+  "B11",
+  "D11"
+ ],
+ "edges": {
+  "E": {
+   "neighbour": "D11",
+   "unitsMatched": {
+    "79": {
+     "both": 51,
+     "aOnly": 0,
+     "bOnly": 1
+    },
+    "95": {
+     "both": 25,
+     "aOnly": 49,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 2,
+   "repairedPixels": 147,
+   "runs": [
+    {
+     "uid": 95,
+     "start": 25,
+     "stop": 50,
+     "length": 26,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      79
+     ],
+     "applied": true
+    },
+    {
+     "uid": 95,
+     "start": 53,
+     "stop": 75,
+     "length": 23,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      79
+     ],
+     "applied": true
+    }
+   ]
+  },
+  "W": {
+   "neighbour": "B11",
+   "unitsMatched": {
+    "79": {
+     "both": 0,
+     "aOnly": 1,
+     "bOnly": 51
+    },
+    "95": {
+     "both": 76,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 1,
+   "repairedPixels": 101,
+   "runs": [
+    {
+     "uid": 79,
+     "start": 24,
+     "stop": 75,
+     "length": 52,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      79,
+      95
+     ],
+     "heldBack": 55,
+     "applied": true
+    }
+   ]
+  },
+  "N": {
+   "neighbour": "C10",
+   "unitsMatched": {
+    "95": {
+     "both": 328,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  }
+ },
+ "corners": [
+  {
+   "corner": "SE",
+   "blocks": [
+    "B10",
+    "C10",
+    "D10",
+    "B11",
+    "D11"
+   ],
+   "quadrants": {
+    "2": [],
+    "3": []
+   },
+   "jointUnit": null
+  },
+  {
+   "corner": "SW",
+   "blocks": [
+    "B10",
+    "C10",
+    "D10",
+    "B11",
+    "D11"
+   ],
+   "quadrants": {
+    "2": [],
+    "3": []
+   },
+   "jointUnit": null
+  },
+  {
+   "corner": "NE",
+   "blocks": [
+    "B10",
+    "C10",
+    "D10",
+    "B11",
+    "D11"
+   ],
+   "quadrants": {
+    "0": [
+     95
+    ],
+    "1": [
+     95
+    ],
+    "2": [
+     95
+    ],
+    "3": [
+     95
+    ]
+   },
+   "jointUnit": 95
+  },
+  {
+   "corner": "NW",
+   "blocks": [
+    "B10",
+    "C10",
+    "D10",
+    "B11",
+    "D11"
+   ],
+   "quadrants": {
+    "0": [
+     95
+    ],
+    "1": [
+     95
+    ],
+    "2": [
+     95
+    ],
+    "3": [
+     95
+    ]
+   },
+   "jointUnit": 95
+  }
+ ]
+}

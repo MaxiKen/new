@@ -1,0 +1,205 @@
+{
+ "cell": "K7",
+ "box": [
+  3501,
+  1934,
+  3830,
+  2263
+ ],
+ "zonePixels": 108241,
+ "geologyPixels": 2,
+ "mappedFraction": 0.0,
+ "formations": [
+  {
+   "id": 8,
+   "code": "b",
+   "name": "Younger basalt",
+   "color": "#d8d8fc",
+   "pixels": 2,
+   "shareOfBlock": 0.0,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 1,
+   "largest": {
+    "area": 2,
+    "width": 3.0,
+    "length": 2.0,
+    "top_left": [
+     68,
+     0
+    ],
+    "kind": "speck"
+   }
+  }
+ ],
+ "neighbours": [
+  "J6",
+  "K6",
+  "J7",
+  "J8",
+  "K8"
+ ],
+ "edges": {
+  "W": {
+   "neighbour": "J7",
+   "unitsMatched": {
+    "96": {
+     "both": 329,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "S": {
+   "neighbour": "K8",
+   "unitsMatched": {
+    "96": {
+     "both": 329,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "N": {
+   "neighbour": "K6",
+   "unitsMatched": {
+    "8": {
+     "both": 2,
+     "aOnly": 0,
+     "bOnly": 1
+    },
+    "96": {
+     "both": 87,
+     "aOnly": 242,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 1,
+   "repairedPixels": 0,
+   "runs": [
+    {
+     "uid": 96,
+     "start": 87,
+     "stop": 326,
+     "length": 240,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      96
+     ],
+     "heldBack": 720,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
+    }
+   ]
+  }
+ },
+ "corners": [
+  {
+   "corner": "SE",
+   "blocks": [
+    "J6",
+    "K6",
+    "J7",
+    "J8",
+    "K8"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  },
+  {
+   "corner": "SW",
+   "blocks": [
+    "J6",
+    "K6",
+    "J7",
+    "J8",
+    "K8"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  },
+  {
+   "corner": "NE",
+   "blocks": [
+    "J6",
+    "K6",
+    "J7",
+    "J8",
+    "K8"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  },
+  {
+   "corner": "NW",
+   "blocks": [
+    "J6",
+    "K6",
+    "J7",
+    "J8",
+    "K8"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  }
+ ]
+}

@@ -1,0 +1,282 @@
+{
+ "cell": "J8",
+ "box": [
+  3174,
+  2263,
+  3501,
+  2591
+ ],
+ "zonePixels": 107256,
+ "geologyPixels": 226,
+ "mappedFraction": 0.2,
+ "formations": [
+  {
+   "id": 8,
+   "code": "b",
+   "name": "Younger basalt",
+   "color": "#d8d8fc",
+   "pixels": 163,
+   "shareOfBlock": 0.15,
+   "bodies": 2,
+   "ribbons": 0,
+   "specks": 17,
+   "largest": {
+    "area": 77,
+    "width": 7.0,
+    "length": 23.0,
+    "top_left": [
+     0,
+     173
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 76,
+   "code": "Sf",
+   "name": "Fine-grained flaggy quartzite and quartz schist",
+   "color": "#9eb9e6",
+   "pixels": 69,
+   "shareOfBlock": 0.06,
+   "bodies": 0,
+   "ribbons": 1,
+   "specks": 2,
+   "largest": {
+    "area": 40,
+    "width": 3.0,
+    "length": 20.0,
+    "top_left": [
+     5,
+     174
+    ],
+    "kind": "ribbon"
+   }
+  }
+ ],
+ "neighbours": [
+  "I7",
+  "J7",
+  "K7",
+  "I8",
+  "K8",
+  "I9",
+  "J9",
+  "K9"
+ ],
+ "edges": {
+  "E": {
+   "neighbour": "K8",
+   "unitsMatched": {
+    "96": {
+     "both": 328,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "W": {
+   "neighbour": "I8",
+   "unitsMatched": {
+    "8": {
+     "both": 31,
+     "aOnly": 6,
+     "bOnly": 63
+    },
+    "96": {
+     "both": 304,
+     "aOnly": 1,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 3,
+   "repairedPixels": 0,
+   "runs": [
+    {
+     "uid": 8,
+     "start": 149,
+     "stop": 172,
+     "length": 24,
+     "has": "b",
+     "onto": "a",
+     "displaced": [
+      96
+     ],
+     "heldBack": 72,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
+    },
+    {
+     "uid": 8,
+     "start": 191,
+     "stop": 201,
+     "length": 11,
+     "has": "b",
+     "onto": "a",
+     "displaced": [
+      96
+     ],
+     "heldBack": 33,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
+    },
+    {
+     "uid": 8,
+     "start": 207,
+     "stop": 231,
+     "length": 25,
+     "has": "b",
+     "onto": "a",
+     "displaced": [
+      96
+     ],
+     "heldBack": 75,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
+    }
+   ]
+  },
+  "S": {
+   "neighbour": "J9",
+   "unitsMatched": {
+    "96": {
+     "both": 327,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "N": {
+   "neighbour": "J7",
+   "unitsMatched": {
+    "96": {
+     "both": 327,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  }
+ },
+ "corners": [
+  {
+   "corner": "SE",
+   "blocks": [
+    "I7",
+    "J7",
+    "K7",
+    "I8",
+    "K8",
+    "I9",
+    "J9",
+    "K9"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  },
+  {
+   "corner": "SW",
+   "blocks": [
+    "I7",
+    "J7",
+    "K7",
+    "I8",
+    "K8",
+    "I9",
+    "J9",
+    "K9"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  },
+  {
+   "corner": "NE",
+   "blocks": [
+    "I7",
+    "J7",
+    "K7",
+    "I8",
+    "K8",
+    "I9",
+    "J9",
+    "K9"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  },
+  {
+   "corner": "NW",
+   "blocks": [
+    "I7",
+    "J7",
+    "K7",
+    "I8",
+    "K8",
+    "I9",
+    "J9",
+    "K9"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  }
+ ]
+}

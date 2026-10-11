@@ -1,0 +1,326 @@
+{
+ "cell": "I2",
+ "box": [
+  2845,
+  293,
+  3174,
+  621
+ ],
+ "zonePixels": 107912,
+ "geologyPixels": 107912,
+ "mappedFraction": 100.0,
+ "formations": [
+  {
+   "id": 6,
+   "code": "Cst",
+   "name": "Sands, clays, siltstones and limestones",
+   "color": "#f0ff5a",
+   "pixels": 56485,
+   "shareOfBlock": 52.34,
+   "bodies": 2,
+   "ribbons": 0,
+   "specks": 0,
+   "largest": {
+    "area": 41732,
+    "width": 350.89,
+    "length": 324.0,
+    "top_left": [
+     5,
+     75
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 1,
+   "code": "Al",
+   "name": "Alluvium",
+   "color": "#ecff65",
+   "pixels": 51383,
+   "shareOfBlock": 47.62,
+   "bodies": 1,
+   "ribbons": 0,
+   "specks": 0,
+   "largest": {
+    "area": 51383,
+    "width": 230.69,
+    "length": 329.0,
+    "top_left": [
+     0,
+     0
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 28,
+   "code": "ANsh",
+   "name": "Shale and limestone",
+   "color": "#ccd86c",
+   "pixels": 17,
+   "shareOfBlock": 0.02,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 1,
+   "largest": {
+    "area": 17,
+    "width": 5.0,
+    "length": 7.0,
+    "top_left": [
+     134,
+     61
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 16,
+   "code": "Imsh",
+   "name": "Clay and shale with limestone intercalations",
+   "color": "#ccdf6c",
+   "pixels": 14,
+   "shareOfBlock": 0.01,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 2,
+   "largest": {
+    "area": 12,
+    "width": 3.0,
+    "length": 7.0,
+    "top_left": [
+     135,
+     60
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 10,
+   "code": "OAlgs",
+   "name": "Lignite, claystone and shale",
+   "color": "#ebfd68",
+   "pixels": 13,
+   "shareOfBlock": 0.01,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 4,
+   "largest": {
+    "area": 9,
+    "width": 3.0,
+    "length": 7.0,
+    "top_left": [
+     133,
+     59
+    ],
+    "kind": "speck"
+   }
+  }
+ ],
+ "neighbours": [
+  "H1",
+  "I1",
+  "J1",
+  "H2",
+  "J2",
+  "H3",
+  "I3",
+  "J3"
+ ],
+ "edges": {
+  "E": {
+   "neighbour": "J2",
+   "unitsMatched": {
+    "1": {
+     "both": 75,
+     "aOnly": 1,
+     "bOnly": 0
+    },
+    "6": {
+     "both": 252,
+     "aOnly": 0,
+     "bOnly": 1
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "W": {
+   "neighbour": "H2",
+   "unitsMatched": {
+    "1": {
+     "both": 157,
+     "aOnly": 0,
+     "bOnly": 1
+    },
+    "6": {
+     "both": 170,
+     "aOnly": 9,
+     "bOnly": 2
+    }
+   },
+   "brokenRuns": 1,
+   "repairedPixels": 24,
+   "runs": [
+    {
+     "uid": 6,
+     "start": 293,
+     "stop": 300,
+     "length": 8,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      1
+     ],
+     "applied": true
+    }
+   ]
+  },
+  "S": {
+   "neighbour": "I3",
+   "unitsMatched": {
+    "1": {
+     "both": 4,
+     "aOnly": 5,
+     "bOnly": 0
+    },
+    "6": {
+     "both": 324,
+     "aOnly": 0,
+     "bOnly": 4
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "N": {
+   "neighbour": "I1",
+   "unitsMatched": {
+    "1": {
+     "both": 329,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  }
+ },
+ "corners": [
+  {
+   "corner": "SE",
+   "blocks": [
+    "H1",
+    "I1",
+    "J1",
+    "H2",
+    "J2",
+    "H3",
+    "I3",
+    "J3"
+   ],
+   "quadrants": {
+    "0": [
+     6
+    ],
+    "1": [
+     6
+    ],
+    "2": [
+     6
+    ],
+    "3": [
+     6
+    ]
+   },
+   "jointUnit": 6
+  },
+  {
+   "corner": "SW",
+   "blocks": [
+    "H1",
+    "I1",
+    "J1",
+    "H2",
+    "J2",
+    "H3",
+    "I3",
+    "J3"
+   ],
+   "quadrants": {
+    "0": [
+     1,
+     6
+    ],
+    "1": [
+     1
+    ],
+    "2": [
+     1
+    ],
+    "3": [
+     1
+    ]
+   },
+   "jointUnit": 1
+  },
+  {
+   "corner": "NE",
+   "blocks": [
+    "H1",
+    "I1",
+    "J1",
+    "H2",
+    "J2",
+    "H3",
+    "I3",
+    "J3"
+   ],
+   "quadrants": {
+    "0": [
+     1
+    ],
+    "1": [
+     1
+    ],
+    "2": [
+     1
+    ],
+    "3": [
+     1
+    ]
+   },
+   "jointUnit": 1
+  },
+  {
+   "corner": "NW",
+   "blocks": [
+    "H1",
+    "I1",
+    "J1",
+    "H2",
+    "J2",
+    "H3",
+    "I3",
+    "J3"
+   ],
+   "quadrants": {
+    "0": [
+     1
+    ],
+    "1": [
+     1
+    ],
+    "2": [
+     1
+    ],
+    "3": [
+     1
+    ]
+   },
+   "jointUnit": 1
+  }
+ ]
+}

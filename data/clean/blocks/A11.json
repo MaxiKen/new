@@ -1,0 +1,181 @@
+{
+ "cell": "A11",
+ "box": [
+  217,
+  3248,
+  546,
+  3336
+ ],
+ "zonePixels": 26320,
+ "geologyPixels": 306,
+ "mappedFraction": 1.2,
+ "formations": [
+  {
+   "id": 95,
+   "code": "WATER",
+   "name": "Mapped water / water-color interpretation; not geology",
+   "color": "#99d8eb",
+   "pixels": 25990,
+   "shareOfBlock": 98.75,
+   "bodies": 1,
+   "ribbons": 0,
+   "specks": 0,
+   "largest": {
+    "area": 25990,
+    "width": 161.0,
+    "length": 329.0,
+    "top_left": [
+     0,
+     0
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 79,
+   "code": "Su",
+   "name": "Undifferentiated schists, including phyllites",
+   "color": "#79c1d9",
+   "pixels": 330,
+   "shareOfBlock": 1.25,
+   "bodies": 1,
+   "ribbons": 1,
+   "specks": 0,
+   "largest": {
+    "area": 221,
+    "width": 9.0,
+    "length": 56.0,
+    "top_left": [
+     0,
+     24
+    ],
+    "kind": "body"
+   }
+  }
+ ],
+ "neighbours": [
+  "A10",
+  "B10",
+  "B11"
+ ],
+ "edges": {
+  "E": {
+   "neighbour": "B11",
+   "unitsMatched": {
+    "79": {
+     "both": 51,
+     "aOnly": 0,
+     "bOnly": 1
+    },
+    "95": {
+     "both": 25,
+     "aOnly": 51,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 1,
+   "repairedPixels": 153,
+   "runs": [
+    {
+     "uid": 95,
+     "start": 25,
+     "stop": 75,
+     "length": 51,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      79
+     ],
+     "applied": true
+    }
+   ]
+  },
+  "N": {
+   "neighbour": "A10",
+   "unitsMatched": {
+    "95": {
+     "both": 329,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  }
+ },
+ "corners": [
+  {
+   "corner": "SE",
+   "blocks": [
+    "A10",
+    "B10",
+    "B11"
+   ],
+   "quadrants": {
+    "2": [],
+    "3": []
+   },
+   "jointUnit": null
+  },
+  {
+   "corner": "SW",
+   "blocks": [
+    "A10",
+    "B10",
+    "B11"
+   ],
+   "quadrants": {
+    "2": [],
+    "3": []
+   },
+   "jointUnit": null
+  },
+  {
+   "corner": "NE",
+   "blocks": [
+    "A10",
+    "B10",
+    "B11"
+   ],
+   "quadrants": {
+    "0": [
+     95
+    ],
+    "1": [
+     95
+    ],
+    "2": [
+     95
+    ],
+    "3": [
+     95
+    ]
+   },
+   "jointUnit": 95
+  },
+  {
+   "corner": "NW",
+   "blocks": [
+    "A10",
+    "B10",
+    "B11"
+   ],
+   "quadrants": {
+    "0": [
+     95
+    ],
+    "1": [
+     95
+    ],
+    "2": [
+     95
+    ],
+    "3": [
+     95
+    ]
+   },
+   "jointUnit": 95
+  }
+ ]
+}

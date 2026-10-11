@@ -1,0 +1,206 @@
+{
+ "cell": "H9",
+ "box": [
+  2517,
+  2591,
+  2845,
+  2919
+ ],
+ "zonePixels": 107584,
+ "geologyPixels": 0,
+ "mappedFraction": 0.0,
+ "formations": [],
+ "neighbours": [
+  "G8",
+  "H8",
+  "I8",
+  "G9",
+  "I9",
+  "G10",
+  "H10",
+  "I10"
+ ],
+ "edges": {
+  "E": {
+   "neighbour": "I9",
+   "unitsMatched": {
+    "96": {
+     "both": 328,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "W": {
+   "neighbour": "G9",
+   "unitsMatched": {
+    "96": {
+     "both": 328,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "S": {
+   "neighbour": "H10",
+   "unitsMatched": {
+    "96": {
+     "both": 5,
+     "aOnly": 0,
+     "bOnly": 323
+    }
+   },
+   "brokenRuns": 1,
+   "repairedPixels": 0,
+   "runs": [
+    {
+     "uid": 96,
+     "start": 3,
+     "stop": 325,
+     "length": 323,
+     "has": "b",
+     "onto": "a",
+     "displaced": [
+      96
+     ],
+     "heldBack": 969,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
+    }
+   ]
+  },
+  "N": {
+   "neighbour": "H8",
+   "unitsMatched": {
+    "96": {
+     "both": 328,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  }
+ },
+ "corners": [
+  {
+   "corner": "SE",
+   "blocks": [
+    "G8",
+    "H8",
+    "I8",
+    "G9",
+    "I9",
+    "G10",
+    "H10",
+    "I10"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  },
+  {
+   "corner": "SW",
+   "blocks": [
+    "G8",
+    "H8",
+    "I8",
+    "G9",
+    "I9",
+    "G10",
+    "H10",
+    "I10"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  },
+  {
+   "corner": "NE",
+   "blocks": [
+    "G8",
+    "H8",
+    "I8",
+    "G9",
+    "I9",
+    "G10",
+    "H10",
+    "I10"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  },
+  {
+   "corner": "NW",
+   "blocks": [
+    "G8",
+    "H8",
+    "I8",
+    "G9",
+    "I9",
+    "G10",
+    "H10",
+    "I10"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  }
+ ]
+}
