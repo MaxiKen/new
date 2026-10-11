@@ -103,3 +103,39 @@ Native arrays and temporary files go in ignored `.cache/`. `data/map/` contains 
 The audit uses the published revision-5 map at Git commit `a62427bf26b3861fe58221a3f718626daa0455d8` or its cached JSON in `.cache/baseline/map_v5.json`. Keep that history when rebuilding (a shallow clone may need the commit fetched). The baseline SHA-256 is recorded in the audit. Final exported-data validation works without the cache. Revision-5 and revision-6 ZIPs are retained for comparison; the current download is `NGSA_geology_v7.zip`.
 
 `annotation_repairs.json` records localized fills, preserved evidence checks and the separate-lens counterexample. The ancestry audit is idempotent: rerunning it replaces its tags rather than accumulating stale previous IDs. Ancestry and direct-band counts intentionally represent different evidence.
+
+## Raster versions 1 and 2 (sheet-level cleaning)
+
+Version 1 is the published sheet `NGSA_map_geology_legend_isolated.png` (6268 x 3540),
+tagged `v1`. It carried the printing of the original photograph with it: road and
+railway lines, rivers, place names, hatching and the graticule in the unmapped ground.
+
+Version 2 removes it. `scripts/clean_map.py` snaps the sheet to the 95 legend colours,
+then erases only what can be proved to be printing, in five tests: unpainted thin
+slivers, thin water ribbons, gray hatching, recoloured ribbons that sit on printed
+lines, and printed line work whose two flanks carry the same unit. The last test is
+why the photograph is used as evidence and never as a source: a road runs *through* a
+unit, a contact separates two, so flank agreement tells them apart. Erased ground is
+healed from its own neighbours across class barriers, and mapped water and the gray
+classes may keep pixels but never grow, so a drained channel cannot become a lake.
+`scripts/render_map.py` pastes those healed colours back into the sheet inside the map
+area only - the frame, the title block and the panel are byte-identical to version 1,
+except that the Roads / Railway / Rivers keys are taken out of EXPLANATIONS, since
+version 2 shows no such linework. `data/clean/qa.json` records every count.
+
+The block survey in `scripts/blocks.py` works the sheet A1, B1 ... K1, A2 ... K11 on
+its own printed grid (one degree per block). Each block's formations are counted and
+classified as body, ribbon or speck, its own raster is written, and each of its four
+shared edges is compared strip by strip with the neighbour's: a formation that
+arrives at the boundary on one side only is drawn across, unless the far side is
+blank sheet or open water. Reports are per block in `data/clean/blocks/`, with the
+totals in `data/clean/blocks/report.json`.
+
+```
+.venv/bin/python scripts/clean_map.py --debug .cache/build/dbg
+.venv/bin/python scripts/blocks.py
+.venv/bin/python scripts/render_map.py
+```
+
+Outputs: `NGSA_map_geology_legend_v2.png`, `NGSA_map_geology_legend_v2_gridded.png`
+and the photographic render `NGSA_map_geology_v2_photo.jpg`.

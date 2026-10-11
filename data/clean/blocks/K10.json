@@ -1,0 +1,178 @@
+{
+ "cell": "K10",
+ "box": [
+  3501,
+  2919,
+  3830,
+  3248
+ ],
+ "zonePixels": 108241,
+ "geologyPixels": 0,
+ "mappedFraction": 0.0,
+ "formations": [],
+ "neighbours": [
+  "J9",
+  "K9",
+  "J10",
+  "J11",
+  "K11"
+ ],
+ "edges": {
+  "W": {
+   "neighbour": "J10",
+   "unitsMatched": {
+    "96": {
+     "both": 329,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "S": {
+   "neighbour": "K11",
+   "unitsMatched": {
+    "96": {
+     "both": 329,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "N": {
+   "neighbour": "K9",
+   "unitsMatched": {
+    "96": {
+     "both": 5,
+     "aOnly": 324,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 1,
+   "repairedPixels": 0,
+   "runs": [
+    {
+     "uid": 96,
+     "start": 3,
+     "stop": 326,
+     "length": 324,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      96
+     ],
+     "heldBack": 972,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
+    }
+   ]
+  }
+ },
+ "corners": [
+  {
+   "corner": "SE",
+   "blocks": [
+    "J9",
+    "K9",
+    "J10",
+    "J11",
+    "K11"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  },
+  {
+   "corner": "SW",
+   "blocks": [
+    "J9",
+    "K9",
+    "J10",
+    "J11",
+    "K11"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  },
+  {
+   "corner": "NE",
+   "blocks": [
+    "J9",
+    "K9",
+    "J10",
+    "J11",
+    "K11"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  },
+  {
+   "corner": "NW",
+   "blocks": [
+    "J9",
+    "K9",
+    "J10",
+    "J11",
+    "K11"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  }
+ ]
+}

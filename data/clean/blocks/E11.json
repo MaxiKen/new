@@ -1,0 +1,207 @@
+{
+ "cell": "E11",
+ "box": [
+  1532,
+  3248,
+  1860,
+  3336
+ ],
+ "zonePixels": 26240,
+ "geologyPixels": 1672,
+ "mappedFraction": 6.4,
+ "formations": [
+  {
+   "id": 95,
+   "code": "WATER",
+   "name": "Mapped water / water-color interpretation; not geology",
+   "color": "#99d8eb",
+   "pixels": 24529,
+   "shareOfBlock": 93.48,
+   "bodies": 1,
+   "ribbons": 0,
+   "specks": 0,
+   "largest": {
+    "area": 24529,
+    "width": 77.0,
+    "length": 323.0,
+    "top_left": [
+     3,
+     4
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 79,
+   "code": "Su",
+   "name": "Undifferentiated schists, including phyllites",
+   "color": "#79c1d9",
+   "pixels": 1692,
+   "shareOfBlock": 6.45,
+   "bodies": 1,
+   "ribbons": 0,
+   "specks": 0,
+   "largest": {
+    "area": 1692,
+    "width": 11.0,
+    "length": 328.0,
+    "top_left": [
+     0,
+     0
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 63,
+   "code": "OGS",
+   "name": "Syenite, mainly of pyroxene diorite composition",
+   "color": "#cccccc",
+   "pixels": 19,
+   "shareOfBlock": 0.07,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 4,
+   "largest": {
+    "area": 16,
+    "width": 3.0,
+    "length": 14.0,
+    "top_left": [
+     61,
+     41
+    ],
+    "kind": "speck"
+   }
+  }
+ ],
+ "neighbours": [
+  "D10",
+  "E10",
+  "F10",
+  "D11",
+  "F11"
+ ],
+ "edges": {
+  "E": {
+   "neighbour": "F11",
+   "unitsMatched": {
+    "79": {
+     "both": 76,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "W": {
+   "neighbour": "D11",
+   "unitsMatched": {
+    "79": {
+     "both": 76,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "N": {
+   "neighbour": "E10",
+   "unitsMatched": {
+    "79": {
+     "both": 328,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  }
+ },
+ "corners": [
+  {
+   "corner": "SE",
+   "blocks": [
+    "D10",
+    "E10",
+    "F10",
+    "D11",
+    "F11"
+   ],
+   "quadrants": {
+    "2": [],
+    "3": []
+   },
+   "jointUnit": null
+  },
+  {
+   "corner": "SW",
+   "blocks": [
+    "D10",
+    "E10",
+    "F10",
+    "D11",
+    "F11"
+   ],
+   "quadrants": {
+    "2": [],
+    "3": []
+   },
+   "jointUnit": null
+  },
+  {
+   "corner": "NE",
+   "blocks": [
+    "D10",
+    "E10",
+    "F10",
+    "D11",
+    "F11"
+   ],
+   "quadrants": {
+    "0": [
+     79
+    ],
+    "1": [
+     79
+    ],
+    "2": [
+     79
+    ],
+    "3": [
+     79
+    ]
+   },
+   "jointUnit": 79
+  },
+  {
+   "corner": "NW",
+   "blocks": [
+    "D10",
+    "E10",
+    "F10",
+    "D11",
+    "F11"
+   ],
+   "quadrants": {
+    "0": [
+     79
+    ],
+    "1": [
+     79
+    ],
+    "2": [
+     79
+    ],
+    "3": [
+     79
+    ]
+   },
+   "jointUnit": 79
+  }
+ ]
+}

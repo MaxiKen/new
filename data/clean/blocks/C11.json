@@ -1,0 +1,279 @@
+{
+ "cell": "C11",
+ "box": [
+  875,
+  3248,
+  1203,
+  3336
+ ],
+ "zonePixels": 26240,
+ "geologyPixels": 482,
+ "mappedFraction": 1.8,
+ "formations": [
+  {
+   "id": 95,
+   "code": "WATER",
+   "name": "Mapped water / water-color interpretation; not geology",
+   "color": "#99d8eb",
+   "pixels": 25736,
+   "shareOfBlock": 98.08,
+   "bodies": 1,
+   "ribbons": 1,
+   "specks": 0,
+   "largest": {
+    "area": 24758,
+    "width": 77.0,
+    "length": 326.0,
+    "top_left": [
+     0,
+     4
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 79,
+   "code": "Su",
+   "name": "Undifferentiated schists, including phyllites",
+   "color": "#79c1d9",
+   "pixels": 502,
+   "shareOfBlock": 1.91,
+   "bodies": 0,
+   "ribbons": 1,
+   "specks": 1,
+   "largest": {
+    "area": 490,
+    "width": 5.47,
+    "length": 328.0,
+    "top_left": [
+     0,
+     0
+    ],
+    "kind": "ribbon"
+   }
+  },
+  {
+   "id": 63,
+   "code": "OGS",
+   "name": "Syenite, mainly of pyroxene diorite composition",
+   "color": "#cccccc",
+   "pixels": 2,
+   "shareOfBlock": 0.01,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 2,
+   "largest": {
+    "area": 1,
+    "width": 3.0,
+    "length": 1.0,
+    "top_left": [
+     258,
+     53
+    ],
+    "kind": "speck"
+   }
+  }
+ ],
+ "neighbours": [
+  "B10",
+  "C10",
+  "D10",
+  "B11",
+  "D11"
+ ],
+ "edges": {
+  "E": {
+   "neighbour": "D11",
+   "unitsMatched": {
+    "79": {
+     "both": 76,
+     "aOnly": 0,
+     "bOnly": 0
+    },
+    "95": {
+     "both": 0,
+     "aOnly": 73,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 2,
+   "repairedPixels": 210,
+   "runs": [
+    {
+     "uid": 95,
+     "start": 4,
+     "stop": 50,
+     "length": 47,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      79
+     ],
+     "applied": true
+    },
+    {
+     "uid": 95,
+     "start": 53,
+     "stop": 75,
+     "length": 23,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      79
+     ],
+     "applied": true
+    }
+   ]
+  },
+  "W": {
+   "neighbour": "B11",
+   "unitsMatched": {
+    "79": {
+     "both": 1,
+     "aOnly": 0,
+     "bOnly": 75
+    },
+    "95": {
+     "both": 72,
+     "aOnly": 3,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 1,
+   "repairedPixels": 0,
+   "runs": [
+    {
+     "uid": 79,
+     "start": 4,
+     "stop": 75,
+     "length": 72,
+     "has": "b",
+     "onto": "a",
+     "displaced": [
+      95
+     ],
+     "heldBack": 216,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
+    }
+   ]
+  },
+  "N": {
+   "neighbour": "C10",
+   "unitsMatched": {
+    "79": {
+     "both": 2,
+     "aOnly": 0,
+     "bOnly": 326
+    },
+    "95": {
+     "both": 326,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 1,
+   "repairedPixels": 0,
+   "runs": [
+    {
+     "uid": 79,
+     "start": 0,
+     "stop": 325,
+     "length": 326,
+     "has": "b",
+     "onto": "a",
+     "displaced": [
+      95
+     ],
+     "heldBack": 978,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
+    }
+   ]
+  }
+ },
+ "corners": [
+  {
+   "corner": "SE",
+   "blocks": [
+    "B10",
+    "C10",
+    "D10",
+    "B11",
+    "D11"
+   ],
+   "quadrants": {
+    "2": [],
+    "3": []
+   },
+   "jointUnit": null
+  },
+  {
+   "corner": "SW",
+   "blocks": [
+    "B10",
+    "C10",
+    "D10",
+    "B11",
+    "D11"
+   ],
+   "quadrants": {
+    "2": [],
+    "3": []
+   },
+   "jointUnit": null
+  },
+  {
+   "corner": "NE",
+   "blocks": [
+    "B10",
+    "C10",
+    "D10",
+    "B11",
+    "D11"
+   ],
+   "quadrants": {
+    "0": [
+     79
+    ],
+    "1": [
+     79,
+     95
+    ],
+    "2": [
+     79
+    ],
+    "3": [
+     79
+    ]
+   },
+   "jointUnit": 79
+  },
+  {
+   "corner": "NW",
+   "blocks": [
+    "B10",
+    "C10",
+    "D10",
+    "B11",
+    "D11"
+   ],
+   "quadrants": {
+    "0": [
+     95
+    ],
+    "1": [
+     79
+    ],
+    "2": [
+     79,
+     95
+    ],
+    "3": [
+     79
+    ]
+   },
+   "jointUnit": null
+  }
+ ]
+}

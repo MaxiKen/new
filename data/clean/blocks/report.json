@@ -1,0 +1,10 @@
+{
+  "cells": 121,
+  "boundaries": 440,
+  "matchedCrossings": 128082,
+  "brokenRuns": 1131,
+  "repairedRuns": 1035,
+  "repairedPixels": 39772,
+  "skippedAtPaper": 143,
+  "cornerJoints": 376
+}

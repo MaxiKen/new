@@ -1,0 +1,244 @@
+{
+ "cell": "A1",
+ "box": [
+  217,
+  0,
+  546,
+  293
+ ],
+ "zonePixels": 93765,
+ "geologyPixels": 133,
+ "mappedFraction": 0.1,
+ "formations": [
+  {
+   "id": 76,
+   "code": "Sf",
+   "name": "Fine-grained flaggy quartzite and quartz schist",
+   "color": "#9eb9e6",
+   "pixels": 83,
+   "shareOfBlock": 0.09,
+   "bodies": 1,
+   "ribbons": 0,
+   "specks": 0,
+   "largest": {
+    "area": 83,
+    "width": 9.25,
+    "length": 20.0,
+    "top_left": [
+     0,
+     275
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 7,
+   "code": "Bnst",
+   "name": "Sand and clay",
+   "color": "#fdfdbe",
+   "pixels": 44,
+   "shareOfBlock": 0.05,
+   "bodies": 1,
+   "ribbons": 0,
+   "specks": 0,
+   "largest": {
+    "area": 44,
+    "width": 5.47,
+    "length": 17.0,
+    "top_left": [
+     314,
+     276
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 63,
+   "code": "OGS",
+   "name": "Syenite, mainly of pyroxene diorite composition",
+   "color": "#cccccc",
+   "pixels": 30,
+   "shareOfBlock": 0.03,
+   "bodies": 1,
+   "ribbons": 0,
+   "specks": 1,
+   "largest": {
+    "area": 21,
+    "width": 7.0,
+    "length": 6.0,
+    "top_left": [
+     0,
+     8
+    ],
+    "kind": "body"
+   }
+  }
+ ],
+ "neighbours": [
+  "B1",
+  "A2",
+  "B2"
+ ],
+ "edges": {
+  "E": {
+   "neighbour": "B1",
+   "unitsMatched": {
+    "7": {
+     "both": 17,
+     "aOnly": 0,
+     "bOnly": 3
+    },
+    "63": {
+     "both": 1,
+     "aOnly": 0,
+     "bOnly": 1
+    },
+    "96": {
+     "both": 261,
+     "aOnly": 19,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 1,
+   "repairedPixels": 54,
+   "runs": [
+    {
+     "uid": 96,
+     "start": 274,
+     "stop": 291,
+     "length": 18,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      7
+     ],
+     "applied": true
+    }
+   ]
+  },
+  "S": {
+   "neighbour": "A2",
+   "unitsMatched": {
+    "7": {
+     "both": 15,
+     "aOnly": 0,
+     "bOnly": 4
+    },
+    "76": {
+     "both": 20,
+     "aOnly": 0,
+     "bOnly": 5
+    },
+    "96": {
+     "both": 289,
+     "aOnly": 34,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 2,
+   "repairedPixels": 102,
+   "runs": [
+    {
+     "uid": 96,
+     "start": 4,
+     "stop": 21,
+     "length": 18,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      76
+     ],
+     "applied": true
+    },
+    {
+     "uid": 96,
+     "start": 311,
+     "stop": 326,
+     "length": 16,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      7
+     ],
+     "applied": true
+    }
+   ]
+  }
+ },
+ "corners": [
+  {
+   "corner": "SE",
+   "blocks": [
+    "B1",
+    "A2",
+    "B2"
+   ],
+   "quadrants": {
+    "0": [
+     7
+    ],
+    "1": [
+     7,
+     96
+    ],
+    "2": [
+     7,
+     96
+    ],
+    "3": [
+     7
+    ]
+   },
+   "jointUnit": 7
+  },
+  {
+   "corner": "SW",
+   "blocks": [
+    "B1",
+    "A2",
+    "B2"
+   ],
+   "quadrants": {
+    "0": [
+     76
+    ],
+    "1": [
+     76
+    ],
+    "2": [
+     76
+    ],
+    "3": [
+     76
+    ]
+   },
+   "jointUnit": 76
+  },
+  {
+   "corner": "NE",
+   "blocks": [
+    "B1",
+    "A2",
+    "B2"
+   ],
+   "quadrants": {
+    "0": [],
+    "1": []
+   },
+   "jointUnit": null
+  },
+  {
+   "corner": "NW",
+   "blocks": [
+    "B1",
+    "A2",
+    "B2"
+   ],
+   "quadrants": {
+    "0": [],
+    "1": []
+   },
+   "jointUnit": null
+  }
+ ]
+}

@@ -1,0 +1,248 @@
+{
+ "cell": "H11",
+ "box": [
+  2517,
+  3248,
+  2845,
+  3336
+ ],
+ "zonePixels": 26240,
+ "geologyPixels": 582,
+ "mappedFraction": 2.2,
+ "formations": [
+  {
+   "id": 76,
+   "code": "Sf",
+   "name": "Fine-grained flaggy quartzite and quartz schist",
+   "color": "#9eb9e6",
+   "pixels": 395,
+   "shareOfBlock": 1.51,
+   "bodies": 1,
+   "ribbons": 6,
+   "specks": 6,
+   "largest": {
+    "area": 78,
+    "width": 5.0,
+    "length": 26.0,
+    "top_left": [
+     16,
+     24
+    ],
+    "kind": "ribbon"
+   }
+  },
+  {
+   "id": 8,
+   "code": "b",
+   "name": "Younger basalt",
+   "color": "#d8d8fc",
+   "pixels": 219,
+   "shareOfBlock": 0.83,
+   "bodies": 1,
+   "ribbons": 0,
+   "specks": 78,
+   "largest": {
+    "area": 23,
+    "width": 5.0,
+    "length": 9.0,
+    "top_left": [
+     122,
+     2
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 63,
+   "code": "OGS",
+   "name": "Syenite, mainly of pyroxene diorite composition",
+   "color": "#cccccc",
+   "pixels": 25,
+   "shareOfBlock": 0.1,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 2,
+   "largest": {
+    "area": 16,
+    "width": 7.0,
+    "length": 6.0,
+    "top_left": [
+     0,
+     74
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 74,
+   "code": "Sp",
+   "name": "Slate phyllite and meta-siltstone, locally hornfelsic / carbonaceous",
+   "color": "#79b9ff",
+   "pixels": 2,
+   "shareOfBlock": 0.01,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 2,
+   "largest": {
+    "area": 1,
+    "width": 3.0,
+    "length": 1.0,
+    "top_left": [
+     23,
+     26
+    ],
+    "kind": "speck"
+   }
+  }
+ ],
+ "neighbours": [
+  "G10",
+  "H10",
+  "I10",
+  "G11",
+  "I11"
+ ],
+ "edges": {
+  "E": {
+   "neighbour": "I11",
+   "unitsMatched": {
+    "63": {
+     "both": 1,
+     "aOnly": 0,
+     "bOnly": 1
+    },
+    "96": {
+     "both": 75,
+     "aOnly": 1,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "W": {
+   "neighbour": "G11",
+   "unitsMatched": {
+    "8": {
+     "both": 3,
+     "aOnly": 0,
+     "bOnly": 1
+    },
+    "63": {
+     "both": 1,
+     "aOnly": 1,
+     "bOnly": 0
+    },
+    "96": {
+     "both": 71,
+     "aOnly": 4,
+     "bOnly": 1
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "N": {
+   "neighbour": "H10",
+   "unitsMatched": {
+    "8": {
+     "both": 0,
+     "aOnly": 4,
+     "bOnly": 0
+    },
+    "96": {
+     "both": 328,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  }
+ },
+ "corners": [
+  {
+   "corner": "SE",
+   "blocks": [
+    "G10",
+    "H10",
+    "I10",
+    "G11",
+    "I11"
+   ],
+   "quadrants": {
+    "2": [],
+    "3": []
+   },
+   "jointUnit": null
+  },
+  {
+   "corner": "SW",
+   "blocks": [
+    "G10",
+    "H10",
+    "I10",
+    "G11",
+    "I11"
+   ],
+   "quadrants": {
+    "2": [],
+    "3": []
+   },
+   "jointUnit": null
+  },
+  {
+   "corner": "NE",
+   "blocks": [
+    "G10",
+    "H10",
+    "I10",
+    "G11",
+    "I11"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  },
+  {
+   "corner": "NW",
+   "blocks": [
+    "G10",
+    "H10",
+    "I10",
+    "G11",
+    "I11"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  }
+ ]
+}

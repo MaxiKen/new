@@ -1,0 +1,863 @@
+{
+  "revision": 10,
+  "base": "NGSA_map_geology_legend_isolated.png",
+  "sourceCrop": [
+    190,
+    190,
+    4274,
+    3526
+  ],
+  "sheetOffset": [
+    120,
+    96
+  ],
+  "paperPixels": 4173967,
+  "frameGuardPixels": 8,
+  "mappedAreaBox": [
+    70,
+    94,
+    4154,
+    3430
+  ],
+  "snapTolerance": 14.0,
+  "strokeWidth": 8.0,
+  "strokeLength": 40.0,
+  "zonePixels": 13505760,
+  "footprintPixels": 8365773,
+  "recoveredSheetColourPixels": 8148937,
+  "photographicEvidence": {
+    "rivers": 177418,
+    "lines": 753104,
+    "pale": 21009,
+    "evidence": 1751146
+  },
+  "tests": {
+    "leftoverInk": {
+      "strokes": 99371,
+      "candidates": 300,
+      "medianWidth": 2.0,
+      "medianLength": 9.0,
+      "darkPixels": 93826,
+      "pixels": 131210
+    },
+    "waterRibbon": {
+      "strokes": 18191,
+      "candidates": 329,
+      "medianWidth": 2.37,
+      "medianLength": 14.9,
+      "hydroHairlines": 5941,
+      "outsideFootprint": 396,
+      "pixels": 32809
+    },
+    "grayShading": {
+      "strokes": 47396,
+      "candidates": 106,
+      "medianWidth": 2.0,
+      "medianLength": 150.0,
+      "pixels": 55081
+    },
+    "recolouredRibbon": {
+      "strokes": 62080,
+      "candidates": 114,
+      "medianWidth": 2.0,
+      "medianLength": 212.0,
+      "pixels": 18359
+    },
+    "printedLineWork": {
+      "strokes": 149537,
+      "candidates": 1035,
+      "medianWidth": 2.08,
+      "medianLength": 36.5,
+      "casingPixels": 162380,
+      "pixels": 162380
+    }
+  },
+  "erase": {
+    "pixels": 346265,
+    "bandPixels": 1849287,
+    "shareOfZone": 2.564,
+    "shareOfMappedArea": 3.767
+  },
+  "healedPixels": 211688,
+  "boundaryPixels": 1078606,
+  "residualBefore": {
+    "waterStrokeComponents": 14889,
+    "waterStrokePixels": 16204,
+    "grayStrokeComponents": 47811,
+    "grayStrokePixels": 47811,
+    "unpaintedPixels": 131210,
+    "waterPixels": 1209034,
+    "grayPixels": 57008
+  },
+  "residualAfter": {
+    "waterStrokeComponents": 0,
+    "waterStrokePixels": 0,
+    "grayStrokeComponents": 149,
+    "grayStrokePixels": 149,
+    "unpaintedPixels": 0,
+    "waterPixels": 1183894,
+    "grayPixels": 2445
+  },
+  "legend": [
+    {
+      "id": 1,
+      "code": "Al",
+      "name": "Alluvium",
+      "color": "#ecff65",
+      "pixels": 487906,
+      "before": 487792
+    },
+    {
+      "id": 2,
+      "code": "MWS",
+      "name": "Sands, gravels and clay",
+      "color": "#e4e57d",
+      "pixels": 109018,
+      "before": 108990
+    },
+    {
+      "id": 3,
+      "code": "AB",
+      "name": "Sands and pebbles",
+      "color": "#f0ff82",
+      "pixels": 33263,
+      "before": 33013
+    },
+    {
+      "id": 4,
+      "code": "MS",
+      "name": "Sand, clay and mangrove swamps",
+      "color": "#96aaff",
+      "pixels": 74486,
+      "before": 73733
+    },
+    {
+      "id": 5,
+      "code": "SDsm",
+      "name": "Sand, clay and swamp",
+      "color": "#fcfb4d",
+      "pixels": 44343,
+      "before": 44331
+    },
+    {
+      "id": 6,
+      "code": "Cst",
+      "name": "Sands, clays, siltstones and limestones",
+      "color": "#f0ff5a",
+      "pixels": 868921,
+      "before": 868784
+    },
+    {
+      "id": 7,
+      "code": "Bnst",
+      "name": "Sand and clay",
+      "color": "#fdfdbe",
+      "pixels": 236108,
+      "before": 234948
+    },
+    {
+      "id": 8,
+      "code": "b",
+      "name": "Younger basalt",
+      "color": "#d8d8fc",
+      "pixels": 46767,
+      "before": 42198
+    },
+    {
+      "id": 9,
+      "code": "bb",
+      "name": "Basalt",
+      "color": "#847dfc",
+      "pixels": 58685,
+      "before": 58054
+    },
+    {
+      "id": 10,
+      "code": "OAlgs",
+      "name": "Lignite, claystone and shale",
+      "color": "#ebfd68",
+      "pixels": 14102,
+      "before": 13990
+    },
+    {
+      "id": 11,
+      "code": "Issh",
+      "name": "Clay, clayey sands and shale",
+      "color": "#ffc9e0",
+      "pixels": 59313,
+      "before": 59236
+    },
+    {
+      "id": 12,
+      "code": "Gwss",
+      "name": "Sandstone and clay",
+      "color": "#fefd65",
+      "pixels": 203475,
+      "before": 203374
+    },
+    {
+      "id": 13,
+      "code": "Glcl",
+      "name": "Sandstones and clays",
+      "color": "#dcd86c",
+      "pixels": 5585,
+      "before": 5564
+    },
+    {
+      "id": 14,
+      "code": "Wss",
+      "name": "Sandstone and clay",
+      "color": "#72d733",
+      "pixels": 13501,
+      "before": 13481
+    },
+    {
+      "id": 15,
+      "code": "Esh",
+      "name": "Shale and limestone",
+      "color": "#9be359",
+      "pixels": 116458,
+      "before": 116446
+    },
+    {
+      "id": 16,
+      "code": "Imsh",
+      "name": "Clay and shale with limestone intercalations",
+      "color": "#ccdf6c",
+      "pixels": 46598,
+      "before": 46566
+    },
+    {
+      "id": 17,
+      "code": "Kss",
+      "name": "Sandstone, shale and clay",
+      "color": "#ecff4d",
+      "pixels": 223162,
+      "before": 223048
+    },
+    {
+      "id": 18,
+      "code": "Dsh",
+      "name": "Shale",
+      "color": "#dbdeb1",
+      "pixels": 20181,
+      "before": 18827
+    },
+    {
+      "id": 19,
+      "code": "Kls",
+      "name": "Limestone",
+      "color": "#63f186",
+      "pixels": 113,
+      "before": 113
+    },
+    {
+      "id": 20,
+      "code": "Gss",
+      "name": "Sandstone, siltstone, shale and ironstone",
+      "color": "#e5ffa8",
+      "pixels": 52127,
+      "before": 51252
+    },
+    {
+      "id": 21,
+      "code": "Ajst",
+      "name": "False-bedded sandstone",
+      "color": "#ceffa6",
+      "pixels": 97806,
+      "before": 97746
+    },
+    {
+      "id": 22,
+      "code": "Ncsh",
+      "name": "Coal, shale and sandstone",
+      "color": "#b3fdb7",
+      "pixels": 16028,
+      "before": 16007
+    },
+    {
+      "id": 23,
+      "code": "Ncsh",
+      "name": "Sandstone, limestone, coal",
+      "color": "#b6e397",
+      "pixels": 13963,
+      "before": 13893
+    },
+    {
+      "id": 24,
+      "code": "Asl",
+      "name": "Sandstone and limestone",
+      "color": "#c5f4b0",
+      "pixels": 30569,
+      "before": 30410
+    },
+    {
+      "id": 25,
+      "code": "Mcst",
+      "name": "Coal, sandstone and shale",
+      "color": "#a5f3bf",
+      "pixels": 2976,
+      "before": 2957
+    },
+    {
+      "id": 26,
+      "code": "Bssf",
+      "name": "Sandstone and ironstone",
+      "color": "#d6ff85",
+      "pixels": 37033,
+      "before": 36732
+    },
+    {
+      "id": 27,
+      "code": "Nsh",
+      "name": "Shale and mudstone",
+      "color": "#d2f458",
+      "pixels": 56711,
+      "before": 56533
+    },
+    {
+      "id": 28,
+      "code": "ANsh",
+      "name": "Shale and limestone",
+      "color": "#ccd86c",
+      "pixels": 14284,
+      "before": 14263
+    },
+    {
+      "id": 29,
+      "code": "Tst",
+      "name": "Sandstone, siltstone and shale",
+      "color": "#9cd6bd",
+      "pixels": 92038,
+      "before": 87228
+    },
+    {
+      "id": 30,
+      "code": "Glls",
+      "name": "Limestone",
+      "color": "#63f286",
+      "pixels": 74,
+      "before": 74
+    },
+    {
+      "id": 31,
+      "code": "Wss",
+      "name": "Sandstone, clays and shale",
+      "color": "#bdec9b",
+      "pixels": 17430,
+      "before": 17101
+    },
+    {
+      "id": 32,
+      "code": "Wcs",
+      "name": "Clays and loose sandstone",
+      "color": "#a3fcc2",
+      "pixels": 21768,
+      "before": 21768
+    },
+    {
+      "id": 33,
+      "code": "Wsh",
+      "name": "Shale (phosphate nodules)",
+      "color": "#b9e06d",
+      "pixels": 28828,
+      "before": 28707
+    },
+    {
+      "id": 34,
+      "code": "Ts",
+      "name": "Siltstone and sandstone",
+      "color": "#dbdeb1",
+      "pixels": 0,
+      "before": 0
+    },
+    {
+      "id": 35,
+      "code": "Psh",
+      "name": "Shale, limestone and sandstone",
+      "color": "#79ddb0",
+      "pixels": 11434,
+      "before": 10952
+    },
+    {
+      "id": 36,
+      "code": "Lass",
+      "name": "Sandstone, shale and sandy shale",
+      "color": "#bcc8b8",
+      "pixels": 41658,
+      "before": 40913
+    },
+    {
+      "id": 37,
+      "code": "NPss",
+      "name": "Feldspathic sandstone and siltstone",
+      "color": "#79deb0",
+      "pixels": 376502,
+      "before": 376137
+    },
+    {
+      "id": 38,
+      "code": "Glpg",
+      "name": "Pebbles and grit",
+      "color": "#94ce67",
+      "pixels": 10131,
+      "before": 10031
+    },
+    {
+      "id": 39,
+      "code": "Glss",
+      "name": "Clay, grit and pebbles",
+      "color": "#a3f066",
+      "pixels": 135310,
+      "before": 135269
+    },
+    {
+      "id": 40,
+      "code": "Glgss",
+      "name": "Gravel and sand",
+      "color": "#b2d181",
+      "pixels": 53090,
+      "before": 53047
+    },
+    {
+      "id": 41,
+      "code": "Fsh",
+      "name": "Black shale, siltstone and sandstone",
+      "color": "#acf69b",
+      "pixels": 1997,
+      "before": 1977
+    },
+    {
+      "id": 42,
+      "code": "Ess",
+      "name": "Sandstone",
+      "color": "#b2e370",
+      "pixels": 90391,
+      "before": 90285
+    },
+    {
+      "id": 43,
+      "code": "Esh",
+      "name": "Black shale, siltstone and sandstone",
+      "color": "#98d64f",
+      "pixels": 76066,
+      "before": 76051
+    },
+    {
+      "id": 44,
+      "code": "Mlst",
+      "name": "Limestone and siltstone",
+      "color": "#b9e6a3",
+      "pixels": 7400,
+      "before": 6931
+    },
+    {
+      "id": 45,
+      "code": "Awst",
+      "name": "Sandstone",
+      "color": "#b9e6c2",
+      "pixels": 8261,
+      "before": 6824
+    },
+    {
+      "id": 46,
+      "code": "Yls",
+      "name": "Shale, sandy clay, calcareous sandstone",
+      "color": "#72c132",
+      "pixels": 77266,
+      "before": 77167
+    },
+    {
+      "id": 47,
+      "code": "Bss",
+      "name": "Feldspathic sandstone, calcareous sandstone and shelly limestone",
+      "color": "#8aac5f",
+      "pixels": 114328,
+      "before": 113629
+    },
+    {
+      "id": 48,
+      "code": "Arlsh",
+      "name": "Shale and limestone with sandstone intercalations",
+      "color": "#5fa33a",
+      "pixels": 105278,
+      "before": 105024
+    },
+    {
+      "id": 49,
+      "code": "MyP",
+      "name": "Quartz porphyry",
+      "color": "#ffc8ff",
+      "pixels": 3115,
+      "before": 3100
+    },
+    {
+      "id": 50,
+      "code": "MyG",
+      "name": "Granite and granite porphyry",
+      "color": "#d98ae1",
+      "pixels": 17236,
+      "before": 16985
+    },
+    {
+      "id": 51,
+      "code": "MyI",
+      "name": "Ignimbrite",
+      "color": "#e7bbf8",
+      "pixels": 8921,
+      "before": 8885
+    },
+    {
+      "id": 52,
+      "code": "Mys",
+      "name": "Syenite, quartz-syenite and gabbro",
+      "color": "#e7bec6",
+      "pixels": 11704,
+      "before": 11326
+    },
+    {
+      "id": 53,
+      "code": "MGp",
+      "name": "Granites and granite porphyry",
+      "color": "#e7beff",
+      "pixels": 75,
+      "before": 75
+    },
+    {
+      "id": 54,
+      "code": "MyP",
+      "name": "Porphyry / quartz porphyry",
+      "color": "#d5b9c7",
+      "pixels": 6075,
+      "before": 6004
+    },
+    {
+      "id": 55,
+      "code": "r",
+      "name": "Rhyolite",
+      "color": "#decccc",
+      "pixels": 3188,
+      "before": 3023
+    },
+    {
+      "id": 56,
+      "code": "Jyr",
+      "name": "Rhyolite",
+      "color": "#be64c8",
+      "pixels": 1415,
+      "before": 1405
+    },
+    {
+      "id": 57,
+      "code": "JyG",
+      "name": "Biotite granite",
+      "color": "#da8ae3",
+      "pixels": 47654,
+      "before": 47376
+    },
+    {
+      "id": 58,
+      "code": "JyA",
+      "name": "Trachy-andesine",
+      "color": "#ff72e0",
+      "pixels": 2296,
+      "before": 2277
+    },
+    {
+      "id": 59,
+      "code": "P",
+      "name": "Pegmatite",
+      "color": "#c19578",
+      "pixels": 6218,
+      "before": 6116
+    },
+    {
+      "id": 60,
+      "code": "D",
+      "name": "Dolerite",
+      "color": "#9b9b9b",
+      "pixels": 0,
+      "before": 303
+    },
+    {
+      "id": 61,
+      "code": "ODh",
+      "name": "Bauchite quartz-diorite",
+      "color": "#b2b2b2",
+      "pixels": 0,
+      "before": 2685
+    },
+    {
+      "id": 62,
+      "code": "OGd",
+      "name": "Biotite and biotite hornblende granodiorite",
+      "color": "#ff9bab",
+      "pixels": 64067,
+      "before": 63192
+    },
+    {
+      "id": 63,
+      "code": "OGS",
+      "name": "Syenite, mainly of pyroxene diorite composition",
+      "color": "#cccccc",
+      "pixels": 900,
+      "before": 52844
+    },
+    {
+      "id": 64,
+      "code": "OSq",
+      "name": "Coarse biotite and biotite muscovite granite",
+      "color": "#ffecb9",
+      "pixels": 7482,
+      "before": 6723
+    },
+    {
+      "id": 65,
+      "code": "OGh",
+      "name": "Coarse hornblende granite",
+      "color": "#ff7357",
+      "pixels": 17343,
+      "before": 16885
+    },
+    {
+      "id": 66,
+      "code": "OGf",
+      "name": "Fine-grained biotite granite",
+      "color": "#ffc7d4",
+      "pixels": 30431,
+      "before": 29990
+    },
+    {
+      "id": 67,
+      "code": "OGm",
+      "name": "Medium-to-coarse-grained biotite granite",
+      "color": "#ff8eba",
+      "pixels": 234340,
+      "before": 232363
+    },
+    {
+      "id": 68,
+      "code": "OGu",
+      "name": "Undifferentiated granite, migmatite and granite gneiss",
+      "color": "#ff7057",
+      "pixels": 57944,
+      "before": 57320
+    },
+    {
+      "id": 69,
+      "code": "OGCh",
+      "name": "Charnockitic rocks",
+      "color": "#b17d44",
+      "pixels": 13343,
+      "before": 13178
+    },
+    {
+      "id": 70,
+      "code": "OGr",
+      "name": "Gabbro and quartz gabbro",
+      "color": "#dd00fe",
+      "pixels": 3044,
+      "before": 2911
+    },
+    {
+      "id": 71,
+      "code": "MV",
+      "name": "Meta-volcanic meta-sedimentary including pebbly schist",
+      "color": "#c16d27",
+      "pixels": 6508,
+      "before": 6412
+    },
+    {
+      "id": 72,
+      "code": "Sa",
+      "name": "Amphibole schist, amphibolite",
+      "color": "#72dffe",
+      "pixels": 19846,
+      "before": 19389
+    },
+    {
+      "id": 73,
+      "code": "BIF",
+      "name": "Banded iron formation",
+      "color": "#e0e096",
+      "pixels": 45695,
+      "before": 44794
+    },
+    {
+      "id": 74,
+      "code": "Sp",
+      "name": "Slate phyllite and meta-siltstone, locally hornfelsic / carbonaceous",
+      "color": "#79b9ff",
+      "pixels": 47885,
+      "before": 44135
+    },
+    {
+      "id": 75,
+      "code": "m",
+      "name": "Marble",
+      "color": "#53ce59",
+      "pixels": 2268,
+      "before": 2219
+    },
+    {
+      "id": 76,
+      "code": "Sf",
+      "name": "Fine-grained flaggy quartzite and quartz schist",
+      "color": "#9eb9e6",
+      "pixels": 104235,
+      "before": 88678
+    },
+    {
+      "id": 77,
+      "code": "Qs",
+      "name": "Quartzite, massive and schistose, also occurring as ridges",
+      "color": "#dfff44",
+      "pixels": 31746,
+      "before": 31661
+    },
+    {
+      "id": 78,
+      "code": "MS",
+      "name": "Pelitic schist / muscovite schist",
+      "color": "#f2f600",
+      "pixels": 74455,
+      "before": 74435
+    },
+    {
+      "id": 79,
+      "code": "Su",
+      "name": "Undifferentiated schists, including phyllites",
+      "color": "#79c1d9",
+      "pixels": 293307,
+      "before": 263278
+    },
+    {
+      "id": 80,
+      "code": "Mc",
+      "name": "Meta-conglomerate",
+      "color": "#a3e770",
+      "pixels": 3018,
+      "before": 2966
+    },
+    {
+      "id": 81,
+      "code": "bS",
+      "name": "Biotite garnet gneiss schist",
+      "color": "#dfba74",
+      "pixels": 38907,
+      "before": 38289
+    },
+    {
+      "id": 82,
+      "code": "bG-h",
+      "name": "Biotite hornblende gneiss",
+      "color": "#d8b25a",
+      "pixels": 19614,
+      "before": 19407
+    },
+    {
+      "id": 83,
+      "code": "OPg",
+      "name": "Porphyroblastic gneiss",
+      "color": "#dab131",
+      "pixels": 47444,
+      "before": 46969
+    },
+    {
+      "id": 84,
+      "code": "GG",
+      "name": "Granite gneiss",
+      "color": "#ffb44c",
+      "pixels": 455367,
+      "before": 452281
+    },
+    {
+      "id": 85,
+      "code": "Ge",
+      "name": "Granulite and gneiss",
+      "color": "#ecc96d",
+      "pixels": 8632,
+      "before": 8585
+    },
+    {
+      "id": 86,
+      "code": "bG",
+      "name": "Banded gneiss / biotite gneiss",
+      "color": "#daa000",
+      "pixels": 180033,
+      "before": 179316
+    },
+    {
+      "id": 87,
+      "code": "MaG",
+      "name": "Migmatitic augen gneiss",
+      "color": "#e6b300",
+      "pixels": 1584,
+      "before": 1577
+    },
+    {
+      "id": 88,
+      "code": "MG",
+      "name": "Migmatitic gneiss",
+      "color": "#dfc477",
+      "pixels": 366560,
+      "before": 365372
+    },
+    {
+      "id": 89,
+      "code": "M",
+      "name": "Migmatite",
+      "color": "#ded377",
+      "pixels": 861379,
+      "before": 859366
+    },
+    {
+      "id": 90,
+      "code": "qs",
+      "name": "Silicified, sheared rocks, large quartz veins",
+      "color": "#f0ff86",
+      "pixels": 12576,
+      "before": 12166
+    },
+    {
+      "id": 91,
+      "code": "My",
+      "name": "Mylonites",
+      "color": "#ffc945",
+      "pixels": 11943,
+      "before": 11902
+    },
+    {
+      "id": 92,
+      "code": "aMy",
+      "name": "Mylonites interlayered with amphibolites",
+      "color": "#7aa3ff",
+      "pixels": 6243,
+      "before": 5433
+    },
+    {
+      "id": 93,
+      "code": "OGp",
+      "name": "Unresolved map code OGp; no matching legend code",
+      "color": "#ff797f",
+      "pixels": 703475,
+      "before": 696607
+    },
+    {
+      "id": 94,
+      "code": "S",
+      "name": "Unresolved map code S; no matching legend code",
+      "color": "#6774ff",
+      "pixels": 4674,
+      "before": 4537
+    },
+    {
+      "id": 95,
+      "code": "WATER",
+      "name": "Mapped water / water-color interpretation; not geology",
+      "color": "#99d8eb",
+      "pixels": 28478,
+      "before": 52801
+    }
+  ]
+}

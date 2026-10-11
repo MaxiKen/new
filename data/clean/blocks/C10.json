@@ -1,0 +1,1004 @@
+{
+ "cell": "C10",
+ "box": [
+  875,
+  2919,
+  1203,
+  3248
+ ],
+ "zonePixels": 107912,
+ "geologyPixels": 27803,
+ "mappedFraction": 25.8,
+ "formations": [
+  {
+   "id": 95,
+   "code": "WATER",
+   "name": "Mapped water / water-color interpretation; not geology",
+   "color": "#99d8eb",
+   "pixels": 80109,
+   "shareOfBlock": 74.24,
+   "bodies": 2,
+   "ribbons": 1,
+   "specks": 0,
+   "largest": {
+    "area": 79812,
+    "width": 208.55,
+    "length": 326.0,
+    "top_left": [
+     0,
+     5
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 78,
+   "code": "MS",
+   "name": "Pelitic schist / muscovite schist",
+   "color": "#f2f600",
+   "pixels": 10677,
+   "shareOfBlock": 9.89,
+   "bodies": 1,
+   "ribbons": 0,
+   "specks": 0,
+   "largest": {
+    "area": 10677,
+    "width": 61.83,
+    "length": 169.0,
+    "top_left": [
+     186,
+     19
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 2,
+   "code": "MWS",
+   "name": "Sands, gravels and clay",
+   "color": "#e4e57d",
+   "pixels": 7827,
+   "shareOfBlock": 7.25,
+   "bodies": 1,
+   "ribbons": 0,
+   "specks": 0,
+   "largest": {
+    "area": 7827,
+    "width": 101.18,
+    "length": 146.0,
+    "top_left": [
+     182,
+     0
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 3,
+   "code": "AB",
+   "name": "Sands and pebbles",
+   "color": "#f0ff82",
+   "pixels": 4358,
+   "shareOfBlock": 4.04,
+   "bodies": 3,
+   "ribbons": 0,
+   "specks": 36,
+   "largest": {
+    "area": 2435,
+    "width": 37.22,
+    "length": 76.0,
+    "top_left": [
+     252,
+     151
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 76,
+   "code": "Sf",
+   "name": "Fine-grained flaggy quartzite and quartz schist",
+   "color": "#9eb9e6",
+   "pixels": 1603,
+   "shareOfBlock": 1.49,
+   "bodies": 10,
+   "ribbons": 6,
+   "specks": 39,
+   "largest": {
+    "area": 243,
+    "width": 7.32,
+    "length": 34.0,
+    "top_left": [
+     211,
+     254
+    ],
+    "kind": "ribbon"
+   }
+  },
+  {
+   "id": 79,
+   "code": "Su",
+   "name": "Undifferentiated schists, including phyllites",
+   "color": "#79c1d9",
+   "pixels": 1173,
+   "shareOfBlock": 1.09,
+   "bodies": 2,
+   "ribbons": 1,
+   "specks": 16,
+   "largest": {
+    "area": 560,
+    "width": 5.47,
+    "length": 328.0,
+    "top_left": [
+     0,
+     212
+    ],
+    "kind": "ribbon"
+   }
+  },
+  {
+   "id": 74,
+   "code": "Sp",
+   "name": "Slate phyllite and meta-siltstone, locally hornfelsic / carbonaceous",
+   "color": "#79b9ff",
+   "pixels": 760,
+   "shareOfBlock": 0.7,
+   "bodies": 8,
+   "ribbons": 2,
+   "specks": 97,
+   "largest": {
+    "area": 130,
+    "width": 5.0,
+    "length": 41.0,
+    "top_left": [
+     141,
+     194
+    ],
+    "kind": "ribbon"
+   }
+  },
+  {
+   "id": 92,
+   "code": "aMy",
+   "name": "Mylonites interlayered with amphibolites",
+   "color": "#7aa3ff",
+   "pixels": 322,
+   "shareOfBlock": 0.3,
+   "bodies": 2,
+   "ribbons": 0,
+   "specks": 59,
+   "largest": {
+    "area": 24,
+    "width": 3.83,
+    "length": 7.0,
+    "top_left": [
+     157,
+     188
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 29,
+   "code": "Tst",
+   "name": "Sandstone, siltstone and shale",
+   "color": "#9cd6bd",
+   "pixels": 191,
+   "shareOfBlock": 0.18,
+   "bodies": 1,
+   "ribbons": 0,
+   "specks": 48,
+   "largest": {
+    "area": 56,
+    "width": 6.66,
+    "length": 11.0,
+    "top_left": [
+     185,
+     87
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 45,
+   "code": "Awst",
+   "name": "Sandstone",
+   "color": "#b9e6c2",
+   "pixels": 190,
+   "shareOfBlock": 0.18,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 32,
+   "largest": {
+    "area": 19,
+    "width": 3.0,
+    "length": 17.0,
+    "top_left": [
+     249,
+     155
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 4,
+   "code": "MS",
+   "name": "Sand, clay and mangrove swamps",
+   "color": "#96aaff",
+   "pixels": 161,
+   "shareOfBlock": 0.15,
+   "bodies": 1,
+   "ribbons": 0,
+   "specks": 38,
+   "largest": {
+    "area": 81,
+    "width": 5.0,
+    "length": 14.0,
+    "top_left": [
+     63,
+     124
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 90,
+   "code": "qs",
+   "name": "Silicified, sheared rocks, large quartz veins",
+   "color": "#f0ff86",
+   "pixels": 119,
+   "shareOfBlock": 0.11,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 50,
+   "largest": {
+    "area": 10,
+    "width": 3.0,
+    "length": 10.0,
+    "top_left": [
+     183,
+     5
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 20,
+   "code": "Gss",
+   "name": "Sandstone, siltstone, shale and ironstone",
+   "color": "#e5ffa8",
+   "pixels": 55,
+   "shareOfBlock": 0.05,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 35,
+   "largest": {
+    "area": 6,
+    "width": 3.0,
+    "length": 4.0,
+    "top_left": [
+     193,
+     89
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 24,
+   "code": "Asl",
+   "name": "Sandstone and limestone",
+   "color": "#c5f4b0",
+   "pixels": 55,
+   "shareOfBlock": 0.05,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 24,
+   "largest": {
+    "area": 11,
+    "width": 3.0,
+    "length": 11.0,
+    "top_left": [
+     255,
+     163
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 5,
+   "code": "SDsm",
+   "name": "Sand, clay and swamp",
+   "color": "#fcfb4d",
+   "pixels": 52,
+   "shareOfBlock": 0.05,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 31,
+   "largest": {
+    "area": 9,
+    "width": 3.0,
+    "length": 9.0,
+    "top_left": [
+     283,
+     30
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 10,
+   "code": "OAlgs",
+   "name": "Lignite, claystone and shale",
+   "color": "#ebfd68",
+   "pixels": 52,
+   "shareOfBlock": 0.05,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 34,
+   "largest": {
+    "area": 10,
+    "width": 3.0,
+    "length": 10.0,
+    "top_left": [
+     199,
+     83
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 12,
+   "code": "Gwss",
+   "name": "Sandstone and clay",
+   "color": "#fefd65",
+   "pixels": 46,
+   "shareOfBlock": 0.04,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 36,
+   "largest": {
+    "area": 5,
+    "width": 3.0,
+    "length": 5.0,
+    "top_left": [
+     284,
+     40
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 6,
+   "code": "Cst",
+   "name": "Sands, clays, siltstones and limestones",
+   "color": "#f0ff5a",
+   "pixels": 26,
+   "shareOfBlock": 0.02,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 21,
+   "largest": {
+    "area": 4,
+    "width": 3.0,
+    "length": 4.0,
+    "top_left": [
+     319,
+     171
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 73,
+   "code": "BIF",
+   "name": "Banded iron formation",
+   "color": "#e0e096",
+   "pixels": 26,
+   "shareOfBlock": 0.02,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 8,
+   "largest": {
+    "area": 10,
+    "width": 3.83,
+    "length": 7.0,
+    "top_left": [
+     232,
+     0
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 13,
+   "code": "Glcl",
+   "name": "Sandstones and clays",
+   "color": "#dcd86c",
+   "pixels": 25,
+   "shareOfBlock": 0.02,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 20,
+   "largest": {
+    "area": 4,
+    "width": 3.0,
+    "length": 4.0,
+    "top_left": [
+     271,
+     64
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 18,
+   "code": "Dsh",
+   "name": "Shale",
+   "color": "#dbdeb1",
+   "pixels": 18,
+   "shareOfBlock": 0.02,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 5,
+   "largest": {
+    "area": 8,
+    "width": 5.0,
+    "length": 5.0,
+    "top_left": [
+     231,
+     0
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 36,
+   "code": "Lass",
+   "name": "Sandstone, shale and sandy shale",
+   "color": "#bcc8b8",
+   "pixels": 17,
+   "shareOfBlock": 0.02,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 3,
+   "largest": {
+    "area": 15,
+    "width": 5.47,
+    "length": 7.0,
+    "top_left": [
+     208,
+     0
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 44,
+   "code": "Mlst",
+   "name": "Limestone and siltstone",
+   "color": "#b9e6a3",
+   "pixels": 17,
+   "shareOfBlock": 0.02,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 6,
+   "largest": {
+    "area": 4,
+    "width": 3.0,
+    "length": 3.0,
+    "top_left": [
+     188,
+     75
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 17,
+   "code": "Kss",
+   "name": "Sandstone, shale and clay",
+   "color": "#ecff4d",
+   "pixels": 15,
+   "shareOfBlock": 0.01,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 11,
+   "largest": {
+    "area": 3,
+    "width": 3.0,
+    "length": 3.0,
+    "top_left": [
+     189,
+     43
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 1,
+   "code": "Al",
+   "name": "Alluvium",
+   "color": "#ecff65",
+   "pixels": 8,
+   "shareOfBlock": 0.01,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 6,
+   "largest": {
+    "area": 3,
+    "width": 3.0,
+    "length": 3.0,
+    "top_left": [
+     190,
+     63
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 16,
+   "code": "Imsh",
+   "name": "Clay and shale with limestone intercalations",
+   "color": "#ccdf6c",
+   "pixels": 4,
+   "shareOfBlock": 0.0,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 4,
+   "largest": {
+    "area": 1,
+    "width": 3.0,
+    "length": 1.0,
+    "top_left": [
+     191,
+     76
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 23,
+   "code": "Ncsh",
+   "name": "Sandstone, limestone, coal",
+   "color": "#b6e397",
+   "pixels": 4,
+   "shareOfBlock": 0.0,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 1,
+   "largest": {
+    "area": 4,
+    "width": 3.0,
+    "length": 4.0,
+    "top_left": [
+     191,
+     78
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 33,
+   "code": "Wsh",
+   "name": "Shale (phosphate nodules)",
+   "color": "#b9e06d",
+   "pixels": 1,
+   "shareOfBlock": 0.0,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 1,
+   "largest": {
+    "area": 1,
+    "width": 3.0,
+    "length": 1.0,
+    "top_left": [
+     191,
+     77
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 89,
+   "code": "M",
+   "name": "Migmatite",
+   "color": "#ded377",
+   "pixels": 1,
+   "shareOfBlock": 0.0,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 1,
+   "largest": {
+    "area": 1,
+    "width": 3.0,
+    "length": 1.0,
+    "top_left": [
+     215,
+     0
+    ],
+    "kind": "speck"
+   }
+  }
+ ],
+ "neighbours": [
+  "B9",
+  "C9",
+  "D9",
+  "B10",
+  "D10",
+  "B11",
+  "C11",
+  "D11"
+ ],
+ "edges": {
+  "E": {
+   "neighbour": "D10",
+   "unitsMatched": {
+    "1": {
+     "both": 0,
+     "aOnly": 0,
+     "bOnly": 1
+    },
+    "2": {
+     "both": 112,
+     "aOnly": 0,
+     "bOnly": 4
+    },
+    "3": {
+     "both": 23,
+     "aOnly": 1,
+     "bOnly": 0
+    },
+    "5": {
+     "both": 0,
+     "aOnly": 0,
+     "bOnly": 2
+    },
+    "6": {
+     "both": 0,
+     "aOnly": 0,
+     "bOnly": 1
+    },
+    "10": {
+     "both": 0,
+     "aOnly": 0,
+     "bOnly": 1
+    },
+    "12": {
+     "both": 0,
+     "aOnly": 1,
+     "bOnly": 0
+    },
+    "20": {
+     "both": 0,
+     "aOnly": 0,
+     "bOnly": 8
+    },
+    "24": {
+     "both": 0,
+     "aOnly": 0,
+     "bOnly": 1
+    },
+    "29": {
+     "both": 0,
+     "aOnly": 0,
+     "bOnly": 4
+    },
+    "78": {
+     "both": 74,
+     "aOnly": 3,
+     "bOnly": 3
+    },
+    "79": {
+     "both": 117,
+     "aOnly": 0,
+     "bOnly": 5
+    },
+    "90": {
+     "both": 2,
+     "aOnly": 0,
+     "bOnly": 2
+    }
+   },
+   "brokenRuns": 1,
+   "repairedPixels": 21,
+   "runs": [
+    {
+     "uid": 20,
+     "start": 201,
+     "stop": 207,
+     "length": 7,
+     "has": "b",
+     "onto": "a",
+     "displaced": [
+      3
+     ],
+     "applied": true
+    }
+   ]
+  },
+  "W": {
+   "neighbour": "B10",
+   "unitsMatched": {
+    "79": {
+     "both": 3,
+     "aOnly": 0,
+     "bOnly": 326
+    },
+    "95": {
+     "both": 323,
+     "aOnly": 3,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 1,
+   "repairedPixels": 0,
+   "runs": [
+    {
+     "uid": 79,
+     "start": 5,
+     "stop": 327,
+     "length": 323,
+     "has": "b",
+     "onto": "a",
+     "displaced": [
+      95
+     ],
+     "heldBack": 969,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
+    }
+   ]
+  },
+  "S": {
+   "neighbour": "C11",
+   "unitsMatched": {
+    "79": {
+     "both": 328,
+     "aOnly": 0,
+     "bOnly": 0
+    },
+    "95": {
+     "both": 0,
+     "aOnly": 326,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 1,
+   "repairedPixels": 978,
+   "runs": [
+    {
+     "uid": 95,
+     "start": 0,
+     "stop": 325,
+     "length": 326,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      79
+     ],
+     "applied": true
+    }
+   ]
+  },
+  "N": {
+   "neighbour": "C9",
+   "unitsMatched": {
+    "2": {
+     "both": 128,
+     "aOnly": 5,
+     "bOnly": 3
+    },
+    "3": {
+     "both": 23,
+     "aOnly": 0,
+     "bOnly": 1
+    },
+    "18": {
+     "both": 6,
+     "aOnly": 2,
+     "bOnly": 7
+    },
+    "20": {
+     "both": 2,
+     "aOnly": 0,
+     "bOnly": 1
+    },
+    "24": {
+     "both": 0,
+     "aOnly": 2,
+     "bOnly": 1
+    },
+    "29": {
+     "both": 1,
+     "aOnly": 2,
+     "bOnly": 0
+    },
+    "36": {
+     "both": 4,
+     "aOnly": 3,
+     "bOnly": 0
+    },
+    "45": {
+     "both": 0,
+     "aOnly": 4,
+     "bOnly": 0
+    },
+    "73": {
+     "both": 11,
+     "aOnly": 8,
+     "bOnly": 8
+    },
+    "79": {
+     "both": 5,
+     "aOnly": 53,
+     "bOnly": 8
+    },
+    "89": {
+     "both": 0,
+     "aOnly": 1,
+     "bOnly": 0
+    },
+    "90": {
+     "both": 0,
+     "aOnly": 1,
+     "bOnly": 2
+    },
+    "95": {
+     "both": 99,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 2,
+   "repairedPixels": 4,
+   "runs": [
+    {
+     "uid": 79,
+     "start": 91,
+     "stop": 142,
+     "length": 52,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      79,
+      95
+     ],
+     "heldBack": 152,
+     "applied": true
+    },
+    {
+     "uid": 79,
+     "start": 146,
+     "stop": 153,
+     "length": 8,
+     "has": "b",
+     "onto": "a",
+     "displaced": [
+      95
+     ],
+     "heldBack": 24,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
+    }
+   ]
+  }
+ },
+ "corners": [
+  {
+   "corner": "SE",
+   "blocks": [
+    "B9",
+    "C9",
+    "D9",
+    "B10",
+    "D10",
+    "B11",
+    "C11",
+    "D11"
+   ],
+   "quadrants": {
+    "0": [
+     79
+    ],
+    "1": [
+     79,
+     95
+    ],
+    "2": [
+     79
+    ],
+    "3": [
+     79
+    ]
+   },
+   "jointUnit": 79
+  },
+  {
+   "corner": "SW",
+   "blocks": [
+    "B9",
+    "C9",
+    "D9",
+    "B10",
+    "D10",
+    "B11",
+    "C11",
+    "D11"
+   ],
+   "quadrants": {
+    "0": [
+     95
+    ],
+    "1": [
+     79
+    ],
+    "2": [
+     79,
+     95
+    ],
+    "3": [
+     79
+    ]
+   },
+   "jointUnit": null
+  },
+  {
+   "corner": "NE",
+   "blocks": [
+    "B9",
+    "C9",
+    "D9",
+    "B10",
+    "D10",
+    "B11",
+    "C11",
+    "D11"
+   ],
+   "quadrants": {
+    "0": [
+     2
+    ],
+    "1": [
+     2
+    ],
+    "2": [
+     2,
+     89
+    ],
+    "3": [
+     2
+    ]
+   },
+   "jointUnit": 2
+  },
+  {
+   "corner": "NW",
+   "blocks": [
+    "B9",
+    "C9",
+    "D9",
+    "B10",
+    "D10",
+    "B11",
+    "C11",
+    "D11"
+   ],
+   "quadrants": {
+    "0": [
+     95
+    ],
+    "1": [
+     79
+    ],
+    "2": [
+     95
+    ],
+    "3": [
+     79
+    ]
+   },
+   "jointUnit": null
+  }
+ ]
+}

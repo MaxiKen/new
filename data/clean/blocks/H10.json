@@ -1,0 +1,267 @@
+{
+ "cell": "H10",
+ "box": [
+  2517,
+  2919,
+  2845,
+  3248
+ ],
+ "zonePixels": 107912,
+ "geologyPixels": 29,
+ "mappedFraction": 0.0,
+ "formations": [
+  {
+   "id": 8,
+   "code": "b",
+   "name": "Younger basalt",
+   "color": "#d8d8fc",
+   "pixels": 29,
+   "shareOfBlock": 0.03,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 3,
+   "largest": {
+    "area": 15,
+    "width": 7.0,
+    "length": 5.0,
+    "top_left": [
+     0,
+     177
+    ],
+    "kind": "speck"
+   }
+  }
+ ],
+ "neighbours": [
+  "G9",
+  "H9",
+  "I9",
+  "G10",
+  "I10",
+  "G11",
+  "H11",
+  "I11"
+ ],
+ "edges": {
+  "E": {
+   "neighbour": "I10",
+   "unitsMatched": {
+    "96": {
+     "both": 329,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "W": {
+   "neighbour": "G10",
+   "unitsMatched": {
+    "8": {
+     "both": 13,
+     "aOnly": 2,
+     "bOnly": 82
+    },
+    "96": {
+     "both": 324,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 2,
+   "repairedPixels": 0,
+   "runs": [
+    {
+     "uid": 8,
+     "start": 136,
+     "stop": 176,
+     "length": 41,
+     "has": "b",
+     "onto": "a",
+     "displaced": [
+      96
+     ],
+     "heldBack": 123,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
+    },
+    {
+     "uid": 8,
+     "start": 182,
+     "stop": 222,
+     "length": 41,
+     "has": "b",
+     "onto": "a",
+     "displaced": [
+      96
+     ],
+     "heldBack": 123,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
+    }
+   ]
+  },
+  "S": {
+   "neighbour": "H11",
+   "unitsMatched": {
+    "8": {
+     "both": 0,
+     "aOnly": 0,
+     "bOnly": 4
+    },
+    "96": {
+     "both": 328,
+     "aOnly": 0,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "N": {
+   "neighbour": "H9",
+   "unitsMatched": {
+    "96": {
+     "both": 5,
+     "aOnly": 323,
+     "bOnly": 0
+    }
+   },
+   "brokenRuns": 1,
+   "repairedPixels": 0,
+   "runs": [
+    {
+     "uid": 96,
+     "start": 3,
+     "stop": 325,
+     "length": 323,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      96
+     ],
+     "heldBack": 969,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
+    }
+   ]
+  }
+ },
+ "corners": [
+  {
+   "corner": "SE",
+   "blocks": [
+    "G9",
+    "H9",
+    "I9",
+    "G10",
+    "I10",
+    "G11",
+    "H11",
+    "I11"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  },
+  {
+   "corner": "SW",
+   "blocks": [
+    "G9",
+    "H9",
+    "I9",
+    "G10",
+    "I10",
+    "G11",
+    "H11",
+    "I11"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  },
+  {
+   "corner": "NE",
+   "blocks": [
+    "G9",
+    "H9",
+    "I9",
+    "G10",
+    "I10",
+    "G11",
+    "H11",
+    "I11"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  },
+  {
+   "corner": "NW",
+   "blocks": [
+    "G9",
+    "H9",
+    "I9",
+    "G10",
+    "I10",
+    "G11",
+    "H11",
+    "I11"
+   ],
+   "quadrants": {
+    "0": [
+     96
+    ],
+    "1": [
+     96
+    ],
+    "2": [
+     96
+    ],
+    "3": [
+     96
+    ]
+   },
+   "jointUnit": 96
+  }
+ ]
+}
