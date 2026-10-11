@@ -349,14 +349,30 @@ def build(write=True, debug_dir=None):
            evidence['casing'] & off_contact)
     i5['casingPixels'] = int(s5.sum())
 
-    erase = (s1 | s2 | s3 | s4 | s5) & zone
+    # 6. marks drawn *inside* open water: the graticule boxed over the sea, the
+    #    submarine canyon lines that are the rivers carried offshore, and the blue
+    #    names written on them. The interior of a water body is found by closing it
+    #    and eroding back, so a narrow lagoon has no interior and nothing in it is
+    #    touched; the pale lettering of the gulf's own name is brighter than water
+    #    and is left, because a water body is geography and gets to be named.
+    sea_body = ndi.binary_closing((v1_ids == WATER_ID), np.ones((15, 15), bool))
+    deep = ndi.binary_erosion(sea_body, np.ones((15, 15), bool)) & zone
+    sea_tone = np.median(base[(v1_ids == WATER_ID) & zone], 0)
+    washes = deep & (np.abs(base.astype(np.int32) - sea_tone[None, None, :]).sum(2) > 14)
+    s6, k6, i6 = thin_parts(washes, max_width=5.0, min_length=8.0, min_area=3)
+    s6 |= washes & (a0.sum(2) < 600)          # the dark ink of the marks themselves
+    s6 &= deep
+    i6 = dict(pixels=int(s6.sum()), strokes=int(k6), washPixels=int(washes.sum()),
+              seaTone=[int(v) for v in sea_tone])
+
+    erase = (s1 | s2 | s3 | s4 | s5 | s6) & zone
     halo = cv2.dilate(erase.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool)
     barriers = boundary & ~erase
     band = ndi.binary_dilation(erase, np.ones((7, 7), bool)) & zone
     log('erase %d px (%.2f%% of the zone): leftover ink %d, water %d, gray %d, '
-        'ribbon on printing %d, printed line work %d; band %d px'
+        'ribbon on printing %d, printed line work %d, marks in open water %d; band %d px'
         % (erase.sum(), 100 * erase.sum() / zone.sum(), s1.sum(), s2.sum(), s3.sum(),
-           s4.sum(), s5.sum(), band.sum()))
+           s4.sum(), s5.sum(), s6.sum(), band.sum()))
 
     seeds = np.where(v1_ids > 0, v1_ids, 0).astype(np.int16)
     seeds[erase] = 0
@@ -396,7 +412,8 @@ def build(write=True, debug_dir=None):
                          waterRibbon=dict(strokes=k2, **i2, pixels=int(s2.sum())),
                          grayShading=dict(strokes=k3, **i3, pixels=int(s3.sum())),
                          recolouredRibbon=dict(strokes=k4, **i4, pixels=int(s4.sum())),
-                         printedLineWork=dict(strokes=k5, **i5, pixels=int(s5.sum()))),
+                         printedLineWork=dict(strokes=k5, **i5, pixels=int(s5.sum())),
+                         openWaterMarks=i6),
               erase=dict(pixels=int(erase.sum()), bandPixels=int(band.sum()),
                          shareOfZone=round(float(100 * erase.sum() / zone.sum()), 3),
                          shareOfMappedArea=round(float(100 * (erase & mask).sum() / mask.sum()), 3)),
@@ -419,8 +436,8 @@ def build(write=True, debug_dir=None):
                                            'healedPixels', 'residualBefore', 'residualAfter')},
                        indent=2))
     if debug_dir:
-        write_debug(debug_dir, base, src, zone, erase, s1, s2, s3, s4, s5, evidence, healed,
-                    v1_ids, palette)
+        write_debug(debug_dir, base, src, zone, erase, s1, s2, s3, s4, s5, s6, evidence,
+                    healed, v1_ids, palette)
     return dict(sheet=sheet, base=base, src=src, ids=v1_ids, healed=healed, mask=mask,
                 zone=zone, erase=erase, palette=palette, canonical=canonical,
                 alternatives=alternatives, units=units, qa=qa)
@@ -457,8 +474,8 @@ def residual_report(ids, mask, gray_ids, keep_water=None):
                 grayPixels=int(gray.sum()))
 
 
-def write_debug(debug_dir, base, src, mask, erase, s1, s2, s3, s4, s5, evidence, healed, v1_ids,
-               palette):
+def write_debug(debug_dir, base, src, mask, erase, s1, s2, s3, s4, s5, s6, evidence, healed,
+               v1_ids, palette):
     """Diagnostic render only: paints the cleaning result and each test's hits."""
     d = Path(debug_dir)
     d.mkdir(parents=True, exist_ok=True)

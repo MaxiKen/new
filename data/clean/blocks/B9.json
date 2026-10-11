@@ -7,47 +7,47 @@
   2919
  ],
  "zonePixels": 107912,
- "geologyPixels": 2469,
- "mappedFraction": 2.3,
+ "geologyPixels": 1986,
+ "mappedFraction": 1.8,
  "formations": [
   {
    "id": 95,
    "code": "WATER",
    "name": "Mapped water / water-color interpretation; not geology",
    "color": "#99d8eb",
-   "pixels": 105443,
-   "shareOfBlock": 97.71,
+   "pixels": 105923,
+   "shareOfBlock": 98.16,
    "bodies": 1,
-   "ribbons": 1,
+   "ribbons": 0,
    "specks": 0,
    "largest": {
-    "area": 104621,
-    "width": 649.0,
-    "length": 328.0,
+    "area": 105923,
+    "width": 651.0,
+    "length": 329.0,
     "top_left": [
      0,
-     4
+     0
     ],
     "kind": "body"
    }
   },
   {
-   "id": 79,
-   "code": "Su",
-   "name": "Undifferentiated schists, including phyllites",
-   "color": "#79c1d9",
-   "pixels": 910,
-   "shareOfBlock": 0.84,
+   "id": 76,
+   "code": "Sf",
+   "name": "Fine-grained flaggy quartzite and quartz schist",
+   "color": "#9eb9e6",
+   "pixels": 991,
+   "shareOfBlock": 0.92,
    "bodies": 2,
-   "ribbons": 1,
-   "specks": 1,
+   "ribbons": 0,
+   "specks": 0,
    "largest": {
-    "area": 410,
-    "width": 9.0,
-    "length": 192.0,
+    "area": 668,
+    "width": 13.17,
+    "length": 61.0,
     "top_left": [
-     325,
-     44
+     255,
+     112
     ],
     "kind": "body"
    }
@@ -74,66 +74,24 @@
    }
   },
   {
-   "id": 76,
-   "code": "Sf",
-   "name": "Fine-grained flaggy quartzite and quartz schist",
-   "color": "#9eb9e6",
-   "pixels": 396,
-   "shareOfBlock": 0.37,
-   "bodies": 7,
-   "ribbons": 0,
-   "specks": 9,
+   "id": 79,
+   "code": "Su",
+   "name": "Undifferentiated schists, including phyllites",
+   "color": "#79c1d9",
+   "pixels": 257,
+   "shareOfBlock": 0.24,
+   "bodies": 1,
+   "ribbons": 1,
+   "specks": 2,
    "largest": {
-    "area": 94,
-    "width": 5.47,
-    "length": 17.0,
-    "top_left": [
-     294,
-     113
-    ],
-    "kind": "body"
-   }
-  },
-  {
-   "id": 74,
-   "code": "Sp",
-   "name": "Slate phyllite and meta-siltstone, locally hornfelsic / carbonaceous",
-   "color": "#79b9ff",
-   "pixels": 231,
-   "shareOfBlock": 0.21,
-   "bodies": 5,
-   "ribbons": 0,
-   "specks": 28,
-   "largest": {
-    "area": 39,
-    "width": 3.83,
-    "length": 12.0,
-    "top_left": [
-     291,
-     113
-    ],
-    "kind": "body"
-   }
-  },
-  {
-   "id": 92,
-   "code": "aMy",
-   "name": "Mylonites interlayered with amphibolites",
-   "color": "#7aa3ff",
-   "pixels": 171,
-   "shareOfBlock": 0.16,
-   "bodies": 2,
-   "ribbons": 0,
-   "specks": 13,
-   "largest": {
-    "area": 96,
+    "area": 148,
     "width": 5.0,
-    "length": 17.0,
+    "length": 75.0,
     "top_left": [
-     261,
-     112
+     327,
+     44
     ],
-    "kind": "body"
+    "kind": "ribbon"
    }
   },
   {
@@ -153,27 +111,6 @@
     "top_left": [
      322,
      27
-    ],
-    "kind": "speck"
-   }
-  },
-  {
-   "id": 4,
-   "code": "MS",
-   "name": "Sand, clay and mangrove swamps",
-   "color": "#96aaff",
-   "pixels": 37,
-   "shareOfBlock": 0.03,
-   "bodies": 0,
-   "ribbons": 0,
-   "specks": 10,
-   "largest": {
-    "area": 10,
-    "width": 3.0,
-    "length": 6.0,
-    "top_left": [
-     318,
-     237
     ],
     "kind": "speck"
    }
@@ -279,6 +216,27 @@
     "top_left": [
      297,
      1
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 74,
+   "code": "Sp",
+   "name": "Slate phyllite and meta-siltstone, locally hornfelsic / carbonaceous",
+   "color": "#79b9ff",
+   "pixels": 17,
+   "shareOfBlock": 0.02,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 5,
+   "largest": {
+    "area": 13,
+    "width": 3.83,
+    "length": 5.0,
+    "top_left": [
+     287,
+     115
     ],
     "kind": "speck"
    }
@@ -484,39 +442,29 @@
      "aOnly": 4,
      "bOnly": 1
     },
-    "74": {
-     "both": 1,
-     "aOnly": 8,
-     "bOnly": 0
-    },
     "76": {
-     "both": 5,
-     "aOnly": 4,
+     "both": 98,
+     "aOnly": 0,
      "bOnly": 4
     },
     "79": {
-     "both": 269,
+     "both": 73,
      "aOnly": 2,
-     "bOnly": 4
+     "bOnly": 0
     },
     "90": {
      "both": 0,
      "aOnly": 0,
      "bOnly": 1
     },
-    "92": {
-     "both": 0,
-     "aOnly": 2,
-     "bOnly": 0
-    },
     "95": {
-     "both": 0,
-     "aOnly": 262,
+     "both": 114,
+     "aOnly": 160,
      "bOnly": 0
     }
    },
-   "brokenRuns": 6,
-   "repairedPixels": 844,
+   "brokenRuns": 5,
+   "repairedPixels": 517,
    "runs": [
     {
      "uid": 1,
@@ -557,23 +505,10 @@
      "applied": true
     },
     {
-     "uid": 74,
-     "start": 238,
-     "stop": 244,
-     "length": 7,
-     "has": "a",
-     "onto": "b",
-     "displaced": [
-      76,
-      79
-     ],
-     "applied": true
-    },
-    {
      "uid": 95,
      "start": 40,
-     "stop": 112,
-     "length": 73,
+     "stop": 117,
+     "length": 78,
      "has": "a",
      "onto": "b",
      "displaced": [
@@ -596,25 +531,25 @@
     },
     {
      "uid": 95,
-     "start": 125,
+     "start": 198,
      "stop": 234,
-     "length": 110,
+     "length": 37,
      "has": "a",
      "onto": "b",
      "displaced": [
-      79
+      76
      ],
      "applied": true
     },
     {
      "uid": 95,
      "start": 250,
-     "stop": 327,
-     "length": 78,
+     "stop": 293,
+     "length": 44,
      "has": "a",
      "onto": "b",
      "displaced": [
-      79
+      76
      ],
      "applied": true
     }
@@ -623,24 +558,32 @@
   "W": {
    "neighbour": "A9",
    "unitsMatched": {
-    "79": {
-     "both": 1,
-     "aOnly": 0,
-     "bOnly": 327
-    },
     "95": {
-     "both": 324,
-     "aOnly": 3,
+     "both": 328,
+     "aOnly": 0,
      "bOnly": 0
+    }
+   },
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
+  },
+  "S": {
+   "neighbour": "B10",
+   "unitsMatched": {
+    "95": {
+     "both": 5,
+     "aOnly": 0,
+     "bOnly": 324
     }
    },
    "brokenRuns": 1,
    "repairedPixels": 0,
    "runs": [
     {
-     "uid": 79,
-     "start": 4,
-     "stop": 327,
+     "uid": 95,
+     "start": 3,
+     "stop": 326,
      "length": 324,
      "has": "b",
      "onto": "a",
@@ -648,39 +591,6 @@
       95
      ],
      "heldBack": 972,
-     "applied": false,
-     "skipped": "blank sheet or open water on the far side"
-    }
-   ]
-  },
-  "S": {
-   "neighbour": "B10",
-   "unitsMatched": {
-    "79": {
-     "both": 2,
-     "aOnly": 0,
-     "bOnly": 327
-    },
-    "95": {
-     "both": 0,
-     "aOnly": 3,
-     "bOnly": 0
-    }
-   },
-   "brokenRuns": 1,
-   "repairedPixels": 0,
-   "runs": [
-    {
-     "uid": 79,
-     "start": 0,
-     "stop": 326,
-     "length": 327,
-     "has": "b",
-     "onto": "a",
-     "displaced": [
-      95
-     ],
-     "heldBack": 981,
      "applied": false,
      "skipped": "blank sheet or open water on the far side"
     }
@@ -746,8 +656,8 @@
     },
     "79": {
      "both": 16,
-     "aOnly": 1,
-     "bOnly": 274
+     "aOnly": 2,
+     "bOnly": 42
     },
     "90": {
      "both": 0,
@@ -765,15 +675,15 @@
    "runs": [
     {
      "uid": 79,
-     "start": 0,
+     "start": 232,
      "stop": 273,
-     "length": 274,
+     "length": 42,
      "has": "b",
      "onto": "a",
      "displaced": [
       95
      ],
-     "heldBack": 822,
+     "heldBack": 126,
      "applied": false,
      "skipped": "blank sheet or open water on the far side"
     }
@@ -795,19 +705,19 @@
    ],
    "quadrants": {
     "0": [
-     79
+     95
     ],
     "1": [
-     79
+     95
     ],
     "2": [
      95
     ],
     "3": [
-     79
+     95
     ]
    },
-   "jointUnit": null
+   "jointUnit": 95
   },
   {
    "corner": "SW",
@@ -823,19 +733,19 @@
    ],
    "quadrants": {
     "0": [
-     79
+     95
     ],
     "1": [
-     79
+     95
     ],
     "2": [
      95
     ],
     "3": [
-     79
+     95
     ]
    },
-   "jointUnit": null
+   "jointUnit": 95
   },
   {
    "corner": "NE",
@@ -882,17 +792,16 @@
      95
     ],
     "1": [
-     79
+     95
     ],
     "2": [
-     79,
      95
     ],
     "3": [
-     79
+     95
     ]
    },
-   "jointUnit": null
+   "jointUnit": 95
   }
  ]
 }

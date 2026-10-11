@@ -7,44 +7,23 @@
   3336
  ],
  "zonePixels": 26240,
- "geologyPixels": 1937,
- "mappedFraction": 7.4,
+ "geologyPixels": 447,
+ "mappedFraction": 1.7,
  "formations": [
   {
    "id": 95,
    "code": "WATER",
    "name": "Mapped water / water-color interpretation; not geology",
    "color": "#99d8eb",
-   "pixels": 23751,
-   "shareOfBlock": 90.51,
+   "pixels": 25241,
+   "shareOfBlock": 96.19,
    "bodies": 1,
    "ribbons": 0,
    "specks": 0,
    "largest": {
-    "area": 23751,
-    "width": 77.0,
-    "length": 323.0,
-    "top_left": [
-     3,
-     4
-    ],
-    "kind": "body"
-   }
-  },
-  {
-   "id": 79,
-   "code": "Su",
-   "name": "Undifferentiated schists, including phyllites",
-   "color": "#79c1d9",
-   "pixels": 1670,
-   "shareOfBlock": 6.36,
-   "bodies": 1,
-   "ribbons": 0,
-   "specks": 0,
-   "largest": {
-    "area": 1670,
-    "width": 11.0,
-    "length": 328.0,
+    "area": 25241,
+    "width": 161.0,
+    "length": 326.0,
     "top_left": [
      0,
      0
@@ -57,7 +36,7 @@
    "code": "Sf",
    "name": "Fine-grained flaggy quartzite and quartz schist",
    "color": "#9eb9e6",
-   "pixels": 228,
+   "pixels": 229,
    "shareOfBlock": 0.87,
    "bodies": 2,
    "ribbons": 2,
@@ -71,6 +50,27 @@
      68
     ],
     "kind": "body"
+   }
+  },
+  {
+   "id": 79,
+   "code": "Su",
+   "name": "Undifferentiated schists, including phyllites",
+   "color": "#79c1d9",
+   "pixels": 182,
+   "shareOfBlock": 0.69,
+   "bodies": 0,
+   "ribbons": 1,
+   "specks": 3,
+   "largest": {
+    "area": 164,
+    "width": 5.47,
+    "length": 69.0,
+    "top_left": [
+     300,
+     0
+    ],
+    "kind": "ribbon"
    }
   },
   {
@@ -99,11 +99,11 @@
    "code": "Sp",
    "name": "Slate phyllite and meta-siltstone, locally hornfelsic / carbonaceous",
    "color": "#79b9ff",
-   "pixels": 35,
-   "shareOfBlock": 0.13,
+   "pixels": 32,
+   "shareOfBlock": 0.12,
    "bodies": 0,
    "ribbons": 0,
-   "specks": 18,
+   "specks": 17,
    "largest": {
     "area": 5,
     "width": 3.0,
@@ -181,7 +181,7 @@
     },
     "95": {
      "both": 0,
-     "aOnly": 65,
+     "aOnly": 68,
      "bOnly": 0
     }
    },
@@ -230,27 +230,67 @@
    "neighbour": "E11",
    "unitsMatched": {
     "79": {
+     "both": 0,
+     "aOnly": 1,
+     "bOnly": 51
+    },
+    "95": {
      "both": 76,
      "aOnly": 0,
      "bOnly": 0
     }
    },
-   "brokenRuns": 0,
-   "repairedPixels": 0,
-   "runs": []
+   "brokenRuns": 1,
+   "repairedPixels": 101,
+   "runs": [
+    {
+     "uid": 79,
+     "start": 24,
+     "stop": 75,
+     "length": 52,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      79,
+      95
+     ],
+     "heldBack": 55,
+     "applied": true
+    }
+   ]
   },
   "N": {
    "neighbour": "F10",
    "unitsMatched": {
     "79": {
-     "both": 328,
+     "both": 3,
+     "aOnly": 2,
+     "bOnly": 28
+    },
+    "95": {
+     "both": 326,
      "aOnly": 0,
      "bOnly": 0
     }
    },
-   "brokenRuns": 0,
+   "brokenRuns": 1,
    "repairedPixels": 0,
-   "runs": []
+   "runs": [
+    {
+     "uid": 79,
+     "start": 298,
+     "stop": 325,
+     "length": 28,
+     "has": "b",
+     "onto": "a",
+     "displaced": [
+      95
+     ],
+     "heldBack": 84,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
+    }
+   ]
   }
  },
  "corners": [
@@ -298,7 +338,8 @@
      79
     ],
     "1": [
-     79
+     79,
+     95
     ],
     "2": [
      79
@@ -320,19 +361,19 @@
    ],
    "quadrants": {
     "0": [
-     79
+     95
     ],
     "1": [
-     79
+     95
     ],
     "2": [
-     79
+     95
     ],
     "3": [
-     79
+     95
     ]
    },
-   "jointUnit": 79
+   "jointUnit": 95
   }
  ]
 }

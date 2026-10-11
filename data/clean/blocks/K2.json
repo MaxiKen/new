@@ -7,8 +7,8 @@
   621
  ],
  "zonePixels": 107912,
- "geologyPixels": 95653,
- "mappedFraction": 88.6,
+ "geologyPixels": 95275,
+ "mappedFraction": 88.3,
  "formations": [
   {
    "id": 6,
@@ -36,18 +36,18 @@
    "code": "WATER",
    "name": "Mapped water / water-color interpretation; not geology",
    "color": "#99d8eb",
-   "pixels": 12259,
-   "shareOfBlock": 11.36,
+   "pixels": 12637,
+   "shareOfBlock": 11.71,
    "bodies": 1,
    "ribbons": 0,
    "specks": 0,
    "largest": {
-    "area": 12259,
+    "area": 12637,
     "width": 109.41,
-    "length": 128.0,
+    "length": 132.0,
     "top_left": [
      210,
-     4
+     0
     ],
     "kind": "body"
    }
@@ -57,20 +57,20 @@
    "code": "Su",
    "name": "Undifferentiated schists, including phyllites",
    "color": "#79c1d9",
-   "pixels": 747,
-   "shareOfBlock": 0.69,
-   "bodies": 1,
-   "ribbons": 0,
-   "specks": 0,
+   "pixels": 369,
+   "shareOfBlock": 0.34,
+   "bodies": 0,
+   "ribbons": 2,
+   "specks": 1,
    "largest": {
-    "area": 747,
-    "width": 9.94,
-    "length": 128.0,
+    "area": 210,
+    "width": 7.32,
+    "length": 112.0,
     "top_left": [
-     201,
+     323,
      0
     ],
-    "kind": "body"
+    "kind": "ribbon"
    }
   },
   {
@@ -337,14 +337,36 @@
      "bOnly": 2
     },
     "79": {
-     "both": 113,
-     "aOnly": 2,
-     "bOnly": 0
+     "both": 1,
+     "aOnly": 8,
+     "bOnly": 55
+    },
+    "95": {
+     "both": 110,
+     "aOnly": 0,
+     "bOnly": 3
     }
    },
-   "brokenRuns": 0,
-   "repairedPixels": 0,
-   "runs": []
+   "brokenRuns": 1,
+   "repairedPixels": 61,
+   "runs": [
+    {
+     "uid": 79,
+     "start": 214,
+     "stop": 271,
+     "length": 58,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      29,
+      45,
+      79,
+      95
+     ],
+     "heldBack": 113,
+     "applied": true
+    }
+   ]
   }
  },
  "corners": [
@@ -418,7 +440,8 @@
      79
     ],
     "3": [
-     79
+     79,
+     95
     ]
    },
    "jointUnit": 79

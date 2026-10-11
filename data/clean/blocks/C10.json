@@ -7,26 +7,26 @@
   3248
  ],
  "zonePixels": 107912,
- "geologyPixels": 27803,
- "mappedFraction": 25.8,
+ "geologyPixels": 27107,
+ "mappedFraction": 25.1,
  "formations": [
   {
    "id": 95,
    "code": "WATER",
    "name": "Mapped water / water-color interpretation; not geology",
    "color": "#99d8eb",
-   "pixels": 80109,
-   "shareOfBlock": 74.24,
+   "pixels": 80682,
+   "shareOfBlock": 74.77,
    "bodies": 2,
-   "ribbons": 1,
-   "specks": 0,
+   "ribbons": 0,
+   "specks": 3,
    "largest": {
-    "area": 79812,
-    "width": 208.55,
-    "length": 326.0,
+    "area": 80654,
+    "width": 335.72,
+    "length": 329.0,
     "top_left": [
      0,
-     5
+     0
     ],
     "kind": "body"
    }
@@ -36,13 +36,13 @@
    "code": "MS",
    "name": "Pelitic schist / muscovite schist",
    "color": "#f2f600",
-   "pixels": 10677,
+   "pixels": 10675,
    "shareOfBlock": 9.89,
    "bodies": 1,
    "ribbons": 0,
    "specks": 0,
    "largest": {
-    "area": 10677,
+    "area": 10675,
     "width": 61.83,
     "length": 169.0,
     "top_left": [
@@ -78,7 +78,7 @@
    "code": "AB",
    "name": "Sands and pebbles",
    "color": "#f0ff82",
-   "pixels": 4358,
+   "pixels": 4357,
    "shareOfBlock": 4.04,
    "bodies": 3,
    "ribbons": 0,
@@ -99,80 +99,17 @@
    "code": "Sf",
    "name": "Fine-grained flaggy quartzite and quartz schist",
    "color": "#9eb9e6",
-   "pixels": 1603,
-   "shareOfBlock": 1.49,
-   "bodies": 10,
-   "ribbons": 6,
-   "specks": 39,
-   "largest": {
-    "area": 243,
-    "width": 7.32,
-    "length": 34.0,
-    "top_left": [
-     211,
-     254
-    ],
-    "kind": "ribbon"
-   }
-  },
-  {
-   "id": 79,
-   "code": "Su",
-   "name": "Undifferentiated schists, including phyllites",
-   "color": "#79c1d9",
-   "pixels": 1173,
-   "shareOfBlock": 1.09,
-   "bodies": 2,
-   "ribbons": 1,
-   "specks": 16,
-   "largest": {
-    "area": 560,
-    "width": 5.47,
-    "length": 328.0,
-    "top_left": [
-     0,
-     212
-    ],
-    "kind": "ribbon"
-   }
-  },
-  {
-   "id": 74,
-   "code": "Sp",
-   "name": "Slate phyllite and meta-siltstone, locally hornfelsic / carbonaceous",
-   "color": "#79b9ff",
-   "pixels": 760,
-   "shareOfBlock": 0.7,
-   "bodies": 8,
-   "ribbons": 2,
-   "specks": 97,
-   "largest": {
-    "area": 130,
-    "width": 5.0,
-    "length": 41.0,
-    "top_left": [
-     141,
-     194
-    ],
-    "kind": "ribbon"
-   }
-  },
-  {
-   "id": 92,
-   "code": "aMy",
-   "name": "Mylonites interlayered with amphibolites",
-   "color": "#7aa3ff",
-   "pixels": 322,
-   "shareOfBlock": 0.3,
-   "bodies": 2,
+   "pixels": 2673,
+   "shareOfBlock": 2.48,
+   "bodies": 5,
    "ribbons": 0,
-   "specks": 59,
+   "specks": 17,
    "largest": {
-    "area": 24,
-    "width": 3.83,
-    "length": 7.0,
+    "area": 903,
+    "width": 15.0,
+    "length": 89.0,
     "top_left": [
-     157,
+     108,
      188
     ],
     "kind": "body"
@@ -183,18 +120,60 @@
    "code": "Tst",
    "name": "Sandstone, siltstone and shale",
    "color": "#9cd6bd",
-   "pixels": 191,
-   "shareOfBlock": 0.18,
+   "pixels": 357,
+   "shareOfBlock": 0.33,
+   "bodies": 0,
+   "ribbons": 1,
+   "specks": 46,
+   "largest": {
+    "area": 233,
+    "width": 7.32,
+    "length": 36.0,
+    "top_left": [
+     177,
+     73
+    ],
+    "kind": "ribbon"
+   }
+  },
+  {
+   "id": 79,
+   "code": "Su",
+   "name": "Undifferentiated schists, including phyllites",
+   "color": "#79c1d9",
+   "pixels": 338,
+   "shareOfBlock": 0.31,
    "bodies": 1,
    "ribbons": 0,
-   "specks": 48,
+   "specks": 5,
    "largest": {
-    "area": 56,
-    "width": 6.66,
-    "length": 11.0,
+    "area": 322,
+    "width": 11.0,
+    "length": 68.0,
     "top_left": [
-     185,
-     87
+     99,
+     0
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 74,
+   "code": "Sp",
+   "name": "Slate phyllite and meta-siltstone, locally hornfelsic / carbonaceous",
+   "color": "#79b9ff",
+   "pixels": 282,
+   "shareOfBlock": 0.26,
+   "bodies": 4,
+   "ribbons": 0,
+   "specks": 12,
+   "largest": {
+    "area": 180,
+    "width": 11.2,
+    "length": 18.0,
+    "top_left": [
+     73,
+     124
     ],
     "kind": "body"
    }
@@ -204,8 +183,8 @@
    "code": "Awst",
    "name": "Sandstone",
    "color": "#b9e6c2",
-   "pixels": 190,
-   "shareOfBlock": 0.18,
+   "pixels": 183,
+   "shareOfBlock": 0.17,
    "bodies": 0,
    "ribbons": 0,
    "specks": 32,
@@ -221,32 +200,11 @@
    }
   },
   {
-   "id": 4,
-   "code": "MS",
-   "name": "Sand, clay and mangrove swamps",
-   "color": "#96aaff",
-   "pixels": 161,
-   "shareOfBlock": 0.15,
-   "bodies": 1,
-   "ribbons": 0,
-   "specks": 38,
-   "largest": {
-    "area": 81,
-    "width": 5.0,
-    "length": 14.0,
-    "top_left": [
-     63,
-     124
-    ],
-    "kind": "body"
-   }
-  },
-  {
    "id": 90,
    "code": "qs",
    "name": "Silicified, sheared rocks, large quartz veins",
    "color": "#f0ff86",
-   "pixels": 119,
+   "pixels": 118,
    "shareOfBlock": 0.11,
    "bodies": 0,
    "ribbons": 0,
@@ -477,8 +435,8 @@
    "code": "Mlst",
    "name": "Limestone and siltstone",
    "color": "#b9e6a3",
-   "pixels": 17,
-   "shareOfBlock": 0.02,
+   "pixels": 16,
+   "shareOfBlock": 0.01,
    "bodies": 0,
    "ribbons": 0,
    "specks": 6,
@@ -487,8 +445,8 @@
     "width": 3.0,
     "length": 3.0,
     "top_left": [
-     188,
-     75
+     192,
+     90
     ],
     "kind": "speck"
    }
@@ -561,15 +519,15 @@
    "code": "Ncsh",
    "name": "Sandstone, limestone, coal",
    "color": "#b6e397",
-   "pixels": 4,
+   "pixels": 3,
    "shareOfBlock": 0.0,
    "bodies": 0,
    "ribbons": 0,
    "specks": 1,
    "largest": {
-    "area": 4,
+    "area": 3,
     "width": 3.0,
-    "length": 4.0,
+    "length": 3.0,
     "top_left": [
      191,
      78
@@ -689,15 +647,15 @@
      "aOnly": 3,
      "bOnly": 3
     },
-    "79": {
-     "both": 117,
-     "aOnly": 0,
-     "bOnly": 5
-    },
     "90": {
-     "both": 2,
+     "both": 3,
      "aOnly": 0,
-     "bOnly": 2
+     "bOnly": 4
+    },
+    "95": {
+     "both": 115,
+     "aOnly": 3,
+     "bOnly": 0
     }
    },
    "brokenRuns": 1,
@@ -720,66 +678,28 @@
   "W": {
    "neighbour": "B10",
    "unitsMatched": {
-    "79": {
-     "both": 3,
-     "aOnly": 0,
-     "bOnly": 326
-    },
     "95": {
-     "both": 323,
-     "aOnly": 3,
+     "both": 329,
+     "aOnly": 0,
      "bOnly": 0
     }
    },
-   "brokenRuns": 1,
+   "brokenRuns": 0,
    "repairedPixels": 0,
-   "runs": [
-    {
-     "uid": 79,
-     "start": 5,
-     "stop": 327,
-     "length": 323,
-     "has": "b",
-     "onto": "a",
-     "displaced": [
-      95
-     ],
-     "heldBack": 969,
-     "applied": false,
-     "skipped": "blank sheet or open water on the far side"
-    }
-   ]
+   "runs": []
   },
   "S": {
    "neighbour": "C11",
    "unitsMatched": {
-    "79": {
+    "95": {
      "both": 328,
      "aOnly": 0,
      "bOnly": 0
-    },
-    "95": {
-     "both": 0,
-     "aOnly": 326,
-     "bOnly": 0
     }
    },
-   "brokenRuns": 1,
-   "repairedPixels": 978,
-   "runs": [
-    {
-     "uid": 95,
-     "start": 0,
-     "stop": 325,
-     "length": 326,
-     "has": "a",
-     "onto": "b",
-     "displaced": [
-      79
-     ],
-     "applied": true
-    }
-   ]
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
   },
   "N": {
    "neighbour": "C9",
@@ -831,7 +751,7 @@
     },
     "79": {
      "both": 5,
-     "aOnly": 53,
+     "aOnly": 45,
      "bOnly": 8
     },
     "89": {
@@ -846,25 +766,25 @@
     },
     "95": {
      "both": 99,
-     "aOnly": 0,
+     "aOnly": 10,
      "bOnly": 0
     }
    },
-   "brokenRuns": 2,
+   "brokenRuns": 3,
    "repairedPixels": 4,
    "runs": [
     {
      "uid": 79,
-     "start": 91,
+     "start": 99,
      "stop": 142,
-     "length": 52,
+     "length": 44,
      "has": "a",
      "onto": "b",
      "displaced": [
       79,
       95
      ],
-     "heldBack": 152,
+     "heldBack": 128,
      "applied": true
     },
     {
@@ -878,6 +798,20 @@
       95
      ],
      "heldBack": 24,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
+    },
+    {
+     "uid": 95,
+     "start": 91,
+     "stop": 100,
+     "length": 10,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      95
+     ],
+     "heldBack": 30,
      "applied": false,
      "skipped": "blank sheet or open water on the far side"
     }
@@ -899,20 +833,19 @@
    ],
    "quadrants": {
     "0": [
-     79
+     95
     ],
     "1": [
-     79,
      95
     ],
     "2": [
-     79
+     95
     ],
     "3": [
-     79
+     95
     ]
    },
-   "jointUnit": 79
+   "jointUnit": 95
   },
   {
    "corner": "SW",
@@ -931,17 +864,16 @@
      95
     ],
     "1": [
-     79
+     95
     ],
     "2": [
-     79,
      95
     ],
     "3": [
-     79
+     95
     ]
    },
-   "jointUnit": null
+   "jointUnit": 95
   },
   {
    "corner": "NE",
@@ -989,16 +921,16 @@
      95
     ],
     "1": [
-     79
+     95
     ],
     "2": [
      95
     ],
     "3": [
-     79
+     95
     ]
    },
-   "jointUnit": null
+   "jointUnit": 95
   }
  ]
 }

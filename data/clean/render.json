@@ -5,8 +5,8 @@
     6268,
     3540
   ],
-  "rewrittenPixels": 353584,
-  "crossBoundaryConnectionPixels": 26524,
+  "rewrittenPixels": 375165,
+  "crossBoundaryConnectionPixels": 23230,
   "legendKeysRemoved": {
     "rows": [
       "Roads",
@@ -15,18 +15,18 @@
     ],
     "inkPixels": 2218
   },
-  "rewrittenShareOfMappedArea": 2.618,
-  "shareOfMapArea": 2.618,
+  "rewrittenShareOfMappedArea": 2.778,
+  "shareOfMapArea": 2.778,
   "residualThinWaterStrokes": 0,
   "residualUnpaintedInsideFootprint": 0,
   "mappedWaterPixels": [
     1209034,
-    1183894
+    1214634
   ],
   "grayShadingPixels": [
     57008,
-    2445
+    2435
   ],
-  "legendUnitPixelsChanged": 174968,
+  "legendUnitPixelsChanged": 134966,
   "unchangedOutsideMapArea": true
 }

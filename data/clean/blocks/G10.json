@@ -15,15 +15,15 @@
    "code": "Sf",
    "name": "Fine-grained flaggy quartzite and quartz schist",
    "color": "#9eb9e6",
-   "pixels": 2758,
-   "shareOfBlock": 2.55,
-   "bodies": 6,
+   "pixels": 2838,
+   "shareOfBlock": 2.62,
+   "bodies": 4,
    "ribbons": 27,
-   "specks": 59,
+   "specks": 58,
    "largest": {
-    "area": 423,
+    "area": 426,
     "width": 7.32,
-    "length": 63.0,
+    "length": 64.0,
     "top_left": [
      206,
      260
@@ -78,11 +78,11 @@
    "code": "Su",
    "name": "Undifferentiated schists, including phyllites",
    "color": "#79c1d9",
-   "pixels": 628,
-   "shareOfBlock": 0.58,
-   "bodies": 4,
+   "pixels": 543,
+   "shareOfBlock": 0.5,
+   "bodies": 3,
    "ribbons": 4,
-   "specks": 6,
+   "specks": 7,
    "largest": {
     "area": 158,
     "width": 7.0,
@@ -99,13 +99,13 @@
    "code": "Sp",
    "name": "Slate phyllite and meta-siltstone, locally hornfelsic / carbonaceous",
    "color": "#79b9ff",
-   "pixels": 277,
+   "pixels": 282,
    "shareOfBlock": 0.26,
    "bodies": 2,
    "ribbons": 1,
    "specks": 51,
    "largest": {
-    "area": 67,
+    "area": 72,
     "width": 6.66,
     "length": 14.0,
     "top_left": [
@@ -297,14 +297,14 @@
      "bOnly": 0
     },
     "76": {
-     "both": 61,
-     "aOnly": 10,
+     "both": 76,
+     "aOnly": 9,
      "bOnly": 0
     },
     "79": {
-     "both": 196,
-     "aOnly": 1,
-     "bOnly": 34
+     "both": 181,
+     "aOnly": 2,
+     "bOnly": 28
     },
     "95": {
      "both": 0,
@@ -317,8 +317,8 @@
      "bOnly": 1
     }
    },
-   "brokenRuns": 7,
-   "repairedPixels": 552,
+   "brokenRuns": 6,
+   "repairedPixels": 531,
    "runs": [
     {
      "uid": 79,
@@ -329,18 +329,6 @@
      "onto": "a",
      "displaced": [
       8,
-      76
-     ],
-     "applied": true
-    },
-    {
-     "uid": 79,
-     "start": 198,
-     "stop": 204,
-     "length": 7,
-     "has": "b",
-     "onto": "a",
-     "displaced": [
       76
      ],
      "applied": true
@@ -544,7 +532,8 @@
      79
     ],
     "1": [
-     79
+     79,
+     95
     ],
     "2": [
      79

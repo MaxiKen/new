@@ -7,7 +7,7 @@
   1606
  ],
  "zonePixels": 107912,
- "geologyPixels": 107131,
+ "geologyPixels": 107132,
  "mappedFraction": 99.3,
  "formations": [
   {
@@ -36,8 +36,8 @@
    "code": "MG",
    "name": "Migmatitic gneiss",
    "color": "#dfc477",
-   "pixels": 13662,
-   "shareOfBlock": 12.66,
+   "pixels": 13827,
+   "shareOfBlock": 12.81,
    "bodies": 3,
    "ribbons": 0,
    "specks": 80,
@@ -99,15 +99,15 @@
    "code": "OGm",
    "name": "Medium-to-coarse-grained biotite granite",
    "color": "#ff8eba",
-   "pixels": 9488,
-   "shareOfBlock": 8.79,
-   "bodies": 2,
+   "pixels": 9349,
+   "shareOfBlock": 8.66,
+   "bodies": 3,
    "ribbons": 0,
    "specks": 1,
    "largest": {
-    "area": 9386,
+    "area": 9102,
     "width": 59.82,
-    "length": 204.0,
+    "length": 184.0,
     "top_left": [
      124,
      0
@@ -120,11 +120,11 @@
    "code": "Su",
    "name": "Undifferentiated schists, including phyllites",
    "color": "#79c1d9",
-   "pixels": 7197,
-   "shareOfBlock": 6.67,
+   "pixels": 7187,
+   "shareOfBlock": 6.66,
    "bodies": 9,
    "ribbons": 0,
-   "specks": 0,
+   "specks": 1,
    "largest": {
     "area": 1684,
     "width": 25.08,
@@ -330,13 +330,13 @@
    "code": "WATER",
    "name": "Mapped water / water-color interpretation; not geology",
    "color": "#99d8eb",
-   "pixels": 781,
+   "pixels": 780,
    "shareOfBlock": 0.72,
    "bodies": 2,
    "ribbons": 0,
    "specks": 2,
    "largest": {
-    "area": 595,
+    "area": 594,
     "width": 13.0,
     "length": 62.0,
     "top_left": [
@@ -435,11 +435,11 @@
    "code": "bS",
    "name": "Biotite garnet gneiss schist",
    "color": "#dfba74",
-   "pixels": 258,
+   "pixels": 257,
    "shareOfBlock": 0.24,
    "bodies": 0,
    "ribbons": 0,
-   "specks": 141,
+   "specks": 140,
    "largest": {
     "area": 9,
     "width": 3.0,
@@ -519,11 +519,11 @@
    "code": "Dsh",
    "name": "Shale",
    "color": "#dbdeb1",
-   "pixels": 172,
-   "shareOfBlock": 0.16,
+   "pixels": 167,
+   "shareOfBlock": 0.15,
    "bodies": 1,
    "ribbons": 0,
-   "specks": 84,
+   "specks": 81,
    "largest": {
     "area": 35,
     "width": 6.66,
@@ -666,11 +666,11 @@
    "code": "Lass",
    "name": "Sandstone, shale and sandy shale",
    "color": "#bcc8b8",
-   "pixels": 96,
-   "shareOfBlock": 0.09,
+   "pixels": 89,
+   "shareOfBlock": 0.08,
    "bodies": 0,
    "ribbons": 0,
-   "specks": 58,
+   "specks": 55,
    "largest": {
     "area": 11,
     "width": 3.0,
@@ -960,7 +960,7 @@
    "code": "b",
    "name": "Younger basalt",
    "color": "#d8d8fc",
-   "pixels": 10,
+   "pixels": 9,
    "shareOfBlock": 0.01,
    "bodies": 0,
    "ribbons": 0,
@@ -970,8 +970,8 @@
     "width": 3.0,
     "length": 3.0,
     "top_left": [
-     307,
-     25
+     301,
+     34
     ],
     "kind": "speck"
    }
@@ -1002,11 +1002,11 @@
    "code": "Issh",
    "name": "Clay, clayey sands and shale",
    "color": "#ffc9e0",
-   "pixels": 8,
+   "pixels": 7,
    "shareOfBlock": 0.01,
    "bodies": 0,
    "ribbons": 0,
-   "specks": 6,
+   "specks": 5,
    "largest": {
     "area": 3,
     "width": 3.0,
@@ -1218,7 +1218,7 @@
     },
     "67": {
      "both": 0,
-     "aOnly": 24,
+     "aOnly": 8,
      "bOnly": 0
     },
     "73": {
@@ -1263,7 +1263,7 @@
     }
    },
    "brokenRuns": 2,
-   "repairedPixels": 90,
+   "repairedPixels": 42,
    "runs": [
     {
      "uid": 36,
@@ -1280,8 +1280,8 @@
     {
      "uid": 67,
      "start": 5,
-     "stop": 28,
-     "length": 24,
+     "stop": 12,
+     "length": 8,
      "has": "a",
      "onto": "b",
      "displaced": [

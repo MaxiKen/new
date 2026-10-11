@@ -7,43 +7,22 @@
   3248
  ],
  "zonePixels": 108241,
- "geologyPixels": 3589,
- "mappedFraction": 3.3,
+ "geologyPixels": 0,
+ "mappedFraction": 0.0,
  "formations": [
   {
    "id": 95,
    "code": "WATER",
    "name": "Mapped water / water-color interpretation; not geology",
    "color": "#99d8eb",
-   "pixels": 104652,
-   "shareOfBlock": 96.68,
+   "pixels": 108241,
+   "shareOfBlock": 100.0,
    "bodies": 1,
    "ribbons": 0,
    "specks": 0,
    "largest": {
-    "area": 104652,
-    "width": 325.0,
-    "length": 324.0,
-    "top_left": [
-     3,
-     5
-    ],
-    "kind": "body"
-   }
-  },
-  {
-   "id": 79,
-   "code": "Su",
-   "name": "Undifferentiated schists, including phyllites",
-   "color": "#79c1d9",
-   "pixels": 3589,
-   "shareOfBlock": 3.32,
-   "bodies": 1,
-   "ribbons": 0,
-   "specks": 0,
-   "largest": {
-    "area": 3589,
-    "width": 12.66,
+    "area": 108241,
+    "width": 930.14,
     "length": 329.0,
     "top_left": [
      0,
@@ -67,38 +46,20 @@
   "E": {
    "neighbour": "C10",
    "unitsMatched": {
-    "79": {
-     "both": 326,
-     "aOnly": 3,
-     "bOnly": 0
-    },
     "95": {
-     "both": 0,
-     "aOnly": 323,
-     "bOnly": 3
+     "both": 329,
+     "aOnly": 0,
+     "bOnly": 0
     }
    },
-   "brokenRuns": 1,
-   "repairedPixels": 969,
-   "runs": [
-    {
-     "uid": 95,
-     "start": 5,
-     "stop": 327,
-     "length": 323,
-     "has": "a",
-     "onto": "b",
-     "displaced": [
-      79
-     ],
-     "applied": true
-    }
-   ]
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
   },
   "W": {
    "neighbour": "A10",
    "unitsMatched": {
-    "79": {
+    "95": {
      "both": 329,
      "aOnly": 0,
      "bOnly": 0
@@ -111,7 +72,7 @@
   "S": {
    "neighbour": "B11",
    "unitsMatched": {
-    "79": {
+    "95": {
      "both": 329,
      "aOnly": 0,
      "bOnly": 0
@@ -124,31 +85,26 @@
   "N": {
    "neighbour": "B9",
    "unitsMatched": {
-    "79": {
-     "both": 2,
-     "aOnly": 327,
-     "bOnly": 0
-    },
     "95": {
-     "both": 0,
-     "aOnly": 0,
-     "bOnly": 3
+     "both": 5,
+     "aOnly": 324,
+     "bOnly": 0
     }
    },
    "brokenRuns": 1,
    "repairedPixels": 0,
    "runs": [
     {
-     "uid": 79,
-     "start": 0,
+     "uid": 95,
+     "start": 3,
      "stop": 326,
-     "length": 327,
+     "length": 324,
      "has": "a",
      "onto": "b",
      "displaced": [
       95
      ],
-     "heldBack": 981,
+     "heldBack": 972,
      "applied": false,
      "skipped": "blank sheet or open water on the far side"
     }
@@ -170,20 +126,19 @@
    ],
    "quadrants": {
     "0": [
-     79
+     95
     ],
     "1": [
-     79
+     95
     ],
     "2": [
-     79,
      95
     ],
     "3": [
-     79
+     95
     ]
    },
-   "jointUnit": 79
+   "jointUnit": 95
   },
   {
    "corner": "SW",
@@ -199,19 +154,19 @@
    ],
    "quadrants": {
     "0": [
-     79
+     95
     ],
     "1": [
-     79
+     95
     ],
     "2": [
-     79
+     95
     ],
     "3": [
-     79
+     95
     ]
    },
-   "jointUnit": 79
+   "jointUnit": 95
   },
   {
    "corner": "NE",
@@ -230,16 +185,16 @@
      95
     ],
     "1": [
-     79
+     95
     ],
     "2": [
      95
     ],
     "3": [
-     79
+     95
     ]
    },
-   "jointUnit": null
+   "jointUnit": 95
   },
   {
    "corner": "NW",
@@ -255,19 +210,19 @@
    ],
    "quadrants": {
     "0": [
-     79
+     95
     ],
     "1": [
-     79
+     95
     ],
     "2": [
      95
     ],
     "3": [
-     79
+     95
     ]
    },
-   "jointUnit": null
+   "jointUnit": 95
   }
  ]
 }

@@ -7,23 +7,23 @@
   293
  ],
  "zonePixels": 93765,
- "geologyPixels": 30818,
- "mappedFraction": 32.9,
+ "geologyPixels": 30556,
+ "mappedFraction": 32.6,
  "formations": [
   {
    "id": 95,
    "code": "WATER",
    "name": "Mapped water / water-color interpretation; not geology",
    "color": "#99d8eb",
-   "pixels": 54519,
-   "shareOfBlock": 58.14,
+   "pixels": 54852,
+   "shareOfBlock": 58.5,
    "bodies": 5,
    "ribbons": 0,
    "specks": 1,
    "largest": {
-    "area": 54234,
+    "area": 54567,
     "width": 183.79,
-    "length": 284.0,
+    "length": 285.0,
     "top_left": [
      53,
      8
@@ -36,15 +36,15 @@
    "code": "Cst",
    "name": "Sands, clays, siltstones and limestones",
    "color": "#f0ff5a",
-   "pixels": 26342,
-   "shareOfBlock": 28.09,
+   "pixels": 26323,
+   "shareOfBlock": 28.07,
    "bodies": 1,
    "ribbons": 0,
    "specks": 1,
    "largest": {
-    "area": 26341,
+    "area": 26322,
     "width": 322.28,
-    "length": 228.0,
+    "length": 227.0,
     "top_left": [
      0,
      120
@@ -57,14 +57,14 @@
    "code": "Sf",
    "name": "Fine-grained flaggy quartzite and quartz schist",
    "color": "#9eb9e6",
-   "pixels": 2342,
-   "shareOfBlock": 2.5,
-   "bodies": 12,
-   "ribbons": 5,
-   "specks": 40,
+   "pixels": 2633,
+   "shareOfBlock": 2.81,
+   "bodies": 8,
+   "ribbons": 4,
+   "specks": 36,
    "largest": {
-    "area": 789,
-    "width": 9.0,
+    "area": 1124,
+    "width": 12.66,
     "length": 60.0,
     "top_left": [
      269,
@@ -74,45 +74,24 @@
    }
   },
   {
-   "id": 79,
-   "code": "Su",
-   "name": "Undifferentiated schists, including phyllites",
-   "color": "#79c1d9",
-   "pixels": 655,
-   "shareOfBlock": 0.7,
-   "bodies": 2,
-   "ribbons": 2,
-   "specks": 1,
-   "largest": {
-    "area": 479,
-    "width": 5.47,
-    "length": 182.0,
-    "top_left": [
-     216,
-     111
-    ],
-    "kind": "ribbon"
-   }
-  },
-  {
    "id": 8,
    "code": "b",
    "name": "Younger basalt",
    "color": "#d8d8fc",
-   "pixels": 497,
-   "shareOfBlock": 0.53,
-   "bodies": 1,
-   "ribbons": 1,
-   "specks": 153,
+   "pixels": 689,
+   "shareOfBlock": 0.73,
+   "bodies": 4,
+   "ribbons": 2,
+   "specks": 131,
    "largest": {
-    "area": 63,
-    "width": 7.0,
-    "length": 10.0,
+    "area": 188,
+    "width": 6.66,
+    "length": 52.0,
     "top_left": [
-     0,
-     74
+     314,
+     97
     ],
-    "kind": "body"
+    "kind": "ribbon"
    }
   },
   {
@@ -120,18 +99,39 @@
    "code": "Sp",
    "name": "Slate phyllite and meta-siltstone, locally hornfelsic / carbonaceous",
    "color": "#79b9ff",
-   "pixels": 418,
-   "shareOfBlock": 0.45,
-   "bodies": 1,
-   "ribbons": 0,
-   "specks": 118,
+   "pixels": 187,
+   "shareOfBlock": 0.2,
+   "bodies": 0,
+   "ribbons": 1,
+   "specks": 56,
    "largest": {
-    "area": 85,
-    "width": 5.47,
-    "length": 18.0,
+    "area": 27,
+    "width": 3.0,
+    "length": 15.0,
     "top_left": [
-     265,
-     56
+     267,
+     11
+    ],
+    "kind": "ribbon"
+   }
+  },
+  {
+   "id": 79,
+   "code": "Su",
+   "name": "Undifferentiated schists, including phyllites",
+   "color": "#79c1d9",
+   "pixels": 167,
+   "shareOfBlock": 0.18,
+   "bodies": 2,
+   "ribbons": 1,
+   "specks": 2,
+   "largest": {
+    "area": 66,
+    "width": 6.66,
+    "length": 15.0,
+    "top_left": [
+     318,
+     55
     ],
     "kind": "body"
    }
@@ -183,11 +183,11 @@
    "code": "Tst",
    "name": "Sandstone, siltstone and shale",
    "color": "#9cd6bd",
-   "pixels": 101,
-   "shareOfBlock": 0.11,
+   "pixels": 97,
+   "shareOfBlock": 0.1,
    "bodies": 0,
    "ribbons": 0,
-   "specks": 45,
+   "specks": 43,
    "largest": {
     "area": 12,
     "width": 3.0,
@@ -204,20 +204,41 @@
    "code": "Awst",
    "name": "Sandstone",
    "color": "#b9e6c2",
-   "pixels": 94,
+   "pixels": 91,
    "shareOfBlock": 0.1,
    "bodies": 0,
    "ribbons": 0,
    "specks": 35,
    "largest": {
-    "area": 12,
+    "area": 11,
     "width": 3.0,
-    "length": 12.0,
+    "length": 11.0,
     "top_left": [
-     210,
-     208
+     150,
+     214
     ],
     "kind": "speck"
+   }
+  },
+  {
+   "id": 20,
+   "code": "Gss",
+   "name": "Sandstone, siltstone, shale and ironstone",
+   "color": "#e5ffa8",
+   "pixels": 84,
+   "shareOfBlock": 0.09,
+   "bodies": 1,
+   "ribbons": 0,
+   "specks": 17,
+   "largest": {
+    "area": 39,
+    "width": 5.47,
+    "length": 9.0,
+    "top_left": [
+     222,
+     207
+    ],
+    "kind": "body"
    }
   },
   {
@@ -225,11 +246,11 @@
    "code": "OAlgs",
    "name": "Lignite, claystone and shale",
    "color": "#ebfd68",
-   "pixels": 85,
+   "pixels": 81,
    "shareOfBlock": 0.09,
    "bodies": 0,
    "ribbons": 0,
-   "specks": 54,
+   "specks": 52,
    "largest": {
     "area": 8,
     "width": 3.0,
@@ -305,36 +326,15 @@
    }
   },
   {
-   "id": 20,
-   "code": "Gss",
-   "name": "Sandstone, siltstone, shale and ironstone",
-   "color": "#e5ffa8",
-   "pixels": 50,
-   "shareOfBlock": 0.05,
-   "bodies": 0,
-   "ribbons": 0,
-   "specks": 18,
-   "largest": {
-    "area": 5,
-    "width": 3.0,
-    "length": 5.0,
-    "top_left": [
-     11,
-     120
-    ],
-    "kind": "speck"
-   }
-  },
-  {
    "id": 63,
    "code": "OGS",
    "name": "Syenite, mainly of pyroxene diorite composition",
    "color": "#cccccc",
-   "pixels": 26,
-   "shareOfBlock": 0.03,
+   "pixels": 21,
+   "shareOfBlock": 0.02,
    "bodies": 0,
    "ribbons": 0,
-   "specks": 8,
+   "specks": 4,
    "largest": {
     "area": 16,
     "width": 7.0,
@@ -342,27 +342,6 @@
     "top_left": [
      0,
      8
-    ],
-    "kind": "speck"
-   }
-  },
-  {
-   "id": 4,
-   "code": "MS",
-   "name": "Sand, clay and mangrove swamps",
-   "color": "#96aaff",
-   "pixels": 20,
-   "shareOfBlock": 0.02,
-   "bodies": 0,
-   "ribbons": 0,
-   "specks": 13,
-   "largest": {
-    "area": 3,
-    "width": 3.0,
-    "length": 3.0,
-    "top_left": [
-     305,
-     58
     ],
     "kind": "speck"
    }
@@ -431,27 +410,6 @@
    }
   },
   {
-   "id": 92,
-   "code": "aMy",
-   "name": "Mylonites interlayered with amphibolites",
-   "color": "#7aa3ff",
-   "pixels": 9,
-   "shareOfBlock": 0.01,
-   "bodies": 0,
-   "ribbons": 0,
-   "specks": 6,
-   "largest": {
-    "area": 2,
-    "width": 3.0,
-    "length": 2.0,
-    "top_left": [
-     285,
-     30
-    ],
-    "kind": "speck"
-   }
-  },
-  {
    "id": 36,
    "code": "Lass",
    "name": "Sandstone, shale and sandy shale",
@@ -468,6 +426,48 @@
     "top_left": [
      0,
      120
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 4,
+   "code": "MS",
+   "name": "Sand, clay and mangrove swamps",
+   "color": "#96aaff",
+   "pixels": 7,
+   "shareOfBlock": 0.01,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 4,
+   "largest": {
+    "area": 2,
+    "width": 3.0,
+    "length": 2.0,
+    "top_left": [
+     323,
+     25
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 92,
+   "code": "aMy",
+   "name": "Mylonites interlayered with amphibolites",
+   "color": "#7aa3ff",
+   "pixels": 5,
+   "shareOfBlock": 0.01,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 3,
+   "largest": {
+    "area": 2,
+    "width": 3.0,
+    "length": 2.0,
+    "top_left": [
+     285,
+     30
     ],
     "kind": "speck"
    }
@@ -552,27 +552,6 @@
     "top_left": [
      2,
      125
-    ],
-    "kind": "speck"
-   }
-  },
-  {
-   "id": 40,
-   "code": "Glgss",
-   "name": "Gravel and sand",
-   "color": "#b2d181",
-   "pixels": 1,
-   "shareOfBlock": 0.0,
-   "bodies": 0,
-   "ribbons": 0,
-   "specks": 1,
-   "largest": {
-    "area": 1,
-    "width": 3.0,
-    "length": 1.0,
-    "top_left": [
-     222,
-     208
     ],
     "kind": "speck"
    }
@@ -743,14 +722,32 @@
      "bOnly": 0
     },
     "79": {
-     "both": 113,
+     "both": 56,
      "aOnly": 0,
-     "bOnly": 2
+     "bOnly": 8
+    },
+    "95": {
+     "both": 55,
+     "aOnly": 58,
+     "bOnly": 0
     }
    },
-   "brokenRuns": 0,
-   "repairedPixels": 0,
-   "runs": []
+   "brokenRuns": 1,
+   "repairedPixels": 165,
+   "runs": [
+    {
+     "uid": 95,
+     "start": 216,
+     "stop": 270,
+     "length": 55,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      79
+     ],
+     "applied": true
+    }
+   ]
   }
  },
  "corners": [
@@ -772,7 +769,8 @@
      79
     ],
     "3": [
-     79
+     79,
+     95
     ]
    },
    "jointUnit": 79

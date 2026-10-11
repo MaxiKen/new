@@ -11,7 +11,7 @@
     120,
     96
   ],
-  "paperPixels": 4173967,
+  "paperPixels": 4173785,
   "frameGuardPixels": 8,
   "mappedAreaBox": [
     70,
@@ -70,15 +70,25 @@
       "medianLength": 36.5,
       "casingPixels": 162380,
       "pixels": 162380
+    },
+    "openWaterMarks": {
+      "pixels": 49764,
+      "strokes": 32939,
+      "washPixels": 59410,
+      "seaTone": [
+        152,
+        218,
+        242
+      ]
     }
   },
   "erase": {
-    "pixels": 346265,
-    "bandPixels": 1849287,
-    "shareOfZone": 2.564,
-    "shareOfMappedArea": 3.767
+    "pixels": 369202,
+    "bandPixels": 1872681,
+    "shareOfZone": 2.734,
+    "shareOfMappedArea": 4.019
   },
-  "healedPixels": 211688,
+  "healedPixels": 228284,
   "boundaryPixels": 1078606,
   "residualBefore": {
     "waterStrokeComponents": 14889,
@@ -95,8 +105,8 @@
     "grayStrokeComponents": 149,
     "grayStrokePixels": 149,
     "unpaintedPixels": 0,
-    "waterPixels": 1183894,
-    "grayPixels": 2445
+    "waterPixels": 1214634,
+    "grayPixels": 2435
   },
   "legend": [
     {
@@ -104,7 +114,7 @@
       "code": "Al",
       "name": "Alluvium",
       "color": "#ecff65",
-      "pixels": 487906,
+      "pixels": 488048,
       "before": 487792
     },
     {
@@ -120,7 +130,7 @@
       "code": "AB",
       "name": "Sands and pebbles",
       "color": "#f0ff82",
-      "pixels": 33263,
+      "pixels": 33514,
       "before": 33013
     },
     {
@@ -128,7 +138,7 @@
       "code": "MS",
       "name": "Sand, clay and mangrove swamps",
       "color": "#96aaff",
-      "pixels": 74486,
+      "pixels": 74175,
       "before": 73733
     },
     {
@@ -144,7 +154,7 @@
       "code": "Cst",
       "name": "Sands, clays, siltstones and limestones",
       "color": "#f0ff5a",
-      "pixels": 868921,
+      "pixels": 868900,
       "before": 868784
     },
     {
@@ -160,7 +170,7 @@
       "code": "b",
       "name": "Younger basalt",
       "color": "#d8d8fc",
-      "pixels": 46767,
+      "pixels": 47397,
       "before": 42198
     },
     {
@@ -176,7 +186,7 @@
       "code": "OAlgs",
       "name": "Lignite, claystone and shale",
       "color": "#ebfd68",
-      "pixels": 14102,
+      "pixels": 13944,
       "before": 13990
     },
     {
@@ -184,7 +194,7 @@
       "code": "Issh",
       "name": "Clay, clayey sands and shale",
       "color": "#ffc9e0",
-      "pixels": 59313,
+      "pixels": 59312,
       "before": 59236
     },
     {
@@ -224,7 +234,7 @@
       "code": "Imsh",
       "name": "Clay and shale with limestone intercalations",
       "color": "#ccdf6c",
-      "pixels": 46598,
+      "pixels": 46595,
       "before": 46566
     },
     {
@@ -240,7 +250,7 @@
       "code": "Dsh",
       "name": "Shale",
       "color": "#dbdeb1",
-      "pixels": 20181,
+      "pixels": 20118,
       "before": 18827
     },
     {
@@ -256,7 +266,7 @@
       "code": "Gss",
       "name": "Sandstone, siltstone, shale and ironstone",
       "color": "#e5ffa8",
-      "pixels": 52127,
+      "pixels": 52134,
       "before": 51252
     },
     {
@@ -264,7 +274,7 @@
       "code": "Ajst",
       "name": "False-bedded sandstone",
       "color": "#ceffa6",
-      "pixels": 97806,
+      "pixels": 97805,
       "before": 97746
     },
     {
@@ -280,7 +290,7 @@
       "code": "Ncsh",
       "name": "Sandstone, limestone, coal",
       "color": "#b6e397",
-      "pixels": 13963,
+      "pixels": 13962,
       "before": 13893
     },
     {
@@ -288,7 +298,7 @@
       "code": "Asl",
       "name": "Sandstone and limestone",
       "color": "#c5f4b0",
-      "pixels": 30569,
+      "pixels": 30558,
       "before": 30410
     },
     {
@@ -304,7 +314,7 @@
       "code": "Bssf",
       "name": "Sandstone and ironstone",
       "color": "#d6ff85",
-      "pixels": 37033,
+      "pixels": 37022,
       "before": 36732
     },
     {
@@ -320,7 +330,7 @@
       "code": "ANsh",
       "name": "Shale and limestone",
       "color": "#ccd86c",
-      "pixels": 14284,
+      "pixels": 14282,
       "before": 14263
     },
     {
@@ -328,7 +338,7 @@
       "code": "Tst",
       "name": "Sandstone, siltstone and shale",
       "color": "#9cd6bd",
-      "pixels": 92038,
+      "pixels": 92000,
       "before": 87228
     },
     {
@@ -344,7 +354,7 @@
       "code": "Wss",
       "name": "Sandstone, clays and shale",
       "color": "#bdec9b",
-      "pixels": 17430,
+      "pixels": 17424,
       "before": 17101
     },
     {
@@ -376,7 +386,7 @@
       "code": "Psh",
       "name": "Shale, limestone and sandstone",
       "color": "#79ddb0",
-      "pixels": 11434,
+      "pixels": 11414,
       "before": 10952
     },
     {
@@ -384,7 +394,7 @@
       "code": "Lass",
       "name": "Sandstone, shale and sandy shale",
       "color": "#bcc8b8",
-      "pixels": 41658,
+      "pixels": 41517,
       "before": 40913
     },
     {
@@ -392,7 +402,7 @@
       "code": "NPss",
       "name": "Feldspathic sandstone and siltstone",
       "color": "#79deb0",
-      "pixels": 376502,
+      "pixels": 376546,
       "before": 376137
     },
     {
@@ -416,7 +426,7 @@
       "code": "Glgss",
       "name": "Gravel and sand",
       "color": "#b2d181",
-      "pixels": 53090,
+      "pixels": 53070,
       "before": 53047
     },
     {
@@ -448,7 +458,7 @@
       "code": "Mlst",
       "name": "Limestone and siltstone",
       "color": "#b9e6a3",
-      "pixels": 7400,
+      "pixels": 7389,
       "before": 6931
     },
     {
@@ -456,7 +466,7 @@
       "code": "Awst",
       "name": "Sandstone",
       "color": "#b9e6c2",
-      "pixels": 8261,
+      "pixels": 8224,
       "before": 6824
     },
     {
@@ -568,7 +578,7 @@
       "code": "P",
       "name": "Pegmatite",
       "color": "#c19578",
-      "pixels": 6218,
+      "pixels": 6213,
       "before": 6116
     },
     {
@@ -632,7 +642,7 @@
       "code": "OGm",
       "name": "Medium-to-coarse-grained biotite granite",
       "color": "#ff8eba",
-      "pixels": 234340,
+      "pixels": 234201,
       "before": 232363
     },
     {
@@ -680,7 +690,7 @@
       "code": "BIF",
       "name": "Banded iron formation",
       "color": "#e0e096",
-      "pixels": 45695,
+      "pixels": 45685,
       "before": 44794
     },
     {
@@ -688,7 +698,7 @@
       "code": "Sp",
       "name": "Slate phyllite and meta-siltstone, locally hornfelsic / carbonaceous",
       "color": "#79b9ff",
-      "pixels": 47885,
+      "pixels": 45367,
       "before": 44135
     },
     {
@@ -704,7 +714,7 @@
       "code": "Sf",
       "name": "Fine-grained flaggy quartzite and quartz schist",
       "color": "#9eb9e6",
-      "pixels": 104235,
+      "pixels": 110857,
       "before": 88678
     },
     {
@@ -720,7 +730,7 @@
       "code": "MS",
       "name": "Pelitic schist / muscovite schist",
       "color": "#f2f600",
-      "pixels": 74455,
+      "pixels": 74453,
       "before": 74435
     },
     {
@@ -728,7 +738,7 @@
       "code": "Su",
       "name": "Undifferentiated schists, including phyllites",
       "color": "#79c1d9",
-      "pixels": 293307,
+      "pixels": 259601,
       "before": 263278
     },
     {
@@ -744,7 +754,7 @@
       "code": "bS",
       "name": "Biotite garnet gneiss schist",
       "color": "#dfba74",
-      "pixels": 38907,
+      "pixels": 38882,
       "before": 38289
     },
     {
@@ -752,7 +762,7 @@
       "code": "bG-h",
       "name": "Biotite hornblende gneiss",
       "color": "#d8b25a",
-      "pixels": 19614,
+      "pixels": 19590,
       "before": 19407
     },
     {
@@ -768,7 +778,7 @@
       "code": "GG",
       "name": "Granite gneiss",
       "color": "#ffb44c",
-      "pixels": 455367,
+      "pixels": 455562,
       "before": 452281
     },
     {
@@ -800,7 +810,7 @@
       "code": "MG",
       "name": "Migmatitic gneiss",
       "color": "#dfc477",
-      "pixels": 366560,
+      "pixels": 366713,
       "before": 365372
     },
     {
@@ -816,7 +826,7 @@
       "code": "qs",
       "name": "Silicified, sheared rocks, large quartz veins",
       "color": "#f0ff86",
-      "pixels": 12576,
+      "pixels": 12578,
       "before": 12166
     },
     {
@@ -832,7 +842,7 @@
       "code": "aMy",
       "name": "Mylonites interlayered with amphibolites",
       "color": "#7aa3ff",
-      "pixels": 6243,
+      "pixels": 4925,
       "before": 5433
     },
     {
@@ -856,7 +866,7 @@
       "code": "WATER",
       "name": "Mapped water / water-color interpretation; not geology",
       "color": "#99d8eb",
-      "pixels": 28478,
+      "pixels": 59217,
       "before": 52801
     }
   ]

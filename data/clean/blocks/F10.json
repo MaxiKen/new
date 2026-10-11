@@ -7,25 +7,25 @@
   3248
  ],
  "zonePixels": 107912,
- "geologyPixels": 29987,
- "mappedFraction": 27.8,
+ "geologyPixels": 29364,
+ "mappedFraction": 27.2,
  "formations": [
   {
    "id": 95,
    "code": "WATER",
    "name": "Mapped water / water-color interpretation; not geology",
    "color": "#99d8eb",
-   "pixels": 61907,
-   "shareOfBlock": 57.37,
+   "pixels": 62541,
+   "shareOfBlock": 57.96,
    "bodies": 3,
    "ribbons": 0,
    "specks": 4,
    "largest": {
-    "area": 61817,
-    "width": 214.55,
-    "length": 323.0,
+    "area": 62451,
+    "width": 288.07,
+    "length": 326.0,
     "top_left": [
-     3,
+     0,
      64
     ],
     "kind": "body"
@@ -78,20 +78,20 @@
    "code": "Sf",
    "name": "Fine-grained flaggy quartzite and quartz schist",
    "color": "#9eb9e6",
-   "pixels": 2304,
-   "shareOfBlock": 2.14,
-   "bodies": 13,
-   "ribbons": 11,
-   "specks": 66,
+   "pixels": 2797,
+   "shareOfBlock": 2.59,
+   "bodies": 8,
+   "ribbons": 10,
+   "specks": 47,
    "largest": {
-    "area": 409,
-    "width": 7.32,
-    "length": 58.0,
+    "area": 703,
+    "width": 16.62,
+    "length": 61.0,
     "top_left": [
-     259,
-     74
+     0,
+     178
     ],
-    "kind": "ribbon"
+    "kind": "body"
    }
   },
   {
@@ -111,27 +111,6 @@
     "top_left": [
      72,
      89
-    ],
-    "kind": "body"
-   }
-  },
-  {
-   "id": 79,
-   "code": "Su",
-   "name": "Undifferentiated schists, including phyllites",
-   "color": "#79c1d9",
-   "pixels": 1203,
-   "shareOfBlock": 1.11,
-   "bodies": 3,
-   "ribbons": 1,
-   "specks": 6,
-   "largest": {
-    "area": 1048,
-    "width": 11.0,
-    "length": 328.0,
-    "top_left": [
-     0,
-     204
     ],
     "kind": "body"
    }
@@ -162,11 +141,11 @@
    "code": "b",
    "name": "Younger basalt",
    "color": "#d8d8fc",
-   "pixels": 719,
+   "pixels": 725,
    "shareOfBlock": 0.67,
-   "bodies": 2,
+   "bodies": 3,
    "ribbons": 1,
-   "specks": 192,
+   "specks": 188,
    "largest": {
     "area": 95,
     "width": 7.0,
@@ -174,27 +153,6 @@
     "top_left": [
      192,
      84
-    ],
-    "kind": "ribbon"
-   }
-  },
-  {
-   "id": 74,
-   "code": "Sp",
-   "name": "Slate phyllite and meta-siltstone, locally hornfelsic / carbonaceous",
-   "color": "#79b9ff",
-   "pixels": 614,
-   "shareOfBlock": 0.57,
-   "bodies": 4,
-   "ribbons": 1,
-   "specks": 110,
-   "largest": {
-    "area": 98,
-    "width": 5.47,
-    "length": 20.0,
-    "top_left": [
-     13,
-     206
     ],
     "kind": "ribbon"
    }
@@ -218,6 +176,48 @@
      0
     ],
     "kind": "body"
+   }
+  },
+  {
+   "id": 74,
+   "code": "Sp",
+   "name": "Slate phyllite and meta-siltstone, locally hornfelsic / carbonaceous",
+   "color": "#79b9ff",
+   "pixels": 430,
+   "shareOfBlock": 0.4,
+   "bodies": 3,
+   "ribbons": 0,
+   "specks": 91,
+   "largest": {
+    "area": 102,
+    "width": 6.66,
+    "length": 21.0,
+    "top_left": [
+     259,
+     128
+    ],
+    "kind": "body"
+   }
+  },
+  {
+   "id": 79,
+   "code": "Su",
+   "name": "Undifferentiated schists, including phyllites",
+   "color": "#79c1d9",
+   "pixels": 387,
+   "shareOfBlock": 0.36,
+   "bodies": 1,
+   "ribbons": 2,
+   "specks": 3,
+   "largest": {
+    "area": 283,
+    "width": 5.47,
+    "length": 123.0,
+    "top_left": [
+     297,
+     206
+    ],
+    "kind": "ribbon"
    }
   },
   {
@@ -389,27 +389,6 @@
    }
   },
   {
-   "id": 92,
-   "code": "aMy",
-   "name": "Mylonites interlayered with amphibolites",
-   "color": "#7aa3ff",
-   "pixels": 102,
-   "shareOfBlock": 0.09,
-   "bodies": 1,
-   "ribbons": 0,
-   "specks": 12,
-   "largest": {
-    "area": 34,
-    "width": 3.83,
-    "length": 12.0,
-    "top_left": [
-     37,
-     223
-    ],
-    "kind": "body"
-   }
-  },
-  {
    "id": 36,
    "code": "Lass",
    "name": "Sandstone, shale and sandy shale",
@@ -519,11 +498,11 @@
    "code": "MS",
    "name": "Sand, clay and mangrove swamps",
    "color": "#96aaff",
-   "pixels": 26,
+   "pixels": 22,
    "shareOfBlock": 0.02,
    "bodies": 0,
    "ribbons": 0,
-   "specks": 14,
+   "specks": 11,
    "largest": {
     "area": 6,
     "width": 3.0,
@@ -615,6 +594,27 @@
     "top_left": [
      29,
      147
+    ],
+    "kind": "speck"
+   }
+  },
+  {
+   "id": 92,
+   "code": "aMy",
+   "name": "Mylonites interlayered with amphibolites",
+   "color": "#7aa3ff",
+   "pixels": 3,
+   "shareOfBlock": 0.0,
+   "bodies": 0,
+   "ribbons": 0,
+   "specks": 2,
+   "largest": {
+    "area": 2,
+    "width": 3.0,
+    "length": 2.0,
+    "top_left": [
+     277,
+     116
     ],
     "kind": "speck"
    }
@@ -777,60 +777,43 @@
      "aOnly": 2,
      "bOnly": 1
     },
-    "74": {
-     "both": 0,
-     "aOnly": 0,
-     "bOnly": 5
-    },
     "76": {
-     "both": 15,
-     "aOnly": 0,
-     "bOnly": 7
+     "both": 25,
+     "aOnly": 1,
+     "bOnly": 40
     },
     "79": {
-     "both": 152,
-     "aOnly": 11,
-     "bOnly": 1
+     "both": 22,
+     "aOnly": 4,
+     "bOnly": 0
     },
     "90": {
      "both": 0,
      "aOnly": 1,
      "bOnly": 1
     },
-    "92": {
-     "both": 0,
+    "95": {
+     "both": 130,
      "aOnly": 0,
-     "bOnly": 2
+     "bOnly": 0
     }
    },
-   "brokenRuns": 2,
-   "repairedPixels": 35,
+   "brokenRuns": 1,
+   "repairedPixels": 0,
    "runs": [
     {
      "uid": 76,
      "start": 199,
-     "stop": 204,
-     "length": 6,
+     "stop": 237,
+     "length": 39,
      "has": "b",
      "onto": "a",
      "displaced": [
-      79
-     ],
-     "applied": true
-    },
-    {
-     "uid": 79,
-     "start": 198,
-     "stop": 205,
-     "length": 8,
-     "has": "a",
-     "onto": "b",
-     "displaced": [
-      76,
       95
      ],
-     "heldBack": 7,
-     "applied": true
+     "heldBack": 117,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
     }
    ]
   },
@@ -838,14 +821,32 @@
    "neighbour": "F11",
    "unitsMatched": {
     "79": {
-     "both": 328,
+     "both": 31,
      "aOnly": 0,
+     "bOnly": 2
+    },
+    "95": {
+     "both": 298,
+     "aOnly": 28,
      "bOnly": 0
     }
    },
-   "brokenRuns": 0,
-   "repairedPixels": 0,
-   "runs": []
+   "brokenRuns": 1,
+   "repairedPixels": 84,
+   "runs": [
+    {
+     "uid": 95,
+     "start": 298,
+     "stop": 325,
+     "length": 28,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      79
+     ],
+     "applied": true
+    }
+   ]
   },
   "N": {
    "neighbour": "F9",
@@ -1025,7 +1026,8 @@
      79
     ],
     "1": [
-     79
+     79,
+     95
     ],
     "2": [
      79
@@ -1050,19 +1052,19 @@
    ],
    "quadrants": {
     "0": [
-     79
+     95
     ],
     "1": [
-     79
+     95
     ],
     "2": [
-     79
+     95
     ],
     "3": [
-     79
+     95
     ]
    },
-   "jointUnit": 79
+   "jointUnit": 95
   },
   {
    "corner": "NE",

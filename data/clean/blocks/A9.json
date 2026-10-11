@@ -7,43 +7,22 @@
   2919
  ],
  "zonePixels": 107912,
- "geologyPixels": 3314,
- "mappedFraction": 3.1,
+ "geologyPixels": 0,
+ "mappedFraction": 0.0,
  "formations": [
   {
    "id": 95,
    "code": "WATER",
    "name": "Mapped water / water-color interpretation; not geology",
    "color": "#99d8eb",
-   "pixels": 104496,
-   "shareOfBlock": 96.83,
+   "pixels": 107912,
+   "shareOfBlock": 100.0,
    "bodies": 1,
    "ribbons": 0,
    "specks": 0,
    "largest": {
-    "area": 104496,
-    "width": 323.1,
-    "length": 324.0,
-    "top_left": [
-     4,
-     4
-    ],
-    "kind": "body"
-   }
-  },
-  {
-   "id": 79,
-   "code": "Su",
-   "name": "Undifferentiated schists, including phyllites",
-   "color": "#79c1d9",
-   "pixels": 3416,
-   "shareOfBlock": 3.17,
-   "bodies": 1,
-   "ribbons": 0,
-   "specks": 1,
-   "largest": {
-    "area": 3410,
-    "width": 12.31,
+    "area": 107912,
+    "width": 928.72,
     "length": 329.0,
     "top_left": [
      0,
@@ -64,67 +43,44 @@
   "E": {
    "neighbour": "B9",
    "unitsMatched": {
-    "79": {
-     "both": 325,
-     "aOnly": 3,
-     "bOnly": 0
-    },
     "95": {
-     "both": 0,
-     "aOnly": 324,
-     "bOnly": 3
+     "both": 328,
+     "aOnly": 0,
+     "bOnly": 0
     }
    },
-   "brokenRuns": 1,
-   "repairedPixels": 972,
-   "runs": [
-    {
-     "uid": 95,
-     "start": 4,
-     "stop": 327,
-     "length": 324,
-     "has": "a",
-     "onto": "b",
-     "displaced": [
-      79
-     ],
-     "applied": true
-    }
-   ]
+   "brokenRuns": 0,
+   "repairedPixels": 0,
+   "runs": []
   },
   "S": {
    "neighbour": "A10",
    "unitsMatched": {
-    "79": {
+    "95": {
      "both": 21,
      "aOnly": 0,
      "bOnly": 308
-    },
-    "95": {
-     "both": 0,
-     "aOnly": 3,
-     "bOnly": 0
     }
    },
    "brokenRuns": 2,
-   "repairedPixels": 4,
+   "repairedPixels": 0,
    "runs": [
     {
-     "uid": 79,
+     "uid": 95,
      "start": 16,
      "stop": 158,
      "length": 143,
      "has": "b",
      "onto": "a",
      "displaced": [
-      79,
       95
      ],
-     "heldBack": 425,
-     "applied": true
+     "heldBack": 429,
+     "applied": false,
+     "skipped": "blank sheet or open water on the far side"
     },
     {
-     "uid": 79,
+     "uid": 95,
      "start": 162,
      "stop": 326,
      "length": 165,
@@ -142,7 +98,7 @@
   "N": {
    "neighbour": "A8",
    "unitsMatched": {
-    "79": {
+    "95": {
      "both": 329,
      "aOnly": 0,
      "bOnly": 0
@@ -165,19 +121,19 @@
    ],
    "quadrants": {
     "0": [
-     79
+     95
     ],
     "1": [
-     79
+     95
     ],
     "2": [
      95
     ],
     "3": [
-     79
+     95
     ]
    },
-   "jointUnit": null
+   "jointUnit": 95
   },
   {
    "corner": "SW",
@@ -190,19 +146,19 @@
    ],
    "quadrants": {
     "0": [
-     79
+     95
     ],
     "1": [
-     79
+     95
     ],
     "2": [
-     79
+     95
     ],
     "3": [
-     79
+     95
     ]
    },
-   "jointUnit": 79
+   "jointUnit": 95
   },
   {
    "corner": "NE",
@@ -218,17 +174,16 @@
      95
     ],
     "1": [
-     79
+     95
     ],
     "2": [
-     79,
      95
     ],
     "3": [
-     79
+     95
     ]
    },
-   "jointUnit": null
+   "jointUnit": 95
   },
   {
    "corner": "NW",
@@ -241,19 +196,19 @@
    ],
    "quadrants": {
     "0": [
-     79
+     95
     ],
     "1": [
-     79
+     95
     ],
     "2": [
-     79
+     95
     ],
     "3": [
-     79
+     95
     ]
    },
-   "jointUnit": 79
+   "jointUnit": 95
   }
  ]
 }

@@ -57,13 +57,13 @@
    "code": "Su",
    "name": "Undifferentiated schists, including phyllites",
    "color": "#79c1d9",
-   "pixels": 18815,
-   "shareOfBlock": 17.49,
+   "pixels": 18863,
+   "shareOfBlock": 17.53,
    "bodies": 6,
    "ribbons": 0,
    "specks": 1,
    "largest": {
-    "area": 8843,
+    "area": 8891,
     "width": 63.48,
     "length": 171.0,
     "top_left": [
@@ -183,8 +183,8 @@
    "code": "OGm",
    "name": "Medium-to-coarse-grained biotite granite",
    "color": "#ff8eba",
-   "pixels": 2684,
-   "shareOfBlock": 2.49,
+   "pixels": 2636,
+   "shareOfBlock": 2.45,
    "bodies": 3,
    "ribbons": 0,
    "specks": 9,
@@ -950,7 +950,7 @@
      "bOnly": 3
     },
     "67": {
-     "both": 24,
+     "both": 8,
      "aOnly": 0,
      "bOnly": 0
     },
@@ -965,9 +965,9 @@
      "bOnly": 0
     },
     "79": {
-     "both": 18,
+     "both": 34,
      "aOnly": 4,
-     "bOnly": 24
+     "bOnly": 8
     },
     "81": {
      "both": 0,
@@ -996,13 +996,13 @@
     }
    },
    "brokenRuns": 2,
-   "repairedPixels": 90,
+   "repairedPixels": 42,
    "runs": [
     {
      "uid": 79,
      "start": 5,
-     "stop": 28,
-     "length": 24,
+     "stop": 12,
+     "length": 8,
      "has": "b",
      "onto": "a",
      "displaced": [

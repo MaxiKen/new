@@ -7,43 +7,22 @@
   3336
  ],
  "zonePixels": 26320,
- "geologyPixels": 1466,
- "mappedFraction": 5.6,
+ "geologyPixels": 108,
+ "mappedFraction": 0.4,
  "formations": [
   {
    "id": 95,
    "code": "WATER",
    "name": "Mapped water / water-color interpretation; not geology",
    "color": "#99d8eb",
-   "pixels": 24827,
-   "shareOfBlock": 94.33,
+   "pixels": 26188,
+   "shareOfBlock": 99.5,
    "bodies": 1,
    "ribbons": 0,
    "specks": 0,
    "largest": {
-    "area": 24827,
-    "width": 77.0,
-    "length": 327.0,
-    "top_left": [
-     0,
-     4
-    ],
-    "kind": "body"
-   }
-  },
-  {
-   "id": 79,
-   "code": "Su",
-   "name": "Undifferentiated schists, including phyllites",
-   "color": "#79c1d9",
-   "pixels": 1486,
-   "shareOfBlock": 5.65,
-   "bodies": 1,
-   "ribbons": 0,
-   "specks": 2,
-   "largest": {
-    "area": 1468,
-    "width": 9.94,
+    "area": 26188,
+    "width": 161.0,
     "length": 329.0,
     "top_left": [
      0,
@@ -53,22 +32,43 @@
    }
   },
   {
+   "id": 79,
+   "code": "Su",
+   "name": "Undifferentiated schists, including phyllites",
+   "color": "#79c1d9",
+   "pixels": 128,
+   "shareOfBlock": 0.49,
+   "bodies": 0,
+   "ribbons": 1,
+   "specks": 3,
+   "largest": {
+    "area": 109,
+    "width": 5.0,
+    "length": 55.0,
+    "top_left": [
+     327,
+     25
+    ],
+    "kind": "ribbon"
+   }
+  },
+  {
    "id": 63,
    "code": "OGS",
    "name": "Syenite, mainly of pyroxene diorite composition",
    "color": "#cccccc",
-   "pixels": 7,
-   "shareOfBlock": 0.03,
+   "pixels": 4,
+   "shareOfBlock": 0.02,
    "bodies": 0,
    "ribbons": 0,
-   "specks": 6,
+   "specks": 4,
    "largest": {
-    "area": 2,
+    "area": 1,
     "width": 3.0,
-    "length": 2.0,
+    "length": 1.0,
     "top_left": [
-     63,
-     31
+     157,
+     53
     ],
     "kind": "speck"
    }
@@ -86,45 +86,63 @@
    "neighbour": "E11",
    "unitsMatched": {
     "79": {
-     "both": 76,
+     "both": 51,
      "aOnly": 0,
+     "bOnly": 1
+    },
+    "95": {
+     "both": 25,
+     "aOnly": 51,
      "bOnly": 0
     }
    },
-   "brokenRuns": 0,
-   "repairedPixels": 0,
-   "runs": []
+   "brokenRuns": 1,
+   "repairedPixels": 153,
+   "runs": [
+    {
+     "uid": 95,
+     "start": 25,
+     "stop": 75,
+     "length": 51,
+     "has": "a",
+     "onto": "b",
+     "displaced": [
+      79
+     ],
+     "applied": true
+    }
+   ]
   },
   "W": {
    "neighbour": "C11",
    "unitsMatched": {
     "79": {
-     "both": 6,
-     "aOnly": 0,
-     "bOnly": 70
+     "both": 2,
+     "aOnly": 1,
+     "bOnly": 49
     },
     "95": {
-     "both": 70,
+     "both": 74,
      "aOnly": 0,
-     "bOnly": 3
+     "bOnly": 0
     }
    },
    "brokenRuns": 2,
-   "repairedPixels": 0,
+   "repairedPixels": 51,
    "runs": [
     {
      "uid": 79,
-     "start": 4,
+     "start": 24,
      "stop": 50,
-     "length": 47,
-     "has": "b",
-     "onto": "a",
+     "length": 27,
+     "has": "a",
+     "onto": "b",
      "displaced": [
+      79,
       95
      ],
-     "heldBack": 141,
-     "applied": false,
-     "skipped": "blank sheet or open water on the far side"
+     "heldBack": 30,
+     "applied": true
     },
     {
      "uid": 79,
@@ -145,7 +163,12 @@
   "N": {
    "neighbour": "D10",
    "unitsMatched": {
-    "79": {
+    "76": {
+     "both": 0,
+     "aOnly": 0,
+     "bOnly": 2
+    },
+    "95": {
      "both": 329,
      "aOnly": 0,
      "bOnly": 0
@@ -198,19 +221,21 @@
    ],
    "quadrants": {
     "0": [
-     79
+     95
     ],
     "1": [
-     79
+     95
     ],
     "2": [
-     79
+     76,
+     95
     ],
     "3": [
-     79
+     76,
+     95
     ]
    },
-   "jointUnit": 79
+   "jointUnit": 95
   },
   {
    "corner": "NW",
@@ -223,20 +248,19 @@
    ],
    "quadrants": {
     "0": [
-     79
+     95
     ],
     "1": [
-     79,
      95
     ],
     "2": [
-     79
+     95
     ],
     "3": [
-     79
+     95
     ]
    },
-   "jointUnit": 79
+   "jointUnit": 95
   }
  ]
 }

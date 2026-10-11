@@ -1,0 +1,23 @@
+{
+  "version1": {
+    "continuousPx": 59314,
+    "cutPx": 16777,
+    "cutShare": 22.049
+  },
+  "assembled": {
+    "continuousPx": 72194,
+    "cutPx": 3897,
+    "cutShare": 5.121
+  },
+  "mosaic": {
+    "blocks": 121,
+    "mapAreaPixels": 13505760,
+    "coveredByBlocks": 12052968,
+    "coverageOfMapArea": 89.24,
+    "outsideBlocksKept": 1510600
+  },
+  "files": [
+    "NGSA_map_geology_v2_blocks.png",
+    "NGSA_map_geology_v2_blocks_photo.jpg"
+  ]
+}
