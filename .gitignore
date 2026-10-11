@@ -1,0 +1,5 @@
+preview_*.png
+analysis/v2_masks.npz
+analysis/changed_mask.npy
+analysis/legend_labels.json
+__pycache__/
