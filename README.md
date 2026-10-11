@@ -29,10 +29,14 @@ v1's 176,798 and v2's 65 inside the map).
 1. **Exact colour census.** v1 is flat-shaded, so its true unit colours are recoverable
    exactly. 64 areal units were isolated from the line work, labels, graticule and
    anti-aliasing by a 7×7 uniformity ("core") test.
-2. **Overlay removed, space filled.** 1,014,171 px (4.57 %) of non-geology overlay —
-   graticule `rgb(76,76,76)`, label/road line work `rgb(224,224,150)`, black neatline and
-   text — were removed and the space filled from the surrounding geology.
-3. **Gaps closed.** 97,777 px of small interior white gaps were filled; 12,273 px of
+2. **Overlay removed, space filled.** The 7.17 % of the map that is not a unit fill and not
+   blank was identified as non-geology overlay — graticule `rgb(76,76,76)`, label/road line
+   work `rgb(224,224,150)`, black neatline and text. Of it, **789,976 px (4.57 %)** sit on
+   mapped geology and were removed with the space filled from the surrounding unit. The
+   remaining **224,195 px** are marks stranded out in the blank sheet area (graticule running
+   across unmapped ground); those are treated as no-data, otherwise flood-filling them paints
+   spurious coloured streaks across blank ground.
+3. **Gaps closed.** 97,777 px of small enclosed white gaps were filled; 2,995 px of
    speckle (<300 px) removed.
 4. **Nothing left blank.** Every remaining non-geology pixel gets the single no-data tone
    `rgb(232,229,223)` → **0.00 % pure white** in v2 (v1: 52.13 %).
@@ -42,7 +46,9 @@ v1's 176,798 and v2's 65 inside the map).
 **Faithfulness check:** of the 8,525,635 px that were already flat unit colours in v1,
 **99.985 % are preserved byte-identical** in v2. v2 changes 6.87 % of the canvas and virtually
 all of that is overlay removal and gap filling. Structural agreement with the NGSA reference,
-compared at ½ resolution to suppress JPEG noise, is **78.33 %**.
+compared at ½ resolution to suppress JPEG noise, is **79.70 %** (v2 shows geology where NGSA
+does not on 23,203 px; NGSA shows geology where v2 does not on 315,551 px — overwhelmingly
+JPEG fringe along unit contacts).
 
 ## Reading the cell atlas
 

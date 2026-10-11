@@ -58,10 +58,21 @@ gap=whiteish&small; nodata=whiteish&(~small)
 print(f'[{time.time()-t0:.0f}s] white comps={nc} gap={int(gap.sum())} nodata={int(nodata.sum())}', flush=True)
 
 # ---- 4. fill overlay+gap from nearest known unit ----
+#     only where the mark actually sits on/next to mapped geology; marks out in the
+#     unmapped sheet area (e.g. graticule running across blank ground) become no-data,
+#     otherwise the flood fill paints spurious coloured streaks there.
+DMAX=10
+dist=ndi.distance_transform_edt(U<0)
+fillable=overlay&(dist<=DMAX)
+stranded=overlay&(dist>DMAX)
+nodata=nodata|stranded
+print(f'[{time.time()-t0:.0f}s] overlay: {int(fillable.sum())} on geology (fill), {int(stranded.sum())} stranded (-> no data)', flush=True)
+del dist
 Uf=U.copy()
-todo=overlay|gap
-idx=ndi.distance_transform_edt(~((Uf>=0)), return_distances=False, return_indices=True)
+todo=fillable|gap
+idx=ndi.distance_transform_edt(~(Uf>=0), return_distances=False, return_indices=True)
 Uf=Uf[tuple(idx)]
+del idx
 # ---- 5. de-speckle (only inside geology) ----
 geo=~nodata
 lab2,n2=ndi.label(geo)
