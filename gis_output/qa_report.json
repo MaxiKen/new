@@ -1,0 +1,45 @@
+{
+  "source_file": "NGSA_map_geology_legend_isolated.png",
+  "source_sha256": "ae7ca4edca4e8a0ebe9bb23d578035a8ff71d2b32d0fb105a48689becc6ac089",
+  "source_size_pixels": [
+    6268,
+    3540
+  ],
+  "crop_xyxy": [
+    69,
+    95,
+    4155,
+    3430
+  ],
+  "legend_rows": 92,
+  "source_colour_classes": 91,
+  "polygon_count": 6473,
+  "geology_polygons": 6401,
+  "water_polygons": 72,
+  "status_counts": {
+    "colour_match": 5962,
+    "ambiguous": 220,
+    "unresolved": 219,
+    "visual_water": 72
+  },
+  "invalid_geometry_count": 0,
+  "empty_geometry_count": 0,
+  "multipart_count": 0,
+  "unique_polygon_ids": true,
+  "valid_pixel_coverage": true,
+  "positive_overlap_pairs_above_1e_15_degree2": 0,
+  "raw_foreground_components": 6473,
+  "source_components_not_represented": 0,
+  "repaired_pixels": 339419,
+  "removed_colour_speck_pixels": 25136,
+  "excluded_thin_water_line_pixels": 3067,
+  "raw_pixel_area": 9272296.0,
+  "smoothed_pixel_area": 9272268.181892868,
+  "smoothing_net_area_change_percent": -0.0003000131481134538,
+  "edge_clipped_features": 6,
+  "minimum_retained_colour_component_pixels": 4,
+  "small_mask_component_threshold_pixels": 8,
+  "review_required": "All polygons require source/field verification; identical legend colours and unmatched fill cannot be definitively attributed from this raster.",
+  "attribute_roundtrip_verified": true,
+  "one_feature_per_retained_source_component": true
+}
