@@ -19,6 +19,7 @@ The viewer supports:
 - Pan, wheel/touch zoom, keyboard zoom and fit; desktop and mobile layouts.
 - Clean polygons, original photo, and an adjustable comparison divider.
 - Click-to-inspect singlepart polygon attributes and review flags.
+- A **Map click shows** toggle: *Polygon info* (default) or *Coordinates*, which places a marker and reads out the exact longitude/latitude (EPSG:4326, the shapefile's X/Y) of any point, with the polygon under it and a copy button.
 - Searchable legend; highlighting never removes polygons from the coverage.
 - A navigable anomaly queue, including uncertain contacts, narrow bodies, annotation-heavy regions, similar colors and unresolved codes.
 - One-copy shared-contact display in a non-black color.

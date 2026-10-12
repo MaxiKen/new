@@ -49,6 +49,34 @@ try {
   await page.locator('#next-issue').click();
   assert.match(await page.locator('#inspect-title').textContent(),/^Polygon /);
   assert.ok((await page.locator('#issue-position').textContent()).includes('flagged bodies'));
+  // Map click toggle: polygon info (default) versus a read-out of exact coordinates.
+  assert.equal(await page.locator('[data-pick="polygon"]').getAttribute('aria-pressed'),'true');
+  await page.locator('[data-pick="coordinate"]').click();
+  assert.equal(await page.locator('[data-pick="coordinate"]').getAttribute('aria-pressed'),'true');
+  await page.locator('#fit').click();await page.waitForTimeout(150);
+  await page.locator('#map').click({position:{x:560,y:420}});
+  assert.equal(await page.locator('#inspect-title').textContent(),'Point coordinate');
+  const lon = Number((await page.locator('#point-lon').textContent()).replace(/[^0-9.]/g,''));
+  const lat = Number((await page.locator('#point-lat').textContent()).replace(/[^0-9.]/g,''));
+  const extent = (await (await fetch(`${base}/data/map.json`)).json());
+  const [t0,t1,t2,t3,t4,t5] = extent.transform;
+  const corner = (x,y)=>[t0*x+t1*y+t2, t3*x+t4*y+t5];
+  const [x0,y0,x1,y1]=extent.extent; const corners=[corner(x0,y0),corner(x1,y0),corner(x0,y1),corner(x1,y1)];
+  assert.ok(lon>=Math.min(...corners.map(c=>c[0]))-0.01 && lon<=Math.max(...corners.map(c=>c[0]))+0.01,'Longitude outside the map extent');
+  assert.ok(lat>=Math.min(...corners.map(c=>c[1]))-0.01 && lat<=Math.max(...corners.map(c=>c[1]))+0.01,'Latitude outside the map extent');
+  // The 4-decimal live cursor readout must agree with the 6-decimal point readout.
+  assert.equal((await page.locator('#coordinates').textContent()).split('°')[0].trim(),lon.toFixed(4));
+  assert.equal(await page.locator('#map-hint').textContent().then(t=>t.includes('read a coordinate')),true);
+  await page.screenshot({path:'.cache/browser/coordinates.png',fullPage:false});
+  await page.locator('[data-pick="polygon"]').click();
+  assert.equal(await page.locator('#inspect-title').textContent(),'Map overview');
+  await page.locator('[data-pick="coordinate"]').click();
+  await page.locator('#map').click({position:{x:600,y:300}});
+  await page.locator('#clear-selection').click();
+  assert.match(await page.locator('#inspector').textContent(),/Read any point/);
+  await page.locator('[data-pick="polygon"]').click();
+  await page.locator('#map').click({position:{x:520,y:380}});
+  assert.match(await page.locator('#inspect-title').textContent(),/^Polygon /);
   await page.locator('#compare-selection').click();
   assert.equal(await page.locator('#source-notice').isVisible(),true);
   assert.equal(await page.locator('#compare-control').isVisible(),true);

@@ -13,12 +13,22 @@ const issueLabels = {
 };
 const state = { data: null, width: 0, height: 0, scale: 1, fitScale: 1, x: 0, y: 0,
   mode: 'clean', split: .5, contacts: true, selected: null, highlighted: null,
-  issue: 'contact-review', issueIndex: -1, sourceReady: false, ready: false };
+  issue: 'contact-review', issueIndex: -1, sourceReady: false, ready: false,
+  pickMode: 'polygon', point: null };
 let fillPaths = [], contactPaths = [], contactBoxes = [], framePending = false;
 const overviewCaches = new Map();
 const targetIcon = '<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="6"/><path d="M12 2v5m0 10v5M2 12h5m10 0h5"/></svg>';
 const source = new Image();
 const safe = (s) => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+// Geographic coordinates of a world (pixel-space) point, from the same affine transform the shapefile was built with.
+function geoAt(x, y) { const t = state.data.transform; return [t[0] * x + t[1] * y + t[2], t[3] * x + t[4] * y + t[5]]; }
+function worldAt(screenX, screenY) { return { x: (screenX - state.x) / state.scale, y: (screenY - state.y) / state.scale }; }
+// Approximate ground size of one screen pixel at the current zoom (WGS84, local metres).
+function metresPerScreenPixel(lat) {
+  const t = state.data.transform;
+  return Math.max(Math.abs(t[0]) * 111320 * Math.cos(lat * Math.PI / 180), Math.abs(t[4]) * 110574) / state.scale;
+}
+const hemisphere = (v, positive, negative) => `${Math.abs(v).toFixed(6)}° ${v >= 0 ? positive : negative}`;
 function makePath(rings) {
   const path = new Path2D();
   for (const ring of rings) {
@@ -103,7 +113,18 @@ function draw() {
     ctx.strokeStyle = '#c99554'; ctx.lineWidth = 1.5; ctx.beginPath();
     ctx.moveTo(state.width * state.split, 0); ctx.lineTo(state.width * state.split, state.height); ctx.stroke();
   }
+  if (state.point) drawPoint();
+  if (state.point && state.pickMode === 'coordinate') { const el = $('point-precision'); if (el) el.textContent = precisionText(state.point.lat); }
   $('zoom-label').textContent = `${Math.round(state.scale / state.fitScale * 100)}%`;
+}
+function drawPoint() {
+  const p = state.point, r = 7 / state.scale;
+  ctx.save(); worldTransform(); ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+  ctx.moveTo(p.x - r * 1.8, p.y); ctx.lineTo(p.x + r * 1.8, p.y); ctx.moveTo(p.x, p.y - r * 1.8); ctx.lineTo(p.x, p.y + r * 1.8);
+  ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 4 / state.scale; ctx.stroke();
+  ctx.strokeStyle = '#c2412d'; ctx.lineWidth = 1.8 / state.scale; ctx.stroke();
+  ctx.restore();
 }
 function resize() {
   const rect = viewport.getBoundingClientRect();
@@ -149,20 +170,70 @@ function legend() {
     $('clear-highlight').hidden = !state.highlighted; legend(); requestDraw();
   }));
 }
-function select(index, focus = false) {
-  state.selected = index; $('clear-selection').hidden = index === null;
-  if (index === null) {
+function setPick(mode) {
+  if (mode === state.pickMode) return;
+  state.pickMode = mode; state.point = null; state.selected = null;
+  document.querySelectorAll('[data-pick]').forEach(b => { b.classList.toggle('active', b.dataset.pick === mode); b.setAttribute('aria-pressed', String(b.dataset.pick === mode)); });
+  $('map-hint').textContent = mode === 'coordinate' ? 'Drag to pan · scroll to zoom · click to read a coordinate' : 'Drag to pan · scroll to zoom · click a polygon';
+  renderInspector();
+}
+function precisionText(lat) {
+  const m = metresPerScreenPixel(lat);
+  return `≈ ${m < 10 ? m.toFixed(1) : Math.round(m).toLocaleString('en')} m`;
+}
+function copyText(text, button) {
+  const label = button.textContent;
+  const done = (message) => { button.textContent = message; setTimeout(() => { button.textContent = label; }, 1800); };
+  if (!navigator.clipboard) return done('Copy unavailable: select the values');
+  navigator.clipboard.writeText(text).then(() => done('Copied ✓'), () => done('Copy blocked: select the values'));
+}
+function renderPoint() {
+  const p = state.point;
+  if (!p) {
+    $('inspector').innerHTML = `<div class="empty-state"><span class="inspect-icon">${targetIcon}</span><h3>Read any point.</h3><p>Click the map to see its exact longitude and latitude. Click again to move the point.</p></div>`;
+    return;
+  }
+  const f = p.feature === null ? null : state.data.features[p.feature];
+  const under = f ? `Polygon ${number.format(f.id)} · ${safe(state.data.classes[f.classId - 1].code)}` : 'No polygon here (background or outside footprint)';
+  const text = `${p.lon.toFixed(6)}, ${p.lat.toFixed(6)}`;
+  $('inspector').innerHTML = `<div class="selection point-readout"><div class="selected-label"><span class="point-icon">${targetIcon}</span><div><strong>Point</strong><small>EPSG:4326 · X = LONGITUDE · Y = LATITUDE</small></div></div>`
+    + `<div class="details-row"><span>Longitude (X)</span><strong id="point-lon">${hemisphere(p.lon, 'E', 'W')}</strong></div>`
+    + `<div class="details-row"><span>Latitude (Y)</span><strong id="point-lat">${hemisphere(p.lat, 'N', 'S')}</strong></div>`
+    + `<div class="details-row"><span>Decimal</span><strong>${text}</strong></div>`
+    + `<div class="details-row"><span>Under this point</span><strong>${under}</strong></div>`
+    + `<div class="details-row"><span>Click precision</span><strong id="point-precision">${precisionText(p.lat)}</strong></div>`
+    + `<button id="copy-point" class="inspect-compare">Copy “lon, lat” for editing</button><p class="point-hint">Zoom in before clicking for finer placement. Source map resolution is about 335 m per pixel.</p></div>`;
+  $('copy-point').addEventListener('click', e => copyText(text, e.currentTarget));
+  $('announcement').textContent = `Point ${p.lon.toFixed(6)} east, ${p.lat.toFixed(6)} north.`;
+}
+function renderInspector() {
+  const points = state.pickMode === 'coordinate';
+  $('clear-selection').hidden = points ? !state.point : state.selected === null;
+  $('clear-selection').setAttribute('aria-label', points ? 'Clear point' : 'Clear polygon selection');
+  if (points) { $('inspect-title').textContent = 'Point coordinate'; renderPoint(); requestDraw(); return; }
+  if (state.selected === null) {
     $('inspect-title').textContent = 'Map overview';
     $('inspector').innerHTML = `<div class="empty-state"><span class="inspect-icon">${targetIcon}</span><h3>Every body, individually.</h3><p>Click a polygon to see its unit, area, and review flags. Same-colored bodies remain separate features.</p></div>`;
-  } else {
+    requestDraw(); return;
+  }
+  const f = state.data.features[state.selected], u = state.data.classes[f.classId - 1];
+  $('inspect-title').textContent = `Polygon ${number.format(f.id)}`;
+  $('inspector').innerHTML = `<div class="selection"><div class="selected-label"><span class="swatch" style="background:${u.color}"></span><div><strong>${safe(u.code)}</strong><small>CLASS ${u.id} · SINGLEPART FEATURE</small></div></div><p class="selected-name">${safe(u.name)}</p><div class="details-row"><span>Approximate area</span><strong>${number.format(f.area)} km²</strong></div><div class="details-row" title="Source pixels in the annotation buffer, summarized per reconstructed body. Not accuracy."><span>Annotation buffer</span><strong>${f.annotation}%</strong></div><div class="details-row" title="Close first/second color matches. Not accuracy."><span>Color ambiguity</span><strong>${f.ambiguity}%</strong></div><div class="details-row"><span>Candidate class IDs</span><strong>${u.candidates.join(', ')}</strong></div><div>${f.issues.length ? f.issues.map(i => `<span class="flag">${safe(issueLabels[i])}</span>`).join('') : '<span class="flag">Draft · geological review still needed</span>'}</div><button id="compare-selection" class="inspect-compare">Compare this body with the photo ↗</button></div>`;
+  $('compare-selection').addEventListener('click', () => { setMode('compare'); fit(f.bbox, 80); });
+  requestDraw();
+}
+function select(index, focus = false) {
+  if (index !== null && state.pickMode !== 'polygon') setPick('polygon');
+  state.selected = index; renderInspector();
+  if (index !== null) {
     const f = state.data.features[index], u = state.data.classes[f.classId - 1];
-    $('inspect-title').textContent = `Polygon ${number.format(f.id)}`;
-    $('inspector').innerHTML = `<div class="selection"><div class="selected-label"><span class="swatch" style="background:${u.color}"></span><div><strong>${safe(u.code)}</strong><small>CLASS ${u.id} · SINGLEPART FEATURE</small></div></div><p class="selected-name">${safe(u.name)}</p><div class="details-row"><span>Approximate area</span><strong>${number.format(f.area)} km²</strong></div><div class="details-row" title="Source pixels in the annotation buffer, summarized per reconstructed body. Not accuracy."><span>Annotation buffer</span><strong>${f.annotation}%</strong></div><div class="details-row" title="Close first/second color matches. Not accuracy."><span>Color ambiguity</span><strong>${f.ambiguity}%</strong></div><div class="details-row"><span>Candidate class IDs</span><strong>${u.candidates.join(', ')}</strong></div><div>${f.issues.length ? f.issues.map(i => `<span class="flag">${safe(issueLabels[i])}</span>`).join('') : '<span class="flag">Draft · geological review still needed</span>'}</div><button id="compare-selection" class="inspect-compare">Compare this body with the photo ↗</button></div>`;
-    $('compare-selection').addEventListener('click', () => { setMode('compare'); fit(f.bbox, 80); });
     if (focus) { fit(f.bbox, 80); if (state.scale > 3) zoom(3 / state.scale); }
     $('announcement').textContent = `Selected polygon ${f.id}, ${u.code}, ${u.name}. ${f.issues.length} review flags.`;
   }
-  requestDraw();
+}
+function clearInspection() {
+  if (state.pickMode === 'coordinate') { state.point = null; renderInspector(); }
+  else select(null);
 }
 function issueList() {
   const counts = state.data.stats.issueCounts;
@@ -177,15 +248,24 @@ function nextIssue() {
   select(indexes[state.issueIndex], true);
   $('issue-position').textContent = `${state.issueIndex + 1} of ${number.format(indexes.length)} flagged bodies`;
 }
-function pick(screenX, screenY) {
-  const x = (screenX - state.x) / state.scale, y = (screenY - state.y) / state.scale;
-  let selected = null;
+function featureAt(x, y) {
+  let found = null;
   ctx.save(); ctx.setTransform(1,0,0,1,0,0);
   for (let i = state.data.features.length - 1; i >= 0; i--) {
     const b = state.data.features[i].bbox;
-    if (x >= b[0] && x <= b[2] && y >= b[1] && y <= b[3] && ctx.isPointInPath(fillPaths[i],x,y,'evenodd')) { selected = i; break; }
+    if (x >= b[0] && x <= b[2] && y >= b[1] && y <= b[3] && ctx.isPointInPath(fillPaths[i],x,y,'evenodd')) { found = i; break; }
   }
-  ctx.restore(); select(selected);
+  ctx.restore(); return found;
+}
+function pick(screenX, screenY) {
+  const { x, y } = worldAt(screenX, screenY);
+  select(featureAt(x, y));
+}
+function placePoint(screenX, screenY) {
+  const { x, y } = worldAt(screenX, screenY);
+  const [lon, lat] = geoAt(x, y);
+  state.point = { x, y, lon, lat, feature: featureAt(x, y) };
+  renderInspector();
 }
 let down = null, moved = false;
 const pointers = new Map();
@@ -201,9 +281,8 @@ canvas.addEventListener('pointermove', e => {
   if (!state.ready) return;
   const rect = canvas.getBoundingClientRect();
   const sx=e.clientX-rect.left, sy=e.clientY-rect.top;
-  const x=(sx-state.x)/state.scale, y=(sy-state.y)/state.scale;
-  const t=state.data.transform;
-  $('coordinates').textContent = `${(t[0]*x+t[1]*y+t[2]).toFixed(4)}° E   ${(t[3]*x+t[4]*y+t[5]).toFixed(4)}° N`;
+  const {x,y}=worldAt(sx,sy); const [lon,lat]=geoAt(x,y);
+  $('coordinates').textContent = `${lon.toFixed(4)}° E   ${lat.toFixed(4)}° N`;
   if (!pointers.has(e.pointerId)) return;
   pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
   if (pointers.size === 2) {
@@ -220,7 +299,10 @@ canvas.addEventListener('pointermove', e => {
 canvas.addEventListener('pointerup', e => {
   if (!pointers.has(e.pointerId)) return;
   const rect=canvas.getBoundingClientRect();
-  if (!moved && pointers.size===1) pick(e.clientX-rect.left,e.clientY-rect.top);
+  if (!moved && pointers.size===1) {
+    const sx=e.clientX-rect.left, sy=e.clientY-rect.top;
+    if (state.pickMode==='coordinate') placePoint(sx,sy); else pick(sx,sy);
+  }
   pointers.delete(e.pointerId); pinch=null;
   if (pointers.size) { const p=[...pointers.values()][0]; down={x:p.x,y:p.y,lastX:p.x,lastY:p.y}; moved=true; }
   else down=null;
@@ -232,7 +314,7 @@ canvas.addEventListener('keydown', e => {
   if (e.key==='+' || e.key==='=') zoom(1.35);
   if (e.key==='-') zoom(1/1.35);
   if (e.key.toLowerCase()==='f' && state.data) fit(state.data.extent);
-  if (e.key==='Escape') select(null);
+  if (e.key==='Escape') clearInspection();
   if (e.key==='ArrowLeft') state.x+=35;
   if (e.key==='ArrowRight') state.x-=35;
   if (e.key==='ArrowUp') state.y+=35;
@@ -245,7 +327,8 @@ $('show-contacts').addEventListener('change',e=>{state.contacts=e.target.checked
 $('compare-position').addEventListener('input',e=>{state.split=Number(e.target.value)/100;requestDraw();});
 $('legend-search').addEventListener('input',legend);
 $('clear-highlight').addEventListener('click',()=>{state.highlighted=null;$('clear-highlight').hidden=true;legend();requestDraw();});
-$('clear-selection').addEventListener('click',()=>select(null));
+$('clear-selection').addEventListener('click',clearInspection);
+document.querySelectorAll('[data-pick]').forEach(b=>b.addEventListener('click',()=>setPick(b.dataset.pick)));
 $('next-issue').addEventListener('click',nextIssue);
 document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
 new ResizeObserver(resize).observe(viewport);
