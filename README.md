@@ -18,7 +18,8 @@ Open the provided live preview (or `http://localhost:3000` when running on your 
 The viewer supports:
 - Pan, wheel/touch zoom, keyboard zoom and fit; desktop and mobile layouts.
 - Clean polygons, original photo, and an adjustable comparison divider.
-- Click-to-inspect singlepart polygon attributes and review flags.
+- Choose polygon inspection or coordinate-based edit notes. Record five edit types (add, join, remove, shrink, enlarge), with a map source, sampled color, optional context, and a second point for joins.
+- Queue any number of notes in page memory only, then copy a complete AI-correction prompt; nothing is written to disk. Coordinates are longitude/latitude to six decimal places (WGS 84 assumed, datum unconfirmed).
 - Searchable legend; highlighting never removes polygons from the coverage.
 - A navigable anomaly queue, including uncertain contacts, narrow bodies, annotation-heavy regions, similar colors and unresolved codes.
 - One-copy shared-contact display in a non-black color.
@@ -66,7 +67,7 @@ npm run test:browser
 
 Browser tests use Playwright and an npm-bundled headless Chromium. On Linux x86-64, the test harness extracts the NSS libraries included in that package into ignored `.cache/`, avoiding an additional browser download or OS package install. `BASE_URL` can point tests at another running instance.
 
-Real-browser tests cover clean-map black-pixel exclusion, intentional black pixels in the source-photo view, selection, anomaly navigation, legend search/highlight, comparison, zoom, contact visibility, download, and responsive grid sizing. Screenshots are saved under ignored `.cache/browser/`.
+Real-browser tests cover clean-map black-pixel exclusion, intentional black pixels in the source-photo view, polygon selection, all five edit types, coordinate/color capture, two-point joins, the in-memory notes queue and prompt copy, anomaly navigation, legend search/highlight, comparison, zoom, contact visibility, download, and responsive grid sizing. Screenshots are saved under ignored `.cache/browser/`.
 
 ## Repository layout
 

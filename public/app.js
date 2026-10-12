@@ -11,10 +11,20 @@ const issueLabels = {
   'unresolved-code': 'Unmatched map codes',
   'water': 'Water interpretation',
 };
+const editTypes = {
+  'add-feature': 'Add a missing small geology feature',
+  'join-features': 'Join two features into one polygon',
+  'remove-polygon': 'Remove this polygon',
+  'shrink-polygon': 'Make this polygon smaller',
+  'expand-polygon': 'Make this polygon bigger',
+};
+const mapSourceLabels = { draft: 'Current shapefile draft', original: 'Original reference map' };
 const state = { data: null, width: 0, height: 0, scale: 1, fitScale: 1, x: 0, y: 0,
-  mode: 'clean', split: .5, contacts: true, selected: null, highlighted: null,
-  issue: 'contact-review', issueIndex: -1, sourceReady: false, ready: false };
+  mode: 'clean', clickMode: 'polygon', split: .5, contacts: true, selected: null, point: null,
+  secondPoint: null, draft: null, captureTarget: null, pendingNotes: [], nextNoteId: 1,
+  highlighted: null, issue: 'contact-review', issueIndex: -1, sourceReady: false, ready: false };
 let fillPaths = [], contactPaths = [], contactBoxes = [], framePending = false;
+let sampleCanvas = null, sampleContext = null;
 const overviewCaches = new Map();
 const targetIcon = '<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="6"/><path d="M12 2v5m0 10v5M2 12h5m10 0h5"/></svg>';
 const source = new Image();
@@ -87,6 +97,28 @@ function drawPhoto() {
   if (state.sourceReady) ctx.drawImage(source, 0, 0, state.data.stats.width, state.data.stats.height);
   ctx.restore();
 }
+function drawPointMarker() {
+  const drawMarker = (point, label, color) => {
+    if (!point) return;
+    const x = state.x + point.mapX * state.scale;
+    const y = state.y + point.mapY * state.scale;
+    const marker = () => {
+      ctx.beginPath(); ctx.moveTo(x - 10, y); ctx.lineTo(x + 10, y);
+      ctx.moveTo(x, y - 10); ctx.lineTo(x, y + 10); ctx.arc(x, y, 5.5, 0, Math.PI * 2); ctx.stroke();
+    };
+    ctx.save(); ctx.lineCap = 'round';
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 5; marker();
+    ctx.strokeStyle = color; ctx.lineWidth = 1.7; marker();
+    ctx.beginPath(); ctx.arc(x, y, 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = '#fff'; ctx.fill(); ctx.strokeStyle = color; ctx.lineWidth = 1.2; ctx.stroke();
+    ctx.font = '600 10px sans-serif'; ctx.textBaseline = 'middle';
+    ctx.lineWidth = 3; ctx.strokeStyle = '#fff'; ctx.strokeText(label, x + 9, y - 9);
+    ctx.fillStyle = color; ctx.fillText(label, x + 9, y - 9);
+    ctx.restore();
+  };
+  drawMarker(state.point, 'A', '#245f83');
+  drawMarker(state.secondPoint, 'B', '#9b6730');
+}
 function draw() {
   framePending = false;
   const ratio = Math.min(devicePixelRatio || 1, 2);
@@ -103,6 +135,7 @@ function draw() {
     ctx.strokeStyle = '#c99554'; ctx.lineWidth = 1.5; ctx.beginPath();
     ctx.moveTo(state.width * state.split, 0); ctx.lineTo(state.width * state.split, state.height); ctx.stroke();
   }
+  drawPointMarker();
   $('zoom-label').textContent = `${Math.round(state.scale / state.fitScale * 100)}%`;
 }
 function resize() {
@@ -139,6 +172,298 @@ function setMode(mode) {
   $('map-subtitle').textContent = mode === 'clean' ? 'Black annotations filled from surrounding geology' : 'Source annotations remain for comparison only';
   requestDraw();
 }
+function roundedCoordinate(value) {
+  const rounded = Number(value.toFixed(6));
+  return Object.is(rounded, -0) ? 0 : rounded;
+}
+function mapPointAt(screenX, screenY) {
+  const mapX = (screenX - state.x) / state.scale;
+  const mapY = (screenY - state.y) / state.scale;
+  const t = state.data.transform;
+  return {
+    mapX, mapY,
+    longitude: roundedCoordinate(t[0] * mapX + t[1] * mapY + t[2]),
+    latitude: roundedCoordinate(t[3] * mapX + t[4] * mapY + t[5]),
+  };
+}
+function axisCoordinate(value, positiveHemisphere, negativeHemisphere) {
+  const rounded = Math.abs(value) < .0000005 ? 0 : value;
+  return `${Math.abs(rounded).toFixed(6)}° ${rounded < 0 ? negativeHemisphere : positiveHemisphere}`;
+}
+function coordinatePair(point) { return `${point.longitude.toFixed(6)}, ${point.latitude.toFixed(6)}`; }
+function updateCoordinateReadout(point) {
+  $('coordinates').textContent = `${axisCoordinate(point.longitude, 'E', 'W')}   ${axisCoordinate(point.latitude, 'N', 'S')}`;
+}
+function featureIndexAt(mapX, mapY) {
+  let selected = null;
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0);
+  for (let i = state.data.features.length - 1; i >= 0; i--) {
+    const box = state.data.features[i].bbox;
+    if (mapX >= box[0] && mapX <= box[2] && mapY >= box[1] && mapY <= box[3] && ctx.isPointInPath(fillPaths[i], mapX, mapY, 'evenodd')) {
+      selected = i; break;
+    }
+  }
+  ctx.restore();
+  return selected;
+}
+function sourceForClick(screenX) {
+  if (state.mode === 'source') return 'original';
+  if (state.mode === 'compare') return screenX < state.width * state.split ? 'original' : 'draft';
+  return 'draft';
+}
+function samplePointColor(point, mapSource) {
+  if (!point) return '';
+  if (mapSource === 'draft') {
+    const index = featureIndexAt(point.mapX, point.mapY);
+    return index === null ? '' : state.data.classes[state.data.features[index].classId - 1].color.toUpperCase();
+  }
+  if (!state.sourceReady || !sampleContext || point.mapX < 0 || point.mapY < 0 ||
+      point.mapX >= source.naturalWidth || point.mapY >= source.naturalHeight) return '';
+  const x = Math.floor(point.mapX), y = Math.floor(point.mapY);
+  sampleContext.clearRect(0, 0, 1, 1);
+  sampleContext.drawImage(source, x, y, 1, 1, 0, 0, 1, 1);
+  const [r, g, b] = sampleContext.getImageData(0, 0, 1, 1).data;
+  return `#${[r, g, b].map(value => value.toString(16).padStart(2, '0')).join('').toUpperCase()}`;
+}
+function updateMapHint() {
+  if (state.captureTarget === 'second') {
+    $('map-hint').textContent = 'Click the map to set Point B · Escape cancels';
+    canvas.setAttribute('aria-label', 'Choose Point B for the pending join note by clicking the map.');
+  } else if (state.clickMode === 'coordinate') {
+    $('map-hint').textContent = 'Drag to pan · scroll to zoom · click a point to start an edit note';
+    canvas.setAttribute('aria-label', 'Interactive Nigeria geological map. Drag to pan, use plus or minus to zoom, press F to fit, click a point to start an edit note.');
+  } else {
+    $('map-hint').textContent = 'Drag to pan · scroll to zoom · click a polygon';
+    canvas.setAttribute('aria-label', 'Interactive Nigeria geological map. Drag to pan, use plus or minus to zoom, press F to fit, click a polygon to inspect.');
+  }
+}
+function renderOverview() {
+  if (state.draft) return renderDraftEditor();
+  $('inspect-title').textContent = 'Map overview';
+  $('clear-selection').hidden = true;
+  $('clear-selection').setAttribute('aria-label', 'Clear map inspection');
+  const coordinateMode = state.clickMode === 'coordinate';
+  $('inspector').innerHTML = coordinateMode
+    ? `<div class="empty-state"><span class="inspect-icon">${targetIcon}</span><h3>Ready to note a map edit.</h3><p>Click a location, choose one of five edit types, then save it to your session list.</p><p>Nothing is written to disk.</p></div>`
+    : `<div class="empty-state"><span class="inspect-icon">${targetIcon}</span><h3>Every body, individually.</h3><p>Click a polygon to see its unit, area, and review flags. Same-colored bodies remain separate features.</p></div>`;
+}
+function setClickMode(mode) {
+  state.clickMode = mode;
+  if (mode !== 'coordinate') state.captureTarget = null;
+  document.querySelectorAll('[data-click-mode]').forEach(button => {
+    const active = button.dataset.clickMode === mode;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+  updateMapHint();
+  if (state.draft) renderDraftEditor();
+  else if (state.selected === null && !state.point) renderOverview();
+}
+async function copyText(text) {
+  try {
+    if (navigator.clipboard?.writeText) { await navigator.clipboard.writeText(text); return true; }
+  } catch { /* Fall through to the selection-based clipboard fallback. */ }
+  const field = document.createElement('textarea');
+  field.value = text; field.setAttribute('readonly', '');
+  field.style.position = 'fixed'; field.style.left = '-10000px';
+  document.body.append(field); field.select();
+  let copied = false;
+  try { copied = document.execCommand('copy'); } catch { copied = false; }
+  field.remove();
+  return copied;
+}
+async function copyCoordinates(point, button, resetLabel = 'Copy coordinates') {
+  const copied = await copyText(coordinatePair(point));
+  button.textContent = copied ? 'Copied ✓' : 'Copy unavailable';
+  $('announcement').textContent = copied
+    ? `Copied longitude ${point.longitude.toFixed(6)}, latitude ${point.latitude.toFixed(6)}.`
+    : 'Clipboard access was unavailable. The coordinate is shown above for manual copying.';
+  window.setTimeout(() => { if (button.isConnected) button.textContent = resetLabel; }, 1800);
+}
+function colorHex(value) { return /^#[0-9a-f]{6}$/i.test(value || '') ? value.toUpperCase() : ''; }
+function setDraftSource(mapSource) {
+  const draft = state.draft;
+  draft.mapSource = mapSource;
+  draft.colorAtPointA = samplePointColor(draft.point, mapSource);
+  draft.colorAtPointB = draft.secondPoint ? samplePointColor(draft.secondPoint, mapSource) : '';
+  if (!draft.colorManuallyEdited) draft.colorCode = draft.colorAtPointA;
+  draft.confirmedColorMatch = false;
+  renderDraftEditor();
+}
+function renderDraftEditor() {
+  const draft = state.draft;
+  if (!draft) return renderOverview();
+  state.point = draft.point; state.secondPoint = draft.secondPoint;
+  $('inspect-title').textContent = 'Draft change note';
+  $('clear-selection').hidden = false;
+  $('clear-selection').setAttribute('aria-label', 'Discard unsaved change note');
+  const actionOptions = Object.entries(editTypes).map(([value, label], index) => `<option value="${value}" ${draft.type === value ? 'selected' : ''}>${index + 1}. ${safe(label)}</option>`).join('');
+  const colorValue = colorHex(draft.colorCode);
+  const colorMismatch = Boolean(draft.colorAtPointA && draft.colorAtPointB && draft.colorAtPointA !== draft.colorAtPointB);
+  const pointB = draft.secondPoint ? coordinatePair(draft.secondPoint) : 'Not captured yet';
+  $('inspector').innerHTML = `<div class="point-selection note-editor">
+    <p class="point-intro">Point A · primary clicked location · decimal degrees</p>
+    <div class="point-coordinate"><span>Longitude</span><strong id="point-longitude">${axisCoordinate(draft.point.longitude, 'E', 'W')}</strong></div>
+    <div class="point-coordinate"><span>Latitude</span><strong id="point-latitude">${axisCoordinate(draft.point.latitude, 'N', 'S')}</strong></div>
+    <button id="copy-point-coordinate" class="copy-coordinate" type="button">Copy Point A coordinates</button>
+    <label class="note-field" for="edit-type"><span>Requested change</span><select id="edit-type"><option value="">Choose one of five edit types…</option>${actionOptions}</select></label>
+    <div class="join-endpoints" id="join-endpoints" ${draft.type === 'join-features' ? '' : 'hidden'}>
+      <div class="endpoint-heading"><span>Point B · second feature</span><strong id="point-b-coordinate">${safe(pointB)}</strong></div>
+      <button id="pick-second-point" class="secondary-button" type="button">${state.captureTarget === 'second' ? 'Waiting for Point B · cancel' : draft.secondPoint ? 'Choose Point B again' : 'Pick the second point on the map'}</button>
+      <div class="join-color-summary"><span>Sampled color at Point B</span><strong id="point-b-color">${safe(draft.colorAtPointB || 'Not sampled yet')}</strong><p id="join-color-warning" ${colorMismatch ? '' : 'hidden'}>The sampled colors differ. Confirm both points belong to the same geological color before saving.</p></div>
+      <label id="color-confirmation-wrap" class="color-confirmation" ${colorMismatch ? '' : 'hidden'}><input id="confirm-color-match" type="checkbox" ${draft.confirmedColorMatch ? 'checked' : ''}><span>I confirm these points belong to the same intended geological color despite the different samples.</span></label>
+    </div>
+    <label class="note-field" for="note-map-source"><span>Reference map</span><select id="note-map-source"><option value="draft" ${draft.mapSource === 'draft' ? 'selected' : ''}>Current shapefile draft</option><option value="original" ${draft.mapSource === 'original' ? 'selected' : ''}>Original reference map</option></select></label>
+    <div class="note-field"><label for="note-color-code">Color code at Point A</label><div class="color-input-row"><input id="note-color-picker" type="color" value="${colorValue || '#808080'}" aria-label="Choose Point A color"><input id="note-color-code" type="text" value="${safe(draft.colorCode)}" maxlength="7" placeholder="No color sampled" autocomplete="off" spellcheck="false"></div><small>Auto-sampled from the selected map; edit if you know the intended code.</small><div id="color-code-error" class="field-error" hidden>Use a six-digit hex color such as #A1B2C3, or leave it blank.</div></div>
+    <label class="note-field" for="edit-details"><span>Additional details <small>optional</small></span><textarea id="edit-details" rows="3" placeholder="Unit name/code, what looks wrong, or other context…">${safe(draft.details)}</textarea></label>
+    <p class="session-only-note">Saving adds this edit to the in-memory list only. Nothing is written to a file or sent to a server.</p>
+    <button id="save-note" class="save-note-button" type="button" ${!draft.type || (draft.type === 'join-features' && !draft.secondPoint) ? 'disabled' : ''}>Save to pending notes</button>
+    <div id="draft-error" class="field-error" role="alert" hidden></div>
+  </div>`;
+  $('copy-point-coordinate').addEventListener('click', event => copyCoordinates(draft.point, event.currentTarget, 'Copy Point A coordinates'));
+  $('edit-type').addEventListener('change', event => { draft.type = event.currentTarget.value; renderDraftEditor(); });
+  $('note-map-source').addEventListener('change', event => setDraftSource(event.currentTarget.value));
+  $('note-color-code').addEventListener('input', event => {
+    draft.colorCode = event.currentTarget.value.trim(); draft.colorManuallyEdited = true;
+    const hex = colorHex(draft.colorCode);
+    if (hex) $('note-color-picker').value = hex;
+    updateDraftValidation();
+  });
+  $('note-color-picker').addEventListener('input', event => {
+    draft.colorCode = event.currentTarget.value.toUpperCase(); draft.colorManuallyEdited = true;
+    $('note-color-code').value = draft.colorCode; updateDraftValidation();
+  });
+  $('edit-details').addEventListener('input', event => { draft.details = event.currentTarget.value; });
+  $('pick-second-point')?.addEventListener('click', () => {
+    if (state.captureTarget === 'second') state.captureTarget = null;
+    else state.captureTarget = 'second';
+    updateMapHint(); renderDraftEditor();
+    if (state.captureTarget === 'second') $('announcement').textContent = 'Choose Point B by clicking the map. Point A and the note details will be kept.';
+  });
+  $('confirm-color-match')?.addEventListener('change', event => {
+    draft.confirmedColorMatch = event.currentTarget.checked; updateDraftValidation();
+  });
+  $('save-note')?.addEventListener('click', saveDraftNote);
+  updateDraftValidation(); updateMapHint(); requestDraw();
+}
+function updateDraftValidation() {
+  const draft = state.draft;
+  if (!draft || !$('save-note')) return;
+  const rawColor = $('note-color-code').value.trim();
+  const invalidColor = rawColor !== '' && !colorHex(rawColor);
+  $('color-code-error').hidden = !invalidColor;
+  const needsSecond = draft.type === 'join-features';
+  const a = draft.colorAtPointA, b = draft.colorAtPointB;
+  const colorMismatch = Boolean(needsSecond && a && b && a !== b);
+  const warning = $('join-color-warning');
+  if (warning) warning.hidden = !colorMismatch;
+  const confirmation = $('color-confirmation-wrap');
+  if (confirmation) confirmation.hidden = !colorMismatch;
+  const confirmInput = $('confirm-color-match');
+  const colorConfirmed = !colorMismatch || Boolean(confirmInput?.checked);
+  $('save-note').disabled = !draft.type || (needsSecond && !draft.secondPoint) || invalidColor || !colorConfirmed;
+}
+function beginDraft(screenX, screenY) {
+  if (state.draft && !window.confirm('Discard the unsaved change note and start a new one?')) {
+    renderDraftEditor(); return;
+  }
+  const point = mapPointAt(screenX, screenY);
+  const mapSource = sourceForClick(screenX);
+  const color = samplePointColor(point, mapSource);
+  state.selected = null; state.point = point; state.secondPoint = null; state.captureTarget = null;
+  state.draft = { point, secondPoint: null, type: '', mapSource, colorCode: color, colorAtPointA: color,
+    colorAtPointB: '', colorManuallyEdited: false, confirmedColorMatch: false, details: '' };
+  updateCoordinateReadout(point); renderDraftEditor();
+  $('announcement').textContent = `New edit note at longitude ${point.longitude.toFixed(6)}, latitude ${point.latitude.toFixed(6)}.`;
+}
+function captureSecondPoint(screenX, screenY) {
+  if (!state.draft) return beginDraft(screenX, screenY);
+  const point = mapPointAt(screenX, screenY);
+  state.draft.secondPoint = point;
+  state.draft.colorAtPointB = samplePointColor(point, state.draft.mapSource);
+  state.draft.confirmedColorMatch = false;
+  state.point = state.draft.point; state.secondPoint = point; state.captureTarget = null;
+  updateCoordinateReadout(point); renderDraftEditor();
+  $('announcement').textContent = `Point B recorded at longitude ${point.longitude.toFixed(6)}, latitude ${point.latitude.toFixed(6)}.`;
+}
+function buildChangePrompt(notes) {
+  const formatNote = (note, index) => {
+    const lines = [
+      `${index + 1}. ${editTypes[note.type]}`,
+      `   - Point A coordinate (longitude, latitude): ${coordinatePair(note.point)}`,
+      `   - Requested change: ${editTypes[note.type]}`,
+      `   - Reference map: ${mapSourceLabels[note.mapSource]}`,
+      `   - Point A sampled color: ${note.colorAtPointA || 'Not sampled'}`,
+      `   - Recorded color code: ${note.colorCode || 'Not provided'}`,
+    ];
+    if (note.secondPoint) {
+      lines.push(`   - Point B coordinate (longitude, latitude): ${coordinatePair(note.secondPoint)}`);
+      lines.push(`   - Point B sampled color: ${note.colorAtPointB || 'Not sampled'}`);
+      const sampledColorsMatch = note.colorAtPointA && note.colorAtPointB && note.colorAtPointA === note.colorAtPointB;
+      lines.push(`   - Color consistency: ${sampledColorsMatch ? 'same sampled color' : note.confirmedColorMatch ? 'user confirms both points share the intended geological color despite different samples' : 'not fully verified; please review'}`);
+      lines.push('   - Join request: treat both locations as one polygon, retaining the shared geological color/attributes where appropriate.');
+    }
+    if (note.details) lines.push(`   - Additional details: ${note.details}`);
+    return lines.join('\n');
+  };
+  return [
+    'Please update the Nigeria geological map shapefile using these field-review notes.',
+    'Coordinates are longitude, latitude in decimal degrees to six places. The viewer assumes WGS 84, but the original map datum is unconfirmed; verify alignment before editing.',
+    'The reference-map field says whether each location was marked on the original source map or the current shapefile draft. Colors are sampled/recorded point colors, not guaranteed geological class assignments.',
+    'Apply only the requested edits, preserve valid polygon topology and shared boundaries, and flag any ambiguity instead of guessing.',
+    '',
+    ...notes.map(formatNote),
+  ].join('\n');
+}
+async function copyAllNotes() {
+  if (!state.pendingNotes.length) return;
+  const prompt = buildChangePrompt(state.pendingNotes);
+  $('compiled-note').value = prompt; $('compiled-note-wrap').hidden = false;
+  const copied = await copyText(prompt);
+  $('copy-status').textContent = copied
+    ? 'All pending edit notes were copied. The complete prompt is shown below.'
+    : 'Clipboard access was unavailable. The complete prompt is shown below; select the text to copy it.';
+  $('announcement').textContent = copied ? 'All pending edit notes copied to the clipboard.' : 'The edit prompt is displayed below and can be selected for copying.';
+}
+function hideCompiledPrompt() {
+  $('compiled-note-wrap').hidden = true; $('compiled-note').value = ''; $('copy-status').textContent = '';
+}
+function renderPendingNotes() {
+  $('pending-count').textContent = String(state.pendingNotes.length);
+  $('copy-all-notes').disabled = !state.pendingNotes.length;
+  $('pending-notes').innerHTML = state.pendingNotes.length ? state.pendingNotes.map((note, index) => {
+    const pointB = note.secondPoint ? `<p><span>Point B</span><strong>${safe(coordinatePair(note.secondPoint))}</strong></p><p><span>Point B color</span><strong>${safe(note.colorAtPointB || 'Not sampled')}</strong></p>` : '';
+    const colorsMatch = note.colorAtPointA && note.colorAtPointB && note.colorAtPointA === note.colorAtPointB;
+    const consistency = note.secondPoint ? `<p><span>Color check</span><strong>${colorsMatch ? 'Samples match' : note.confirmedColorMatch ? 'Match confirmed' : 'Review needed'}</strong></p>` : '';
+    const details = note.details ? `<p><span>Details</span><strong>${safe(note.details)}</strong></p>` : '';
+    return `<article class="pending-note"><div class="pending-note-heading"><div><small>EDIT ${String(index + 1).padStart(2, '0')}</small><strong>${safe(editTypes[note.type])}</strong></div><button class="remove-note" type="button" data-remove-note="${note.id}" aria-label="Remove edit note ${index + 1}">×</button></div><p><span>Point A</span><strong>${safe(coordinatePair(note.point))}</strong></p><p><span>Reference map</span><strong>${safe(mapSourceLabels[note.mapSource])}</strong></p><p><span>Point A color</span><strong>${safe(note.colorCode || note.colorAtPointA || 'Not sampled')}</strong></p>${pointB}${consistency}${details}</article>`;
+  }).join('') : '<div class="no-pending-notes">No pending edits yet. Save a point note to add it here.</div>';
+  $('pending-notes').querySelectorAll('[data-remove-note]').forEach(button => button.addEventListener('click', () => {
+    const id = Number(button.dataset.removeNote);
+    state.pendingNotes = state.pendingNotes.filter(note => note.id !== id);
+    hideCompiledPrompt(); renderPendingNotes();
+  }));
+}
+function saveDraftNote() {
+  const draft = state.draft;
+  if (!draft) return;
+  const colorCode = $('note-color-code').value.trim().toUpperCase();
+  if (!draft.type) { $('draft-error').textContent = 'Choose one of the five edit types first.'; $('draft-error').hidden = false; return; }
+  if (draft.type === 'join-features' && !draft.secondPoint) { $('draft-error').textContent = 'Pick Point B to complete this join request.'; $('draft-error').hidden = false; return; }
+  if (draft.type === 'join-features' && draft.colorAtPointA && draft.colorAtPointB && draft.colorAtPointA !== draft.colorAtPointB && !draft.confirmedColorMatch) {
+    $('draft-error').textContent = 'Confirm that both locations represent the same intended color before saving this join.'; $('draft-error').hidden = false; return;
+  }
+  if (colorCode && !colorHex(colorCode)) { $('draft-error').textContent = 'Enter a six-digit hex color or clear the color field.'; $('draft-error').hidden = false; return; }
+  state.pendingNotes.push({ id: state.nextNoteId++, type: draft.type, point: draft.point, secondPoint: draft.secondPoint,
+    mapSource: draft.mapSource, colorCode, colorAtPointA: draft.colorAtPointA, colorAtPointB: draft.colorAtPointB,
+    confirmedColorMatch: draft.confirmedColorMatch, details: draft.details.trim() });
+  const savedCount = state.pendingNotes.length;
+  state.draft = null; state.point = null; state.secondPoint = null; state.captureTarget = null; state.selected = null;
+  hideCompiledPrompt(); renderPendingNotes(); renderOverview(); requestDraw();
+  $('copy-status').textContent = `Edit ${savedCount} saved to the in-memory pending list. Nothing was written to disk.`;
+  $('announcement').textContent = `Edit note ${savedCount} added to the pending list.`;
+}
+function startCoordinateNote(screenX, screenY) { beginDraft(screenX, screenY); }
 function legend() {
   if (!state.data) return;
   const query = $('legend-search').value.trim().toLowerCase();
@@ -150,10 +475,11 @@ function legend() {
   }));
 }
 function select(index, focus = false) {
-  state.selected = index; $('clear-selection').hidden = index === null;
+  state.selected = index; state.point = null; state.secondPoint = null; state.captureTarget = null;
+  $('clear-selection').hidden = index === null;
+  $('clear-selection').setAttribute('aria-label', index === null ? 'Clear map inspection' : 'Clear polygon selection');
   if (index === null) {
-    $('inspect-title').textContent = 'Map overview';
-    $('inspector').innerHTML = `<div class="empty-state"><span class="inspect-icon">${targetIcon}</span><h3>Every body, individually.</h3><p>Click a polygon to see its unit, area, and review flags. Same-colored bodies remain separate features.</p></div>`;
+    renderOverview();
   } else {
     const f = state.data.features[index], u = state.data.classes[f.classId - 1];
     $('inspect-title').textContent = `Polygon ${number.format(f.id)}`;
@@ -179,13 +505,16 @@ function nextIssue() {
 }
 function pick(screenX, screenY) {
   const x = (screenX - state.x) / state.scale, y = (screenY - state.y) / state.scale;
-  let selected = null;
-  ctx.save(); ctx.setTransform(1,0,0,1,0,0);
-  for (let i = state.data.features.length - 1; i >= 0; i--) {
-    const b = state.data.features[i].bbox;
-    if (x >= b[0] && x <= b[2] && y >= b[1] && y <= b[3] && ctx.isPointInPath(fillPaths[i],x,y,'evenodd')) { selected = i; break; }
+  select(featureIndexAt(x, y));
+}
+function clearCurrentInspection() {
+  if (state.selected !== null) { select(null); return; }
+  if (state.draft) {
+    if (!window.confirm('Discard this unsaved change note?')) return;
+    state.draft = null; state.point = null; state.secondPoint = null; state.captureTarget = null;
+    updateMapHint(); renderOverview(); requestDraw(); return;
   }
-  ctx.restore(); select(selected);
+  select(null);
 }
 let down = null, moved = false;
 const pointers = new Map();
@@ -201,9 +530,7 @@ canvas.addEventListener('pointermove', e => {
   if (!state.ready) return;
   const rect = canvas.getBoundingClientRect();
   const sx=e.clientX-rect.left, sy=e.clientY-rect.top;
-  const x=(sx-state.x)/state.scale, y=(sy-state.y)/state.scale;
-  const t=state.data.transform;
-  $('coordinates').textContent = `${(t[0]*x+t[1]*y+t[2]).toFixed(4)}° E   ${(t[3]*x+t[4]*y+t[5]).toFixed(4)}° N`;
+  updateCoordinateReadout(mapPointAt(sx,sy));
   if (!pointers.has(e.pointerId)) return;
   pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
   if (pointers.size === 2) {
@@ -220,7 +547,12 @@ canvas.addEventListener('pointermove', e => {
 canvas.addEventListener('pointerup', e => {
   if (!pointers.has(e.pointerId)) return;
   const rect=canvas.getBoundingClientRect();
-  if (!moved && pointers.size===1) pick(e.clientX-rect.left,e.clientY-rect.top);
+  if (!moved && pointers.size===1) {
+    const x=e.clientX-rect.left, y=e.clientY-rect.top;
+    if (state.captureTarget === 'second') captureSecondPoint(x,y);
+    else if (state.clickMode === 'coordinate') startCoordinateNote(x,y);
+    else pick(x,y);
+  }
   pointers.delete(e.pointerId); pinch=null;
   if (pointers.size) { const p=[...pointers.values()][0]; down={x:p.x,y:p.y,lastX:p.x,lastY:p.y}; moved=true; }
   else down=null;
@@ -232,7 +564,10 @@ canvas.addEventListener('keydown', e => {
   if (e.key==='+' || e.key==='=') zoom(1.35);
   if (e.key==='-') zoom(1/1.35);
   if (e.key.toLowerCase()==='f' && state.data) fit(state.data.extent);
-  if (e.key==='Escape') select(null);
+  if (e.key==='Escape') {
+    if (state.captureTarget === 'second') { state.captureTarget = null; renderDraftEditor(); }
+    else select(null);
+  }
   if (e.key==='ArrowLeft') state.x+=35;
   if (e.key==='ArrowRight') state.x-=35;
   if (e.key==='ArrowUp') state.y+=35;
@@ -245,9 +580,12 @@ $('show-contacts').addEventListener('change',e=>{state.contacts=e.target.checked
 $('compare-position').addEventListener('input',e=>{state.split=Number(e.target.value)/100;requestDraw();});
 $('legend-search').addEventListener('input',legend);
 $('clear-highlight').addEventListener('click',()=>{state.highlighted=null;$('clear-highlight').hidden=true;legend();requestDraw();});
-$('clear-selection').addEventListener('click',()=>select(null));
+$('clear-selection').addEventListener('click',clearCurrentInspection);
+$('copy-all-notes').addEventListener('click',copyAllNotes);
+$('compiled-note').addEventListener('click',event=>event.currentTarget.select());
 $('next-issue').addEventListener('click',nextIssue);
 document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
+document.querySelectorAll('[data-click-mode]').forEach(b=>b.addEventListener('click',()=>setClickMode(b.dataset.clickMode)));
 new ResizeObserver(resize).observe(viewport);
 async function initialize() {
   try {
@@ -259,10 +597,11 @@ async function initialize() {
     contactBoxes=data.contacts.map(points=>{let a=Infinity,b=Infinity,c=-Infinity,d=-Infinity;for(const [x,y] of points){a=Math.min(a,x);b=Math.min(b,y);c=Math.max(c,x);d=Math.max(d,y);}return[a,b,c,d];});
     contactPaths=data.contacts.map(points=>{const p=new Path2D();p.moveTo(...points[0]);for(let i=1;i<points.length;i++)p.lineTo(...points[i]);return p;});
     await new Promise((resolve,reject)=>{source.onload=()=>{state.sourceReady=true;resolve();};source.onerror=()=>reject(new Error('The comparison photo could not be loaded.'));source.src='/data/source.jpg';});
+    sampleCanvas=document.createElement('canvas');sampleCanvas.width=1;sampleCanvas.height=1;sampleContext=sampleCanvas.getContext('2d',{willReadFrequently:true});
     state.ready=true; resize(); fit(data.extent); state.fitScale=state.scale;
     $('loading').hidden=true; $('class-count').textContent=number.format(data.stats.classCount);
     $('feature-count').textContent=number.format(data.stats.featureCount); $('contact-count').textContent=number.format(data.stats.contactCount);
-    legend(); issueList();
+    legend(); issueList(); renderPendingNotes();
     $('regions').innerHTML=data.regions.map((r,i)=>`<button data-region="${i}" class="${i===0?'active':''}">${safe(r.name)}</button>`).join('');
     $('regions').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{select(null);fit(data.regions[Number(b.dataset.region)].box);$('regions').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));}));
     requestDraw();
