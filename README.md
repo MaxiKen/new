@@ -18,7 +18,7 @@ Open the provided live preview (or `http://localhost:3000` when running on your 
 The viewer supports:
 - Pan, wheel/touch zoom, keyboard zoom and fit; desktop and mobile layouts.
 - Clean polygons, original photo, and an adjustable comparison divider.
-- Click-to-inspect singlepart polygon attributes and review flags.
+- Choose what a map click shows: singlepart polygon attributes and review flags, or the clicked point's longitude/latitude in decimal degrees to six decimal places (with a copy button; WGS 84 is assumed, datum unconfirmed).
 - Searchable legend; highlighting never removes polygons from the coverage.
 - A navigable anomaly queue, including uncertain contacts, narrow bodies, annotation-heavy regions, similar colors and unresolved codes.
 - One-copy shared-contact display in a non-black color.

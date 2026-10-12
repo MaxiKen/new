@@ -12,7 +12,7 @@ const issueLabels = {
   'water': 'Water interpretation',
 };
 const state = { data: null, width: 0, height: 0, scale: 1, fitScale: 1, x: 0, y: 0,
-  mode: 'clean', split: .5, contacts: true, selected: null, highlighted: null,
+  mode: 'clean', clickMode: 'polygon', split: .5, contacts: true, selected: null, point: null, highlighted: null,
   issue: 'contact-review', issueIndex: -1, sourceReady: false, ready: false };
 let fillPaths = [], contactPaths = [], contactBoxes = [], framePending = false;
 const overviewCaches = new Map();
@@ -87,6 +87,21 @@ function drawPhoto() {
   if (state.sourceReady) ctx.drawImage(source, 0, 0, state.data.stats.width, state.data.stats.height);
   ctx.restore();
 }
+function drawPointMarker() {
+  if (!state.point) return;
+  const x = state.x + state.point.mapX * state.scale;
+  const y = state.y + state.point.mapY * state.scale;
+  const marker = () => {
+    ctx.beginPath(); ctx.moveTo(x - 10, y); ctx.lineTo(x + 10, y);
+    ctx.moveTo(x, y - 10); ctx.lineTo(x, y + 10); ctx.arc(x, y, 5.5, 0, Math.PI * 2); ctx.stroke();
+  };
+  ctx.save(); ctx.lineCap = 'round';
+  ctx.strokeStyle = '#fff'; ctx.lineWidth = 5; marker();
+  ctx.strokeStyle = '#245f83'; ctx.lineWidth = 1.7; marker();
+  ctx.beginPath(); ctx.arc(x, y, 2.5, 0, Math.PI * 2);
+  ctx.fillStyle = '#fff'; ctx.fill(); ctx.strokeStyle = '#245f83'; ctx.lineWidth = 1.2; ctx.stroke();
+  ctx.restore();
+}
 function draw() {
   framePending = false;
   const ratio = Math.min(devicePixelRatio || 1, 2);
@@ -103,6 +118,7 @@ function draw() {
     ctx.strokeStyle = '#c99554'; ctx.lineWidth = 1.5; ctx.beginPath();
     ctx.moveTo(state.width * state.split, 0); ctx.lineTo(state.width * state.split, state.height); ctx.stroke();
   }
+  drawPointMarker();
   $('zoom-label').textContent = `${Math.round(state.scale / state.fitScale * 100)}%`;
 }
 function resize() {
@@ -139,6 +155,85 @@ function setMode(mode) {
   $('map-subtitle').textContent = mode === 'clean' ? 'Black annotations filled from surrounding geology' : 'Source annotations remain for comparison only';
   requestDraw();
 }
+function roundedCoordinate(value) {
+  const rounded = Number(value.toFixed(6));
+  return Object.is(rounded, -0) ? 0 : rounded;
+}
+function mapPointAt(screenX, screenY) {
+  const mapX = (screenX - state.x) / state.scale;
+  const mapY = (screenY - state.y) / state.scale;
+  const t = state.data.transform;
+  return {
+    mapX, mapY,
+    longitude: roundedCoordinate(t[0] * mapX + t[1] * mapY + t[2]),
+    latitude: roundedCoordinate(t[3] * mapX + t[4] * mapY + t[5]),
+  };
+}
+function axisCoordinate(value, positiveHemisphere, negativeHemisphere) {
+  const rounded = Math.abs(value) < .0000005 ? 0 : value;
+  return `${Math.abs(rounded).toFixed(6)}° ${rounded < 0 ? negativeHemisphere : positiveHemisphere}`;
+}
+function updateCoordinateReadout(point) {
+  $('coordinates').textContent = `${axisCoordinate(point.longitude, 'E', 'W')}   ${axisCoordinate(point.latitude, 'N', 'S')}`;
+}
+function renderOverview() {
+  $('inspect-title').textContent = 'Map overview';
+  $('clear-selection').hidden = true;
+  $('clear-selection').setAttribute('aria-label', 'Clear map inspection');
+  const coordinateMode = state.clickMode === 'coordinate';
+  $('inspector').innerHTML = coordinateMode
+    ? `<div class="empty-state"><span class="inspect-icon">${targetIcon}</span><h3>Capture a map point.</h3><p>Click anywhere on the map to show its longitude and latitude in decimal degrees.</p></div>`
+    : `<div class="empty-state"><span class="inspect-icon">${targetIcon}</span><h3>Every body, individually.</h3><p>Click a polygon to see its unit, area, and review flags. Same-colored bodies remain separate features.</p></div>`;
+}
+function setClickMode(mode) {
+  state.clickMode = mode;
+  document.querySelectorAll('[data-click-mode]').forEach(button => {
+    const active = button.dataset.clickMode === mode;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+  const coordinateMode = mode === 'coordinate';
+  $('map-hint').textContent = coordinateMode
+    ? 'Drag to pan · scroll to zoom · click anywhere for coordinates'
+    : 'Drag to pan · scroll to zoom · click a polygon';
+  canvas.setAttribute('aria-label', coordinateMode
+    ? 'Interactive Nigeria geological map. Drag to pan, use plus or minus to zoom, press F to fit, click anywhere to read its coordinates.'
+    : 'Interactive Nigeria geological map. Drag to pan, use plus or minus to zoom, press F to fit, click a polygon to inspect.');
+  if (state.selected === null && !state.point) renderOverview();
+}
+async function copyCoordinates(point, button) {
+  const value = `${point.longitude.toFixed(6)}, ${point.latitude.toFixed(6)}`;
+  let copied = false;
+  try {
+    if (navigator.clipboard?.writeText) await navigator.clipboard.writeText(value);
+    else throw new Error('Clipboard API unavailable');
+    copied = true;
+  } catch {
+    const field = document.createElement('textarea');
+    field.value = value; field.setAttribute('readonly', '');
+    field.style.position = 'fixed'; field.style.left = '-10000px';
+    document.body.append(field); field.select();
+    try { copied = document.execCommand('copy'); } catch { copied = false; }
+    field.remove();
+  }
+  button.textContent = copied ? 'Copied ✓' : 'Copy unavailable';
+  $('announcement').textContent = copied
+    ? `Copied longitude ${point.longitude.toFixed(6)}, latitude ${point.latitude.toFixed(6)}.`
+    : 'Clipboard access was unavailable. The coordinate is shown above for manual copying.';
+  window.setTimeout(() => { if (button.isConnected) button.textContent = 'Copy coordinates'; }, 1800);
+}
+function showCoordinate(screenX, screenY) {
+  const point = mapPointAt(screenX, screenY);
+  state.selected = null; state.point = point;
+  $('inspect-title').textContent = 'Clicked map point';
+  $('clear-selection').hidden = false;
+  $('clear-selection').setAttribute('aria-label', 'Clear point coordinate');
+  $('inspector').innerHTML = `<div class="point-selection"><p class="point-intro">Clicked location · decimal degrees</p><div class="point-coordinate"><span>Longitude</span><strong id="point-longitude">${axisCoordinate(point.longitude, 'E', 'W')}</strong></div><div class="point-coordinate"><span>Latitude</span><strong id="point-latitude">${axisCoordinate(point.latitude, 'N', 'S')}</strong></div><button id="copy-coordinate" class="copy-coordinate" type="button">Copy coordinates</button><p class="coordinate-note">Copy format: longitude, latitude. WGS 84 is assumed; the source datum is unconfirmed.</p></div>`;
+  $('copy-coordinate').addEventListener('click', event => copyCoordinates(point, event.currentTarget));
+  updateCoordinateReadout(point);
+  $('announcement').textContent = `Clicked map point. Longitude ${point.longitude.toFixed(6)}, latitude ${point.latitude.toFixed(6)} decimal degrees. WGS 84 assumed; datum unconfirmed.`;
+  requestDraw();
+}
 function legend() {
   if (!state.data) return;
   const query = $('legend-search').value.trim().toLowerCase();
@@ -150,10 +245,11 @@ function legend() {
   }));
 }
 function select(index, focus = false) {
-  state.selected = index; $('clear-selection').hidden = index === null;
+  state.selected = index; state.point = null;
+  $('clear-selection').hidden = index === null;
+  $('clear-selection').setAttribute('aria-label', index === null ? 'Clear map inspection' : 'Clear polygon selection');
   if (index === null) {
-    $('inspect-title').textContent = 'Map overview';
-    $('inspector').innerHTML = `<div class="empty-state"><span class="inspect-icon">${targetIcon}</span><h3>Every body, individually.</h3><p>Click a polygon to see its unit, area, and review flags. Same-colored bodies remain separate features.</p></div>`;
+    renderOverview();
   } else {
     const f = state.data.features[index], u = state.data.classes[f.classId - 1];
     $('inspect-title').textContent = `Polygon ${number.format(f.id)}`;
@@ -201,9 +297,7 @@ canvas.addEventListener('pointermove', e => {
   if (!state.ready) return;
   const rect = canvas.getBoundingClientRect();
   const sx=e.clientX-rect.left, sy=e.clientY-rect.top;
-  const x=(sx-state.x)/state.scale, y=(sy-state.y)/state.scale;
-  const t=state.data.transform;
-  $('coordinates').textContent = `${(t[0]*x+t[1]*y+t[2]).toFixed(4)}° E   ${(t[3]*x+t[4]*y+t[5]).toFixed(4)}° N`;
+  updateCoordinateReadout(mapPointAt(sx,sy));
   if (!pointers.has(e.pointerId)) return;
   pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
   if (pointers.size === 2) {
@@ -220,7 +314,11 @@ canvas.addEventListener('pointermove', e => {
 canvas.addEventListener('pointerup', e => {
   if (!pointers.has(e.pointerId)) return;
   const rect=canvas.getBoundingClientRect();
-  if (!moved && pointers.size===1) pick(e.clientX-rect.left,e.clientY-rect.top);
+  if (!moved && pointers.size===1) {
+    const x=e.clientX-rect.left, y=e.clientY-rect.top;
+    if (state.clickMode === 'coordinate') showCoordinate(x,y);
+    else pick(x,y);
+  }
   pointers.delete(e.pointerId); pinch=null;
   if (pointers.size) { const p=[...pointers.values()][0]; down={x:p.x,y:p.y,lastX:p.x,lastY:p.y}; moved=true; }
   else down=null;
@@ -248,6 +346,7 @@ $('clear-highlight').addEventListener('click',()=>{state.highlighted=null;$('cle
 $('clear-selection').addEventListener('click',()=>select(null));
 $('next-issue').addEventListener('click',nextIssue);
 document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
+document.querySelectorAll('[data-click-mode]').forEach(b=>b.addEventListener('click',()=>setClickMode(b.dataset.clickMode)));
 new ResizeObserver(resize).observe(viewport);
 async function initialize() {
   try {

@@ -2,3 +2,21 @@
 /* Grid tracks must be allowed to shrink below long lithology labels. */
 .legend-panel,.inspector-panel,.legend-list,.unit{min-width:0}
 @media(max-width:620px){.workspace{grid-template-columns:minmax(0,1fr)}.legend-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Map-click inspection can switch between polygon attributes and a point location. */
+.map-toolbar{height:auto;min-height:52px;flex-shrink:0;flex-wrap:wrap;padding:7px 12px}
+.click-mode{display:flex;align-items:center;gap:2px;padding:3px;border-radius:5px;background:#edf2e8;white-space:nowrap}
+.click-mode-label{padding:0 4px;color:#87957f;font-size:8px;letter-spacing:.55px;text-transform:uppercase}
+.click-mode button{padding:6px 8px;border:0;border-radius:4px;background:transparent;color:#7e8f75;font-size:9px;white-space:nowrap}
+.click-mode button:hover{color:#315a3e}
+.click-mode button.active{background:#fff;color:#315a3e;box-shadow:0 1px 3px #315a3e15}
+.point-selection{padding:0 17px 18px}
+.point-intro{margin:0 0 12px;color:#82917d;font-size:10px}
+.point-coordinate{margin:8px 0;padding:10px 11px;border:1px solid #e1e8dc;border-radius:5px;background:#f6f8f1}
+.point-coordinate span{display:block;color:#84967a;font-size:9px}
+.point-coordinate strong{display:block;margin-top:5px;color:#3f6140;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.copy-coordinate{width:100%;margin-top:5px;padding:8px;border:1px solid #d3e0c9;border-radius:4px;background:#f1f6e8;color:#5b7b4d;font-size:10px}
+.copy-coordinate:hover{background:#e7f0dc}
+.coordinate-note{margin:9px 0 0;color:#9aa48f;font-size:9px;line-height:1.5}
+@media(max-width:1200px){.map-toolbar{padding:7px 8px}}
+@media(max-width:620px){.map-toolbar{padding:7px 8px;gap:5px}.click-mode-label{padding:0 2px}.click-mode button{padding:6px 7px}}

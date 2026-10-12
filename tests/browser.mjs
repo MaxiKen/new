@@ -43,6 +43,24 @@ try {
   await page.locator('#zoom-in').click(); await page.waitForTimeout(100);
   assert.notEqual(await page.locator('#zoom-label').textContent(),before);
   await page.locator('#fit').click();
+  assert.equal(await page.locator('#click-mode-polygon').getAttribute('aria-pressed'),'true');
+  await page.locator('#click-mode-coordinate').click();
+  assert.equal(await page.locator('#click-mode-coordinate').getAttribute('aria-pressed'),'true');
+  assert.equal(await page.locator('#click-mode-polygon').getAttribute('aria-pressed'),'false');
+  await page.locator('#map').click({position:{x:280,y:230}});
+  assert.equal(await page.locator('#inspect-title').textContent(),'Clicked map point');
+  const longitude = (await page.locator('#point-longitude').textContent()).trim();
+  const latitude = (await page.locator('#point-latitude').textContent()).trim();
+  assert.match(longitude,/^\d{1,3}\.\d{6}° [EW]$/);
+  assert.match(latitude,/^\d{1,2}\.\d{6}° [NS]$/);
+  assert.ok((await page.locator('#coordinates').textContent()).includes(longitude));
+  assert.ok((await page.locator('#coordinates').textContent()).includes(latitude));
+  assert.equal(await page.locator('#copy-coordinate').isVisible(),true);
+  await page.locator('#clear-selection').click();
+  assert.equal(await page.locator('#inspect-title').textContent(),'Map overview');
+  assert.match(await page.locator('#inspector').textContent(),/Click anywhere on the map/);
+  await page.locator('#click-mode-polygon').click();
+  assert.equal(await page.locator('#click-mode-polygon').getAttribute('aria-pressed'),'true');
   await page.locator('[data-region="1"]').click();
   await page.locator('#map').click({position:{x:280,y:230}});
   // The anomaly queue deterministically selects a known body regardless of fit.
@@ -84,5 +102,5 @@ try {
   await page.screenshot({path:'.cache/browser/mobile.png',fullPage:false,timeout:60000});
   assert.equal(await page.locator('.download').isVisible(),true);
   assert.deepEqual(errors,[]);
-  console.log('PASS: real Chromium desktop/mobile rendering, clean-map black-pixel check, source distinction, inspection, anomaly navigation, comparison, zoom, legend, contact toggle, ZIP download.');
+  console.log('PASS: real Chromium desktop/mobile rendering, clean-map black-pixel check, polygon/coordinate click modes and coordinate readout, anomaly navigation, comparison, zoom, legend, contact toggle, ZIP download.');
 } finally { await browser.close(); }
