@@ -1,0 +1,67 @@
+{
+  "method": "Independent linear fits to printed longitude and latitude graticule; coordinate reference assigned WGS84 for interoperability, original datum unknown. No external control used.",
+  "source_datum": "Unknown",
+  "output_crs": "EPSG:4326 (assumed datum)",
+  "affine": [
+    0.0030453714559186902,
+    0.0,
+    2.3328690208099934,
+    0.0,
+    -0.0030452347440809617,
+    13.891588114395342
+  ],
+  "x_pixels": [
+    288.0,
+    616.0,
+    945.0,
+    1273.0,
+    1602.0,
+    1930.0,
+    2258.0,
+    2587.0,
+    2915.0,
+    3244.0,
+    3571.0,
+    3900.0
+  ],
+  "longitudes": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "y_pixels": [
+    388.0,
+    715.0,
+    1045.0,
+    1373.0,
+    1702.0,
+    2030.0,
+    2358.0,
+    2686.0,
+    3015.0,
+    3343.0
+  ],
+  "latitudes": [
+    13,
+    12,
+    11,
+    10,
+    9,
+    8,
+    7,
+    6,
+    5,
+    4
+  ],
+  "grid_fit_rmse_pixels_x": 0.3699314482769532,
+  "grid_fit_rmse_pixels_y": 0.49726531751342556
+}

@@ -1,0 +1,93 @@
+legend_id,code,lithology,formation,group_name,row_y,r,g,b,age_label,note
+L001,Al,Alluvium,Sediments,Surficial deposits,116,236,255,101,Neogene (as printed),Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L002,MWS,"Sands, gravels and clay","Meander belt, back swamps, fresh water swamps",Surficial deposits,153,228,229,125,Neogene (as printed),Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L003,AB,Sands and pebbles,Abandoned beach ridges,Surficial deposits,189,240,255,130,Neogene (as printed),Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L004,MS,"Sand, clay and mangrove swamps",Mangrove swamps,Surficial deposits,225,150,170,255,Neogene (as printed),Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L005,SDsm,"Sand, clay and swamp",Sombreiro Deltaic Formation,Surficial deposits,261,255,255,76,Neogene (as printed),Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L006,Cst,"Sands, clays, siltstones and limestones",Chad Formation,Sedimentary,297,240,255,90,Neogene (as printed),Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L007,Bnst,Sand and clay,Benin Formation,Sedimentary,333,254,255,189,Neogene (as printed),Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L008,b,Younger basalt,Newer Basalt,Volcanic,369,216,216,252,Tertiary to Recent,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L009,bb,Basalt,Older Basalt,Volcanic,405,132,126,252,Tertiary to Recent,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L010,OAlgs,"Lignite, claystone and shale",Ogwashi - Asaba Formation,Sedimentary,441,235,255,104,Palaeogene (as printed),Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L011,Ish,"Clay, clayey sands and shale",Ilaro Formation,Sedimentary,477,255,201,224,Palaeogene (as printed),Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L012,Gwss,Sandstone and clay,Gwandu Formation,Sedimentary,513,255,255,99,Palaeogene (as printed),Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L013,Glcl,Sandstones and clays,Gwandu Formation,Sedimentary,549,220,216,108,Palaeogene (as printed),Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L014,Wss,Sandstone and clay,Gwandu Formation,Sedimentary,585,114,215,51,Palaeogene (as printed),Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L015,Esh,Shale and limestone,Gwandu Formation,Sedimentary,621,155,227,89,Palaeogene (as printed),Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L016,Imsh,Clay and shale with limestone intercalations,Imo Group,Sedimentary,657,204,223,108,Palaeogene (as printed),Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L017,Kss,"Sandstone, shale and clay",Kerri - Kerri Formation,Sedimentary,694,236,255,77,Palaeogene (as printed),Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L018,Dsh,Shale,Dange Formation,Sokoto Group,730,219,222,177,Palaeogene (as printed),Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L019,Kls,Limestone,Kalambaina Formation,Sokoto Group,766,99,242,134,Palaeogene (as printed),Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L020,Gss,"Sandstone, siltstone, shale and ironstone",Gombe Formation,Sedimentary,802,229,255,168,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L021,Ajst,False-bedded sandstone,Ajali Formation,Sedimentary,838,206,255,166,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L022,Ncsh,"Coal, shale and sandstone",Nsukka Formation,Sedimentary,874,179,255,183,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L023,Ncsh,"Sandstone, limestone, coal",Nsukka Formation,Sedimentary,910,182,229,151,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L024,Asl,Sandstone and limestone,Abeokuta Formation,Sedimentary,946,197,244,176,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L025,Mcst,"Coal, sandstone and shale",Mamu Formation,Sedimentary,982,165,243,191,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L026,Bssf,Sandstone and ironstone,Bassage Formation,Sedimentary,1018,214,255,133,Cretaceous,Formation name appears as Bassage in source; transcription needs verification.
+L027,Nsh,Shale and mudstone,Nkporo Formation,Sedimentary,1054,210,244,88,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L028,ANsh,Shale and limestone,Awgu Formation,Sedimentary,1090,204,216,108,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L029,Tst,"Sandstone, siltstone and shale",Taloka Formation,Sedimentary,1126,156,214,189,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L030,Glls,Limestone,Dukamaje Formation,Sedimentary,1162,99,242,134,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L031,Wss,"Sandstone, clays and shale",Dukamaje and Wurno Formation,Rima Group,1198,189,236,155,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L032,Wcs,Clays and loose sandstone,Dukamaje and Wurno Formation,Rima Group,1235,163,252,194,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L033,Wsh,Shale (phosphate nodules),Dukamaje and Wurno Formation,Rima Group,1271,185,224,109,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L034,Ts,Siltstone and sandstone,Dukamaje and Wurno Formation,Rima Group,1307,219,222,177,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L035,Psh,"Shale, limestone and sandstone",Pindiga Formation,Sedimentary,1343,121,223,176,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L036,Lass,"Sandstone, shale and sandy shale",Lafia - Wukari Formation,Sedimentary,1379,188,201,184,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L037,NPss,Feldspathic sandstone and siltstone,Nupe Formation,Sedimentary,1415,121,223,176,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L038,Glpg,Pebbles and grit,Gundumi - Illo Formation,Sedimentary,1451,148,206,103,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L039,Glss,Clay grit and pebbles,Gundumi - Illo Formation,Sedimentary,1487,163,240,102,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L040,Glgss,Gravel and sand,Gundumi - Illo Formation,Sedimentary,1523,178,209,129,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L041,Fsh,"Black shale, siltstone and sandstone",Fika Formation,Sedimentary,1559,172,247,154,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L042,Ess,Sandstone,Eze - aku Group,Sedimentary,1595,178,227,112,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L043,Esh,"Black shale, siltstone and sandstone",Eze - aku Group,Sedimentary,1631,152,214,79,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L044,Mlst,Limestone and siltstone,Awi - Mfamosing Formation,Sedimentary,1667,185,230,163,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L045,Awst,Sandstone,Awi - Mfamosing Formation,Sedimentary,1703,185,231,194,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L046,Yls,"Shale, sandy clay, calcareous sandstones",Yola - Bima - Yolde Formation,Sedimentary,1739,114,193,50,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L047,Bss,"Feldspathic sandstone, calcareous sandstone and shelly limestone",Bima Formation,Sedimentary,1776,138,172,95,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L048,Arlsh,Shale and limestone with sandstone intercalations,Asu River Group,Sedimentary,1812,96,165,58,Cretaceous,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L049,MyP,Quartz porphyry,Not stated,Per Alkaline young Granite Series (as printed),1848,255,200,255,Jurassic,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L050,MyG,Granite and granite porphyry,Not stated,Per Alkaline young Granite Series (as printed),1884,218,138,227,Jurassic,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L051,MyI,Ignimbrite,Not stated,Per Alkaline young Granite Series (as printed),1920,231,187,248,Jurassic,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L052,Mys,"Syenite, quartz-syenite and gabbro",Not stated,Per Alkaline young Granite Series (as printed),1956,231,190,198,Jurassic,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L053,MGp,Granites and granite porphyry,Not stated,Per Alkaline young Granite Series (as printed),1992,231,190,255,Jurassic,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L054,MyP,Porphyry / quartz porphyry,Not stated,Per Alkaline young Granite Series (as printed),2028,213,185,199,Jurassic,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L055,r,Rhyolite,Not stated,Per Alkaline young Granite Series (as printed),2064,222,204,204,Jurassic,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L056,Jyr,Rhyolite,Not stated,Per Alkaline young Granite Series (as printed),2100,190,100,200,Jurassic,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L057,JyG,Biotite granite,Not stated,Per Alkaline young Granite Series (as printed),2136,218,138,227,Jurassic,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L058,JyA,Trachy-andesine,Not stated,Per Alkaline young Granite Series (as printed),2172,255,114,224,Jurassic,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L059,P,Pegmatite,Not stated,Pan-African older granite suite,2208,193,149,120,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L060,D,Dolerite,Not stated,Pan-African older granite suite,2244,155,155,155,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L061,ODh,Bauchite quartz-diorite,Not stated,Pan-African older granite suite,2280,178,178,178,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L062,OGd,Biotite and biotite hornblende granodiorite,Not stated,Pan-African older granite suite,2317,255,155,171,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L063,OGS,"Syenite, mainly of pyroxene diorite composition",Not stated,Pan-African older granite suite,2353,204,204,204,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L064,OSq,Coarse biotite and biotite muscovite granite,Not stated,Pan-African older granite suite,2389,255,236,185,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L065,OGh,Coarse hornblende granite,Not stated,Pan-African older granite suite,2425,255,116,87,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L066,OGf,Fine-grained biotite granite,Not stated,Pan-African older granite suite,2461,255,199,212,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L067,OGm,Medium-to-coarse-grained biotite granite,Not stated,Pan-African older granite suite,2497,255,142,186,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L068,OGu,"Undifferentiated granite, migmatite and granite gneiss",Not stated,Pan-African older granite suite,2533,255,112,86,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L069,OGCh,Charnockitic rocks,Not stated,Pan-African older granite suite,2569,177,125,68,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L070,OGr,Gabbro and quartz gabbro,Not stated,Pan-African older granite suite,2605,221,0,254,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L071,MV,Meta volcanic meta sedimentary including pebbly schist,Not stated,Meta-sedimentary / meta-volcanic series,2641,193,109,39,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L072,Sa,"Amphibole schist, amphibolite",Not stated,Meta-sedimentary / meta-volcanic series,2677,114,223,254,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L073,BIF,Banded iron formation,Not stated,Meta-sedimentary / meta-volcanic series,2713,224,224,150,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L074,Sp,"Slate phyllite and meta siltstone, locally hornfelsic / carbonaceous",Not stated,Meta-sedimentary / meta-volcanic series,2749,121,185,255,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L075,m,Marble,Not stated,Meta-sedimentary / meta-volcanic series,2785,83,206,89,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L076,Sf,Fine-grained flaggy quartzite and quartz schist,Not stated,Meta-sedimentary / meta-volcanic series,2821,158,185,230,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L077,Qs,"Quartzite, massive and schistose, also occurring as ridges",Not stated,Meta-sedimentary / meta-volcanic series,2858,223,255,68,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L078,MS,Pelitic schist / muscovite schist,Not stated,Meta-sedimentary / meta-volcanic series,2894,242,246,0,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L079,Su,"Undifferentiated schists, including phyllites",Not stated,Meta-sedimentary / meta-volcanic series,2930,121,193,217,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L080,Mc,Meta-conglomerate,Not stated,Meta-sedimentary / meta-volcanic series,2966,163,231,112,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L081,bS,Biotite garnet gneiss schist,Not stated,Migmatite - gneiss complex,3002,223,186,116,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L082,bG-h,Biotite hornblende gneiss,Not stated,Migmatite - gneiss complex,3038,218,178,90,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L083,OPg,Porphyroblastic gneiss,Not stated,Migmatite - gneiss complex,3074,218,177,49,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L084,GG,Granite gneiss,Not stated,Migmatite - gneiss complex,3110,255,181,76,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L085,Ge,Granulite and gneiss,Not stated,Migmatite - gneiss complex,3146,236,201,109,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L086,bG,Banded gneiss / biotite gneiss,Not stated,Migmatite - gneiss complex,3182,218,160,0,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L087,MaG,Migmatitic augen gneiss,Not stated,Migmatite - gneiss complex,3218,231,179,0,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L088,MG,Migmatitic gneiss,Not stated,Migmatite - gneiss complex,3254,223,196,119,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L089,M,Migmatite,Not stated,Migmatite - gneiss complex,3290,222,211,119,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L090,qs,"Silicified, sheared rocks, large quartz veins",Not stated,Cataclastic rocks,3326,240,255,134,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L091,My,Mylonites,Not stated,Cataclastic rocks,3362,255,201,69,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.
+L092,aMy,Mylonites interlayered with amphibolites,Not stated,Cataclastic rocks,3398,122,163,255,Pre-Cambrian to Cambrian,Transcribed from supplied legend; spelling lightly normalised; age labels not modernised.

@@ -1,0 +1,93 @@
+class_id,code,rgb,legend_ids,lithology,formation,group_name,age_label,status,kind
+0,BACKGROUND,"(255, 255, 255)",,Background,,,,excluded,background
+1,Al,"(236, 255, 101)",L001,Alluvium,Sediments,Surficial deposits,Neogene (as printed),colour_match,geology
+2,MWS,"(228, 229, 125)",L002,"Sands, gravels and clay","Meander belt, back swamps, fresh water swamps",Surficial deposits,Neogene (as printed),colour_match,geology
+3,AB,"(240, 255, 130)",L003,Sands and pebbles,Abandoned beach ridges,Surficial deposits,Neogene (as printed),colour_match,geology
+4,MS,"(150, 170, 255)",L004,"Sand, clay and mangrove swamps",Mangrove swamps,Surficial deposits,Neogene (as printed),colour_match,geology
+5,SDsm,"(255, 255, 76)",L005,"Sand, clay and swamp",Sombreiro Deltaic Formation,Surficial deposits,Neogene (as printed),colour_match,geology
+6,Cst,"(240, 255, 90)",L006,"Sands, clays, siltstones and limestones",Chad Formation,Sedimentary,Neogene (as printed),colour_match,geology
+7,Bnst,"(254, 255, 189)",L007,Sand and clay,Benin Formation,Sedimentary,Neogene (as printed),colour_match,geology
+8,b,"(216, 216, 252)",L008,Younger basalt,Newer Basalt,Volcanic,Tertiary to Recent,colour_match,geology
+9,bb,"(132, 126, 252)",L009,Basalt,Older Basalt,Volcanic,Tertiary to Recent,colour_match,geology
+10,OAlgs,"(235, 255, 104)",L010,"Lignite, claystone and shale",Ogwashi - Asaba Formation,Sedimentary,Palaeogene (as printed),colour_match,geology
+11,Ish,"(255, 201, 224)",L011,"Clay, clayey sands and shale",Ilaro Formation,Sedimentary,Palaeogene (as printed),colour_match,geology
+12,Gwss,"(255, 255, 99)",L012,Sandstone and clay,Gwandu Formation,Sedimentary,Palaeogene (as printed),colour_match,geology
+13,Glcl,"(220, 216, 108)",L013,Sandstones and clays,Gwandu Formation,Sedimentary,Palaeogene (as printed),colour_match,geology
+14,Wss,"(114, 215, 51)",L014,Sandstone and clay,Gwandu Formation,Sedimentary,Palaeogene (as printed),colour_match,geology
+15,Esh,"(155, 227, 89)",L015,Shale and limestone,Gwandu Formation,Sedimentary,Palaeogene (as printed),colour_match,geology
+16,Imsh,"(204, 223, 108)",L016,Clay and shale with limestone intercalations,Imo Group,Sedimentary,Palaeogene (as printed),colour_match,geology
+17,Kss,"(236, 255, 77)",L017,"Sandstone, shale and clay",Kerri - Kerri Formation,Sedimentary,Palaeogene (as printed),colour_match,geology
+18,Dsh | Ts,"(219, 222, 177)",L018 | L034,Shale | Siltstone and sandstone,Dange Formation | Dukamaje and Wurno Formation,Sokoto Group | Rima Group,Palaeogene (as printed) | Cretaceous,ambiguous,geology
+19,Kls | Glls,"(99, 242, 134)",L019 | L030,Limestone,Kalambaina Formation | Dukamaje Formation,Sokoto Group | Sedimentary,Palaeogene (as printed) | Cretaceous,ambiguous,geology
+20,Gss,"(229, 255, 168)",L020,"Sandstone, siltstone, shale and ironstone",Gombe Formation,Sedimentary,Cretaceous,colour_match,geology
+21,Ajst,"(206, 255, 166)",L021,False-bedded sandstone,Ajali Formation,Sedimentary,Cretaceous,colour_match,geology
+22,Ncsh,"(179, 255, 183)",L022,"Coal, shale and sandstone",Nsukka Formation,Sedimentary,Cretaceous,colour_match,geology
+23,Ncsh,"(182, 229, 151)",L023,"Sandstone, limestone, coal",Nsukka Formation,Sedimentary,Cretaceous,colour_match,geology
+24,Asl,"(197, 244, 176)",L024,Sandstone and limestone,Abeokuta Formation,Sedimentary,Cretaceous,colour_match,geology
+25,Mcst,"(165, 243, 191)",L025,"Coal, sandstone and shale",Mamu Formation,Sedimentary,Cretaceous,colour_match,geology
+26,Bssf,"(214, 255, 133)",L026,Sandstone and ironstone,Bassage Formation,Sedimentary,Cretaceous,colour_match,geology
+27,Nsh,"(210, 244, 88)",L027,Shale and mudstone,Nkporo Formation,Sedimentary,Cretaceous,colour_match,geology
+28,ANsh,"(204, 216, 108)",L028,Shale and limestone,Awgu Formation,Sedimentary,Cretaceous,colour_match,geology
+29,Tst,"(156, 214, 189)",L029,"Sandstone, siltstone and shale",Taloka Formation,Sedimentary,Cretaceous,colour_match,geology
+30,Wss,"(189, 236, 155)",L031,"Sandstone, clays and shale",Dukamaje and Wurno Formation,Rima Group,Cretaceous,colour_match,geology
+31,Wcs,"(163, 252, 194)",L032,Clays and loose sandstone,Dukamaje and Wurno Formation,Rima Group,Cretaceous,colour_match,geology
+32,Wsh,"(185, 224, 109)",L033,Shale (phosphate nodules),Dukamaje and Wurno Formation,Rima Group,Cretaceous,colour_match,geology
+33,Psh | NPss,"(121, 223, 176)",L035 | L037,"Shale, limestone and sandstone | Feldspathic sandstone and siltstone",Pindiga Formation | Nupe Formation,Sedimentary,Cretaceous,ambiguous,geology
+34,Lass,"(188, 201, 184)",L036,"Sandstone, shale and sandy shale",Lafia - Wukari Formation,Sedimentary,Cretaceous,colour_match,geology
+35,Glpg,"(148, 206, 103)",L038,Pebbles and grit,Gundumi - Illo Formation,Sedimentary,Cretaceous,colour_match,geology
+36,Glss,"(163, 240, 102)",L039,Clay grit and pebbles,Gundumi - Illo Formation,Sedimentary,Cretaceous,colour_match,geology
+37,Glgss,"(178, 209, 129)",L040,Gravel and sand,Gundumi - Illo Formation,Sedimentary,Cretaceous,colour_match,geology
+38,Fsh,"(172, 247, 154)",L041,"Black shale, siltstone and sandstone",Fika Formation,Sedimentary,Cretaceous,colour_match,geology
+39,Ess,"(178, 227, 112)",L042,Sandstone,Eze - aku Group,Sedimentary,Cretaceous,colour_match,geology
+40,Esh,"(152, 214, 79)",L043,"Black shale, siltstone and sandstone",Eze - aku Group,Sedimentary,Cretaceous,colour_match,geology
+41,Mlst,"(185, 230, 163)",L044,Limestone and siltstone,Awi - Mfamosing Formation,Sedimentary,Cretaceous,colour_match,geology
+42,Awst,"(185, 231, 194)",L045,Sandstone,Awi - Mfamosing Formation,Sedimentary,Cretaceous,colour_match,geology
+43,Yls,"(114, 193, 50)",L046,"Shale, sandy clay, calcareous sandstones",Yola - Bima - Yolde Formation,Sedimentary,Cretaceous,colour_match,geology
+44,Bss,"(138, 172, 95)",L047,"Feldspathic sandstone, calcareous sandstone and shelly limestone",Bima Formation,Sedimentary,Cretaceous,colour_match,geology
+45,Arlsh,"(96, 165, 58)",L048,Shale and limestone with sandstone intercalations,Asu River Group,Sedimentary,Cretaceous,colour_match,geology
+46,MyP,"(255, 200, 255)",L049,Quartz porphyry,Not stated,Per Alkaline young Granite Series (as printed),Jurassic,colour_match,geology
+47,MyG | JyG,"(218, 138, 227)",L050 | L057,Granite and granite porphyry | Biotite granite,Not stated,Per Alkaline young Granite Series (as printed),Jurassic,ambiguous,geology
+48,MyI,"(231, 187, 248)",L051,Ignimbrite,Not stated,Per Alkaline young Granite Series (as printed),Jurassic,colour_match,geology
+49,Mys,"(231, 190, 198)",L052,"Syenite, quartz-syenite and gabbro",Not stated,Per Alkaline young Granite Series (as printed),Jurassic,colour_match,geology
+50,MGp,"(231, 190, 255)",L053,Granites and granite porphyry,Not stated,Per Alkaline young Granite Series (as printed),Jurassic,colour_match,geology
+51,MyP,"(213, 185, 199)",L054,Porphyry / quartz porphyry,Not stated,Per Alkaline young Granite Series (as printed),Jurassic,colour_match,geology
+52,r,"(222, 204, 204)",L055,Rhyolite,Not stated,Per Alkaline young Granite Series (as printed),Jurassic,colour_match,geology
+53,Jyr,"(190, 100, 200)",L056,Rhyolite,Not stated,Per Alkaline young Granite Series (as printed),Jurassic,colour_match,geology
+54,JyA,"(255, 114, 224)",L058,Trachy-andesine,Not stated,Per Alkaline young Granite Series (as printed),Jurassic,colour_match,geology
+55,P,"(193, 149, 120)",L059,Pegmatite,Not stated,Pan-African older granite suite,Pre-Cambrian to Cambrian,colour_match,geology
+56,D,"(155, 155, 155)",L060,Dolerite,Not stated,Pan-African older granite suite,Pre-Cambrian to Cambrian,colour_match,geology
+57,ODh,"(178, 178, 178)",L061,Bauchite quartz-diorite,Not stated,Pan-African older granite suite,Pre-Cambrian to Cambrian,colour_match,geology
+58,OGd,"(255, 155, 171)",L062,Biotite and biotite hornblende granodiorite,Not stated,Pan-African older granite suite,Pre-Cambrian to Cambrian,colour_match,geology
+59,OGS,"(204, 204, 204)",L063,"Syenite, mainly of pyroxene diorite composition",Not stated,Pan-African older granite suite,Pre-Cambrian to Cambrian,colour_match,geology
+60,OSq,"(255, 236, 185)",L064,Coarse biotite and biotite muscovite granite,Not stated,Pan-African older granite suite,Pre-Cambrian to Cambrian,colour_match,geology
+61,OGh,"(255, 116, 87)",L065,Coarse hornblende granite,Not stated,Pan-African older granite suite,Pre-Cambrian to Cambrian,colour_match,geology
+62,OGf,"(255, 199, 212)",L066,Fine-grained biotite granite,Not stated,Pan-African older granite suite,Pre-Cambrian to Cambrian,colour_match,geology
+63,OGm,"(255, 142, 186)",L067,Medium-to-coarse-grained biotite granite,Not stated,Pan-African older granite suite,Pre-Cambrian to Cambrian,colour_match,geology
+64,OGu,"(255, 112, 86)",L068,"Undifferentiated granite, migmatite and granite gneiss",Not stated,Pan-African older granite suite,Pre-Cambrian to Cambrian,colour_match,geology
+65,OGCh,"(177, 125, 68)",L069,Charnockitic rocks,Not stated,Pan-African older granite suite,Pre-Cambrian to Cambrian,colour_match,geology
+66,OGr,"(221, 0, 254)",L070,Gabbro and quartz gabbro,Not stated,Pan-African older granite suite,Pre-Cambrian to Cambrian,colour_match,geology
+67,MV,"(193, 109, 39)",L071,Meta volcanic meta sedimentary including pebbly schist,Not stated,Meta-sedimentary / meta-volcanic series,Pre-Cambrian to Cambrian,colour_match,geology
+68,Sa,"(114, 223, 254)",L072,"Amphibole schist, amphibolite",Not stated,Meta-sedimentary / meta-volcanic series,Pre-Cambrian to Cambrian,colour_match,geology
+69,BIF,"(224, 224, 150)",L073,Banded iron formation,Not stated,Meta-sedimentary / meta-volcanic series,Pre-Cambrian to Cambrian,colour_match,geology
+70,Sp,"(121, 185, 255)",L074,"Slate phyllite and meta siltstone, locally hornfelsic / carbonaceous",Not stated,Meta-sedimentary / meta-volcanic series,Pre-Cambrian to Cambrian,colour_match,geology
+71,m,"(83, 206, 89)",L075,Marble,Not stated,Meta-sedimentary / meta-volcanic series,Pre-Cambrian to Cambrian,colour_match,geology
+72,Sf,"(158, 185, 230)",L076,Fine-grained flaggy quartzite and quartz schist,Not stated,Meta-sedimentary / meta-volcanic series,Pre-Cambrian to Cambrian,colour_match,geology
+73,Qs,"(223, 255, 68)",L077,"Quartzite, massive and schistose, also occurring as ridges",Not stated,Meta-sedimentary / meta-volcanic series,Pre-Cambrian to Cambrian,colour_match,geology
+74,MS,"(242, 246, 0)",L078,Pelitic schist / muscovite schist,Not stated,Meta-sedimentary / meta-volcanic series,Pre-Cambrian to Cambrian,colour_match,geology
+75,Su,"(121, 193, 217)",L079,"Undifferentiated schists, including phyllites",Not stated,Meta-sedimentary / meta-volcanic series,Pre-Cambrian to Cambrian,colour_match,geology
+76,Mc,"(163, 231, 112)",L080,Meta-conglomerate,Not stated,Meta-sedimentary / meta-volcanic series,Pre-Cambrian to Cambrian,colour_match,geology
+77,bS,"(223, 186, 116)",L081,Biotite garnet gneiss schist,Not stated,Migmatite - gneiss complex,Pre-Cambrian to Cambrian,colour_match,geology
+78,bG-h,"(218, 178, 90)",L082,Biotite hornblende gneiss,Not stated,Migmatite - gneiss complex,Pre-Cambrian to Cambrian,colour_match,geology
+79,OPg,"(218, 177, 49)",L083,Porphyroblastic gneiss,Not stated,Migmatite - gneiss complex,Pre-Cambrian to Cambrian,colour_match,geology
+80,GG,"(255, 181, 76)",L084,Granite gneiss,Not stated,Migmatite - gneiss complex,Pre-Cambrian to Cambrian,colour_match,geology
+81,Ge,"(236, 201, 109)",L085,Granulite and gneiss,Not stated,Migmatite - gneiss complex,Pre-Cambrian to Cambrian,colour_match,geology
+82,bG,"(218, 160, 0)",L086,Banded gneiss / biotite gneiss,Not stated,Migmatite - gneiss complex,Pre-Cambrian to Cambrian,colour_match,geology
+83,MaG,"(231, 179, 0)",L087,Migmatitic augen gneiss,Not stated,Migmatite - gneiss complex,Pre-Cambrian to Cambrian,colour_match,geology
+84,MG,"(223, 196, 119)",L088,Migmatitic gneiss,Not stated,Migmatite - gneiss complex,Pre-Cambrian to Cambrian,colour_match,geology
+85,M,"(222, 211, 119)",L089,Migmatite,Not stated,Migmatite - gneiss complex,Pre-Cambrian to Cambrian,colour_match,geology
+86,qs,"(240, 255, 134)",L090,"Silicified, sheared rocks, large quartz veins",Not stated,Cataclastic rocks,Pre-Cambrian to Cambrian,colour_match,geology
+87,My,"(255, 201, 69)",L091,Mylonites,Not stated,Cataclastic rocks,Pre-Cambrian to Cambrian,colour_match,geology
+88,aMy,"(122, 163, 255)",L092,Mylonites interlayered with amphibolites,Not stated,Cataclastic rocks,Pre-Cambrian to Cambrian,colour_match,geology
+89,WATER,"(152, 218, 242)",,Filled surface water,Not applicable,Water,Not applicable,visual_water,water
+90,UNRESOLVED,"(255, 121, 127)",,Unresolved pink-red source fill; rock unit not established,Unresolved,Unresolved geology,Unresolved,unresolved,geology
+91,UNRES_BLUE,"(103, 116, 255)",,Unresolved blue source fill; rock unit not established,Unresolved,Unresolved geology,Unresolved,unresolved,geology

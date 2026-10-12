@@ -1,0 +1,93 @@
+code	lithology	formation	group_name
+Al	Alluvium	Sediments	Surficial deposits
+MWS	Sands, gravels and clay	Meander belt, back swamps, fresh water swamps	Surficial deposits
+AB	Sands and pebbles	Abandoned beach ridges	Surficial deposits
+MS	Sand, clay and mangrove swamps	Mangrove swamps	Surficial deposits
+SDsm	Sand, clay and swamp	Sombreiro Deltaic Formation	Surficial deposits
+Cst	Sands, clays, siltstones and limestones	Chad Formation	Sedimentary
+Bnst	Sand and clay	Benin Formation	Sedimentary
+b	Younger basalt	Newer Basalt	Volcanic
+bb	Basalt	Older Basalt	Volcanic
+OAlgs	Lignite, claystone and shale	Ogwashi - Asaba Formation	Sedimentary
+Ish	Clay, clayey sands and shale	Ilaro Formation	Sedimentary
+Gwss	Sandstone and clay	Gwandu Formation	Sedimentary
+Glcl	Sandstones and clays	Gwandu Formation	Sedimentary
+Wss	Sandstone and clay	Gwandu Formation	Sedimentary
+Esh	Shale and limestone	Gwandu Formation	Sedimentary
+Imsh	Clay and shale with limestone intercalations	Imo Group	Sedimentary
+Kss	Sandstone, shale and clay	Kerri - Kerri Formation	Sedimentary
+Dsh	Shale	Dange Formation	Sokoto Group
+Kls	Limestone	Kalambaina Formation	Sokoto Group
+Gss	Sandstone, siltstone, shale and ironstone	Gombe Formation	Sedimentary
+Ajst	False-bedded sandstone	Ajali Formation	Sedimentary
+Ncsh	Coal, shale and sandstone	Nsukka Formation	Sedimentary
+Ncsh	Sandstone, limestone, coal	Nsukka Formation	Sedimentary
+Asl	Sandstone and limestone	Abeokuta Formation	Sedimentary
+Mcst	Coal, sandstone and shale	Mamu Formation	Sedimentary
+Bssf	Sandstone and ironstone	Bassage Formation	Sedimentary
+Nsh	Shale and mudstone	Nkporo Formation	Sedimentary
+ANsh	Shale and limestone	Awgu Formation	Sedimentary
+Tst	Sandstone, siltstone and shale	Taloka Formation	Sedimentary
+Glls	Limestone	Dukamaje Formation	Sedimentary
+Wss	Sandstone, clays and shale	Dukamaje and Wurno Formation	Rima Group
+Wcs	Clays and loose sandstone	Dukamaje and Wurno Formation	Rima Group
+Wsh	Shale (phosphate nodules)	Dukamaje and Wurno Formation	Rima Group
+Ts	Siltstone and sandstone	Dukamaje and Wurno Formation	Rima Group
+Psh	Shale, limestone and sandstone	Pindiga Formation	Sedimentary
+Lass	Sandstone, shale and sandy shale	Lafia - Wukari Formation	Sedimentary
+NPss	Feldspathic sandstone and siltstone	Nupe Formation	Sedimentary
+Glpg	Pebbles and grit	Gundumi - Illo Formation	Sedimentary
+Glss	Clay grit and pebbles	Gundumi - Illo Formation	Sedimentary
+Glgss	Gravel and sand	Gundumi - Illo Formation	Sedimentary
+Fsh	Black shale, siltstone and sandstone	Fika Formation	Sedimentary
+Ess	Sandstone	Eze - aku Group	Sedimentary
+Esh	Black shale, siltstone and sandstone	Eze - aku Group	Sedimentary
+Mlst	Limestone and siltstone	Awi - Mfamosing Formation	Sedimentary
+Awst	Sandstone	Awi - Mfamosing Formation	Sedimentary
+Yls	Shale, sandy clay, calcareous sandstones	Yola - Bima - Yolde Formation	Sedimentary
+Bss	Feldspathic sandstone, calcareous sandstone and shelly limestone	Bima Formation	Sedimentary
+Arlsh	Shale and limestone with sandstone intercalations	Asu River Group	Sedimentary
+MyP	Quartz porphyry	Not stated	Pre-Alkaline young granite suite
+MyG	Granite and granite porphyry	Not stated	Pre-Alkaline young granite suite
+MyI	Ignimbrite	Not stated	Pre-Alkaline young granite suite
+Mys	Syenite, quartz-syenite and gabbro	Not stated	Pre-Alkaline young granite suite
+MGp	Granites and granite porphyry	Not stated	Pre-Alkaline young granite suite
+MyP	Porphyry / quartz porphyry	Not stated	Pre-Alkaline young granite suite
+r	Rhyolite	Not stated	Pre-Alkaline young granite suite
+Jyr	Rhyolite	Not stated	Pre-Alkaline young granite suite
+JyG	Biotite granite	Not stated	Pre-Alkaline young granite suite
+JyA	Trachy-andesine	Not stated	Pre-Alkaline young granite suite
+P	Pegmatite	Not stated	Pan-African older granite suite
+D	Dolerite	Not stated	Pan-African older granite suite
+ODh	Bauchite quartz-diorite	Not stated	Pan-African older granite suite
+OGd	Biotite and biotite hornblende granodiorite	Not stated	Pan-African older granite suite
+OGS	Syenite, mainly of pyroxene diorite composition	Not stated	Pan-African older granite suite
+OSq	Coarse biotite and biotite muscovite granite	Not stated	Pan-African older granite suite
+OGh	Coarse hornblende granite	Not stated	Pan-African older granite suite
+OGf	Fine-grained biotite granite	Not stated	Pan-African older granite suite
+OGm	Medium-to-coarse-grained biotite granite	Not stated	Pan-African older granite suite
+OGu	Undifferentiated granite, migmatite and granite gneiss	Not stated	Pan-African older granite suite
+OGCh	Charnockitic rocks	Not stated	Pan-African older granite suite
+OGr	Gabbro and quartz gabbro	Not stated	Pan-African older granite suite
+MV	Meta volcanic meta sedimentary including pebbly schist	Not stated	Meta-sedimentary / meta-volcanic series
+Sa	Amphibole schist, amphibolite	Not stated	Meta-sedimentary / meta-volcanic series
+BIF	Banded iron formation	Not stated	Meta-sedimentary / meta-volcanic series
+Sp	Slate phyllite and meta siltstone, locally hornfelsic / carbonaceous	Not stated	Meta-sedimentary / meta-volcanic series
+m	Marble	Not stated	Meta-sedimentary / meta-volcanic series
+Sf	Fine-grained flaggy quartzite and quartz schist	Not stated	Meta-sedimentary / meta-volcanic series
+Qs	Quartzite, massive and schistose, also occurring as ridges	Not stated	Meta-sedimentary / meta-volcanic series
+MS	Pelitic schist / muscovite schist	Not stated	Meta-sedimentary / meta-volcanic series
+Su	Undifferentiated schists, including phyllites	Not stated	Meta-sedimentary / meta-volcanic series
+Mc	Meta-conglomerate	Not stated	Meta-sedimentary / meta-volcanic series
+bS	Biotite garnet gneiss schist	Not stated	Migmatite - gneiss complex
+bG-h	Biotite hornblende gneiss	Not stated	Migmatite - gneiss complex
+OPg	Porphyroblastic gneiss	Not stated	Migmatite - gneiss complex
+GG	Granite gneiss	Not stated	Migmatite - gneiss complex
+Ge	Granulite and gneiss	Not stated	Migmatite - gneiss complex
+bG	Banded gneiss / biotite gneiss	Not stated	Migmatite - gneiss complex
+MaG	Migmatitic augen gneiss	Not stated	Migmatite - gneiss complex
+MG	Migmatitic gneiss	Not stated	Migmatite - gneiss complex
+M	Migmatite	Not stated	Migmatite - gneiss complex
+qs	Silicified, sheared rocks, large quartz veins	Not stated	Cataclastic rocks
+My	Mylonites	Not stated	Cataclastic rocks
+aMy	Mylonites interlayered with amphibolites	Not stated	Cataclastic rocks
