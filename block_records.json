@@ -1,0 +1,2857 @@
+[
+  {
+    "block": "A1",
+    "col": "A",
+    "row": 1,
+    "coverage_pct": 5.9,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 993,
+    "inpainted_pixels": 2913,
+    "bridged_features_px": 1762,
+    "neighbors_connected": [
+      "B1",
+      "A2",
+      "B2"
+    ]
+  },
+  {
+    "block": "B1",
+    "col": "B",
+    "row": 1,
+    "coverage_pct": 22.7,
+    "geological_units": [
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 0,
+    "inpainted_pixels": 2953,
+    "bridged_features_px": 1414,
+    "neighbors_connected": [
+      "A1",
+      "C1",
+      "A2",
+      "B2",
+      "C2"
+    ]
+  },
+  {
+    "block": "C1",
+    "col": "C",
+    "row": 1,
+    "coverage_pct": 91.4,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 54,
+    "inpainted_pixels": 8463,
+    "bridged_features_px": 3006,
+    "neighbors_connected": [
+      "B1",
+      "D1",
+      "B2",
+      "C2",
+      "D2"
+    ]
+  },
+  {
+    "block": "D1",
+    "col": "D",
+    "row": 1,
+    "coverage_pct": 89.5,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 2805,
+    "inpainted_pixels": 8421,
+    "bridged_features_px": 3176,
+    "neighbors_connected": [
+      "C1",
+      "E1",
+      "C2",
+      "D2",
+      "E2"
+    ]
+  },
+  {
+    "block": "E1",
+    "col": "E",
+    "row": 1,
+    "coverage_pct": 39.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 2208,
+    "inpainted_pixels": 6678,
+    "bridged_features_px": 7068,
+    "neighbors_connected": [
+      "D1",
+      "F1",
+      "D2",
+      "E2",
+      "F2"
+    ]
+  },
+  {
+    "block": "F1",
+    "col": "F",
+    "row": 1,
+    "coverage_pct": 36.9,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 726,
+    "inpainted_pixels": 2253,
+    "bridged_features_px": 902,
+    "neighbors_connected": [
+      "E1",
+      "G1",
+      "E2",
+      "F2",
+      "G2"
+    ]
+  },
+  {
+    "block": "G1",
+    "col": "G",
+    "row": 1,
+    "coverage_pct": 9.7,
+    "geological_units": [
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 11,
+    "inpainted_pixels": 5560,
+    "bridged_features_px": 1954,
+    "neighbors_connected": [
+      "F1",
+      "H1",
+      "F2",
+      "G2",
+      "H2"
+    ]
+  },
+  {
+    "block": "H1",
+    "col": "H",
+    "row": 1,
+    "coverage_pct": 29.4,
+    "geological_units": [
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 1906,
+    "inpainted_pixels": 2131,
+    "bridged_features_px": 920,
+    "neighbors_connected": [
+      "G1",
+      "I1",
+      "G2",
+      "H2",
+      "I2"
+    ]
+  },
+  {
+    "block": "I1",
+    "col": "I",
+    "row": 1,
+    "coverage_pct": 49.3,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 2,
+    "inpainted_pixels": 1544,
+    "bridged_features_px": 278,
+    "neighbors_connected": [
+      "H1",
+      "J1",
+      "H2",
+      "I2",
+      "J2"
+    ]
+  },
+  {
+    "block": "J1",
+    "col": "J",
+    "row": 1,
+    "coverage_pct": 36.2,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 670,
+    "inpainted_pixels": 3269,
+    "bridged_features_px": 1685,
+    "neighbors_connected": [
+      "I1",
+      "K1",
+      "I2",
+      "J2",
+      "K2"
+    ]
+  },
+  {
+    "block": "K1",
+    "col": "K",
+    "row": 1,
+    "coverage_pct": 88.6,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 35693,
+    "inpainted_pixels": 7132,
+    "bridged_features_px": 8001,
+    "neighbors_connected": [
+      "J1",
+      "L1",
+      "J2",
+      "K2",
+      "L2"
+    ]
+  },
+  {
+    "block": "L1",
+    "col": "L",
+    "row": 1,
+    "coverage_pct": 75.7,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 70806,
+    "inpainted_pixels": 3200,
+    "bridged_features_px": 5842,
+    "neighbors_connected": [
+      "K1",
+      "K2",
+      "L2"
+    ]
+  },
+  {
+    "block": "A2",
+    "col": "A",
+    "row": 2,
+    "coverage_pct": 24.2,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 4500,
+    "inpainted_pixels": 12017,
+    "bridged_features_px": 13346,
+    "neighbors_connected": [
+      "A1",
+      "B1",
+      "B2",
+      "A3",
+      "B3"
+    ]
+  },
+  {
+    "block": "B2",
+    "col": "B",
+    "row": 2,
+    "coverage_pct": 70.7,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)"
+    ],
+    "restored_geo_pixels": 45,
+    "inpainted_pixels": 5397,
+    "bridged_features_px": 2657,
+    "neighbors_connected": [
+      "A1",
+      "B1",
+      "C1",
+      "A2",
+      "C2",
+      "A3",
+      "B3",
+      "C3"
+    ]
+  },
+  {
+    "block": "C2",
+    "col": "C",
+    "row": 2,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)"
+    ],
+    "restored_geo_pixels": 8465,
+    "inpainted_pixels": 4129,
+    "bridged_features_px": 2247,
+    "neighbors_connected": [
+      "B1",
+      "C1",
+      "D1",
+      "B2",
+      "D2",
+      "B3",
+      "C3",
+      "D3"
+    ]
+  },
+  {
+    "block": "D2",
+    "col": "D",
+    "row": 2,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 20357,
+    "inpainted_pixels": 7290,
+    "bridged_features_px": 5365,
+    "neighbors_connected": [
+      "C1",
+      "D1",
+      "E1",
+      "C2",
+      "E2",
+      "C3",
+      "D3",
+      "E3"
+    ]
+  },
+  {
+    "block": "E2",
+    "col": "E",
+    "row": 2,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 25107,
+    "inpainted_pixels": 6587,
+    "bridged_features_px": 5354,
+    "neighbors_connected": [
+      "D1",
+      "E1",
+      "F1",
+      "D2",
+      "F2",
+      "D3",
+      "E3",
+      "F3"
+    ]
+  },
+  {
+    "block": "F2",
+    "col": "F",
+    "row": 2,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 10239,
+    "inpainted_pixels": 6267,
+    "bridged_features_px": 4527,
+    "neighbors_connected": [
+      "E1",
+      "F1",
+      "G1",
+      "E2",
+      "G2",
+      "E3",
+      "F3",
+      "G3"
+    ]
+  },
+  {
+    "block": "G2",
+    "col": "G",
+    "row": 2,
+    "coverage_pct": 96.7,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 675,
+    "inpainted_pixels": 3248,
+    "bridged_features_px": 931,
+    "neighbors_connected": [
+      "F1",
+      "G1",
+      "H1",
+      "F2",
+      "H2",
+      "F3",
+      "G3",
+      "H3"
+    ]
+  },
+  {
+    "block": "H2",
+    "col": "H",
+    "row": 2,
+    "coverage_pct": 99.3,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 348,
+    "inpainted_pixels": 2704,
+    "bridged_features_px": 348,
+    "neighbors_connected": [
+      "G1",
+      "H1",
+      "I1",
+      "G2",
+      "I2",
+      "G3",
+      "H3",
+      "I3"
+    ]
+  },
+  {
+    "block": "I2",
+    "col": "I",
+    "row": 2,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 21,
+    "inpainted_pixels": 1030,
+    "bridged_features_px": 138,
+    "neighbors_connected": [
+      "H1",
+      "I1",
+      "J1",
+      "H2",
+      "J2",
+      "H3",
+      "I3",
+      "J3"
+    ]
+  },
+  {
+    "block": "J2",
+    "col": "J",
+    "row": 2,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 2,
+    "inpainted_pixels": 2084,
+    "bridged_features_px": 13,
+    "neighbors_connected": [
+      "I1",
+      "J1",
+      "K1",
+      "I2",
+      "K2",
+      "I3",
+      "J3",
+      "K3"
+    ]
+  },
+  {
+    "block": "K2",
+    "col": "K",
+    "row": 2,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 1703,
+    "inpainted_pixels": 898,
+    "bridged_features_px": 0,
+    "neighbors_connected": [
+      "J1",
+      "K1",
+      "L1",
+      "J2",
+      "L2",
+      "J3",
+      "K3",
+      "L3"
+    ]
+  },
+  {
+    "block": "L2",
+    "col": "L",
+    "row": 2,
+    "coverage_pct": 78.9,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 10055,
+    "inpainted_pixels": 8644,
+    "bridged_features_px": 11848,
+    "neighbors_connected": [
+      "K1",
+      "L1",
+      "K2",
+      "K3",
+      "L3"
+    ]
+  },
+  {
+    "block": "A3",
+    "col": "A",
+    "row": 3,
+    "coverage_pct": 16.6,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 1764,
+    "inpainted_pixels": 5723,
+    "bridged_features_px": 5682,
+    "neighbors_connected": [
+      "A2",
+      "B2",
+      "B3",
+      "A4",
+      "B4"
+    ]
+  },
+  {
+    "block": "B3",
+    "col": "B",
+    "row": 3,
+    "coverage_pct": 82.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 14137,
+    "inpainted_pixels": 6944,
+    "bridged_features_px": 5608,
+    "neighbors_connected": [
+      "A2",
+      "B2",
+      "C2",
+      "A3",
+      "C3",
+      "A4",
+      "B4",
+      "C4"
+    ]
+  },
+  {
+    "block": "C3",
+    "col": "C",
+    "row": 3,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 28427,
+    "inpainted_pixels": 6964,
+    "bridged_features_px": 5282,
+    "neighbors_connected": [
+      "B2",
+      "C2",
+      "D2",
+      "B3",
+      "D3",
+      "B4",
+      "C4",
+      "D4"
+    ]
+  },
+  {
+    "block": "D3",
+    "col": "D",
+    "row": 3,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 17590,
+    "inpainted_pixels": 5601,
+    "bridged_features_px": 4558,
+    "neighbors_connected": [
+      "C2",
+      "D2",
+      "E2",
+      "C3",
+      "E3",
+      "C4",
+      "D4",
+      "E4"
+    ]
+  },
+  {
+    "block": "E3",
+    "col": "E",
+    "row": 3,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 15228,
+    "inpainted_pixels": 8112,
+    "bridged_features_px": 5041,
+    "neighbors_connected": [
+      "D2",
+      "E2",
+      "F2",
+      "D3",
+      "F3",
+      "D4",
+      "E4",
+      "F4"
+    ]
+  },
+  {
+    "block": "F3",
+    "col": "F",
+    "row": 3,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 13784,
+    "inpainted_pixels": 7302,
+    "bridged_features_px": 5034,
+    "neighbors_connected": [
+      "E2",
+      "F2",
+      "G2",
+      "E3",
+      "G3",
+      "E4",
+      "F4",
+      "G4"
+    ]
+  },
+  {
+    "block": "G3",
+    "col": "G",
+    "row": 3,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 7093,
+    "inpainted_pixels": 6122,
+    "bridged_features_px": 5693,
+    "neighbors_connected": [
+      "F2",
+      "G2",
+      "H2",
+      "F3",
+      "H3",
+      "F4",
+      "G4",
+      "H4"
+    ]
+  },
+  {
+    "block": "H3",
+    "col": "H",
+    "row": 3,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 6405,
+    "inpainted_pixels": 5041,
+    "bridged_features_px": 3334,
+    "neighbors_connected": [
+      "G2",
+      "H2",
+      "I2",
+      "G3",
+      "I3",
+      "G4",
+      "H4",
+      "I4"
+    ]
+  },
+  {
+    "block": "I3",
+    "col": "I",
+    "row": 3,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)"
+    ],
+    "restored_geo_pixels": 7942,
+    "inpainted_pixels": 3987,
+    "bridged_features_px": 3018,
+    "neighbors_connected": [
+      "H2",
+      "I2",
+      "J2",
+      "H3",
+      "J3",
+      "H4",
+      "I4",
+      "J4"
+    ]
+  },
+  {
+    "block": "J3",
+    "col": "J",
+    "row": 3,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Volcanics / Newer Basalts",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)"
+    ],
+    "restored_geo_pixels": 20796,
+    "inpainted_pixels": 4868,
+    "bridged_features_px": 4227,
+    "neighbors_connected": [
+      "I2",
+      "J2",
+      "K2",
+      "I3",
+      "K3",
+      "I4",
+      "J4",
+      "K4"
+    ]
+  },
+  {
+    "block": "K3",
+    "col": "K",
+    "row": 3,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 1723,
+    "inpainted_pixels": 3050,
+    "bridged_features_px": 1195,
+    "neighbors_connected": [
+      "J2",
+      "K2",
+      "L2",
+      "J3",
+      "L3",
+      "J4",
+      "K4",
+      "L4"
+    ]
+  },
+  {
+    "block": "L3",
+    "col": "L",
+    "row": 3,
+    "coverage_pct": 60.8,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 1779,
+    "inpainted_pixels": 8523,
+    "bridged_features_px": 7708,
+    "neighbors_connected": [
+      "K2",
+      "L2",
+      "K3",
+      "K4",
+      "L4"
+    ]
+  },
+  {
+    "block": "A4",
+    "col": "A",
+    "row": 4,
+    "coverage_pct": 19.2,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 1935,
+    "inpainted_pixels": 7425,
+    "bridged_features_px": 8031,
+    "neighbors_connected": [
+      "A3",
+      "B3",
+      "B4",
+      "A5",
+      "B5"
+    ]
+  },
+  {
+    "block": "B4",
+    "col": "B",
+    "row": 4,
+    "coverage_pct": 71.8,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 16860,
+    "inpainted_pixels": 4067,
+    "bridged_features_px": 2037,
+    "neighbors_connected": [
+      "A3",
+      "B3",
+      "C3",
+      "A4",
+      "C4",
+      "A5",
+      "B5",
+      "C5"
+    ]
+  },
+  {
+    "block": "C4",
+    "col": "C",
+    "row": 4,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 56972,
+    "inpainted_pixels": 4864,
+    "bridged_features_px": 3935,
+    "neighbors_connected": [
+      "B3",
+      "C3",
+      "D3",
+      "B4",
+      "D4",
+      "B5",
+      "C5",
+      "D5"
+    ]
+  },
+  {
+    "block": "D4",
+    "col": "D",
+    "row": 4,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 27476,
+    "inpainted_pixels": 6561,
+    "bridged_features_px": 5023,
+    "neighbors_connected": [
+      "C3",
+      "D3",
+      "E3",
+      "C4",
+      "E4",
+      "C5",
+      "D5",
+      "E5"
+    ]
+  },
+  {
+    "block": "E4",
+    "col": "E",
+    "row": 4,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 43375,
+    "inpainted_pixels": 8655,
+    "bridged_features_px": 9362,
+    "neighbors_connected": [
+      "D3",
+      "E3",
+      "F3",
+      "D4",
+      "F4",
+      "D5",
+      "E5",
+      "F5"
+    ]
+  },
+  {
+    "block": "F4",
+    "col": "F",
+    "row": 4,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 12003,
+    "inpainted_pixels": 6900,
+    "bridged_features_px": 4940,
+    "neighbors_connected": [
+      "E3",
+      "F3",
+      "G3",
+      "E4",
+      "G4",
+      "E5",
+      "F5",
+      "G5"
+    ]
+  },
+  {
+    "block": "G4",
+    "col": "G",
+    "row": 4,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 10108,
+    "inpainted_pixels": 7412,
+    "bridged_features_px": 5950,
+    "neighbors_connected": [
+      "F3",
+      "G3",
+      "H3",
+      "F4",
+      "H4",
+      "F5",
+      "G5",
+      "H5"
+    ]
+  },
+  {
+    "block": "H4",
+    "col": "H",
+    "row": 4,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 1781,
+    "inpainted_pixels": 6879,
+    "bridged_features_px": 2634,
+    "neighbors_connected": [
+      "G3",
+      "H3",
+      "I3",
+      "G4",
+      "I4",
+      "G5",
+      "H5",
+      "I5"
+    ]
+  },
+  {
+    "block": "I4",
+    "col": "I",
+    "row": 4,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)"
+    ],
+    "restored_geo_pixels": 8486,
+    "inpainted_pixels": 5070,
+    "bridged_features_px": 3009,
+    "neighbors_connected": [
+      "H3",
+      "I3",
+      "J3",
+      "H4",
+      "J4",
+      "H5",
+      "I5",
+      "J5"
+    ]
+  },
+  {
+    "block": "J4",
+    "col": "J",
+    "row": 4,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)"
+    ],
+    "restored_geo_pixels": 31957,
+    "inpainted_pixels": 5091,
+    "bridged_features_px": 4936,
+    "neighbors_connected": [
+      "I3",
+      "J3",
+      "K3",
+      "I4",
+      "K4",
+      "I5",
+      "J5",
+      "K5"
+    ]
+  },
+  {
+    "block": "K4",
+    "col": "K",
+    "row": 4,
+    "coverage_pct": 79.8,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 4624,
+    "inpainted_pixels": 5638,
+    "bridged_features_px": 4268,
+    "neighbors_connected": [
+      "J3",
+      "K3",
+      "L3",
+      "J4",
+      "L4",
+      "J5",
+      "K5",
+      "L5"
+    ]
+  },
+  {
+    "block": "L4",
+    "col": "L",
+    "row": 4,
+    "coverage_pct": 31.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 1704,
+    "inpainted_pixels": 22644,
+    "bridged_features_px": 20986,
+    "neighbors_connected": [
+      "K3",
+      "L3",
+      "K4",
+      "K5",
+      "L5"
+    ]
+  },
+  {
+    "block": "A5",
+    "col": "A",
+    "row": 5,
+    "coverage_pct": 37.1,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 1834,
+    "inpainted_pixels": 3990,
+    "bridged_features_px": 4018,
+    "neighbors_connected": [
+      "A4",
+      "B4",
+      "B5",
+      "A6",
+      "B6"
+    ]
+  },
+  {
+    "block": "B5",
+    "col": "B",
+    "row": 5,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 4679,
+    "inpainted_pixels": 6438,
+    "bridged_features_px": 3739,
+    "neighbors_connected": [
+      "A4",
+      "B4",
+      "C4",
+      "A5",
+      "C5",
+      "A6",
+      "B6",
+      "C6"
+    ]
+  },
+  {
+    "block": "C5",
+    "col": "C",
+    "row": 5,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 68909,
+    "inpainted_pixels": 4541,
+    "bridged_features_px": 5908,
+    "neighbors_connected": [
+      "B4",
+      "C4",
+      "D4",
+      "B5",
+      "D5",
+      "B6",
+      "C6",
+      "D6"
+    ]
+  },
+  {
+    "block": "D5",
+    "col": "D",
+    "row": 5,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 88850,
+    "inpainted_pixels": 4230,
+    "bridged_features_px": 2121,
+    "neighbors_connected": [
+      "C4",
+      "D4",
+      "E4",
+      "C5",
+      "E5",
+      "C6",
+      "D6",
+      "E6"
+    ]
+  },
+  {
+    "block": "E5",
+    "col": "E",
+    "row": 5,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 20069,
+    "inpainted_pixels": 7103,
+    "bridged_features_px": 4972,
+    "neighbors_connected": [
+      "D4",
+      "E4",
+      "F4",
+      "D5",
+      "F5",
+      "D6",
+      "E6",
+      "F6"
+    ]
+  },
+  {
+    "block": "F5",
+    "col": "F",
+    "row": 5,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 19000,
+    "inpainted_pixels": 7767,
+    "bridged_features_px": 6460,
+    "neighbors_connected": [
+      "E4",
+      "F4",
+      "G4",
+      "E5",
+      "G5",
+      "E6",
+      "F6",
+      "G6"
+    ]
+  },
+  {
+    "block": "G5",
+    "col": "G",
+    "row": 5,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 23977,
+    "inpainted_pixels": 9060,
+    "bridged_features_px": 12092,
+    "neighbors_connected": [
+      "F4",
+      "G4",
+      "H4",
+      "F5",
+      "H5",
+      "F6",
+      "G6",
+      "H6"
+    ]
+  },
+  {
+    "block": "H5",
+    "col": "H",
+    "row": 5,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)"
+    ],
+    "restored_geo_pixels": 21189,
+    "inpainted_pixels": 5209,
+    "bridged_features_px": 2903,
+    "neighbors_connected": [
+      "G4",
+      "H4",
+      "I4",
+      "G5",
+      "I5",
+      "G6",
+      "H6",
+      "I6"
+    ]
+  },
+  {
+    "block": "I5",
+    "col": "I",
+    "row": 5,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)"
+    ],
+    "restored_geo_pixels": 10976,
+    "inpainted_pixels": 6541,
+    "bridged_features_px": 3422,
+    "neighbors_connected": [
+      "H4",
+      "I4",
+      "J4",
+      "H5",
+      "J5",
+      "H6",
+      "I6",
+      "J6"
+    ]
+  },
+  {
+    "block": "J5",
+    "col": "J",
+    "row": 5,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)"
+    ],
+    "restored_geo_pixels": 10243,
+    "inpainted_pixels": 6218,
+    "bridged_features_px": 4713,
+    "neighbors_connected": [
+      "I4",
+      "J4",
+      "K4",
+      "I5",
+      "K5",
+      "I6",
+      "J6",
+      "K6"
+    ]
+  },
+  {
+    "block": "K5",
+    "col": "K",
+    "row": 5,
+    "coverage_pct": 47.5,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 5981,
+    "inpainted_pixels": 7584,
+    "bridged_features_px": 5890,
+    "neighbors_connected": [
+      "J4",
+      "K4",
+      "L4",
+      "J5",
+      "L5",
+      "J6",
+      "K6",
+      "L6"
+    ]
+  },
+  {
+    "block": "L5",
+    "col": "L",
+    "row": 5,
+    "coverage_pct": 6.9,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 384,
+    "inpainted_pixels": 3829,
+    "bridged_features_px": 3023,
+    "neighbors_connected": [
+      "K4",
+      "L4",
+      "K5",
+      "K6",
+      "L6"
+    ]
+  },
+  {
+    "block": "A6",
+    "col": "A",
+    "row": 6,
+    "coverage_pct": 72.3,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 14755,
+    "inpainted_pixels": 9858,
+    "bridged_features_px": 9842,
+    "neighbors_connected": [
+      "A5",
+      "B5",
+      "B6",
+      "A7",
+      "B7"
+    ]
+  },
+  {
+    "block": "B6",
+    "col": "B",
+    "row": 6,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 11167,
+    "inpainted_pixels": 7202,
+    "bridged_features_px": 5270,
+    "neighbors_connected": [
+      "A5",
+      "B5",
+      "C5",
+      "A6",
+      "C6",
+      "A7",
+      "B7",
+      "C7"
+    ]
+  },
+  {
+    "block": "C6",
+    "col": "C",
+    "row": 6,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 14198,
+    "inpainted_pixels": 9348,
+    "bridged_features_px": 7248,
+    "neighbors_connected": [
+      "B5",
+      "C5",
+      "D5",
+      "B6",
+      "D6",
+      "B7",
+      "C7",
+      "D7"
+    ]
+  },
+  {
+    "block": "D6",
+    "col": "D",
+    "row": 6,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 37075,
+    "inpainted_pixels": 6718,
+    "bridged_features_px": 7429,
+    "neighbors_connected": [
+      "C5",
+      "D5",
+      "E5",
+      "C6",
+      "E6",
+      "C7",
+      "D7",
+      "E7"
+    ]
+  },
+  {
+    "block": "E6",
+    "col": "E",
+    "row": 6,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 60279,
+    "inpainted_pixels": 4375,
+    "bridged_features_px": 5159,
+    "neighbors_connected": [
+      "D5",
+      "E5",
+      "F5",
+      "D6",
+      "F6",
+      "D7",
+      "E7",
+      "F7"
+    ]
+  },
+  {
+    "block": "F6",
+    "col": "F",
+    "row": 6,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 14055,
+    "inpainted_pixels": 6558,
+    "bridged_features_px": 3591,
+    "neighbors_connected": [
+      "E5",
+      "F5",
+      "G5",
+      "E6",
+      "G6",
+      "E7",
+      "F7",
+      "G7"
+    ]
+  },
+  {
+    "block": "G6",
+    "col": "G",
+    "row": 6,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 7121,
+    "inpainted_pixels": 5502,
+    "bridged_features_px": 3624,
+    "neighbors_connected": [
+      "F5",
+      "G5",
+      "H5",
+      "F6",
+      "H6",
+      "F7",
+      "G7",
+      "H7"
+    ]
+  },
+  {
+    "block": "H6",
+    "col": "H",
+    "row": 6,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)"
+    ],
+    "restored_geo_pixels": 24845,
+    "inpainted_pixels": 3307,
+    "bridged_features_px": 2837,
+    "neighbors_connected": [
+      "G5",
+      "H5",
+      "I5",
+      "G6",
+      "I6",
+      "G7",
+      "H7",
+      "I7"
+    ]
+  },
+  {
+    "block": "I6",
+    "col": "I",
+    "row": 6,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)"
+    ],
+    "restored_geo_pixels": 2657,
+    "inpainted_pixels": 2558,
+    "bridged_features_px": 717,
+    "neighbors_connected": [
+      "H5",
+      "I5",
+      "J5",
+      "H6",
+      "J6",
+      "H7",
+      "I7",
+      "J7"
+    ]
+  },
+  {
+    "block": "J6",
+    "col": "J",
+    "row": 6,
+    "coverage_pct": 73.2,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 6838,
+    "inpainted_pixels": 4319,
+    "bridged_features_px": 3732,
+    "neighbors_connected": [
+      "I5",
+      "J5",
+      "K5",
+      "I6",
+      "K6",
+      "I7",
+      "J7",
+      "K7"
+    ]
+  },
+  {
+    "block": "K6",
+    "col": "K",
+    "row": 6,
+    "coverage_pct": 14.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 1517,
+    "inpainted_pixels": 3756,
+    "bridged_features_px": 4355,
+    "neighbors_connected": [
+      "J5",
+      "K5",
+      "L5",
+      "J6",
+      "L6",
+      "J7",
+      "K7",
+      "L7"
+    ]
+  },
+  {
+    "block": "L6",
+    "col": "L",
+    "row": 6,
+    "coverage_pct": 3.6,
+    "geological_units": [
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 0,
+    "inpainted_pixels": 2343,
+    "bridged_features_px": 403,
+    "neighbors_connected": [
+      "K5",
+      "L5",
+      "K6",
+      "K7",
+      "L7"
+    ]
+  },
+  {
+    "block": "A7",
+    "col": "A",
+    "row": 7,
+    "coverage_pct": 69.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 8720,
+    "inpainted_pixels": 8737,
+    "bridged_features_px": 7378,
+    "neighbors_connected": [
+      "A6",
+      "B6",
+      "B7",
+      "A8",
+      "B8"
+    ]
+  },
+  {
+    "block": "B7",
+    "col": "B",
+    "row": 7,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 18906,
+    "inpainted_pixels": 8763,
+    "bridged_features_px": 9443,
+    "neighbors_connected": [
+      "A6",
+      "B6",
+      "C6",
+      "A7",
+      "C7",
+      "A8",
+      "B8",
+      "C8"
+    ]
+  },
+  {
+    "block": "C7",
+    "col": "C",
+    "row": 7,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 12146,
+    "inpainted_pixels": 7273,
+    "bridged_features_px": 4638,
+    "neighbors_connected": [
+      "B6",
+      "C6",
+      "D6",
+      "B7",
+      "D7",
+      "B8",
+      "C8",
+      "D8"
+    ]
+  },
+  {
+    "block": "D7",
+    "col": "D",
+    "row": 7,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 15794,
+    "inpainted_pixels": 4614,
+    "bridged_features_px": 4084,
+    "neighbors_connected": [
+      "C6",
+      "D6",
+      "E6",
+      "C7",
+      "E7",
+      "C8",
+      "D8",
+      "E8"
+    ]
+  },
+  {
+    "block": "E7",
+    "col": "E",
+    "row": 7,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 6754,
+    "inpainted_pixels": 4802,
+    "bridged_features_px": 3270,
+    "neighbors_connected": [
+      "D6",
+      "E6",
+      "F6",
+      "D7",
+      "F7",
+      "D8",
+      "E8",
+      "F8"
+    ]
+  },
+  {
+    "block": "F7",
+    "col": "F",
+    "row": 7,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 2904,
+    "inpainted_pixels": 6363,
+    "bridged_features_px": 5386,
+    "neighbors_connected": [
+      "E6",
+      "F6",
+      "G6",
+      "E7",
+      "G7",
+      "E8",
+      "F8",
+      "G8"
+    ]
+  },
+  {
+    "block": "G7",
+    "col": "G",
+    "row": 7,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 12520,
+    "inpainted_pixels": 6692,
+    "bridged_features_px": 7609,
+    "neighbors_connected": [
+      "F6",
+      "G6",
+      "H6",
+      "F7",
+      "H7",
+      "F8",
+      "G8",
+      "H8"
+    ]
+  },
+  {
+    "block": "H7",
+    "col": "H",
+    "row": 7,
+    "coverage_pct": 93.6,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 1563,
+    "inpainted_pixels": 3790,
+    "bridged_features_px": 2189,
+    "neighbors_connected": [
+      "G6",
+      "H6",
+      "I6",
+      "G7",
+      "I7",
+      "G8",
+      "H8",
+      "I8"
+    ]
+  },
+  {
+    "block": "I7",
+    "col": "I",
+    "row": 7,
+    "coverage_pct": 97.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 6679,
+    "inpainted_pixels": 3825,
+    "bridged_features_px": 3119,
+    "neighbors_connected": [
+      "H6",
+      "I6",
+      "J6",
+      "H7",
+      "J7",
+      "H8",
+      "I8",
+      "J8"
+    ]
+  },
+  {
+    "block": "J7",
+    "col": "J",
+    "row": 7,
+    "coverage_pct": 38.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 1648,
+    "inpainted_pixels": 16123,
+    "bridged_features_px": 11369,
+    "neighbors_connected": [
+      "I6",
+      "J6",
+      "K6",
+      "I7",
+      "K7",
+      "I8",
+      "J8",
+      "K8"
+    ]
+  },
+  {
+    "block": "K7",
+    "col": "K",
+    "row": 7,
+    "coverage_pct": 3.9,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 123,
+    "inpainted_pixels": 2025,
+    "bridged_features_px": 361,
+    "neighbors_connected": [
+      "J6",
+      "K6",
+      "L6",
+      "J7",
+      "L7",
+      "J8",
+      "K8",
+      "L8"
+    ]
+  },
+  {
+    "block": "L7",
+    "col": "L",
+    "row": 7,
+    "coverage_pct": 3.5,
+    "geological_units": [
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 0,
+    "inpainted_pixels": 2347,
+    "bridged_features_px": 327,
+    "neighbors_connected": [
+      "K6",
+      "L6",
+      "K7",
+      "K8",
+      "L8"
+    ]
+  },
+  {
+    "block": "A8",
+    "col": "A",
+    "row": 8,
+    "coverage_pct": 86.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 61028,
+    "inpainted_pixels": 2519,
+    "bridged_features_px": 1109,
+    "neighbors_connected": [
+      "A7",
+      "B7",
+      "B8",
+      "A9",
+      "B9"
+    ]
+  },
+  {
+    "block": "B8",
+    "col": "B",
+    "row": 8,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 75526,
+    "inpainted_pixels": 2198,
+    "bridged_features_px": 1054,
+    "neighbors_connected": [
+      "A7",
+      "B7",
+      "C7",
+      "A8",
+      "C8",
+      "A9",
+      "B9",
+      "C9"
+    ]
+  },
+  {
+    "block": "C8",
+    "col": "C",
+    "row": 8,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 26483,
+    "inpainted_pixels": 2359,
+    "bridged_features_px": 1327,
+    "neighbors_connected": [
+      "B7",
+      "C7",
+      "D7",
+      "B8",
+      "D8",
+      "B9",
+      "C9",
+      "D9"
+    ]
+  },
+  {
+    "block": "D8",
+    "col": "D",
+    "row": 8,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 512,
+    "inpainted_pixels": 2195,
+    "bridged_features_px": 679,
+    "neighbors_connected": [
+      "C7",
+      "D7",
+      "E7",
+      "C8",
+      "E8",
+      "C9",
+      "D9",
+      "E9"
+    ]
+  },
+  {
+    "block": "E8",
+    "col": "E",
+    "row": 8,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 2980,
+    "inpainted_pixels": 3961,
+    "bridged_features_px": 1882,
+    "neighbors_connected": [
+      "D7",
+      "E7",
+      "F7",
+      "D8",
+      "F8",
+      "D9",
+      "E9",
+      "F9"
+    ]
+  },
+  {
+    "block": "F8",
+    "col": "F",
+    "row": 8,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)"
+    ],
+    "restored_geo_pixels": 32665,
+    "inpainted_pixels": 8170,
+    "bridged_features_px": 12229,
+    "neighbors_connected": [
+      "E7",
+      "F7",
+      "G7",
+      "E8",
+      "G8",
+      "E9",
+      "F9",
+      "G9"
+    ]
+  },
+  {
+    "block": "G8",
+    "col": "G",
+    "row": 8,
+    "coverage_pct": 88.3,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 17935,
+    "inpainted_pixels": 13944,
+    "bridged_features_px": 11680,
+    "neighbors_connected": [
+      "F7",
+      "G7",
+      "H7",
+      "F8",
+      "H8",
+      "F9",
+      "G9",
+      "H9"
+    ]
+  },
+  {
+    "block": "H8",
+    "col": "H",
+    "row": 8,
+    "coverage_pct": 34.5,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 2294,
+    "inpainted_pixels": 19553,
+    "bridged_features_px": 20359,
+    "neighbors_connected": [
+      "G7",
+      "H7",
+      "I7",
+      "G8",
+      "I8",
+      "G9",
+      "H9",
+      "I9"
+    ]
+  },
+  {
+    "block": "I8",
+    "col": "I",
+    "row": 8,
+    "coverage_pct": 27.4,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 1132,
+    "inpainted_pixels": 7926,
+    "bridged_features_px": 3955,
+    "neighbors_connected": [
+      "H7",
+      "I7",
+      "J7",
+      "H8",
+      "J8",
+      "H9",
+      "I9",
+      "J9"
+    ]
+  },
+  {
+    "block": "J8",
+    "col": "J",
+    "row": 8,
+    "coverage_pct": 12.3,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 818,
+    "inpainted_pixels": 7355,
+    "bridged_features_px": 6535,
+    "neighbors_connected": [
+      "I7",
+      "J7",
+      "K7",
+      "I8",
+      "K8",
+      "I9",
+      "J9",
+      "K9"
+    ]
+  },
+  {
+    "block": "K8",
+    "col": "K",
+    "row": 8,
+    "coverage_pct": 2.9,
+    "geological_units": [
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 0,
+    "inpainted_pixels": 2013,
+    "bridged_features_px": 326,
+    "neighbors_connected": [
+      "J7",
+      "K7",
+      "L7",
+      "J8",
+      "L8",
+      "J9",
+      "K9",
+      "L9"
+    ]
+  },
+  {
+    "block": "L8",
+    "col": "L",
+    "row": 8,
+    "coverage_pct": 3.2,
+    "geological_units": [
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 0,
+    "inpainted_pixels": 2343,
+    "bridged_features_px": 288,
+    "neighbors_connected": [
+      "K7",
+      "L7",
+      "K8",
+      "K9",
+      "L9"
+    ]
+  },
+  {
+    "block": "A9",
+    "col": "A",
+    "row": 9,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 109306,
+    "inpainted_pixels": 1120,
+    "bridged_features_px": 62,
+    "neighbors_connected": [
+      "A8",
+      "B8",
+      "B9",
+      "A10",
+      "B10"
+    ]
+  },
+  {
+    "block": "B9",
+    "col": "B",
+    "row": 9,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 111871,
+    "inpainted_pixels": 758,
+    "bridged_features_px": 0,
+    "neighbors_connected": [
+      "A8",
+      "B8",
+      "C8",
+      "A9",
+      "C9",
+      "A10",
+      "B10",
+      "C10"
+    ]
+  },
+  {
+    "block": "C9",
+    "col": "C",
+    "row": 9,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 99802,
+    "inpainted_pixels": 1054,
+    "bridged_features_px": 151,
+    "neighbors_connected": [
+      "B8",
+      "C8",
+      "D8",
+      "B9",
+      "D9",
+      "B10",
+      "C10",
+      "D10"
+    ]
+  },
+  {
+    "block": "D9",
+    "col": "D",
+    "row": 9,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 5304,
+    "inpainted_pixels": 1409,
+    "bridged_features_px": 1067,
+    "neighbors_connected": [
+      "C8",
+      "D8",
+      "E8",
+      "C9",
+      "E9",
+      "C10",
+      "D10",
+      "E10"
+    ]
+  },
+  {
+    "block": "E9",
+    "col": "E",
+    "row": 9,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 1459,
+    "inpainted_pixels": 3576,
+    "bridged_features_px": 1510,
+    "neighbors_connected": [
+      "D8",
+      "E8",
+      "F8",
+      "D9",
+      "F9",
+      "D10",
+      "E10",
+      "F10"
+    ]
+  },
+  {
+    "block": "F9",
+    "col": "F",
+    "row": 9,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Younger Granites (Jurassic Ring Complexes)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Tertiary / Quaternary Sediments (Chad / Coastal Sands)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 1987,
+    "inpainted_pixels": 5429,
+    "bridged_features_px": 2117,
+    "neighbors_connected": [
+      "E8",
+      "F8",
+      "G8",
+      "E9",
+      "G9",
+      "E10",
+      "F10",
+      "G10"
+    ]
+  },
+  {
+    "block": "G9",
+    "col": "G",
+    "row": 9,
+    "coverage_pct": 46.2,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Volcanics / Newer Basalts",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)"
+    ],
+    "restored_geo_pixels": 3469,
+    "inpainted_pixels": 10202,
+    "bridged_features_px": 13073,
+    "neighbors_connected": [
+      "F8",
+      "G8",
+      "H8",
+      "F9",
+      "H9",
+      "F10",
+      "G10",
+      "H10"
+    ]
+  },
+  {
+    "block": "H9",
+    "col": "H",
+    "row": 9,
+    "coverage_pct": 10.5,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 796,
+    "inpainted_pixels": 5235,
+    "bridged_features_px": 4842,
+    "neighbors_connected": [
+      "G8",
+      "H8",
+      "I8",
+      "G9",
+      "I9",
+      "G10",
+      "H10",
+      "I10"
+    ]
+  },
+  {
+    "block": "I9",
+    "col": "I",
+    "row": 9,
+    "coverage_pct": 2.9,
+    "geological_units": [
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 0,
+    "inpainted_pixels": 2016,
+    "bridged_features_px": 281,
+    "neighbors_connected": [
+      "H8",
+      "I8",
+      "J8",
+      "H9",
+      "J9",
+      "H10",
+      "I10",
+      "J10"
+    ]
+  },
+  {
+    "block": "J9",
+    "col": "J",
+    "row": 9,
+    "coverage_pct": 2.9,
+    "geological_units": [
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 0,
+    "inpainted_pixels": 2013,
+    "bridged_features_px": 281,
+    "neighbors_connected": [
+      "I8",
+      "J8",
+      "K8",
+      "I9",
+      "K9",
+      "I10",
+      "J10",
+      "K10"
+    ]
+  },
+  {
+    "block": "K9",
+    "col": "K",
+    "row": 9,
+    "coverage_pct": 2.9,
+    "geological_units": [
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 0,
+    "inpainted_pixels": 2016,
+    "bridged_features_px": 281,
+    "neighbors_connected": [
+      "J8",
+      "K8",
+      "L8",
+      "J9",
+      "L9",
+      "J10",
+      "K10",
+      "L10"
+    ]
+  },
+  {
+    "block": "L9",
+    "col": "L",
+    "row": 9,
+    "coverage_pct": 3.2,
+    "geological_units": [
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 0,
+    "inpainted_pixels": 2347,
+    "bridged_features_px": 289,
+    "neighbors_connected": [
+      "K8",
+      "L8",
+      "K9",
+      "K10",
+      "L10"
+    ]
+  },
+  {
+    "block": "A10",
+    "col": "A",
+    "row": 10,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 112216,
+    "inpainted_pixels": 1007,
+    "bridged_features_px": 2,
+    "neighbors_connected": [
+      "A9",
+      "B9",
+      "B10"
+    ]
+  },
+  {
+    "block": "B10",
+    "col": "B",
+    "row": 10,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 112880,
+    "inpainted_pixels": 677,
+    "bridged_features_px": 0,
+    "neighbors_connected": [
+      "A9",
+      "B9",
+      "C9",
+      "A10",
+      "C10"
+    ]
+  },
+  {
+    "block": "C10",
+    "col": "C",
+    "row": 10,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 112343,
+    "inpainted_pixels": 675,
+    "bridged_features_px": 0,
+    "neighbors_connected": [
+      "B9",
+      "C9",
+      "D9",
+      "B10",
+      "D10"
+    ]
+  },
+  {
+    "block": "D10",
+    "col": "D",
+    "row": 10,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 75311,
+    "inpainted_pixels": 1164,
+    "bridged_features_px": 1205,
+    "neighbors_connected": [
+      "C9",
+      "D9",
+      "E9",
+      "C10",
+      "E10"
+    ]
+  },
+  {
+    "block": "E10",
+    "col": "E",
+    "row": 10,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 70903,
+    "inpainted_pixels": 1918,
+    "bridged_features_px": 1327,
+    "neighbors_connected": [
+      "D9",
+      "E9",
+      "F9",
+      "D10",
+      "F10"
+    ]
+  },
+  {
+    "block": "F10",
+    "col": "F",
+    "row": 10,
+    "coverage_pct": 100.0,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 88175,
+    "inpainted_pixels": 1972,
+    "bridged_features_px": 862,
+    "neighbors_connected": [
+      "E9",
+      "F9",
+      "G9",
+      "E10",
+      "G10"
+    ]
+  },
+  {
+    "block": "G10",
+    "col": "G",
+    "row": 10,
+    "coverage_pct": 66.8,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)",
+      "Cretaceous Sediments (Benue, Bida, Sokoto Basins)",
+      "Coastal Deltaic Alluvium / Ocean"
+    ],
+    "restored_geo_pixels": 54254,
+    "inpainted_pixels": 7446,
+    "bridged_features_px": 12470,
+    "neighbors_connected": [
+      "F9",
+      "G9",
+      "H9",
+      "F10",
+      "H10"
+    ]
+  },
+  {
+    "block": "H10",
+    "col": "H",
+    "row": 10,
+    "coverage_pct": 34.9,
+    "geological_units": [
+      "Water Bodies (Lakes / Rivers)",
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 5465,
+    "inpainted_pixels": 21958,
+    "bridged_features_px": 28702,
+    "neighbors_connected": [
+      "G9",
+      "H9",
+      "I9",
+      "G10",
+      "I10"
+    ]
+  },
+  {
+    "block": "I10",
+    "col": "I",
+    "row": 10,
+    "coverage_pct": 3.1,
+    "geological_units": [
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 0,
+    "inpainted_pixels": 2016,
+    "bridged_features_px": 401,
+    "neighbors_connected": [
+      "H9",
+      "I9",
+      "J9",
+      "H10",
+      "J10"
+    ]
+  },
+  {
+    "block": "J10",
+    "col": "J",
+    "row": 10,
+    "coverage_pct": 2.9,
+    "geological_units": [
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 0,
+    "inpainted_pixels": 2013,
+    "bridged_features_px": 270,
+    "neighbors_connected": [
+      "I9",
+      "J9",
+      "K9",
+      "I10",
+      "K10"
+    ]
+  },
+  {
+    "block": "K10",
+    "col": "K",
+    "row": 10,
+    "coverage_pct": 3.3,
+    "geological_units": [
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 0,
+    "inpainted_pixels": 2195,
+    "bridged_features_px": 272,
+    "neighbors_connected": [
+      "J9",
+      "K9",
+      "L9",
+      "J10",
+      "L10"
+    ]
+  },
+  {
+    "block": "L10",
+    "col": "L",
+    "row": 10,
+    "coverage_pct": 4.1,
+    "geological_units": [
+      "Basement Complex (Migmatites, Gneisses, Schists)"
+    ],
+    "restored_geo_pixels": 0,
+    "inpainted_pixels": 2687,
+    "bridged_features_px": 365,
+    "neighbors_connected": [
+      "K9",
+      "L9",
+      "K10"
+    ]
+  }
+]
