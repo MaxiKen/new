@@ -43,6 +43,60 @@ try {
   await page.locator('#zoom-in').click(); await page.waitForTimeout(100);
   assert.notEqual(await page.locator('#zoom-label').textContent(),before);
   await page.locator('#fit').click();
+  assert.equal(await page.locator('#click-mode-polygon').getAttribute('aria-pressed'),'true');
+  await page.locator('#click-mode-coordinate').click();
+  assert.equal(await page.locator('#click-mode-coordinate').getAttribute('aria-pressed'),'true');
+  assert.equal(await page.locator('#click-mode-polygon').getAttribute('aria-pressed'),'false');
+  await page.locator('#map').click({position:{x:280,y:230}});
+  assert.equal(await page.locator('#inspect-title').textContent(),'Draft change note');
+  const longitude = (await page.locator('#point-longitude').textContent()).trim();
+  const latitude = (await page.locator('#point-latitude').textContent()).trim();
+  assert.match(longitude,/^\d{1,3}\.\d{6}° [EW]$/);
+  assert.match(latitude,/^\d{1,2}\.\d{6}° [NS]$/);
+  assert.ok((await page.locator('#coordinates').textContent()).includes(longitude));
+  assert.ok((await page.locator('#coordinates').textContent()).includes(latitude));
+  assert.equal(await page.locator('#copy-point-coordinate').isVisible(),true);
+  assert.equal(await page.locator('#note-map-source').inputValue(),'draft');
+  const editOptions = await page.locator('#edit-type option').allTextContents();
+  assert.equal(editOptions.length,6,'The selector contains one placeholder and all five edit types');
+  assert.match(editOptions.join(' '),/Add a missing small geology feature.*Join two features.*Remove this polygon.*smaller.*bigger/);
+  await page.locator('#note-map-source').selectOption('original');
+  const sampledColor = await page.locator('#note-color-code').inputValue();
+  assert.match(sampledColor,/^#[0-9A-F]{6}$/);
+  await page.locator('#edit-type').selectOption('add-feature');
+  await page.locator('#edit-details').fill('Small outcrop visible on the original source map.');
+  await page.locator('#save-note').click();
+  assert.equal(await page.locator('#pending-count').textContent(),'1');
+  assert.match(await page.locator('#pending-notes').textContent(),/Add a missing small geology feature/);
+
+  await page.locator('#map').click({position:{x:300,y:245}});
+  await page.locator('#edit-type').selectOption('join-features');
+  await page.locator('#edit-details').fill('These two same-color bodies should be one feature.');
+  assert.equal(await page.locator('#save-note').isDisabled(),true);
+  await page.locator('#pick-second-point').click();
+  await page.locator('#map').click({position:{x:330,y:255}});
+  assert.match(await page.locator('#point-b-coordinate').textContent(),/^\d{1,3}\.\d{6}, \d{1,2}\.\d{6}$/);
+  const colorA = (await page.locator('#note-color-code').inputValue()).toUpperCase();
+  const colorB = (await page.locator('#point-b-color').textContent()).trim().toUpperCase();
+  if (/^#[0-9A-F]{6}$/.test(colorA) && /^#[0-9A-F]{6}$/.test(colorB) && colorA !== colorB) {
+    assert.equal(await page.locator('#save-note').isDisabled(),true,'A join with different sampled colors requires confirmation');
+    await page.locator('#confirm-color-match').check();
+  }
+  assert.equal(await page.locator('#save-note').isDisabled(),false);
+  await page.locator('#save-note').click();
+  assert.equal(await page.locator('#pending-count').textContent(),'2');
+  await page.locator('#copy-all-notes').click();
+  assert.equal(await page.locator('#compiled-note-wrap').isVisible(),true);
+  const prompt = await page.locator('#compiled-note').inputValue();
+  assert.match(prompt,/Please update the Nigeria geological map shapefile/);
+  assert.match(prompt,/Add a missing small geology feature/);
+  assert.match(prompt,/Join two features into one polygon/);
+  assert.match(prompt,/Reference map: Original reference map/);
+  assert.match(prompt,/Point B coordinate/);
+  assert.match(prompt,/Color consistency:/);
+  assert.match(prompt,/same-color bodies should be one feature/);
+  await page.locator('#click-mode-polygon').click();
+  assert.equal(await page.locator('#click-mode-polygon').getAttribute('aria-pressed'),'true');
   await page.locator('[data-region="1"]').click();
   await page.locator('#map').click({position:{x:280,y:230}});
   // The anomaly queue deterministically selects a known body regardless of fit.
@@ -84,5 +138,5 @@ try {
   await page.screenshot({path:'.cache/browser/mobile.png',fullPage:false,timeout:60000});
   assert.equal(await page.locator('.download').isVisible(),true);
   assert.deepEqual(errors,[]);
-  console.log('PASS: real Chromium desktop/mobile rendering, clean-map black-pixel check, source distinction, inspection, anomaly navigation, comparison, zoom, legend, contact toggle, ZIP download.');
+  console.log('PASS: Chromium desktop/mobile rendering, polygon and edit-note modes, five edit types, sampled coordinates/colors, two-point joins, in-memory queue and prompt copy, anomaly navigation, comparison, zoom, legend, contact toggle, ZIP download.');
 } finally { await browser.close(); }
