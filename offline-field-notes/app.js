@@ -2,7 +2,7 @@
 
 (() => {
   const $ = id => document.getElementById(id);
-  const MAP_WIDTH = 4084, MAP_HEIGHT = 3336;
+  const MAP_WIDTH = 4084, MAP_HEIGHT = 3336, MAX_ZOOM = 10;
   const TRANSFORM = [0.003045517499751267, 0, 2.3344767183160524, 0, -0.003045590373802226, 13.896886824009286];
   const STORAGE_KEY = 'ngsa-offline-field-notes-v1';
   const ASSETS = { draft: './assets/current-shapefile-draft.svg', original: './assets/original-reference.jpg' };
@@ -18,13 +18,14 @@
     view: 'draft', split: 50, zoom: 1, panX: 0, panY: 0,
     draft: null, notes: [], captureTarget: null, promptShown: false, mapReady: false,
   };
-  let storage = null, storageAvailable = false, drag = null;
+  let storage = null, storageAvailable = false, drag = null, pinch = null;
+  const activePointers = new Map();
   let sampleCanvas, sampleContext;
   const stage = $('map-stage');
   const baseMap = $('base-map');
   const compareMap = $('compare-map');
   const assetImages = { draft: new Image(), original: new Image() };
-  const visuals = [$('main-visual'), $('compare-visual'), $('marker-visual')];
+  const visuals = [$('main-visual'), $('compare-visual')];
   const number = new Intl.NumberFormat('en');
 
   function setStorageStatus(message, warning = false) {
@@ -66,7 +67,6 @@
       const [r, g, b] = sampleContext.getImageData(0, 0, 1, 1).data;
       return `#${[r, g, b].map(c => c.toString(16).padStart(2, '0')).join('').toUpperCase()}`;
     } catch {
-      $('color-hint').textContent = 'Color sampling is blocked by this browser for a local file. Start the included offline launcher or enter the hex color manually.';
       return '';
     }
   }
@@ -103,11 +103,14 @@
     const pointA = validPoint(note.pointA);
     if (!pointA) return null;
     const pointB = note.pointB ? validPoint(note.pointB) : null;
+    const sourceA = (note.mapSourceA ?? note.mapSource) === 'original' ? 'original' : 'draft';
+    const sourceB = (note.mapSourceB ?? note.mapSourceA ?? note.mapSource) === 'original' ? 'original' : 'draft';
+    const colorAtPointA = safeHex(note.colorAtPointA);
     return {
       id: String(note.id || `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`),
       type: note.type, pointA, pointB,
-      mapSource: note.mapSource === 'original' ? 'original' : 'draft',
-      colorCode: safeHex(note.colorCode), colorAtPointA: safeHex(note.colorAtPointA), colorAtPointB: safeHex(note.colorAtPointB),
+      mapSource: sourceA, mapSourceA: sourceA, mapSourceB: sourceB,
+      colorCode: safeHex(note.colorCode) || colorAtPointA, colorAtPointA, colorAtPointB: safeHex(note.colorAtPointB),
       colorManuallyEdited: Boolean(note.colorManuallyEdited), confirmedColorMatch: Boolean(note.confirmedColorMatch),
       details: String(note.details || '').slice(0, 4000), createdAt: note.createdAt || new Date().toISOString(),
       updatedAt: note.updatedAt || new Date().toISOString(),
@@ -117,12 +120,15 @@
     if (!draft) return null;
     const pointA = validPoint(draft.pointA);
     if (!pointA) return null;
+    const sourceA = (draft.mapSourceA ?? draft.mapSource) === 'original' ? 'original' : 'draft';
+    const sourceB = (draft.mapSourceB ?? draft.mapSourceA ?? draft.mapSource) === 'original' ? 'original' : 'draft';
+    const colorAtPointA = safeHex(draft.colorAtPointA);
     return {
       id: String(draft.id || 'active-draft'),
       type: ACTIONS[draft.type] ? draft.type : '',
       pointA, pointB: draft.pointB ? validPoint(draft.pointB) : null,
-      mapSource: draft.mapSource === 'original' ? 'original' : 'draft',
-      colorCode: safeHex(draft.colorCode), colorAtPointA: safeHex(draft.colorAtPointA), colorAtPointB: safeHex(draft.colorAtPointB),
+      mapSource: sourceA, mapSourceA: sourceA, mapSourceB: sourceB,
+      colorCode: safeHex(draft.colorCode) || colorAtPointA, colorAtPointA, colorAtPointB: safeHex(draft.colorAtPointB),
       colorManuallyEdited: Boolean(draft.colorManuallyEdited), confirmedColorMatch: Boolean(draft.confirmedColorMatch),
       details: String(draft.details || '').slice(0, 4000), editing: Boolean(draft.editing),
       createdAt: draft.createdAt || new Date().toISOString(), updatedAt: draft.updatedAt || new Date().toISOString(),
@@ -132,7 +138,7 @@
     if (!data || data.version !== 1) return false;
     state.view = ['draft', 'original', 'compare'].includes(data.view) ? data.view : 'draft';
     state.split = Math.min(95, Math.max(5, Number(data.split) || 50));
-    state.zoom = Math.min(6, Math.max(1, Number(data.zoom) || 1));
+    state.zoom = Math.min(MAX_ZOOM, Math.max(1, Number(data.zoom) || 1));
     state.panX = Number.isFinite(data.panX) ? data.panX : 0;
     state.panY = Number.isFinite(data.panY) ? data.panY : 0;
     state.notes = Array.isArray(data.notes) ? data.notes.map(normalizeNote).filter(Boolean) : [];
@@ -167,6 +173,7 @@
     const transform = `translate3d(${state.panX}px,${state.panY}px,0) scale(${state.zoom})`;
     visuals.forEach(element => { element.style.transform = transform; });
     $('zoom-readout').textContent = `${Math.round(state.zoom * 100)}%`;
+    renderMarkers();
   }
   function updateSplit() {
     $('compare-split').value = String(state.split);
@@ -185,9 +192,8 @@
     $('compare-settings').hidden = view !== 'compare';
     $('view-label').textContent = view === 'draft' ? 'CURRENT SHAPEFILE DRAFT' : view === 'original' ? 'ORIGINAL REFERENCE MAP' : 'ORIGINAL / DRAFT COMPARISON';
     $('map-caption-title').textContent = view === 'draft' ? 'CURRENT SHAPEFILE DRAFT' : view === 'original' ? 'ORIGINAL REFERENCE MAP' : 'ORIGINAL MAP · DRAFT ON RIGHT';
-    $('map-caption-subtitle').textContent = state.captureTarget === 'pointB' ? 'Click the map to set Point B.' : 'Click a precise location to start an edit note.';
     $('compare-divider').style.left = `${state.split}%`;
-    updateSplit(); applyTransforms();
+    updateSplit(); applyTransforms(); updateMapHint();
     if (persist) saveLocal();
   }
   function renderMarkers() {
@@ -198,36 +204,47 @@
       if (!point) return;
       const marker = document.createElement('span');
       marker.className = `map-marker ${className}`; marker.textContent = label;
-      marker.style.left = `${point.mapX / MAP_WIDTH * 100}%`;
-      marker.style.top = `${point.mapY / MAP_HEIGHT * 100}%`;
+      marker.style.left = `${state.panX + point.mapX / MAP_WIDTH * stage.clientWidth * state.zoom}px`;
+      marker.style.top = `${state.panY + point.mapY / MAP_HEIGHT * stage.clientHeight * state.zoom}px`;
       layer.append(marker);
     };
     add(state.draft.pointA, 'A', 'point-a'); add(state.draft.pointB, 'B', 'point-b');
   }
   function updateMapHint() {
+    const compareHint = state.view === 'compare' ? ' · left original / right draft' : '';
     if (state.captureTarget === 'pointB') {
-      $('map-hint').textContent = 'Click the map to set Point B · press Escape to cancel';
-      stage.setAttribute('aria-label', 'Click the map to choose the second join point, or focus the map and press Enter or Space to use its center. Drag to pan and scroll to zoom.');
+      $('map-hint').textContent = `Click to set Point B${compareHint} · pinch to zoom · Escape cancels`;
+      stage.setAttribute('aria-label', 'Click the map to choose the second join point. In compare view, the left side is the original and the right is the current draft. Pinch with two fingers to zoom; focus and press Enter or Space to use the map center.');
+      $('map-caption-subtitle').textContent = 'Click the map to set Point B.';
     } else {
-      $('map-hint').textContent = 'Drag to pan · scroll to zoom · click a point to add a note';
-      stage.setAttribute('aria-label', 'Offline map. Click to capture a location, or focus the map and press Enter or Space to capture its center. Drag to pan and scroll to zoom.');
+      $('map-hint').textContent = state.view === 'compare'
+        ? 'Left = original · right = draft · source and color captured automatically · pinch to zoom'
+        : 'Drag to pan · wheel or pinch to zoom · click a point to add a note';
+      stage.setAttribute('aria-label', 'Offline map. Click to capture a location; in compare view, left is original and right is current draft. The clicked map and pixel color are recorded automatically. Drag to pan, pinch with two fingers to zoom, or focus and press Enter or Space to capture the center.');
+      $('map-caption-subtitle').textContent = state.view === 'compare'
+        ? 'Click left for the original map or right for the draft; source and color are captured automatically.'
+        : 'Click a precise location to start an edit note.';
     }
-    $('map-caption-subtitle').textContent = state.captureTarget === 'pointB' ? 'Click the map to set Point B.' : 'Click a precise location to start an edit note.';
   }
   function updateColorControls() {
     const draft = state.draft;
     if (!draft) return;
-    $('color-code').value = draft.colorCode || '';
-    $('color-picker').value = safeHex(draft.colorCode) || '#808080';
+    const sourceA = draft.mapSourceA || draft.mapSource;
+    const sourceB = draft.mapSourceB || sourceA;
+    const sampledColor = safeHex(draft.colorAtPointA);
+    $('map-source-label').textContent = MAP_LABELS[sourceA];
+    $('color-code').textContent = sampledColor || 'Not sampled';
+    $('color-swatch').hidden = !sampledColor;
+    $('color-swatch').style.backgroundColor = sampledColor || 'transparent';
     $('point-b-color').textContent = draft.colorAtPointB || 'Not sampled yet';
+    $('point-b-map-source').textContent = draft.pointB ? MAP_LABELS[sourceB] : 'Not captured yet';
     const mismatch = Boolean(draft.type === 'join-features' && draft.colorAtPointA && draft.colorAtPointB && draft.colorAtPointA !== draft.colorAtPointB);
     $('join-color-warning').hidden = !mismatch;
     $('confirm-color-wrap').hidden = !mismatch;
     $('confirm-color-match').checked = Boolean(draft.confirmedColorMatch);
-    const hint = draft.colorAtPointA
-      ? `Sampled from ${MAP_LABELS[draft.mapSource]} · adjust if the intended code is different.`
-      : 'No color sampled. Enter a hex code manually if you know it.';
-    $('color-hint').textContent = hint;
+    $('color-hint').textContent = sampledColor
+      ? `Automatically sampled at Point A from ${MAP_LABELS[sourceA]}.`
+      : 'Color not available from this image. Try the included offline launcher and recapture the point.';
   }
   function renderDraft() {
     const draft = state.draft;
@@ -243,7 +260,6 @@
     $('point-longitude').textContent = axis(draft.pointA.longitude, 'E', 'W');
     $('point-latitude').textContent = axis(draft.pointA.latitude, 'N', 'S');
     $('edit-type').value = draft.type || '';
-    $('map-source').value = draft.mapSource;
     $('extra-details').value = draft.details || '';
     $('join-fields').hidden = draft.type !== 'join-features';
     $('point-b-coordinate').textContent = draft.pointB ? pair(draft.pointB) : 'Not captured yet';
@@ -255,24 +271,11 @@
   function updateValidation() {
     const draft = state.draft;
     if (!draft) return;
-    const code = $('color-code').value.trim();
-    const invalidColor = code !== '' && !safeHex(code);
-    $('color-error').hidden = !invalidColor;
     const mismatch = Boolean(draft.type === 'join-features' && draft.colorAtPointA && draft.colorAtPointB && draft.colorAtPointA !== draft.colorAtPointB);
     const needsB = draft.type === 'join-features' && !draft.pointB;
     const confirmed = !mismatch || $('confirm-color-match').checked;
-    $('save-note').disabled = !draft.type || needsB || invalidColor || !confirmed;
-    if (draft.type && !needsB && !invalidColor && confirmed) $('form-message').hidden = true;
-  }
-  function setDraftSource(sourceName) {
-    const draft = state.draft;
-    if (!draft) return;
-    draft.mapSource = sourceName;
-    draft.colorAtPointA = sampleColor(draft.pointA, sourceName);
-    draft.colorAtPointB = draft.pointB ? sampleColor(draft.pointB, sourceName) : '';
-    draft.confirmedColorMatch = false;
-    if (!draft.colorManuallyEdited) draft.colorCode = draft.colorAtPointA;
-    updateColorControls(); updateValidation(); saveLocal();
+    $('save-note').disabled = !draft.type || needsB || !confirmed;
+    if (draft.type && !needsB && confirmed) $('form-message').hidden = true;
   }
   function sourceAtScreen(localX) {
     if (state.view === 'original') return 'original';
@@ -290,7 +293,8 @@
     const color = sampleColor(point, sourceName);
     state.draft = {
       id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`, type: '', pointA: point, pointB: null,
-      mapSource: sourceName, colorCode: color, colorAtPointA: color, colorAtPointB: '',
+      mapSource: sourceName, mapSourceA: sourceName, mapSourceB: sourceName,
+      colorCode: color, colorAtPointA: color, colorAtPointB: '',
       colorManuallyEdited: false, confirmedColorMatch: false, details: '', editing: false,
       createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
     };
@@ -301,7 +305,8 @@
   function capturePointB(point, sourceName) {
     const draft = state.draft;
     if (!draft) return beginDraft(point, sourceName);
-    draft.pointB = point; draft.colorAtPointB = sampleColor(point, draft.mapSource);
+    draft.pointB = point; draft.mapSourceB = sourceName;
+    draft.colorAtPointB = sampleColor(point, sourceName);
     draft.confirmedColorMatch = false; state.captureTarget = null;
     updateCoordinateReadout(point); renderDraft(); saveLocal('Point B autosaved');
     $('announcement').textContent = `Point B recorded at longitude ${point.longitude.toFixed(6)}, latitude ${point.latitude.toFixed(6)}.`;
@@ -322,13 +327,48 @@
     renderDraft(); saveLocal();
   }
   function mapPointerDown(event) {
-    if (event.button !== 0 || event.target.closest('button')) return;
-    event.preventDefault(); stage.setPointerCapture(event.pointerId);
+    if ((event.pointerType === 'mouse' && event.button !== 0) || event.target.closest('button')) return;
+    event.preventDefault();
+    try { stage.setPointerCapture(event.pointerId); } catch { /* Some browsers may decline capture during a cancelled touch. */ }
+    activePointers.set(event.pointerId, { x: event.clientX, y: event.clientY, type: event.pointerType });
+    if (event.pointerType === 'touch') {
+      const touches = [...activePointers.entries()].filter(([, point]) => point.type === 'touch');
+      if (touches.length >= 2 && !pinch) {
+        const [[idA, a], [idB, b]] = touches;
+        const rect = stage.getBoundingClientRect();
+        const midX = (a.x + b.x) / 2 - rect.left, midY = (a.y + b.y) / 2 - rect.top;
+        pinch = {
+          ids: [idA, idB], startDistance: Math.max(1, Math.hypot(b.x - a.x, b.y - a.y)),
+          startZoom: state.zoom, anchorX: (midX - state.panX) / state.zoom,
+          anchorY: (midY - state.panY) / state.zoom,
+        };
+        drag = null;
+        return;
+      }
+    }
+    if (pinch) return;
     drag = { id: event.pointerId, x: event.clientX, y: event.clientY, panX: state.panX, panY: state.panY, moved: false };
   }
   function mapPointerMove(event) {
     const rect = stage.getBoundingClientRect();
     const localX = event.clientX - rect.left, localY = event.clientY - rect.top;
+    const tracked = activePointers.get(event.pointerId);
+    if (tracked) { tracked.x = event.clientX; tracked.y = event.clientY; }
+    if (pinch) {
+      const points = pinch.ids.map(id => activePointers.get(id));
+      if (points.every(Boolean)) {
+        const [a, b] = points;
+        const midX = (a.x + b.x) / 2 - rect.left, midY = (a.y + b.y) / 2 - rect.top;
+        const distance = Math.max(1, Math.hypot(b.x - a.x, b.y - a.y));
+        const factor = distance / pinch.startDistance;
+        const next = Math.max(1, Math.min(MAX_ZOOM, pinch.startZoom * factor));
+        state.zoom = next;
+        state.panX = midX - pinch.anchorX * next; state.panY = midY - pinch.anchorY * next;
+        applyTransforms();
+        if (state.mapReady) updateCoordinateReadout(coordinateAtLocal(midX, midY));
+      }
+      return;
+    }
     if (drag && drag.id === event.pointerId) {
       const dx = event.clientX - drag.x, dy = event.clientY - drag.y;
       if (Math.hypot(dx, dy) > 4) drag.moved = true;
@@ -340,6 +380,10 @@
     if (state.mapReady) updateCoordinateReadout(coordinateAtLocal(localX, localY));
   }
   function mapPointerUp(event) {
+    if (pinch && pinch.ids.includes(event.pointerId)) {
+      pinch = null; drag = null; activePointers.clear(); saveLocal(); return;
+    }
+    activePointers.delete(event.pointerId);
     if (!drag || drag.id !== event.pointerId) return;
     const moved = drag.moved; drag = null;
     const rect = stage.getBoundingClientRect();
@@ -348,8 +392,15 @@
     const localX = event.clientX - rect.left, localY = event.clientY - rect.top;
     capturePointAt(localX, localY);
   }
+  function mapPointerCancel(event) {
+    if (pinch && pinch.ids.includes(event.pointerId)) {
+      pinch = null; drag = null; activePointers.clear(); saveLocal(); return;
+    }
+    activePointers.delete(event.pointerId);
+    if (drag?.id === event.pointerId) { if (drag.moved) saveLocal(); drag = null; }
+  }
   function zoomAt(factor, localX, localY) {
-    const next = Math.max(1, Math.min(6, state.zoom * factor));
+    const next = Math.max(1, Math.min(MAX_ZOOM, state.zoom * factor));
     const mapX = (localX - state.panX) / state.zoom, mapY = (localY - state.panY) / state.zoom;
     state.panX = localX - mapX * next; state.panY = localY - mapY * next; state.zoom = next;
     applyTransforms(); saveLocal();
@@ -380,11 +431,12 @@
       const remove = document.createElement('button'); remove.type = 'button'; remove.textContent = 'Remove'; remove.addEventListener('click', () => removeSavedNote(note.id));
       actions.append(edit, remove); header.append(titleBlock, actions); article.append(header);
       addQueueText(article, 'Point A', pair(note.pointA));
-      addQueueText(article, 'Reference map', MAP_LABELS[note.mapSource]);
-      addQueueText(article, 'Point A color', note.colorCode || note.colorAtPointA || 'Not sampled');
+      addQueueText(article, 'Point A map', MAP_LABELS[note.mapSourceA || note.mapSource]);
+      addQueueText(article, 'Point A sampled color', note.colorAtPointA || note.colorCode || 'Not sampled');
       if (note.pointB) {
         addQueueText(article, 'Point B', pair(note.pointB));
-        addQueueText(article, 'Point B color', note.colorAtPointB || 'Not sampled');
+        addQueueText(article, 'Point B map', MAP_LABELS[note.mapSourceB || note.mapSourceA || note.mapSource]);
+        addQueueText(article, 'Point B sampled color', note.colorAtPointB || 'Not sampled');
         const samplesMatch = note.colorAtPointA && note.colorAtPointB && note.colorAtPointA === note.colorAtPointB;
         addQueueText(article, 'Color check', samplesMatch ? 'Samples match' : note.confirmedColorMatch ? 'Match confirmed' : 'Review needed');
       }
@@ -396,7 +448,7 @@
     const result = [
       'Please update the Nigeria geological map shapefile using the field-review notes below.',
       'Coordinates are longitude, latitude in decimal degrees to six places. WGS 84 is assumed by the viewer, but the original source datum is unconfirmed; check alignment before editing.',
-      'The reference-map field records whether each location was marked on the original map or the current shapefile draft. Color values are sampled/recorded point colors, not guaranteed geological class assignments.',
+      'The map source and pixel color are captured automatically from the map side clicked for each point. Sampled colors are visual references, not guaranteed geological class assignments.',
       'Apply only the requested changes, preserve valid polygon topology and shared boundaries, and flag any ambiguity rather than guessing.',
       '',
     ];
@@ -404,12 +456,12 @@
       result.push(`${index + 1}. ${ACTIONS[note.type]}`);
       result.push(`   - Point A coordinate (longitude, latitude): ${pair(note.pointA)}`);
       result.push(`   - Requested change: ${ACTIONS[note.type]}`);
-      result.push(`   - Reference map: ${MAP_LABELS[note.mapSource]}`);
-      result.push(`   - Point A sampled color: ${note.colorAtPointA || 'Not sampled'}`);
-      result.push(`   - Recorded color code: ${note.colorCode || 'Not provided'}`);
+      result.push(`   - Point A reference map: ${MAP_LABELS[note.mapSourceA || note.mapSource]}`);
+      result.push(`   - Point A color code (automatically sampled): ${note.colorAtPointA || note.colorCode || 'Not sampled'}`);
       if (note.pointB) {
         result.push(`   - Point B coordinate (longitude, latitude): ${pair(note.pointB)}`);
-        result.push(`   - Point B sampled color: ${note.colorAtPointB || 'Not sampled'}`);
+        result.push(`   - Point B reference map: ${MAP_LABELS[note.mapSourceB || note.mapSourceA || note.mapSource]}`);
+        result.push(`   - Point B color code (automatically sampled): ${note.colorAtPointB || 'Not sampled'}`);
         const match = note.colorAtPointA && note.colorAtPointB && note.colorAtPointA === note.colorAtPointB;
         result.push(`   - Color consistency: ${match ? 'same sampled color' : note.confirmedColorMatch ? 'user confirms both locations share the intended geological color despite different samples' : 'not fully verified; please review'}`);
         result.push('   - Join request: treat both locations as one polygon, retaining the shared geological color and attributes where appropriate.');
@@ -443,13 +495,11 @@
     event?.preventDefault();
     const draft = state.draft;
     if (!draft) return;
-    const colorCode = $('color-code').value.trim().toUpperCase();
     if (!draft.type) { $('form-message').textContent = 'Choose one of the five edit types first.'; $('form-message').hidden = false; return; }
     if (draft.type === 'join-features' && !draft.pointB) { $('form-message').textContent = 'Choose Point B to complete this join request.'; $('form-message').hidden = false; return; }
-    if (colorCode && !safeHex(colorCode)) { $('form-message').textContent = 'Enter a six-digit hex color or clear the color field.'; $('form-message').hidden = false; return; }
     const mismatch = draft.type === 'join-features' && draft.colorAtPointA && draft.colorAtPointB && draft.colorAtPointA !== draft.colorAtPointB;
     if (mismatch && !draft.confirmedColorMatch) { $('form-message').textContent = 'Confirm that both points are the same intended geological color before saving.'; $('form-message').hidden = false; return; }
-    draft.colorCode = colorCode; draft.details = $('extra-details').value.trim(); draft.updatedAt = new Date().toISOString();
+    draft.colorCode = safeHex(draft.colorAtPointA); draft.details = $('extra-details').value.trim(); draft.updatedAt = new Date().toISOString();
     const saved = normalizeNote(draft);
     if (draft.editing) {
       const index = state.notes.findIndex(item => item.id === draft.id);
@@ -516,22 +566,6 @@
       input.value = '';
     }
   }
-  function sourceChanged() {
-    const sourceName = $('map-source').value === 'original' ? 'original' : 'draft';
-    setDraftSource(sourceName);
-  }
-  function updateColorText() {
-    if (!state.draft) return;
-    state.draft.colorCode = $('color-code').value.trim(); state.draft.colorManuallyEdited = true;
-    const color = safeHex(state.draft.colorCode);
-    if (color) $('color-picker').value = color;
-    updateValidation(); saveLocal('Draft autosaved');
-  }
-  function updateColorPicker() {
-    if (!state.draft) return;
-    state.draft.colorCode = $('color-picker').value.toUpperCase(); state.draft.colorManuallyEdited = true;
-    $('color-code').value = state.draft.colorCode; updateValidation(); saveLocal('Draft autosaved');
-  }
   function escapeCapture() {
     if (state.captureTarget !== 'pointB') return false;
     state.captureTarget = null; renderDraft(); saveLocal(); return true;
@@ -567,7 +601,7 @@
   stage.addEventListener('pointerdown', mapPointerDown);
   stage.addEventListener('pointermove', mapPointerMove);
   stage.addEventListener('pointerup', mapPointerUp);
-  stage.addEventListener('pointercancel', () => { drag = null; });
+  stage.addEventListener('pointercancel', mapPointerCancel);
   stage.addEventListener('focus', () => {
     if (state.mapReady) updateCoordinateReadout(coordinateAtLocal(stage.clientWidth / 2, stage.clientHeight / 2));
   });
@@ -587,9 +621,6 @@
     $('join-fields').hidden = state.draft.type !== 'join-features';
     updateColorControls(); updateMapHint(); updateValidation(); saveLocal('Draft autosaved');
   });
-  $('map-source').addEventListener('change', sourceChanged);
-  $('color-code').addEventListener('input', updateColorText);
-  $('color-picker').addEventListener('input', updateColorPicker);
   $('extra-details').addEventListener('input', event => {
     if (state.draft) { state.draft.details = event.currentTarget.value; saveLocal('Draft autosaved'); }
   });
@@ -611,6 +642,7 @@
   $('export-backup').addEventListener('click', exportBackup);
   $('import-backup').addEventListener('change', importBackup);
   $('generated-prompt').addEventListener('click', event => event.currentTarget.select());
+  window.addEventListener('resize', renderMarkers);
   window.addEventListener('beforeunload', () => saveLocal());
 
   applyInitialState();
@@ -624,11 +656,12 @@
       setStorageStatus('Map asset missing · coordinates still work', true);
     }
     if (state.draft) {
-      if (!state.draft.colorAtPointA) state.draft.colorAtPointA = sampleColor(state.draft.pointA, state.draft.mapSource);
-      if (state.draft.pointB && !state.draft.colorAtPointB) state.draft.colorAtPointB = sampleColor(state.draft.pointB, state.draft.mapSource);
-      if (!state.draft.colorManuallyEdited && !state.draft.colorCode) state.draft.colorCode = state.draft.colorAtPointA;
+      const sourceA = state.draft.mapSourceA || state.draft.mapSource;
+      const sourceB = state.draft.mapSourceB || sourceA;
+      if (!state.draft.colorAtPointA) state.draft.colorAtPointA = sampleColor(state.draft.pointA, sourceA);
+      if (state.draft.pointB && !state.draft.colorAtPointB) state.draft.colorAtPointB = sampleColor(state.draft.pointB, sourceB);
+      state.draft.colorCode = safeHex(state.draft.colorAtPointA);
       renderDraft();
-      if (!state.draft.colorAtPointA) $('color-hint').textContent = 'No color sampled. If you opened index.html directly, try the included offline launcher or enter a hex code manually.';
       saveLocal('Draft restored');
     }
   });

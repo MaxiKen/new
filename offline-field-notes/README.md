@@ -1,6 +1,6 @@
 # Offline Geological Field Notes
 
-A standalone, offline coordinate-capture tool for collecting corrections to the Nigeria geological map. It includes the original reference map and the current shapefile draft, and **does not modify the shapefile**. Notes, coordinates, map choices, and in-progress work are saved in this browser's local storage.
+A standalone, offline coordinate-capture tool for collecting corrections to the Nigeria geological map. It includes the original reference map and the current shapefile draft, and **does not modify the shapefile**. Notes, coordinates, the automatically captured map source and color for each point, and in-progress work are saved in this browser's local storage.
 
 ## Start the tool
 
@@ -23,8 +23,8 @@ You can also try opening `index.html` directly, but some browsers restrict color
 ## Use it
 
 1. Choose **Current draft**, **Original map**, or **Compare**. In compare view, drag the divider to reveal either map.
-2. Drag the map to pan, scroll or use the buttons to zoom, and click a location to capture Point A and its longitude/latitude. For keyboard use, tab to the map and press Enter or Space to capture its center.
-3. Select one of the five edit types. For a join, choose **Pick the second point on the map** to record Point B. A color mismatch needs an explicit confirmation before saving.
+2. Drag with one finger or the mouse to pan. Use a two-finger pinch/spread on a phone, the mouse wheel, or the zoom buttons to zoom up to **1000%**. The A/B markers stay small and fixed-size as you zoom. Click a location to capture Point A and its longitude/latitude; the map side clicked and its pixel color are captured automatically. For keyboard use, tab to the map and press Enter or Space to capture its center.
+3. Select one of the five edit types. For a join, choose **Pick the second point on the map** to record Point B; its map source and color are captured automatically too. A color mismatch needs an explicit confirmation before saving.
 4. Add any context and save the note. Saved notes and unfinished work autosave in this browser.
 5. Use **Copy all notes and show prompt** to create instructions to bring back here. **Export backup** downloads a JSON copy; import it in this or another browser to restore notes.
 

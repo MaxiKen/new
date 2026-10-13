@@ -42,7 +42,7 @@
           <span id="view-label" class="view-label">CURRENT SHAPEFILE DRAFT</span>
         </div>
 
-        <div id="map-stage" class="map-stage" role="application" tabindex="0" aria-keyshortcuts="Enter Space" aria-label="Offline map. Click to capture a location; press Enter or Space while focused to capture the map center. Drag to pan and scroll to zoom.">
+        <div id="map-stage" class="map-stage" role="application" tabindex="0" aria-keyshortcuts="Enter Space" aria-label="Offline map. Click to capture a location; press Enter or Space while focused to capture the map center. Drag to pan and pinch or wheel to zoom.">
           <div id="main-visual" class="map-visual"><img id="base-map" class="map-image" src="./assets/current-shapefile-draft.svg" alt="Current cleaned shapefile draft"></div>
           <div id="compare-window" class="compare-window" hidden><div id="compare-visual" class="map-visual"><img id="compare-map" class="map-image" src="./assets/current-shapefile-draft.svg" alt="Current shapefile draft comparison layer"></div></div>
           <div class="marker-window"><div id="marker-visual" class="map-visual"></div></div>
@@ -54,7 +54,7 @@
             <button id="zoom-out" type="button" aria-label="Zoom out" title="Zoom out">−</button>
             <button id="fit-map" type="button" aria-label="Fit map" title="Fit whole map">Fit</button>
           </div>
-          <div id="map-hint" class="map-hint">Drag to pan · scroll to zoom · click a point to add a note</div>
+          <div id="map-hint" class="map-hint">Drag to pan · wheel or pinch to zoom · click a point to add a note</div>
         </div>
 
         <div id="compare-settings" class="compare-settings" hidden>
@@ -98,20 +98,18 @@
             </label>
             <div id="join-fields" class="join-fields" hidden>
               <div class="join-heading"><span>POINT B · SECOND LOCATION</span><strong id="point-b-coordinate">Not captured yet</strong></div>
+              <div class="join-map"><span>Map captured automatically</span><strong id="point-b-map-source">Not captured yet</strong></div>
               <button id="copy-point-b" class="coordinate-copy" type="button" hidden>Copy Point B coordinates</button>
-              <div class="join-color"><span>Sampled color at Point B</span><strong id="point-b-color">Not sampled yet</strong></div>
+              <div class="join-color"><span>Color sampled automatically</span><strong id="point-b-color">Not sampled yet</strong></div>
               <p id="join-color-warning" class="join-warning" hidden>The sampled colors differ. Confirm they should still be treated as the same geological color.</p>
               <label id="confirm-color-wrap" class="confirm-color" hidden><input id="confirm-color-match" type="checkbox"><span>I confirm both points belong to the same intended geological color.</span></label>
               <button id="pick-point-b" class="secondary-button" type="button">Pick the second point on the map</button>
             </div>
-            <label class="field" for="map-source"><span>Reference map</span>
-              <select id="map-source"><option value="draft">Current shapefile draft</option><option value="original">Original reference map</option></select>
-            </label>
+            <div class="field captured-field"><span>Point A reference map · captured automatically</span><output id="map-source-label" class="captured-value">Current shapefile draft</output></div>
             <div class="field color-field">
-              <label for="color-code">Color code at Point A</label>
-              <div class="color-controls"><input id="color-picker" type="color" value="#808080" aria-label="Choose Point A color"><input id="color-code" type="text" maxlength="7" placeholder="No color sampled" autocomplete="off" spellcheck="false"></div>
-              <small id="color-hint">Automatically sampled from the selected map. You can enter a hex code manually.</small>
-              <span id="color-error" class="validation-message" hidden>Use a six-digit hex color such as #A1B2C3, or leave it blank.</span>
+              <span>Point A color code · sampled automatically</span>
+              <div class="color-controls"><span id="color-swatch" class="color-swatch" aria-hidden="true" hidden></span><output id="color-code" class="color-code-output" aria-label="Automatically sampled Point A color" aria-live="polite">Not sampled</output></div>
+              <small id="color-hint">Captured from the exact map and pixel you clicked.</small>
             </div>
             <label class="field" for="extra-details"><span>Additional context <small>optional</small></span>
               <textarea id="extra-details" rows="3" placeholder="Unit name/code, what looks wrong, or other context…"></textarea>
