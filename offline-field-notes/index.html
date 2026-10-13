@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#244e40">
+  <meta name="description" content="Offline coordinate capture and persistent field-review notes for the Nigeria geological map.">
+  <title>Offline Field Notes · Nigeria Geological Map</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./index.html" aria-label="Offline geological field notes home">
+      <span class="brand-mark">◈</span>
+      <span>FIELDNOTES<small>OFFLINE GEOLOGY REVIEW</small></span>
+    </a>
+    <div id="storage-indicator" class="storage-indicator" aria-live="polite"><span id="storage-dot" class="storage-dot"></span><span id="storage-status">Checking local storage…</span></div>
+    <div class="header-actions">
+      <button id="export-backup" class="header-button" type="button">Export backup</button>
+      <label class="header-button import-button" for="import-backup">Import backup<input id="import-backup" type="file" accept="application/json,.json"></label>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div>
+        <div class="eyebrow">LOCAL TOOL · NO INTERNET REQUIRED</div>
+        <h1>Capture map corrections.</h1>
+        <p>Record locations and instructions against the original map or the current shapefile draft. This tool does not edit the shapefile.</p>
+      </div>
+      <div class="offline-badge"><span></span>Notes stay on this device</div>
+    </section>
+
+    <div class="workspace">
+      <section class="map-panel" aria-label="Offline geological map">
+        <div class="map-toolbar">
+          <div class="view-group" role="group" aria-label="Map view">
+            <button type="button" data-view="draft" class="active" aria-pressed="true">Current draft</button>
+            <button type="button" data-view="compare" aria-pressed="false">Compare</button>
+            <button type="button" data-view="original" aria-pressed="false">Original map</button>
+          </div>
+          <span id="view-label" class="view-label">CURRENT SHAPEFILE DRAFT</span>
+        </div>
+
+        <div id="map-stage" class="map-stage" role="application" tabindex="0" aria-keyshortcuts="Enter Space" aria-label="Offline map. Click to capture a location; press Enter or Space while focused to capture the map center. Drag to pan and scroll to zoom.">
+          <div id="main-visual" class="map-visual"><img id="base-map" class="map-image" src="./assets/current-shapefile-draft.svg" alt="Current cleaned shapefile draft"></div>
+          <div id="compare-window" class="compare-window" hidden><div id="compare-visual" class="map-visual"><img id="compare-map" class="map-image" src="./assets/current-shapefile-draft.svg" alt="Current shapefile draft comparison layer"></div></div>
+          <div class="marker-window"><div id="marker-visual" class="map-visual"></div></div>
+          <div id="map-loading" class="map-loading">Loading the two offline map pictures…</div>
+          <div id="compare-divider" class="compare-divider" hidden></div>
+          <div class="map-caption"><strong id="map-caption-title">CURRENT SHAPEFILE DRAFT</strong><span id="map-caption-subtitle">Click a precise location to start an edit note.</span></div>
+          <div class="map-tools" aria-label="Map controls">
+            <button id="zoom-in" type="button" aria-label="Zoom in" title="Zoom in">+</button>
+            <button id="zoom-out" type="button" aria-label="Zoom out" title="Zoom out">−</button>
+            <button id="fit-map" type="button" aria-label="Fit map" title="Fit whole map">Fit</button>
+          </div>
+          <div id="map-hint" class="map-hint">Drag to pan · scroll to zoom · click a point to add a note</div>
+        </div>
+
+        <div id="compare-settings" class="compare-settings" hidden>
+          <label for="compare-split"><span>Original map</span><span>Current draft</span></label>
+          <input id="compare-split" type="range" min="5" max="95" value="50" aria-label="Move comparison divider">
+        </div>
+        <div class="map-footer">
+          <div><span class="footer-label">POINT COORDINATE</span><strong id="coordinate-readout">Click the map to capture a point</strong></div>
+          <div class="map-footer-right"><span id="zoom-readout">100%</span><button id="reset-view" type="button">Fit map</button></div>
+        </div>
+        <p class="datum-note">Longitude / latitude in decimal degrees · WGS 84 assumed by the source transform; datum unconfirmed.</p>
+      </section>
+
+      <aside class="notes-panel" aria-label="Edit notes and saved instructions">
+        <section id="editor-section" class="editor-section">
+          <div class="section-heading">
+            <div><span class="eyebrow">POINT DETAIL</span><h2 id="editor-title">Choose a map point</h2></div>
+            <button id="cancel-edit" class="icon-button" type="button" aria-label="Discard current unsaved note" title="Discard current note" hidden>×</button>
+          </div>
+          <div id="editor-empty" class="empty-state">
+            <span class="empty-icon">⌖</span>
+            <h3>Ready when you are.</h3>
+            <p>Click a location on either map. Its exact coordinate and sampled color will be added to a five-type change note.</p>
+          </div>
+          <form id="note-form" class="note-form" hidden>
+            <p class="point-label">POINT A · PRIMARY LOCATION</p>
+            <div class="coordinate-cards">
+              <div class="coordinate-card"><span>Longitude</span><strong id="point-longitude">—</strong></div>
+              <div class="coordinate-card"><span>Latitude</span><strong id="point-latitude">—</strong></div>
+            </div>
+            <button id="copy-point-a" class="coordinate-copy" type="button">Copy Point A coordinates</button>
+            <label class="field" for="edit-type"><span>Requested change</span>
+              <select id="edit-type" required>
+                <option value="">Choose one of five edit types…</option>
+                <option value="add-feature">1 · Add a missing small geology feature</option>
+                <option value="join-features">2 · Join two same-color features</option>
+                <option value="remove-polygon">3 · Remove this polygon</option>
+                <option value="shrink-polygon">4 · Make this polygon smaller</option>
+                <option value="expand-polygon">5 · Make this polygon bigger</option>
+              </select>
+            </label>
+            <div id="join-fields" class="join-fields" hidden>
+              <div class="join-heading"><span>POINT B · SECOND LOCATION</span><strong id="point-b-coordinate">Not captured yet</strong></div>
+              <button id="copy-point-b" class="coordinate-copy" type="button" hidden>Copy Point B coordinates</button>
+              <div class="join-color"><span>Sampled color at Point B</span><strong id="point-b-color">Not sampled yet</strong></div>
+              <p id="join-color-warning" class="join-warning" hidden>The sampled colors differ. Confirm they should still be treated as the same geological color.</p>
+              <label id="confirm-color-wrap" class="confirm-color" hidden><input id="confirm-color-match" type="checkbox"><span>I confirm both points belong to the same intended geological color.</span></label>
+              <button id="pick-point-b" class="secondary-button" type="button">Pick the second point on the map</button>
+            </div>
+            <label class="field" for="map-source"><span>Reference map</span>
+              <select id="map-source"><option value="draft">Current shapefile draft</option><option value="original">Original reference map</option></select>
+            </label>
+            <div class="field color-field">
+              <label for="color-code">Color code at Point A</label>
+              <div class="color-controls"><input id="color-picker" type="color" value="#808080" aria-label="Choose Point A color"><input id="color-code" type="text" maxlength="7" placeholder="No color sampled" autocomplete="off" spellcheck="false"></div>
+              <small id="color-hint">Automatically sampled from the selected map. You can enter a hex code manually.</small>
+              <span id="color-error" class="validation-message" hidden>Use a six-digit hex color such as #A1B2C3, or leave it blank.</span>
+            </div>
+            <label class="field" for="extra-details"><span>Additional context <small>optional</small></span>
+              <textarea id="extra-details" rows="3" placeholder="Unit name/code, what looks wrong, or other context…"></textarea>
+            </label>
+            <div id="form-message" class="form-message" role="alert" hidden></div>
+            <div class="form-actions"><button id="save-note" class="save-button" type="submit" disabled>Save note to this device</button><button id="discard-draft" class="discard-button" type="button">Cancel</button></div>
+            <p class="autosave-note">Your in-progress note and saved entries auto-save in this browser's local storage.</p>
+          </form>
+        </section>
+
+        <section class="saved-section">
+          <div class="section-heading saved-heading"><div><span class="eyebrow">YOUR PENDING CHANGES</span><h2>Saved notes <span id="note-count" class="note-count">0</span></h2></div><button id="clear-notes" class="text-button" type="button" disabled>Clear all</button></div>
+          <p class="saved-intro">Saved locally so you can return later. Export a backup before moving this folder or changing browsers.</p>
+          <div id="saved-notes" class="saved-notes"><div class="no-notes">No saved change notes yet.</div></div>
+          <button id="copy-all-notes" class="copy-all-button" type="button" disabled>Copy all notes and show prompt</button>
+          <div id="copy-status" class="copy-status" role="status" aria-live="polite"></div>
+          <div id="prompt-wrap" class="prompt-wrap" hidden>
+            <label for="generated-prompt">Generated prompt for the shapefile correction</label>
+            <textarea id="generated-prompt" rows="12" readonly></textarea>
+            <small>Use the button above to copy, or select this text manually.</small>
+          </div>
+        </section>
+
+        <div class="privacy-note"><strong>Offline & local</strong><span>No account, internet connection, or shapefile write access. The app only records instructions for you to copy and bring back here.</span></div>
+      </aside>
+    </div>
+    <footer class="page-footer"><span>Offline coordinate capture · assets included in this folder · no external requests</span><a href="./README.md">Setup and backup instructions ↗</a></footer>
+  </main>
+  <div id="announcement" class="sr-only" aria-live="polite"></div>
+  <script src="./app.js" defer></script>
+</body>
+</html>
