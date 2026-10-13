@@ -2,7 +2,7 @@
 
 (() => {
   const $ = id => document.getElementById(id);
-  const MAP_WIDTH = 4084, MAP_HEIGHT = 3336, MAX_ZOOM = 10;
+  const MAP_WIDTH = 4084, MAP_HEIGHT = 3336, MAX_ZOOM = 15;
   const TRANSFORM = [0.003045517499751267, 0, 2.3344767183160524, 0, -0.003045590373802226, 13.896886824009286];
   const STORAGE_KEY = 'ngsa-offline-field-notes-v1';
   const ASSETS = { draft: './assets/current-shapefile-draft.svg', original: './assets/original-reference.jpg' };
@@ -21,6 +21,11 @@
   let storage = null, storageAvailable = false, drag = null, pinch = null;
   const activePointers = new Map();
   let sampleCanvas, sampleContext;
+  const colorSampling = {
+    draft: { status: 'loading', method: '', error: '' },
+    original: { status: 'loading', method: '', error: '' },
+  };
+  let embeddedSamplerPromise = null;
   const stage = $('map-stage');
   const baseMap = $('base-map');
   const compareMap = $('compare-map');
@@ -56,19 +61,148 @@
   function safeHex(value) {
     return /^#[0-9a-f]{6}$/i.test(value || '') ? value.toUpperCase() : '';
   }
+  function samplingImages(sourceName) {
+    const expectedSource = new URL(ASSETS[sourceName], document.baseURI).href;
+    const candidates = [assetImages[sourceName], baseMap, compareMap];
+    const seen = new Set();
+    return candidates.filter(image => {
+      if (!image || seen.has(image)) return false;
+      seen.add(image);
+      if (image !== assetImages[sourceName] && image.src !== expectedSource) return false;
+      return image.complete && image.naturalWidth > 0 && image.naturalHeight > 0;
+    });
+  }
+  function samplerContext(width, height) {
+    if (sampleCanvas.width !== width) sampleCanvas.width = width;
+    if (sampleCanvas.height !== height) sampleCanvas.height = height;
+    sampleContext = sampleCanvas.getContext('2d');
+    return sampleContext;
+  }
+  function pixelHex(context, x, y) {
+    const [r, g, b] = context.getImageData(x, y, 1, 1).data;
+    return `#${[r, g, b].map(c => c.toString(16).padStart(2, '0')).join('').toUpperCase()}`;
+  }
   function sampleColor(point, sourceName) {
-    const image = assetImages[sourceName];
-    if (!state.mapReady || !image?.complete || !image.naturalWidth ||
-        point.mapX < 0 || point.mapY < 0 || point.mapX >= MAP_WIDTH || point.mapY >= MAP_HEIGHT) return '';
-    const x = Math.floor(point.mapX), y = Math.floor(point.mapY);
-    try {
-      sampleContext.clearRect(0, 0, 1, 1);
-      sampleContext.drawImage(image, x, y, 1, 1, 0, 0, 1, 1);
-      const [r, g, b] = sampleContext.getImageData(0, 0, 1, 1).data;
-      return `#${[r, g, b].map(c => c.toString(16).padStart(2, '0')).join('').toUpperCase()}`;
-    } catch {
+    const diagnostics = colorSampling[sourceName];
+    if (!diagnostics) return '';
+    if (!state.mapReady) {
+      diagnostics.status = 'loading';
+      diagnostics.error = '';
       return '';
     }
+    if (!point || point.mapX < 0 || point.mapY < 0 || point.mapX >= MAP_WIDTH || point.mapY >= MAP_HEIGHT) {
+      diagnostics.status = 'outside-map';
+      diagnostics.error = '';
+      return '';
+    }
+    const images = samplingImages(sourceName);
+    if (!images.length) {
+      diagnostics.status = 'unavailable';
+      diagnostics.error = 'Map image is not loaded';
+      return '';
+    }
+    let lastError = null;
+    for (const image of images) {
+      const imageWidth = image.naturalWidth;
+      const imageHeight = image.naturalHeight;
+      const x = Math.min(imageWidth - 1, Math.floor(point.mapX / MAP_WIDTH * imageWidth));
+      const y = Math.min(imageHeight - 1, Math.floor(point.mapY / MAP_HEIGHT * imageHeight));
+      const read = (width, height, draw, readX, readY, method) => {
+        try {
+          const context = samplerContext(width, height);
+          if (!context) throw new Error('2D canvas is unavailable');
+          context.clearRect(0, 0, width, height);
+          draw(context);
+          const color = pixelHex(context, readX, readY);
+          diagnostics.status = 'ready';
+          diagnostics.method = method;
+          diagnostics.error = '';
+          return color;
+        } catch (error) {
+          lastError = error;
+          return '';
+        }
+      };
+
+      let color = read(1, 1,
+        context => context.drawImage(image, x, y, 1, 1, 0, 0, 1, 1),
+        0, 0, 'single-pixel');
+      if (color) return color;
+
+      const tileSize = 16;
+      const tileX = Math.max(0, Math.min(imageWidth - tileSize, Math.floor(x / tileSize) * tileSize));
+      const tileY = Math.max(0, Math.min(imageHeight - tileSize, Math.floor(y / tileSize) * tileSize));
+      const tileWidth = Math.min(tileSize, imageWidth - tileX);
+      const tileHeight = Math.min(tileSize, imageHeight - tileY);
+      color = read(tileWidth, tileHeight,
+        context => context.drawImage(image, tileX, tileY, tileWidth, tileHeight, 0, 0, tileWidth, tileHeight),
+        x - tileX, y - tileY, 'pixel-tile');
+      if (color) return color;
+
+      // A full-image downsample is a compatibility fallback for mobile canvas implementations
+      // that reject one-pixel source crops on large SVGs.
+      const smallWidth = 1021;
+      const smallHeight = Math.round(smallWidth * MAP_HEIGHT / MAP_WIDTH);
+      const smallX = Math.min(smallWidth - 1, Math.floor(point.mapX / MAP_WIDTH * smallWidth));
+      const smallY = Math.min(smallHeight - 1, Math.floor(point.mapY / MAP_HEIGHT * smallHeight));
+      color = read(smallWidth, smallHeight,
+        context => context.drawImage(image, 0, 0, imageWidth, imageHeight, 0, 0, smallWidth, smallHeight),
+        smallX, smallY, 'downsampled-map');
+      if (color) return color;
+    }
+    diagnostics.status = lastError?.name === 'SecurityError' ? 'loading-safe-copy' : 'failed';
+    diagnostics.error = lastError?.message || 'Canvas could not read the map pixel';
+    if (lastError?.name === 'SecurityError') loadEmbeddedSamplerAssets();
+    return '';
+  }
+  function loadEmbeddedSamplerAssets() {
+    if (embeddedSamplerPromise) return embeddedSamplerPromise;
+    embeddedSamplerPromise = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = './assets/embedded-color-images.js';
+      script.onload = () => {
+        const encoded = window.FIELD_NOTE_COLOR_IMAGES;
+        if (!encoded?.draft || !encoded?.original) {
+          script.remove();
+          reject(new Error('Embedded color-safe map images are missing'));
+          return;
+        }
+        Promise.all(Object.entries({ draft: 'image/png', original: 'image/jpeg' }).map(([key, mime]) => new Promise((imageResolve, imageReject) => {
+          const image = new Image();
+          image.onload = () => imageResolve([key, image]);
+          image.onerror = () => imageReject(new Error(`Embedded ${key} map image could not be decoded`));
+          image.src = `data:${mime};base64,${encoded[key]}`;
+        }))).then(images => {
+          images.forEach(([key, image]) => { assetImages[key] = image; });
+          delete window.FIELD_NOTE_COLOR_IMAGES;
+          script.remove();
+          resolve(true);
+        }, error => {
+          delete window.FIELD_NOTE_COLOR_IMAGES;
+          script.remove();
+          reject(error);
+        });
+      };
+      script.onerror = () => {
+        script.remove();
+        reject(new Error('Embedded color-safe map images could not be loaded'));
+      };
+      document.head.append(script);
+    }).then(() => {
+      resampleMissingColors('Local-safe color samples restored');
+      return true;
+    }).catch(error => {
+      embeddedSamplerPromise = null;
+      Object.values(colorSampling).forEach(diagnostics => {
+        if (diagnostics.status === 'loading-safe-copy') {
+          diagnostics.status = 'blocked';
+          diagnostics.error = error.message;
+        }
+      });
+      if (state.draft) updateColorControls();
+      return false;
+    });
+    return embeddedSamplerPromise;
   }
   function deepCopy(value) { return JSON.parse(JSON.stringify(value)); }
   function persistableState() {
@@ -226,25 +360,71 @@
         : 'Click a precise location to start an edit note.';
     }
   }
+  function colorSampleHint(sourceName) {
+    if (!state.mapReady) return 'Map pictures are still loading; this point will be sampled automatically when they are ready.';
+    const diagnostics = colorSampling[sourceName];
+    if (diagnostics?.status === 'outside-map') return 'This point falls outside the map image, so there is no map pixel to sample.';
+    if (diagnostics?.status === 'unavailable') return 'The selected map picture is unavailable. Re-extract the complete offline folder and try again.';
+    if (diagnostics?.status === 'loading-safe-copy') return 'Preparing a local-safe pixel sampler; the color will fill automatically.';
+    if (diagnostics?.status === 'blocked' && typeof window.EyeDropper === 'function') {
+      return 'This browser blocked direct pixel access. Retry to use its visual eyedropper and select the same map pixel.';
+    }
+    if (diagnostics?.status === 'blocked') {
+      return 'This browser blocked pixel access to the local image. Retry here; if it persists, open the folder with the included offline launcher.';
+    }
+    return 'Automatic pixel reading did not succeed yet. Retry the sample; no color code needs to be entered.';
+  }
   function updateColorControls() {
     const draft = state.draft;
     if (!draft) return;
     const sourceA = draft.mapSourceA || draft.mapSource;
     const sourceB = draft.mapSourceB || sourceA;
     const sampledColor = safeHex(draft.colorAtPointA);
+    const sampledColorB = safeHex(draft.colorAtPointB);
     $('map-source-label').textContent = MAP_LABELS[sourceA];
     $('color-code').textContent = sampledColor || 'Not sampled';
     $('color-swatch').hidden = !sampledColor;
     $('color-swatch').style.backgroundColor = sampledColor || 'transparent';
-    $('point-b-color').textContent = draft.colorAtPointB || 'Not sampled yet';
+    $('retry-color-a').hidden = Boolean(sampledColor);
+    $('point-b-color').textContent = sampledColorB || 'Not sampled yet';
+    $('retry-color-b').hidden = !draft.pointB || Boolean(sampledColorB);
     $('point-b-map-source').textContent = draft.pointB ? MAP_LABELS[sourceB] : 'Not captured yet';
-    const mismatch = Boolean(draft.type === 'join-features' && draft.colorAtPointA && draft.colorAtPointB && draft.colorAtPointA !== draft.colorAtPointB);
+    const mismatch = Boolean(draft.type === 'join-features' && sampledColor && sampledColorB && sampledColor !== sampledColorB);
     $('join-color-warning').hidden = !mismatch;
     $('confirm-color-wrap').hidden = !mismatch;
     $('confirm-color-match').checked = Boolean(draft.confirmedColorMatch);
     $('color-hint').textContent = sampledColor
-      ? `Automatically sampled at Point A from ${MAP_LABELS[sourceA]}.`
-      : 'Color not available from this image. Try the included offline launcher and recapture the point.';
+      ? `Automatically sampled at Point A from ${MAP_LABELS[sourceA]}${colorSampling[sourceA]?.method === 'downsampled-map' ? ' (compatibility fallback)' : ''}.`
+      : colorSampleHint(sourceA);
+  }
+  async function retryColorSample(pointName) {
+    const draft = state.draft;
+    if (!draft) return;
+    const isPointB = pointName === 'pointB';
+    const point = isPointB ? draft.pointB : draft.pointA;
+    const sourceName = isPointB ? (draft.mapSourceB || draft.mapSourceA || draft.mapSource) : (draft.mapSourceA || draft.mapSource);
+    if (!point) return;
+    let color = sampleColor(point, sourceName);
+    if (!color && typeof window.EyeDropper === 'function') {
+      try {
+        const result = await new window.EyeDropper().open();
+        color = safeHex(result.sRGBHex);
+      } catch { /* The user may cancel the browser's visual eyedropper. */ }
+    }
+    if (!color || state.draft !== draft) {
+      updateColorControls();
+      return;
+    }
+    if (isPointB) {
+      draft.colorAtPointB = color;
+      draft.confirmedColorMatch = false;
+    } else {
+      draft.colorAtPointA = color;
+      draft.colorCode = color;
+    }
+    draft.updatedAt = new Date().toISOString();
+    updateColorControls(); updateValidation(); renderQueue(); renderPrompt(); saveLocal('Color sample saved');
+    $('announcement').textContent = `${isPointB ? 'Point B' : 'Point A'} color sampled as ${color}.`;
   }
   function renderDraft() {
     const draft = state.draft;
@@ -312,7 +492,6 @@
     $('announcement').textContent = `Point B recorded at longitude ${point.longitude.toFixed(6)}, latitude ${point.latitude.toFixed(6)}.`;
   }
   function capturePointAt(localX, localY) {
-    if (!state.mapReady) return;
     const point = coordinateAtLocal(localX, localY);
     updateCoordinateReadout(point);
     const sourceName = sourceAtScreen(localX);
@@ -388,7 +567,6 @@
     const moved = drag.moved; drag = null;
     const rect = stage.getBoundingClientRect();
     if (moved) { saveLocal(); return; }
-    if (!state.mapReady) return;
     const localX = event.clientX - rect.left, localY = event.clientY - rect.top;
     capturePointAt(localX, localY);
   }
@@ -590,6 +768,41 @@
     }));
     return Promise.all(entries);
   }
+  function resampleMissingColors(message = 'Automatic color samples restored') {
+    let changed = false;
+    if (state.draft) {
+      const sourceA = state.draft.mapSourceA || state.draft.mapSource;
+      const sourceB = state.draft.mapSourceB || sourceA;
+      if (!state.draft.colorAtPointA) {
+        state.draft.colorAtPointA = sampleColor(state.draft.pointA, sourceA);
+        if (state.draft.colorAtPointA) changed = true;
+      }
+      if (state.draft.pointB && !state.draft.colorAtPointB) {
+        state.draft.colorAtPointB = sampleColor(state.draft.pointB, sourceB);
+        if (state.draft.colorAtPointB) changed = true;
+      }
+      state.draft.colorCode = safeHex(state.draft.colorAtPointA);
+      renderDraft();
+    }
+    state.notes.forEach(note => {
+      const sourceA = note.mapSourceA || note.mapSource;
+      const sourceB = note.mapSourceB || sourceA;
+      if (!note.colorAtPointA) {
+        note.colorAtPointA = sampleColor(note.pointA, sourceA);
+        if (note.colorAtPointA) changed = true;
+      }
+      if (note.pointB && !note.colorAtPointB) {
+        note.colorAtPointB = sampleColor(note.pointB, sourceB);
+        if (note.colorAtPointB) changed = true;
+      }
+      const colorCode = safeHex(note.colorAtPointA);
+      if (note.colorCode !== colorCode) { note.colorCode = colorCode; changed = true; }
+    });
+    if (state.notes.length) renderQueue();
+    if (state.promptShown) renderPrompt();
+    if (changed) saveLocal(message);
+    return changed;
+  }
 
   document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => setView(button.dataset.view)));
   $('compare-split').addEventListener('input', event => {
@@ -632,6 +845,8 @@
     state.captureTarget = state.captureTarget === 'pointB' ? null : 'pointB';
     renderDraft(); saveLocal();
   });
+  $('retry-color-a').addEventListener('click', () => retryColorSample('pointA'));
+  $('retry-color-b').addEventListener('click', () => retryColorSample('pointB'));
   $('copy-point-a').addEventListener('click', () => { if (state.draft?.pointA) downloadPointCoordinate(state.draft.pointA, 'Point A'); });
   $('copy-point-b').addEventListener('click', () => { if (state.draft?.pointB) downloadPointCoordinate(state.draft.pointB, 'Point B'); });
   $('note-form').addEventListener('submit', saveDraft);
@@ -647,7 +862,7 @@
 
   applyInitialState();
   sampleCanvas = document.createElement('canvas'); sampleCanvas.width = 1; sampleCanvas.height = 1;
-  sampleContext = sampleCanvas.getContext('2d', { willReadFrequently: true });
+  sampleContext = sampleCanvas.getContext('2d');
   $('map-loading').hidden = false;
   loadImages().then(results => {
     state.mapReady = true; $('map-loading').hidden = true;
@@ -655,14 +870,6 @@
       $('map-caption-subtitle').textContent = 'A map picture could not be loaded. Check the assets folder or re-extract the offline package.';
       setStorageStatus('Map asset missing · coordinates still work', true);
     }
-    if (state.draft) {
-      const sourceA = state.draft.mapSourceA || state.draft.mapSource;
-      const sourceB = state.draft.mapSourceB || sourceA;
-      if (!state.draft.colorAtPointA) state.draft.colorAtPointA = sampleColor(state.draft.pointA, sourceA);
-      if (state.draft.pointB && !state.draft.colorAtPointB) state.draft.colorAtPointB = sampleColor(state.draft.pointB, sourceB);
-      state.draft.colorCode = safeHex(state.draft.colorAtPointA);
-      renderDraft();
-      saveLocal('Draft restored');
-    }
+    resampleMissingColors();
   });
 })();

@@ -101,6 +101,7 @@
               <div class="join-map"><span>Map captured automatically</span><strong id="point-b-map-source">Not captured yet</strong></div>
               <button id="copy-point-b" class="coordinate-copy" type="button" hidden>Copy Point B coordinates</button>
               <div class="join-color"><span>Color sampled automatically</span><strong id="point-b-color">Not sampled yet</strong></div>
+              <button id="retry-color-b" class="color-retry-button" type="button" hidden>Retry Point B color sample</button>
               <p id="join-color-warning" class="join-warning" hidden>The sampled colors differ. Confirm they should still be treated as the same geological color.</p>
               <label id="confirm-color-wrap" class="confirm-color" hidden><input id="confirm-color-match" type="checkbox"><span>I confirm both points belong to the same intended geological color.</span></label>
               <button id="pick-point-b" class="secondary-button" type="button">Pick the second point on the map</button>
@@ -109,7 +110,8 @@
             <div class="field color-field">
               <span>Point A color code · sampled automatically</span>
               <div class="color-controls"><span id="color-swatch" class="color-swatch" aria-hidden="true" hidden></span><output id="color-code" class="color-code-output" aria-label="Automatically sampled Point A color" aria-live="polite">Not sampled</output></div>
-              <small id="color-hint">Captured from the exact map and pixel you clicked.</small>
+              <button id="retry-color-a" class="color-retry-button" type="button" hidden>Retry Point A color sample</button>
+              <small id="color-hint" aria-live="polite">Captured from the exact map and pixel you clicked.</small>
             </div>
             <label class="field" for="extra-details"><span>Additional context <small>optional</small></span>
               <textarea id="extra-details" rows="3" placeholder="Unit name/code, what looks wrong, or other context…"></textarea>
