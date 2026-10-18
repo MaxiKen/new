@@ -1,0 +1,167 @@
+{
+  "bundle": "Nigeria online GIS layers",
+  "generated_on": "2026-10-18",
+  "crs": "EPSG:4326",
+  "fixed_reference": {
+    "path": "shapefiles/nigeria_admin0/nigeria_admin0.shp",
+    "source": "Natural Earth Admin-0, v5.1.1",
+    "modified": false
+  },
+  "layers": {
+    "state_boundaries": {
+      "output": "state_boundaries/state_boundaries.shp",
+      "feature_count": 37,
+      "source_name": "Natural Earth 10m Admin-1 states/provinces",
+      "source_url": "https://github.com/nvkelso/natural-earth-vector/tree/ca96624a56bd078437bca8184e78163e5039ad19/10m_cultural",
+      "source_commit": "ca96624a56bd078437bca8184e78163e5039ad19",
+      "source_version": "5.1.1",
+      "source_date": "Pinned repository commit dated 2022-06-02",
+      "license": "Public domain",
+      "processing": "Select Nigeria ADM1 records; preserve source geometry; write UTF-8 WGS 84 shapefile."
+    },
+    "senatorial_districts": {
+      "output": "senatorial_districts/senatorial_districts.shp",
+      "feature_count": 109,
+      "source_name": "OCHA Nigeria Common Operational Dataset for Administrative Boundaries (COD-AB), version v01",
+      "official_source_url": "https://data.humdata.org/dataset/cod-ab-nga",
+      "official_license": "Creative Commons Attribution for Intergovernmental Organisations (CC BY-IGO)",
+      "official_data_valid_on": "2019-04-17",
+      "official_layer_date": "2019-03-11",
+      "official_dataset_review_date": "2025-10-30",
+      "official_dataset_modified": "2026-04-16",
+      "source_organizations": [
+        "OCHA Nigeria",
+        "Office for the Surveyor General of the Federation of Nigeria (OSGOF)",
+        "Ehealth Africa",
+        "United Nations Cartographic Section (UNCS)"
+      ],
+      "mirror_url": "https://github.com/Fathia-Sadiq/ReportNigeria/tree/aaed493911f55d2099b007d6a39ea01d877b428c/nga_admin_boundaries.shp",
+      "mirror_commit": "aaed493911f55d2099b007d6a39ea01d877b428c",
+      "mirror_license": "No repository license declared; the underlying COD-AB source is used under its official CC BY-IGO terms",
+      "verification_note": "Feature count, WGS 84 CRS, layer fields, version, and valid-on date match OCHA COD-AB metadata. Direct HDX binary access was unavailable, so byte-for-byte identity with the official archive was not verified.",
+      "processing": "Preserve source polygon geometries; expose source attributes with Shapefile-safe field names."
+    },
+    "lga_boundaries": {
+      "output": "lga_boundaries/lga_boundaries.shp",
+      "feature_count": 774,
+      "source_name": "geoBoundaries NGA ADM2 (GRID3)",
+      "source_url": "https://github.com/wmgeolab/geoBoundaries/blob/90c1f0d6cd6db5b58e2e24a1c57fcb2a2c9483b3/sourceData/gbOpen/NGA_ADM2.zip",
+      "source_commit": "90c1f0d6cd6db5b58e2e24a1c57fcb2a2c9483b3",
+      "representative_year": 2022,
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "source_organization": "GRID3",
+      "processing": "Convert the source GeoJSON polygons to Shapefile; do not clip, snap, or repair source geometry."
+    },
+    "river_lines": {
+      "output": "river_lines/river_lines.shp",
+      "feature_count": 35,
+      "source_name": "Natural Earth 10m Rivers + Lake Centerlines, rivers only",
+      "source_url": "https://github.com/nvkelso/natural-earth-vector/tree/ca96624a56bd078437bca8184e78163e5039ad19/10m_physical",
+      "source_commit": "ca96624a56bd078437bca8184e78163e5039ad19",
+      "source_version": "5.1.1",
+      "license": "Public domain",
+      "processing": "Keep features classified as River, exclude lake centerlines, clip line geometry to the fixed Nigeria ADM0 reference. This is a generalized and incomplete major-river extract."
+    },
+    "road_lines": {
+      "output": "road_lines/road_lines.shp",
+      "feature_count": 4708,
+      "source_name": "HDX Nigeria: Road Network",
+      "official_source_url": "https://data.humdata.org/dataset/nigeria-road-network",
+      "official_license": "Creative Commons Attribution (CC BY), as listed on HDX",
+      "data_period": "2023-10-27",
+      "last_modified": "2023-10-30",
+      "source_attribution": "OpenStreetMap contributors and other partners; OCHA Nigeria contributor",
+      "mirror_url": "https://github.com/mojojompe/Safe-Route-Ai/tree/d821608b48246c1ca1835c82a636ef75c5a55baa/backend/Nigeria%20Details",
+      "mirror_commit": "d821608b48246c1ca1835c82a636ef75c5a55baa",
+      "verification_note": "The mirror shapefile schema, 4,708-record count, and bounding box match HDX resource metadata; exact archive bytes were not hash-compared.",
+      "processing": "Retain source line geometry and attributes; add UTF-8 character encoding sidecar."
+    },
+    "rail_lines": {
+      "output": "rail_lines/rail_lines.shp",
+      "feature_count": 1429,
+      "source_name": "OpenStreetMap railway export created with OEX",
+      "source_url": "https://github.com/onyekereolachi1-a11y/Nigeria-airport-and-railway-routes/tree/1ea87c7506e95fcde72ada8dde4bf1b7f23b1912",
+      "source_commit": "1ea87c7506e95fcde72ada8dde4bf1b7f23b1912",
+      "snapshot_date": "2026-09-06",
+      "source_attribution": "OpenStreetMap contributors",
+      "license": "Open Database License 1.0 (ODbL 1.0)",
+      "processing": "Extract railway line features only; exclude station points and railway polygons; retain source line attributes."
+    },
+    "state_capitals": {
+      "output": "state_capitals/state_capitals.shp",
+      "feature_count": 37,
+      "coordinate_source": "GeoNames-based cities.json v1.1.65",
+      "coordinate_source_url": "https://registry.npmjs.org/cities.json",
+      "coordinate_source_license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "coordinate_source_published": "2026-10-01",
+      "name_and_state_code_source": "devcenter-square/states-cities, app/data/states.json",
+      "name_source_url": "https://github.com/devcenter-square/states-cities/blob/ef40cceb5078f5249d80b67fbea8ca68fab3f2e2/app/data/states.json",
+      "name_source_commit": "ef40cceb5078f5249d80b67fbea8ca68fab3f2e2",
+      "name_source_license": "MIT",
+      "processing": "Use state/capital names and two-letter state codes from the MIT list; match one unique GeoNames place by normalized capital name and GeoNames admin1 code; use GeoNames coordinates."
+    },
+    "towns": {
+      "output": "towns/towns.shp",
+      "feature_count": 927,
+      "source_name": "GeoNames-based cities.json v1.1.65",
+      "source_url": "https://registry.npmjs.org/cities.json",
+      "source_license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "source_published": "2026-10-01",
+      "source_description": "Package describes cities with population above 1,000 or administrative seats down to PPLA3; it provides no population or feature-code field and is not an exhaustive towns gazetteer.",
+      "processing": "Filter records to country=NG, retain all 927 records, attach GeoNames admin1/admin2 names where available, and flag fixed-reference coverage with IN_REF."
+    },
+    "populated_places": {
+      "output": "populated_places/populated_places.shp",
+      "feature_count": 22004,
+      "source_name": "SafeSignal-Geo Nigeria gazetteer v0.2.0; selected records classified as settlement",
+      "source_url": "https://pypi.org/project/safesignal-geo/",
+      "project_repository_as_listed_in_pypi_metadata": "https://github.com/mr-tanta/safesignal-geo",
+      "repository_access_note": "The GitHub repository advertised by PyPI returned HTTP 404 through the GitHub API during this build; provenance is pinned to the published PyPI wheel and the embedded CSV's per-row OSM source/license fields.",
+      "package_version": "0.2.0",
+      "package_release_date": "2026-05-20",
+      "accessed_date": "2026-10-18",
+      "package_wheel_url": "https://files.pythonhosted.org/packages/94/53/92f002b6fd0462d9e46acf80e41a42e81e00de069705eeca6e0a5585a65f/safesignal_geo-0.2.0-py3-none-any.whl",
+      "package_wheel_sha256": "ab5917a54d678de194d6ca26b3ddef77d84b3ff102d3e809e528feaf0335dce2",
+      "source_csv_in_package": "safesignal_geo/data/nigeria_v0.2.csv",
+      "source_csv_sha256": "fd72b05cf77b3003d0bad2ba6008d7cf04e356c6ce8490bbebf80329731f85b3",
+      "source_csv_row_count": 42315,
+      "selection": "type == 'settlement'; all 22,004 selected rows also have license == 'ODbL' and source IDs beginning with 'osm:'.",
+      "source_attribution": "© OpenStreetMap contributors; SafeSignal-Geo / Abraham Esandayinze Tanta, v0.2.0.",
+      "source_object_kinds": {
+        "node": 21869,
+        "way": 135
+      },
+      "source_row_license_counts": {
+        "ODbL": 22004
+      },
+      "license": "Open Database License 1.0 (ODbL 1.0) for the selected OSM-derived records; attribution and share-alike obligations apply. The package code license is Apache-2.0 and is not the data license.",
+      "package_license_note": "Package documentation describes the broader gazetteer data as CC BY 4.0 and identifies OpenStreetMap (ODbL), Wikipedia (CC-BY-SA 4.0), and LAMATA sources. This output includes only rows whose own source and license fields identify OSM and ODbL; no Wikipedia/LAMATA rows are included.",
+      "source_data_vintage": "The package upload date is 2026-05-20; the underlying OSM extract date is not separately stated in the package.",
+      "source_crs": "Source coordinates are decimal-degree lat/lng fields from OSM; treated as WGS 84 and written as EPSG:4326.",
+      "processing": "Extract nigeria_v0.2.csv from the exact PyPI wheel; filter to type=settlement with per-row ODbL and osm: source; preserve all selected rows and source IDs; write Point geometry; add IN_REF=Y/N using covers against the unchanged fixed reference. No PDF or PDF-derived features used.",
+      "completeness_note": "An OSM-derived settlement gazetteer, not an exhaustive or authoritative census; mapped coverage and source admin labels vary. All 652 points outside the fixed Nigeria reference are retained and marked IN_REF=N."
+    },
+    "codab_lga_senatorial_crosswalk": {
+      "output": "codab_lga_senatorial_crosswalk.csv",
+      "row_count": 774,
+      "source_name": "OCHA Nigeria COD-AB ADM2 attributes",
+      "source_url": "https://data.humdata.org/dataset/cod-ab-nga",
+      "license": "Creative Commons Attribution for Intergovernmental Organisations (CC BY-IGO)",
+      "source_fields": [
+        "adm2_name",
+        "adm2_pcode",
+        "adm1_name",
+        "adm1_pcode",
+        "sendist_en",
+        "sendistpcode",
+        "valid_on",
+        "version"
+      ],
+      "processing": "Export the COD-AB LGA-to-senatorial-district mapping; intended for OCHA COD-AB identifiers, not a blind name join to GRID3 geometry."
+    }
+  },
+  "hydrorivers_not_included": {
+    "official_product_url": "https://www.hydrosheds.org/products/hydrorivers",
+    "reason": "The HydroSHEDS v1 license restricts standalone redistribution. This bundle uses a lower-detail Natural Earth river extract instead of packaging HydroRIVERS as a standalone shapefile."
+  }
+}
