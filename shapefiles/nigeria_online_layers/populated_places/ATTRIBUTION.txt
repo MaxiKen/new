@@ -1,0 +1,15 @@
+Dense populated_places layer attribution and provenance
+
+Data attribution: © OpenStreetMap contributors; distributed here via SafeSignal-Geo by Abraham Esandayinze Tanta, v0.2.0.
+OpenStreetMap attribution: https://www.openstreetmap.org/copyright
+Source package: https://pypi.org/project/safesignal-geo/
+Source CSV inside the package wheel: safesignal_geo/data/nigeria_v0.2.csv
+PyPI wheel URL: https://files.pythonhosted.org/packages/94/53/92f002b6fd0462d9e46acf80e41a42e81e00de069705eeca6e0a5585a65f/safesignal_geo-0.2.0-py3-none-any.whl
+PyPI wheel SHA-256: ab5917a54d678de194d6ca26b3ddef77d84b3ff102d3e809e528feaf0335dce2
+Extracted source CSV SHA-256: fd72b05cf77b3003d0bad2ba6008d7cf04e356c6ce8490bbebf80329731f85b3
+
+Selection: the 22,004 rows categorized as type=settlement, whose row-level source IDs all begin with osm: and whose row-level license values all read ODbL. Each feature's OSM object ID is retained in SOURCE; the row-level data license is retained in LICENSE.
+
+License for this selected OSM-derived layer: Open Database License 1.0 (ODbL 1.0). See https://opendatacommons.org/licenses/odbl/1-0/ for terms. The package code license is Apache-2.0 and is not the data license. Package documentation describes the broader mixed gazetteer as CC BY 4.0; this selected subset follows the per-row ODbL license values.
+
+The package wheel was uploaded on 2026-05-20. The underlying OSM snapshot date is not separately stated. Coordinates are decimal-degree WGS 84 lat/lng and are written as EPSG:4326. IN_REF is Y when a point is covered by the fixed Nigeria reference and N otherwise. All source rows are retained; the 652 outside-reference records are flagged rather than silently dropped. OSM coverage is incomplete and is not an official or exhaustive census of settlements.

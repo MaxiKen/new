@@ -1,0 +1,38 @@
+{
+  "feature_count": 1542,
+  "valid_geometries": 1542,
+  "invalid_geometries": 0,
+  "field_count": 32,
+  "geometry_types": [
+    "MultiPolygon",
+    "Polygon"
+  ],
+  "bounds": [
+    2.4031444646594755,
+    4.296482861261048,
+    14.67794074932757,
+    13.894471996620583
+  ],
+  "clipped_to_reference": false,
+  "crs": "EPSG:4326",
+  "note": "Only mapped geology units are included; the Nigeria outline is a georeferencing reference and is not included or used to clip map units.",
+  "georeferencing_checks": {
+    "method": "printed 1-degree graticule affine; PDF geospatial metadata not used",
+    "maximum_graticule_residual_degrees": 0.0010540699994834313,
+    "approximate_maximum_graticule_residual_m": 117,
+    "capital_reference_rms_km": 8.124,
+    "capital_control_count": 32,
+    "pdf_geospatial_metadata_used": false
+  },
+  "source_validation": {
+    "local_image_pdf_and_vector_edition_render_aligned_at_zero_shift": true,
+    "rgb_mean_absolute_error_72dpi_0_to_255": [
+      5.03,
+      4.76,
+      4.59
+    ],
+    "extracted_unit_attributes_equal_public_vector_candidate": true,
+    "unit_feature_count": 1542
+  },
+  "geometry_type": "Polygon/MultiPolygon"
+}
