@@ -15,9 +15,12 @@ This bundle contains the requested Nigeria GIS layers as ESRI Shapefiles, plus a
 | `state_capitals/` | 37 points | GeoNames coordinates; state/capital names from a state list | CC BY 4.0 for coordinates; MIT for names | One matched capital per state/FCT; all points fall within the fixed reference. |
 | `towns/` | 927 points | GeoNames `cities.json` v1.1.65, published 2026-10-01 | CC BY 4.0 | Smaller GeoNames subset retained for comparison; not exhaustive; 11 points outside the fixed reference are flagged. |
 | `populated_places/` | 22,004 points | SafeSignal-Geo v0.2.0; OSM-derived records categorized as `settlement` | ODbL 1.0 | Dense layer, about 23.7× the GeoNames comparison layer; 21,352 inside and 652 outside the fixed reference (`IN_REF`). |
+| `grid3_settlement_names_source/` | — | GRID3 NGA Settlement Names public ArcGIS Feature Service; source reports 292,438 points | CC BY 4.0 | **Source pointer and downloader only; no GRID3 point files are bundled yet.** The existing `populated_places/` layer is preserved. |
 | `codab_lga_senatorial_crosswalk.csv` | 774 rows | OCHA Nigeria COD-AB ADM2 attributes | CC BY-IGO | Links OCHA LGA names/p-codes to the OCHA senatorial district name/p-code. It is not a direct join table for the GRID3 LGA geometries. |
 
 See `sources.json` for detailed source URLs, licenses, versions, and mirror notes. See `validation.json` for per-layer counts, CRS checks, geometry checks, bounds, and reference overlays. `SHA256SUMS.txt` lists the deliverable file checksums (excluding itself).
+
+The `grid3_settlement_names_source/` directory records GRID3's separate 292,438-point Settlement Names source and includes a downloader for an environment with access to its public ArcGIS host. **It currently contains no GRID3 geometry or Shapefile.** This sandbox can inspect the service metadata but cannot retrieve its data payload; the older `towns/` and `populated_places/` layers remain intact. See that directory's README for the service URL, license, and retrieval instructions.
 
 ## Reference alignment and QA
 

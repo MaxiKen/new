@@ -494,5 +494,24 @@
     "unique_lga_pcodes": 774,
     "unique_sen_district_names": 109,
     "unique_sen_pc_codes": 109
+  },
+  "supplemental_sources": {
+    "grid3_settlement_names": {
+      "status": "metadata verified; local geometry not acquired or validated",
+      "reported_feature_count": 292438,
+      "local_feature_count": null,
+      "local_output_path": "shapefiles/nigeria_online_layers/grid3_settlement_names/",
+      "geometry_type": "Point",
+      "crs_reported_by_service": "EPSG:4326",
+      "license_reported_by_service": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "service_item_id": "73d8522d1c4d4c75be6c10fa790c685c",
+      "reason_not_in_layer_validation": "The user-provided signed Azure CSV fetch returned HTTP 500; direct ArcGIS/Azure file hosts are outside the sandbox download allowlist. Only metadata and conversion scripts are present.",
+      "requested_output_attributes": [
+        "FID",
+        "LGA_NAME",
+        "STATE_NAME",
+        "SET_NAME"
+      ]
+    }
   }
 }

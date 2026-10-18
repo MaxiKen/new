@@ -163,5 +163,59 @@
   "hydrorivers_not_included": {
     "official_product_url": "https://www.hydrosheds.org/products/hydrorivers",
     "reason": "The HydroSHEDS v1 license restricts standalone redistribution. This bundle uses a lower-detail Natural Earth river extract instead of packaging HydroRIVERS as a standalone shapefile."
+  },
+  "supplemental_sources": {
+    "grid3_settlement_names": {
+      "status": "source identified; data not downloaded into this workspace",
+      "reported_feature_count": 292438,
+      "source_page": "https://data.grid3.org/datasets/GRID3::grid3-nga-settlement-names/about",
+      "feature_service": "https://services3.arcgis.com/BU6Aadhn6tbBEdyk/arcgis/rest/services/Settlements_in_Nigeria/FeatureServer/0",
+      "service_item_id": "73d8522d1c4d4c75be6c10fa790c685c",
+      "geometry_type": "Point",
+      "crs": "EPSG:4326",
+      "extent_lon_lat": [
+        2.6990254551606654,
+        4.276949999642795,
+        14.674319999668285,
+        13.878181712615968
+      ],
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "attribution": "eHealth Africa, Proxy Logics, and Oak Ridge National Laboratory (ORNL). 2020. Settlement Points in Nigeria. Geo-Referenced Infrastructure and Demographic Data for Development (GRID3). https://grid3.gov.ng/.",
+      "dataset_release_description": "Described by GRID3 as released in March 2021.",
+      "portal_data_updated": "2025-09-04",
+      "arcgis_layer_last_data_edit_utc": "2024-04-30T18:06:32.873Z",
+      "source_fields": [
+        "FID",
+        "globalid",
+        "uniq_id",
+        "timestamp",
+        "editor",
+        "scdy_edtor",
+        "wardname",
+        "wardcode",
+        "lganame",
+        "lgacode",
+        "statename",
+        "statecode",
+        "set_altnam",
+        "set_id",
+        "set_name",
+        "is_primary",
+        "source"
+      ],
+      "local_output_when_downloaded": "shapefiles/nigeria_online_layers/grid3_settlement_names/",
+      "download_note": "A user-provided time-limited Azure CSV export URL was tested through the available web fetch tool and returned HTTP 500. Its signed query token is not stored. No local GRID3 geometries have been downloaded or validated yet. The converter accepts a local CSV export; the separate Feature Service downloader can run in an environment with access to the ArcGIS host.",
+      "earlier_layers_preserved": [
+        "towns/",
+        "populated_places/"
+      ],
+      "requested_output_attributes": [
+        "FID",
+        "LGA_NAME",
+        "STATE_NAME",
+        "SET_NAME"
+      ],
+      "coordinate_output": "Point geometry in EPSG:4326; coordinates are not duplicated as attributes."
+    }
   }
 }
