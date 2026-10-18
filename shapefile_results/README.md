@@ -24,3 +24,7 @@ Both shapefiles are **EPSG:4326** and include `.shp`, `.shx`, `.dbf`, `.prj`, an
 These checks do not imply survey-grade accuracy: the maps are generalized and the fixed Natural Earth outline is generalized. Features were **not clipped** to that outline. Eight mineral points fall outside it (maximum distance about **7.0 km**) and are retained because they are mapped occurrences.
 
 See each layer folder's `georeferencing.json` and `qa_report.json` for the transform, detailed checks, bounds, and counts. `nigeria_shapefiles.zip` is a convenience bundle of both result folders.
+
+## Additional selected PDF layers (separate outputs)
+
+The requested G1–G5 geology line/point layers and M2 mineral-map generalized geology polygons are in `pdf_selected_layers/`. This is a new folder; the existing geology/mineral layers and `nigeria_shapefiles.zip` were not overwritten. The separate archive is `nigeria_pdf_selected_layers.zip`. See `pdf_selected_layers/README.md` for layer counts, attribute notes, M2 raster-polygonization limitations, and coordinate adjustments. All new vectors are EPSG:4326.
