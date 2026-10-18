@@ -1,0 +1,47 @@
+{
+  "source_pdf": "Geological_Map_of_Nigeria.pdf (image-based local source; geometry was recovered from the visually matched vector edition)",
+  "geographic_metadata_used": false,
+  "method": "Axis-aligned page-to-coordinate fit from the map's printed 1-degree graticule. The map's embedded metadata was not used. The fixed Nigeria Admin-0 polygon and named city positions were independent checks; the generalized polygon was not used to override the tighter graticule fit.",
+  "affine": {
+    "longitude": "lon = 0.006344690965581331 * page_x + 1.7544578039042098",
+    "latitude": "lat = 0.00634488747510426 * page_y + 3.2845481786541253",
+    "longitude_points_per_degree": 157.61208945002969,
+    "latitude_points_per_degree": 157.60720799600435
+  },
+  "graticule_controls": {
+    "meridians": 12,
+    "parallels": 10,
+    "maximum_residual_degrees": 0.0010540699994834313,
+    "approximate_maximum_residual_m": 117
+  },
+  "reference_checks": {
+    "reference_polygon": "../../shapefiles/nigeria_admin0/",
+    "state_boundary_network_to_reference_boundary_m": {
+      "median": 1315,
+      "p90": 11590,
+      "note": "Coarse QA only: the source network contains internal state boundaries as well as the national outline."
+    },
+    "capital_label_controls": {
+      "n": 32,
+      "rms_km": 8.124,
+      "median_km": 7.316,
+      "p90_km": 12.381,
+      "note": "Capital labels/marker centers are approximate map positions and were used as a cross-check, not as a stronger fit than the printed graticule."
+    }
+  },
+  "source_match": {
+    "local_and_vector_page_rect_points": [
+      3168,
+      1764
+    ],
+    "render_comparison": "72-dpi pages align at (0,0); RGB mean absolute error approximately [5.03, 4.76, 4.59] on 0-255 scale. The extracted unit geometry matches the public vector edition."
+  },
+  "limitations": [
+    "The 117 m value is the graticule-fit residual, not a claim of survey-grade positional accuracy.",
+    "The map scale, rasterization, and generalized Nigeria reference polygon limit positional precision.",
+    "The reference outline is used only for georeferencing QA; geology units were not clipped to it."
+  ],
+  "output_crs": "EPSG:4326",
+  "reference_polygon": "shapefiles/nigeria_admin0/ (fixed WGS 84 reference)",
+  "features_clipped_to_reference": false
+}

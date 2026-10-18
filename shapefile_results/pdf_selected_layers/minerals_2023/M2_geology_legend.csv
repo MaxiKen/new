@@ -1,0 +1,10 @@
+legend_no,map_class,swatch_or_symbol,map_pattern,output_geometry,extraction_method,confidence
+1,Alluvium,#EDFF8C,solid fill,Polygon,swatch color segmentation,medium
+2,Quaternary Sediments,#FFFFDB,fine vertical hatch,Polygon,swatch color segmentation,medium
+3,Tertiary Sediments,#FAF5E8,fine grey hatch,Polygon,swatch color segmentation,medium
+4,Cretaceous Sediments,#EBFFCC,fine dot hatch,Polygon,swatch color segmentation,medium
+5,Younger Granite Complex,#F7EAD8,solid fill,Polygon,swatch color segmentation,medium
+6,Gneiss - Migmatite - Granite Complex,#FFFFFF / orange hatch,white + sparse hatch,Polygon,residual within Nigeria after other classes/water,low
+7,Schists,#EDF5FF,fine vertical hatch,Polygon,swatch color segmentation,medium
+8,Pegmatite,P text mark,point/label symbol,Point,23 PDF text marks; separate layer,medium
+9,Sand Bars,line symbol,line,Not included,legend item is not one of the seven area classes; raster-only linework not separated,not assessed
