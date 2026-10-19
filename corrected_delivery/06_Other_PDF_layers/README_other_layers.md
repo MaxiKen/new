@@ -1,0 +1,4 @@
+# Other PDF vector layers
+
+- `geology_2011_vectors/` — G1 geological boundaries (2,819), G2 faults (648), G3 fold axes (90), G4 ridges (2), G5 volcanic plugs (68), extracted from the Geological Map PDF. Coordinates use that map's verified graticule georeferencing and were already correct; files are unchanged copies so this delivery is self-contained.
+- `minerals_2023_VP_corrected/` — M2 geology areas (572 polygons) and M2 pegmatite marks (23 points) from the Mineral Resources Map 2023. **These were re-projected**: the previous files used a hand-fitted "boundary-fit" transform; they are now remapped onto the publisher's own map-frame (PDF `/VP`) georeferencing used for all corrected mineral-map layers, so they align exactly with the corrected mineral points, rivers and GeoTIFFs. Areas/perimeters were recomputed (EPSG:6933). Note the M2 geology (2023 map) is a *different, generalised* geology from the 2011 rock-unit polygons in `03/` — do not snap one to the other.

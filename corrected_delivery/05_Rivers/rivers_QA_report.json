@@ -1,0 +1,11 @@
+{
+  "as_printed_features": 1447,
+  "as_printed_total_km": 43244.7,
+  "nigeria_only_features": 1348,
+  "nigeria_only_total_km": 36587.4,
+  "named_major_features": 148,
+  "small_tributary_features": 1299,
+  "previous_NE_features": 35,
+  "previous_NE_total_km_approx": 5233,
+  "note": "Previous river_lines (Natural Earth 10m) contains ONLY 12 major rivers (35 segments) and is NOT a complete river network. New layers extract every blue river line printed/vectorised on the Mineral Resources Map 2023, including small tributaries shown at 1:2,000,000. Names assigned only where coincident with a Natural Earth major river; blank river_nm = smaller river/tributary as printed (map does not name most small rivers). Very small streams below 1:2M printing scale cannot be recovered from this map."
+}

@@ -1,0 +1,38 @@
+{
+ "n_new_total": 1272,
+ "by_det_src": {
+  "MANUAL_VISUAL": 8,
+  "OLD_CENTRE_KEPT": 25,
+  "RESCUE_RECENTRED": 213,
+  "SCAN_COMPLETE": 946,
+  "SCAN_PARTIAL_CLUSTER": 30,
+  "WHITELIST_OLDCENTRE": 17,
+  "WHITELIST_RECENTRED": 33
+ },
+ "by_label_src": {
+  "glyph+old-agree": 842,
+  "glyph-template": 77,
+  "manual (BC letters readable)": 1,
+  "manual (Ds rect verified visually; centre=old point)": 1,
+  "manual (Ds rect verified visually; centre=old point, no template peak)": 1,
+  "manual (blue Ni rect verified visually; centre=old point)": 1,
+  "manual (brown dome verified visually; centre=old point)": 1,
+  "manual (dark-blue Ni rect glyph; old label was Topaz)": 1,
+  "manual (green To rect; old table label Topaz; Ball Clay template false-fire)": 1,
+  "manual (magenta oval glyph unmatched by other templates; old label Lithium; AMBIGUOUS - see README)": 1,
+  "manual (small green Fire Clay glyph at old point)": 1,
+  "old": 238,
+  "old-table-neartie": 2,
+  "old-table-within-glyphgroup": 54,
+  "visual-whitelist (glyph verified; class by glyph)": 18,
+  "visual-whitelist (old point verified on own glyph)": 32
+ },
+ "min_pairwise_dist_px": 5.1,
+ "classes_with_points": 60,
+ "reconciliation": {
+  "MATCHED": 1352,
+  "DUPLICATE_OLD": 33,
+  "UNVERIFIED_DROPPED": 99,
+  "OTHER": 2
+ }
+}
