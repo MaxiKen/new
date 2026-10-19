@@ -1,0 +1,1598 @@
+MIN_ID,ZONE,NUMBER,ALT_NUM,LOCALITY,MIN_CODE,MINERAL,SYMBOL,MATCH,SCORE,SRC,REVIEW,LON,LAT
+MIN0001,E,23,-1,Kaltungo,Z r,Zircon,Magnesite,Complete,0.785,blob,,11.378458,9.481116
+MIN0002,C,20,-1,Boik olo,Dt,Diatomite,Magnesite,Complete,0.775,blob,,11.756121,11.80801
+MIN0003,C,16,-1,Damagum,Gy,Gypsum,Magnesite,Complete,0.753,blob,,11.39064,11.820193
+MIN0004,B,138,-1,Zarara Hill,Cu,Copper,Magnesite,Complete,0.731,blob,,8.210958,10.754207
+MIN0005,A,-1,-1,,,Gold,Gold,Complete,0.728,blob,,5.72569,13.836428
+MIN0006,B,99,-1,Gez awa,K a,Kaolin,Gold,Complete,0.728,blob,,8.686083,12.191765
+MIN0007,A,73,-1,Kanoma,Au,Gold,Gold,Complete,0.728,blob,,6.103353,11.984659
+MIN0008,B,21,-1,Kank awa,Nb. M,Columbite; M (unspecified - see symbol),Gold,Complete,0.728,blob,,7.333805,11.954202
+MIN0009,B,26,-1,Adanimai,W a,Wa,Gold,Complete,0.728,blob,,7.352079,11.795827
+MIN0010,A,95,-1,DAN GULBI,Au,Gold,Gold,Complete,0.728,blob,,5.098281,11.594813
+MIN0011,B,-1,-1,,,Gold,Gold,Complete,0.728,blob,,7.181521,11.314611
+MIN0012,B,-1,-1,,,Gold,Gold,Complete,0.728,blob,,7.010964,10.742025
+MIN0013,B,148,-1,,,Gold,Gold,Complete,0.728,blob,,7.13279,10.662837
+MIN0014,B,-1,-1,,,Gold,Gold,Complete,0.728,blob,,7.108425,10.547102
+MIN0015,D,32,-1,Bak ura,Fp,Feldspar,Gold,Complete,0.728,blob,,6.67594,10.431366
+MIN0016,D,-1,-1,,,Gold,Gold,Complete,0.728,blob,,6.54193,10.187712
+MIN0017,D,38,-1,M ADAK,A Au,AAu,Gold,Complete,0.728,blob,,6.627209,10.169438
+MIN0018,D,256,44,,,Gold,Gold,Complete,0.728,blob,,6.925685,9.797866
+MIN0019,D,-1,-1,,,Gold,Gold,Complete,0.728,blob,,4.842445,9.718679
+MIN0020,E,227,-1,Zaz aga,W . Be,Wolframite; Beryl,Gold,Complete,0.728,blob,,6.95005,9.718679
+MIN0021,D,-1,-1,,,Gold,Gold,Complete,0.728,blob,,4.763257,9.615126
+MIN0022,E,231,-1,Old dok ole,Au,Gold,Gold,Complete,0.728,blob,,7.077968,9.615126
+MIN0023,D,-1,-1,,,Gold,Gold,Complete,0.728,blob,,6.371372,9.596852
+MIN0024,D,45,-1,Minna,Au,Gold,Gold,Complete,0.728,blob,,6.444469,9.560304
+MIN0025,D,-1,-1,,,Gold,Gold,Complete,0.728,blob,,4.872902,9.548121
+MIN0026,D,-1,-1,,,Gold,Gold,Complete,0.728,blob,,5.244474,9.493299
+MIN0027,D,140,-1,ltasa,T a,Tantalite,Gold,Complete,0.728,blob,,3.021133,8.335944
+MIN0028,F,113,115,Ifon,Cl,Clay,Gold,Complete,0.728,blob,,5.701324,6.91666
+MIN0029,F,119,-1,IFON,K a,Kaolin,Gold,Complete,0.728,blob,,4.440416,6.654733
+MIN0030,G,14,-1,Dong,Be,Beryl,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.728,blob,,11.32059,6.648641
+MIN0031,D,111,-1,Kajora,Fe. Cl,Iron Ore; Clay,Gold,Complete,0.724,blob,,4.473919,8.375537
+MIN0032,G,13,-1,Kuar,Ba,Baryte,Gold,Complete,0.724,blob,,11.168306,6.779605
+MIN0033,G,23,-1,AR UFU,,Magnesite,Magnesite,Complete,0.722,blob,,9.118569,7.95828
+MIN0034,E,53,-1,Burk ulu,Ls,Limestone,Magnesite,Complete,0.715,blob,,10.811963,9.462842
+MIN0035,E,229,-1,BER,I Au,IAu,Magnesite,Complete,0.714,blob,,7.339896,9.779592
+MIN0036,B,141,-1,Shibure,Fe,Iron Ore,Magnesite,Complete,0.706,blob,,8.576439,10.851669
+MIN0037,B,146,-1,Kubau,K a,Kaolin,Magnesite,Complete,0.706,blob,,8.113497,10.760299
+MIN0038,F,111,-1,Oja-Odan,K a,Kaolin,Magnesite,Complete,0.704,blob,,5.622137,7.129857
+MIN0039,E,55,-1,Mansur,Gy,Gypsum,Magnesite,Complete,0.703,blob,,10.5744,9.535939
+MIN0040,E,52,-1,Burk ulu,Pb. Z n,Lead; Zinc,Magnesite,Complete,0.702,blob,,11.07389,9.560304
+MIN0041,B,62,-1,Katagum,CI,Clay,Magnesite,Complete,0.698,blob,,10.330746,12.069938
+MIN0042,C,-1,-1,,,Bentonite,Bentonite,Complete,0.696,blob,,11.567289,12.411053
+MIN0043,C,-1,-1,,,Bentonite,Bentonite,Complete,0.696,blob,,12.706371,11.911563
+MIN0044,C,-1,-1,,,Bentonite,Bentonite,Complete,0.696,blob,,11.719573,10.54101
+MIN0045,C,47,-1,Kanawa,Z r,Zircon,Bentonite,Complete,0.696,blob,,11.573381,10.510554
+MIN0046,C,35,53,Kapiwoi,Ls,Limestone,Bentonite,Complete,0.696,blob,,11.43328,10.065886
+MIN0047,C,-1,-1,,,Bentonite,Bentonite,Complete,0.694,blob,,13.735808,11.12578
+MIN0048,E,3,-1,Guyuk,Gy,Gypsum,Bentonite,Complete,0.694,blob,,12.011958,9.877054
+MIN0049,F,188,-1,S HAGAM,U Ls,ULs,Magnesite,Complete,0.694,blob,,3.298289,6.852701
+MIN0050,G,172,-1,IGUM ALE,Ls,Limestone,Coal,Complete,0.691,blob,,7.772382,6.593819
+MIN0051,B,101,-1,Gwarz,o K a,oKa,Magnesite,Complete,0.689,blob,,7.778473,12.118669
+MIN0052,B,114,-1,Saya Saya Qz .Qaa 115.Dando,Ls,Limestone,Magnesite,Complete,0.689,blob,,8.661718,11.314611
+MIN0053,F,101,-1,Ik ara Cor,,Lignite,Lignite,Complete,0.679,blob,,5.798786,7.805997
+MIN0054,F,29,-1,Uk pilla,Fp,Feldspar,Lignite,Complete,0.677,blob,,6.353098,7.586708
+MIN0055,G,126,-1,Afor-Oru,Lg,Lignite,Lignite,Complete,0.677,blob,,7.236343,5.546108
+MIN0056,F,-1,-1,,,Lignite,Lignite,Complete,0.677,blob,,6.876954,5.168444
+MIN0057,C,44,-1,Gombe,Fr,Fire Clay (?),Lignite,Complete,0.675,blob,,11.128713,10.303448
+MIN0058,B,-1,-1,,,Magnesite,Magnesite,Complete,0.674,blob,,10.239376,10.04152
+MIN0059,D,82,-1,Latiagi,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,Feldspar,Complete,0.669,blob,,5.320615,8.905484
+MIN0060,E,169,-1,Wuse,Br,Brine,Magnesite,Complete,0.668,blob,,9.490141,8.390766
+MIN0061,E,-1,-1,,,Feldspar,Feldspar,Complete,0.667,blob,,7.257663,8.122747
+MIN0062,E,27,-1,Kwoji,Ca,Calcite,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.66,blob,,11.521604,9.140001
+MIN0063,G,-1,-1,,,Feldspar,Feldspar,Complete,0.655,blob,,7.403855,8.013102
+MIN0064,D,100,-1,,,Feldspar,Feldspar,Complete,0.65,blob,,4.260721,8.603963
+MIN0065,B,125,-1,lk ara,Be,Beryl,Feldspar,Complete,0.649,blob,,7.891163,11.521717
+MIN0066,B,-1,-1,,,Feldspar,Feldspar,Complete,0.647,blob,,8.719586,11.972476
+MIN0067,B,32,-1,Giwa,M n,Manganese,Feldspar,Complete,0.647,blob,,7.617052,11.539991
+MIN0068,C,84,-1,Gombi,Fp,Feldspar,Feldspar,Complete,0.647,blob,,12.739873,10.151164
+MIN0069,C,86,-1,KilaIuIa,M g,Magnesite,Feldspar,Complete,0.647,blob,,12.666777,10.08416
+MIN0070,D,37,-1,K AR IGA R IVER,Au,Gold,Feldspar,Complete,0.647,blob,,6.551067,9.956241
+MIN0071,F,156,-1,Odeleye,Cl,Clay,Feldspar,Complete,0.647,blob,,3.548034,7.964372
+MIN0072,F,-1,-1,,,Feldspar,Feldspar,Complete,0.647,blob,,6.240408,6.423261
+MIN0073,E,-1,-1,,,Glass Sand,Glass Sand,Complete,0.644,blob,,6.968324,8.168432
+MIN0074,G,30,-1,ljerLs,,Silica Sand (ss),Silica Sand (ss),Complete,0.644,blob,,7.732788,6.864884
+MIN0075,E,166,-1,Az are,Br,Brine,Feldspar,Complete,0.642,blob,,9.456638,8.494319
+MIN0076,E,114,-1,Take Iafia,Fp. M,Feldspar; M (unspecified - see symbol),Feldspar,Complete,0.64,blob,,9.816028,8.628328
+MIN0077,G,-1,-1,,,Coal,Coal,Complete,0.638,blob,,7.516545,7.318689
+MIN0078,G,157,-1,Ibiaku Ntak,Ok po Cl,OkpoCl,Coal,Complete,0.638,blob,,7.693194,5.351185
+MIN0079,E,145,-1,T . Jank,ua S n,uaSn,Fire Clay,Complete,0.637,blob,,7.5135,8.792795
+MIN0080,C,13,-1,Lantewa,Cl,Clay,Feldspar,Complete,0.635,blob,,11.686071,12.398871
+MIN0081,E,-1,-1,,,Fluorite,Fluorite,Complete,0.631,blob,,12.088099,8.960306
+MIN0082,A,-1,-1,,,Magnesite,Magnesite,Complete,0.63,blob,,3.9592,12.313592
+MIN0083,B,22,-1,K ANK,AR A K a,ARAKa,Magnesite,Complete,0.63,blob,,7.473906,12.051664
+MIN0084,A,78,-1,Gwashi,M o,Molybdenite,Magnesite,Complete,0.63,blob,,5.707416,12.027299
+MIN0085,B,79,-1,Gidanjo,Be,Beryl,Tourmaline (tm),Complete,0.63,blob,,9.5541,10.361316
+MIN0086,B,158,-1,,,Tourmaline (tm),Tourmaline (tm),Complete,0.63,blob,,7.056649,10.355224
+MIN0087,C,-1,-1,,,Magnesite,Magnesite,Complete,0.63,blob,,12.188607,10.071977
+MIN0088,D,-1,-1,,,Tourmaline (tm),Tourmaline (tm),Complete,0.63,blob,,6.045485,9.61208
+MIN0089,E,158,-1,Ombi,T m,Tourmaline,Tourmaline (tm),Complete,0.63,blob,,7.854615,8.405994
+MIN0090,E,-1,-1,,,Tourmaline (tm),Tourmaline (tm),Complete,0.63,blob,,7.811975,8.064879
+MIN0091,G,-1,-1,,,Tourmaline (tm),Tourmaline (tm),Complete,0.63,blob,,8.415019,7.906504
+MIN0092,C,46,-1,Kanawa,Gy,Gypsum,Fire Clay,Complete,0.628,blob,,11.290133,10.370453
+MIN0093,D,-1,-1,,,Lepidolite,Lepidolite,Complete,0.628,blob,,5.067825,9.252691
+MIN0094,G,-1,-1,,,Fire Clay,Fire Clay,Complete,0.628,blob,,7.385581,7.647622
+MIN0095,E,74,73,R OPP Nb:,T a,Tantalite,Coal,Complete,0.628,blob,,8.896235,9.554213
+MIN0096,F,201,-1,Agbowa,Cl,Clay,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.627,blob,,3.715546,6.618184
+MIN0097,E,134,-1,Keffi,Aq,Aquamarine (Beryl),Tourmaline (tm),Complete,0.623,blob,,7.726697,8.868936
+MIN0098,D,-1,-1,,,Mica (m),Mica (m),Complete,0.619,blob,,4.413005,9.060814
+MIN0099,E,200,-1,"Jama’a Sn,Nb,T a,Z",r,r,Coal,Complete,0.616,blob,,8.281009,9.54203
+MIN0100,D,133,-1,Irawo,Ile Fe,IleFe,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.615,blob,,3.152097,8.512593
+MIN0101,G,202,-1,Katia,K a,Kaolin,Feldspar,Complete,0.606,blob,,9.243441,6.435444
+MIN0102,D,4,-1,Dodo,K y,Kyanite,"Iron Ore (Magnetite, Ilmenite)",Complete,0.602,blob,,6.651574,10.930856
+MIN0103,D,117,-1,Odogbe,S n,Tin (Cassiterite),Mica (m),Complete,0.601,blob,,6.045485,8.262848
+MIN0104,G,-1,-1,,,Tourmaline (tm),Tourmaline (tm),Complete,0.601,blob,,8.530754,7.955235
+MIN0105,E,165,-1,Adashu,Ba,Baryte,Magnesite,Complete,0.6,blob,,9.106386,8.342035
+MIN0106,C,76,-1,Kida,Bn,Bentonite,Bentonite,Complete,0.598,blob,,11.871857,10.574513
+MIN0107,G,-1,-1,,,Coal,Coal,Complete,0.598,blob,,7.248526,4.961339
+MIN0108,E,150,-1,Lafia,K a,Kaolin,Magnesite,Complete,0.597,blob,,8.649535,8.472999
+MIN0109,A,65,-1,Garla,Au,Gold,Graphite,Complete,0.596,blob,,6.481017,12.331866
+MIN0110,B,-1,-1,,,Graphite,Graphite,Complete,0.596,blob,,9.471867,12.295318
+MIN0111,E,-1,-1,,,Graphite,Graphite,Complete,0.596,blob,,11.999775,9.261828
+MIN0112,E,-1,-1,,,Graphite,Graphite,Complete,0.596,blob,,12.139876,9.152184
+MIN0113,E,11,-1,Mayo Butale,Gr,Granite,Graphite,Complete,0.596,blob,,12.054597,8.311578
+MIN0114,E,141,-1,N. Eggon,T a,Tantalite,Feldspar,Complete,0.583,blob,,8.411973,8.811069
+MIN0115,A,31,-1,Kiri,Au,Gold,Lepidolite,Complete,0.582,blob,,4.744983,11.747097
+MIN0116,F,-1,-1,,,Coal,Coal,Complete,0.582,blob,,6.749036,6.688235
+MIN0117,E,-1,-1,,,Magnesite,Magnesite,Complete,0.58,blob,,11.938861,8.744064
+MIN0118,D,-1,-1,,,Glass Sand,Glass Sand,Complete,0.576,blob,,5.00082,9.605989
+MIN0119,F,169,-1,Meko Ka,,Psammite,Psammite,Complete,0.576,blob,,2.743977,7.608028
+MIN0120,B,67,-1,Danman Cl S E. River Jumare,CI,Clay,Magnesite,Complete,0.574,blob,,10.604857,11.71664
+MIN0121,B,-1,-1,,,Coal,Coal,Complete,0.571,blob,,8.856641,10.54101
+MIN0122,F,196,-1,ljebu-Ode,K a,Kaolin,Coal,Complete,0.563,blob,,2.792707,6.624276
+MIN0123,F,176,-1,O.K ajola,K a,Kaolin,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.562,blob,,3.197782,7.148131
+MIN0124,B,28,-1,Bak ori,Au,Gold,Magnesite,Complete,0.561,blob,,7.419084,11.692275
+MIN0125,G,84,-1,Adani,Gy,Gypsum,Kaolin / kaolinitic clay,Complete,0.561,blob,,6.828223,6.870975
+MIN0126,F,-1,-1,,,Magnesite,Magnesite,Complete,0.56,blob,,4.677979,7.081127
+MIN0127,F,-1,-1,,,Uranium (u),Uranium (u),Complete,0.56,blob,,6.481017,6.545088
+MIN0128,E,48,38,Yerima,Ls,Limestone,Magnesite,Complete,0.557,blob,,10.787597,9.895328
+MIN0129,E,191,-1,Z ONK,W A T c,WATc,"Iron Ore (Magnetite, Ilmenite)",Complete,0.555,blob,,8.290146,9.791775
+MIN0130,F,-1,-1,,,Coal,Coal,Complete,0.555,blob,,6.593706,6.666915
+MIN0131,E,-1,-1,,,Magnesite,Magnesite,Complete,0.553,blob,,12.328707,9.986698
+MIN0132,F,149,-1,IPER INDO,Au,Gold,Tar Sand (ts),Complete,0.553,blob,,4.732801,7.650667
+MIN0133,F,197,-1,Ajara,Cl,Clay,Coal,Complete,0.553,blob,,2.789662,6.426307
+MIN0134,F,198,-1,Badagry,T s,Tar Sand,Garnet,Complete,0.553,blob,,2.887123,6.341028
+MIN0135,G,223,-1,Ndek,e T a,eTa,Talc (tc),Complete,0.551,blob,,7.059694,7.994828
+MIN0136,F,190,-1,Atan,Au,Gold,Mica (m),Complete,0.55,blob,,3.943972,6.974528
+MIN0137,F,195,-1,Idowa,Ls,Limestone,Feldspar,Complete,0.55,blob,,3.654633,6.855747
+MIN0138,F,36,-1,lT OBE,M b,Marble,Coal,Complete,0.55,blob,,6.048531,4.83342
+MIN0139,G,205,-1,Ksaja,Qa Ls,QaLs,Feldspar,Complete,0.55,blob,,8.567302,6.258795
+MIN0140,B,20,-1,Kank awa,S n. Nb. M,Tin (Cassiterite); Columbite; M (unspecified - see symbol),Tourmaline (tm),Complete,0.548,blob,,7.37949,12.167399
+MIN0141,E,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Complete,0.548,blob,,9.021107,9.04254
+MIN0142,E,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Complete,0.548,blob,,10.458665,8.214117
+MIN0143,B,27,-1,Shemi,Ab.S,Asbestos; Salt (?),Talc (tc),Complete,0.546,blob,,7.08406,11.680092
+MIN0144,D,14,-1,Kajuru,Au,Gold,Talc (tc),Complete,0.546,blob,,6.895228,10.595833
+MIN0145,B,153,-1,Galadimawa Sn.Nb,,Talc (tc),Talc (tc),Complete,0.546,blob,,8.271872,10.58365
+MIN0146,D,33,-1,Bak ura,Be. Gm,Beryl; Gemstone (Beryl etc.),Talc (tc),Complete,0.546,blob,,6.206906,10.120708
+MIN0147,D,154,-1,Kawari,Cl,Clay,Talc (tc),Complete,0.546,blob,,6.828223,8.329852
+MIN0148,B,116,-1,Mak arfii,K a,Kaolin,Magnesite,Complete,0.545,blob,,7.80893,11.418164
+MIN0149,D,-1,-1,,,Talc (tc),Talc (tc),Complete,0.545,blob,,4.799805,9.310559
+MIN0150,C,-1,-1,,,Magnesite,Magnesite,Complete,0.542,blob,,12.15815,11.862832
+MIN0151,E,232,-1,Abuchi,T c,Talc,Talc (tc),Complete,0.538,blob,,7.08406,9.255737
+MIN0152,B,163,-1,,,Psammite,Psammite,Complete,0.537,blob,,8.762225,10.349133
+MIN0153,E,17,-1,Kaltunqo,Pb Z n. Bn,PbZn; Bentonite,Bauxitic Clay,Complete,0.536,blob,,11.165261,9.898374
+MIN0154,D,-1,-1,,,Coal,Coal,Complete,0.533,blob,,4.757166,9.002946
+MIN0155,C,33,31,,,Magnesite,Magnesite,Complete,0.531,blob,,11.768304,11.180602
+MIN0156,F,-1,-1,,,Coal,Coal,Complete,0.53,blob,,3.015041,6.545088
+MIN0157,D,53,-1,Kwak uti,Pb. Z,Lead; Z,Psammite,Complete,0.526,blob,,6.605889,9.344061
+MIN0158,G,175,-1,Ofaraak,pa Pb. Z n,paPb; Zinc,Psammite,Complete,0.521,blob,,8.42111,6.709555
+MIN0159,E,-1,-1,,,Magnesite,Magnesite,Complete,0.52,blob,,10.148006,8.177569
+MIN0160,F,79,-1,Ek peshi,Ls,Limestone,Feldspar,Complete,0.519,blob,,5.902339,7.160314
+MIN0161,A,94,-1,Gobirana,Au,Gold,Uranium (u),Complete,0.516,blob,,5.877973,11.62527
+MIN0162,G,-1,-1,,,Glass Sand,Glass Sand,Complete,0.516,blob,,7.303348,7.90955
+MIN0163,B,-1,-1,,,Coal,Coal,Complete,0.515,blob,,9.365268,12.368414
+MIN0164,G,148,-1,Arlam,Cl,Clay,Magnesite,Complete,0.515,blob,,7.473906,5.393824
+MIN0165,A,87,-1,Dan Fasa,G,Granite (?),Wolframite (w),Complete,0.514,blob,,6.237363,11.765371
+MIN0166,D,-1,-1,,,Wolframite (w),Wolframite (w),Complete,0.514,blob,,5.00082,9.511573
+MIN0167,D,62,-1,Bida,T c,Talc,Marble,Complete,0.514,blob,,6.264774,9.383655
+MIN0168,F,-1,-1,,,Psammite,Psammite,Complete,0.513,blob,,2.710474,7.720718
+MIN0169,B,-1,-1,,,Magnesite,Magnesite,Complete,0.512,blob,,9.800799,11.753188
+MIN0170,G,133,-1,Uk wa Gs,,Psammite,Psammite,Complete,0.511,blob,,7.425175,4.775553
+MIN0171,E,147,-1,Tak wa Be,,Saltlake / Potash,Saltlake / Potash,Complete,0.511,blob,,8.037355,8.777566
+MIN0172,F,-1,-1,,,Magnesite,Magnesite,Complete,0.51,blob,,4.36732,7.065898
+MIN0173,F,183,-1,Ologiri,Gy,Gypsum,Wolframite (w),Complete,0.51,blob,,2.765296,6.800925
+MIN0174,B,-1,-1,,,Coal,Coal,Complete,0.508,blob,,10.254605,10.790756
+MIN0175,E,-1,-1,,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.507,blob,,8.201821,8.189751
+MIN0176,F,75,-1,Auchi,Gs,Glass Sand,Mica (m),Complete,0.506,blob,,6.31655,7.151177
+MIN0177,F,-1,-1,,,Mica (m),Mica (m),Complete,0.506,blob,,6.438377,7.017168
+MIN0178,D,-1,-1,,,Magnesite,Magnesite,Complete,0.505,blob,,6.377464,8.421222
+MIN0179,D,-1,-1,,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.505,blob,,4.86681,9.085179
+MIN0180,B,66,-1,Zubuk,i Ci,iCi,Magnesite,Complete,0.504,blob,,9.898261,12.002933
+MIN0181,C,-1,-1,,,Feldspar,Feldspar,Complete,0.504,blob,,11.865765,10.851669
+MIN0182,F,138,-1,Ire-Ek iti,K a,Kaolin,Marble,Complete,0.503,blob,,5.314524,7.382648
+MIN0183,A,96,-1,K A R IVER,Au,Gold,Glass Sand,Complete,0.501,blob,,5.542949,11.710549
+MIN0184,E,148,-1,Siyabu,Gs,Glass Sand,"Iron Ore (Magnetite, Ilmenite)",Complete,0.501,blob,,8.433293,8.546095
+MIN0185,A,79,-1,Bagega,Ag,Silver,Wolframite (w),Complete,0.499,blob,,5.853608,11.85065
+MIN0186,D,-1,-1,,,Psammite,Psammite,Complete,0.499,blob,,4.327726,8.942032
+MIN0187,F,-1,-1,,,Psammite,Psammite,Complete,0.499,blob,,3.331791,7.598891
+MIN0188,D,-1,-1,,,Marble,Marble,Complete,0.496,blob,,6.828223,10.924765
+MIN0189,B,-1,-1,,,Marble,Marble,Complete,0.496,blob,,9.733795,10.85776
+MIN0190,B,143,-1,Rumani,S n,Tin (Cassiterite),"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.496,blob,,8.771362,10.833395
+MIN0191,D,11,-1,Manda,Au,Gold,Marble,Complete,0.496,blob,,6.566295,10.742025
+MIN0192,D,50,-1,Lemu,Cl,Clay,Marble,Complete,0.496,blob,,5.622137,9.353198
+MIN0193,D,61,-1,Bida,S S,SS,Marble,Complete,0.496,blob,,5.804877,9.249645
+MIN0194,D,60,-1,Badeggi,Cl,Clay,Marble,Complete,0.496,blob,,6.26782,9.164367
+MIN0195,D,-1,-1,,,Marble,Marble,Complete,0.496,blob,,3.989657,9.048631
+MIN0196,D,-1,-1,,,Marble,Marble,Complete,0.496,blob,,5.134829,8.987718
+MIN0197,D,121,-1,Isanlu,ES a Fp,ESaFp,Marble,Complete,0.496,blob,,3.892195,8.701424
+MIN0198,D,115,-1,IGBET,T I M b,TIMb,Marble,Complete,0.496,blob,,3.965291,8.597871
+MIN0199,E,221,-1,Kapati,M b,Marble,Marble,Complete,0.496,blob,,7.370353,8.549141
+MIN0200,D,107,-1,lgbaja,Cl,Clay,Marble,Complete,0.496,blob,,4.610974,8.451679
+MIN0201,E,184,-1,Gano,S n,Tin (Cassiterite),Marble,Complete,0.496,blob,,7.035329,8.451679
+MIN0202,D,141,-1,Itasa,Be,Beryl,Marble,Complete,0.496,blob,,2.78357,8.421222
+MIN0203,D,135,-1,Ladele,Gm,Gemstone (Beryl etc.),Marble,Complete,0.496,blob,,3.106412,8.402948
+MIN0204,D,142,-1,lk oyi,M b,Marble,Marble,Complete,0.496,blob,,3.940926,8.3664
+MIN0205,D,145,-1,Fok,o M,oM,Marble,Complete,0.496,blob,,4.799805,8.342035
+MIN0206,E,-1,-1,,,Marble,Marble,Complete,0.496,blob,,7.205887,8.305487
+MIN0207,E,-1,-1,,,Marble,Marble,Complete,0.496,blob,,7.291165,8.299396
+MIN0208,F,14,-1,Ok omoba,M b,Marble,Marble,Complete,0.496,blob,,6.602843,7.915641
+MIN0209,F,112,-1,Ugbolan,K s,? (Ks),Marble,Complete,0.496,blob,,5.695233,7.001939
+MIN0210,F,199,-1,lk orodu,Cl,Clay,Marble,Complete,0.496,blob,,3.203873,6.532906
+MIN0211,F,-1,-1,,,Marble,Marble,Complete,0.496,blob,,6.383555,6.484175
+MIN0212,F,-1,-1,,,Marble,Marble,Complete,0.496,blob,,3.630267,6.374531
+MIN0213,F,-1,-1,,,Psammite,Psammite,Complete,0.493,blob,,2.944991,7.626302
+MIN0214,D,-1,-1,,,Coal,Coal,Complete,0.493,blob,,5.421123,9.085179
+MIN0215,D,-1,-1,,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.491,blob,,3.103366,9.301422
+MIN0216,F,39,-1,Oyedega,CI,Clay,Marble,Complete,0.491,blob,,6.694214,6.91666
+MIN0217,F,84,-1,Uhonmora,Cl,Clay,Magnesite,Complete,0.489,blob,,5.95107,6.831382
+MIN0218,B,-1,-1,,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.488,blob,,10.111458,12.03339
+MIN0219,G,71,-1,Otochi,K a,Kaolin,Magnesite,Complete,0.487,blob,,7.193704,7.300415
+MIN0220,G,-1,-1,,,Uranium (u),Uranium (u),Complete,0.487,blob,,11.006886,6.953208
+MIN0221,A,70,-1,BUK,K UY UM Au,KUYUMAu,Marble,Complete,0.485,blob,,5.284067,12.386688
+MIN0222,F,-1,-1,,,Marble,Marble,Complete,0.485,blob,,6.730762,6.794833
+MIN0223,E,-1,-1,,,Magnesite,Magnesite,Complete,0.484,blob,,12.560179,9.992789
+MIN0224,G,117,-1,Owere.Ez uk ala,Fe. Cl,Iron Ore; Clay,Glass Sand,Complete,0.484,blob,,7.215024,6.012096
+MIN0225,B,113,-1,Rimi,Au,Gold,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.483,blob,,8.637353,11.186693
+MIN0226,D,-1,-1,,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.483,blob,,4.79676,8.68315
+MIN0227,G,67,-1,AjiaIa C S B Afogun,C,Coal,Magnesite,Complete,0.483,blob,,7.479997,7.580617
+MIN0228,F,192,-1,Epe,Cl,Clay,Columbite,Complete,0.481,blob,,4.065798,6.874021
+MIN0229,G,44,-1,Aliade,Ls,Limestone,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.48,blob,,8.424156,7.385694
+MIN0230,E,149,-1,Siyabu,Z r,Zircon,Manganese,Complete,0.479,blob,,8.418064,8.451679
+MIN0231,B,140,-1,LIR UEIN K AN0 W ES T Py.Z n.Cu,,Coal,Coal,Complete,0.478,blob,,8.485069,10.67502
+MIN0232,A,33,-1,Dank,o Au,oAu,Glass Sand,Complete,0.477,blob,,5.220108,11.710549
+MIN0233,B,-1,-1,,,Feldspar,Feldspar,Complete,0.477,blob,,9.858667,12.404962
+MIN0234,B,46,-1,Wurno,Cu,Copper,Coal,Complete,0.477,blob,,9.538872,11.935928
+MIN0235,F,125,-1,lgodan-Lisa,K s,? (Ks),Psammite,Complete,0.476,blob,,4.699298,6.41717
+MIN0236,C,63,-1,Maiduguri,. Cl,Clay,Psammite,Complete,0.474,blob,,12.834289,12.027299
+MIN0237,A,46,-1,Iri,Qa,Quartz,Clay / Pottery Clay,Complete,0.474,blob,,5.244474,11.238469
+MIN0238,F,179,-1,Oba,K a,Kaolin,Kaolin / kaolinitic clay,Complete,0.474,blob,,3.307426,6.989756
+MIN0239,G,137,-1,Nk woagu,Pb.Z,Lead; Z,Magnesite,Complete,0.474,blob,,7.49218,5.990776
+MIN0240,F,-1,-1,,,Psammite,Psammite,Complete,0.473,blob,,5.576452,4.772507
+MIN0241,B,82,-1,Daqa Allah Hills,S n. T a,Tin (Cassiterite); Tantalite,Coal,Complete,0.472,blob,,9.118569,10.397864
+MIN0242,F,-1,-1,,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.472,blob,,5.104373,6.727829
+MIN0243,B,91,-1,G. Abba,Na,Salt / Trona,Magnesite,Complete,0.471,blob,,10.495213,10.973496
+MIN0244,G,65,-1,DEK INA,,Psammite,Psammite,Complete,0.471,blob,,6.962233,7.75422
+MIN0245,G,183,-1,Adari Igba,Gy,Gypsum,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.471,blob,,8.101314,6.118694
+MIN0246,A,75,-1,Maje,M,M (unspecified - see symbol),Clay / Pottery Clay,Complete,0.47,blob,,6.377464,12.139988
+MIN0247,D,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.47,blob,,4.68407,9.304467
+MIN0248,E,176,-1,Demak,aa Br,aaBr,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.47,blob,,8.649535,8.09229
+MIN0249,B,30,-1,Karage,Cl,Clay,Fluorite,Complete,0.469,blob,,7.906391,11.600904
+MIN0250,G,27,-1,Ugba,Ls,Limestone,Fluorite,Complete,0.469,blob,,9.276944,7.629348
+MIN0251,G,-1,-1,,,Fluorite,Fluorite,Complete,0.469,blob,,9.53278,6.788742
+MIN0252,F,-1,-1,,,Chromite,Chromite,Complete,0.467,blob,,4.172397,6.560317
+MIN0253,G,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.466,blob,,9.53278,7.936961
+MIN0254,D,-1,-1,,,Coal,Coal,Complete,0.465,blob,,4.288132,8.841525
+MIN0255,E,-1,-1,,,Feldspar,Feldspar,Complete,0.465,blob,,10.266787,8.226299
+MIN0256,F,-1,-1,,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.465,blob,,3.039407,7.461836
+MIN0257,F,105,-1,Ik eram,Fe,Iron Ore,Psammite,Complete,0.464,blob,,5.664776,7.297369
+MIN0258,G,39,-1,Ojantelle,,Psammite,Psammite,Complete,0.463,blob,,7.99167,7.720718
+MIN0259,C,32,-1,Falatau,S n,Tin (Cassiterite),Clay / Pottery Clay,Complete,0.462,blob,,11.676934,11.055729
+MIN0260,D,2,-1,Birnin Gwari,M s,Ms,Gold,Complete,0.461,blob,,6.307413,11.016135
+MIN0261,G,61,-1,Lessel,Pb Z n,PbZn,Garnet,Complete,0.459,blob,,9.118569,7.312598
+MIN0262,F,-1,-1,,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.459,blob,,6.846497,5.247632
+MIN0263,A,-1,-1,,,Psammite,Psammite,Complete,0.457,blob,,3.986611,12.459784
+MIN0264,A,-1,-1,,,Psammite,Psammite,Complete,0.457,blob,,5.798786,11.168419
+MIN0265,E,-1,-1,,,Evaporite,Evaporite,Complete,0.457,blob,,9.191665,9.152184
+MIN0266,E,-1,-1,,,Evaporite,Evaporite,Complete,0.457,blob,,10.927698,8.427314
+MIN0267,G,45,40,Adok,a Gy,aGy,Psammite,Complete,0.457,blob,,7.912483,7.623256
+MIN0268,G,220,-1,Mfamosing,Py Cl,PyCl,Evaporite,Complete,0.457,blob,,8.80791,5.156262
+MIN0269,G,164,-1,Etinan,Cl,Clay,Evaporite,Complete,0.457,blob,,7.748016,5.046618
+MIN0270,B,56,-1,Garrarak,Br,Brine,Psammite,Complete,0.456,blob,,10.705364,13.205974
+MIN0271,B,137,-1,Bank,e W,eW,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.456,blob,,8.369333,10.772482
+MIN0272,F,40,-1,Aguleri,CI,Clay,Psammite,Complete,0.455,blob,,6.621118,5.929863
+MIN0273,B,65,-1,lta-Ladau,Cr,Chromite,Psammite,Complete,0.454,blob,,9.910444,11.600904
+MIN0274,F,-1,-1,,,Psammite,Psammite,Complete,0.454,blob,,6.645483,6.216156
+MIN0275,G,140,-1,Nbalaonu,Cl,Clay,Psammite,Complete,0.454,blob,,7.607915,5.734939
+MIN0276,D,-1,-1,,,Glass Sand,Glass Sand,Complete,0.453,blob,,4.129758,10.528828
+MIN0277,C,-1,-1,,,Manganese,Manganese,Complete,0.453,blob,,12.554087,10.187712
+MIN0278,D,-1,-1,,,Feldspar,Feldspar,Complete,0.453,blob,,4.248539,9.082133
+MIN0279,E,-1,-1,,,Feldspar,Feldspar,Complete,0.453,blob,,11.399777,8.320715
+MIN0280,G,25,-1,AR UFU,,Feldspar,Feldspar,Complete,0.453,blob,,9.170345,7.66285
+MIN0281,G,-1,-1,,,Feldspar,Feldspar,Complete,0.453,blob,,11.180489,7.553206
+MIN0282,G,-1,-1,,,Feldspar,Feldspar,Complete,0.453,blob,,11.41196,7.48011
+MIN0283,F,110,-1,,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.453,blob,,5.646502,7.209045
+MIN0284,G,16,-1,Ndum,Ba Fe,BaFe,Feldspar,Complete,0.453,blob,,11.192672,6.627321
+MIN0285,F,-1,-1,,,Feldspar,Feldspar,Complete,0.453,blob,,6.258682,6.560317
+MIN0286,F,-1,-1,,,Feldspar,Feldspar,Complete,0.453,blob,,6.161221,6.499403
+MIN0287,F,61,-1,Asama,K a,Kaolin,Oil and Gas,Complete,0.453,blob,,6.389646,6.313617
+MIN0288,G,225,-1,Ipoula,M z Fe,MzFe,Manganese,Complete,0.453,blob,,8.710449,5.6923
+MIN0289,A,18,-1,Jaida,P,Phosphate,Fluorite,Complete,0.452,blob,,5.250565,12.855721
+MIN0290,B,53,-1,Gumsi,Br,Brine,Fluorite,Complete,0.451,blob,,10.385569,13.318664
+MIN0291,A,13,-1,Wamak,k o Ls,koLs,Fluorite,Complete,0.451,blob,,5.049551,13.111558
+MIN0292,B,95,-1,Bichi,Na,Salt / Trona,Kaolin / kaolinitic clay,Complete,0.451,blob,,8.131771,12.313592
+MIN0293,A,-1,-1,,,Kaolin / kaolinitic clay,Kaolin / kaolinitic clay,Complete,0.451,blob,,3.971383,12.210039
+MIN0294,A,-1,-1,,,Psammite,Psammite,Complete,0.451,blob,,4.434325,11.893289
+MIN0295,B,112,-1,Dando Sn.Nb,,Kaolin / kaolinitic clay,Kaolin / kaolinitic clay,Complete,0.451,blob,,8.241415,11.430347
+MIN0296,B,-1,-1,,,Kaolin / kaolinitic clay,Kaolin / kaolinitic clay,Complete,0.451,blob,,9.697247,10.681111
+MIN0297,B,-1,-1,,,Kaolin / kaolinitic clay,Kaolin / kaolinitic clay,Complete,0.451,blob,,9.678973,10.419184
+MIN0298,B,-1,-1,,,Kaolin / kaolinitic clay,Kaolin / kaolinitic clay,Complete,0.451,blob,,9.44141,10.413092
+MIN0299,B,-1,-1,,,Kaolin / kaolinitic clay,Kaolin / kaolinitic clay,Complete,0.451,blob,,7.595733,10.059794
+MIN0300,B,76,-1,Alk aleri,Na,Salt / Trona,Kaolin / kaolinitic clay,Complete,0.451,blob,,10.434299,10.04152
+MIN0301,E,43,-1,Jank ari,Cl,Clay,Kaolin / kaolinitic clay,Complete,0.451,blob,,10.379477,9.956241
+MIN0302,E,-1,-1,,,Kaolin / kaolinitic clay,Kaolin / kaolinitic clay,Complete,0.451,blob,,7.565276,9.925785
+MIN0303,E,44,-1,Jagudu,T a,Tantalite,Kaolin / kaolinitic clay,Complete,0.451,blob,,10.172371,9.803958
+MIN0304,E,23,-1,Kaltungo,Z r,Zircon,Kaolin / kaolinitic clay,Complete,0.451,blob,,11.348001,9.615126
+MIN0305,E,195,196,Kurmin Dagana,S n Nb,SnNb,Kaolin / kaolinitic clay,Complete,0.451,blob,,8.089132,9.572487
+MIN0306,D,-1,-1,,,Kaolin / kaolinitic clay,Kaolin / kaolinitic clay,Complete,0.451,blob,,6.852589,8.40904
+MIN0307,G,72,-1,Odaru (Gys),,Kaolin / kaolinitic clay,Kaolin / kaolinitic clay,Complete,0.451,blob,,7.169339,7.056761
+MIN0308,F,87,-1,Ok ada,Cl,Clay,Kaolin / kaolinitic clay,Complete,0.451,blob,,5.268839,6.593819
+MIN0309,F,-1,-1,,,Kaolin / kaolinitic clay,Kaolin / kaolinitic clay,Complete,0.451,blob,,5.2262,6.490266
+MIN0310,G,179,-1,,,Kaolin / kaolinitic clay,Kaolin / kaolinitic clay,Complete,0.451,blob,,7.875935,6.478084
+MIN0311,G,122,-1,Dik enafai,M,M (unspecified - see symbol),Kaolin / kaolinitic clay,Complete,0.451,blob,,7.272891,5.473012
+MIN0312,G,146,-1,Umuahia,Lg,Lignite,Kaolin / kaolinitic clay,Complete,0.451,blob,,7.699286,5.460829
+MIN0313,A,39,-1,Buya,M,M (unspecified - see symbol),Fluorite,Complete,0.45,blob,,3.880012,11.229332
+MIN0314,E,-1,-1,,,Evaporite,Evaporite,Complete,0.45,blob,,9.094203,9.060814
+MIN0315,G,-1,-1,,,Feldspar,Feldspar,Complete,0.449,blob,,7.24548,4.89738
+MIN0316,G,207,-1,Dongala Ba Ba 208,Ok on Qz . Qa,OkonQz; Quartz,Coal,Complete,0.448,blob,,8.667809,6.033415
+MIN0317,G,194,-1,Erei,C,Coal,Psammite,Complete,0.447,blob,,7.955122,5.862858
+MIN0318,A,12,-1,K ALABAINA,Ls,Limestone,Fluorite,Complete,0.446,blob,,5.073916,13.03237
+MIN0319,A,36,-1,Kaoje,k a,ka,Feldspar,Complete,0.446,blob,,3.852601,11.567402
+MIN0320,D,39,-1,Galadima Kogo,Au,Gold,Psammite,Complete,0.445,blob,,6.797767,10.291265
+MIN0321,B,54,-1,Gumsi,E,Evaporite (?),Psammite,Complete,0.444,blob,,10.309427,13.294298
+MIN0322,D,16,-1,Dutsin Fari,K y,Kyanite,Chromite,Complete,0.444,blob,,6.197769,10.973496
+MIN0323,A,-1,-1,,,Psammite,Psammite,Complete,0.443,blob,,3.64245,11.543037
+MIN0324,G,165,-1,Az umini,Gs,Glass Sand,Feldspar,Complete,0.443,blob,,7.47086,4.903471
+MIN0325,B,-1,-1,,,Magnesite,Magnesite,Complete,0.442,blob,,9.618059,12.021207
+MIN0326,A,101,-1,Kwawai,Bx. Cl,Bauxitic Clay; Clay,Clay / Pottery Clay,Complete,0.441,blob,,4.309452,11.954202
+MIN0327,G,159,-1,Iduk,Cl n,Cln,Psammite,Complete,0.44,blob,,7.71756,5.122759
+MIN0328,E,105,-1,Mushero,K s,? (Ks),Marble,Complete,0.439,blob,,8.944966,9.176549
+MIN0329,G,-1,-1,,,Feldspar,Feldspar,Complete,0.439,blob,,7.28812,7.394831
+MIN0330,F,40,-1,Aguleri,CI,Clay,Feldspar,Complete,0.439,blob,,6.922639,6.511586
+MIN0331,G,-1,-1,,,Feldspar,Feldspar,Complete,0.439,blob,,7.342942,4.933928
+MIN0332,A,-1,-1,,,Psammite,Psammite,Complete,0.437,blob,,6.72467,12.362322
+MIN0333,B,-1,-1,,,Nickel (ni),Nickel (ni),Complete,0.437,blob,,6.937867,11.472986
+MIN0334,B,57,-1,Yusufari,E,Evaporite (?),Psammite,Complete,0.436,blob,,10.769323,13.318664
+MIN0335,A,81,-1,Bagega,Cr,Chromite,Psammite,Complete,0.435,blob,,6.13381,11.777553
+MIN0336,F,141,-1,Orin-Ek iti,Bx,Bauxitic Clay,Saltlake / Potash,Complete,0.435,blob,,5.433305,7.355237
+MIN0337,A,97,-1,BIR NIN,GW AR I Au,GWARIAu,Psammite,Complete,0.434,blob,,6.389646,11.119688
+MIN0338,G,42,-1,Iga-Ok paya,,Saltlake / Potash,Saltlake / Potash,Complete,0.434,blob,,7.76629,7.288232
+MIN0339,F,-1,-1,,,Magnesite,Magnesite,Complete,0.434,blob,,2.865804,6.709555
+MIN0340,B,88,-1,Torgo Hills,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.432,blob,,8.746997,10.611061
+MIN0341,E,81,-1,Fan Sn.Nb,,Feldspar,Feldspar,Complete,0.431,blob,,8.768317,9.417157
+MIN0342,D,-1,-1,,,Mica (m),Mica (m),Complete,0.431,blob,,4.924678,9.264874
+MIN0343,G,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Complete,0.431,blob,,7.24548,5.089257
+MIN0344,F,127,-1,Atok ogbo,T s,Tar Sand,Magnesite,Complete,0.43,blob,,4.891176,6.368439
+MIN0345,G,-1,-1,,,Psammite,Psammite,Complete,0.429,blob,,7.479997,5.156262
+MIN0346,D,63,-1,Bak,ek a M,ekaM,Psammite,Complete,0.427,blob,,6.082034,8.823251
+MIN0347,F,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.427,blob,,3.889149,7.501429
+MIN0348,F,130,-1,IJER,O S n. Nb. T a,OSn; Columbite; Tantalite,Magnesite,Complete,0.426,blob,,5.512493,7.45879
+MIN0349,D,-1,-1,,,Psammite,Psammite,Complete,0.425,blob,,6.572387,9.231371
+MIN0350,F,118,-1,,,Psammite,Psammite,Complete,0.424,blob,,4.513512,6.721737
+MIN0351,F,202,-1,Pok,a K a,aKa,Nickel (ni),Complete,0.423,blob,,3.837373,6.563362
+MIN0352,G,216,-1,Orua,S n,Tin (Cassiterite),Chromite,Complete,0.422,blob,,8.095223,5.494331
+MIN0353,B,29,-1,BQk or~,S n,Tin (Cassiterite),"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.421,blob,,7.35817,11.594813
+MIN0354,E,205,-1,Saw mill,Be,Beryl,Saltlake / Potash,Complete,0.42,blob,,8.265781,9.417157
+MIN0355,F,128,-1,Ipepe,S d,Sand (?),Mica (m),Complete,0.42,blob,,4.543969,6.389759
+MIN0356,G,204,-1,Ubong ilm,,Marble,Marble,Complete,0.418,blob,,9.14598,6.441535
+MIN0357,A,-1,-1,,,Feldspar,Feldspar,Complete,0.417,blob,,5.442442,12.401916
+MIN0358,A,68,-1,GUM,M I Au,MIAu,Psammite,Complete,0.417,blob,,5.067825,12.264861
+MIN0359,F,166,-1,ldi-Ayunre,Be,Beryl,Psammite,Complete,0.417,blob,,3.77646,7.25473
+MIN0360,B,138,-1,Zarara Hill,Cu,Copper,Saltlake / Potash,Complete,0.416,blob,,8.51248,10.924765
+MIN0361,G,213,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.415,blob,,8.23837,5.661843
+MIN0362,G,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.414,blob,,7.093197,4.970476
+MIN0363,A,77,-1,Gwashi,Pb. Z,Lead; Z,Galena,Complete,0.413,blob,,5.941933,12.344048
+MIN0364,E,93,-1,Gurua,Cl,Clay,Psammite,Complete,0.413,blob,,9.194711,9.22528
+MIN0365,F,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.413,blob,,5.052596,6.575545
+MIN0366,F,-1,-1,,,Psammite,Psammite,Complete,0.412,blob,,6.206906,6.727829
+MIN0367,B,109,-1,Kafin-chiri,m,m,Psammite,Complete,0.411,blob,,8.60385,11.664864
+MIN0368,E,19,-1,Chongwon,Ag,Silver,Bauxitic Clay,Complete,0.411,blob,,11.2079,9.76741
+MIN0369,G,3,-1,AK W ANA,Br,Brine,Psammite,Complete,0.411,blob,,9.286081,7.985691
+MIN0370,G,128,-1,Obinz,e Gs,eGs,Marble,Complete,0.411,blob,,7.004872,5.28418
+MIN0371,G,100,-1,New Heaven,C,Coal,Saltlake / Potash,Complete,0.41,blob,,7.781519,6.182653
+MIN0372,F,64,27,UZ ER E EAS T Oil,,Galena,Galena,Complete,0.408,blob,,6.018074,7.486201
+MIN0373,F,-1,-1,,,Psammite,Psammite,Complete,0.407,blob,,5.954115,6.073009
+MIN0374,G,138,-1,,,Psammite,Psammite,Complete,0.407,blob,,7.476951,5.884177
+MIN0375,G,125,-1,Umunamu,Cl,Clay,Psammite,Complete,0.407,blob,,7.093197,5.658798
+MIN0376,B,-1,-1,,,Psammite,Psammite,Complete,0.406,blob,,9.005879,11.208013
+MIN0377,B,-1,-1,,,Psammite,Psammite,Complete,0.406,blob,,9.042427,11.122734
+MIN0378,E,175,-1,Keana,Ba,Baryte,Magnesite,Complete,0.406,blob,,8.868824,8.18366
+MIN0379,G,41,-1,Umogidi,Gy,Gypsum,Feldspar,Complete,0.406,blob,,8.046492,7.833408
+MIN0380,F,-1,-1,,,Psammite,Psammite,Complete,0.406,blob,,3.468847,7.656759
+MIN0381,G,118,-1,OrIu,Fe,Iron Ore,Psammite,Complete,0.406,blob,,7.129745,5.981639
+MIN0382,F,65,-1,Asamabari,Cl,Clay,Psammite,Complete,0.406,blob,,5.92975,5.634432
+MIN0383,F,63,-1,Ak iewe,Gs,Glass Sand,Psammite,Complete,0.406,blob,,6.179495,5.567428
+MIN0384,D,12,8,M ADADA,Au,Gold,Kaolin / kaolinitic clay,Complete,0.405,blob,,6.459697,10.796847
+MIN0385,F,-1,-1,,,Psammite,Psammite,Complete,0.405,blob,,5.844471,5.597884
+MIN0386,G,130,-1,Umede,Gs,Glass Sand,Bentonite,Complete,0.405,blob,,7.138882,5.156262
+MIN0387,G,124,-1,,,Coal,Coal,Complete,0.404,blob,,7.333805,5.567428
+MIN0388,G,70,-1,Awo-Ak pali,,Psammite,Psammite,Complete,0.403,blob,,7.452586,7.687215
+MIN0389,F,181,-1,lIe-lqboro,P,Phosphate,Psammite,Complete,0.403,blob,,2.817073,7.004985
+MIN0390,F,-1,-1,,,Glass Sand,Glass Sand,Complete,0.403,blob,,4.824171,6.633413
+MIN0391,A,72,-1,DanGaramk,Au,Gold,Saltlake / Potash,Complete,0.4,blob,,5.439397,12.331866
+MIN0392,D,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.4,blob,,6.322642,9.31665
+MIN0393,B,-1,-1,,,Fire Clay,Fire Clay,Complete,0.399,blob,,9.112477,10.480097
+MIN0394,B,111,-1,Banda,S n,Tin (Cassiterite),Coal,Complete,0.398,blob,,7.99167,11.643544
+MIN0395,D,-1,-1,,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.398,blob,,5.013003,10.608015
+MIN0396,E,177,-1,Kadark,o S n,oSn,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.398,blob,,8.375425,8.299396
+MIN0397,G,73,-1,Igadoba,,Coal,Coal,Complete,0.398,blob,,7.010964,7.135949
+MIN0398,A,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.397,blob,,4.062753,12.32882
+MIN0399,F,-1,-1,,,Tourmaline (tm),Tourmaline (tm),Complete,0.396,blob,,4.361229,6.904478
+MIN0400,F,60,-1,Ogwashi-Uk,u Lg,uLg,Saltlake / Potash,Complete,0.396,blob,,6.605889,6.298389
+MIN0401,B,96,-1,Bichi,Br,Brine,Saltlake / Potash,Complete,0.393,blob,,8.265781,12.481104
+MIN0402,F,-1,-1,,,Marble,Marble,Complete,0.393,blob,,4.077981,7.020213
+MIN0403,D,80,-1,Bacita,S n. Nb,Tin (Cassiterite); Columbite,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.393,blob,,5.073916,9.115636
+MIN0404,C,51,-1,,,Psammite,Psammite,Complete,0.392,blob,,11.000794,10.151164
+MIN0405,A,80,-1,Bagega,Pb. Z,Lead; Z,Copper minerals,Complete,0.391,blob,,5.768329,11.643544
+MIN0406,B,-1,-1,,,Copper minerals,Copper minerals,Complete,0.391,blob,,7.102334,10.735933
+MIN0407,B,-1,-1,,,Copper minerals,Copper minerals,Complete,0.391,blob,,9.855622,10.151164
+MIN0408,D,59,-1,Lemu,Cl,Clay,Copper minerals,Complete,0.391,blob,,5.884065,9.304467
+MIN0409,F,18,-1,,,Copper minerals,Copper minerals,Complete,0.391,blob,,6.883045,8.189751
+MIN0410,G,63,-1,Vandeik,ya,ya,Copper minerals,Complete,0.391,blob,,9.027199,6.9593
+MIN0411,G,201,-1,Busangfon,Gr,Granite,Copper minerals,Complete,0.391,blob,,9.100295,6.764377
+MIN0412,F,-1,-1,,,Copper minerals,Copper minerals,Complete,0.391,blob,,6.6333,6.368439
+MIN0413,A,40,-1,T . MaIlam,K,Kaolin (?),Psammite,Complete,0.39,blob,,4.315544,11.119688
+MIN0414,D,-1,-1,,,Psammite,Psammite,Complete,0.39,blob,,4.714527,10.218169
+MIN0415,F,94,-1,Ute (Owa),La,La,Galena,Complete,0.39,blob,,5.756147,6.386713
+MIN0416,F,-1,-1,,,Columbite,Columbite,Complete,0.39,blob,,5.006911,6.356257
+MIN0417,D,55,-1,Kumatu Mon 56.Lambata,M,M (unspecified - see symbol),Marble,Complete,0.389,blob,,6.511473,9.307513
+MIN0418,E,142,-1,N. Eggon,Aq,Aquamarine (Beryl),Glass Sand,Complete,0.389,blob,,8.466795,8.686196
+MIN0419,F,180,-1,Ishara,K a,Kaolin,Oil and Gas,Complete,0.386,blob,,3.520623,6.831382
+MIN0420,F,191,-1,Ijebu-lfe,T s,Tar Sand,Rose Quartz (r),Complete,0.386,blob,,3.947017,6.84661
+MIN0421,F,73,-1,Ago-ogbodo,U,Uranium,Saltlake / Potash,Complete,0.384,blob,,5.932796,7.248639
+MIN0422,G,144,-1,Ajayi,P,Phosphate,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.382,blob,,7.699286,5.71362
+MIN0423,B,70,-1,Jagudu,Cl,Clay,Clay / Pottery Clay,Complete,0.381,blob,,10.07491,11.570448
+MIN0424,C,69,-1,Wupti,Cl,Clay,Clay / Pottery Clay,Complete,0.381,blob,,12.956116,11.564356
+MIN0425,C,70,-1,Wupti,Bn,Bentonite,Clay / Pottery Clay,Complete,0.381,blob,,13.120582,11.49126
+MIN0426,C,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.381,blob,,13.83327,11.229332
+MIN0427,B,124,127,Maigana,Fp a,Fpa,Clay / Pottery Clay,Complete,0.381,blob,,7.973396,11.162328
+MIN0428,C,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.381,blob,,13.711443,11.034409
+MIN0429,B,75,-1,River Gongola,Na,Salt / Trona,Clay / Pottery Clay,Complete,0.381,blob,,10.39166,10.431366
+MIN0430,B,58,-1,Tr,,Saltlake / Potash,Saltlake / Potash,Complete,0.381,blob,,9.03329,9.983652
+MIN0431,E,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.381,blob,,13.278957,9.919693
+MIN0432,E,230,-1,Old Dok olo,Pb.Z n,Lead; Zinc,Clay / Pottery Clay,Complete,0.381,blob,,7.437358,9.797866
+MIN0433,D,128,-1,Tsauni,Pb. Z,Lead; Z,Clay / Pottery Clay,Complete,0.381,blob,,6.828223,9.04254
+MIN0434,D,93,-1,Ok olom,S n. Au,Tin (Cassiterite); Gold,Clay / Pottery Clay,Complete,0.381,blob,,4.629248,8.90853
+MIN0435,E,9,-1,Ganye,Cl,Clay,Clay / Pottery Clay,Complete,0.381,blob,,12.091145,8.744064
+MIN0436,E,146,-1,Kaffin Shanu,Ca,Calcite,Clay / Pottery Clay,Complete,0.381,blob,,7.607915,8.70447
+MIN0437,E,108,-1,N. Fohk an CI 409. Damshia,CI,Clay,Clay / Pottery Clay,Complete,0.381,blob,,9.691155,8.573506
+MIN0438,E,164,-1,"Adashu Pb,Z",n,n,Clay / Pottery Clay,Complete,0.381,blob,,9.051564,8.488227
+MIN0439,F,7,-1,CHOK O-CHOK,O Fe,OFe,Clay / Pottery Clay,Complete,0.381,blob,,6.127719,8.110564
+MIN0440,G,17,-1,Achebe,Ba,Baryte,Clay / Pottery Clay,Complete,0.381,blob,,8.972377,8.031376
+MIN0441,F,102,-1,Oke,Agbo Be,AgboBe,Clay / Pottery Clay,Complete,0.381,blob,,5.871882,7.940006
+MIN0442,F,134,-1,Orin,Cl,Clay,Clay / Pottery Clay,Complete,0.381,blob,,5.341935,7.763357
+MIN0443,G,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.381,blob,,8.235324,7.763357
+MIN0444,F,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.381,blob,,3.569354,7.5928
+MIN0445,F,71,-1,lgarra,K a,Kaolin,Clay / Pottery Clay,Complete,0.381,blob,,5.902339,7.385694
+MIN0446,G,102,-1,Amaguuz,e Ls,eLs,Clay / Pottery Clay,Complete,0.381,blob,,7.693194,6.258795
+MIN0447,G,184,-1,Amachare,M c Ls,McLs,Clay / Pottery Clay,Complete,0.381,blob,,7.906391,6.210064
+MIN0448,G,141,-1,Amawon,CI,Clay,Clay / Pottery Clay,Complete,0.381,blob,,7.540911,5.643569
+MIN0449,G,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.381,blob,,6.968324,5.393824
+MIN0450,F,52,-1,OGBADA Oil,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.381,blob,,6.870863,5.016161
+MIN0451,F,54,-1,Tombia,CI,Clay,Clay / Pottery Clay,Complete,0.381,blob,,6.95005,4.851695
+MIN0452,G,33,-1,Yandev,Ba,Baryte,Clay / Pottery Clay,Complete,0.38,blob,,8.954103,7.419196
+MIN0453,G,188,-1,Ugulangu,S,Salt (?),Psammite,Complete,0.38,blob,,7.912483,6.012096
+MIN0454,F,-1,-1,,,Oil and Gas,Oil and Gas,Complete,0.379,blob,,3.73382,7.02935
+MIN0455,A,23,-1,Jeya,Ls,Limestone,Coal,Complete,0.379,blob,,4.090164,12.23745
+MIN0456,E,103,-1,Trum,Cl,Clay,Copper minerals,Complete,0.378,blob,,8.89928,9.097362
+MIN0457,E,129,-1,Wamba,T r,Trona,Copper minerals,Complete,0.378,blob,,8.661718,9.018174
+MIN0458,E,107,-1,Taram,CI,Clay,Copper minerals,Complete,0.378,blob,,9.021107,8.90853
+MIN0459,G,167,-1,Afaha Offiong,Cl,Clay,Copper minerals,Complete,0.378,blob,,7.918574,4.955247
+MIN0460,G,-1,-1,,,Copper minerals,Copper minerals,Complete,0.378,blob,,8.284055,4.845603
+MIN0461,D,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.377,blob,,5.320615,9.313604
+MIN0462,E,162,-1,ALOS,HI Ba,HIBa,Psammite,Complete,0.377,blob,,8.71654,8.357263
+MIN0463,F,-1,-1,,,Mica (m),Mica (m),Complete,0.377,blob,,3.630267,6.9593
+MIN0464,F,92,-1,Orah,Cl,Clay,Clay / Pottery Clay,Complete,0.377,blob,,5.399803,6.462855
+MIN0465,D,97,-1,Adio,Gm,Gemstone (Beryl etc.),Nickel (ni),Complete,0.377,blob,,4.486101,8.826297
+MIN0466,G,-1,-1,,,Copper minerals,Copper minerals,Complete,0.376,blob,,7.352079,5.119714
+MIN0467,F,196,-1,ljebu-Ode,K a,Kaolin,Oil and Gas,Complete,0.376,blob,,3.791688,6.925797
+MIN0468,A,-1,-1,,,Psammite,Psammite,Complete,0.375,blob,,6.642437,12.423236
+MIN0469,B,159,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.374,blob,,7.04142,10.096342
+MIN0470,F,129,-1,lshan,Cl,Clay,Saltlake / Potash,Complete,0.373,blob,,5.439397,7.873001
+MIN0471,D,-1,-1,,,Psammite,Psammite,Complete,0.371,blob,,6.185586,8.753201
+MIN0472,A,93,-1,DAK AGA,Au,Gold,Psammite,Complete,0.369,blob,,5.79574,11.731868
+MIN0473,B,-1,-1,,,Rose Quartz (r),Rose Quartz (r),Complete,0.369,blob,,9.039381,10.882126
+MIN0474,C,48,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.369,blob,,11.280996,10.303448
+MIN0475,B,80,-1,Gidanjo,Pb. Z n,Lead; Zinc,Saltlake / Potash,Complete,0.369,blob,,9.971357,10.279083
+MIN0476,D,42,-1,Tegina,sT,sT,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.369,blob,,6.249545,9.931876
+MIN0477,E,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.369,blob,,8.795728,8.829343
+MIN0478,G,69,-1,OGBOY OGA,,Saltlake / Potash,Saltlake / Potash,Complete,0.369,blob,,7.553093,7.799905
+MIN0479,G,79,-1,Ok puje,,Saltlake / Potash,Saltlake / Potash,Complete,0.369,blob,,7.431266,7.209045
+MIN0480,G,88,86,Uguogu,,Saltlake / Potash,Saltlake / Potash,Complete,0.369,blob,,7.571367,6.703463
+MIN0481,G,89,-1,Eha-Emufu,,Saltlake / Potash,Saltlake / Potash,Complete,0.369,blob,,7.833295,6.697372
+MIN0482,G,101,-1,Emene,Gy,Gypsum,Saltlake / Potash,Complete,0.369,blob,,7.540911,6.55118
+MIN0483,G,122,-1,Dik enafai,M,M (unspecified - see symbol),Saltlake / Potash,Complete,0.369,blob,,7.04142,6.538997
+MIN0484,G,94,94,Ibite Olo,Fe,Iron Ore,Saltlake / Potash,Complete,0.369,blob,,7.13279,6.441535
+MIN0485,G,224,-1,Oban,T m,Tourmaline,Rose Quartz (r),Complete,0.369,blob,,8.564256,5.448646
+MIN0486,G,160,-1,Ibiaku Nfok,Bn,Bentonite,Saltlake / Potash,Complete,0.369,blob,,7.863752,5.265906
+MIN0487,G,134,-1,Obigbo,Gs,Glass Sand,Saltlake / Potash,Complete,0.369,blob,,7.065786,4.900425
+MIN0488,F,-1,-1,,,Psammite,Psammite,Complete,0.369,blob,,6.304368,6.855747
+MIN0489,D,-1,-1,,,Galena,Galena,Complete,0.367,blob,,5.177469,8.871982
+MIN0490,F,-1,-1,,,Psammite,Psammite,Complete,0.367,blob,,4.382548,6.411079
+MIN0491,G,-1,-1,,,Psammite,Psammite,Complete,0.367,blob,,8.868824,6.380622
+MIN0492,A,100,-1,Wasagu,M,M (unspecified - see symbol),"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.366,blob,,5.768329,11.558265
+MIN0493,D,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.366,blob,,4.961226,8.445588
+MIN0494,F,177,-1,Odeda,K a,Kaolin,Coal,Complete,0.365,blob,,3.289152,7.248639
+MIN0495,A,91,-1,Dansado,Be,Beryl,Nickel (ni),Complete,0.364,blob,,6.575432,11.335931
+MIN0496,F,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.363,blob,,6.462743,4.869969
+MIN0497,G,149,-1,Iwuo,Uk em GS,UkemGS,Saltlake / Potash,Complete,0.362,blob,,7.431266,5.244586
+MIN0498,B,24,-1,Malumfashi,M b,Marble,Galena,Complete,0.361,blob,,7.476951,11.549128
+MIN0499,E,152,-1,"Nassarawa Ta,",W,Wolframite,Psammite,Complete,0.36,blob,,7.641418,8.792795
+MIN0500,D,101,-1,Lajola,Gm,Gemstone (Beryl etc.),Marble,Complete,0.359,blob,,4.729755,8.686196
+MIN0501,F,74,-1,Ago-egbedo,Ls,Limestone,Galena,Complete,0.359,blob,,5.841425,7.27605
+MIN0502,G,223,-1,Ndek,e T a,eTa,Psammite,Complete,0.359,blob,,8.692175,5.290271
+MIN0503,B,83,-1,Amo Hill,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.359,blob,,8.832276,10.151164
+MIN0504,A,76,-1,Chafe,Gn,Galena,Psammite,Complete,0.358,blob,,6.736853,12.25877
+MIN0505,B,144,-1,Dariye,Py,Pyrite,Galena,Complete,0.358,blob,,9.036336,10.620198
+MIN0506,D,-1,-1,,,Bauxitic Clay,Bauxitic Clay,Complete,0.358,blob,,4.75412,8.847617
+MIN0507,D,115,-1,IGBET,T I M b,TIMb,Saltlake / Potash,Complete,0.358,blob,,5.792695,8.393811
+MIN0508,G,-1,-1,,,Psammite,Psammite,Complete,0.357,blob,,7.163247,5.3055
+MIN0509,A,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.357,blob,,4.084072,11.680092
+MIN0510,C,49,-1,Kanawa,Br,Brine,Psammite,Complete,0.355,blob,,10.964246,10.306494
+MIN0511,B,-1,-1,,,Psammite,Psammite,Complete,0.354,blob,,10.909424,10.671974
+MIN0512,F,42,-1,Nnegi,Umuleri Fe,UmuleriFe,Glass Sand,Complete,0.353,blob,,6.97137,6.286206
+MIN0513,E,132,-1,Ak wanga,M,M (unspecified - see symbol),Psammite,Complete,0.352,blob,,8.12568,8.850662
+MIN0514,D,-1,-1,,,Psammite,Psammite,Complete,0.352,blob,,4.863765,8.177569
+MIN0515,B,19,-1,D. Sabo,Au,Gold,Saltlake / Potash,Complete,0.35,blob,,6.953096,12.277044
+MIN0516,D,119,-1,Ejiba,T c,Talc,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.35,blob,,5.427214,8.372492
+MIN0517,E,203,-1,Bok ana,T m,Tourmaline,Rose Quartz (r),Complete,0.349,blob,,8.594713,9.444568
+MIN0518,C,17,-1,Ngaldum,Gy,Gypsum,Saltlake / Potash,Complete,0.348,blob,,11.32059,12.002933
+MIN0519,G,-1,-1,,,Nickel (ni),Nickel (ni),Complete,0.348,blob,,7.464769,7.760312
+MIN0520,B,48,-1,Birnink udu Sn.Nb.T,a,a,Rose Quartz (r),Complete,0.347,blob,,9.295218,11.564356
+MIN0521,G,105,103,Ehuhe,Fe,Iron Ore,Glass Sand,Complete,0.347,blob,,7.306394,6.286206
+MIN0522,E,124,127,Nik oro,Qz,Quartz,Saltlake / Potash,Complete,0.346,blob,,8.210958,8.963352
+MIN0523,G,187,-1,Ez eogudu,Ls Ls,LsLs,Saltlake / Potash,Complete,0.346,blob,,7.851569,6.280115
+MIN0524,E,122,123,G.Aruwa,Be,Beryl,Saltlake / Potash,Complete,0.343,blob,,7.99167,9.027311
+MIN0525,E,80,-1,Fan,M z,Monazite,Psammite,Complete,0.342,blob,,9.088112,9.468934
+MIN0526,D,64,-1,Dak ogi,S S,SS,Galena,Complete,0.342,blob,,5.786603,8.981626
+MIN0527,D,-1,-1,,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.341,blob,,6.383555,9.383655
+MIN0528,G,133,-1,Uk wa Gs,,Rose Quartz (r),Rose Quartz (r),Complete,0.34,blob,,7.781519,5.862858
+MIN0529,G,218,-1,ODUK PANI,Ls,Limestone,Psammite,Complete,0.34,blob,,8.375425,5.220221
+MIN0530,B,15,-1,k urfi,Qs,Qs,Brine,Complete,0.338,blob,,10.726684,10.410047
+MIN0531,G,11,-1,Guraji,Bx,Bauxitic Clay,Coal,Complete,0.338,blob,,11.174398,7.126812
+MIN0532,A,8,-1,Nachiadu,F,Fluorite,Gold,Complete,0.337,blob,,5.20488,13.50445
+MIN0533,E,144,-1,N Eggon EmI,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.335,blob,,8.515526,8.503456
+MIN0534,C,2,-1,Kwada Kaya Hill,E,Evaporite (?),Saltlake / Potash,Complete,0.334,blob,,11.128713,13.321709
+MIN0535,D,126,-1,Kwali,K e,? (Ke),Psammite,Complete,0.334,blob,,6.752081,8.631374
+MIN0536,B,47,-1,Dutse,Nb. S,Columbite; Salt (?),Wolframite (w),Complete,0.334,blob,,9.289126,11.649635
+MIN0537,E,224,-1,Kuje,T a. Qa,Tantalite; Quartz,Saltlake / Potash,Complete,0.334,blob,,7.233298,8.643557
+MIN0538,F,178,-1,Olowu Ak eusi,S I,SI,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.333,blob,,3.554125,7.12072
+MIN0539,F,-1,-1,,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.331,blob,,3.042453,7.565389
+MIN0540,F,-1,-1,,,Psammite,Psammite,Complete,0.331,blob,,4.272904,6.75524
+MIN0541,G,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.331,blob,,9.173391,6.337983
+MIN0542,E,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.33,blob,,8.408927,9.453705
+MIN0543,D,124,-1,Ogga,S n,Tin (Cassiterite),Saltlake / Potash,Complete,0.33,blob,,5.545995,7.976554
+MIN0544,F,95,-1,IK POBA R IVER BENIN,Gs,Glass Sand,Glass Sand,Complete,0.329,blob,,5.491173,6.170471
+MIN0545,G,193,-1,Uz arem,S K a,SKa,Rose Quartz (r),Complete,0.327,blob,,7.863752,5.838492
+MIN0546,B,139,-1,LIR UEIN K AN0 Sn.T a.Nb.W,,Rose Quartz (r),Rose Quartz (r),Complete,0.326,blob,,8.661718,10.851669
+MIN0547,D,-1,-1,,,Bentonite,Bentonite,Complete,0.326,blob,,4.921632,9.194823
+MIN0548,F,174,-1,Aiyetoro,P,Phosphate,Marble,Complete,0.326,blob,,2.999813,7.36742
+MIN0549,G,66,-1,Dek ina,Fe,Iron Ore,Psammite,Complete,0.325,blob,,7.074923,7.650667
+MIN0550,A,69,-1,GAM,M I S d,MISd,Glass Sand,Complete,0.324,blob,,4.90945,12.252678
+MIN0551,F,104,-1,Bode,Qa,Quartz,Psammite,Complete,0.324,blob,,5.643457,7.425288
+MIN0552,G,68,-1,,,Feldspar,Feldspar,Complete,0.322,blob,,7.665783,7.537978
+MIN0553,D,-1,-1,,,Marcasite (mc),Marcasite (mc),Complete,0.322,blob,,5.680005,8.957261
+MIN0554,F,86,-1,Uhen,Py,Pyrite,Psammite,Complete,0.321,blob,,5.259702,6.682144
+MIN0555,F,-1,-1,,,Psammite,Psammite,Complete,0.32,blob,,5.530767,7.373511
+MIN0556,G,162,-1,Uyo,Cl,Clay,Bauxitic Clay,Complete,0.32,blob,,8.022127,5.174536
+MIN0557,F,140,-1,Ik ere,K a,Kaolin,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.32,blob,,5.27493,7.513612
+MIN0558,D,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.319,blob,,5.192697,8.540004
+MIN0559,B,117,-1,Giwa,T m,Tourmaline,Psammite,Complete,0.318,blob,,7.367307,11.415118
+MIN0560,B,128,-1,Ik ara,Na,Salt / Trona,Saltlake / Potash,Complete,0.318,blob,,8.226187,11.131871
+MIN0561,F,-1,-1,,,Psammite,Psammite,Complete,0.318,blob,,5.357163,6.0791
+MIN0562,D,120,-1,Mope,M b,Marble,Saltlake / Potash,Complete,0.316,blob,,5.963252,8.165386
+MIN0563,D,-1,-1,,,Feldspar,Feldspar,Complete,0.315,blob,,5.588635,8.728835
+MIN0564,A,-1,-1,,,Wolframite (w),Wolframite (w),Complete,0.314,blob,,5.411986,11.326794
+MIN0565,A,60,-1,Damaga Maru,Au,Gold,Bauxitic Clay,Complete,0.313,blob,,6.389646,12.438464
+MIN0566,C,3,-1,Zumugu,T n,Tn,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.312,blob,,11.244448,13.254704
+MIN0567,F,64,-1,UZ ER E EAS T Oil,,Feldspar,Feldspar,Complete,0.312,blob,,6.179495,5.667935
+MIN0568,G,215,-1,Orua,Gm,Gemstone (Beryl etc.),Baryte,Complete,0.311,blob,,8.210958,5.372504
+MIN0569,D,-1,-1,,,Monazite,Monazite,Complete,0.31,blob,,6.481017,9.703451
+MIN0570,G,116,-1,Inyi,C,Coal,Feldspar,Complete,0.31,blob,,7.233298,6.130877
+MIN0571,F,46,-1,Oz ubulu-Uk,po K a,poKa,Feldspar,Complete,0.31,blob,,6.873908,6.069963
+MIN0572,G,139,-1,Nwaogu,Ijouchi Py Br,IjouchiPyBr,"Beryl, Aquamarine, Emerald",Complete,0.31,blob,,7.607915,5.905497
+MIN0573,F,-1,-1,,,Feldspar,Feldspar,Complete,0.31,blob,,5.917567,5.881132
+MIN0574,G,24,-1,Ak wana,Fr,Fire Clay (?),Feldspar,Complete,0.309,blob,,9.325675,8.077062
+MIN0575,F,133,-1,Iddo – Ek iti,Cl,Clay,Monazite,Complete,0.309,blob,,4.933815,7.815134
+MIN0576,F,-1,-1,,,Monazite,Monazite,Complete,0.309,blob,,3.983565,7.595845
+MIN0577,F,-1,-1,,,Monazite,Monazite,Complete,0.309,blob,,4.476964,7.492292
+MIN0578,F,151,-1,Odo-Igbo,Au,Gold,Monazite,Complete,0.309,blob,,4.659705,7.474018
+MIN0579,G,227,-1,,,Marcasite (mc),Marcasite (mc),Complete,0.308,blob,,8.814002,5.704483
+MIN0580,F,55,-1,,,Coal,Coal,Complete,0.308,blob,,6.785584,4.799918
+MIN0581,B,69,-1,Misau,Na,Salt / Trona,Bauxitic Clay,Complete,0.307,blob,,8.506389,10.065886
+MIN0582,D,-1,-1,,,Marcasite (mc),Marcasite (mc),Complete,0.307,blob,,4.084072,8.536958
+MIN0583,F,203,-1,Ibeju,Cl,Clay,Marcasite (mc),Complete,0.306,blob,,3.788642,6.490266
+MIN0584,B,130,-1,Anchau,K a d,Kad,Saltlake / Potash,Complete,0.306,blob,,8.21705,10.936948
+MIN0585,D,-1,-1,,,Lepidolite,Lepidolite,Complete,0.305,blob,,5.798786,8.744064
+MIN0586,B,-1,-1,,,Oil and Gas,Oil and Gas,Complete,0.303,blob,,8.159182,12.228313
+MIN0587,F,116,-1,Ok oluk,e Cr,eCr,Saltlake / Potash,Complete,0.303,blob,,5.743964,6.679098
+MIN0588,G,104,108,Udi,Ls,Limestone,Feldspar,Complete,0.303,blob,,7.342942,6.167425
+MIN0589,F,-1,-1,,,Feldspar,Feldspar,Complete,0.303,blob,,5.850562,5.473012
+MIN0590,F,-1,-1,,,Feldspar,Feldspar,Complete,0.302,blob,,6.709442,5.60093
+MIN0591,B,88,-1,Torgo Hills,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,Fire Clay,Complete,0.302,blob,,9.018062,10.443549
+MIN0592,D,-1,-1,,,Garnet,Garnet,Complete,0.301,blob,,3.292198,9.188732
+MIN0593,D,52,58,K W AK UT I Mb,,Gold,Gold,Complete,0.3,blob,,6.788629,9.49939
+MIN0594,F,-1,-1,,,Garnet,Garnet,Complete,0.3,blob,,4.196762,7.653713
+MIN0595,F,-1,-1,,,Bauxitic Clay,Bauxitic Clay,Complete,0.3,blob,,6.508428,6.252704
+MIN0596,G,115,-1,Awk,a C,aC,Bauxitic Clay,Complete,0.3,blob,,7.081014,6.130877
+MIN0597,F,45,-1,Nnewi,Lg,Lignite,Bauxitic Clay,Complete,0.3,blob,,6.953096,6.088237
+MIN0598,F,-1,-1,,,Bauxitic Clay,Bauxitic Clay,Complete,0.3,blob,,6.191678,5.801944
+MIN0599,B,94,-1,Danbala,Gs,Glass Sand,Psammite,Complete,0.3,blob,,8.381516,12.417145
+MIN0600,B,97,-1,Tofa,K a,Kaolin,Psammite,Complete,0.3,blob,,8.247507,12.057755
+MIN0601,B,131,-1,Soba,K a,Kaolin,Psammite,Complete,0.3,blob,,7.802838,10.784664
+MIN0602,B,162,-1,,,Psammite,Psammite,Complete,0.3,blob,,8.274918,10.279083
+MIN0603,B,81,-1,Kwado Kaya Hill,S n. T a,Tin (Cassiterite); Tantalite,Psammite,Complete,0.3,blob,,9.270852,10.13289
+MIN0604,E,199,-1,"Godogodo Sn,",Nb,Columbite,Psammite,Complete,0.3,blob,,8.137862,9.481116
+MIN0605,E,-1,-1,,,Psammite,Psammite,Complete,0.3,blob,,8.39979,8.043559
+MIN0606,G,-1,-1,,,Psammite,Psammite,Complete,0.3,blob,,8.198776,7.946098
+MIN0607,B,-1,-1,,,Psammite,Psammite,Complete,0.298,blob,,7.949031,12.444556
+MIN0608,D,31,-1,Pandogari,Qa,Quartz,Psammite,Complete,0.296,blob,,6.420103,10.300402
+MIN0609,B,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.295,blob,,7.260709,10.059794
+MIN0610,G,91,-1,Emene Enugu,Gy,Gypsum,Psammite,Complete,0.295,blob,,7.6536,6.639504
+MIN0611,D,119,-1,Ejiba,T c,Talc,Psammite,Complete,0.295,blob,,5.698279,8.573506
+MIN0612,C,43,-1,Doho,C,Coal,Coal,Complete,0.29,blob,,11.067799,10.489234
+MIN0613,E,204,-1,"Ningishi Hill Sn, Tm,",Z r,Zircon,Psammite,Complete,0.29,blob,,8.765271,9.331879
+MIN0614,F,89,-1,Uromi,Cl,Clay,Marcasite (mc),Complete,0.29,blob,,6.145993,6.679098
+MIN0615,F,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.287,blob,,6.264774,6.316663
+MIN0616,E,156,-1,Roguwa,Aq,Aquamarine (Beryl),Saltlake / Potash,Complete,0.287,blob,,7.361216,8.244573
+MIN0617,D,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.285,blob,,5.439397,10.936948
+MIN0618,D,-1,-1,,,Bauxitic Clay,Bauxitic Clay,Complete,0.283,blob,,5.16224,8.616146
+MIN0619,G,20,-1,Nyamsando,,Saltlake / Potash,Saltlake / Potash,Complete,0.282,blob,,8.524663,7.86691
+MIN0620,D,-1,-1,,,Psammite,Psammite,Complete,0.282,blob,,5.025185,8.923758
+MIN0621,G,30,-1,ljerLs,,Tar Sand (ts),Tar Sand (ts),Complete,0.282,blob,,9.149026,7.562343
+MIN0622,D,23,-1,Konk wesso,K a,Kaolin,Rose Quartz (r),Complete,0.281,blob,,4.151077,11.046592
+MIN0623,G,-1,-1,,,Glass Sand,Glass Sand,Complete,0.281,blob,,11.521604,7.05067
+MIN0624,E,-1,-1,,,Tourmaline (tm),Tourmaline (tm),Complete,0.276,blob,,9.755114,9.082133
+MIN0625,D,-1,-1,,,Feldspar,Feldspar,Complete,0.276,blob,,6.036348,8.558278
+MIN0626,G,150,-1,Afaka Offiong,CI,Clay,Copper minerals,Complete,0.274,blob,,7.49218,5.052709
+MIN0627,G,56,-1,Gabu,Br,Brine,Rose Quartz (r),Complete,0.273,blob,,8.881006,6.934934
+MIN0628,F,-1,-1,,,Galena,Galena,Complete,0.27,blob,,3.203873,7.053716
+MIN0629,C,22,30,Mutwe,Ls,Limestone,Psammite,Complete,0.269,blob,,11.817035,11.360296
+MIN0630,D,-1,-1,,,"Iron Ore (Magnetite, Ilmenite)","Iron Ore (Magnetite, Ilmenite)",Complete,0.267,blob,,5.689142,9.09127
+MIN0631,G,-1,-1,,,Kyanite,Kyanite,Complete,0.263,blob,,11.348001,7.297369
+MIN0632,F,80,-1,Afuz,e C,eC,Marcasite (mc),Complete,0.261,blob,,6.149038,6.880112
+MIN0633,F,175,-1,AR E-ABEOK,UT A,UTA,Tar Sand (ts),Complete,0.26,blob,,3.280015,7.330872
+MIN0634,G,143,-1,Bende,P,Phosphate,Garnet,Complete,0.256,blob,,7.528728,5.494331
+MIN0635,G,-1,-1,,,Bentonite,Bentonite,Complete,0.255,blob,,7.333805,7.799905
+MIN0636,D,-1,-1,,,Psammite,Psammite,Complete,0.255,blob,,5.38762,8.83848
+MIN0637,E,102,-1,Mbar,Cl,Clay,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.254,blob,,9.188619,9.347107
+MIN0638,D,-1,-1,,,Gold,Gold,Complete,0.253,blob,,5.545995,8.905484
+MIN0639,E,137,-1,Ketfi,T m,Tourmaline,Saltlake / Potash,Complete,0.252,blob,,7.836341,8.756246
+MIN0640,B,31,-1,Dan maiDak,Cl,Clay,Bauxitic Clay,Complete,0.251,blob,,7.60487,11.719686
+MIN0641,A,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.248,blob,,5.944978,11.509534
+MIN0642,D,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.247,blob,,5.52163,8.798886
+MIN0643,D,6,-1,k ak angi,Be,Beryl,Saltlake / Potash,Complete,0.246,blob,,6.030257,10.632381
+MIN0644,F,-1,-1,,,Galena,Galena,Complete,0.244,blob,,3.340928,7.096355
+MIN0645,F,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.243,blob,,3.770368,7.486201
+MIN0646,A,30,-1,Dutsin Kato,K,Kaolin (?),Saltlake / Potash,Complete,0.239,blob,,4.504375,11.616133
+MIN0647,F,31,-1,AJAOK,UT A M b,UTAMb,Bauxitic Clay,Complete,0.239,blob,,6.554113,7.742038
+MIN0648,G,113,-1,Omor,Cl,Clay,Psammite,Complete,0.238,blob,,7.010964,6.450672
+MIN0649,G,-1,-1,,,Marcasite (mc),Marcasite (mc),Complete,0.236,blob,,8.290146,4.958293
+MIN0650,E,115,-1,Don Swam,Gy,Gypsum,Saltlake / Potash,Complete,0.235,blob,,9.770343,8.938987
+MIN0651,B,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.233,blob,,8.768317,12.481104
+MIN0652,G,-1,-1,,,Baryte,Baryte,Complete,0.231,blob,,7.272891,8.016148
+MIN0653,F,26,-1,ltak,pe Qa,peQa,Saltlake / Potash,Complete,0.23,blob,,6.078988,7.614119
+MIN0654,E,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.226,blob,,9.89217,8.862845
+MIN0655,E,95,-1,Kup Gs,,Saltlake / Potash,Saltlake / Potash,Complete,0.222,blob,,9.639379,9.185686
+MIN0656,F,-1,-1,,,Bentonite,Bentonite,Complete,0.221,blob,,6.365281,6.80397
+MIN0657,F,122,-1,IGBOK ODA,Gs T s,GsTs,Psammite,Complete,0.221,blob,,4.68407,6.545088
+MIN0658,E,76,-1,Garam,Cl,Clay,Saltlake / Potash,Complete,0.221,blob,,9.502324,9.249645
+MIN0659,C,-1,-1,,,Oil and Gas,Oil and Gas,Complete,0.22,blob,,12.413986,10.854715
+MIN0660,D,94,-1,Babanloma,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,Wolframite (w),Complete,0.218,blob,,4.659705,9.121727
+MIN0661,B,84,-1,,,Fluorite,Fluorite,Complete,0.217,blob,,9.170345,10.97045
+MIN0662,D,65,-1,,,Glass Sand,Glass Sand,Complete,0.217,blob,,5.713507,8.859799
+MIN0663,B,164,-1,,,Magnesite,Magnesite,Complete,0.217,blob,,8.445475,10.199895
+MIN0664,F,13,-1,lyara,M b,Marble,Marcasite (mc),Complete,0.215,blob,,6.904365,7.949143
+MIN0665,A,-1,-1,,,Magnesite,Magnesite,Complete,0.211,blob,,5.576452,12.398871
+MIN0666,E,157,-1,Zagwan Daji,Be,Beryl,"Beryl, Aquamarine, Emerald",Complete,0.21,blob,,7.37949,8.159295
+MIN0667,G,-1,-1,,,Zircon (zr),Zircon (zr),Complete,0.209,blob,,8.314511,7.88823
+MIN0668,G,109,104,,,Psammite,Psammite,Complete,0.207,blob,,7.580504,6.149151
+MIN0669,C,57,-1,Mongunu,Cl,Clay,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.207,blob,,13.330734,12.864858
+MIN0670,C,52,-1,Gombe,U,Uranium,Glass Sand,Complete,0.205,blob,,11.083027,10.126799
+MIN0671,E,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.205,blob,,10.068819,8.750155
+MIN0672,C,39,36,Waldosahu,Gy,Gypsum,Saltlake / Potash,Complete,0.204,blob,,11.244448,10.921719
+MIN0673,F,-1,-1,,,Bentonite,Bentonite,Complete,0.202,blob,,4.434325,7.681124
+MIN0674,B,135,129,BANK E HILL Sn.Nb.T,a,a,Wolframite (w),Complete,0.2,blob,,8.363242,10.988724
+MIN0675,E,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.2,blob,,7.163247,8.390766
+MIN0676,E,163,-1,,,Galena,Galena,Complete,0.199,blob,,8.606896,8.232391
+MIN0677,F,-1,-1,,,Mica (m),Mica (m),Complete,0.197,blob,,4.57138,7.580617
+MIN0678,E,186,-1,Atarana,M b,Marble,Trona (tr),Complete,0.197,blob,,7.486088,8.232391
+MIN0679,E,89,-1,Gwak tok,Cl,Clay,Saltlake / Potash,Complete,0.195,blob,,9.465775,9.158275
+MIN0680,D,-1,-1,,,Bentonite,Bentonite,Complete,0.194,blob,,5.20488,8.680105
+MIN0681,F,165,-1,,,Psammite,Psammite,Complete,0.191,blob,,3.691181,7.288232
+MIN0682,F,97,-1,Benin-City,S d,Sand (?),Saltlake / Potash,Complete,0.191,blob,,5.786603,6.569454
+MIN0683,E,-1,-1,,,Bauxitic Clay,Bauxitic Clay,Complete,0.19,blob,,9.630242,9.072996
+MIN0684,D,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.189,blob,,3.091183,9.057768
+MIN0685,E,106,-1,Bwoi,CI,Clay,Psammite,Complete,0.189,blob,,9.182528,8.899393
+MIN0686,A,88,-1,R . Dawa,T a,Tantalite,Marcasite (mc),Complete,0.188,blob,,6.566295,11.652681
+MIN0687,B,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.186,blob,,10.696227,11.58263
+MIN0688,E,234,-1,Wana,T pz,Topaz,Magnesite,Complete,0.183,blob,,7.056649,8.677059
+MIN0689,G,-1,-1,,,Glass Sand,Glass Sand,Complete,0.183,blob,,9.23735,7.510566
+MIN0690,B,132,-1,Sharu,T a,Tantalite,"Iron Ore (Magnetite, Ilmenite)",Complete,0.182,blob,,7.437358,10.997861
+MIN0691,F,171,-1,Safara,Au,Gold,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.18,blob,,2.73484,7.379603
+MIN0692,F,-1,-1,,,Psammite,Psammite,Complete,0.18,blob,,4.333818,7.309552
+MIN0693,B,17,-1,Dutsin-Ma Au I7ADutsin-,M a S n,MaSn,Magnesite,Complete,0.178,blob,,7.464769,12.44151
+MIN0694,A,83,-1,Chafe,Ab. T c,Asbestos; Talc,Magnesite,Complete,0.178,blob,,6.782538,12.002933
+MIN0695,A,-1,-1,,,Magnesite,Magnesite,Complete,0.178,blob,,6.636346,11.948111
+MIN0696,A,83,-1,Chafe,Ab. T c,Asbestos; Talc,Magnesite,Complete,0.178,blob,,6.551067,11.747097
+MIN0697,B,-1,-1,,,Magnesite,Magnesite,Complete,0.178,blob,,9.822119,10.876034
+MIN0698,D,77,-1,OKe Mb,,Magnesite,Magnesite,Complete,0.178,blob,,3.152097,8.884165
+MIN0699,E,181,-1,Udegi-Bek,i Gs,iGs,Magnesite,Complete,0.178,blob,,7.744971,8.457771
+MIN0700,E,-1,-1,,,Glass Sand,Glass Sand,Complete,0.177,blob,,7.339896,9.8801
+MIN0701,E,28,-1,Jauro Magu,Fe,Iron Ore,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.176,blob,,10.59572,9.459797
+MIN0702,E,104,-1,Sha Hill,S n. T a,Tin (Cassiterite); Tantalite,Psammite,Complete,0.175,blob,,8.871869,9.319696
+MIN0703,E,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.174,blob,,9.883033,9.012083
+MIN0704,E,18,-1,Kaltungo,T r,Trona,Saltlake / Potash,Complete,0.17,blob,,8.792682,8.025285
+MIN0705,F,83,-1,Ora,Gy,Gypsum,Nickel (ni),Complete,0.17,blob,,5.147012,6.609047
+MIN0706,D,122,-1,Isanlu,Esa M . Au,EsaM; Gold,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.169,blob,,5.357163,8.469953
+MIN0707,G,186,-1,Enyigba,Pb.Z n Ba,Lead; ZnBa,Saltlake / Potash,Complete,0.162,blob,,8.189639,6.167425
+MIN0708,E,61,-1,Fadera,Be,Beryl,Psammite,Complete,0.161,blob,,9.133797,10.065886
+MIN0709,G,-1,-1,,,Oil and Gas,Oil and Gas,Complete,0.16,blob,,12.240383,7.967417
+MIN0710,F,194,-1,Imusin,T s,Tar Sand,Phosphate,Complete,0.159,blob,,3.797779,6.718692
+MIN0711,C,24,-1,Abak ire,Dt,Diatomite,Galena,Complete,0.159,blob,,11.317544,11.658772
+MIN0712,F,170,-1,Afon,Au,Gold,Galena,Complete,0.158,blob,,2.737885,7.516658
+MIN0713,B,-1,-1,,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.156,blob,,10.626177,10.650655
+MIN0714,F,22,-1,OS AR A FOR,ES T Fp,ESTFp,Saltlake / Potash,Complete,0.156,blob,,6.130764,7.833408
+MIN0715,E,185,-1,T OT O Fe. Mb,,Saltlake / Potash,Saltlake / Potash,Complete,0.151,blob,,7.342942,8.40904
+MIN0716,D,78,-1,Gbanara,Au,Gold,Magnesite,Complete,0.147,blob,,2.853621,8.993809
+MIN0717,G,136,-1,Igbere,P,Phosphate,Clay / Pottery Clay,Complete,0.146,blob,,7.422129,5.646615
+MIN0718,E,219,-1,Yanga,S n. T a,Tin (Cassiterite); Tantalite,Mica (m),Complete,0.145,blob,,7.620098,8.896347
+MIN0719,F,106,-1,Ak oko North East,Ds,Dimension Stone,"Iron Ore (Magnetite, Ilmenite)",Complete,0.143,blob,,5.743964,7.410059
+MIN0720,B,93,-1,Lomi Jamji,Cl,Clay,Glass Sand,Complete,0.141,blob,,10.805871,10.632381
+MIN0721,D,98,-1,Alapa popoola,Fp,Feldspar,Calcite,Complete,0.14,blob,,4.282041,8.744064
+MIN0722,E,-1,-1,,,Garnet,Garnet,Complete,0.134,blob,,7.473906,8.122747
+MIN0723,E,130,-1,Mada Pbs,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.132,blob,,8.820093,8.935941
+MIN0724,G,142,-1,AGBHAR,A NS U K a,ANSUKa,Pyrite / Pyroclore (py),Complete,0.13,blob,,7.805884,5.60093
+MIN0725,E,226,-1,Zaz aga,M,M (unspecified - see symbol),Garnet,Complete,0.126,blob,,7.388627,8.981626
+MIN0726,B,123,-1,Maigana,Bi n,Bin,Saltlake / Potash,Complete,0.126,blob,,7.9003,10.842532
+MIN0727,E,88,-1,Lank,an Gs,anGs,Galena,Complete,0.124,blob,,9.346994,9.347107
+MIN0728,D,-1,-1,,,Galena,Galena,Complete,0.121,blob,,3.761231,8.232391
+MIN0729,E,22,-1,Kyadawa,Bn,Bentonite,Copper minerals,Complete,0.12,blob,,11.716527,9.85878
+MIN0730,C,-1,-1,,,Bauxitic Clay,Bauxitic Clay,Complete,0.116,blob,,11.847491,12.060801
+MIN0731,B,58,-1,Tr,,Coal,Coal,Complete,0.114,blob,,10.991657,13.318664
+MIN0732,G,208,-1,,,Uranium (u),Uranium (u),Complete,0.111,blob,,8.64649,5.881132
+MIN0733,E,135,-1,Keffi,S n,Tin (Cassiterite),Bauxitic Clay,Complete,0.101,blob,,7.836341,8.981626
+MIN0734,D,132,-1,lga Iyere,Be,Beryl,Wolframite (w),Complete,0.092,blob,,3.136868,8.777566
+MIN0735,E,-1,-1,,,Psammite,Psammite,Complete,0.068,blob,,8.186593,9.937967
+MIN0736,A,5,-1,Talok,a Cy,aCy,Psammite,Complete,0.064,blob,,5.710461,13.61714
+MIN0737,B,-1,-1,,,,,Complete,0.0,blob,,7.845478,12.383642
+MIN0738,A,-1,-1,,,,,Complete,0.0,blob,,6.581524,12.161308
+MIN0739,B,-1,-1,,,,,Complete,0.0,blob,,8.750042,11.844558
+MIN0740,A,-1,-1,,,,,Complete,0.0,blob,,5.95107,11.573493
+MIN0741,A,97,-1,BIR NIN,GW AR I Au,GWARIAu,,Complete,0.0,blob,,6.706396,10.930856
+MIN0742,B,-1,-1,,,,,Complete,0.0,blob,,6.953096,10.644563
+MIN0743,B,145,-1,Dariye,W,Wolframite,,Complete,0.0,blob,,8.658672,10.626289
+MIN0744,D,7,30,Randeji,R u,Ruby (Corundum),,Complete,0.0,blob,,6.209952,10.528828
+MIN0745,D,33,-1,Bak ura,Be. Gm,Beryl; Gemstone (Beryl etc.),,Complete,0.0,blob,,6.587615,10.498371
+MIN0746,B,-1,-1,,,,,Complete,0.0,blob,,8.683038,10.498371
+MIN0747,D,41,-1,Kuta,K y,Kyanite,,Complete,0.0,blob,,6.557158,9.85878
+MIN0748,D,-1,-1,,,,,Complete,0.0,blob,,6.340916,9.81614
+MIN0749,D,-1,-1,,,,,Complete,0.0,blob,,5.418077,9.743044
+MIN0750,D,46,-1,W US HIS,HI Au,HIAu,,Complete,0.0,blob,,6.069851,9.676039
+MIN0751,D,-1,-1,,,,,Complete,0.0,blob,,6.276957,9.615126
+MIN0752,E,5,-1,Demsa,Gy P,GyP,,Complete,0.0,blob,,12.100282,9.438477
+MIN0753,D,-1,-1,,,,,Complete,0.0,blob,,6.499291,9.380609
+MIN0754,E,90,-1,Kunik yen,T a,Tantalite,,Complete,0.0,blob,,9.782525,9.307513
+MIN0755,E,-1,-1,,,,,Complete,0.0,blob,,9.136843,8.984672
+MIN0756,E,139,-1,South Mada Hill Sn.W,,,,Complete,0.0,blob,,8.673901,8.881119
+MIN0757,E,-1,-1,,,,,Complete,0.0,blob,,9.270852,8.844571
+MIN0758,E,-1,-1,,,,,Complete,0.0,blob,,9.496232,8.771475
+MIN0759,E,110,-1,,,,,Complete,0.0,blob,,9.203848,8.686196
+MIN0760,E,8,-1,,,,,Complete,0.0,blob,,11.817035,8.649648
+MIN0761,E,225,-1,AFU HILL Sn. Ta.Nb.W,,,,Complete,0.0,blob,,7.939894,8.616146
+MIN0762,D,-1,-1,,,,,Complete,0.0,blob,,5.016048,8.59178
+MIN0763,E,160,-1,OBI,C,Coal,,Complete,0.0,blob,,8.999788,8.57046
+MIN0764,D,110,-1,Elere,Cl,Clay,,Complete,0.0,blob,,4.382548,8.530867
+MIN0765,E,-1,-1,,,,,Complete,0.0,blob,,8.207913,8.457771
+MIN0766,E,183,-1,Udegi-Bek,i S n. T r,iSn; Trona,,Complete,0.0,blob,,7.836341,8.293304
+MIN0767,E,187,-1,Ugia,Qa,Quartz,,Complete,0.0,blob,,7.032283,8.195843
+MIN0768,E,173,-1,Osogh Pbs,,,,Complete,0.0,blob,,8.987605,8.110564
+MIN0769,E,170,-1,AW E Br,,,,Complete,0.0,blob,,9.164254,8.086199
+MIN0770,E,178,-1,Yerwata,Gr,Granite,,Complete,0.0,blob,,8.500297,8.080107
+MIN0771,G,-1,-1,,,,,Complete,0.0,blob,,11.220083,7.492292
+MIN0772,F,172,-1,Sha-Orire,Gs,Glass Sand,,Complete,0.0,blob,,2.73484,7.312598
+MIN0773,G,60,57,Lessel,Ba,Baryte,,Complete,0.0,blob,,8.85055,7.16336
+MIN0774,G,12,-1,Mambila,Gm,Gemstone (Beryl etc.),,Complete,0.0,blob,,11.491148,7.135949
+MIN0775,G,58,-1,Tyogbonda,,,,Complete,0.0,blob,,8.966285,7.004985
+MIN0776,F,-1,-1,,,,,Complete,0.0,blob,,3.730774,6.944071
+MIN0777,G,195,-1,,,,,Complete,0.0,blob,,9.015016,6.810062
+MIN0778,G,196,-1,Ak pak ua Br C 196 Egbok orik,o Ls,oLs,,Complete,0.0,blob,,9.008925,6.706509
+MIN0779,G,197,-1,Gabu(Ogaja),Ba,Baryte,,Complete,0.0,blob,,8.515526,6.688235
+MIN0780,G,199,-1,Ok poma Br Ls 200 Obudu,CI,Clay,,Complete,0.0,blob,,8.740905,6.590773
+MIN0781,F,-1,-1,,,,,Complete,0.0,blob,,6.325687,6.55118
+MIN0782,F,93,-1,Orah,S d,Sand (?),,Complete,0.0,blob,,5.716553,6.514632
+MIN0783,F,-1,-1,,,,,Complete,0.0,blob,,4.248539,6.484175
+MIN0784,G,-1,-1,,,,,Complete,0.0,blob,,8.62517,6.34712
+MIN0785,G,221,-1,Ndigan,T m C,TmC,,Complete,0.0,blob,,8.649535,4.982658
+MIN0786,C,1,5,Yusufari,Br n,Brn,,Complete,0.0,blob,,11.079982,13.160289
+MIN0787,C,12,-1,Mogono,Cl,Clay,,Complete,0.0,blob,,11.896222,12.301409
+MIN0788,C,14,-1,Kalawa,Cl,Clay,,Complete,0.0,blob,,11.890131,12.203948
+MIN0789,C,-1,-1,,,,,Complete,0.0,blob,,14.058649,12.158262
+MIN0790,A,-1,-1,,,,,Complete,0.0,blob,,4.193717,11.674001
+MIN0791,A,43,-1,Sak aba,Fp,Feldspar,,Complete,0.0,blob,,5.31757,11.180602
+MIN0792,B,-1,-1,,,,,Complete,0.0,blob,,10.419071,10.772482
+MIN0793,E,64,67,K IGOM HILLS,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,,Complete,0.0,blob,,8.789636,9.676039
+MIN0794,E,202,-1,Sabongida,T m,Tourmaline,,Complete,0.0,blob,,8.494206,9.447614
+MIN0795,D,-1,-1,,,,,Complete,0.0,blob,,5.186606,9.164367
+MIN0796,D,-1,-1,,,,,Complete,0.0,blob,,4.95818,8.884165
+MIN0797,D,89,-1,Ok olushe,S n. Nb. T a. Au,Tin (Cassiterite); Columbite; Tantalite; Gold,,Complete,0.0,blob,,5.494219,8.488227
+MIN0798,F,19,-1,Zangon Daji,Fp.M,Feldspar; M (unspecified - see symbol),,Complete,0.0,blob,,6.490154,7.766403
+MIN0799,F,103,-1,Ak oko North West,M u,Muscovite (Mica) (?),,Complete,0.0,blob,,5.640411,7.671987
+MIN0800,F,20,-1,Lok oja,U,Uranium,,Complete,0.0,blob,,6.544976,7.665896
+MIN0801,F,135,-1,Awo Ek iti,Cl,Clay,,Complete,0.0,blob,,5.153103,7.650667
+MIN0802,F,150,-1,lFE,T o,To,,Complete,0.0,blob,,4.324681,7.547115
+MIN0803,G,37,-1,Moi-Igbo,,,,Complete,0.0,blob,,8.558165,7.531886
+MIN0804,F,-1,-1,,,,,Complete,0.0,blob,,3.106412,7.385694
+MIN0805,F,37,-1,Gwoligyo,K a,Kaolin,,Complete,0.0,blob,,6.907411,7.340009
+MIN0806,G,-1,-1,,,,,Complete,0.0,blob,,7.08406,7.327826
+MIN0807,F,-1,-1,,,,,Complete,0.0,blob,,4.269858,7.172497
+MIN0808,F,-1,-1,,,,,Complete,0.0,blob,,4.391685,7.175542
+MIN0809,F,-1,-1,,,,,Complete,0.0,blob,,4.726709,6.691281
+MIN0810,G,177,-1,,,,,Complete,0.0,blob,,8.433293,6.286206
+MIN0811,G,192,-1,UBUR U LAK,E Br,EBr,,Complete,0.0,blob,,7.741925,5.98773
+MIN0812,F,-1,-1,,,,,Complete,0.0,blob,,5.326707,5.716665
+MIN0813,G,-1,-1,,,,,Complete,0.0,blob,,7.17543,4.94611
+MIN0814,G,131,-1,POR T -HAPCOUR,T Gs,TGs,,Complete,0.0,blob,,7.13279,4.799918
+MIN0815,B,-1,-1,,,,,Complete,0.0,blob,,9.980494,12.267907
+MIN0816,C,-1,-1,,,,,Complete,0.0,blob,,13.071852,12.149125
+MIN0817,A,-1,-1,,,,,Complete,0.0,blob,,4.882039,11.433392
+MIN0818,D,-1,-1,,,,,Complete,0.0,blob,,4.912495,10.056749
+MIN0819,E,194,-1,Kafanchan,K a,Kaolin,,Complete,0.0,blob,,8.290146,9.706496
+MIN0820,E,86,-1,Mbar,K a,Kaolin,,Complete,0.0,blob,,8.89928,9.484162
+MIN0821,D,-1,-1,,,,,Complete,0.0,blob,,5.086099,8.713607
+MIN0822,F,12,-1,Emoa,Fe,Iron Ore,,Complete,0.0,blob,,6.590661,7.821225
+MIN0823,F,68,70,Oja-sale,M b. M,Marble; M (unspecified - see symbol),,Complete,0.0,blob,,6.20386,7.263867
+MIN0824,F,55,-1,,,,,Complete,0.0,blob,,6.45056,5.031389
+MIN0825,F,-1,-1,,,,,Complete,0.0,blob,,6.264774,4.894334
+MIN0826,A,9,-1,Balah,E,Evaporite (?),Limestone,Partial,0.5,pattern,,5.046505,13.385668
+MIN0827,C,-1,-1,,,Limestone,Limestone,Partial,0.5,pattern,,11.351047,12.432373
+MIN0828,C,-1,-1,,,Limestone,Limestone,Partial,0.5,pattern,,11.759167,12.246587
+MIN0829,C,-1,-1,,,Limestone,Limestone,Partial,0.5,pattern,,11.567289,12.130851
+MIN0830,C,15,-1,Ngelz anma,Gy,Gypsum,Limestone,Partial,0.5,pattern,,11.679979,12.002933
+MIN0831,B,-1,-1,,,Limestone,Limestone,Partial,0.5,pattern,,6.959187,10.547102
+MIN0832,D,-1,-1,,,Limestone,Limestone,Partial,0.5,pattern,,3.432299,9.231371
+MIN0833,E,128,-1,Ganje,W,Wolframite,Limestone,Partial,0.5,pattern,,8.710449,9.094316
+MIN0834,E,-1,-1,,,Limestone,Limestone,Partial,0.5,pattern,,11.52465,8.144066
+MIN0835,G,38,-1,Tsetyo,Gy,Gypsum,Limestone,Partial,0.5,pattern,,8.704357,7.391785
+MIN0836,F,-1,-1,,,Limestone,Limestone,Partial,0.5,pattern,,3.55108,7.285187
+MIN0837,F,154,-1,lk ire,Gm,Gemstone (Beryl etc.),Limestone,Partial,0.5,pattern,,4.032296,7.205999
+MIN0838,F,182,-1,Ohumbe,Gy P,GyP,Limestone,Partial,0.5,pattern,,2.820118,7.096355
+MIN0839,G,212,-1,,,Limestone,Limestone,Partial,0.5,pattern,,8.381516,5.923771
+MIN0840,G,153,-1,Ndi Ok orie,Ls,Limestone,Limestone,Partial,0.5,pattern,,7.851569,5.689254
+MIN0841,G,151,-1,Apochuk,wu Ls,wuLs,Limestone,Partial,0.5,pattern,,8.025172,5.616158
+MIN0842,G,152,-1,Idima,Ls,Limestone,Limestone,Partial,0.5,pattern,,7.760199,5.533925
+MIN0843,G,154,-1,Ebo,S ul,Sul,Limestone,Partial,0.5,pattern,,8.073903,5.332911
+MIN0844,G,219,-1,Oduk pani,CI. Ls,Clay; Limestone,Limestone,Partial,0.5,pattern,,8.37847,5.125805
+MIN0845,E,128,-1,Ganje,W,Wolframite,Coal,Partial,0.947,cluster,,8.557556,8.818378
+MIN0846,E,155,-1,Roguwa,Fc,Fire Clay,Magnesite,Partial,0.915,cluster,,7.245419,8.523801
+MIN0847,D,-1,-1,,,Feldspar,Feldspar,Partial,0.862,cluster,,5.260007,9.951673
+MIN0848,F,-1,-1,,,Feldspar,Feldspar,Partial,0.862,cluster,,6.478275,6.467424
+MIN0849,F,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.859,cluster,,3.882023,7.359318
+MIN0850,F,-1,-1,,,Chromite,Chromite,Partial,0.859,cluster,,4.388944,6.760296
+MIN0851,A,92,-1,M ALELE,Au,Gold,Gold,Partial,0.846,cluster,,6.167251,11.39788
+MIN0852,D,-1,-1,,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Partial,0.838,cluster,,4.628882,9.766191
+MIN0853,D,-1,-1,,,Marble,Marble,Partial,0.838,cluster,,6.385565,9.313604
+MIN0854,D,139,134,lgbo ljiaye,M,M (unspecified - see symbol),Marble,Partial,0.838,cluster,,3.218066,8.357263
+MIN0855,A,-1,-1,,,Mica (m),Mica (m),Partial,0.832,cluster,,4.537817,12.043562
+MIN0856,C,77,-1,Kwaya Kusar,Gy,Gypsum,Bentonite,Partial,0.832,cluster,,11.789563,10.635487
+MIN0857,G,-1,-1,,,Gold,Gold,Partial,0.832,cluster,,7.190597,7.420232
+MIN0858,A,-1,-1,,,Tourmaline (tm),Tourmaline (tm),Partial,0.829,cluster,,4.488842,11.993187
+MIN0859,A,86,-1,DAN GULBI,Au,Gold,Gold,Partial,0.829,cluster,,6.319535,11.818183
+MIN0860,G,-1,-1,,,Coal,Coal,Partial,0.812,cluster,,7.316079,7.70622
+MIN0861,A,-1,-1,,,Gold,Gold,Partial,0.809,cluster,,4.948982,11.233414
+MIN0862,C,60,-1,Karachri,Bn,Bentonite,Feldspar,Partial,0.808,cluster,,13.623423,12.266384
+MIN0863,D,-1,-1,,,Gold,Gold,Partial,0.806,cluster,,3.742896,10.770471
+MIN0864,F,-1,-1,,,Lignite,Lignite,Partial,0.803,cluster,,6.773401,5.05679
+MIN0865,A,44,-1,DUK,U Au,UAu,Gold,Partial,0.802,cluster,,5.009896,11.288236
+MIN0866,F,50,-1,Assa Oil,,Lignite,Lignite,Partial,0.802,cluster,,6.913502,5.471002
+MIN0867,F,-1,-1,,,Magnesite,Magnesite,Partial,0.8,cluster,,6.557097,6.404013
+MIN0868,D,-1,-1,,,Tourmaline (tm),Tourmaline (tm),Partial,0.798,cluster,,5.950765,8.795231
+MIN0869,E,-1,-1,,,Calcite,Calcite,Partial,0.798,cluster,,11.606822,8.283193
+MIN0870,E,233,217,,,Marble,Marble,Partial,0.797,cluster,,7.153075,8.948124
+MIN0871,A,-1,-1,,,Gold,Gold,Partial,0.795,cluster,,5.813953,11.343058
+MIN0872,D,-1,-1,,,Tourmaline (tm),Tourmaline (tm),Partial,0.792,cluster,,5.119296,8.769708
+MIN0873,G,95,-1,Umuhuok,po Cl,poCl,Tar Sand (ts),Partial,0.791,cluster,,6.955837,6.40651
+MIN0874,F,-1,-1,,,Feldspar,Feldspar,Partial,0.787,cluster,,6.612285,6.552703
+MIN0875,D,-1,-1,,,Tourmaline (tm),Tourmaline (tm),Partial,0.786,cluster,,4.231239,8.511618
+MIN0876,D,87,-1,Koro,T c,Talc,Gold,Partial,0.782,cluster,,5.862684,8.638501
+MIN0877,E,20,-1,Chongwon,T pz,Topaz,Tourmaline (tm),Partial,0.781,cluster,,11.260651,9.991815
+MIN0878,F,132,-1,Ipoti,T m. Ag,Tourmaline; Silver,Tar Sand (ts),Partial,0.776,cluster,,4.671583,7.752697
+MIN0879,B,-1,-1,,,Garnet,Garnet,Partial,0.774,cluster,,7.931366,10.548625
+MIN0880,E,198,118,"k woi Sn,",Nb,Columbite,Coal,Partial,0.774,cluster,,7.983447,9.416244
+MIN0881,E,-1,-1,,,Psammite,Psammite,Partial,0.773,cluster,,9.513714,8.14297
+MIN0882,D,-1,-1,,,Talc (tc),Talc (tc),Partial,0.771,cluster,,5.417041,9.668974
+MIN0883,B,18,-1,Dutsin,M a Nb,MaNb,Tar Sand (ts),Partial,0.763,cluster,,7.609255,12.345998
+MIN0884,B,126,-1,Ik ara,Fp,Feldspar,Tar Sand (ts),Partial,0.763,cluster,,8.498592,11.511483
+MIN0885,E,24,-1,Kunini,Ls,Limestone,Marble,Partial,0.763,cluster,,11.348306,9.22528
+MIN0886,B,-1,-1,,,Lignite,Lignite,Partial,0.758,cluster,,8.558165,11.519707
+MIN0887,E,161,-1,Agwatashi,S r,Sr,Lignite,Partial,0.758,cluster,,8.94192,8.169467
+MIN0888,D,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.757,cluster,,5.64498,9.060936
+MIN0889,E,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.757,cluster,,7.880503,8.12896
+MIN0890,A,-1,-1,,,Gold,Gold,Partial,0.756,cluster,,6.02715,11.416154
+MIN0891,D,-1,-1,,,Lignite,Lignite,Partial,0.754,cluster,,6.005892,8.638501
+MIN0892,D,-1,-1,,,Lead - Zinc,Lead - Zinc,Partial,0.754,cluster,,5.198484,8.751678
+MIN0893,G,-1,-1,,,Lignite,Lignite,Partial,0.754,cluster,,7.309439,7.481145
+MIN0894,A,25,-1,Mayana,Ls,Limestone,Fire Clay,Partial,0.753,cluster,,4.488842,12.072374
+MIN0895,C,-1,-1,,,Feldspar,Feldspar,Partial,0.753,cluster,,13.568601,12.327297
+MIN0896,F,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.75,cluster,,4.324376,6.607525
+MIN0897,F,-1,-1,,,Feldspar,Feldspar,Partial,0.749,cluster,,6.472184,6.369962
+MIN0898,F,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.747,cluster,,3.776155,7.332395
+MIN0899,F,98,-1,Ago-Ok oro Gvl,,Tar Sand (ts),Tar Sand (ts),Partial,0.747,cluster,,5.146708,6.357779
+MIN0900,E,60,69,R AY FIEEO,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,Tar Sand (ts),Partial,0.746,cluster,,9.045168,9.84812
+MIN0901,F,78,-1,Auchi,K a,Kaolin,Gold,Partial,0.746,cluster,,6.130703,7.030386
+MIN0902,F,143,-1,Orangun,K a,Kaolin,Tar Sand (ts),Partial,0.743,cluster,,4.79341,7.80752
+MIN0903,F,-1,-1,,,Psammite,Psammite,Partial,0.742,cluster,,4.606893,7.7502
+MIN0904,F,184,-1,lbese,Ls,Limestone,Lignite,Partial,0.742,cluster,,2.92093,6.869452
+MIN0905,B,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.741,cluster,,9.324213,10.425397
+MIN0906,D,149,-1,Elerin-Ok,e Nb. T a,eNb; Tantalite,Tar Sand (ts),Partial,0.741,cluster,,5.006607,8.148635
+MIN0907,F,167,-1,Olodo,S t,St,Tar Sand (ts),Partial,0.74,cluster,,3.83585,7.5808
+MIN0908,F,161,-1,Onik,o K a,oKa,Baryte,Partial,0.737,cluster,,3.126696,7.65883
+MIN0909,B,90,-1,T IBICHI HILL Sn. Mb.T a.W,,Lignite,Lignite,Partial,0.735,cluster,,8.939179,10.895831
+MIN0910,D,138,-1,lgbo ljiaye,Qa,Quartz,Tar Sand (ts),Partial,0.735,cluster,,3.154838,8.240005
+MIN0911,D,-1,-1,,,Chromite,Chromite,Partial,0.734,cluster,,5.241733,9.166377
+MIN0912,F,-1,-1,,,Lead - Zinc,Lead - Zinc,Partial,0.734,cluster,,6.111028,6.400906
+MIN0913,E,167,-1,AW E Ba,,Baryte,Baryte,Partial,0.733,cluster,,8.935646,8.239761
+MIN0914,D,105,-1,Yaru,M b,Marble,Tar Sand (ts),Partial,0.732,cluster,,4.775135,8.477567
+MIN0915,F,-1,-1,,,Baryte,Baryte,Partial,0.73,cluster,,3.025701,7.65615
+MIN0916,F,-1,-1,,,Baryte,Baryte,Partial,0.73,cluster,,3.159711,7.759702
+MIN0917,D,-1,-1,,,Tourmaline (tm),Tourmaline (tm),Partial,0.728,cluster,,4.97615,9.15462
+MIN0918,F,51,-1,Ak abuna,Cl,Clay,Tar Sand (ts),Partial,0.728,cluster,,6.820609,5.125988
+MIN0919,G,129,-1,Otok,o K a. Ls,oKa; Limestone,Tar Sand (ts),Partial,0.726,cluster,,7.344465,5.381824
+MIN0920,D,109,-1,Owa,Fe.M,Iron Ore; M (unspecified - see symbol),Lignite,Partial,0.725,cluster,,5.022444,8.428837
+MIN0921,G,185,-1,Enyigba,Br,Brine,"Beryl, Aquamarine, Emerald",Partial,0.724,cluster,,8.3351,6.234125
+MIN0922,B,-1,-1,,,Lignite,Lignite,Partial,0.723,cluster,,7.754108,12.323764
+MIN0923,E,226,-1,Zaz aga,M,M (unspecified - see symbol),Lignite,Partial,0.723,cluster,,7.291165,9.960323
+MIN0924,F,186,-1,Oshosun,P,Phosphate,Tar Sand (ts),Partial,0.723,cluster,,3.197477,6.997371
+MIN0925,E,228,-1,K AZ AI Au,,Tar Sand (ts),Tar Sand (ts),Partial,0.722,cluster,,7.226171,9.94814
+MIN0926,D,83,-1,Lade,Gm,Gemstone (Beryl etc.),Tar Sand (ts),Partial,0.722,cluster,,4.962749,8.677181
+MIN0927,F,183,-1,Ologiri,Gy,Gypsum,Tar Sand (ts),Partial,0.722,cluster,,3.185295,6.881635
+MIN0928,E,171,-1,Ndora PbS,,Baryte,Baryte,Partial,0.721,cluster,,9.019584,8.228736
+MIN0929,D,137,-1,Ik omu,T c,Talc,Tar Sand (ts),Partial,0.721,cluster,,3.100016,8.252188
+MIN0930,F,62,-1,Agbor,K a,Kaolin,Lead - Zinc,Partial,0.721,cluster,,6.033973,6.386896
+MIN0931,B,87,-1,Rjshi hIlls,S n. W . Nb. T a,Tin (Cassiterite); Wolframite; Columbite; Tantalite,Tar Sand (ts),Partial,0.72,cluster,,8.888377,10.634391
+MIN0932,D,-1,-1,,,Gold,Gold,Partial,0.72,cluster,,5.866765,8.738094
+MIN0933,E,-1,-1,,,Graphite,Graphite,Partial,0.72,cluster,,11.234276,8.486217
+MIN0934,F,-1,-1,,,Tourmaline (tm),Tourmaline (tm),Partial,0.719,cluster,,5.061429,6.437881
+MIN0935,C,37,-1,Chongwon,Dl,Diatomite (?),Baryte,Partial,0.717,cluster,,11.567107,10.743304
+MIN0936,F,-1,-1,,,Baryte,Baryte,Partial,0.714,cluster,,6.55259,6.882549
+MIN0937,E,70,-1,Werram,K a,Kaolin,Tar Sand (ts),Partial,0.712,cluster,,8.931016,9.818151
+MIN0938,F,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.711,cluster,,3.173112,7.22275
+MIN0939,B,85,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.71,cluster,,9.223401,10.384646
+MIN0940,E,140,-1,B.Chiyawa,Ba,Baryte,Tourmaline (tm),Partial,0.709,cluster,,8.289841,8.557669
+MIN0941,E,-1,-1,,,Baryte,Baryte,Partial,0.708,cluster,,10.537669,8.288492
+MIN0942,F,-1,-1,,,Baryte,Baryte,Partial,0.708,cluster,,3.238898,7.753611
+MIN0943,D,-1,-1,,,Baryte,Baryte,Partial,0.708,cluster,,3.851566,8.073041
+MIN0944,G,178,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.708,cluster,,7.948726,6.278592
+MIN0945,E,182,-1,Udegi-BeK,i Z r,iZr,"Iron Ore (Magnetite, Ilmenite)",Partial,0.705,cluster,,7.951467,8.233914
+MIN0946,F,-1,-1,,,Baryte,Baryte,Partial,0.704,cluster,,2.909966,7.765794
+MIN0947,G,214,-1,Ideacha,Qa,Quartz,Tar Sand (ts),Partial,0.702,cluster,,8.143649,5.468443
+MIN0948,D,86,-1,Erufu — Erufu,Au,Gold,Chromite,Partial,0.7,cluster,,5.601061,8.624247
+MIN0949,F,-1,-1,,,Baryte,Baryte,Partial,0.699,cluster,,6.357667,4.287636
+MIN0950,D,131,-1,Iga lyere,T c,Talc,Tar Sand (ts),Partial,0.698,cluster,,3.014737,8.538481
+MIN0951,E,-1,-1,,,Lignite,Lignite,Partial,0.698,cluster,,8.009944,8.18165
+MIN0952,D,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.697,cluster,,4.141636,8.550664
+MIN0953,E,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.696,cluster,,9.615927,8.859799
+MIN0954,D,136,-1,Ik omu,Be,Beryl,Baryte,Partial,0.696,cluster,,2.989153,8.180005
+MIN0955,F,144,-1,OR ANGUN,T c,Talc,Tar Sand (ts),Partial,0.696,cluster,,4.622852,7.801428
+MIN0956,D,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.695,cluster,,5.642726,9.176245
+MIN0957,D,-1,-1,,,Lead - Zinc,Lead - Zinc,Partial,0.694,cluster,,4.848475,8.419212
+MIN0958,B,23,-1,Gwarz,o Fp,oFp,Tar Sand (ts),Partial,0.693,cluster,,7.694534,12.315541
+MIN0959,A,102,-1,Dutsin,K ok o K a,KokoKa,Baryte,Partial,0.691,cluster,,3.933312,11.737351
+MIN0960,D,-1,-1,,,Asbestos / Serpentine,Asbestos / Serpentine,Partial,0.691,cluster,,5.343945,9.906536
+MIN0961,F,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.69,cluster,,2.80154,6.906
+MIN0962,A,-1,-1,,,Baryte,Baryte,Partial,0.689,cluster,,4.146509,12.41349
+MIN0963,E,201,-1,"Sabongida Sn,",Nb,Columbite,Phosphate,Partial,0.689,cluster,,8.453089,9.507918
+MIN0964,E,113,-1,South Mada Hill,S n. W,Tin (Cassiterite); Wolframite,Baryte,Partial,0.687,cluster,,9.512983,8.947515
+MIN0965,A,19,-1,Dabba,P,Phosphate,Tar Sand (ts),Partial,0.686,cluster,,5.110159,12.796331
+MIN0966,E,75,-1,M AJOR POR,T ER,TER,Tar Sand (ts),Partial,0.685,cluster,,8.728418,9.628832
+MIN0967,D,-1,-1,,,Baryte,Baryte,Partial,0.685,cluster,,6.249424,8.519963
+MIN0968,D,88,-1,Koro,Au,Gold,Gold,Partial,0.685,cluster,,5.921587,8.622359
+MIN0969,A,-1,-1,,,"Iron Ore (Magnetite, Ilmenite)","Iron Ore (Magnetite, Ilmenite)",Partial,0.681,cluster,,5.965689,11.340499
+MIN0970,D,-1,-1,,,"Iron Ore (Magnetite, Ilmenite)","Iron Ore (Magnetite, Ilmenite)",Partial,0.68,cluster,,5.478381,8.94051
+MIN0971,G,32,-1,Y ANDEV,,Tar Sand (ts),Tar Sand (ts),Partial,0.68,cluster,,9.039077,7.569957
+MIN0972,F,159,-1,Ak oya,T a,Tantalite,Baryte,Partial,0.677,cluster,,3.001336,7.759702
+MIN0973,F,158,-1,Ak oya,Be,Beryl,Baryte,Partial,0.677,cluster,,3.098797,7.759702
+MIN0974,G,163,-1,Andia,CI,Clay,"Iron Ore (Magnetite, Ilmenite)",Partial,0.673,cluster,,8.140299,4.968953
+MIN0975,D,56,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.669,cluster,,6.76932,9.150174
+MIN0976,D,-1,-1,,,Lignite,Lignite,Partial,0.667,cluster,,5.296555,9.178072
+MIN0977,D,83,-1,Lade,Gm,Gemstone (Beryl etc.),"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Partial,0.667,cluster,,5.481975,8.851698
+MIN0978,B,-1,-1,,,Coal,Coal,Partial,0.666,cluster,,8.899829,10.812806
+MIN0979,F,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.666,cluster,,4.312193,6.81463
+MIN0980,D,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.665,cluster,,5.06752,8.660308
+MIN0981,E,193,-1,Kaqoro,S n Nb,SnNb,Fire Clay,Partial,0.664,cluster,,8.487079,9.60806
+MIN0982,F,41,-1,lgbarian,Gs,Glass Sand,Lead - Zinc,Partial,0.662,cluster,,6.84199,6.394815
+MIN0983,E,159,-1,Shabire,C,Coal,Baryte,Partial,0.661,cluster,,8.989128,8.399294
+MIN0984,D,153,-1,Omu-Aran,S n. Nb. T a C.,Tin (Cassiterite); Columbite; TaC,Tar Sand (ts),Partial,0.661,cluster,,5.161205,8.376573
+MIN0985,F,33,-1,,,Lead - Zinc,Lead - Zinc,Partial,0.66,cluster,,7.087775,7.416333
+MIN0986,D,123,-1,Egbe,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,Baryte,Partial,0.659,cluster,,5.335722,8.258035
+MIN0987,B,41,-1,Kaz aure,Gs,Glass Sand,Lead - Zinc,Partial,0.658,cluster,,9.704983,10.098352
+MIN0988,F,83,-1,Ora,Gy,Gypsum,Lignite,Partial,0.658,cluster,,5.987618,6.902468
+MIN0989,B,86,-1,Yelwa Rish,Cu Pb. Z n,CuPb; Zinc,Tar Sand (ts),Partial,0.658,cluster,,8.838062,10.420706
+MIN0990,D,-1,-1,,,Chromite,Chromite,Partial,0.653,cluster,,5.704614,8.788713
+MIN0991,F,81,-1,Sabon gida,K a,Kaolin,Uranium (u),Partial,0.653,cluster,,5.91044,6.969472
+MIN0992,F,-1,-1,,,Phosphate,Phosphate,Partial,0.653,cluster,,6.409931,4.801989
+MIN0993,D,92,-1,S HAR,E K a,EKa,Phosphate,Partial,0.652,cluster,,4.862729,8.88319
+MIN0994,A,29,-1,Fanpa,Fe,Iron Ore,Tar Sand (ts),Partial,0.651,cluster,,3.86984,11.708538
+MIN0995,D,36,-1,M OM AJI,Au,Gold,"Beryl, Aquamarine, Emerald",Partial,0.65,cluster,,4.669755,10.108525
+MIN0996,G,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.65,cluster,,9.227908,6.321231
+MIN0997,F,145,-1,Ilobu,Cl,Clay,Lignite,Partial,0.648,cluster,,4.553411,7.929346
+MIN0998,D,84,-1,Maga,K a,Kaolin,Gold,Partial,0.647,cluster,,5.643396,8.821241
+MIN0999,G,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.646,cluster,,8.186289,5.261337
+MIN1000,A,74,-1,Maje,T a,Tantalite,Ball Clay,Partial,0.645,cluster,,6.357667,11.88872
+MIN1001,A,90,-1,Zaman,Au,Gold,Lignite,Partial,0.645,cluster,,6.298276,11.410063
+MIN1002,E,116,-1,Shargam,Fp,Feldspar,Baryte,Partial,0.645,cluster,,9.354608,8.770866
+MIN1003,F,85,-1,ET S AK O W ES T Gy,,Tar Sand (ts),Tar Sand (ts),Partial,0.645,cluster,,6.263738,6.920742
+MIN1004,G,-1,-1,,,Asbestos / Serpentine,Asbestos / Serpentine,Partial,0.644,cluster,,8.12769,4.905542
+MIN1005,F,193,-1,lwopin,T s,Tar Sand,Tar Sand (ts),Partial,0.643,cluster,,4.094489,6.711565
+MIN1006,F,-1,-1,,,Columbite,Columbite,Partial,0.641,cluster,,3.436319,7.060842
+MIN1007,E,-1,-1,,,Wolframite (w),Wolframite (w),Partial,0.64,cluster,,12.179409,9.862861
+MIN1008,E,2,-1,Guyuk,Bn,Bentonite,Wolframite (w),Partial,0.64,cluster,,12.148952,9.929866
+MIN1009,D,-1,-1,,,Wolframite (w),Wolframite (w),Partial,0.64,cluster,,4.419035,8.742054
+MIN1010,D,108,-1,Ilorin,Cl,Clay,Wolframite (w),Partial,0.64,cluster,,4.498223,8.675049
+MIN1011,E,-1,-1,,,Kyanite,Kyanite,Partial,0.639,cluster,,9.069229,8.276553
+MIN1012,G,156,-1,Ik ot Nk em Ls,,Tar Sand (ts),Tar Sand (ts),Partial,0.639,cluster,,7.991365,5.328342
+MIN1013,D,104,-1,Yaru,M,M (unspecified - see symbol),Rose Quartz (r),Partial,0.638,cluster,,4.867115,8.652694
+MIN1014,F,-1,-1,,,Talc (tc),Talc (tc),Partial,0.638,cluster,,6.610945,6.84259
+MIN1015,F,185,-1,EW EK OR O Ls,,Feldspar,Feldspar,Partial,0.638,cluster,,3.128036,7.033919
+MIN1016,F,-1,-1,,,Rose Quartz (r),Rose Quartz (r),Partial,0.638,cluster,,3.100625,6.41717
+MIN1017,E,-1,-1,,,Baryte,Baryte,Partial,0.637,cluster,,11.21856,9.392183
+MIN1018,D,-1,-1,,,Phosphate,Phosphate,Partial,0.636,cluster,,5.32823,9.702841
+MIN1019,E,87,-1,Mangun,Nb,Columbite,Tar Sand (ts),Partial,0.636,cluster,,9.089391,9.3613
+MIN1020,E,180,-1,Gidan Zabutu,Z r,Zircon,Zircon (zr),Partial,0.636,cluster,,7.960909,8.142543
+MIN1021,F,142,-1,ILLA-OR ANGUN,T c,Talc,Kyanite,Partial,0.636,cluster,,4.756557,8.063356
+MIN1022,F,160,-1,Iganna,T a,Tantalite,Kyanite,Partial,0.636,cluster,,3.148442,7.886707
+MIN1023,E,117,-1,Namu,Ba b,Bab,Baryte,Partial,0.635,cluster,,9.019584,8.740409
+MIN1024,D,-1,-1,,,Baryte,Baryte,Partial,0.635,cluster,,2.923489,8.166665
+MIN1025,F,-1,-1,,,Lead - Zinc,Lead - Zinc,Partial,0.635,cluster,,6.550762,6.625799
+MIN1026,G,211,-1,Agai Ibami Ba Ka 212. lk ot Ak perem Gn Tc 213 Ak pet Central,Ba C,BaC,Tar Sand (ts),Partial,0.635,cluster,,8.166796,5.765579
+MIN1027,F,-1,-1,,,Rose Quartz (r),Rose Quartz (r),Partial,0.634,cluster,,4.586913,6.703463
+MIN1028,F,-1,-1,,,Marble,Marble,Partial,0.632,cluster,,6.610945,6.779666
+MIN1029,D,-1,-1,,,Lignite,Lignite,Partial,0.631,cluster,,5.284372,8.599394
+MIN1030,F,76,-1,Auchi,M b,Marble,Marble,Partial,0.631,cluster,,6.221099,7.072051
+MIN1031,G,222,-1,Ndigan,R u Cl,RuCl,Tar Sand (ts),Partial,0.631,cluster,,8.515221,5.096871
+MIN1032,E,111,-1,Namu,S,Salt (?),Rose Quartz (r),Partial,0.629,cluster,,8.978772,8.658785
+MIN1033,D,-1,-1,,,Silica Sand (ss),Silica Sand (ss),Partial,0.629,cluster,,4.925774,8.739983
+MIN1034,F,-1,-1,,,Baryte,Baryte,Partial,0.629,cluster,,2.806413,7.771885
+MIN1035,F,168,-1,Alaqbede,M b,Marble,Lignite,Partial,0.628,cluster,,3.268137,7.661327
+MIN1036,F,-1,-1,,,Rose Quartz (r),Rose Quartz (r),Partial,0.628,cluster,,6.499595,6.855747
+MIN1037,D,-1,-1,,,Baryte,Baryte,Partial,0.627,cluster,,5.797263,8.825688
+MIN1038,F,123,-1,Agbabu,T s,Tar Sand,Rose Quartz (r),Partial,0.627,cluster,,4.757471,6.587728
+MIN1039,F,-1,-1,,,Lignite,Lignite,Partial,0.627,cluster,,5.272189,5.833924
+MIN1040,E,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.626,cluster,,10.115417,8.567415
+MIN1041,F,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.626,cluster,,4.367015,6.656255
+MIN1042,E,-1,-1,,,Baryte,Baryte,Partial,0.625,cluster,,9.224132,8.797911
+MIN1043,F,-1,-1,,,Kyanite,Kyanite,Partial,0.625,cluster,,6.663148,5.431895
+MIN1044,D,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.624,cluster,,4.878688,8.946601
+MIN1045,F,-1,-1,,,Lignite,Lignite,Partial,0.624,cluster,,4.072194,6.394328
+MIN1046,E,77,-1,Ampere,Qz,Quartz,Feldspar,Partial,0.623,cluster,,9.701267,9.101443
+MIN1047,A,-1,-1,,,Baryte,Baryte,Partial,0.622,cluster,,4.085595,12.419581
+MIN1048,C,75,-1,Shaffa,Ls n,Lsn,Baryte,Partial,0.621,cluster,,12.334616,10.834674
+MIN1049,E,92,-1,Belnin,T o,To,Rose Quartz (r),Partial,0.621,cluster,,9.392984,9.146093
+MIN1050,D,-1,-1,,,Rose Quartz (r),Rose Quartz (r),Partial,0.621,cluster,,5.098586,8.884165
+MIN1051,F,-1,-1,,,Phosphate Rock,Phosphate Rock,Partial,0.621,cluster,,6.598762,5.044607
+MIN1052,B,134,-1,Dutsin wai Sn.Nb,,Phosphate,Phosphate,Partial,0.621,cluster,,8.008421,10.92111
+MIN1053,D,-1,-1,,,Lignite,Lignite,Partial,0.618,cluster,,5.655944,8.654216
+MIN1054,G,217,-1,M FAM OS ING,Ls C Cl,LsCCl,Rose Quartz (r),Partial,0.618,cluster,,8.595018,5.070983
+MIN1055,A,-1,-1,,,Phosphate,Phosphate,Partial,0.617,cluster,,3.720115,12.316028
+MIN1056,C,34,-1,Wurajeloye,Ls,Limestone,Zircon (zr),Partial,0.617,cluster,,11.532751,10.800928
+MIN1057,F,-1,-1,,,Baryte,Baryte,Partial,0.617,cluster,,4.281919,7.721997
+MIN1058,F,32,-1,AJAOK,UT A Fe,UTAFe,Zircon (zr),Partial,0.617,cluster,,6.574397,7.170487
+MIN1059,E,-1,-1,,,"Iron Ore (Magnetite, Ilmenite)","Iron Ore (Magnetite, Ilmenite)",Partial,0.616,cluster,,9.858058,9.068428
+MIN1060,F,38,-1,Ok ok onvi,M b,Marble,Gypsum,Partial,0.616,cluster,,6.891147,7.194852
+MIN1061,A,-1,-1,,,Rose Quartz (r),Rose Quartz (r),Partial,0.615,cluster,,4.952394,11.332885
+MIN1062,F,-1,-1,,,Zircon (zr),Zircon (zr),Partial,0.615,cluster,,3.52641,7.070467
+MIN1063,A,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.614,cluster,,4.541837,11.795827
+MIN1064,D,-1,-1,,,Zircon (zr),Zircon (zr),Partial,0.614,cluster,,5.688837,8.733404
+MIN1065,D,121,-1,Isanlu,ES a Fp,ESaFp,Lead - Zinc,Partial,0.614,cluster,,5.29692,8.482258
+MIN1066,G,22,-1,Gbaiumba,,Tar Sand (ts),Tar Sand (ts),Partial,0.614,cluster,,9.069534,7.521226
+MIN1067,A,-1,-1,,,Zircon (zr),Zircon (zr),Partial,0.612,cluster,,4.14395,11.653716
+MIN1068,D,118,-1,Odosin,Au.M,Gold; M (unspecified - see symbol),Tar Sand (ts),Partial,0.612,cluster,,5.615741,8.562846
+MIN1069,D,-1,-1,,,Rose Quartz (r),Rose Quartz (r),Partial,0.612,cluster,,6.773706,8.549141
+MIN1070,D,85,-1,Kosoti,K a,Kaolin,Rose Quartz (r),Partial,0.612,cluster,,6.11584,8.750155
+MIN1071,F,121,-1,Shogbon (Ok itipupa),CI,Clay,Marble,Partial,0.612,cluster,,4.59471,6.590834
+MIN1072,F,36,-1,lT OBE,M b,Marble,Rose Quartz (r),Partial,0.611,cluster,,6.938172,7.452699
+MIN1073,E,94,-1,Mustieve,Be,Beryl,Phosphate,Partial,0.61,cluster,,9.00131,9.191168
+MIN1074,F,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.61,cluster,,3.234025,6.85727
+MIN1075,D,57,-1,Lambata,Qa,Quartz,Tar Sand (ts),Partial,0.609,cluster,,6.736548,9.263351
+MIN1076,F,-1,-1,,,Rose Quartz (r),Rose Quartz (r),Partial,0.609,cluster,,6.298581,4.802964
+MIN1077,E,72,-1,Koro,S n,Tin (Cassiterite),Marble,Partial,0.608,cluster,,8.643383,9.617258
+MIN1078,E,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.607,cluster,,10.011865,8.957261
+MIN1079,D,-1,-1,,,Rose Quartz (r),Rose Quartz (r),Partial,0.607,cluster,,3.118899,8.031376
+MIN1080,F,69,-1,Komino,K a,Kaolin,Rose Quartz (r),Partial,0.607,cluster,,6.414316,7.330872
+MIN1081,F,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.607,cluster,,4.628943,6.534428
+MIN1082,D,127,-1,Dangara,Cl,Clay,Rose Quartz (r),Partial,0.606,cluster,,6.773706,8.719698
+MIN1083,F,49,-1,Awomama,K a,Kaolin,Rose Quartz (r),Partial,0.605,cluster,,6.755432,5.710574
+MIN1084,B,142,-1,Shibure,Pb.Z,Lead; Z,Tar Sand (ts),Partial,0.604,cluster,,8.803829,10.67301
+MIN1085,E,209,-1,Sark in Pawa,T m,Tourmaline,Wolframite (w),Partial,0.604,cluster,,7.172323,10.015145
+MIN1086,D,102,-1,Ayetoro,Gm,Gemstone (Beryl etc.),Tourmaline (tm),Partial,0.604,cluster,,5.021835,8.751434
+MIN1087,F,90,-1,Ubiaja,Lg,Lignite,Lignite,Partial,0.604,cluster,,6.435636,6.7659
+MIN1088,F,124,-1,Shabomi,C,Coal,Zircon (zr),Partial,0.604,cluster,,4.838364,6.457799
+MIN1089,F,58,-1,Ogbia,Gs,Glass Sand,Rose Quartz (r),Partial,0.604,cluster,,6.237667,4.802964
+MIN1090,A,30,-1,Dutsin Kato,K,Kaolin (?),Trona (tr),Partial,0.603,cluster,,4.298792,11.632884
+MIN1091,B,-1,-1,,,Lignite,Lignite,Partial,0.603,cluster,,9.816332,10.055226
+MIN1092,E,82,-1,Mangu,M a,Ma,Silica Sand (ss),Partial,0.603,cluster,,8.581008,9.598375
+MIN1093,F,126,-1,Gbek ebo,Gs,Glass Sand,Lignite,Partial,0.603,cluster,,4.900617,6.436967
+MIN1094,F,-1,-1,,,Kyanite,Kyanite,Partial,0.603,cluster,,6.650965,5.511083
+MIN1095,G,168,-1,Ek et Cl,,"Iron Ore (Magnetite, Ilmenite)","Iron Ore (Magnetite, Ilmenite)",Partial,0.603,cluster,,8.109842,4.841035
+MIN1096,B,-1,-1,,,Wolframite (w),Wolframite (w),Partial,0.602,cluster,,10.32764,11.233414
+MIN1097,E,192,-1,Kagoro,K a,Kaolin,Lignite,Partial,0.602,cluster,,8.512785,9.513096
+MIN1098,F,-1,-1,,,Zircon (zr),Zircon (zr),Partial,0.602,cluster,,4.497248,6.457799
+MIN1099,D,-1,-1,,,Zircon (zr),Zircon (zr),Partial,0.601,cluster,,3.321619,9.1319
+MIN1100,D,-1,-1,,,Chromite,Chromite,Partial,0.601,cluster,,5.22955,8.587699
+MIN1101,F,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.601,cluster,,2.78357,7.699459
+MIN1102,F,25,-1,ltak,pe Be,peBe,Trona (tr),Partial,0.601,cluster,,6.467311,7.618688
+MIN1103,E,207,-1,"Mayir Sn,",Nb,Columbite,Graphite,Partial,0.802,rescue,,8.566693,9.107108
+MIN1104,G,-1,-1,,,Baryte,Baryte,Partial,0.799,rescue,,10.336381,7.259177
+MIN1105,G,29,-1,Moze Ls,,Baryte,Baryte,Partial,0.799,rescue,,9.507958,7.716028
+MIN1106,A,45,-1,DUK,U Au,UAu,Baryte,Partial,0.799,rescue,,5.158738,11.163729
+MIN1107,C,40,-1,Wawa,Na,Salt / Trona,Baryte,Partial,0.795,rescue,,11.10389,10.798248
+MIN1108,A,42,-1,Sak aba,M,M (unspecified - see symbol),Baryte,Partial,0.789,rescue,,5.548584,11.175911
+MIN1109,G,-1,-1,,,Baryte,Baryte,Partial,0.786,rescue,,9.459227,6.315018
+MIN1110,B,-1,-1,,,Baryte,Baryte,Partial,0.776,rescue,,10.220645,13.271334
+MIN1111,C,-1,-1,,,Lignite,Lignite,Partial,0.76,rescue,,11.408887,12.457789
+MIN1112,A,66,-1,Roge,W,Wolframite,Baryte,Partial,0.758,rescue,,5.840969,12.388089
+MIN1113,D,144,-1,Ajashe,Fe,Iron Ore,Baryte,Partial,0.752,rescue,,4.220671,8.288614
+MIN1114,B,156,-1,,,Baryte,Baryte,Partial,0.74,rescue,,7.229795,10.31094
+MIN1115,E,-1,-1,,,Baryte,Baryte,Partial,0.738,rescue,,11.049068,8.745465
+MIN1116,E,214,210,Kwarana,T a,Tantalite,Baryte,Partial,0.733,rescue,,7.497814,9.208407
+MIN1117,C,81,-1,Gark ida,Cl,Clay,Baryte,Partial,0.73,rescue,,12.559722,10.676421
+MIN1118,E,-1,-1,,,Baryte,Baryte,Partial,0.73,rescue,,12.864289,9.40333
+MIN1119,B,71,-1,Yana,Cl,Clay,Baryte,Partial,0.729,rescue,,9.946535,11.480479
+MIN1120,G,43,-1,EDUM OGA,AM OD Gy,AMODGy,Baryte,Partial,0.727,rescue,,7.832838,7.283542
+MIN1121,G,200,-1,,,Baryte,Baryte,Partial,0.726,rescue,,9.172934,6.607403
+MIN1122,F,11,-1,Emoa,Cl,Clay,Baryte,Partial,0.725,rescue,,6.565839,8.197244
+MIN1123,B,-1,-1,,,Baryte,Baryte,Partial,0.724,rescue,,9.093747,11.663219
+MIN1124,B,149,-1,Kaduna,K a,Kaolin,"Beryl, Aquamarine, Emerald",Partial,0.723,rescue,,7.293846,10.756035
+MIN1125,C,-1,-1,,,Baryte,Baryte,Partial,0.722,rescue,,12.797284,12.491642
+MIN1126,E,-1,-1,,,Baryte,Baryte,Partial,0.721,rescue,,12.845254,9.775816
+MIN1127,B,-1,-1,,,Baryte,Baryte,Partial,0.72,rescue,,10.902876,11.541392
+MIN1128,D,-1,-1,,,Kyanite,Kyanite,Partial,0.719,rescue,,6.786071,8.208482
+MIN1129,A,51,-1,Maradun,T a,Tantalite,Baryte,Partial,0.719,rescue,,6.25518,12.875396
+MIN1130,A,34,-1,Gidan Gadu,T m,Tourmaline,Baryte,Partial,0.717,rescue,,4.598334,11.614488
+MIN1131,B,49,-1,Wurno,K a,Kaolin,"Beryl, Aquamarine, Emerald",Partial,0.716,rescue,,9.675561,11.554001
+MIN1132,C,-1,-1,,,Baryte,Baryte,Partial,0.714,rescue,,12.401347,10.652056
+MIN1133,G,119,-1,Achina,Cl,Clay,Baryte,Partial,0.71,rescue,,7.138425,5.852076
+MIN1134,B,52,-1,Fagam,T a,Tantalite,Baryte,Partial,0.709,rescue,,10.06227,10.938349
+MIN1135,E,65,-1,VOM,Be,Beryl,Baryte,Partial,0.708,rescue,,8.898824,9.99419
+MIN1136,A,71,-1,ANK,A Au,AAu,Baryte,Partial,0.707,rescue,,6.002237,12.123176
+MIN1137,B,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.701,rescue,,8.21973,12.126587
+MIN1138,C,-1,-1,,,Baryte,Baryte,Partial,0.692,rescue,,11.170895,11.571849
+MIN1139,E,110,-1,,,Baryte,Baryte,Partial,0.689,rescue,,7.747559,9.251046
+MIN1140,E,121,-1,G.Ejiqba,Qz,Quartz,Rose Quartz (r),Partial,0.688,rescue,,7.674189,9.245381
+MIN1141,C,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.686,rescue,,13.214633,12.985467
+MIN1142,C,80,-1,Bashir,M,M (unspecified - see symbol),Baryte,Partial,0.684,rescue,,12.056592,10.31465
+MIN1143,G,21,-1,Gbaiumba,,Baryte,Baryte,Partial,0.684,rescue,,8.904915,7.856128
+MIN1144,F,-1,-1,,,Baryte,Baryte,Partial,0.672,rescue,,3.635902,7.740393
+MIN1145,B,-1,-1,,,Rose Quartz (r),Rose Quartz (r),Partial,0.669,rescue,,10.238645,11.078876
+MIN1146,E,21,-1,Kuk am Bn,,Baryte,Baryte,Partial,0.669,rescue,,11.706933,10.183022
+MIN1147,G,62,-1,Yatier,Br,Brine,Kyanite,Partial,0.665,rescue,,9.649003,7.349603
+MIN1148,B,43,-1,Auyo,M l,Marl (?),Baryte,Partial,0.664,rescue,,10.065164,12.4582
+MIN1149,G,90,-1,Nk alagu Obuk pa-Ichi,Fe,Iron Ore,Baryte,Partial,0.664,rescue,,7.808473,6.747504
+MIN1150,C,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.663,rescue,,13.97797,12.129938
+MIN1151,E,154,-1,Keffi,Be,Beryl,Phosphate Rock,Partial,0.663,rescue,,7.598169,8.985281
+MIN1152,C,-1,-1,,,Baryte,Baryte,Partial,0.659,rescue,,11.027596,10.801355
+MIN1153,G,46,-1,Opar,Gy,Gypsum,Baryte,Partial,0.658,rescue,,8.063548,7.448922
+MIN1154,B,147,-1,M AI GIS HER,Au,Gold,"Beryl, Aquamarine, Emerald",Partial,0.658,rescue,,7.213684,10.840095
+MIN1155,D,-1,-1,,,Baryte,Baryte,Partial,0.657,rescue,,4.917978,9.662273
+MIN1156,A,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.655,rescue,,4.631928,12.796635
+MIN1157,A,6,-1,Zugama,Us,? (Us),Phosphate,Partial,0.654,rescue,,5.666771,13.536971
+MIN1158,A,64,-1,M AR U Au,,Rose Quartz (r),Rose Quartz (r),Partial,0.649,rescue,,6.321911,12.425063
+MIN1159,G,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.647,rescue,,10.765912,7.192598
+MIN1160,B,157,-1,,,Baryte,Baryte,Partial,0.645,rescue,,7.171775,10.320138
+MIN1161,A,37,-1,Kangiwa,T m,Tourmaline,Phosphate,Partial,0.644,rescue,,3.723617,11.356459
+MIN1162,E,168,-1,Wuse,Ba,Baryte,Baryte,Partial,0.644,rescue,,9.270396,8.532268
+MIN1163,G,74,-1,Enugu-Ez,ik e,ike,Baryte,Partial,0.643,rescue,,7.42152,7.06736
+MIN1164,C,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.642,rescue,,13.245089,10.317458
+MIN1165,B,55,-1,Kumaganum,T r,Trona,"Beryl, Aquamarine, Emerald",Partial,0.641,rescue,,10.656268,13.18039
+MIN1166,E,220,-1,Yanga,M K a,MKa,Baryte,Partial,0.639,rescue,,7.281419,9.235879
+MIN1167,D,-1,-1,,,Rose Quartz (r),Rose Quartz (r),Partial,0.638,rescue,,6.870132,11.017963
+MIN1168,D,74,-1,K AIAM,A W . S n,AW; Tin (Cassiterite),Rose Quartz (r),Partial,0.638,rescue,,3.769637,9.42203
+MIN1169,G,19,-1,Agbadu,,Lignite,Lignite,Partial,0.637,rescue,,8.690256,7.891732
+MIN1170,B,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.636,rescue,,10.114138,11.407809
+MIN1171,B,118,-1,Ungunan Mallam Ayuba,M n,Manganese,Lignite,Partial,0.636,rescue,,7.15277,11.251261
+MIN1172,C,21,-1,Mak in fari,Dt,Diatomite,Kyanite,Partial,0.635,rescue,,12.250007,11.509991
+MIN1173,A,38,-1,Kangiwa,Qa,Quartz,Kyanite,Partial,0.635,rescue,,3.630755,11.302885
+MIN1174,A,99,-1,Kweillo,Au,Gold,Rose Quartz (r),Partial,0.634,rescue,,6.870132,11.249434
+MIN1175,C,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.633,rescue,,12.264383,11.00578
+MIN1176,B,63,-1,Shufa,CI,Clay,"Beryl, Aquamarine, Emerald",Partial,0.632,rescue,,10.235965,12.339785
+MIN1177,A,-1,-1,,,Phosphate,Phosphate,Partial,0.632,rescue,,5.667213,13.140431
+MIN1178,E,211,-1,Borari,Fp,Feldspar,Baryte,Partial,0.631,rescue,,7.42717,9.212117
+MIN1179,D,10,-1,Kumuna,S i,Si,Zircon (zr),Partial,0.629,rescue,,6.592668,8.102478
+MIN1180,F,21,24,OS AR A FOR,ES T M b,ESTMb,"Beryl, Aquamarine, Emerald",Partial,0.627,rescue,,6.375971,7.768535
+MIN1181,A,59,-1,Dampo,Au,Gold,"Beryl, Aquamarine, Emerald",Partial,0.625,rescue,,5.844106,12.77227
+MIN1182,A,98,-1,BIR NIN,GW AR I Fe,GWARIFe,Phosphate,Partial,0.625,rescue,,6.866766,11.13089
+MIN1183,A,52,-1,Maradun,Gn,Galena,Phosphate,Partial,0.622,rescue,,6.06315,12.90896
+MIN1184,D,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.621,rescue,,3.632947,9.915429
+MIN1185,B,-1,-1,,,Lepidolite,Lepidolite,Partial,0.619,rescue,,9.802992,12.46953
+MIN1186,B,154,-1,Kak au Bc,,Lignite,Lignite,Partial,0.618,rescue,,7.298962,10.465478
+MIN1187,G,209,-1,Efomi,Br,Brine,Kyanite,Partial,0.617,rescue,,8.814489,5.826767
+MIN1188,A,11,-1,M AR NONA,Gy,Gypsum,Trona (tr),Partial,0.615,rescue,,5.725233,13.300846
+MIN1189,E,83,-1,,,Baryte,Baryte,Partial,0.614,rescue,,10.153641,9.40333
+MIN1190,E,99,-1,S Gida Pbs,,Phosphate,Phosphate,Partial,0.614,rescue,,10.46066,9.522775
+MIN1191,B,-1,-1,,,Kyanite,Kyanite,Partial,0.613,rescue,,9.222609,11.394256
+MIN1192,D,130,-1,Zango Kara,T c,Talc,"Beryl, Aquamarine, Emerald",Partial,0.611,rescue,,6.605524,8.928631
+MIN1193,B,64,-1,Hadejia,M i,Marl / Mica (?),Phosphate,Partial,0.61,rescue,,10.405837,12.385707
+MIN1194,B,115,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.61,rescue,,9.042062,11.359078
+MIN1195,D,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.607,rescue,,4.802486,10.999689
+MIN1196,A,-1,-1,,,Kyanite,Kyanite,Partial,0.606,rescue,,5.734949,12.902472
+MIN1197,D,9,-1,Sabon Birnin Gwari,T a,Tantalite,"Beryl, Aquamarine, Emerald",Partial,0.606,rescue,,6.514153,8.088026
+MIN1198,C,-1,-1,,,Baryte,Baryte,Partial,0.605,rescue,,11.505919,11.590123
+MIN1199,D,71,-1,Kuli,Au,Gold,Baryte,Partial,0.605,rescue,,4.245036,9.829724
+MIN1200,G,170,-1,AK AT A Oil,,Rose Quartz (r),Rose Quartz (r),Partial,0.605,rescue,,7.735103,4.871796
+MIN1201,E,112,-1,Nymus,Ba,Baryte,Baryte,Partial,0.604,rescue,,9.60542,8.501811
+MIN1202,E,32,-1,K . Boyi,Ba,Baryte,Baryte,Partial,0.604,rescue,,9.702881,8.434806
+MIN1203,E,-1,-1,,,Kyanite,Kyanite,Partial,0.603,rescue,,11.184022,9.505939
+MIN1204,G,169,-1,Ik ot Eba Bcl,,Baryte,Baryte,Partial,0.602,rescue,,7.942482,4.883552
+MIN1205,G,176,-1,IBOK O Cl Ba 177 Abak aliki ilm Ls 178 Abak aliki Cl Bn 179 Ngbo Ls Br 180 ENY IGBA,Pb Z n Fr,PbZnFr,Baryte,Partial,0.601,rescue,,8.326237,6.522124
+MIN1206,D,20,-1,.W arri,T a,Tantalite,Phosphate Rock,Partial,0.591,rescue,,5.265184,11.013699
+MIN1207,F,30,28,UK PILLA,M b,Marble,Kyanite,Partial,0.59,rescue,,6.42059,7.477521
+MIN1208,D,112,-1,Ak utuk,pa K a,paKa,"Beryl, Aquamarine, Emerald",Partial,0.589,rescue,,6.193231,8.523862
+MIN1209,C,-1,-1,,,Zircon (zr),Zircon (zr),Partial,0.587,rescue,,12.714469,10.618203
+MIN1210,E,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.587,rescue,,12.916157,9.397665
+MIN1211,B,98,-1,Fogolama,K a,Kaolin,Lignite,Partial,0.586,rescue,,8.596419,12.46953
+MIN1212,D,75,72,K AIAM,A Au,AAu,Marble,Partial,0.585,rescue,,3.842733,9.677867
+MIN1213,E,91,-1,,,Rose Quartz (r),Rose Quartz (r),Partial,0.584,rescue,,10.348289,9.525583
+MIN1214,E,29,-1,Ranewo,Br,Brine,Trona (tr),Partial,0.583,rescue,,10.720136,9.006448
+MIN1215,G,48,-1,Tarak,u Gy,uGy,"Beryl, Aquamarine, Emerald",Partial,0.583,rescue,,8.605403,7.29341
+MIN1216,A,21,-1,Pinaye,Cl,Clay,"Beryl, Aquamarine, Emerald",Partial,0.581,rescue,,4.280549,12.45887
+MIN1217,A,63,50,M AINCHI,Au,Gold,"Beryl, Aquamarine, Emerald",Partial,0.581,rescue,,6.264408,12.473794
+MIN1218,B,45,-1,Dok,o Gs,oGs,Zircon (zr),Partial,0.58,rescue,,9.297225,10.088256
+MIN1219,E,84,79,Dengi,Be,Beryl,Lignite,Partial,0.57,rescue,,9.893875,9.429949
+MIN1220,G,35,-1,Ik paBa,,Saltlake / Potash,Saltlake / Potash,Partial,0.568,rescue,,8.770814,7.53615
+MIN1221,F,-1,-1,,,Kyanite,Kyanite,Partial,0.568,rescue,,6.359677,4.815603
+MIN1222,B,78,-1,Ningi Hill,S n. Nb W,Tin (Cassiterite); NbW,"Beryl, Aquamarine, Emerald",Partial,0.567,rescue,,9.214538,11.32588
+MIN1223,D,-1,-1,,,Rose Quartz (r),Rose Quartz (r),Partial,0.557,rescue,,5.32293,10.975323
+MIN1224,G,52,174,AgilaBr.K,a,a,Phosphate Rock,Partial,0.557,rescue,,7.981924,6.524378
+MIN1225,D,49,-1,Dabban,Cl,Clay,Galena,Partial,0.556,rescue,,5.510148,9.236549
+MIN1226,E,42,-1,S . Goal,K a,Kaolin,Tar Sand (ts),Partial,0.553,rescue,,9.762546,10.039084
+MIN1227,C,-1,-1,,,Baryte,Baryte,Partial,0.552,rescue,,14.115908,12.196272
+REV0001,A,-1,-1,,,Gold,Gold,Complete,0.728,blob,OUTSIDE_NGA,6.706396,13.787697
+REV0002,B,-1,-1,,,Gold,Gold,Complete,0.728,blob,OUTSIDE_NGA,7.297257,13.738966
+REV0003,E,-1,-1,,,Uranium (u),Uranium (u),Complete,0.699,blob,OUTSIDE_NGA,13.452561,9.672994
+REV0004,D,-1,-1,,,Feldspar,Feldspar,Complete,0.657,blob,OUTSIDE_NGA,3.328746,10.595833
+REV0005,D,-1,-1,,,Feldspar,Feldspar,Complete,0.633,blob,OUTSIDE_NGA,3.401842,10.534919
+REV0006,C,-1,-1,,,Magnesite,Magnesite,Complete,0.63,blob,OUTSIDE_NGA,11.762212,13.842519
+REV0007,E,-1,-1,,,Graphite,Graphite,Complete,0.594,blob,OUTSIDE_NGA,12.590635,8.043559
+REV0008,B,-1,-1,,,Coal,Coal,Complete,0.584,blob,OUTSIDE_NGA,8.905372,13.751149
+REV0009,A,26,-1,Kamba Ocr,,Tourmaline (tm),Tourmaline (tm),Complete,0.555,blob,OUTSIDE_NGA,3.52976,12.130851
+REV0010,C,-1,-1,,,Bentonite,Bentonite,Complete,0.508,blob,OUTSIDE_NGA,13.808904,13.967392
+REV0011,B,-1,-1,,,Glass Sand,Glass Sand,Complete,0.5,blob,OUTSIDE_NGA,8.360196,13.735921
+REV0012,F,-1,-1,,,Marble,Marble,Complete,0.493,blob,OUTSIDE_NGA,5.463762,3.849668
+REV0013,G,15,-1,NdumY ayi,Fe,Iron Ore,Chromite,Complete,0.467,blob,OUTSIDE_NGA,11.494193,6.52986
+REV0014,B,-1,-1,,,Fluorite,Fluorite,Complete,0.461,blob,OUTSIDE_NGA,10.361203,13.787697
+REV0015,B,-1,-1,,,Fluorite,Fluorite,Complete,0.461,blob,OUTSIDE_NGA,10.196737,13.75724
+REV0016,B,-1,-1,,,Garnet,Garnet,Complete,0.459,blob,OUTSIDE_NGA,7.102334,13.519678
+REV0017,B,-1,-1,,,Fluorite,Fluorite,Complete,0.459,blob,OUTSIDE_NGA,10.409934,13.507495
+REV0018,F,-1,-1,,,Psammite,Psammite,Complete,0.455,blob,OUTSIDE_NGA,6.286094,3.992815
+REV0019,G,-1,-1,,,Feldspar,Feldspar,Complete,0.453,blob,OUTSIDE_NGA,8.768317,4.933928
+REV0020,G,-1,-1,,,Feldspar,Feldspar,Complete,0.453,blob,OUTSIDE_NGA,8.835321,4.806009
+REV0021,C,-1,-1,,,Kaolin / kaolinitic clay,Kaolin / kaolinitic clay,Complete,0.451,blob,OUTSIDE_NGA,11.408914,13.909524
+REV0022,C,-1,-1,,,Kaolin / kaolinitic clay,Kaolin / kaolinitic clay,Complete,0.451,blob,OUTSIDE_NGA,11.865765,13.805971
+REV0023,A,-1,-1,,,Feldspar,Feldspar,Complete,0.447,blob,UNNUMBERED_LOW,4.559197,13.985666
+REV0024,F,-1,-1,,,Coal,Coal,Complete,0.446,blob,UNNUMBERED_LOW,6.508428,5.87504
+REV0025,D,-1,-1,,,Feldspar,Feldspar,Complete,0.444,blob,UNNUMBERED_LOW,5.07087,9.377564
+REV0026,F,-1,-1,,,Nickel (ni),Nickel (ni),Complete,0.436,blob,UNNUMBERED_LOW,5.536858,4.863877
+REV0027,B,-1,-1,,,Glass Sand,Glass Sand,Complete,0.435,blob,UNNUMBERED_LOW,8.390653,13.857748
+REV0028,A,-1,-1,,,Gold,Gold,Complete,0.43,blob,UNNUMBERED_LOW,5.960207,13.988712
+REV0029,F,-1,-1,,,Nickel (ni),Nickel (ni),Complete,0.429,blob,UNNUMBERED_LOW,5.177469,4.821238
+REV0030,C,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.424,blob,UNNUMBERED_LOW,13.589616,14.006986
+REV0031,A,-1,-1,,,Psammite,Psammite,Complete,0.418,blob,UNNUMBERED_LOW,6.173404,11.211058
+REV0032,D,-1,-1,,,Psammite,Psammite,Complete,0.416,blob,UNNUMBERED_LOW,4.741938,9.517665
+REV0033,G,-1,-1,,,Marble,Marble,Complete,0.415,blob,UNNUMBERED_LOW,11.32059,6.350165
+REV0034,F,-1,-1,,,Psammite,Psammite,Complete,0.406,blob,UNNUMBERED_LOW,6.197769,3.94713
+REV0035,G,-1,-1,,,Psammite,Psammite,Complete,0.406,blob,UNNUMBERED_LOW,7.068831,3.85576
+REV0036,B,-1,-1,,,Psammite,Psammite,Complete,0.405,blob,UNNUMBERED_LOW,9.304355,14.00394
+REV0037,D,-1,-1,,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.398,blob,UNNUMBERED_LOW,4.495238,9.6334
+REV0038,B,-1,-1,,,Copper minerals,Copper minerals,Complete,0.391,blob,UNNUMBERED_LOW,8.210958,13.824245
+REV0039,B,-1,-1,,,Copper minerals,Copper minerals,Complete,0.391,blob,UNNUMBERED_LOW,7.997761,13.702418
+REV0040,D,-1,-1,,,Glass Sand,Glass Sand,Complete,0.387,blob,UNNUMBERED_LOW,4.638385,9.566395
+REV0041,G,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.382,blob,UNNUMBERED_LOW,7.620098,4.12987
+REV0042,C,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.381,blob,UNNUMBERED_LOW,13.431241,13.860793
+REV0043,C,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.381,blob,UNNUMBERED_LOW,14.095197,11.905472
+REV0044,C,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.381,blob,UNNUMBERED_LOW,13.882,11.314611
+REV0045,C,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.381,blob,UNNUMBERED_LOW,14.095197,11.064866
+REV0046,D,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.381,blob,UNNUMBERED_LOW,5.835334,10.815121
+REV0047,C,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.381,blob,UNNUMBERED_LOW,13.29114,10.04152
+REV0048,E,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.381,blob,UNNUMBERED_LOW,12.480991,9.901419
+REV0049,D,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.381,blob,UNNUMBERED_LOW,5.171377,9.35929
+REV0050,D,-1,-1,,,Clay / Pottery Clay,Clay / Pottery Clay,Complete,0.381,blob,UNNUMBERED_LOW,4.160214,9.231371
+REV0051,E,-1,-1,,,Copper minerals,Copper minerals,Complete,0.378,blob,UNNUMBERED_LOW,10.342929,8.04965
+REV0052,G,-1,-1,,,Copper minerals,Copper minerals,Complete,0.378,blob,UNNUMBERED_LOW,10.610948,8.007011
+REV0053,F,-1,-1,,,Coal,Coal,Complete,0.378,blob,UNNUMBERED_LOW,4.976454,7.099401
+REV0054,F,-1,-1,,,Coal,Coal,Complete,0.378,blob,UNNUMBERED_LOW,4.95818,6.861838
+REV0055,G,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.376,blob,UNNUMBERED_LOW,8.210958,7.873001
+REV0056,G,-1,-1,,,Garnet,Garnet,Complete,0.371,blob,UNNUMBERED_LOW,8.140908,3.986724
+REV0057,G,75,-1,Ez imo,C,Coal,Saltlake / Potash,Complete,0.369,blob,UNNUMBERED_LOW,7.656646,7.257776
+REV0058,G,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.365,blob,UNNUMBERED_LOW,7.324668,4.199921
+REV0059,F,-1,-1,,,Feldspar,Feldspar,Complete,0.362,blob,UNNUMBERED_LOW,5.214017,4.909562
+REV0060,B,-1,-1,,,Nickel (ni),Nickel (ni),Complete,0.358,blob,UNNUMBERED_LOW,7.531774,13.59582
+REV0061,G,-1,-1,,,Feldspar,Feldspar,Complete,0.354,blob,UNNUMBERED_LOW,11.034297,8.013102
+REV0062,A,-1,-1,,,Magnesite,Magnesite,Complete,0.348,blob,UNNUMBERED_LOW,6.371372,13.89125
+REV0063,B,-1,-1,,,Magnesite,Magnesite,Complete,0.344,blob,UNNUMBERED_LOW,6.974415,12.478058
+REV0064,F,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.339,blob,UNNUMBERED_LOW,6.602843,3.843577
+REV0065,G,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.333,blob,UNNUMBERED_LOW,8.241415,3.92581
+REV0066,A,-1,-1,,,Bauxitic Clay,Bauxitic Clay,Complete,0.331,blob,UNNUMBERED_LOW,6.505382,13.650642
+REV0067,F,67,-1,ES CR AVOS BEACH Oil,,Psammite,Psammite,Complete,0.324,blob,OUTSIDE_NGA,5.089144,5.515651
+REV0068,G,-1,-1,,,Rose Quartz (r),Rose Quartz (r),Complete,0.316,blob,UNNUMBERED_LOW,8.031264,4.029363
+REV0069,F,-1,-1,,,Feldspar,Feldspar,Complete,0.312,blob,UNNUMBERED_LOW,5.70437,5.278089
+REV0070,F,-1,-1,,,Feldspar,Feldspar,Complete,0.312,blob,UNNUMBERED_LOW,5.47899,5.119714
+REV0071,G,-1,-1,,,Feldspar,Feldspar,Complete,0.312,blob,UNNUMBERED_LOW,7.702331,3.883171
+REV0072,G,-1,-1,,,Feldspar,Feldspar,Complete,0.31,blob,UNNUMBERED_LOW,7.202841,3.877079
+REV0073,F,-1,-1,,,Feldspar,Feldspar,Complete,0.31,blob,UNNUMBERED_LOW,6.2465,3.858805
+REV0074,A,-1,-1,,,Psammite,Psammite,Complete,0.308,blob,UNNUMBERED_LOW,6.097262,13.897341
+REV0075,G,-1,-1,,,Feldspar,Feldspar,Complete,0.307,blob,UNNUMBERED_LOW,7.312485,4.096368
+REV0076,F,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.306,blob,UNNUMBERED_LOW,4.650568,4.900425
+REV0077,F,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.306,blob,UNNUMBERED_LOW,6.721625,4.269971
+REV0078,A,-1,-1,,,Psammite,Psammite,Complete,0.303,blob,UNNUMBERED_LOW,6.389646,13.772469
+REV0079,D,-1,-1,,,Marcasite (mc),Marcasite (mc),Complete,0.302,blob,UNNUMBERED_LOW,3.91656,10.790756
+REV0080,B,-1,-1,,,Copper minerals,Copper minerals,Complete,0.299,blob,UNNUMBERED_LOW,7.230252,13.580591
+REV0081,D,-1,-1,,,Galena,Galena,Complete,0.297,blob,UNNUMBERED_LOW,3.675952,10.872989
+REV0082,C,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.296,blob,UNNUMBERED_LOW,13.08708,12.392779
+REV0083,F,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.289,blob,UNNUMBERED_LOW,5.841425,4.26388
+REV0084,C,-1,-1,,,Psammite,Psammite,Complete,0.288,blob,UNNUMBERED_LOW,13.309414,13.495313
+REV0085,F,-1,-1,,,Psammite,Psammite,Complete,0.286,blob,UNNUMBERED_LOW,4.939906,5.265906
+REV0086,G,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.274,blob,UNNUMBERED_LOW,12.441397,7.930869
+REV0087,G,-1,-1,,,Marcasite (mc),Marcasite (mc),Complete,0.264,blob,UNNUMBERED_LOW,7.345988,3.96845
+REV0088,F,-1,-1,,,Bentonite,Bentonite,Complete,0.262,blob,OUTSIDE_NGA,5.156149,5.433418
+REV0089,C,-1,-1,,,Marcasite (mc),Marcasite (mc),Complete,0.261,blob,UNNUMBERED_LOW,11.220083,12.149125
+REV0090,G,-1,-1,,,Oil and Gas,Oil and Gas,Complete,0.261,blob,UNNUMBERED_LOW,11.485056,6.337983
+REV0091,E,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.255,blob,UNNUMBERED_LOW,10.580492,8.655739
+REV0092,G,-1,-1,,,Feldspar,Feldspar,Complete,0.255,blob,UNNUMBERED_LOW,12.346982,7.90955
+REV0093,F,-1,-1,,,Bauxitic Clay,Bauxitic Clay,Complete,0.25,blob,UNNUMBERED_LOW,6.124673,4.340022
+REV0094,G,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.246,blob,UNNUMBERED_LOW,11.710436,7.912595
+REV0095,F,-1,-1,,,Calcite,Calcite,Complete,0.245,blob,UNNUMBERED_LOW,4.769349,5.025298
+REV0096,F,-1,-1,,,Calcite,Calcite,Complete,0.243,blob,UNNUMBERED_LOW,5.600817,4.068957
+REV0097,E,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.241,blob,UNNUMBERED_LOW,10.324655,8.558278
+REV0098,E,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.239,blob,UNNUMBERED_LOW,11.195717,8.16234
+REV0099,E,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.239,blob,UNNUMBERED_LOW,11.302316,8.134929
+REV0100,G,-1,-1,,,Psammite,Psammite,Complete,0.235,blob,UNNUMBERED_LOW,8.466795,3.895353
+REV0101,B,-1,-1,,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.234,blob,UNNUMBERED_LOW,9.587602,12.252678
+REV0102,G,-1,-1,,,"Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)","Lithium (Amblygonite, Kunzite, Morganite, Spodumene, etc)",Complete,0.23,blob,UNNUMBERED_LOW,8.220095,4.01718
+REV0103,E,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.23,blob,UNNUMBERED_LOW,10.760186,8.229345
+REV0104,F,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.227,blob,UNNUMBERED_LOW,4.543969,4.821238
+REV0105,E,-1,-1,,,Psammite,Psammite,Complete,0.226,blob,UNNUMBERED_LOW,10.811963,8.50041
+REV0106,F,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.216,blob,UNNUMBERED_LOW,6.889137,3.837486
+REV0107,E,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.215,blob,UNNUMBERED_LOW,10.699273,8.597871
+REV0108,G,-1,-1,,,Glass Sand,Glass Sand,Complete,0.211,blob,UNNUMBERED_LOW,12.441397,8.016148
+REV0109,G,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.205,blob,UNNUMBERED_LOW,8.009944,4.093322
+REV0110,F,-1,-1,,,Psammite,Psammite,Complete,0.202,blob,UNNUMBERED_LOW,5.549041,3.880125
+REV0111,E,-1,-1,,,Copper minerals,Copper minerals,Complete,0.198,blob,UNNUMBERED_LOW,11.11653,8.235436
+REV0112,A,-1,-1,,,Galena,Galena,Complete,0.175,blob,UNNUMBERED_LOW,6.11249,13.98262
+REV0113,B,-1,-1,,,Galena,Galena,Complete,0.173,blob,UNNUMBERED_LOW,10.355112,10.815121
+REV0114,E,-1,-1,,,Psammite,Psammite,Complete,0.173,blob,UNNUMBERED_LOW,10.312472,8.768429
+REV0115,F,-1,-1,,,Glass Sand,Glass Sand,Complete,0.167,blob,UNNUMBERED_LOW,5.067825,6.944071
+REV0116,B,-1,-1,,,Psammite,Psammite,Complete,0.154,blob,UNNUMBERED_LOW,9.21603,12.359277
+REV0117,C,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.154,blob,UNNUMBERED_LOW,12.310433,12.176536
+REV0118,G,-1,-1,,,Wolframite (w),Wolframite (w),Complete,0.144,blob,UNNUMBERED_LOW,9.84953,8.003965
+REV0119,F,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.144,blob,UNNUMBERED_LOW,6.493199,3.85576
+REV0120,C,-1,-1,,,Galena,Galena,Complete,0.138,blob,UNNUMBERED_LOW,11.119576,12.450647
+REV0121,E,-1,-1,,,Saltlake / Potash,Saltlake / Potash,Complete,0.131,blob,UNNUMBERED_LOW,10.875922,8.134929
+REV0122,G,-1,-1,,,Psammite,Psammite,Complete,0.13,blob,UNNUMBERED_LOW,7.437358,4.044591
+REV0123,A,-1,-1,,,,,Complete,0.0,blob,BIG_UNRESOLVED,2.561236,14.013077
+REV0124,A,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,6.200815,14.040488
+REV0125,B,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,7.40081,14.040488
+REV0126,B,-1,-1,,,,,Complete,0.0,blob,BIG_UNRESOLVED,9.353086,13.882113
+REV0127,B,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,7.775427,12.392779
+REV0128,C,38,-1,Hongila,Ls,Limestone,,Complete,0.0,blob,BIG_UNRESOLVED,11.369321,10.876034
+REV0129,D,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,3.66377,10.790756
+REV0130,D,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,5.357163,9.986698
+REV0131,E,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,12.873883,8.290259
+REV0132,E,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,11.427188,8.150158
+REV0133,G,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,10.93379,7.997874
+REV0134,G,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,9.87085,7.879093
+REV0135,G,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,12.13683,7.860819
+REV0136,F,148,-1,Ilesa,Gm,Gemstone (Beryl etc.),,Complete,0.0,blob,BIG_UNRESOLVED,4.516558,7.66285
+REV0137,G,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,11.271859,7.525795
+REV0138,F,173,-1,AIY,ET OR O K a,ETOROKa,,Complete,0.0,blob,BIG_UNRESOLVED,2.847529,7.364374
+REV0139,G,-1,-1,,,,,Complete,0.0,blob,BIG_UNRESOLVED,7.464769,7.416151
+REV0140,G,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,10.473893,6.861838
+REV0141,G,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,10.674907,6.837473
+REV0142,G,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,9.96222,6.788742
+REV0143,G,179,-1,,,,,Complete,0.0,blob,BIG_UNRESOLVED,8.204867,6.249658
+REV0144,G,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,8.673901,4.769461
+REV0145,G,-1,-1,,,,,Complete,0.0,blob,BIG_UNRESOLVED,9.608922,4.641543
+REV0146,G,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,7.949031,3.843577
+REV0147,G,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,6.97137,3.837486
+REV0148,G,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,7.306394,3.837486
+REV0149,G,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,7.851569,3.83444
+REV0150,C,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,12.170333,13.434399
+REV0151,A,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,4.166306,13.065873
+REV0152,A,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,5.506401,12.64557
+REV0153,C,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,13.160176,12.374505
+REV0154,B,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,10.077956,12.188719
+REV0155,B,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,9.794708,12.167399
+REV0156,B,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,10.227194,11.765371
+REV0157,C,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,14.652555,11.256743
+REV0158,D,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,3.64245,11.01309
+REV0159,D,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,3.636359,10.958268
+REV0160,D,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,3.858693,10.790756
+REV0161,D,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,4.017068,10.742025
+REV0162,D,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,3.934835,10.723751
+REV0163,G,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,7.528728,4.050683
+REV0164,A,-1,-1,,,,,Complete,0.0,blob,UNNUMBERED_LOW,5.926704,13.312572
+REV0165,F,53,-1,Abua,Cl,Clay,,Complete,0.0,blob,BIG_UNRESOLVED,6.660711,4.940019
+REV0166,E,-1,-1,,,Limestone,Limestone,Partial,0.5,pattern,OUTSIDE_NGA,12.529722,8.144066
+REV0167,G,-1,-1,,,Limestone,Limestone,Partial,0.5,pattern,OUTSIDE_NGA,8.972377,5.086211
+REV0168,A,-1,-1,,,Gold,Gold,Partial,0.846,cluster,OUTSIDE_NGA,6.191617,13.962336
+REV0169,B,-1,-1,,,Gold,Gold,Partial,0.846,cluster,OUTSIDE_NGA,7.129684,13.779596
+REV0170,B,-1,-1,,,Gold,Gold,Partial,0.843,cluster,OUTSIDE_NGA,6.934761,13.627312
+REV0171,B,-1,-1,,,Tourmaline (tm),Tourmaline (tm),Partial,0.835,cluster,OUTSIDE_NGA,7.31346,13.543069
+REV0172,B,-1,-1,,,Lignite,Lignite,Partial,0.734,cluster,OUTSIDE_NGA,7.294516,13.65521
+REV0173,B,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.724,cluster,OUTSIDE_NGA,7.146313,13.637424
+REV0174,A,-1,-1,,,Phosphate,Phosphate,Partial,0.689,cluster,OUTSIDE_NGA,6.199292,13.857138
+REV0175,G,-1,-1,,,Oil and Gas,Oil and Gas,Partial,0.686,cluster,OUTSIDE_NGA,6.976547,4.22855
+REV0176,E,-1,-1,,,Lignite,Lignite,Partial,0.673,cluster,UNNUMBERED_LOW,12.895203,8.072006
+REV0177,G,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.672,cluster,UNNUMBERED_LOW,10.553994,7.854727
+REV0178,D,-1,-1,,,Tourmaline (tm),Tourmaline (tm),Partial,0.663,cluster,UNNUMBERED_LOW,3.756114,10.838512
+REV0179,C,-1,-1,,,Baryte,Baryte,Partial,0.661,cluster,UNNUMBERED_LOW,12.924136,12.486586
+REV0180,G,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.655,cluster,UNNUMBERED_LOW,7.961213,4.056835
+REV0181,F,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.651,cluster,UNNUMBERED_LOW,5.096149,4.857786
+REV0182,B,-1,-1,,,Lead - Zinc,Lead - Zinc,Partial,0.647,cluster,UNNUMBERED_LOW,7.201379,13.777525
+REV0183,E,-1,-1,,,Lignite,Lignite,Partial,0.647,cluster,UNNUMBERED_LOW,11.339169,8.422745
+REV0184,F,-1,-1,,,Kyanite,Kyanite,Partial,0.643,cluster,UNNUMBERED_LOW,3.020524,6.394328
+REV0185,F,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.642,cluster,UNNUMBERED_LOW,6.241322,4.340022
+REV0186,F,-1,-1,,,Baryte,Baryte,Partial,0.638,cluster,UNNUMBERED_LOW,5.370869,5.042963
+REV0187,F,-1,-1,,,Baryte,Baryte,Partial,0.638,cluster,UNNUMBERED_LOW,6.290662,4.293727
+REV0188,D,-1,-1,,,Lignite,Lignite,Partial,0.63,cluster,UNNUMBERED_LOW,4.620415,9.683654
+REV0189,G,-1,-1,,,Oil and Gas,Oil and Gas,Partial,0.63,cluster,UNNUMBERED_LOW,7.055735,4.222459
+REV0190,E,-1,-1,,,Calcite,Calcite,Partial,0.628,cluster,UNNUMBERED_LOW,11.600731,8.216188
+REV0191,A,-1,-1,,,Baryte,Baryte,Partial,0.627,cluster,UNNUMBERED_LOW,3.305903,11.59725
+REV0192,F,-1,-1,,,Lignite,Lignite,Partial,0.625,cluster,UNNUMBERED_LOW,5.479295,5.949659
+REV0193,C,-1,-1,,,Kyanite,Kyanite,Partial,0.624,cluster,UNNUMBERED_LOW,14.161593,13.874499
+REV0194,B,-1,-1,,,Rose Quartz (r),Rose Quartz (r),Partial,0.623,cluster,UNNUMBERED_LOW,7.035634,13.604957
+REV0195,G,-1,-1,,,Phosphate,Phosphate,Partial,0.621,cluster,UNNUMBERED_LOW,9.866281,7.954625
+REV0196,E,-1,-1,,,Baryte,Baryte,Partial,0.621,cluster,UNNUMBERED_LOW,12.633092,8.172757
+REV0197,F,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.619,cluster,UNNUMBERED_LOW,6.466702,4.321748
+REV0198,G,-1,-1,,,Lignite,Lignite,Partial,0.618,cluster,UNNUMBERED_LOW,12.910735,7.959803
+REV0199,F,-1,-1,,,Rose Quartz (r),Rose Quartz (r),Partial,0.615,cluster,UNNUMBERED_LOW,6.511778,4.199921
+REV0200,G,-1,-1,,,Wolframite (w),Wolframite (w),Partial,0.614,cluster,UNNUMBERED_LOW,7.933741,3.948165
+REV0201,G,-1,-1,,,Wolframite (w),Wolframite (w),Partial,0.614,cluster,UNNUMBERED_LOW,7.842371,3.887252
+REV0202,A,-1,-1,,,Marble,Marble,Partial,0.61,cluster,OUTSIDE_NGA,3.53311,11.954202
+REV0203,B,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.608,cluster,UNNUMBERED_LOW,7.192181,13.465039
+REV0204,E,-1,-1,,,"Beryl, Aquamarine, Emerald","Beryl, Aquamarine, Emerald",Partial,0.607,cluster,UNNUMBERED_LOW,10.389528,8.31767
+REV0205,F,-1,-1,,,Coal,Coal,Partial,0.607,cluster,UNNUMBERED_LOW,6.381423,4.342154
+REV0206,G,-1,-1,,,Baryte,Baryte,Partial,0.604,cluster,UNNUMBERED_LOW,13.228704,7.985082
+REV0207,C,-1,-1,,,Kyanite,Kyanite,Partial,0.602,cluster,UNNUMBERED_LOW,14.173776,13.953686
+REV0208,G,-1,-1,,,Baryte,Baryte,Partial,0.602,cluster,UNNUMBERED_LOW,7.198272,4.208449
+REV0209,C,-1,-1,,,Lignite,Lignite,Partial,0.601,cluster,UNNUMBERED_LOW,14.725956,13.490744
+REV0210,E,-1,-1,,,Brine,Brine,Partial,0.601,cluster,UNNUMBERED_LOW,10.726075,8.325284
+REV0211,G,-1,-1,,,Tar Sand (ts),Tar Sand (ts),Partial,0.601,cluster,UNNUMBERED_LOW,7.906087,4.067434
+REV0212,D,-1,-1,,,Zircon (zr),Zircon (zr),Partial,0.6,cluster,UNNUMBERED_LOW,4.440112,10.938471
+REV0213,B,7,-1,Ruma (M ahuta),K a,Kaolin,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.296221,12.95233
+REV0214,B,4,-1,Kadoji,Cl,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.178476,13.031335
+REV0215,B,9,-1,Ruma,S n,Tin (Cassiterite),,NumberOnly,0.0,number_only,NUMBER_ONLY,7.081075,12.998929
+REV0216,B,6,-1,Jibiya,Py,Pyrite,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.022111,13.005325
+REV0217,B,1,-1,Jibiya,Cl,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.119816,12.976756
+REV0218,B,3,-1,Jibiya,Cr,Chromite,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.245419,13.127152
+REV0219,B,2,-1,Jibiya,Ni,Nickel,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.346962,13.082076
+REV0220,B,5,-1,Kadoji,Fp,Feldspar,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.346962,13.025609
+REV0221,B,4,-1,Kadoji,Cl,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.028446,12.820331
+REV0222,C,8,-1,Dobiri,Na,Salt / Trona,,NumberOnly,0.0,number_only,NUMBER_ONLY,11.86473,12.816189
+REV0223,C,9,-1,Dobiri -K oluri,Na,Salt / Trona,,NumberOnly,0.0,number_only,NUMBER_ONLY,11.78542,12.761671
+REV0224,E,1,-1,Zunmo,T r,Trona,,NumberOnly,0.0,number_only,NUMBER_ONLY,13.020197,9.926942
+REV0225,D,8,-1,Sabon Birnin Gwari,K y,Kyanite,,NumberOnly,0.0,number_only,NUMBER_ONLY,6.340002,8.028148
+REV0226,G,9,-1,Galea,Gm,Gemstone (Beryl etc.),,NumberOnly,0.0,number_only,NUMBER_ONLY,10.701344,7.406953
+REV0227,G,8,-1,Baissa,Be,Beryl,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.480228,7.417125
+REV0228,A,7,-1,Jama,Us,? (Us),,NumberOnly,0.0,number_only,NUMBER_ONLY,5.419904,13.606175
+REV0229,B,23,-1,Gwarz,o Fp,oFp,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.956097,12.879051
+REV0230,B,10,-1,Ruma,Cr,Chromite,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.158191,12.980533
+REV0231,B,14,-1,Wajini,Au,Gold,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.188648,12.834584
+REV0232,B,13,-1,Wajini,Py,Pyrite,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.091247,12.739133
+REV0233,B,12,-1,Bassari,Cu,Copper,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.314617,12.761671
+REV0234,B,15,16,k urfi,Qs,Qs,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.470982,12.77562
+REV0235,A,89,-1,,,,,NumberOnly,0.0,number_only,NUMBER_ONLY,6.737828,11.443748
+REV0236,B,39,-1,Roni,Fe,Iron Ore,,NumberOnly,0.0,number_only,NUMBER_ONLY,8.234349,12.806077
+REV0237,B,41,-1,Kaz aure,Gs,Glass Sand,,NumberOnly,0.0,number_only,NUMBER_ONLY,8.439262,12.826361
+REV0238,B,40,-1,Rode,GS,GS,,NumberOnly,0.0,number_only,NUMBER_ONLY,8.476115,12.706423
+REV0239,B,36,-1,Gumel,M I,MI,,NumberOnly,0.0,number_only,NUMBER_ONLY,9.149939,12.763559
+REV0240,B,33,-1,Babura,Os,Os,,NumberOnly,0.0,number_only,NUMBER_ONLY,9.432334,12.787681
+REV0241,B,42,-1,Malam- Madori,M l,Marl (?),,NumberOnly,0.0,number_only,NUMBER_ONLY,9.748901,12.674078
+REV0242,B,34,-1,Kasanmu,Br,Brine,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.240351,12.871072
+REV0243,B,60,-1,Nguru,T r,Trona,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.370462,13.059842
+REV0244,B,59,-1,Nguru,Br,Brine,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.437406,13.116979
+REV0245,B,61,-1,Tik ire,CI,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.589689,12.513571
+REV0246,B,69,-1,Misau,Na,Salt / Trona,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.36632,11.443748
+REV0247,C,18,-1,Badejo,Gy,Gypsum,,NumberOnly,0.0,number_only,NUMBER_ONLY,11.04654,11.764518
+REV0248,C,10,-1,DAPCHI,Di,Di,,NumberOnly,0.0,number_only,NUMBER_ONLY,11.45862,12.716595
+REV0249,C,55,-1,Sinduldul,Gy,Gypsum,,NumberOnly,0.0,number_only,NUMBER_ONLY,12.681031,12.826361
+REV0250,C,56,-1,Cubio,Gy p,Gyp,,NumberOnly,0.0,number_only,NUMBER_ONLY,12.758147,12.745164
+REV0251,C,54,-1,Kuk awa,Cl,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,13.352967,13.147436
+REV0252,C,59,-1,Gambaru,Cl,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,14.122669,12.46088
+REV0253,C,62,-1,Dik,wa Bn,waBn,,NumberOnly,0.0,number_only,NUMBER_ONLY,13.854589,12.308597
+REV0254,C,64,-1,Maiduguri,Cl,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,13.241313,11.89871
+REV0255,C,29,-1,Fik,e Gy,eGy,,NumberOnly,0.0,number_only,NUMBER_ONLY,11.269849,11.388865
+REV0256,C,23,-1,,,,,NumberOnly,0.0,number_only,NUMBER_ONLY,11.710558,11.547179
+REV0257,C,25,-1,Gabai,Ls,Limestone,,NumberOnly,0.0,number_only,NUMBER_ONLY,11.588731,11.411403
+REV0258,B,92,-1,Wawa,Na,Salt / Trona,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.843455,10.952298
+REV0259,C,26,-1,Gulat,Ls,Limestone,,NumberOnly,0.0,number_only,NUMBER_ONLY,11.513503,11.210266
+REV0260,C,72,-1,Damboa,Gy,Gypsum,,NumberOnly,0.0,number_only,NUMBER_ONLY,12.778431,11.236581
+REV0261,C,68,-1,Gau,Ag,Silver,,NumberOnly,0.0,number_only,NUMBER_ONLY,14.112497,11.618265
+REV0262,C,66,-1,Bama,Dt,Diatomite,,NumberOnly,0.0,number_only,NUMBER_ONLY,13.7553,11.709635
+REV0263,C,71,-1,GW OZ A Fp,,,,NumberOnly,0.0,number_only,NUMBER_ONLY,13.568418,11.216297
+REV0264,C,73,-1,Gilam,Ls,Limestone,,NumberOnly,0.0,number_only,NUMBER_ONLY,12.514493,11.057983
+REV0265,C,78,-1,Sak wa Cl,,,,NumberOnly,0.0,number_only,NUMBER_ONLY,12.212119,10.554168
+REV0266,C,82,-1,Mubi,Cl,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,13.300338,10.513538
+REV0267,C,83,-1,Girik ilan,Cl,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,12.58363,10.430453
+REV0268,B,73,-1,Ningi Hill,Gr,Granite,,NumberOnly,0.0,number_only,NUMBER_ONLY,9.580475,11.165495
+REV0269,B,74,-1,Dutsin Hai,Gr,Granite,,NumberOnly,0.0,number_only,NUMBER_ONLY,9.686099,11.222327
+REV0270,B,51,-1,,,,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.009063,11.188033
+REV0271,B,50,-1,Gweram Gr S I. Fagam,S n,Tin (Cassiterite),,NumberOnly,0.0,number_only,NUMBER_ONLY,9.809815,11.338124
+REV0272,B,72,-1,Lumbu,S n,Tin (Cassiterite),,NumberOnly,0.0,number_only,NUMBER_ONLY,9.407847,11.261007
+REV0273,C,48,-1,,,,,NumberOnly,0.0,number_only,NUMBER_ONLY,11.531899,10.300341
+REV0274,C,42,-1,Garba Maidugi,CI,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,11.261626,10.62964
+REV0275,E,12,-1,Beti,Gr,Granite,,NumberOnly,0.0,number_only,NUMBER_ONLY,12.632178,9.297462
+REV0276,E,13,-1,Beti,S n,Tin (Cassiterite),,NumberOnly,0.0,number_only,NUMBER_ONLY,12.752117,9.198173
+REV0277,E,18,47,Kaltungo,T r,Trona,,NumberOnly,0.0,number_only,NUMBER_ONLY,11.024307,9.772405
+REV0278,E,56,-1,A. Dabo,K a n,Kan,,NumberOnly,0.0,number_only,NUMBER_ONLY,9.665815,9.719775
+REV0279,E,54,-1,River Lere,R u,Ruby (Corundum),,NumberOnly,0.0,number_only,NUMBER_ONLY,9.669957,9.813034
+REV0280,E,40,-1,Dass,K a,Kaolin,,NumberOnly,0.0,number_only,NUMBER_ONLY,9.495136,9.920912
+REV0281,E,46,-1,JAR AW A HILL,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,,NumberOnly,0.0,number_only,NUMBER_ONLY,9.322507,9.868221
+REV0282,E,25,-1,Dumgel,Ba,Baryte,,NumberOnly,0.0,number_only,NUMBER_ONLY,11.010053,9.33395
+REV0283,E,30,-1,Bumanda,Br,Brine,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.975454,8.913951
+REV0284,E,98,-1,F. Ruwa Pbs,,,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.344086,9.102357
+REV0285,E,97,-1,Jowandu,CI,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.203864,9.147433
+REV0286,E,85,-1,,,,,NumberOnly,0.0,number_only,NUMBER_ONLY,9.978606,9.604283
+REV0287,E,78,-1,Ampere,M b,Marble,,NumberOnly,0.0,number_only,NUMBER_ONLY,9.696272,9.50469
+REV0288,E,63,65,Kona,Be n,Ben,,NumberOnly,0.0,number_only,NUMBER_ONLY,8.727687,9.859998
+REV0289,E,62,-1,R UK UBA,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,,NumberOnly,0.0,number_only,NUMBER_ONLY,8.687058,9.961541
+REV0290,E,33,-1,K . Boyi,Pb. Z n,Lead; Zinc,,NumberOnly,0.0,number_only,NUMBER_ONLY,9.915499,8.278137
+REV0291,G,10,-1,Mai Samari,Bx,Bauxitic Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,11.044591,7.289572
+REV0292,G,55,-1,Ok ok uk wo,,,,NumberOnly,0.0,number_only,NUMBER_ONLY,8.372318,7.171522
+REV0293,G,54,53,Egga,Ls,Limestone,,NumberOnly,0.0,number_only,NUMBER_ONLY,8.42312,6.96466
+REV0294,G,85,-1,,,,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.310475,6.761636
+REV0295,G,81,80,Nk oloqwu,,,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.310475,6.853006
+REV0296,G,82,-1,Obimo,Fe Cl,FeCl,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.208932,6.832722
+REV0297,G,83,-1,Nimbo,Fe,Iron Ore,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.123593,6.830163
+REV0298,F,59,-1,Ogbia,Ci,? (Ci),,NumberOnly,0.0,number_only,NUMBER_ONLY,6.370459,4.621442
+REV0299,D,67,-1,Kok oro,Cl,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,6.425342,8.633445
+REV0300,D,66,-1,Kuchik,pa Cl,paCl,,NumberOnly,0.0,number_only,NUMBER_ONLY,6.411027,8.901525
+REV0301,D,48,-1,Kutuwengi,Cl,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,5.478929,9.484345
+REV0302,D,76,-1,Kugegi,Gm. Au,Gemstone (Beryl etc.); Gold,,NumberOnly,0.0,number_only,NUMBER_ONLY,3.629293,9.656974
+REV0303,D,47,-1,Kishi,W,Wolframite,,NumberOnly,0.0,number_only,NUMBER_ONLY,5.064901,9.835572
+REV0304,D,29,-1,Kontagora,Fp,Feldspar,,NumberOnly,0.0,number_only,NUMBER_ONLY,5.241306,10.469133
+REV0305,D,28,-1,k ontagora,Ab,Asbestos,,NumberOnly,0.0,number_only,NUMBER_ONLY,5.371417,10.542107
+REV0306,D,27,-1,lboli,T a,Tantalite,,NumberOnly,0.0,number_only,NUMBER_ONLY,5.332676,10.708644
+REV0307,D,22,-1,Galete,Au,Gold,,NumberOnly,0.0,number_only,NUMBER_ONLY,5.089022,10.824441
+REV0308,D,67,-1,Kok oro,Cl,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,4.689308,10.767365
+REV0309,A,41,-1,Gidan Gadu,M,M (unspecified - see symbol),,NumberOnly,0.0,number_only,NUMBER_ONLY,4.577593,11.368581
+REV0310,A,27,-1,Kwawal,CI,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,3.726693,11.993857
+REV0311,A,28,-1,Dak in Garin plateau-,Fe,Iron Ore,,NumberOnly,0.0,number_only,NUMBER_ONLY,3.885007,11.981796
+REV0312,A,24,-1,Mayana,P,Phosphate,,NumberOnly,0.0,number_only,NUMBER_ONLY,4.323828,12.18074
+REV0313,A,58,-1,Kwashebawa,Au,Gold,,NumberOnly,0.0,number_only,NUMBER_ONLY,6.885969,12.939965
+REV0314,A,47,-1,Shirik afe,S,Salt (?),,NumberOnly,0.0,number_only,NUMBER_ONLY,6.451656,13.074157
+REV0315,A,53,-1,Maradun Grl,,,,NumberOnly,0.0,number_only,NUMBER_ONLY,6.467859,12.670301
+REV0316,A,67,-1,R Dorowa,Au,Gold,,NumberOnly,0.0,number_only,NUMBER_ONLY,6.138866,12.266079
+REV0317,A,56,-1,Talata Mafara,Cr,Chromite,,NumberOnly,0.0,number_only,NUMBER_ONLY,6.057607,12.489449
+REV0318,A,54,-1,Mak era,Cl,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,6.035435,12.67822
+REV0319,A,20,-1,Gwande,Fe,Iron Ore,,NumberOnly,0.0,number_only,NUMBER_ONLY,4.540801,12.560474
+REV0320,A,16,-1,Lambamaso,P,Phosphate,,NumberOnly,0.0,number_only,NUMBER_ONLY,5.472899,12.990706
+REV0321,B,102,-1,Gwarz,o Fp,oFp,,NumberOnly,0.0,number_only,NUMBER_ONLY,8.014817,12.00403
+REV0322,B,105,-1,Karaye,Cl,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,8.112522,11.831462
+REV0323,B,108,-1,,,,,NumberOnly,0.0,number_only,NUMBER_ONLY,8.855545,11.508499
+REV0324,B,107,-1,Kafin-chiri,Gm,Gemstone (Beryl etc.),,NumberOnly,0.0,number_only,NUMBER_ONLY,8.859991,11.642691
+REV0325,B,106,-1,Karaye,Qz Qa,QzQa,,NumberOnly,0.0,number_only,NUMBER_ONLY,8.264806,11.667117
+REV0326,B,120,-1,Zaria,Qa,Quartz,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.530007,11.161414
+REV0327,B,133,-1,Yelwa,Au,Gold,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.08077,11.000846
+REV0328,B,151,-1,,,,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.554129,10.540219
+REV0329,E,100,-1,Maro,Ls,Limestone,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.400553,9.33395
+REV0330,E,101,-1,Wase,Pb. Z n,Lead; Zinc,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.317467,9.261036
+REV0331,B,161,-1,Kujama,Bc,Brick Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,8.173436,10.125885
+REV0332,E,189,-1,Kachia,K a,Kaolin,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.90566,9.967571
+REV0333,E,197,-1,Kagama,S n. Nb,Tin (Cassiterite); Columbite,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.821904,9.646801
+REV0334,E,208,-1,DIK,O Au,OAu,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.324424,9.435492
+REV0335,E,167,-1,AW E Ba,,,,NumberOnly,0.0,number_only,NUMBER_ONLY,9.288274,8.30037
+REV0336,G,203,-1,Umaji,Br,Brine,,NumberOnly,0.0,number_only,NUMBER_ONLY,9.39804,6.564337
+REV0337,G,196,226,Ak pak ua Br C 196 Egbok orik,o Ls,oLs,,NumberOnly,0.0,number_only,NUMBER_ONLY,8.705149,6.771808
+REV0338,G,171,-1,Ak ata fieId,Gy. P,Gypsum; Phosphate,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.836463,4.592873
+REV0339,G,132,-1,Bomu Oil,,,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.217216,4.574477
+REV0340,D,113,-1,JAK,UR A M b,URAMb,,NumberOnly,0.0,number_only,NUMBER_ONLY,6.329829,8.223558
+REV0341,D,157,-1,Bak in Kasuwa,Cl,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,4.286975,8.030706
+REV0342,F,162,-1,Jobele,M b,Marble,,NumberOnly,0.0,number_only,NUMBER_ONLY,3.794003,7.845408
+REV0343,C,11,-1,Jawa,In,In,,NumberOnly,0.0,number_only,NUMBER_ONLY,11.062682,12.990706
+REV0344,C,27,-1,Bularaba,Ls,Limestone,,NumberOnly,0.0,number_only,NUMBER_ONLY,11.917724,11.240723
+REV0345,E,14,-1,Gomoti,Ds,Dimension Stone,,NumberOnly,0.0,number_only,NUMBER_ONLY,11.722619,9.683288
+REV0346,E,16,-1,Pindiga,Gy,Gypsum,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.99385,9.94948
+REV0347,E,37,-1,Panguru,Br,Brine,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.695313,9.957399
+REV0348,E,49,-1,Garin,Gy,Gypsum,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.632207,9.815288
+REV0349,E,51,-1,Wunri,Pb. Z n n,Lead; Znn,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.762257,9.741948
+REV0350,E,50,-1,Sanji,Br,Brine,,NumberOnly,0.0,number_only,NUMBER_ONLY,10.71974,9.658862
+REV0351,E,68,-1,Laugai,S n,Tin (Cassiterite),,NumberOnly,0.0,number_only,NUMBER_ONLY,9.113452,9.648689
+REV0352,D,54,-1,Geji,M b,Marble,,NumberOnly,0.0,number_only,NUMBER_ONLY,6.904365,9.518639
+REV0353,G,51,-1,IGUM ALE,Ls,Limestone,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.994777,6.826387
+REV0354,G,78,-1,Nsuk,k a Pb Z n,kaPbZn,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.403733,6.897412
+REV0355,G,98,-1,Enugu,Gs,Glass Sand,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.456728,6.357475
+REV0356,G,96,-1,ENUGU,C,Coal,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.339043,6.462794
+REV0357,F,23,-1,,,,,NumberOnly,0.0,number_only,NUMBER_ONLY,6.358093,7.831458
+REV0358,F,15,-1,Ak para,U,Uranium,,NumberOnly,0.0,number_only,NUMBER_ONLY,6.362174,7.914544
+REV0359,A,49,-1,Bok,o Au,oAu,,NumberOnly,0.0,number_only,NUMBER_ONLY,6.43326,12.836534
+REV0360,B,122,-1,Yak asai,Be,Beryl,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.866919,11.142957
+REV0361,E,120,-1,Gitata,S n. Nb,Tin (Cassiterite); Columbite,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.974188,9.177889
+REV0362,E,212,-1,Shenagu,K y,Kyanite,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.087105,9.031332
+REV0363,E,223,-1,Tuk uba,S n. Au,Tin (Cassiterite); Gold,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.009745,9.092245
+REV0364,E,153,-1,"Nassarawa Sn,",T a,Tantalite,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.592809,8.536044
+REV0365,G,173,-1,NK ALAGU,Ls,Limestone,,NumberOnly,0.0,number_only,NUMBER_ONLY,8.106187,6.576337
+REV0366,G,106,-1,Awgu Achi Ogu River,Fe.Pb Z,Iron Ore; PbZ,,NumberOnly,0.0,number_only,NUMBER_ONLY,7.398069,6.221029
+REV0367,D,155,-1,Old Dok olo,T c,Talc,,NumberOnly,0.0,number_only,NUMBER_ONLY,5.556046,8.272106
+REV0368,F,114,-1,Ijagba,Cl,Clay,,NumberOnly,0.0,number_only,NUMBER_ONLY,5.675984,6.822549
+REV0369,F,131,-1,Ipoti,M,M (unspecified - see symbol),,NumberOnly,0.0,number_only,NUMBER_ONLY,5.134098,7.811113
+REV0370,F,137,-1,Aramok,o T a,oTa,,NumberOnly,0.0,number_only,NUMBER_ONLY,4.983703,7.655053

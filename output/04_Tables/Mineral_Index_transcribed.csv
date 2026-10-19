@@ -1,0 +1,1142 @@
+ZONE,NUMBER,LOCALITY,CODE_RAW,MINERAL_DECODED,RAW_TEXT
+A,1,Rafin Duma,Gy,Gypsum,R afin Duma Gy
+A,2,Gada,Gy. P,Gypsum; Phosphate,Gada Gy. P
+A,3,Kwadoma,K a,Kaolin,K wadoma K a
+A,4,Wurno,Cy,Gypsum,W urno Cy
+A,5,Talok,a Cy,aCy,T alok a Cy
+A,6,Zugama,Us,? (Us),Z ugama Us
+A,7,Jama,Us,? (Us),Jama Us
+A,8,Nachiadu,F,Fluorite,Nachiadu F
+A,9,Balah,E,Evaporite (?),Balah E
+A,10,Sok oto,Ls,Limestone,S ok oto Ls
+A,11,M AR NONA,Gy,Gypsum,M AR NONA Gy
+A,12,K ALABAINA,Ls,Limestone,K ALABAINA Ls
+A,13,Wamak,k o Ls,koLs,W amak k o Ls
+A,14,Sauna,E,Evaporite (?),S auna E
+A,15,DANCE,P,Phosphate,DANCE P
+A,16,Lambamaso,P,Phosphate,Lambamaso P
+A,17,G. Mak ode,P,Phosphate,G. M ak ode P
+A,18,Jaida,P,Phosphate,Jaida P
+A,19,Dabba,P,Phosphate,Dabba P
+A,20,Gwande,Fe,Iron Ore,Gwande Fe
+A,21,Pinaye,Cl,Clay,Pinaye Cl
+A,22,Kaigo,Fe,Iron Ore,K aigo Fe
+A,23,Jeya,Ls,Limestone,Jeya Ls
+A,24,Mayana,P,Phosphate,M ayana P
+A,25,Mayana,Ls,Limestone,M ayana Ls
+A,26,Kamba Ocr,,,K amba Ocr
+A,27,Kwawal,CI,Clay,K wawal CI
+A,28,Dak in Garin plateau-,Fe,Iron Ore,Dak in Garin plateau- Fe
+A,29,Fanpa,Fe,Iron Ore,Fanpa Fe
+A,30,Dutsin Kato,K,Kaolin (?),Dutsin K ato K
+A,31,Kiri,Au,Gold,K iri Au
+A,32,Wasagu,M,M (unspecified - see symbol),W asagu M
+A,33,Dank,o Au,oAu,Dank o Au
+A,34,Gidan Gadu,T m,Tourmaline,Gidan Gadu T m
+A,35,Kaoje,M,M (unspecified - see symbol),K aoje M
+A,36,Kaoje,k a,ka,K aoje k a
+A,37,Kangiwa,T m,Tourmaline,K angiwa T m
+A,38,Kangiwa,Qa,Quartz,K angiwa Qa
+A,39,Buya,M,M (unspecified - see symbol),Buya M
+A,40,T . MaIlam,K,Kaolin (?),T . M aIlam K
+A,41,Gidan Gadu,M,M (unspecified - see symbol),Gidan Gadu M
+A,42,Sak aba,M,M (unspecified - see symbol),S ak aba M
+A,43,Sak aba,Fp,Feldspar,S ak aba Fp
+A,44,DUK,U Au,UAu,DUK U Au
+A,45,DUK,U Au,UAu,DUK U Au
+A,46,Iri,Qa,Quartz,Iri Qa
+A,47,Shirik afe,S,Salt (?),S hirik afe S
+A,48,Zurmi,Au,Gold,Z urmi Au
+A,49,Bok,o Au,oAu,Bok o Au
+A,50,Maradun,Au,Gold,M aradun Au
+A,51,Maradun,T a,Tantalite,M aradun T a
+A,52,Maradun,Gn,Galena,M aradun Gn
+A,53,Maradun Grl,,,M aradun Grl
+A,54,Mak era,Cl,Clay,M ak era Cl
+A,55,Talata Mafara,Au,Gold,T alata M afara Au
+A,56,Talata Mafara,Cr,Chromite,T alata M afara Cr
+A,57,Sabri,A,A,S abri A
+A,58,Kwashebawa,Au,Gold,K washebawa Au
+A,59,Dampo,Au,Gold,Dampo Au
+A,60,Damaga Maru,Au,Gold,Damaga M aru Au
+A,61,Damaga Maru,Fe,Iron Ore,Damaga M aru Fe
+A,62,Damaga Maru,T a,Tantalite,Damaga M aru T a
+A,63,M AINCHI,Au,Gold,M AINCHI Au
+A,64,M AR U Au,,,M AR U Au
+A,65,Garla,Au,Gold,Garla Au
+A,66,Roge,W,Wolframite,R oge W
+A,67,R Dorowa,Au,Gold,R Dorowa Au
+A,68,GUM,M I Au,MIAu,GUM M I Au
+A,69,GAM,M I S d,MISd,GAM M I S d
+A,69,Funtayi,T a,Tantalite,Funtayi T a
+A,70,BUK,K UY UM Au,KUYUMAu,BUK K UY UM Au
+A,71,ANK,A Au,AAu,ANK A Au
+A,72,DanGaramk,Au,Gold,DanGaramk Au
+A,73,Kanoma,Au,Gold,K anoma Au
+A,74,Maje,T a,Tantalite,M aje T a
+A,75,Maje,M,M (unspecified - see symbol),M aje M
+A,76,Chafe,Gn,Galena,Chafe Gn
+A,77,Gwashi,Pb. Z,Lead; Z,Gwashi Pb. Z
+A,78,Gwashi,M o,Molybdenite,Gwashi M o
+A,79,Bagega,Ag,Silver,Bagega Ag
+A,80,Bagega,Pb. Z,Lead; Z,Bagega Pb. Z
+A,81,Bagega,Cr,Chromite,Bagega Cr
+A,82,Bagega,Ba,Baryte,Bagega Ba
+A,83,Chafe,Ab. T c,Asbestos; Talc,Chafe Ab. T c
+A,84,Baboali,T c. Ab,Talc; Asbestos,Baboali T c. Ab
+A,85,Magami,T a,Tantalite,M agami T a
+A,86,DAN GULBI,Au,Gold,DAN GULBI Au
+A,87,Dan Fasa,G,Granite (?),Dan Fasa G
+A,88,R . Dawa,T a,Tantalite,R . Dawa T a
+A,90,Zaman,Au,Gold,Z aman Au
+A,91,Dansado,Be,Beryl,Dansado Be
+A,92,M ALELE,Au,Gold,M ALELE Au
+A,93,DAK AGA,Au,Gold,DAK AGA Au
+A,94,Gobirana,Au,Gold,Gobirana Au
+A,95,DAN GULBI,Au,Gold,DAN GULBI Au
+A,96,K A R IVER,Au,Gold,K A R IVER Au
+A,97,BIR NIN,GW AR I Au,GWARIAu,BIR NIN GW AR I Au
+A,98,BIR NIN,GW AR I Fe,GWARIFe,BIR NIN GW AR I Fe
+A,99,Kweillo,Au,Gold,K weillo Au
+A,100,Wasagu,M,M (unspecified - see symbol),W asagu M
+A,101,Kwawai,Bx. Cl,Bauxitic Clay; Clay,K wawai Bx. Cl
+A,102,Dutsin,K ok o K a,KokoKa,Dutsin K ok o K a
+A,103,Bunz,a E,aE,Bunz a E
+B,1,Jibiya,Cl,Clay,Jibiya Cl
+B,2,Jibiya,Ni,Nickel,Jibiya Ni
+B,3,Jibiya,Cr,Chromite,Jibiya Cr
+B,4,Kadoji,Cl,Clay,K adoji Cl
+B,5,Kadoji,Fp,Feldspar,K adoji Fp
+B,6,Jibiya,Py,Pyrite,Jibiya Py
+B,7,Ruma (M ahuta),K a,Kaolin,R uma (M ahuta) K a
+B,8,Ruma,Au,Gold,R uma Au
+B,9,Ruma,S n,Tin (Cassiterite),R uma S n
+B,10,Ruma,Cr,Chromite,R uma Cr
+B,11,Bassari,Au,Gold,Bassari Au
+B,12,Bassari,Cu,Copper,Bassari Cu
+B,13,Wajini,Py,Pyrite,W ajini Py
+B,14,Wajini,Au,Gold,W ajini Au
+B,15,k urfi,Qs,Qs,k urfi Qs
+B,16,Dutsin- Ma Sn.T,a,a,Dutsin- M a S n.T a
+B,17,Dutsin-Ma Au I7ADutsin-,M a S n,MaSn,Dutsin-M a Au I7ADutsin- M a S n
+B,18,Dutsin,M a Nb,MaNb,Dutsin - M a Nb
+B,19,D. Sabo,Au,Gold,D. S abo Au
+B,20,Kank awa,S n. Nb. M,Tin (Cassiterite); Columbite; M (unspecified - see symbol),K ank awa S n. Nb. M
+B,21,Kank awa,Nb. M,Columbite; M (unspecified - see symbol),K ank awa Nb. M
+B,22,K ANK,AR A K a,ARAKa,K ANK AR A K a
+B,23,Gwarz,o Fp,oFp,Gwarz o Fp
+B,24,Malumfashi,M b,Marble,M alumfashi M b
+B,25,Boni,K a,Kaolin,Boni K a
+B,26,Adanimai,W a,Wa,Adanimai W a
+B,27,Shemi,Ab.S,Asbestos; Salt (?),S hemi Ab.S
+B,28,Bak ori,Au,Gold,Bak ori Au
+B,29,BQk or~,S n,Tin (Cassiterite),BQk or~ S n
+B,30,Karage,Cl,Clay,K arage Cl
+B,31,Dan maiDak,Cl,Clay,Dan maiDak Cl
+B,32,Giwa,M n,Manganese,Giwa M n
+B,33,Babura,Os,Os,Babura Os
+B,34,Kasanmu,Br,Brine,K asanmu Br
+B,35,Guri,Br,Brine,Guri Br
+B,36,Gumel,M I,MI,Gumel M I
+B,36,Gumel,K a,Kaolin,Gumel K a
+B,37,Gumel,Br,Brine,Gumel Br
+B,39,Roni,Fe,Iron Ore,R oni Fe
+B,40,Rode,GS,GS,R ode GS
+B,41,Kaz aure,Gs,Glass Sand,K az aure Gs
+B,42,Malam- Madori,M l,Marl (?),M alam- M adori M l
+B,43,Auyo,M l,Marl (?),Auyo M l
+B,44,Danladi,Gs,Glass Sand,Danladi Gs
+B,45,Dok,o Gs,oGs,Dok o Gs
+B,46,Wurno,Cu,Copper,W urno Cu
+B,47,Dutse,Nb. S,Columbite; Salt (?),Dutse Nb. S
+B,48,Birnink udu Sn.Nb.T,a,a,Birnin k udu S n.Nb.T a
+B,49,Wurno,K a,Kaolin,W urno K a
+B,50,Gweram Gr S I. Fagam,S n,Tin (Cassiterite),Gweram Gr S I. Fagam S n
+B,52,Fagam,T a,Tantalite,Fagam T a
+B,53,Gumsi,Br,Brine,Gumsi Br
+B,54,Gumsi,E,Evaporite (?),Gumsi E
+B,55,Kumaganum,T r,Trona,K umaganum T r
+B,56,Garrarak,Br,Brine,Garrarak Br
+B,57,Yusufari,E,Evaporite (?),Y usufari E
+B,58,Tr,,,T r
+B,59,Nguru,Br,Brine,Nguru Br
+B,60,Nguru,T r,Trona,Nguru T r
+B,61,Tik ire,CI,Clay,T ik ire CI
+B,62,Katagum,CI,Clay,K atagum CI
+B,63,Shufa,CI,Clay,S hufa CI
+B,64,Hadejia,M i,Marl / Mica (?),Hadejia M i
+B,65,lta-Ladau,Cr,Chromite,lta-Ladau Cr
+B,66,Zubuk,i Ci,iCi,Z ubuk i Ci
+B,67,Danman Cl S E. River Jumare,CI,Clay,Danman Cl S E. R iver Jumare CI
+B,69,Misau,Na,Salt / Trona,M isau Na
+B,70,Jagudu,Cl,Clay,Jagudu Cl
+B,71,Yana,Cl,Clay,Y ana Cl
+B,72,Lumbu,S n,Tin (Cassiterite),Lumbu S n
+B,73,Ningi Hill,Gr,Granite,Ningi Hill Gr
+B,74,Dutsin Hai,Gr,Granite,Dutsin Hai Gr
+B,75,River Gongola,Na,Salt / Trona,R iver Gongola Na
+B,76,Alk aleri,Na,Salt / Trona,Alk aleri Na
+B,77,Kirti,Na,Salt / Trona,K irti Na
+B,78,Ningi Hill,S n. Nb W,Tin (Cassiterite); NbW,Ningi Hill S n. Nb W
+B,79,Gidanjo,Be,Beryl,Gidanjo Be
+B,80,Gidanjo,Pb. Z n,Lead; Zinc,Gidanjo Pb. Z n
+B,81,Kwado Kaya Hill,S n. T a,Tin (Cassiterite); Tantalite,K wado K aya Hill S n. T a
+B,82,Daqa Allah Hills,S n. T a,Tin (Cassiterite); Tantalite,Daqa Allah Hills S n. T a
+B,83,Amo Hill,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,Amo Hill S n. Nb. T a
+B,86,Yelwa Rish,Cu Pb. Z n,CuPb; Zinc,Y elwa R ish Cu Pb. Z n
+B,87,Rjshi hIlls,S n. W . Nb. T a,Tin (Cassiterite); Wolframite; Columbite; Tantalite,R jshi hIlls S n. W . Nb. T a
+B,88,Torgo Hills,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,T orgo Hills S n. Nb. T a
+B,89,Liruein Kano,Py,Pyrite,Liruein K ano Py
+B,90,T IBICHI HILL Sn. Mb.T a.W,,,T IBICHI HILL S n. M b.T a.W
+B,91,G. Abba,Na,Salt / Trona,G. Abba Na
+B,92,Wawa,Na,Salt / Trona,W awa Na
+B,93,Lomi Jamji,Cl,Clay,Lomi Jamji Cl
+B,94,Danbala,Gs,Glass Sand,Danbala Gs
+B,95,Bichi,Na,Salt / Trona,Bichi Na
+B,96,Bichi,Br,Brine,Bichi Br
+B,97,Tofa,K a,Kaolin,T ofa K a
+B,98,Fogolama,K a,Kaolin,Fogolama K a
+B,99,Gez awa,K a,Kaolin,Gez awa K a
+B,100,Kumbotsho,K a,Kaolin,K umbotsho K a
+B,101,Gwarz,o K a,oKa,Gwarz o K a
+B,102,Gwarz,o Fp,oFp,Gwarz o Fp
+B,103,Gwarz,o Br,oBr,Gwarz o Br
+B,104,Wudil,Gs,Glass Sand,W udil Gs
+B,105,Karaye,Cl,Clay,K araye Cl
+B,106,Karaye,Qz Qa,QzQa,K araye Qz Qa
+B,107,Kafin-chiri,Gm,Gemstone (Beryl etc.),K afin-chiri Gm
+B,109,Kafin-chiri,m,m,K afin-chiri m
+B,109,Kofin-chini,,,K ofin-chini
+B,110,Burum,Qz . Qa,Quartz; Quartz,Burum Qz . Qa
+B,111,Banda,S n,Tin (Cassiterite),Banda S n
+B,112,Dando Sn.Nb,,,Dando S n.Nb
+B,113,Rimi,Au,Gold,R imi Au
+B,114,Saya Saya Qz .Qaa 115.Dando,Ls,Limestone,S aya S aya Qz .Qa a 115.Dando Ls
+B,116,Mak arfii,K a,Kaolin,M ak arfii K a
+B,117,Giwa,T m,Tourmaline,Giwa T m
+B,118,Ungunan Mallam Ayuba,M n,Manganese,Ungunan M allam Ayuba M n
+B,119,Zaria,K a n,Kan,Z aria K a n
+B,120,Zaria,Qa,Quartz,Z aria Qa
+B,121,Yak asai,Bc,Brick Clay,Y ak asai Bc
+B,122,Yak asai,Be,Beryl,Y ak asai Be
+B,123,Maigana,Bi n,Bin,M aigana Bi n
+B,124,Maigana,Fp a,Fpa,M aigana Fp a
+B,125,lk ara,Be,Beryl,lk ara Be
+B,126,Ik ara,Fp,Feldspar,Ik ara Fp
+B,127,Ik ara,Qa,Quartz,Ik ara Qa
+B,128,Ik ara,Na,Salt / Trona,Ik ara Na
+B,129,Anchau Sn.Nb,,,Anchau S n.Nb
+B,130,Anchau,K a d,Kad,Anchau K a d
+B,131,Soba,K a,Kaolin,S oba K a
+B,132,Sharu,T a,Tantalite,S haru T a
+B,133,Yelwa,Au,Gold,Y elwa Au
+B,134,Dutsin wai Sn.Nb,,,Dutsin wai S n.Nb
+B,135,BANK E HILL Sn.Nb.T,a,a,BANK E HILL S n.Nb.T a
+B,136,GINIY A W .S n.T,a,a,GINIY A W .S n.T a
+B,137,Bank,e W,eW,Bank e W
+B,138,Zarara Hill,Cu,Copper,Z arara Hill Cu
+B,139,LIR UEIN K AN0 Sn.T a.Nb.W,,,LIR UEIN K AN0 S n.T a.Nb.W
+B,140,LIR UEIN K AN0 W ES T Py.Z n.Cu,,,LIR UEIN K AN0 W ES T Py.Z n.Cu
+B,141,Shibure,Fe,Iron Ore,S hibure Fe
+B,142,Shibure,Pb.Z,Lead; Z,S hibure Pb.Z
+B,143,Rumani,S n,Tin (Cassiterite),R umani S n
+B,144,Dariye,Py,Pyrite,Dariye Py
+B,145,Dariye,W,Wolframite,Dariye W
+B,146,Kubau,K a,Kaolin,K ubau K a
+B,146,T S IBIR,I Au,IAu,T S IBIR I Au
+B,147,M AI GIS HER,Au,Gold,M AI GIS HER Au
+B,149,Kaduna,K a,Kaolin,K aduna K a
+B,150,M AR AR ABA R IDO,Ci,? (Ci),M AR AR ABA R IDO Ci
+B,152,Kujama,Na,Salt / Trona,K ujama Na
+B,153,Galadimawa Sn.Nb,,,Galadimawa S n.Nb
+B,154,Kak au Bc,,,K ak au Bc
+B,155,Gwagwada,Be n,Ben,Gwagwada Be n
+B,161,Kujama,Bc,Brick Clay,K ujama Bc
+C,1,Yusufari,Br n,Brn,Y usufari Br n
+C,2,Kwada Kaya Hill,E,Evaporite (?),K wada K aya Hill E
+C,3,Zumugu,T n,Tn,Z umugu T n
+C,4,Bagayam Trn 5 Arlonjirori,T r,Trona,Bagayam T r n 5 Arlonjirori T r
+C,6,Dagambi,T r,Trona,Dagambi T r
+C,7,GEIDAM,T r,Trona,GEIDAM T r
+C,8,Dobiri,Na,Salt / Trona,Dobiri Na
+C,9,Dobiri -K oluri,Na,Salt / Trona,Dobiri -K oluri Na
+C,10,DAPCHI,Di,Di,DAPCHI Di
+C,11,Jawa,In,In,Jawa In
+C,12,Mogono,Cl,Clay,M ogono Cl
+C,13,Lantewa,Cl,Clay,Lantewa Cl
+C,14,Kalawa,Cl,Clay,K alawa Cl
+C,15,Ngelz anma,Gy,Gypsum,Ngelz anma Gy
+C,16,Damagum,Gy,Gypsum,Damagum Gy
+C,17,Ngaldum,Gy,Gypsum,Ngaldum Gy
+C,18,Badejo,Gy,Gypsum,Badejo Gy
+C,19,Badishi,Dt,Diatomite,Badishi Dt
+C,20,Boik olo,Dt,Diatomite,Boik olo Dt
+C,21,Mak in fari,Dt,Diatomite,M ak in fari Dt
+C,22,Mutwe,Ls,Limestone,M utwe Ls
+C,22,Nyak,re Ls,reLs,Nyak re Ls
+C,24,Abak ire,Dt,Diatomite,Abak ire Dt
+C,25,Gabai,Ls,Limestone,Gabai Ls
+C,26,Gulat,Ls,Limestone,Gulat Ls
+C,27,Bularaba,Ls,Limestone,Bularaba Ls
+C,28,Malo,Gy,Gypsum,M alo Gy
+C,29,Fik,e Gy,eGy,Fik e Gy
+C,30,Bumgai,By,By,Bumgai By
+C,31,Gongila,Dl,Diatomite (?),Gongila Dl
+C,32,Falatau,S n,Tin (Cassiterite),Falatau S n
+C,32,Bak in Kasuwa,Fp,Feldspar,Bak in K asuwa Fp
+C,34,Wurajeloye,Ls,Limestone,W urajeloye Ls
+C,35,Kapiwoi,Ls,Limestone,K apiwoi Ls
+C,36,Kapiwoi,Gy,Gypsum,K apiwoi Gy
+C,37,Chongwon,Dl,Diatomite (?),Chongwon Dl
+C,38,Hongila,Ls,Limestone,Hongila Ls
+C,39,Waldosahu,Gy,Gypsum,W aldosahu Gy
+C,40,Wawa,Na,Salt / Trona,W awa Na
+C,41,Tango,Ca,Calcite,T ango Ca
+C,42,Garba Maidugi,CI,Clay,Garba M aidugi CI
+C,43,Doho,C,Coal,Doho C
+C,44,Gombe,Fr,Fire Clay (?),Gombe Fr
+C,45,Gombe,Fp,Feldspar,Gombe Fp
+C,46,Kanawa,Gy,Gypsum,K anawa Gy
+C,47,Kanawa,Z r,Zircon,K anawa Z r
+C,49,Kanawa,Br,Brine,K anawa Br
+C,49,Kalshiogi,Ls b,Lsb,K alshiogi Ls b
+C,50,Pindiga Brb S I. Kumo,Lg,Lignite,Pindiga Br b S I. K umo Lg
+C,52,Gombe,U,Uranium,Gombe U
+C,53,Kembu,C,Coal,K embu C
+C,54,Kuk awa,Cl,Clay,K uk awa Cl
+C,55,Sinduldul,Gy,Gypsum,S induldul Gy
+C,56,Cubio,Gy p,Gyp,Cubio Gy p
+C,57,Mongunu,Cl,Clay,M ongunu Cl
+C,58,Marte,CI,Clay,M arte CI
+C,59,Gambaru,Cl,Clay,Gambaru Cl
+C,60,Karachri,Bn,Bentonite,K arachri Bn
+C,61,Ngala,Bn,Bentonite,Ngala Bn
+C,62,Dik,wa Bn,waBn,Dik wa Bn
+C,63,Maiduguri,. Cl,Clay,M aiduguri . Cl
+C,64,Maiduguri,Cl,Clay,M aiduguri Cl
+C,65,Ngamdu,T r,Trona,Ngamdu T r
+C,66,Bama,Dt,Diatomite,Bama Dt
+C,67,Nseyo,Ag,Silver,Nseyo Ag
+C,68,Gau,Ag,Silver,Gau Ag
+C,69,Wupti,Cl,Clay,W upti Cl
+C,70,Wupti,Bn,Bentonite,W upti Bn
+C,71,GW OZ A Fp,,,GW OZ A Fp
+C,72,Damboa,Gy,Gypsum,Damboa Gy
+C,73,Gilam,Ls,Limestone,Gilam Ls
+C,74,Kurnari Cor,,,K urnari Cor
+C,75,Shaffa,Ls n,Lsn,S haffa Ls n
+C,76,Kida,Bn,Bentonite,K ida Bn
+C,77,Kwaya Kusar,Gy,Gypsum,K waya K usar Gy
+C,78,Sak wa Cl,,,S ak wa Cl
+C,79,S AK AS IM IT A Mg,,,S AK AS IM IT A M g
+C,80,Bashir,M,M (unspecified - see symbol),Bashir M
+C,81,Gark ida,Cl,Clay,Gark ida Cl
+C,82,Mubi,Cl,Clay,M ubi Cl
+C,83,Girik ilan,Cl,Clay,Girik ilan Cl
+C,84,Gombi,Fp,Feldspar,Gombi Fp
+C,85,Gombi,Cl,Clay,Gombi Cl
+C,86,KilaIuIa,M g,Magnesite,K ilaIuIa M g
+D,1,Birnin Gwari,K a,Kaolin,Birnin Gwari K a
+D,2,Birnin Gwari,M s,Ms,Birnin Gwari M s
+D,3,Birnin Gwari,Gr,Granite,Birnin Gwari Gr
+D,4,Dodo,K y,Kyanite,Dodo K y
+D,5,Kak angi,T m,Tourmaline,K ak angi T m
+D,6,k ak angi,Be,Beryl,k ak angi Be
+D,7,Randeji,R u,Ruby (Corundum),R andeji R u
+D,8,Sabon Birnin Gwari,K y,Kyanite,S abon Birnin Gwari K y
+D,9,Sabon Birnin Gwari,T a,Tantalite,S abon Birnin Gwari T a
+D,10,Kumuna,S i,Si,K umuna S i
+D,11,Manda,Au,Gold,M anda Au
+D,12,M ADADA,Au,Gold,M ADADA Au
+D,13,Sabon Birnin Gwari,Au,Gold,S abon Birnin Gwari Au
+D,14,Kajuru,Au,Gold,K ajuru Au
+D,15,K AR IGA R IVER,Au,Gold,K AR IGA R IVER Au
+D,16,Dutsin Fari,K y,Kyanite,Dutsin Fari K y
+D,17,Sak aba,Be,Beryl,S ak aba Be
+D,18,Sak aba,M,M (unspecified - see symbol),S ak aba M
+D,19,Sak aba,T a,Tantalite,S ak aba T a
+D,20,.W arri,T a,Tantalite,.W arri T a
+D,21,Warri,Be. Cr,Beryl; Chromite,W arri Be. Cr
+D,22,Galete,Au,Gold,Galete Au
+D,23,Konk wesso,K a,Kaolin,K onk wesso K a
+D,24,Agwara,W,Wolframite,Agwara W
+D,25,Kinimu,T c,Talc,K inimu T c
+D,26,Iboli,Be. Gm,Beryl; Gemstone (Beryl etc.),Iboli Be. Gm
+D,27,lboli,T a,Tantalite,lboli T a
+D,28,k ontagora,Ab,Asbestos,k ontagora Ab
+D,29,Kontagora,Fp,Feldspar,K ontagora Fp
+D,30,Pandogari,T c,Talc,Pandogari T c
+D,31,Pandogari,Qa,Quartz,Pandogari Qa
+D,32,Bak ura,Fp,Feldspar,Bak ura Fp
+D,33,Bak ura,Be. Gm,Beryl; Gemstone (Beryl etc.),Bak ura Be. Gm
+D,34,G. Wushiyyu,Be,Beryl,G. W ushiyyu Be
+D,35,K AGAR,A T c,ATc,K AGAR A T c
+D,36,M OM AJI,Au,Gold,M OM AJI Au
+D,37,K AR IGA R IVER,Au,Gold,K AR IGA R IVER Au
+D,38,M ADAK,A Au,AAu,M ADAK A Au
+D,39,Galadima Kogo,Au,Gold,Galadima K ogo Au
+D,40,K UT A Au,,,K UT A Au
+D,41,Kuta,K y,Kyanite,K uta K y
+D,42,Tegina,sT,sT,T egina sT
+D,43,Rawo,K y,Kyanite,R awo K y
+D,44,Guni,T r,Trona,Guni T r
+D,45,Minna,Au,Gold,M inna Au
+D,46,W US HIS,HI Au,HIAu,W US HIS HI Au
+D,47,Kishi,W,Wolframite,K ishi W
+D,48,Kutuwengi,Cl,Clay,K utuwengi Cl
+D,49,Dabban,Cl,Clay,Dabban Cl
+D,50,Lemu,Cl,Clay,Lemu Cl
+D,51,River Kaduna,Cl,Clay,R iver K aduna Cl
+D,52,K W AK UT I Mb,,,K W AK UT I M b
+D,53,Kwak uti,Pb. Z,Lead; Z,K wak uti Pb. Z
+D,54,Geji,M b,Marble,Geji M b
+D,55,Kumatu Mon 56.Lambata,M,M (unspecified - see symbol),K umatu M o n 56.Lambata M
+D,55,Dak ogi,Pb. Z,Lead; Z,Dak ogi Pb. Z
+D,57,Lambata,Qa,Quartz,Lambata Qa
+D,58,Lambata,Pb. Z,Lead; Z,Lambata Pb. Z
+D,59,Lemu,Cl,Clay,Lemu Cl
+D,60,Badeggi,Cl,Clay,Badeggi Cl
+D,61,Bida,S S,SS,Bida S S
+D,62,Bida,T c,Talc,Bida T c
+D,63,Bak,ek a M,ekaM,Bak ek a M
+D,64,Dak ogi,S S,SS,Dak ogi S S
+D,66,Kuchik,pa Cl,paCl,K uchik pa Cl
+D,67,Kok oro,Cl,Clay,K ok oro Cl
+D,67,A. M ELENDO R IVER,Au,Gold,A. M ELENDO R IVER Au
+D,68,S HAS,HI Au,HIAu,S HAS HI Au
+D,69,BIN,Y AUR I Au,YAURIAu,BIN - Y AUR I Au
+D,70,LAK,A Au,AAu,LAK A Au
+D,71,Kuli,Au,Gold,K uli Au
+D,72,Wurumok ato,Au,Gold,W urumok ato Au
+D,73,Y AS HIK,IR A Fp,IRAFp,Y AS HIK IR A Fp
+D,74,K AIAM,A W . S n,AW; Tin (Cassiterite),K AIAM A W . S n
+D,75,K AIAM,A Au,AAu,K AIAM A Au
+D,76,Kugegi,Gm. Au,Gemstone (Beryl etc.); Gold,K ugegi Gm. Au
+D,77,OKe Mb,,,OK e M b
+D,78,Gbanara,Au,Gold,Gbanara Au
+D,79,Bacita,Au,Gold,Bacita Au
+D,80,Bacita,S n. Nb,Tin (Cassiterite); Columbite,Bacita S n. Nb
+D,81,M . Lafiagi,K a,Kaolin,M . Lafiagi K a
+D,82,Latiagi,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,Latiagi S n. Nb. T a
+D,83,Lade,Gm,Gemstone (Beryl etc.),Lade Gm
+D,84,Maga,K a,Kaolin,M aga K a
+D,85,Kosoti,K a,Kaolin,K osoti K a
+D,86,Erufu — Erufu,Au,Gold,Erufu — Erufu Au
+D,87,Koro,T c,Talc,K oro T c
+D,88,Koro,Au,Gold,K oro Au
+D,89,Ok olushe,S n. Nb. T a. Au,Tin (Cassiterite); Columbite; Tantalite; Gold,Ok olushe S n. Nb. T a. Au
+D,90,Mashe,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,M ashe S n. Nb. T a
+D,91,Bishowa,S m. Nb. T a,Sm; Columbite; Tantalite,Bishowa S m. Nb. T a
+D,92,S HAR,E K a,EKa,S HAR E K a
+D,93,Ok olom,S n. Au,Tin (Cassiterite); Gold,Ok olom S n. Au
+D,94,Babanloma,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,Babanloma S n. Nb. T a
+D,95,ELEBU,M b,Marble,ELEBU M b
+D,96,Alak,a M b,aMb,Alak a M b
+D,97,Adio,Gm,Gemstone (Beryl etc.),Adio Gm
+D,98,Alapa popoola,Fp,Feldspar,Alapa popoola Fp
+D,99,Onire Cl I00.Owode,Gn,Galena,Onire Cl I00.Owode Gn
+D,101,Lajola,Gm,Gemstone (Beryl etc.),Lajola Gm
+D,102,Ayetoro,Gm,Gemstone (Beryl etc.),Ayetoro Gm
+D,103,Orek,e M b,eMb,Orek e M b
+D,104,Yaru,M,M (unspecified - see symbol),Y aru M
+D,105,Yaru,M b,Marble,Y aru M b
+D,106,Yaru,Gm,Gemstone (Beryl etc.),Y aru Gm
+D,107,lgbaja,Cl,Clay,lgbaja Cl
+D,108,Ilorin,Cl,Clay,Ilorin Cl
+D,109,Owa,Fe.M,Iron Ore; M (unspecified - see symbol),Owa Fe.M
+D,110,Elere,Cl,Clay,Elere Cl
+D,111,Kajora,Fe. Cl,Iron Ore; Clay,K ajora Fe. Cl
+D,112,Ak utuk,pa K a,paKa,Ak utuk pa K a
+D,113,JAK,UR A M b,URAMb,JAK UR A M b
+D,114,Koton-K arfe,Fe,Iron Ore,K oton-K arfe Fe
+D,115,IGBET,T I M b,TIMb,IGBET T I M b
+D,116,ODOGBE,T c,Talc,ODOGBE T c
+D,117,Odogbe,S n,Tin (Cassiterite),Odogbe S n
+D,118,Odosin,Au.M,Gold; M (unspecified - see symbol),Odosin Au.M
+D,119,Ejiba,T c,Talc,Ejiba T c
+D,120,Mope,M b,Marble,M ope M b
+D,121,Isanlu,ES a Fp,ESaFp,Isanlu - ES a Fp
+D,122,Isanlu,Esa M . Au,EsaM; Gold,Isanlu - Esa M . Au
+D,123,Egbe,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,Egbe S n. Nb. T a
+D,124,Ogga,S n,Tin (Cassiterite),Ogga S n
+D,125,Idofin,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,Idofin S n. Nb. T a
+D,126,Kwali,K e,? (Ke),K wali K e
+D,127,Dangara,Cl,Clay,Dangara Cl
+D,128,Tsauni,Pb. Z,Lead; Z,T sauni Pb. Z
+D,129,Tsauni,Au,Gold,T sauni Au
+D,130,Zango Kara,T c,Talc,Z ango K ara T c
+D,131,Iga lyere,T c,Talc,Iga lyere T c
+D,132,lga Iyere,Be,Beryl,lga Iyere Be
+D,133,Irawo,Ile Fe,IleFe,Irawo - Ile Fe
+D,134,Ladele,T a,Tantalite,Ladele T a
+D,135,Ladele,Gm,Gemstone (Beryl etc.),Ladele Gm
+D,136,Ik omu,Be,Beryl,Ik omu Be
+D,137,Ik omu,T c,Talc,Ik omu T c
+D,138,lgbo ljiaye,Qa,Quartz,lgbo ljiaye Qa
+D,139,lgbo ljiaye,M,M (unspecified - see symbol),lgbo ljiaye M
+D,140,ltasa,T a,Tantalite,ltasa T a
+D,141,Itasa,Be,Beryl,Itasa Be
+D,142,lk oyi,M b,Marble,lk oyi M b
+D,143,Morai,Fp,Feldspar,M orai Fp
+D,144,Ajashe,Fe,Iron Ore,Ajashe Fe
+D,145,Fok,o M,oM,Fok o M
+D,146,Ajashe,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,Ajashe S n. Nb. T a
+D,147,Ajashe,Fe. Cl,Iron Ore; Clay,Ajashe Fe. Cl
+D,148,Oro,K e,? (Ke),Oro K e
+D,149,Elerin-Ok,e Nb. T a,eNb; Tantalite,Elerin-Ok e Nb. T a
+D,150,lrore Cor,,,lrore Cor
+D,151,Oro-Agor,M S,MS,Oro-Agor M S
+D,152,Oro-Agor,K s,? (Ks),Oro-Agor K s
+D,153,Omu-Aran,S n. Nb. T a C.,Tin (Cassiterite); Columbite; TaC,Omu-Aran S n. Nb. T a C.
+D,154,Kawari,Cl,Clay,K awari Cl
+D,155,Old Dok olo,T c,Talc,Old Dok olo T c
+D,156,Odo-Ore,S n,Tin (Cassiterite),Odo-Ore S n
+D,156,Gwagwada,T a,Tantalite,Gwagwada T a
+D,157,Bak in Kasuwa,Cl,Clay,Bak in K asuwa Cl
+D,158,Chik,un Au,unAu,Chik un Au
+D,159,Chik,un K a,unKa,Chik un K a
+D,160,Kajuru,K a,Kaolin,K ajuru K a
+D,162,Ramin Kura,S n Nb,SnNb,R amin K ura S n Nb
+D,163,Ishem,Au,Gold,Ishem Au
+D,164,Geshare Sn.Nb,,,Geshare S n.Nb
+D,164,Rafi Gusu River,S n T a,SnTa,R afi Gusu R iver S n T a
+E,1,Zunmo,T r,Trona,Z unmo T r
+E,2,Guyuk,Bn,Bentonite,Guyuk Bn
+E,3,Guyuk,Gy,Gypsum,Guyuk Gy
+E,4,Kuma,Ls,Limestone,K uma Ls
+E,5,Demsa,Gy P,GyP,Demsa Gy P
+E,6,Nz uruwei C •7 Vera Hills Sn S . Mantari,Ba,Baryte,Nz uruwei C •7 Vera Hills S n S . M antari Ba
+E,9,Ganye,Cl,Clay,Ganye Cl
+E,10,Shebshi Hill,S n,Tin (Cassiterite),S hebshi Hill S n
+E,11,Mayo Butale,Gr,Granite,M ayo Butale Gr
+E,12,Beti,Gr,Granite,Beti Gr
+E,13,Beti,S n,Tin (Cassiterite),Beti S n
+E,14,Gomoti,Ds,Dimension Stone,Gomoti Ds
+E,15,Lara,P,Phosphate,Lara P
+E,16,Pindiga,Gy,Gypsum,Pindiga Gy
+E,17,Kaltunqo,Pb Z n. Bn,PbZn; Bentonite,K altunqo Pb Z n. Bn
+E,18,Kaltungo,T r,Trona,K altungo T r
+E,19,Chongwon,Ag,Silver,Chongwon Ag
+E,20,Chongwon,T pz,Topaz,Chongwon T pz
+E,21,Kuk am Bn,,,K uk am Bn
+E,22,Kyadawa,Bn,Bentonite,K yadawa Bn
+E,23,Kaltungo,Z r,Zircon,K altungo Z r
+E,24,Kunini,Ls,Limestone,K unini Ls
+E,25,Dumgel,Ba,Baryte,Dumgel Ba
+E,26,Gusuni,Pb. Z n,Lead; Zinc,Gusuni Pb. Z n
+E,27,Kwoji,Ca,Calcite,K woji Ca
+E,28,Jauro Magu,Fe,Iron Ore,Jauro M agu Fe
+E,29,Ranewo,Br,Brine,R anewo Br
+E,30,Bumanda,Br,Brine,Bumanda Br
+E,31,Bali,Gr,Granite,Bali Gr
+E,32,K . Boyi,Ba,Baryte,K . Boyi Ba
+E,33,K . Boyi,Pb. Z n,Lead; Zinc,K . Boyi Pb. Z n
+E,34,Gindima waya,Fr,Fire Clay (?),Gindima waya Fr
+E,35,Gujuba,Fe,Iron Ore,Gujuba Fe
+E,36,Lav,E,Evaporite (?),Lav E
+E,37,Panguru,Br,Brine,Panguru Br
+E,38,Futuk,Ls,Limestone,Futuk Ls
+E,39,Futuk,Gy,Gypsum,Futuk Gy
+E,40,Dass,K a,Kaolin,Dass K a
+E,41,Dass,T m,Tourmaline,Dass T m
+E,42,S . Goal,K a,Kaolin,S . Goal K a
+E,43,Jank ari,Cl,Clay,Jank ari Cl
+E,44,Jagudu,T a,Tantalite,Jagudu T a
+E,45,S HONA M ILES,S n. W,Tin (Cassiterite); Wolframite,S HONA M ILES S n. W
+E,46,JAR AW A HILL,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,JAR AW A HILL S n. Nb. T a
+E,47,Yerima,Br,Brine,Y erima Br
+E,48,Yerima,Ls,Limestone,Y erima Ls
+E,49,Garin,Gy,Gypsum,Garin Gy
+E,50,Sanji,Br,Brine,S anji Br
+E,51,Wunri,Pb. Z n n,Lead; Znn,W unri Pb. Z n n
+E,52,Burk ulu,Pb. Z n,Lead; Zinc,Burk ulu Pb. Z n
+E,53,Burk ulu,Ls,Limestone,Burk ulu Ls
+E,53,Basuras,Qz,Quartz,Basuras Qz
+E,54,River Lere,R u,Ruby (Corundum),R iver Lere R u
+E,55,Mansur,Gy,Gypsum,M ansur Gy
+E,56,A. Dabo,K a n,Kan,A. Dabo K a n
+E,57,Shere HilIs,K a,Kaolin,S here HilIs K a
+E,58,S HER E HILLS,T a,Tantalite,S HER E HILLS T a
+E,60,R AY FIEEO,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,R AY FIEEO S n. Nb. T a
+E,61,Fadera,Be,Beryl,Fadera Be
+E,62,R UK UBA,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,R UK UBA S n. Nb. T a
+E,63,Kona,Be n,Ben,K ona Be n
+E,64,K IGOM HILLS,S n. Nb. T a,Tin (Cassiterite); Columbite; Tantalite,K IGOM HILLS S n. Nb. T a
+E,65,VOM,Be,Beryl,VOM Be
+E,65,Kwal,Qa,Quartz,K wal Qa
+E,66,BUK,UR U Z r,URUZr,BUK UR U Z r
+E,67,JOS,Nb,Columbite,JOS Nb
+E,68,Laugai,S n,Tin (Cassiterite),Laugai S n
+E,69,Naraguta,Cl,Clay,Naraguta Cl
+E,69,Fursun,M z,Monazite,Fursun M z
+E,70,Werram,K a,Kaolin,W erram K a
+E,71,Buk uru,G,Granite (?),Buk uru G
+E,72,Koro,S n,Tin (Cassiterite),K oro S n
+E,73,Sho — Gindi Ak wati,,,S ho — Gindi Ak wati
+E,74,R OPP Nb:,T a,Tantalite,R OPP Nb: T a
+E,75,M AJOR POR,T ER,TER,M AJOR POR T ER
+E,76,Garam,Cl,Clay,Garam Cl
+E,77,Ampere,Qz,Quartz,Ampere Qz
+E,78,Ampere,M b,Marble,Ampere M b
+E,79,Dal,T a,Tantalite,Dal T a
+E,80,Fan,M z,Monazite,Fan M z
+E,81,Fan Sn.Nb,,,Fan S n.Nb
+E,82,Mangu,M a,Ma,M angu M a
+E,84,Dengi,Be,Beryl,Dengi Be
+E,86,Mbar,K a,Kaolin,M bar K a
+E,86,BaItup,T c,Talc,BaItup T c
+E,87,Mangun,Nb,Columbite,M angun Nb
+E,88,Lank,an Gs,anGs,Lank an Gs
+E,89,Gwak tok,Cl,Clay,Gwak tok Cl
+E,90,Kunik yen,T a,Tantalite,K unik yen T a
+E,92,Belnin,T o,To,Belnin T o
+E,93,Gurua,Cl,Clay,Gurua Cl
+E,93,Libam,Be,Beryl,Libam Be
+E,94,Mustieve,Be,Beryl,M ustieve Be
+E,95,Kup Gs,,,K up Gs
+E,97,Jowandu,CI,Clay,Jowandu CI
+E,98,F. Ruwa Pbs,,,F. R uwa Pbs
+E,99,S Gida Pbs,,,S Gida Pbs
+E,100,Maro,Ls,Limestone,M aro Ls
+E,101,Wase,Pb. Z n,Lead; Zinc,W ase Pb. Z n
+E,102,Mbar,Cl,Clay,M bar Cl
+E,103,Trum,Cl,Clay,T rum Cl
+E,104,Sha Hill,S n. T a,Tin (Cassiterite); Tantalite,S ha Hill S n. T a
+E,105,Mushero,K s,? (Ks),M ushero K s
+E,106,Bwoi,CI,Clay,Bwoi CI
+E,107,Taram,CI,Clay,T aram CI
+E,108,N. Fohk an CI 409. Damshia,CI,Clay,N. Fohk an CI 409. Damshia CI
+E,111,Namu,S,Salt (?),Namu S
+E,112,Nymus,Ba,Baryte,Nymus Ba
+E,113,South Mada Hill,S n. W,Tin (Cassiterite); Wolframite,S outh M ada Hill S n. W
+E,114,Take Iafia,Fp. M,Feldspar; M (unspecified - see symbol),T ak e Iafia Fp. M
+E,115,Don Swam,Gy,Gypsum,Don S wam Gy
+E,116,Shargam,Fp,Feldspar,S hargam Fp
+E,117,Namu,Ba b,Bab,Namu Ba b
+E,118,Tak ara,M u,Muscovite (Mica) (?),T ak ara M u
+E,119,Gitata,T m,Tourmaline,Gitata T m
+E,120,Gitata,S n. Nb,Tin (Cassiterite); Columbite,Gitata S n. Nb
+E,121,G.Ejiqba,Qz,Quartz,G.Ejiqba Qz
+E,122,G.Aruwa,Be,Beryl,G.Aruwa Be
+E,123,G. Aruwa,Lp,Lepidolite,G. Aruwa Lp
+E,124,Nik oro,Qz,Quartz,Nik oro Qz
+E,125,Ninva,S n,Tin (Cassiterite),Ninva S n
+E,126,Ancho,M u,Muscovite (Mica) (?),Ancho M u
+E,127,Ancho,Ca n,Can,Ancho Ca n
+E,128,Ganje,W,Wolframite,Ganje W
+E,129,Wamba,T r,Trona,W amba T r
+E,130,Mada Pbs,,,M ada Pbs
+E,131,Wamba,M u,Muscovite (Mica) (?),W amba M u
+E,132,Ak wanga,M,M (unspecified - see symbol),Ak wanga M
+E,133,Uke Sn.T,a,a,Uk e S n.T a
+E,134,Keffi,Aq,Aquamarine (Beryl),K effi Aq
+E,135,Keffi,S n,Tin (Cassiterite),K effi S n
+E,136,Keffi,T a,Tantalite,K effi T a
+E,137,Ketfi,T m,Tourmaline,K etfi T m
+E,138,Lanqalanga,Be,Beryl,Lanqalanga Be
+E,139,South Mada Hill Sn.W,,,S outh M ada Hill S n.W
+E,140,B.Chiyawa,Ba,Baryte,B.Chiyawa Ba
+E,140,Made,T m. R b,Tourmaline; Rb,M ade T m. R b
+E,141,N. Eggon,T a,Tantalite,N. Eggon T a
+E,142,N. Eggon,Aq,Aquamarine (Beryl),N. Eggon Aq
+E,143,N. Eggon,Qz,Quartz,N. Eggon Qz
+E,144,N Eggon EmI,,,N Eggon EmI
+E,145,T . Jank,ua S n,uaSn,T . Jank ua S n
+E,146,Kaffin Shanu,Ca,Calcite,K affin S hanu Ca
+E,147,Tak wa Be,,,T ak wa Be
+E,148,Siyabu,Gs,Glass Sand,S iyabu Gs
+E,149,Siyabu,Z r,Zircon,S iyabu Z r
+E,150,Lafia,K a,Kaolin,Lafia K a
+E,151,LAFIA,C,Coal,LAFIA C
+E,152,"Nassarawa Ta,",W,Wolframite,"Nassarawa T a, W"
+E,153,"Nassarawa Sn,",T a,Tantalite,"Nassarawa S n, T a"
+E,154,Keffi,Be,Beryl,K effi Be
+E,155,Roguwa,Fc,Fire Clay,R oguwa Fc
+E,156,Roguwa,Aq,Aquamarine (Beryl),R oguwa Aq
+E,157,Zagwan Daji,Be,Beryl,Z agwan Daji Be
+E,158,Ombi,T m,Tourmaline,Ombi T m
+E,159,Shabire,C,Coal,S habire C
+E,160,OBI,C,Coal,OBI C
+E,161,Agwatashi,S r,Sr,Agwatashi S r
+E,162,ALOS,HI Ba,HIBa,ALOS HI Ba
+E,162,"K EANA Pb,Z",n,n,"K EANA Pb,Z n"
+E,164,"Adashu Pb,Z",n,n,"Adashu Pb,Z n"
+E,165,Adashu,Ba,Baryte,Adashu Ba
+E,166,Az are,Br,Brine,Az are Br
+E,167,AW E Ba,,,AW E Ba
+E,168,Wuse,Ba,Baryte,W use Ba
+E,169,Wuse,Br,Brine,W use Br
+E,170,AW E Br,,,AW E Br
+E,171,Ndora PbS,,,Ndora PbS
+E,172,"Wanke Ba,Br",,,"W ank e Ba,Br"
+E,173,Osogh Pbs,,,Osogh Pbs
+E,174,Ak wuya,Pb.Z n,Lead; Zinc,Ak wuya Pb.Z n
+E,175,Keana,Ba,Baryte,K eana Ba
+E,176,Demak,aa Br,aaBr,Demak aa Br
+E,177,Kadark,o S n,oSn,K adark o S n
+E,178,Yerwata,Gr,Granite,Y erwata Gr
+E,179,Gidan Zabutu,Gs,Glass Sand,Gidan Z abutu Gs
+E,180,Gidan Zabutu,Z r,Zircon,Gidan Z abutu Z r
+E,181,Udegi-Bek,i Gs,iGs,Udegi-Bek i Gs
+E,182,Udegi-BeK,i Z r,iZr,Udegi-BeK i Z r
+E,183,Udegi-Bek,i S n. T r,iSn; Trona,Udegi-Bek i S n. T r
+E,184,Gano,S n,Tin (Cassiterite),Gano S n
+E,185,T OT O Fe. Mb,,,T OT O Fe. M b
+E,186,Atarana,M b,Marble,Atarana M b
+E,187,Ugia,Qa,Quartz,Ugia Qa
+E,188,Sharwa Hill Sn.Nb.T,a,a,S harwa Hill S n.Nb.T a
+E,189,Kachia,K a,Kaolin,K achia K a
+E,190,Kachia,S n. Nb,Tin (Cassiterite); Columbite,K achia S n. Nb
+E,191,Z ONK,W A T c,WATc,Z ONK W A T c
+E,192,Kagoro,K a,Kaolin,K agoro K a
+E,193,Kaqoro,S n Nb,SnNb,K aqoro S n Nb
+E,194,Kafanchan,K a,Kaolin,K afanchan K a
+E,195,Kurmin Dagana,S n Nb,SnNb,K urmin Dagana S n Nb
+E,196,Nok,T a,Tantalite,Nok T a
+E,197,Kagama,S n. Nb,Tin (Cassiterite); Columbite,K agama S n. Nb
+E,198,"k woi Sn,",Nb,Columbite,"k woi S n, Nb"
+E,199,"Godogodo Sn,",Nb,Columbite,"Godogodo S n, Nb"
+E,200,"Jama’a Sn,Nb,T a,Z",r,r,"Jama’a S n,Nb,T a,Z r"
+E,201,"Sabongida Sn,",Nb,Columbite,"S abongida S n, Nb"
+E,202,Sabongida,T m,Tourmaline,S abongida T m
+E,203,Bok ana,T m,Tourmaline,Bok ana T m
+E,204,"Ningishi Hill Sn, Tm,",Z r,Zircon,"Ningishi Hill S n, T m, Z r"
+E,205,Saw mill,Be,Beryl,S aw mill Be
+E,206,Agameti,Be,Beryl,Agameti Be
+E,207,"Mayir Sn,",Nb,Columbite,"M ayir S n, Nb"
+E,208,DIK,O Au,OAu,DIK O Au
+E,209,Sark in Pawa,T m,Tourmaline,S ark in Pawa T m
+E,210,Borari,Qz,Quartz,Borari Qz
+E,211,Borari,Fp,Feldspar,Borari Fp
+E,212,Shenagu,K y,Kyanite,S henagu K y
+E,213,Tsauni,Au,Gold,T sauni Au
+E,214,Kwarana,T a,Tantalite,K warana T a
+E,215,Kwarana,Z r,Zircon,K warana Z r
+E,216,Kabusok oro,Cm,Cm,K abuso k oro Cm
+E,217,T AK ALAFIA,M b,Marble,T AK ALAFIA M b
+E,218,BUR,UM M b M b,UMMbMb,BUR UM M b M b
+E,219,Yanga,S n. T a,Tin (Cassiterite); Tantalite,Y anga S n. T a
+E,220,Yanga,M K a,MKa,Y anga M K a
+E,221,Kapati,M b,Marble,K apati M b
+E,222,Bwari,Qs. Fp,Qs; Feldspar,Bwari Qs. Fp
+E,223,Tuk uba,S n. Au,Tin (Cassiterite); Gold,T uk uba S n. Au
+E,224,Kuje,T a. Qa,Tantalite; Quartz,K uje T a. Qa
+E,225,AFU HILL Sn. Ta.Nb.W,,,AFU HILL S n. T a.Nb.W
+E,226,Zaz aga,M,M (unspecified - see symbol),Z az aga M
+E,227,Zaz aga,W . Be,Wolframite; Beryl,Z az aga W . Be
+E,228,K AZ AI Au,,,K AZ AI Au
+E,229,BER,I Au,IAu,BER I Au
+E,230,Old Dok olo,Pb.Z n,Lead; Zinc,Old Dok olo Pb.Z n
+E,231,Old dok ole,Au,Gold,Old dok ole Au
+E,232,Abuchi,T c,Talc,Abuchi T c
+E,232,Kein-Y,ak u T c,akuTc,K ein-Y ak u T c
+E,234,Wana,T pz,Topaz,W ana T pz
+F,1,Ade,M b,Marble,Ade M b
+F,2,Mopa,M b,Marble,M opa M b
+F,2,lgbagun,M b,Marble,lgbagun M b
+F,4,AIY,ET OR O Fe,ETOROFe,AIY ET OR O Fe
+F,5,Aiyetoro,Au. Ca,Gold; Calcite,Aiyetoro Au. Ca
+F,6,Egbede,Fe,Iron Ore,Egbede Fe
+F,7,CHOK O-CHOK,O Fe,OFe,CHOK O-CHOK O Fe
+F,8,Obajana,M,M (unspecified - see symbol),Obajana M
+F,9,Obajana,M b,Marble,Obajana M b
+F,10,OBAJANA,Fp,Feldspar,OBAJANA Fp
+F,11,Emoa,Cl,Clay,Emoa Cl
+F,12,Emoa,Fe,Iron Ore,Emoa Fe
+F,13,lyara,M b,Marble,lyara M b
+F,14,Ok omoba,M b,Marble,Ok omoba M b
+F,15,Ak para,U,Uranium,Ak para U
+F,16,LOK OJA (AGBAJA),Fe,Iron Ore,LOK OJA (AGBAJA) Fe
+F,17,Lok oja CI. Cs IS . Aforo-Odugbo,Fc.Qa,Fire Clay; Quartz,Lok oja CI. Cs IS . Aforo-Odugbo Fc.Qa
+F,19,Zangon Daji,Fp.M,Feldspar; M (unspecified - see symbol),Z angon Daji Fp.M
+F,20,Lok oja,U,Uranium,Lok oja U
+F,21,OS AR A FOR,ES T M b,ESTMb,OS AR A FOR ES T M b
+F,22,OS AR A FOR,ES T Fp,ESTFp,OS AR A FOR ES T Fp
+F,22,Osara,Qz,Quartz,Osara - Qz
+F,24,IT AK PE HILLS,Fe,Iron Ore,IT AK PE HILLS Fe
+F,25,ltak,pe Be,peBe,ltak pe Be
+F,26,ltak,pe Qa,peQa,ltak pe Qa
+F,27,UBO,M b,Marble,UBO M b
+F,28,Uk pilla,AU,AU,Uk pilla AU
+F,29,Uk pilla,Fp,Feldspar,Uk pilla Fp
+F,30,UK PILLA,M b,Marble,UK PILLA M b
+F,31,AJAOK,UT A M b,UTAMb,AJAOK UT A M b
+F,32,AJAOK,UT A Fe,UTAFe,AJAOK UT A Fe
+F,32,Ajaok uta,S n. Nb T a,Tin (Cassiterite); NbTa,Ajaok uta S n. Nb T a
+F,34,Itobe,Qa,Quartz,Itobe Qa
+F,35,Onado,T c,Talc,Onado T c
+F,36,lT OBE,M b,Marble,lT OBE M b
+F,37,Gwoligyo,K a,Kaolin,Gwoligyo K a
+F,38,Ok ok onvi,M b,Marble,Ok ok onvi M b
+F,39,Oyedega,CI,Clay,Oyedega CI
+F,40,Aguleri,CI,Clay,Aguleri CI
+F,41,lgbarian,Gs,Glass Sand,lgbarian Gs
+F,42,Nnegi,Umuleri Fe,UmuleriFe,Nnegi - Umuleri Fe
+F,43,Onitsha,Gs,Glass Sand,Onitsha Gs
+F,44,Omuoji,Cl,Clay,Omuoji Cl
+F,45,Nnewi,Lg,Lignite,Nnewi Lg
+F,46,Oz ubulu-Uk,po K a,poKa,Oz ubulu-Uk po K a
+F,47,Uk por,Lg,Lignite,Uk por Lg
+F,48,ok ija,K a,Kaolin,ok ija K a
+F,49,Awomama,K a,Kaolin,Awomama K a
+F,50,Assa Oil,,,Assa Oil
+F,51,Ak abuna,Cl,Clay,Ak abuna Cl
+F,52,OGBADA Oil,,,OGBADA Oil
+F,53,Abua,Cl,Clay,Abua Cl
+F,54,Tombia,CI,Clay,T ombia CI
+F,56,Sagbama,Gs,Glass Sand,S agbama Gs
+F,57,Opuk ushi Oil,,,Opuk ushi Oil
+F,58,Ogbia,Gs,Glass Sand,Ogbia Gs
+F,59,Ogbia,Ci,? (Ci),Ogbia Ci
+F,60,Ogwashi-Uk,u Lg,uLg,Ogwashi-Uk u Lg
+F,61,Asama,K a,Kaolin,Asama K a
+F,62,Agbor,K a,Kaolin,Agbor K a
+F,63,Ak iewe,Gs,Glass Sand,Ak iewe Gs
+F,64,UZ ER E EAS T Oil,,,UZ ER E EAS T Oil
+F,65,Asamabari,Cl,Clay,Asamabari Cl
+F,65,UGHELLI EAS T Oil,,,UGHELLI EAS T Oil
+F,66,UGHS ELLI,Gs,Glass Sand,UGHS ELLI Gs
+F,67,ES CR AVOS BEACH Oil,,,ES CR AVOS BEACH Oil
+F,68,Oja-sale,M b. M,Marble; M (unspecified - see symbol),Oja-sale M b. M
+F,69,Komino,K a,Kaolin,K omino K a
+F,70,Igarra,Au,Gold,Igarra Au
+F,71,lgarra,K a,Kaolin,lgarra K a
+F,72,Agenebodo,Gy,Gypsum,Agenebodo Gy
+F,73,Ago-ogbodo,U,Uranium,Ago-ogbodo U
+F,74,Ago-egbedo,Ls,Limestone,Ago-egbedo Ls
+F,75,Auchi,Gs,Glass Sand,Auchi Gs
+F,76,Auchi,M b,Marble,Auchi M b
+F,77,Auchi,S d,Sand (?),Auchi S d
+F,78,Auchi,K a,Kaolin,Auchi K a
+F,79,Ek peshi,Ls,Limestone,Ek peshi Ls
+F,80,Afuz,e C,eC,Afuz e C
+F,81,Sabon gida,K a,Kaolin,S abon gida K a
+F,82,Ora,Ls,Limestone,Ora Ls
+F,83,Ora,Gy,Gypsum,Ora Gy
+F,84,Uhonmora,Cl,Clay,Uhonmora Cl
+F,85,ET S AK O W ES T Gy,,,ET S AK O W ES T Gy
+F,86,Uhen,Py,Pyrite,Uhen Py
+F,87,Ok ada,Cl,Clay,Ok ada Cl
+F,88,Owoboana Bit,,,Owoboana Bit
+F,89,Uromi,Cl,Clay,Uromi Cl
+F,90,Ubiaja,Lg,Lignite,Ubiaja Lg
+F,91,Ilushi,S d,Sand (?),Ilushi S d
+F,92,Orah,Cl,Clay,Orah Cl
+F,93,Orah,S d,Sand (?),Orah S d
+F,94,Ute (Owa),La,La,Ute (Owa) La
+F,95,IK POBA R IVER BENIN,Gs,Glass Sand,IK POBA R IVER BENIN Gs
+F,96,Benin-City Gvl,,,Benin-City Gvl
+F,97,Benin-City,S d,Sand (?),Benin-City S d
+F,98,Ago-Ok oro Gvl,,,Ago-Ok oro Gvl
+F,99,GILLI-GILLI Oil,,,GILLI-GILLI Oil
+F,100,S APELE Oil,,,S APELE Oil
+F,101,Ik ara Cor,,,Ik ara Cor
+F,102,Oke,Agbo Be,AgboBe,Ok e - Agbo Be
+F,103,Ak oko North West,M u,Muscovite (Mica) (?),Ak ok o North W est M u
+F,104,Bode,Qa,Quartz,Bode Qa
+F,105,Ik eram,Fe,Iron Ore,Ik eram Fe
+F,106,Ak oko North East,Ds,Dimension Stone,Ak ok o North East Ds
+F,107,Igbara-Oke Ds lOB. Alade,Ds,Dimension Stone,Igbara-Ok e Ds lOB. Alade Ds
+F,109,Idoani,M b,Marble,Idoani M b
+F,111,Oja-Odan,K a,Kaolin,Oja-Odan K a
+F,112,Ugbolan,K s,? (Ks),Ugbolan K s
+F,113,Ifon,Cl,Clay,Ifon Cl
+F,114,Ijagba,Cl,Clay,Ijagba Cl
+F,115,Ute,M b,Marble,Ute M b
+F,116,Ok oluk,e Cr,eCr,Ok oluk e Cr
+F,116,Ode-Aiye,T s,Tar Sand,Ode-Aiye T s
+F,117,Ute,C,Coal,Ute C
+F,119,IFON,K a,Kaolin,IFON K a
+F,120,Ok itipupa,T s,Tar Sand,Ok itipupa T s
+F,121,Shogbon (Ok itipupa),CI,Clay,S hogbon (Ok itipupa) CI
+F,122,IGBOK ODA,Gs T s,GsTs,IGBOK ODA Gs T s
+F,123,Agbabu,T s,Tar Sand,Agbabu T s
+F,124,Shabomi,C,Coal,S habomi C
+F,125,lgodan-Lisa,K s,? (Ks),lgodan-Lisa K s
+F,126,Gbek ebo,Gs,Glass Sand,Gbek ebo Gs
+F,127,Atok ogbo,T s,Tar Sand,Atok ogbo T s
+F,128,Ipepe,S d,Sand (?),Ipepe S d
+F,129,lshan,Cl,Clay,lshan Cl
+F,130,IJER,O S n. Nb. T a,OSn; Columbite; Tantalite,IJER O S n. Nb. T a
+F,131,Ipoti,M,M (unspecified - see symbol),Ipoti M
+F,132,Ipoti,T m. Ag,Tourmaline; Silver,Ipoti T m. Ag
+F,133,Iddo – Ek iti,Cl,Clay,Iddo – Ek iti Cl
+F,134,Orin,Cl,Clay,Orin Cl
+F,135,Awo Ek iti,Cl,Clay,Awo Ek iti Cl
+F,136,IJER,O EK IT I Cl,OEKITICl,IJER O EK IT I Cl
+F,137,Aramok,o T a,oTa,Aramok o T a
+F,138,Ire-Ek iti,K a,Kaolin,Ire-Ek iti K a
+F,139,Ilu-Omoba,K a,Kaolin,Ilu-Omoba K a
+F,140,Ik ere,K a,Kaolin,Ik ere K a
+F,141,Orin-Ek iti,Bx,Bauxitic Clay,Orin-Ek iti Bx
+F,142,ILLA-OR ANGUN,T c,Talc,ILLA-OR ANGUN T c
+F,143,Orangun,K a,Kaolin,Orangun K a
+F,144,OR ANGUN,T c,Talc,OR ANGUN T c
+F,145,Ilobu,Cl,Clay,Ilobu Cl
+F,146,Igbona,Au,Gold,Igbona Au
+F,147,Awo,Gm,Gemstone (Beryl etc.),Awo Gm
+F,148,Ilesa,Gm,Gemstone (Beryl etc.),Ilesa Gm
+F,149,IPER INDO,Au,Gold,IPER INDO Au
+F,150,lFE,T o,To,lFE T o
+F,151,Odo-Igbo,Au,Gold,Odo-Igbo Au
+F,152,Osu,Au,Gold,Osu Au
+F,153,Oshogbo,Cl,Clay,Oshogbo Cl
+F,154,lk ire,Gm,Gemstone (Beryl etc.),lk ire Gm
+F,155,Lamu Camp Ondo,,,Lamu Camp Ondo
+F,156,Odeleye,Cl,Clay,Odeleye Cl
+F,157,Ok in Cl,,,Ok in Cl
+F,158,Ak oya,Be,Beryl,Ak oya Be
+F,159,Ak oya,T a,Tantalite,Ak oya T a
+F,160,Iganna,T a,Tantalite,Iganna T a
+F,161,Onik,o K a,oKa,Onik o K a
+F,162,Jobele,M b,Marble,Jobele M b
+F,163,Monija,M L,ML,M onija M L
+F,164,Egbeda,Be,Beryl,Egbeda Be
+F,166,ldi-Ayunre,Be,Beryl,ldi-Ayunre Be
+F,166,Olowa,S l,Sillimanite,Olowa S l
+F,167,Olodo,S t,St,Olodo S t
+F,168,Alaqbede,M b,Marble,Alaqbede M b
+F,169,Meko Ka,,,M ek o K a
+F,170,Afon,Au,Gold,Afon Au
+F,171,Safara,Au,Gold,S afara Au
+F,172,Sha-Orire,Gs,Glass Sand,S ha-Orire Gs
+F,173,AIY,ET OR O K a,ETOROKa,AIY ET OR O K a
+F,174,Aiyetoro,P,Phosphate,Aiyetoro P
+F,175,AR E-ABEOK,UT A,UTA,AR E-ABEOK UT A
+F,176,O.K ajola,K a,Kaolin,O.K ajola K a
+F,177,Odeda,K a,Kaolin,Odeda K a
+F,178,Olowu Ak eusi,S I,SI,Olowu Ak eusi S I
+F,179,Oba,K a,Kaolin,Oba K a
+F,180,Ishara,K a,Kaolin,Ishara K a
+F,181,lIe-lqboro,P,Phosphate,lIe-lqboro P
+F,182,Ohumbe,Gy P,GyP,Ohumbe Gy P
+F,183,Ologiri,Gy,Gypsum,Ologiri Gy
+F,184,lbese,Ls,Limestone,lbese Ls
+F,185,EW EK OR O Ls,,,EW EK OR O Ls
+F,186,Oshosun,P,Phosphate,Oshosun P
+F,187,lFO JUNCT ION,,,lFO JUNCT ION
+F,188,S HAGAM,U Ls,ULs,S HAGAM U Ls
+F,189,Tube,K a,Kaolin,T ube K a
+F,190,Atan,Au,Gold,Atan Au
+F,191,Ijebu-lfe,T s,Tar Sand,Ijebu-lfe T s
+F,192,Epe,Cl,Clay,Epe Cl
+F,193,lwopin,T s,Tar Sand,lwopin T s
+F,194,Imusin,T s,Tar Sand,Imusin T s
+F,195,Idowa,Ls,Limestone,Idowa Ls
+F,196,ljebu-Ode,K a,Kaolin,ljebu-Ode K a
+F,197,Ajara,Cl,Clay,Ajara Cl
+F,198,Badagry,T s,Tar Sand,Badagry T s
+F,199,lk orodu,Cl,Clay,lk orodu Cl
+F,200,ljede,Gs,Glass Sand,ljede Gs
+F,201,Agbowa,Cl,Clay,Agbowa Cl
+F,202,Pok,a K a,aKa,Pok a K a
+F,203,Ibeju,Cl,Clay,Ibeju Cl
+G,1,Junga,Ls,Limestone,Junga Ls
+G,2,Ak wugo,Pb. Z,Lead; Z,Ak wugo Pb. Z
+G,3,AK W ANA,Br,Brine,AK W ANA Br
+G,4,Mayo Butale,Gr,Granite,M ayo Butale Gr
+G,5,Gayan,Gr,Granite,Gayan Gr
+G,6,Wuk ari,Ba,Baryte,W uk ari Ba
+G,7,Tak um Be,,,T ak um Be
+G,8,Baissa,Be,Beryl,Baissa Be
+G,9,Galea,Gm,Gemstone (Beryl etc.),Galea Gm
+G,10,Mai Samari,Bx,Bauxitic Clay,M ai S amari Bx
+G,11,Guraji,Bx,Bauxitic Clay,Guraji Bx
+G,12,Mambila,Gm,Gemstone (Beryl etc.),M ambila Gm
+G,13,Kuar,Ba,Baryte,K uar Ba
+G,14,Dong,Be,Beryl,Dong Be
+G,15,NdumY ayi,Fe,Iron Ore,NdumY ayi Fe
+G,16,Ndum,Ba Fe,BaFe,Ndum Ba Fe
+G,17,Achebe,Ba,Baryte,Achebe Ba
+G,18,Ok aa Br,,,Ok aa Br
+G,19,Agbadu,,,Agbadu
+G,20,Nyamsando,,,Nyamsando
+G,21,Gbaiumba,,,Gbaiumba
+G,22,Gbaiumba,,,Gbaiumba
+G,23,AR UFU,,,AR UFU
+G,24,Ak wana,Fr,Fire Clay (?),Ak wana Fr
+G,24,Itungwa,Pb,Lead,Itungwa Pb
+G,25,AR UFU,,,AR UFU
+G,26,Amini,Fr,Fire Clay (?),Amini Fr
+G,27,Ugba,Ls,Limestone,Ugba Ls
+G,28,Tseak,aa,aa,T seak aa
+G,29,Moze Ls,,,M oz e Ls
+G,30,ljerLs,,,ljerLs
+G,31,Mbatiev,,,M batiev
+G,32,Y ANDEV,,,Y ANDEV
+G,33,Yandev,Ba,Baryte,Y andev Ba
+G,35,Ik paBa,,,Ik paBa
+G,36,Moi-Igbo,,,M oi-Igbo
+G,37,Moi-Igbo,,,M oi-Igbo
+G,38,Tsetyo,Gy,Gypsum,T setyo Gy
+G,39,Ojantelle,,,Ojantelle
+G,40,Bopo,C,Coal,Bopo C
+G,41,Umogidi,Gy,Gypsum,Umogidi Gy
+G,42,Iga-Ok paya,,,Iga-Ok paya
+G,43,EDUM OGA,AM OD Gy,AMODGy,EDUM OGA AM OD Gy
+G,44,Aliade,Ls,Limestone,Aliade Ls
+G,45,Adok,a Gy,aGy,Adok a Gy
+G,46,Opar,Gy,Gypsum,Opar Gy
+G,47,Ohuweyi,,,Ohuweyi
+G,48,Tarak,u Gy,uGy,T arak u Gy
+G,49,Uk pa Gy,,,Uk pa Gy
+G,50,Oruk,pa C,paC,Oruk pa C
+G,51,IGUM ALE,Ls,Limestone,IGUM ALE Ls
+G,52,AgilaBr.K,a,a,AgilaBr.K a
+G,54,Egga,Ls,Limestone,Egga Ls
+G,55,Ok ok uk wo,,,Ok ok uk wo
+G,56,Gabu,Br,Brine,Gabu Br
+G,57,Ise-Agberagba,,,Ise-Agberagba
+G,58,Tyogbonda,,,T yogbonda
+G,59,Fayun,Ls,Limestone,Fayun Ls
+G,60,Lessel,Ba,Baryte,Lessel Ba
+G,61,Lessel,Pb Z n,PbZn,Lessel Pb Z n
+G,62,Yatier,Br,Brine,Y atier Br
+G,63,Vandeik,ya,ya,Vandeik ya
+G,64,Umaisha,,,Umaisha
+G,65,DEK INA,,,DEK INA
+G,65,Nk opologwu,,,Nk opologwu
+G,66,Dek ina,Fe,Iron Ore,Dek ina Fe
+G,67,AjiaIa C S B Afogun,C,Coal,AjiaIa C S B Afogun C
+G,69,OGBOY OGA,,,OGBOY OGA
+G,70,Awo-Ak pali,,,Awo-Ak pali
+G,71,Otochi,K a,Kaolin,Otochi K a
+G,72,Odaru (Gys),,,Odaru (Gys)
+G,73,Igadoba,,,Igadoba
+G,74,Enugu-Ez,ik e,ike,Enugu-Ez ik e
+G,75,Ez imo,C,Coal,Ez imo C
+G,76,Ugnuoqo-opi,,,Ugnuoqo-opi
+G,77,Orba,Cl,Clay,Orba Cl
+G,78,Nsuk,k a Pb Z n,kaPbZn,Nsuk k a Pb Z n
+G,79,Ok puje,,,Ok puje
+G,80,Ok puje,Cl,Clay,Ok puje Cl
+G,81,Nk oloqwu,,,Nk oloqwu
+G,82,Obimo,Fe Cl,FeCl,Obimo Fe Cl
+G,83,Nimbo,Fe,Iron Ore,Nimbo Fe
+G,84,Adani,Gy,Gypsum,Adani Gy
+G,87,Ugo,Oz u,Ozu,Ugo Oz u
+G,88,Uguogu,,,Uguogu
+G,89,Eha-Emufu,,,Eha-Emufu
+G,90,Nk alagu Obuk pa-Ichi,Fe,Iron Ore,Nk alagu Obuk pa-Ichi Fe
+G,91,Emene Enugu,Gy,Gypsum,Emene Enugu Gy
+G,92,AW K UNANAW,Fc,Fire Clay,AW K UNANAW Fc
+G,93,Oqbede,Gs,Glass Sand,Oqbede Gs
+G,94,Ibite Olo,Fe,Iron Ore,Ibite Olo Fe
+G,95,Umuhuok,po Cl,poCl,Umuhuok po Cl
+G,96,ENUGU,C,Coal,ENUGU C
+G,97,Nsude,Fe,Iron Ore,Nsude Fe
+G,98,Enugu,Gs,Glass Sand,Enugu Gs
+G,99,Almansiodo,Cl,Clay,Almansiodo Cl
+G,100,New Heaven,C,Coal,New Heaven C
+G,101,Emene,Gy,Gypsum,Emene Gy
+G,102,Amaguuz,e Ls,eLs,Amaguuz e Ls
+G,103,Nsude,Gs,Glass Sand,Nsude Gs
+G,104,Udi,Ls,Limestone,Udi Ls
+G,105,Ehuhe,Fe,Iron Ore,Ehuhe Fe
+G,106,Awgu Achi Ogu River,Fe.Pb Z,Iron Ore; PbZ,Awgu Achi Ogu R iver Fe.Pb Z
+G,107,UBUR U LAK,E C Br,ECBr,UBUR U LAK E C Br
+G,108,Awlaw Gy Ka 109 Awgu,Fe Ls,FeLs,Awlaw Gy K a 109 Awgu Fe Ls
+G,110,Umunbom Bit,,,Umunbom Bit
+G,112,Ifute Logwana,Cl,Clay,Ifute Logwana Cl
+G,113,Omor,Cl,Clay,Omor Cl
+G,114,Igbarium,Cl,Clay,Igbarium Cl
+G,115,Awk,a C,aC,Awk a C
+G,116,Inyi,C,Coal,Inyi C
+G,117,Owere.Ez uk ala,Fe. Cl,Iron Ore; Clay,Owere.Ez uk ala Fe. Cl
+G,118,OrIu,Fe,Iron Ore,OrIu Fe
+G,119,Achina,Cl,Clay,Achina Cl
+G,120,Uz o-Loube,Gy,Gypsum,Uz o-Loube Gy
+G,121,Uz o-Abam,Ls,Limestone,Uz o-Abam Ls
+G,122,Dik enafai,M,M (unspecified - see symbol),Dik enafai M
+G,123,Orlu Lg P 124 AGBABA,NS U k a,NSUka,Orlu Lg P 124 AGBABA NS U k a
+G,125,Umunamu,Cl,Clay,Umunamu Cl
+G,126,Afor-Oru,Lg,Lignite,Afor-Oru Lg
+G,127,Agbobia,Gs,Glass Sand,Agbobia Gs
+G,128,Obinz,e Gs,eGs,Obinz e Gs
+G,129,Otok,o K a. Ls,oKa; Limestone,Otok o K a. Ls
+G,130,Umede,Gs,Glass Sand,Umede Gs
+G,131,POR T -HAPCOUR,T Gs,TGs,POR T -HAPCOUR T Gs
+G,132,Bomu Oil,,,Bomu Oil
+G,133,Uk wa Gs,,,Uk wa Gs
+G,133,Lok auk,u Gy,uGy,Lok auk u Gy
+G,134,Obigbo,Gs,Glass Sand,Obigbo Gs
+G,135,Ajwanu,Cl,Clay,Ajwanu Cl
+G,136,Igbere,P,Phosphate,Igbere P
+G,137,Nk woagu,Pb.Z,Lead; Z,Nk woagu Pb.Z
+G,139,Nwaogu,Ijouchi Py Br,IjouchiPyBr,Nwaogu - Ijouchi Py Br
+G,140,Nbalaonu,Cl,Clay,Nbalaonu Cl
+G,141,Amawon,CI,Clay,Amawon CI
+G,142,AGBHAR,A NS U K a,ANSUKa,AGBHAR A NS U K a
+G,143,Bende,P,Phosphate,Bende P
+G,144,Ajayi,P,Phosphate,Ajayi P
+G,146,Umuahia,Lg,Lignite,Umuahia Lg
+G,146,Umuahia,R S,RS,Umuahia R S
+G,147,Amur,CI,Clay,Amur CI
+G,148,Arlam,Cl,Clay,Arlam Cl
+G,149,Iwuo,Uk em GS,UkemGS,Iwuo Uk em GS
+G,150,Afaka Offiong,CI,Clay,Afak a Offiong CI
+G,151,Apochuk,wu Ls,wuLs,Apochuk wu Ls
+G,152,Idima,Ls,Limestone,Idima Ls
+G,153,Ndi Ok orie,Ls,Limestone,Ndi Ok orie Ls
+G,154,Ebo,S ul,Sul,Ebo S ul
+G,155,Nk ari,Lg,Lignite,Nk ari Lg
+G,156,Ik ot Nk em Ls,,,Ik ot Nk em Ls
+G,157,Ibiaku Ntak,Ok po Cl,OkpoCl,Ibiak u Ntak Ok po Cl
+G,158,Uguok Da also augured well for the ten-yearly review of the Mby the Nigerian Geological S The Geological and Mthe existing data within the NGS of the thirty-six,S,Salt (?),Uguok Da also augured well for the ten-yearly review of the M by the Nigerian Geological S T he Geological and M the existing data within the NGS of the thirty-six S
+G,159,Iduk,Cl n,Cln,Iduk Cl n
+G,160,Ibiaku Nfok,Bn,Bentonite,Ibiak u Nfok Bn
+G,161,Alua lbion,Cl,Clay,Alua lbion Cl
+G,162,Uyo,Cl,Clay,Uyo Cl
+G,163,Andia,CI,Clay,Andia CI
+G,164,Etinan,Cl,Clay,Etinan Cl
+G,165,Az umini,Gs,Glass Sand,Az umini Gs
+G,166,lk ot Ok oro Bcl,,,lk ot Ok oro Bcl
+G,167,Afaha Offiong,Cl,Clay,Afaha Offiong Cl
+G,168,Ek et Cl,,,Ek et Cl
+G,169,Ik ot Eba Bcl,,,Ik ot Eba Bcl
+G,170,AK AT A Oil,,,AK AT A Oil
+G,171,Ak ata fieId,Gy. P,Gypsum; Phosphate,Ak ata fieId Gy. P
+G,172,IGUM ALE,Ls,Limestone,IGUM ALE Ls
+G,173,NK ALAGU,Ls,Limestone,NK ALAGU Ls
+G,174,Ngbo,Cl,Clay,Ngbo Cl
+G,175,Ofaraak,pa Pb. Z n,paPb; Zinc,Ofaraak pa Pb. Z n
+G,176,IBOK O Cl Ba 177 Abak aliki ilm Ls 178 Abak aliki Cl Bn 179 Ngbo Ls Br 180 ENY IGBA,Pb Z n Fr,PbZnFr,IBOK O Cl Ba 177 Abak alik i ilm Ls 178 Abak alik i Cl Bn 179 Ngbo Ls Br 180 ENY IGBA Pb Z n Fr
+G,181,Ameri - Ameka Br Pb 182.AM ER I,AM EK A Pb. Z n,AMEKAPb; Zinc,Ameri - Amek a Br Pb 182.AM ER I - AM EK A Pb. Z n
+G,183,Adari Igba,Gy,Gypsum,Adari Igba Gy
+G,184,Amachare,M c Ls,McLs,Amachare M c Ls
+G,185,Enyigba,Br,Brine,Enyigba Br
+G,186,Enyigba,Pb.Z n Ba,Lead; ZnBa,Enyigba Pb.Z n Ba
+G,187,Ez eogudu,Ls Ls,LsLs,Ez eogudu Ls Ls
+G,188,Ugulangu,S,Salt (?),Ugulangu S
+G,189,Omega,Cu,Copper,Omega Cu
+G,190,Omega Ba Br 191 Iglagu,F Ba,FBa,Omega Ba Br 191 Iglagu F Ba
+G,192,UBUR U LAK,E Br,EBr,UBUR U LAK E Br
+G,193,Uz arem,S K a,SKa,Uz arem S K a
+G,194,Erei,C,Coal,Erei C
+G,196,Ak pak ua Br C 196 Egbok orik,o Ls,oLs,Ak pak ua Br C 196 Egbok orik o Ls
+G,197,Gabu(Ogaja),Ba,Baryte,Gabu(Ogaja) Ba
+G,198,Ogaja,Br,Brine,Ogaja Br
+G,199,Ok poma Br Ls 200 Obudu,CI,Clay,Ok poma Br Ls 200 Obudu CI
+G,201,Busangfon,Gr,Granite,Busangfon Gr
+G,202,Katia,K a,Kaolin,K atia K a
+G,203,Umaji,Br,Brine,Umaji Br
+G,204,Ubong ilm,,,Ubong ilm
+G,205,Ksaja,Qa Ls,QaLs,K saja Qa Ls
+G,206,Owak ande,Ls Ls,LsLs,Owak ande Ls Ls
+G,207,Dongala Ba Ba 208,Ok on Qz . Qa,OkonQz; Quartz,Dongala Ba Ba 208 Ok on Qz . Qa
+G,209,Efomi,Br,Brine,Efomi Br
+G,210,Ayamitef,Be,Beryl,Ayamitef Be
+G,211,Agai Ibami Ba Ka 212. lk ot Ak perem Gn Tc 213 Ak pet Central,Ba C,BaC,Agai Ibami Ba K a 212. lk ot Ak perem Gn T c 213 Ak pet Central Ba C
+G,214,Ideacha,Qa,Quartz,Ideacha Qa
+G,215,Orua,Gm,Gemstone (Beryl etc.),Orua Gm
+G,216,Orua,S n,Tin (Cassiterite),Orua S n
+G,217,M FAM OS ING,Ls C Cl,LsCCl,M FAM OS ING Ls C Cl
+G,218,ODUK PANI,Ls,Limestone,ODUK PANI Ls
+G,219,Oduk pani,CI. Ls,Clay; Limestone,Oduk pani CI. Ls
+G,220,Mfamosing,Py Cl,PyCl,M famosing Py Cl
+G,221,Ndigan,T m C,TmC,Ndigan T m C
+G,222,Ndigan,R u Cl,RuCl,Ndigan R u Cl
+G,223,Ndek,e T a,eTa,Ndek e T a
+G,224,Oban,T m,Tourmaline,Oban T m
+G,225,Ipoula,M z Fe,MzFe,Ipoula M z Fe
+G,226,"Wuk ari Ba Gs 227 Ok arana Mn Cl Fe Cl Lsncn his has inerals Map of Nigeria (1994 Edition) embark ed upon urvey of Agency (NGS A) in 2004 ineral data were obtained from various sources: including the reappraisal of Aasa prelude to the production of Geological and Minerals Map of each tates of Federation and the Federal Capital Territory, the Mining and the Petroleum",,,"W uk ari Ba Gs 227 Ok arana M n Cl Fe Cl Ls n c n his has inerals M ap of Nigeria (1994 Edition) embark ed upon urvey of Agency (NGS A) in 2004 ineral data were obtained from various sources: including the reappraisal of A as a prelude to the production of Geological and M inerals M ap of each tates of Federation and the Federal Capital T erritory, the M ining and the Petroleum"
