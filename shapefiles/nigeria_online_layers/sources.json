@@ -54,13 +54,15 @@
     },
     "river_lines": {
       "output": "river_lines/river_lines.shp",
-      "feature_count": 35,
-      "source_name": "Natural Earth 10m Rivers + Lake Centerlines, rivers only",
-      "source_url": "https://github.com/nvkelso/natural-earth-vector/tree/ca96624a56bd078437bca8184e78163e5039ad19/10m_physical",
-      "source_commit": "ca96624a56bd078437bca8184e78163e5039ad19",
-      "source_version": "5.1.1",
-      "license": "Public domain",
-      "processing": "Keep features classified as River, exclude lake centerlines, clip line geometry to the fixed Nigeria ADM0 reference. This is a generalized and incomplete major-river extract."
+      "feature_count": 1054,
+      "source_name": "NGSA Geological Map of Nigeria 1:2M vector rivers (extracted from PDF layer 'Rivers')",
+      "source_pdf": "Geological_Map_of_Nigeria.pdf (via MaxiKen/site extraction, 2011 vector edition)",
+      "source_repo": "https://github.com/MaxiKen/site",
+      "source_commit": "138e9619fb8c1fad257f8cdefd3d03c51f6fb5c6",
+      "source_file": "shapefiles/rivers.shp (1054 polylines, every river stroke as drawn, len_km per feature)",
+      "license": "Derived from NGSA map, same as geology units",
+      "processing": "Re-chained fragmented dashes where needed (n_frag), preserved stroke/width, written as EPSG:4326. Includes every small headwater stroke, not just major rivers.",
+      "validation": "All 1054 geometries valid, total length 40198 km, bounds 2.19,3.74,14.65,13.84"
     },
     "road_lines": {
       "output": "road_lines/road_lines.shp",
@@ -126,7 +128,7 @@
       "source_csv_sha256": "fd72b05cf77b3003d0bad2ba6008d7cf04e356c6ce8490bbebf80329731f85b3",
       "source_csv_row_count": 42315,
       "selection": "type == 'settlement'; all 22,004 selected rows also have license == 'ODbL' and source IDs beginning with 'osm:'.",
-      "source_attribution": "© OpenStreetMap contributors; SafeSignal-Geo / Abraham Esandayinze Tanta, v0.2.0.",
+      "source_attribution": "\u00a9 OpenStreetMap contributors; SafeSignal-Geo / Abraham Esandayinze Tanta, v0.2.0.",
       "source_object_kinds": {
         "node": 21869,
         "way": 135

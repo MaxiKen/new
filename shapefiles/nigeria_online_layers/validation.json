@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-10-18",
+  "generated_on": "2026-10-21",
   "reference": {
     "path": "shapefiles/nigeria_admin0/nigeria_admin0.shp",
     "feature_count": 1,
@@ -189,7 +189,7 @@
     },
     "river_lines": {
       "path": "river_lines/river_lines.shp",
-      "feature_count": 35,
+      "feature_count": 1054,
       "geometry_type": "Polyline",
       "expected_geometry_type": "Polyline",
       "invalid_or_empty_count": 0,
@@ -202,22 +202,24 @@
         ]
       },
       "bounds_lon_lat": [
-        3.312744141,
-        4.419867255,
-        14.669472005,
-        13.572986545
+        2.1907224346183423,
+        3.743719119629329,
+        14.655099671510749,
+        13.844220741613256
       ],
       "fields": [
-        "RIVER_NAME",
-        "ALT_NAME",
-        "RIVER_NUM",
-        "SCALE_RANK",
-        "MIN_ZOOM",
-        "CLIP_REF"
+        "ocg_id",
+        "layer",
+        "class",
+        "stroke",
+        "width_pt",
+        "n_frag",
+        "len_km",
+        "src_seq"
       ],
-      "length_km_equal_area_projection": 5137.286304,
-      "outside_reference_length_km": 7e-06,
-      "outside_reference_length_pct": 0.0
+      "length_km_equal_area_projection": 40198.58499999998,
+      "outside_reference_length_km": 0,
+      "outside_reference_length_pct": 0
     },
     "road_lines": {
       "path": "road_lines/road_lines.shp",

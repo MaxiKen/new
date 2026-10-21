@@ -1,5 +1,5 @@
 {
-  "feature_count": 1486,
+  "feature_count": 1478,
   "source_blobs": 1609,
   "source_candidate_mineral_blobs": 1514,
   "excluded_non_symbols": 95,
@@ -71,7 +71,7 @@
     "Trona": 1,
     "Uranium": 5,
     "Wolframite": 22,
-    "Zircon": 26
+    "Zircon": 18
   },
   "outside_reference_count": 8,
   "outside_reference_max_km": 6.996,
@@ -83,7 +83,7 @@
   ],
   "crs": "EPSG:4326",
   "legend_attribute_is_single_value": true,
-  "note": "Points represent estimated symbol centres, including estimated complete centres for reviewed half/fragment/merged cases. Only mapped mineral symbols are included; the reference polygon was used for georeferencing and QA, not clipping.",
+  "note": "Points represent estimated symbol centres at sub-pixel accuracy: duplicate same-mineral pairs within 1.8 km (8 Zircon duplicates, vertically split) were merged to cluster centroids; 292 points were refined to local image moment centroids within 40x40 px patches at 150 dpi (threshold 140). Complete template matches were reviewed first, then partial matches in clusters were split and placed at the standard symbol middle. All 95 non-symbol blobs remain excluded; 6 non-legend and 8 Psammite area-tint candidates remain withheld.",
   "withheld_nonlegend_candidates": 6,
   "withheld_psammite_area_tint_matches": 8,
   "half_symbol_cases_reviewed": 8,
@@ -105,5 +105,7 @@
   "geometry_type": "Point",
   "field_count": 21,
   "mineral_names_with_ambiguous_option_punctuation": 0,
-  "count_reconciliation": "1514 candidate blobs - 6 non-legend candidates - 8 Psammite area-tint matches - 15 fragment components consolidated - 1 duplicate half component + 2 split symbols = 1486 output points"
+  "count_reconciliation": "1514 candidate blobs - 6 non-legend - 8 Psammite - 15 fragments consolidated -1 duplicate half +2 splits -8 duplicate Zircon merged = 1478 output points (refined)",
+  "duplicate_same_mineral_pairs_merged": 8,
+  "refined_centroids": 292
 }

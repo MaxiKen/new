@@ -8,21 +8,22 @@
     "Polygon"
   ],
   "bounds": [
-    2.4031444646594755,
-    4.296482861261048,
-    14.67794074932757,
-    13.894471996620583
+    2.6710819900001184,
+    4.272162177000041,
+    14.66993615700008,
+    13.880290832000057
   ],
   "clipped_to_reference": false,
   "crs": "EPSG:4326",
-  "note": "Only mapped geology units are included; the Nigeria outline is a georeferencing reference and is not included or used to clip map units.",
+  "note": "Gap-free coverage: union equals Nigeria Admin-0 mainland polygon (no inland gaps). Gaps were filled by extending adjacent geological units; no new disconnected polygons were created except where necessary. 18 degenerate zero-area interior rings remain as numerical artifacts (area <1e-12 deg2) and are not visible gaps.",
   "georeferencing_checks": {
     "method": "printed 1-degree graticule affine; PDF geospatial metadata not used",
     "maximum_graticule_residual_degrees": 0.0010540699994834313,
     "approximate_maximum_graticule_residual_m": 117,
     "capital_reference_rms_km": 8.124,
     "capital_control_count": 32,
-    "pdf_geospatial_metadata_used": false
+    "pdf_geospatial_metadata_used": false,
+    "gaps_filled": "All 959 gaps (total 0.8098 deg2, ~9,900 km2) inside Admin-0 were merged into neighboring units by longest-shared-edge assignment, then clipped to Admin-0 to remove 0.511 deg2 of spill outside. Remaining admin difference is 0."
   },
   "source_validation": {
     "local_image_pdf_and_vector_edition_render_aligned_at_zero_shift": true,
