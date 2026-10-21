@@ -1,0 +1,67 @@
+{
+  "geology_full": {
+    "file": "corrected_delivery/02_Georeferenced_map_pictures/Geological_Map_of_Nigeria_FULLSHEET_georeferenced.tif",
+    "width": 6600,
+    "height": 3675,
+    "bounds": [
+      1.754458,
+      3.284548,
+      21.854439,
+      14.47693
+    ],
+    "dlon_px": 0.003045451663479039,
+    "dlat_px": -0.0030455459880500448
+  },
+  "geology_frame": {
+    "file": "corrected_delivery/02_Georeferenced_map_pictures/Geological_Map_of_Nigeria_MAPFRAME_georeferenced.tif",
+    "width": 4087,
+    "height": 3336,
+    "bounds": [
+      2.327003,
+      3.744426,
+      14.773764,
+      13.904367
+    ],
+    "dlon_px": 0.003045451663479039,
+    "dlat_px": -0.0030455459880500448
+  },
+  "mineral_full": {
+    "file": "corrected_delivery/02_Georeferenced_map_pictures/Mineral_Resources_Map_of_Nigeria_2023_FULLSHEET_georeferenced.tif",
+    "width": 8250,
+    "height": 4500,
+    "bounds": [
+      2.005085,
+      2.616453,
+      27.134151,
+      16.323008
+    ],
+    "dlon_px": 0.0030459473870534056,
+    "dlat_px": -0.00304590103941119
+  },
+  "mineral_frame": {
+    "file": "corrected_delivery/02_Georeferenced_map_pictures/Mineral_Resources_Map_of_Nigeria_2023_MAPFRAME_georeferenced.tif",
+    "width": 4120,
+    "height": 3353,
+    "bounds": [
+      2.47619,
+      3.83671,
+      15.02138,
+      14.04668
+    ],
+    "dlon_px": 0.003044949029126214,
+    "dlat_px": -0.0030450253504324485
+  },
+  "mineral_base": {
+    "file": "corrected_delivery/02_Georeferenced_map_pictures/Mineral_Resources_Map_BASEONLY_symbols_georeferenced.tif",
+    "width": 2060,
+    "height": 1677,
+    "bounds": [
+      2.47619,
+      3.830618,
+      15.02544,
+      14.04668
+    ],
+    "dlon_px": 0.006091868929144658,
+    "dlat_px": -0.006091867351373724
+  }
+}

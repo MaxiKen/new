@@ -1,0 +1,951 @@
+gap_id,area_km2,centroid_lon,centroid_lat,touches_border,method,assigned_to,neighbour_codes
+0,5443.1621,13.69844,13.1955,True,NEW POLYGON (necessary): Lake Chad open water,WATER:100%,Cst
+1,442.8943,10.16135,13.16788,True,multi-neighbour Voronoi split (nearest extension),Cst:84%; JyG:16%,Cst;JyG
+2,440.0771,11.19462,6.5153,True,single-neighbour extension,MG:100%,MG
+3,422.47,4.40359,6.28208,True,multi-neighbour Voronoi split (nearest extension),Al:4%; Al:7%; Al:89%,Al
+4,241.3473,7.59578,13.21072,True,multi-neighbour Voronoi split (nearest extension),Gdss:53%; OGm:9%; OGp:37%; Sf:1%,Gdss;OGm;OGp;Sf
+5,164.1759,14.25775,11.33979,True,single-neighbour extension,Cst:100%,Cst
+6,157.3903,3.52148,11.51003,True,multi-neighbour Voronoi split (nearest extension),Al:3%; GIss:97%,Al;GIss
+7,145.2476,10.30963,6.91207,True,single-neighbour extension,bG:100%,bG
+8,136.6092,3.77345,10.80331,True,multi-neighbour Voronoi split (nearest extension),GG:5%; GG:9%; GIss:11%; M:3%; M:4%; M:7%; MG:59%; bG:2%,GG;GIss;M;MG;bG
+9,92.8222,13.69421,10.89274,True,multi-neighbour Voronoi split (nearest extension),OGp:81%; Su:19%,OGp;Su
+10,85.5763,6.78724,4.36716,True,single-neighbour extension,AB:100%,AB
+11,81.7545,11.70477,7.00815,True,single-neighbour extension,MG:100%,MG
+12,80.6501,5.45554,4.96107,True,single-neighbour extension,AB:100%,AB
+14,79.3506,2.71583,8.08575,True,multi-neighbour Voronoi split (nearest extension),M:98%; bG:2%,M;bG
+13,78.4836,3.6402,12.04012,True,multi-neighbour Voronoi split (nearest extension),GIss:0%; Gwss:100%,GIss;Gwss
+15,70.3959,2.7381,8.5931,True,multi-neighbour Voronoi split (nearest extension),M:13%; M:41%; bG:45%,M;bG
+16,64.2816,4.09947,13.12132,True,single-neighbour extension,Gwss:100%,Gwss
+17,60.2779,8.27443,4.5955,True,single-neighbour extension,Al:100%,Al
+18,47.2544,12.30177,8.44041,True,multi-neighbour Voronoi split (nearest extension),MG:28%; OGp:72%,MG;OGp
+19,45.2704,9.00598,5.96007,True,multi-neighbour Voronoi split (nearest extension),Arlsh:63%; OGp:37%,Arlsh;GG;OGp
+20,43.3199,5.13179,5.65385,True,single-neighbour extension,AB:100%,AB
+21,41.2388,3.62128,10.26218,True,single-neighbour extension,OGp:100%,OGp
+22,39.9593,11.84656,7.1254,True,multi-neighbour Voronoi split (nearest extension),MG:97%; b:3%,MG;b
+23,39.5833,6.65316,4.35308,True,single-neighbour extension,AB:100%,AB
+25,37.2711,2.7281,7.68476,True,single-neighbour extension,M:100%,M
+24,37.209,2.76786,8.93012,True,single-neighbour extension,bG:100%,bG
+26,35.1651,10.62393,7.0803,True,multi-neighbour Voronoi split (nearest extension),GG:11%; MG:66%; OGu:23%,GG;MG;OGu
+27,32.0462,6.14252,4.2912,True,single-neighbour extension,AB:100%,AB
+28,29.5819,8.50745,4.72753,True,single-neighbour extension,Al:100%,Al
+29,28.72,5.92684,4.36256,True,single-neighbour extension,AB:100%,AB
+30,26.0903,9.48935,6.43061,True,multi-neighbour Voronoi split (nearest extension),GG:29%; M:50%; Su:21%,GG;M;Su
+31,23.7465,11.69557,13.29503,True,single-neighbour extension,Cst:100%,Cst
+32,23.0001,8.48152,13.06317,True,single-neighbour extension,Gdss:100%,Gdss
+33,22.8946,12.80301,8.88392,True,multi-neighbour Voronoi split (nearest extension),OGm:99%; OGp:1%,OGm;OGp
+34,22.5366,6.02736,4.32338,True,single-neighbour extension,AB:100%,AB
+35,21.9499,5.21203,5.51143,True,single-neighbour extension,AB:100%,AB
+36,21.5873,5.37615,5.19376,True,single-neighbour extension,AB:100%,AB
+39,20.0165,5.04339,5.79983,True,multi-neighbour Voronoi split (nearest extension),AB:5%; Al:2%; Al:44%; Al:48%,AB;Al
+37,19.9658,3.58677,9.96235,True,single-neighbour extension,OGp:100%,OGp
+38,19.8791,3.33187,9.73364,True,multi-neighbour Voronoi split (nearest extension),OGp:99%; OPg:1%,OGp;OPg
+40,17.1012,8.27134,13.18043,True,single-neighbour extension,Gdss:100%,Gdss
+41,16.3129,13.35192,10.10981,True,single-neighbour extension,OGp:100%,OGp
+42,15.857,6.2312,13.66466,True,multi-neighbour Voronoi split (nearest extension),Tst:37%; Wcs:3%; Wss:60%,Tst;Wcs;Wss
+43,14.9816,6.29969,4.30669,True,single-neighbour extension,AB:100%,AB
+44,12.8063,13.02317,13.52846,True,single-neighbour extension,Cst:100%,Cst
+46,12.0484,8.86688,5.63873,True,multi-neighbour Voronoi split (nearest extension),Arlsh:12%; GG:88%,Arlsh;GG
+45,11.8845,13.17441,13.52956,True,single-neighbour extension,Cst:100%,Cst
+47,11.8207,2.73497,6.86579,True,single-neighbour extension,Bnst:100%,Bnst
+48,11.6016,8.81561,5.28479,True,multi-neighbour Voronoi split (nearest extension),GG:100%; MG:0%,GG;MG
+49,10.7766,12.90861,9.41253,True,multi-neighbour Voronoi split (nearest extension),Al:77%; M:23%,Al;M
+50,9.8456,2.78683,7.48005,True,multi-neighbour Voronoi split (nearest extension),Asl:45%; M:55%,Asl;M
+52,9.6295,2.76438,7.20331,True,multi-neighbour Voronoi split (nearest extension),ANsh:75%; Asl:25%,ANsh;Asl
+53,9.6218,3.35726,6.40177,True,single-neighbour extension,Al:100%,Al
+51,9.514,12.69729,13.3025,True,single-neighbour extension,Cst:100%,Cst
+54,9.3635,2.76607,6.70187,True,single-neighbour extension,Bnst:100%,Bnst
+55,9.1327,3.14536,9.36035,True,multi-neighbour Voronoi split (nearest extension),OGm:37%; OPg:63%,OGm;OPg
+56,8.4595,6.55031,4.33976,True,single-neighbour extension,AB:100%,AB
+57,8.1336,12.11241,13.10037,True,multi-neighbour Voronoi split (nearest extension),Al:20%; Cst:80%,Al;Cst
+58,8.0353,8.94799,12.84545,True,single-neighbour extension,Cst:100%,Cst
+59,8.0091,12.77697,13.36691,True,single-neighbour extension,Cst:100%,Cst
+60,7.9054,2.74728,7.09154,True,multi-neighbour Voronoi split (nearest extension),ANsh:64%; Issh:36%,ANsh;Issh
+61,6.6537,9.61695,6.52119,True,multi-neighbour Voronoi split (nearest extension),OGp:74%; Su:26%,OGp;Su
+62,6.5572,3.11362,9.1823,True,single-neighbour extension,OGm:100%,OGm
+64,6.5423,9.35823,6.32753,True,multi-neighbour Voronoi split (nearest extension),GG:0%; OGp:100%,GG;OGp
+63,6.4351,12.81273,13.39715,True,single-neighbour extension,Cst:100%,Cst
+65,6.2977,8.28519,11.43757,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+66,6.1471,2.70058,7.84846,True,single-neighbour extension,M:100%,M
+67,6.0481,3.24775,9.61618,True,single-neighbour extension,OPg:100%,OPg
+68,5.8584,12.62963,13.2876,True,single-neighbour extension,Cst:100%,Cst
+69,5.5497,9.36034,12.81935,True,single-neighbour extension,Cst:100%,Cst
+70,5.5294,8.85759,5.77286,True,single-neighbour extension,Arlsh:100%,Arlsh
+71,5.4281,12.3729,8.78152,False,single-neighbour extension,OGm:100%,OGm
+72,5.2696,12.55006,13.1677,True,single-neighbour extension,Cst:100%,Cst
+73,5.2331,11.45217,6.59706,True,single-neighbour extension,MG:100%,MG
+74,5.1618,8.4426,11.55703,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+75,4.855,13.08486,13.52588,True,single-neighbour extension,Cst:100%,Cst
+76,4.312,12.56099,13.22859,True,single-neighbour extension,Cst:100%,Cst
+77,4.27,13.54316,10.63554,True,single-neighbour extension,OGp:100%,OGp
+78,4.0757,13.07124,9.50878,True,single-neighbour extension,OGp:100%,OGp
+79,3.9804,12.52436,8.61088,True,single-neighbour extension,OGp:100%,OGp
+80,3.8837,13.43106,10.1566,True,single-neighbour extension,OGp:100%,OGp
+81,3.7643,8.29234,12.44175,False,multi-neighbour Voronoi split (nearest extension),OGp:0%; Su:50%; qs:50%,OGp;Su;qs
+83,3.7085,5.6004,8.27849,False,multi-neighbour Voronoi split (nearest extension),M:74%; Qs:26%,M;Qs
+82,3.6783,12.90963,13.488,True,single-neighbour extension,Cst:100%,Cst
+85,3.6583,2.74547,7.38848,True,single-neighbour extension,Asl:100%,Asl
+86,3.6147,4.566,9.19278,False,multi-neighbour Voronoi split (nearest extension),M:50%; Su:50%,M;Su
+84,3.6119,7.16796,12.1608,False,multi-neighbour Voronoi split (nearest extension),Sf:50%; Su:50%,M;OGp;Sf;Su
+87,3.5701,7.54211,11.79047,False,multi-neighbour Voronoi split (nearest extension),M:50%; qs:50%,M;qs
+88,3.4202,8.79887,6.43051,False,multi-neighbour Voronoi split (nearest extension),GG:49%; OGu:51%,GG;OGu
+89,3.3299,12.86118,13.4795,True,single-neighbour extension,Cst:100%,Cst
+90,3.2836,12.21697,13.11607,True,single-neighbour extension,Cst:100%,Cst
+91,3.2684,12.17404,13.10711,True,single-neighbour extension,Cst:100%,Cst
+92,3.2243,7.66468,9.68619,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+93,3.2006,8.66694,9.24766,False,multi-neighbour Voronoi split (nearest extension),GG:15%; JyG:35%; M:50%,GG;JyG;M
+94,3.1783,7.45439,8.29951,False,multi-neighbour Voronoi split (nearest extension),Lass:50%; M:50%,Lass;M;NPss
+95,3.1436,8.37211,11.91412,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+96,3.0084,7.32456,12.72651,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+97,2.9968,6.94376,12.99315,True,multi-neighbour Voronoi split (nearest extension),GG:96%; OGp:4%,GG;OGp
+98,2.995,10.04218,11.1559,False,multi-neighbour Voronoi split (nearest extension),JyG:50%; OGp:50%,JyG;OGp
+100,2.9682,7.77556,9.40533,False,multi-neighbour Voronoi split (nearest extension),M:47%; OGp:4%; Su:49%,M;OGp;Su
+99,2.9529,8.02975,12.11012,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+101,2.9332,6.88165,4.39634,True,single-neighbour extension,AB:100%,AB
+102,2.8591,6.58895,6.79764,False,multi-neighbour Voronoi split (nearest extension),Al:46%; Imsh:4%; Issh:50%,Al;Imsh;Issh
+103,2.7848,7.99195,4.54422,True,single-neighbour extension,Al:100%,Al
+104,2.531,7.30405,12.94106,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGm:3%; OGp:47%,M;OGm;OGp
+105,2.5108,11.79007,12.53312,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Cst:50%,Al;Cst
+106,2.4863,7.55832,11.60467,False,multi-neighbour Voronoi split (nearest extension),M:50%; Su:50%,GG;M;Su
+107,2.4651,6.73473,10.32335,False,multi-neighbour Voronoi split (nearest extension),M:50%; Qs:50%,M;Qs
+109,2.4531,7.73056,4.50178,True,single-neighbour extension,Al:100%,Al
+108,2.4202,7.87147,11.98188,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:0%; Sf:38%; Su:12%,M;OGp;Sf;Su
+110,2.3413,9.48589,12.81224,True,single-neighbour extension,Cst:100%,Cst
+112,2.3406,11.58351,6.89989,True,single-neighbour extension,MG:100%,MG
+111,2.3343,6.90027,10.91154,False,multi-neighbour Voronoi split (nearest extension),M:50%; MS:50%,M;MS
+113,2.2836,5.75893,13.79296,True,multi-neighbour Voronoi split (nearest extension),Al:18%; GIss:78%; Tst:4%,Al;GIss;Tst
+114,2.1615,7.72738,11.96644,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+117,2.1392,7.97096,11.71539,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGp:50%,GG;OGp
+116,2.1347,7.72082,12.28841,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M
+115,2.1335,8.02129,12.30471,False,multi-neighbour Voronoi split (nearest extension),GG:47%; OGp:50%; Sf:3%,GG;OGp;Sf;Su
+118,2.0406,3.08626,9.11027,True,single-neighbour extension,OGm:100%,OGm
+119,1.9934,8.36307,5.25566,False,multi-neighbour Voronoi split (nearest extension),LCM:0%; Mlst:50%; bG:50%,LCM;Mlst;bG
+120,1.9512,11.20914,12.24303,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Cst:50%,Al;Cst
+122,1.9188,11.41595,11.7489,False,multi-neighbour Voronoi split (nearest extension),Cst:50%; Kss:50%,Cst;Kss
+121,1.913,6.56637,12.5552,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M;Sp
+124,1.9009,7.70113,9.4815,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:25%; Su:25%,M;OGp;Su
+123,1.8869,9.39328,11.79897,False,multi-neighbour Voronoi split (nearest extension),Cst:50%; OGp:50%,Cst;OGp
+126,1.8661,8.27482,9.9231,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+125,1.8454,13.11942,13.52844,True,single-neighbour extension,Cst:100%,Cst
+127,1.7868,7.86467,9.68654,False,multi-neighbour Voronoi split (nearest extension),GG:46%; M:48%; Su:6%,GG;M;Su
+128,1.7529,8.28051,9.38601,False,multi-neighbour Voronoi split (nearest extension),M:50%; b:50%,M;b
+129,1.729,14.17872,12.41316,True,single-neighbour extension,Cst:100%,Cst
+131,1.7025,7.39023,11.04137,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGd:50%,GG;M;OGd
+130,1.702,4.39869,11.15674,False,multi-neighbour Voronoi split (nearest extension),Al:50%; NPss:50%,Al;NPss;Su
+132,1.6849,8.01327,8.2039,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Lass:50%,Al;Lass
+133,1.6223,5.5714,4.67407,True,single-neighbour extension,AB:100%,AB
+135,1.5835,8.18363,9.61913,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M
+136,1.5781,8.64857,10.73702,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M
+134,1.5622,5.97339,13.51378,False,multi-neighbour Voronoi split (nearest extension),Dsh:50%; Tst:50%,Dsh;Tst
+137,1.5597,9.74226,7.11138,False,multi-neighbour Voronoi split (nearest extension),OPg:50%; bG:50%,OPg;bG
+138,1.539,8.67439,12.14786,False,multi-neighbour Voronoi split (nearest extension),Cst:50%; OGp:50%,Cst;OGp
+139,1.5268,4.51594,7.96254,False,multi-neighbour Voronoi split (nearest extension),M:72%; P:0%; Qs:28%,M;P;Qs
+140,1.4826,6.98208,10.86347,False,multi-neighbour Voronoi split (nearest extension),M:50%; Su:50%,M;Su
+141,1.4732,5.18491,12.70215,False,multi-neighbour Voronoi split (nearest extension),Al:50%; GIss:50%,Al;GIss
+142,1.4712,9.9894,6.88629,True,single-neighbour extension,bG:100%,bG
+143,1.4462,7.98319,11.8829,False,multi-neighbour Voronoi split (nearest extension),GG:23%; M:50%; OGp:27%; Sf:0%,GG;M;OGp;Sf
+144,1.4277,11.12844,8.99513,False,multi-neighbour Voronoi split (nearest extension),MG:50%; OGp:50%,MG;OGp
+145,1.4224,8.28161,10.27645,False,multi-neighbour Voronoi split (nearest extension),M:50%; MyG:50%,M;MyG
+146,1.4034,14.63934,12.18612,True,single-neighbour extension,Cst:100%,Cst
+147,1.3864,13.16129,11.2564,False,multi-neighbour Voronoi split (nearest extension),Cst:50%; Kss:50%,Cst;Kss
+149,1.3656,7.70222,8.62956,False,multi-neighbour Voronoi split (nearest extension),M:50%; OPg:50%,M;OPg
+150,1.3648,8.00146,8.83709,False,multi-neighbour Voronoi split (nearest extension),M:51%; OGu:0%; Su:49%,M;OGu;Su
+148,1.3515,8.1881,11.96665,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+155,1.3399,4.72659,7.51967,False,multi-neighbour Voronoi split (nearest extension),Su:50%; bG:50%,Su;bG
+154,1.3266,7.19825,10.35404,False,multi-neighbour Voronoi split (nearest extension),OGm:8%; OGp:42%; Su:50%,OGm;OGp;Su
+151,1.3248,7.27966,11.50382,False,multi-neighbour Voronoi split (nearest extension),M:52%; qs:48%,M;qs
+152,1.3242,12.62148,11.06325,False,multi-neighbour Voronoi split (nearest extension),Bss:50%; OGp:50%,Bss;OGp
+153,1.3128,5.87162,13.40719,False,multi-neighbour Voronoi split (nearest extension),Dsh:50%; Tst:50%,Dsh;Tst
+160,1.3025,6.84898,4.49176,True,multi-neighbour Voronoi split (nearest extension),AB:50%; MS:50%,AB;MS
+158,1.3024,11.55887,6.70972,True,single-neighbour extension,MG:100%,MG
+157,1.2959,3.19513,9.51866,True,single-neighbour extension,OPg:100%,OPg
+156,1.2937,8.27869,10.82382,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGm:50%,M;OGm
+159,1.2934,7.97117,8.93947,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGu:50%,M;OGu
+162,1.23,7.42274,10.95776,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGd:26%; OGm:24%,M;OGd;OGm
+161,1.2268,10.58863,11.71069,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Cst:50%,Al;Cst;Kss
+164,1.2206,7.52457,11.65867,False,multi-neighbour Voronoi split (nearest extension),M:51%; Su:49%,M;Su
+163,1.2169,12.85553,13.44178,True,single-neighbour extension,Cst:100%,Cst
+167,1.2142,7.62043,5.74848,False,multi-neighbour Voronoi split (nearest extension),Imsh:50%; Ncsh:50%,Imsh;Ncsh
+166,1.2096,3.42855,7.63771,False,multi-neighbour Voronoi split (nearest extension),M:51%; Su:49%,M;Su
+170,1.2061,9.91716,8.82823,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Esh:50%,Al;Bss;Esh
+169,1.2019,8.51526,10.06091,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGm:50%,M;OGm
+168,1.1966,7.15375,11.44739,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M
+165,1.192,8.04108,12.53007,False,multi-neighbour Voronoi split (nearest extension),GG:14%; M:36%; OGp:50%,GG;M;OGp
+171,1.1793,8.11654,7.06259,False,multi-neighbour Voronoi split (nearest extension),Esh:50%; Ess:50%,Esh;Ess
+172,1.1754,10.91373,8.48746,False,multi-neighbour Voronoi split (nearest extension),MG:50%; OPg:50%,MG;OPg
+173,1.1751,7.62815,8.58002,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:0%; OPg:50%,M;OGp;OPg
+174,1.1524,7.37196,11.35322,False,longest-shared-border extension (Voronoi fallback),M:100%,GG;M
+175,1.1493,6.78174,10.38941,False,multi-neighbour Voronoi split (nearest extension),M:2%; OGp:49%; Su:48%,M;OGp;Su
+177,1.1465,7.34595,8.30592,False,multi-neighbour Voronoi split (nearest extension),MS:50%; NPss:50%,M;MS;NPss
+176,1.1452,5.66642,8.30911,False,multi-neighbour Voronoi split (nearest extension),M:72%; Qs:28%,M;Qs
+178,1.1428,4.37319,9.09692,False,multi-neighbour Voronoi split (nearest extension),GG:45%; GG:50%; OGp:5%,GG;OGp;Su
+183,1.1412,7.68753,9.26527,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M
+181,1.1405,8.16726,9.51881,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M
+179,1.1395,12.68924,9.81955,False,multi-neighbour Voronoi split (nearest extension),M:50%; b:50%,M;b
+180,1.1299,8.00378,12.30775,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:47%; Sf:3%,GG;M;Sf
+182,1.1289,6.05619,12.58566,False,multi-neighbour Voronoi split (nearest extension),Al:50%; GIgss:50%; GIss:0%,Al;GIgss;GIss
+184,1.1185,5.07261,12.99215,False,multi-neighbour Voronoi split (nearest extension),Al:1%; Gwss:50%; Wsh:50%,Al;Gwss;Wsh
+187,1.1124,7.74972,8.32344,False,multi-neighbour Voronoi split (nearest extension),JyG:49%; Lass:0%; M:51%,JyG;Lass;M
+188,1.1001,7.56399,11.95295,False,multi-neighbour Voronoi split (nearest extension),M:50%; Su:50%,M;Su
+185,1.0963,8.50778,12.89043,False,multi-neighbour Voronoi split (nearest extension),Gdss:8%; MyP:42%; OGp:50%,Gdss;MyP;OGp
+186,1.0957,4.84942,13.02493,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Gwss:50%,Al;Gwss
+192,1.0825,8.98915,7.56434,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Ess:50%,Al;Ess
+190,1.0815,6.77878,7.97244,False,multi-neighbour Voronoi split (nearest extension),Al:50%; NPss:50%,Al;NPss
+194,1.0776,6.78047,4.50492,True,multi-neighbour Voronoi split (nearest extension),AB:50%; MS:50%,AB;MS
+191,1.0755,7.77026,10.01447,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+189,1.0714,14.18043,12.45805,True,single-neighbour extension,Cst:100%,Cst
+193,1.0628,8.68693,12.92169,True,single-neighbour extension,Cst:100%,Cst
+196,1.0493,4.62558,8.10492,False,multi-neighbour Voronoi split (nearest extension),GG:15%; bG:85%,GG;bG
+195,1.0444,10.38192,10.62903,False,multi-neighbour Voronoi split (nearest extension),Kss:8%; OGp:42%; OGp:50%,Gss;Kss;OGp
+197,1.04,8.08891,11.17862,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGf:50%,M;OGf
+199,1.0396,3.63815,6.83676,False,multi-neighbour Voronoi split (nearest extension),ANsh:49%; Al:51%; Asl:0%,ANsh;Al;Asl
+198,1.0287,6.29278,12.26586,False,multi-neighbour Voronoi split (nearest extension),OGd:44%; OGm:15%; Sp:41%,OGd;OGm;Sp
+205,1.0194,10.7556,7.27958,False,multi-neighbour Voronoi split (nearest extension),MG:50%; OGp:50%,MG;OGp
+202,1.0177,9.67498,8.03459,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Arlsh:50%,Al;Arlsh
+200,1.0161,10.83826,8.67291,False,multi-neighbour Voronoi split (nearest extension),Al:0%; MG:50%; Yls:50%,Al;MG;Yls
+204,1.0103,8.18762,10.63195,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGm:50%,M;OGm
+203,1.0079,8.42001,11.36059,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+201,1.0071,7.17127,11.59662,False,multi-neighbour Voronoi split (nearest extension),GG:49%; M:51%,GG;M
+207,0.9965,4.80884,8.14035,False,multi-neighbour Voronoi split (nearest extension),OGp:20%; Su:12%; bG:68%,OGp;Su;bG
+211,0.9906,7.5401,5.72005,False,multi-neighbour Voronoi split (nearest extension),Esh:50%; Ncsh:50%,Esh;Ncsh
+206,0.9897,14.55644,12.25441,True,single-neighbour extension,Cst:100%,Cst
+208,0.9868,8.40175,9.70087,False,multi-neighbour Voronoi split (nearest extension),M:49%; b:51%,M;b
+213,0.9815,3.41138,7.10041,False,multi-neighbour Voronoi split (nearest extension),Asl:0%; Asl:51%; M:49%,Asl;M
+209,0.9807,10.39295,9.9779,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Kss:50%,Al;Kss
+210,0.9784,9.39362,10.74692,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGp:50%,GG;OGp
+212,0.9781,7.78224,8.63869,False,multi-neighbour Voronoi split (nearest extension),M:49%; MS:35%; OGu:15%; OPg:2%,M;MS;OGu;OPg
+215,0.9659,7.38473,5.99299,False,multi-neighbour Voronoi split (nearest extension),Ajst:52%; LCM:0%; Ncsh:48%,Ajst;LCM;Ncsh
+214,0.963,8.79338,10.63309,False,multi-neighbour Voronoi split (nearest extension),JyG:0%; M:37%; M:50%; OGp:13%,JyG;M;OGp
+216,0.9583,5.10829,5.91747,False,multi-neighbour Voronoi split (nearest extension),AB:50%; Al:50%,AB;Al;MS
+220,0.9567,9.67605,6.8258,False,multi-neighbour Voronoi split (nearest extension),M:8%; OGp:42%; OPg:50%,M;OGp;OPg
+219,0.9522,12.28968,8.83585,False,multi-neighbour Voronoi split (nearest extension),MG:0%; OGm:50%; OGp:50%,MG;OGm;OGp;bG
+222,0.9477,5.75127,6.76234,False,multi-neighbour Voronoi split (nearest extension),Imsh:0%; Issh:50%; OAlgs:50%,Imsh;Issh;OAlgs
+217,0.9447,8.01368,11.43896,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGp:50%,GG;OGp
+218,0.9439,7.31692,11.6625,False,multi-neighbour Voronoi split (nearest extension),M:51%; qs:49%,M;qs
+223,0.9428,12.75257,8.75548,True,single-neighbour extension,OGp:100%,OGp
+221,0.9375,12.38451,13.07742,True,single-neighbour extension,Cst:100%,Cst
+224,0.9258,2.73956,6.56362,True,single-neighbour extension,Bnst:100%,Bnst
+229,0.9233,3.45536,7.55596,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M
+225,0.9211,8.26406,8.51853,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Lass:4%; M:46%,Al;Lass;M
+226,0.9189,8.42815,9.47215,False,multi-neighbour Voronoi split (nearest extension),M:50%; b:50%,M;b
+228,0.9152,7.61288,10.76474,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; Su:50%,OGp;Su
+230,0.9119,7.59075,11.82199,False,multi-neighbour Voronoi split (nearest extension),M:50%; Su:50%,M;Su
+227,0.9109,5.24381,12.14917,False,multi-neighbour Voronoi split (nearest extension),Al:50%; GIss:50%,Al;GIss
+231,0.8945,6.2789,12.33859,False,multi-neighbour Voronoi split (nearest extension),OGd:27%; Sp:73%,OGd;Sp
+238,0.8938,8.32372,6.24562,False,multi-neighbour Voronoi split (nearest extension),Arlsh:50%; Esh:50%,Arlsh;Esh
+232,0.8918,6.48555,11.53063,False,multi-neighbour Voronoi split (nearest extension),GG:48%; Sp:52%,GG;Sp
+239,0.8879,7.73485,9.17009,False,multi-neighbour Voronoi split (nearest extension),M:51%; OGp:49%,M;OGp
+243,0.8875,7.45456,6.44341,False,multi-neighbour Voronoi split (nearest extension),Ajst:51%; LCM:49%,Ajst;LCM
+235,0.887,12.09309,9.52055,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Yls:50%,Al;Yls
+237,0.8861,11.99107,9.80204,False,multi-neighbour Voronoi split (nearest extension),Psh:50%; Yls:50%,Psh;Yls
+234,0.8854,8.54462,10.14009,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGm:50%,M;OGm
+241,0.8837,4.56957,10.76824,False,multi-neighbour Voronoi split (nearest extension),MG:50%; Qs:50%,MG;Qs
+240,0.8802,8.17204,11.89737,False,multi-neighbour Voronoi split (nearest extension),M:51%; Qs:49%,M;Qs
+236,0.8799,8.02281,12.02142,False,multi-neighbour Voronoi split (nearest extension),M:51%; OGp:49%,M;OGp
+242,0.8794,8.08905,12.44785,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGp:33%; Su:17%,GG;OGp;Su
+233,0.8753,5.19737,12.78438,False,multi-neighbour Voronoi split (nearest extension),GIss:50%; Wsh:50%,GIss;Wsh
+246,0.8601,6.23119,6.87984,False,multi-neighbour Voronoi split (nearest extension),Imsh:50%; Issh:50%,Imsh;Issh
+244,0.8599,3.06401,7.44015,False,multi-neighbour Voronoi split (nearest extension),Asl:0%; GG:50%; MG:50%,Asl;GG;MG
+247,0.8556,8.84715,5.43011,True,single-neighbour extension,GG:100%,GG
+248,0.8505,8.12822,5.40157,False,multi-neighbour Voronoi split (nearest extension),Awst:49%; Esh:4%; Mlst:7%; bS:40%,Awst;Esh;Mlst;bS
+245,0.85,11.71774,11.45424,False,multi-neighbour Voronoi split (nearest extension),Cst:50%; Psh:50%,Cst;Psh
+249,0.8271,8.84339,12.87514,True,single-neighbour extension,Cst:100%,Cst
+254,0.8271,8.36771,7.9452,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Esh:50%,Al;Esh
+251,0.824,6.22826,10.73854,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:30%; Qs:20%,GG;M;Qs
+256,0.8229,8.53492,9.84925,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:31%; b:19%,M;OGp;b
+252,0.8223,4.1109,10.57484,False,multi-neighbour Voronoi split (nearest extension),NPss:50%; Qs:10%; bG-h:40%,NPss;Qs;bG-h
+253,0.8218,6.91959,10.26528,False,multi-neighbour Voronoi split (nearest extension),MG:50%; Qs:50%,MG;Qs
+250,0.8214,7.02641,10.40658,False,multi-neighbour Voronoi split (nearest extension),OGm:49%; Su:51%,OGm;OGp;Su
+255,0.8191,4.16267,11.29458,False,multi-neighbour Voronoi split (nearest extension),Al:50%; GIss:0%; NPss:50%,Al;GIss;NPss
+263,0.798,9.9841,7.0268,False,multi-neighbour Voronoi split (nearest extension),OPg:50%; bG:50%,OPg;bG
+257,0.7958,14.55681,12.23251,True,single-neighbour extension,Cst:100%,Cst
+258,0.7941,7.42967,8.50008,False,multi-neighbour Voronoi split (nearest extension),M:49%; MS:51%,M;MS
+262,0.7912,10.59913,9.86676,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Kss:50%,Al;Kss
+264,0.7907,8.08028,9.34073,False,multi-neighbour Voronoi split (nearest extension),M:49%; OGm:49%; Su:2%,M;OGm;Su
+259,0.7905,10.58786,10.15989,False,multi-neighbour Voronoi split (nearest extension),Al:51%; Kss:49%,Al;Kss
+260,0.7874,7.32576,11.38495,False,multi-neighbour Voronoi split (nearest extension),M:50%; qs:50%,M;qs
+261,0.7863,8.45177,11.76717,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+268,0.7681,5.9175,4.68174,False,multi-neighbour Voronoi split (nearest extension),MS:50%; MWS:50%,MS;MWS
+265,0.7663,12.62234,9.33536,False,multi-neighbour Voronoi split (nearest extension),Al:49%; Yls:51%,Al;Yls
+272,0.763,5.91991,7.96026,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M
+275,0.7617,4.51594,8.83385,False,multi-neighbour Voronoi split (nearest extension),M:49%; OGu:51%,M;OGu
+266,0.7616,11.65759,9.17695,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; Yls:50%,OGp;Yls
+273,0.7608,8.18555,9.26298,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+267,0.7606,12.24575,9.39242,False,multi-neighbour Voronoi split (nearest extension),Al:51%; Yls:49%,Al;Yls
+269,0.7593,6.81509,10.02646,False,multi-neighbour Voronoi split (nearest extension),M:49%; OGm:2%; aMy:48%,M;OGm;aMy
+274,0.7565,11.77281,11.07346,False,multi-neighbour Voronoi split (nearest extension),Bss:50%; Psh:0%; Yls:41%; bb:9%,Bss;Psh;Yls;bb
+271,0.7554,6.97587,11.54998,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M
+270,0.7543,7.84779,12.11512,False,multi-neighbour Voronoi split (nearest extension),M:51%; OPg:49%,M;OPg;Sf
+276,0.7354,9.93838,8.35835,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Esh:50%,Al;Esh
+283,0.7325,10.83918,6.93274,True,single-neighbour extension,MG:100%,MG
+279,0.7291,8.41154,9.29496,False,multi-neighbour Voronoi split (nearest extension),M:51%; b:49%,M;b
+277,0.7285,8.27638,9.60256,False,multi-neighbour Voronoi split (nearest extension),M:50%; b:50%,M;b
+278,0.7261,7.885,10.6768,False,multi-neighbour Voronoi split (nearest extension),GG:28%; GG:49%; OGm:23%,GG;MS;OGm;OGp
+280,0.7235,8.01139,11.74661,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGm:50%,M;OGm
+281,0.7228,6.47114,11.98012,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGd:50%,GG;OGd
+282,0.7202,5.6717,12.9678,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Dsh:29%; Tst:0%; Tst:21%,Al;Dsh;Tst
+284,0.7156,7.36619,11.91266,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:48%; OGd:2%,GG;M;OGd
+285,0.7073,12.28073,13.08174,True,multi-neighbour Voronoi split (nearest extension),Al:75%; Cst:25%,Al;Cst
+293,0.7015,5.25309,6.81361,False,multi-neighbour Voronoi split (nearest extension),Ajst:50%; M:50%,Ajst;M;Nsh
+286,0.6998,3.62819,8.3714,False,multi-neighbour Voronoi split (nearest extension),M:50%; Sa:10%; Su:40%,M;Sa;Su
+294,0.6997,10.3823,8.00594,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; bG:50%,OGp;bG
+290,0.6972,8.18696,9.37584,False,multi-neighbour Voronoi split (nearest extension),Al:49%; M:51%,Al;M
+292,0.6971,8.18439,9.42668,False,multi-neighbour Voronoi split (nearest extension),Al:49%; M:51%,Al;M
+287,0.6951,8.3031,10.41191,False,multi-neighbour Voronoi split (nearest extension),JyG:29%; M:49%; MyG:22%,JyG;M;MyG;OGp
+295,0.6938,9.04761,11.88823,False,multi-neighbour Voronoi split (nearest extension),Cst:50%; OGp:50%,Cst;OGp
+288,0.6934,8.41679,11.16644,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+291,0.6921,3.81092,11.68771,False,multi-neighbour Voronoi split (nearest extension),GIss:50%; Wss:50%,GIss;Wss
+289,0.6917,8.11227,11.87529,False,multi-neighbour Voronoi split (nearest extension),M:51%; OGh:49%,M;OGh
+296,0.6902,6.33942,12.71433,False,multi-neighbour Voronoi split (nearest extension),GG:8%; GIgss:50%; OGd:42%,GG;GIgss;OGd
+297,0.6885,8.40385,11.74561,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M
+298,0.6805,12.3369,13.07937,True,multi-neighbour Voronoi split (nearest extension),Al:25%; Cst:75%,Al;Cst
+299,0.6734,7.82993,10.47638,False,multi-neighbour Voronoi split (nearest extension),M:51%; MS:49%,M;MS
+310,0.6705,8.30245,6.16035,False,multi-neighbour Voronoi split (nearest extension),Esh:49%; Nsh:51%,Esh;Nsh
+304,0.6693,7.76895,7.08314,False,multi-neighbour Voronoi split (nearest extension),Esh:51%; Nsh:49%,Esh;Nsh
+309,0.6678,10.64497,7.49201,False,multi-neighbour Voronoi split (nearest extension),GG:50%; MG:50%,GG;MG;OGp
+302,0.6668,9.69231,8.66225,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Esh:50%,Al;Esh
+303,0.6649,8.34375,9.70687,False,multi-neighbour Voronoi split (nearest extension),M:51%; Qs:49%,M;Qs
+307,0.6637,12.55067,10.32845,False,multi-neighbour Voronoi split (nearest extension),M:51%; OGu:49%,M;OGm;OGu
+305,0.6633,4.05988,10.62433,False,multi-neighbour Voronoi split (nearest extension),NPss:50%; bG-h:50%,NPss;Qs;bG-h
+311,0.6631,8.6856,10.60454,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M
+306,0.6631,11.71545,10.59083,False,multi-neighbour Voronoi split (nearest extension),Bss:49%; Yls:49%; bb:2%,Bss;Yls;bb
+300,0.6623,6.31581,12.2278,False,multi-neighbour Voronoi split (nearest extension),GG:29%; OGm:32%; Sp:39%,GG;OGm;Sp
+312,0.6614,12.52979,11.30577,False,multi-neighbour Voronoi split (nearest extension),Cst:51%; Kss:0%; OGp:49%,Cst;Kss;OGp
+308,0.661,5.25143,11.40856,False,multi-neighbour Voronoi split (nearest extension),Qs:50%; Sa:50%,M;Qs;Sa
+301,0.6573,12.43234,13.07359,True,multi-neighbour Voronoi split (nearest extension),Al:24%; Cst:76%,Al;Cst
+313,0.6544,11.44099,13.36221,True,single-neighbour extension,Cst:100%,Cst
+324,0.6377,7.23556,6.77402,False,multi-neighbour Voronoi split (nearest extension),Ajst:50%; Ncsh:50%,Ajst;Ncsh
+315,0.6371,7.06349,7.32869,False,multi-neighbour Voronoi split (nearest extension),Ajst:51%; Ncsh:49%,Ajst;Ncsh
+317,0.6354,4.13983,8.46734,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+314,0.6352,9.65458,8.56556,False,multi-neighbour Voronoi split (nearest extension),Al:49%; Esh:51%,Al;Esh
+316,0.6344,3.15995,9.02478,False,multi-neighbour Voronoi split (nearest extension),M:49%; OGm:51%,M;OGm
+322,0.6335,12.03942,9.53403,False,multi-neighbour Voronoi split (nearest extension),Al:51%; Yls:49%,Al;Yls
+323,0.633,7.35364,9.81879,False,multi-neighbour Voronoi split (nearest extension),OGp:49%; Su:51%,M;OGp;Su
+321,0.6321,8.70881,10.31217,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M;OGp
+320,0.6305,4.51621,11.1139,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Su:50%,Al;NPss;Su
+318,0.6288,5.61422,11.83364,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; Sp:50%,OGm;Sp
+319,0.6273,4.6957,12.50723,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Gwss:50%,Al;Gwss
+325,0.6219,8.17008,8.35381,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Lass:50%,Al;Lass
+326,0.6211,6.95693,4.37954,True,single-neighbour extension,AB:100%,AB
+329,0.6053,6.67346,7.23999,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Mcst:19%; Nsh:31%,Ajst;Al;Mcst;Nsh
+331,0.6008,7.05603,7.97024,False,multi-neighbour Voronoi split (nearest extension),Al:50%; NPss:50%,Al;NPss
+328,0.5998,4.55542,10.66717,False,multi-neighbour Voronoi split (nearest extension),MG:46%; Qs:50%; Su:4%,MG;Qs;Su
+327,0.5983,4.8671,11.41922,False,multi-neighbour Voronoi split (nearest extension),M:50%; Qs:50%,M;Qs
+330,0.5915,12.29606,13.09545,True,single-neighbour extension,Cst:100%,Cst
+338,0.576,6.3478,6.3408,False,multi-neighbour Voronoi split (nearest extension),Bnst:50%; Issh:50%,Bnst;Issh
+332,0.5755,7.35084,11.20166,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M;OGd
+342,0.5742,3.23431,6.6324,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Bnst:50%,Al;Bnst
+340,0.5731,3.01588,7.57271,False,multi-neighbour Voronoi split (nearest extension),GG:50%; Su:50%,GG;Su
+337,0.5729,8.26493,7.70194,False,multi-neighbour Voronoi split (nearest extension),Esh:50%; Ess:50%,Al;Esh;Ess
+339,0.5729,8.92503,7.37323,False,multi-neighbour Voronoi split (nearest extension),Esh:50%; OGp:50%,Esh;Ess;OGp
+335,0.5727,10.74475,7.86584,False,multi-neighbour Voronoi split (nearest extension),MG:50%; b:50%,MG;b
+334,0.5711,7.72892,8.96985,False,multi-neighbour Voronoi split (nearest extension),M:51%; Su:49%,M;Su
+345,0.5698,8.30431,9.74037,False,multi-neighbour Voronoi split (nearest extension),M:51%; Qs:49%,M;Qs
+347,0.5694,8.2497,10.6586,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; OGp:50%,OGm;OGp
+344,0.5692,7.30383,10.09898,False,multi-neighbour Voronoi split (nearest extension),Qs:50%; Su:50%,Qs;Su
+336,0.568,10.38153,10.56875,False,multi-neighbour Voronoi split (nearest extension),Gss:50%; OGp:50%,Gss;OGp
+348,0.5673,8.23634,9.5715,False,multi-neighbour Voronoi split (nearest extension),M:53%; b:47%,M;b
+341,0.5667,4.85217,11.49307,False,multi-neighbour Voronoi split (nearest extension),M:51%; Qs:49%,M;Qs
+343,0.5664,7.49467,11.65601,False,multi-neighbour Voronoi split (nearest extension),M:50%; qs:50%,M;qs
+346,0.566,4.89155,11.94525,False,multi-neighbour Voronoi split (nearest extension),GIpg:50%; MS:50%,GIpg;MS;Qs
+333,0.5658,10.10896,11.93163,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Cst:50%,Al;Cst
+349,0.5615,7.28702,10.19814,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; Su:50%,OGm;Su
+350,0.557,7.63278,6.13375,False,multi-neighbour Voronoi split (nearest extension),Esh:49%; Esh:51%,Esh
+353,0.5439,8.37076,4.94975,False,multi-neighbour Voronoi split (nearest extension),Bnst:50%; OAlgs:50%,Bnst;OAlgs
+359,0.5429,7.68172,5.7728,False,multi-neighbour Voronoi split (nearest extension),Ajst:50%; Ncsh:50%,Ajst;Ncsh
+358,0.5396,8.03911,8.79169,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGu:50%,M;OGu;Su
+355,0.5362,7.11956,10.94335,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; Su:50%,OGm;Su
+357,0.5357,8.10477,11.23801,False,multi-neighbour Voronoi split (nearest extension),M:51%; OGf:49%,M;OGf
+351,0.5355,9.85422,11.30806,False,multi-neighbour Voronoi split (nearest extension),Al:50%; OGm:50%,Al;OGm
+354,0.5354,7.0217,11.39409,False,multi-neighbour Voronoi split (nearest extension),M:49%; Su:51%,M;Su
+356,0.5349,4.09424,11.67276,False,multi-neighbour Voronoi split (nearest extension),GIss:17%; Glcl:49%; Gwss:33%,GIss;Glcl;Gwss
+352,0.5326,8.54753,12.81483,False,multi-neighbour Voronoi split (nearest extension),Cst:50%; OGp:50%,Cst;OGp
+361,0.5317,7.51777,6.74136,False,multi-neighbour Voronoi split (nearest extension),LCM:48%; Nsh:52%,LCM;Nsh
+360,0.5295,14.29246,12.35362,True,single-neighbour extension,Cst:100%,Cst
+363,0.5177,4.06144,8.70012,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:5%; NPss:45%,GG;M;NPss
+362,0.5164,8.33634,12.02637,False,multi-neighbour Voronoi split (nearest extension),M:49%; OGp:51%,M;OGp
+369,0.5114,8.46821,5.19568,False,multi-neighbour Voronoi split (nearest extension),LCM:50%; Mlst:50%,LCM;MG;Mlst;bG
+377,0.5099,8.38598,7.10732,False,multi-neighbour Voronoi split (nearest extension),Esh:50%; Ess:50%,Esh;Ess
+372,0.5099,11.3637,7.09913,False,multi-neighbour Voronoi split (nearest extension),MG:49%; OGp:51%,MG;OGp
+373,0.509,3.42804,7.91914,False,multi-neighbour Voronoi split (nearest extension),M:52%; OGp:48%,M;OGp
+365,0.5088,10.46776,8.08512,False,multi-neighbour Voronoi split (nearest extension),Yls:50%; bG:50%,MG;Yls;bG
+374,0.5078,3.61458,8.81605,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; OPg:50%,OGm;OPg
+371,0.5071,7.83342,9.35663,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+367,0.5069,8.5492,9.51424,False,multi-neighbour Voronoi split (nearest extension),M:50%; MyG:50%,M;MyG;b
+378,0.5066,5.56054,10.4515,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGm:50%,M;OGm
+366,0.5059,8.38332,10.14314,False,multi-neighbour Voronoi split (nearest extension),M:51%; MyG:49%,M;MyG
+379,0.5054,3.14024,9.46825,True,single-neighbour extension,OPg:100%,OPg
+370,0.5051,7.37869,10.45226,False,multi-neighbour Voronoi split (nearest extension),M:50%; Su:50%,M;Su
+364,0.5051,4.19469,13.47527,True,single-neighbour extension,Gwss:100%,Gwss
+368,0.5038,11.3873,11.36516,False,multi-neighbour Voronoi split (nearest extension),Cst:50%; Gss:50%,Cst;Gss
+380,0.5037,8.55208,9.91985,False,multi-neighbour Voronoi split (nearest extension),M:48%; OGm:3%; OGp:49%,M;OGm;OGp
+376,0.5027,7.25231,12.13263,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; Su:50%,M;OGm;Su
+375,0.4995,5.93647,13.68738,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Tst:50%,Al;Tst
+382,0.4958,8.91473,5.90062,True,single-neighbour extension,Arlsh:100%,Arlsh
+383,0.492,6.0273,7.06302,False,multi-neighbour Voronoi split (nearest extension),Ajst:50%; Mcst:50%,Ajst;Mcst
+381,0.4894,4.07143,11.70501,False,multi-neighbour Voronoi split (nearest extension),Glcl:51%; Gwss:49%,Glcl;Gwss
+384,0.4842,7.47838,11.83927,False,multi-neighbour Voronoi split (nearest extension),M:53%; qs:47%,M;qs
+389,0.4785,7.25459,6.65372,False,multi-neighbour Voronoi split (nearest extension),Ess:51%; Ncsh:49%,Ess;Ncsh
+397,0.478,3.35714,7.17603,False,multi-neighbour Voronoi split (nearest extension),ANsh:32%; Asl:19%; M:50%,ANsh;Asl;M
+399,0.4779,10.93048,7.26207,False,multi-neighbour Voronoi split (nearest extension),OGu:49%; b:51%,OGu;b
+388,0.4778,4.55041,7.37293,False,multi-neighbour Voronoi split (nearest extension),GG:6%; MV:44%; OGp:0%; Su:50%; s:0%,GG;MV;OGp;Su;s
+398,0.4772,3.95253,7.60697,False,multi-neighbour Voronoi split (nearest extension),Su:50%; m:50%,Su;m
+392,0.4757,6.69955,9.20283,False,multi-neighbour Voronoi split (nearest extension),M:50%; NPss:50%,M;NPss
+390,0.4757,7.8142,9.04294,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGu:50%,M;OGu
+395,0.4756,7.74674,9.21882,False,multi-neighbour Voronoi split (nearest extension),M:51%; OGp:49%,M;OGp
+391,0.4752,7.10232,9.50241,False,multi-neighbour Voronoi split (nearest extension),M:27%; NPss:23%; Su:50%,M;NPss;Su
+393,0.4744,11.72916,10.05254,False,multi-neighbour Voronoi split (nearest extension),Psh:50%; Yls:50%,Psh;Yls
+396,0.4736,7.51711,10.60302,False,multi-neighbour Voronoi split (nearest extension),M:49%; OGd:51%,M;OGd
+385,0.4728,8.10022,11.12304,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGf:50%,M;OGf
+394,0.4717,8.39664,11.80676,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+400,0.4701,7.59907,12.42651,False,multi-neighbour Voronoi split (nearest extension),GG:49%; M:47%; OGp:3%,GG;M;OGp
+386,0.4695,7.94363,12.88412,False,multi-neighbour Voronoi split (nearest extension),Gdss:50%; OGp:50%,Gdss;OGp
+401,0.4694,4.43158,9.32331,False,multi-neighbour Voronoi split (nearest extension),GG:50%; Qs:50%,GG;Qs
+387,0.4682,5.82398,13.73352,False,multi-neighbour Voronoi split (nearest extension),Gwss:48%; Tst:52%,Gwss;Tst
+402,0.4595,10.28152,10.39793,False,multi-neighbour Voronoi split (nearest extension),OGCh:12%; OGp:38%; OGp:50%,OGCh;OGp
+404,0.4479,5.57729,4.86371,False,multi-neighbour Voronoi split (nearest extension),AB:50%; MS:50%,AB;MS;MWS
+411,0.4453,3.5092,7.97168,False,multi-neighbour Voronoi split (nearest extension),M:49%; Sa:51%,M;Sa
+412,0.4441,6.70336,9.27516,False,multi-neighbour Voronoi split (nearest extension),M:50%; MG:50%,M;MG;NPss
+403,0.4438,12.85239,9.29496,False,multi-neighbour Voronoi split (nearest extension),Al:51%; Yls:49%,Al;Yls
+408,0.4429,7.07197,9.99848,False,multi-neighbour Voronoi split (nearest extension),OGm:49%; Su:51%,OGm;Su
+413,0.4427,4.53498,9.84239,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGp:50%,GG;M;OGp
+409,0.4419,6.9253,10.68829,False,multi-neighbour Voronoi split (nearest extension),M:51%; OGm:49%,M;OGm
+407,0.441,11.3736,11.53419,False,multi-neighbour Voronoi split (nearest extension),Cst:50%; Kss:50%,Cst;Kss
+405,0.4397,7.92726,12.14938,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OPg:16%; Sf:34%,GG;OPg;Sf
+410,0.4397,7.46021,12.13949,False,multi-neighbour Voronoi split (nearest extension),M:49%; qs:51%,M;qs
+406,0.4381,6.48561,13.11318,False,multi-neighbour Voronoi split (nearest extension),Al:50%; GIgss:50%,Al;GIgss;GIss
+414,0.4376,6.67771,10.1547,False,multi-neighbour Voronoi split (nearest extension),M:3%; M:47%; Su:49%,M;Su
+415,0.4345,10.55459,9.82128,False,multi-neighbour Voronoi split (nearest extension),Al:51%; Kss:49%,Al;Kss
+416,0.434,2.87795,9.06643,True,single-neighbour extension,bG:100%,bG
+418,0.4326,4.61877,8.64046,False,multi-neighbour Voronoi split (nearest extension),M:52%; OGp:48%,M;OGp
+417,0.4284,6.32198,12.10176,False,multi-neighbour Voronoi split (nearest extension),OGS:48%; Sp:52%,OGS;Sp
+419,0.4271,8.55412,5.34409,False,multi-neighbour Voronoi split (nearest extension),LCM:48%; MG:51%; bG:1%,LCM;MG;bG
+420,0.4208,6.9378,10.72281,False,multi-neighbour Voronoi split (nearest extension),M:49%; OGm:36%; Su:16%,M;OGm;Su
+421,0.4165,8.68018,5.06395,True,multi-neighbour Voronoi split (nearest extension),Esh:50%; Mlst:50%,Esh;Mlst
+432,0.4144,3.12645,7.48515,False,multi-neighbour Voronoi split (nearest extension),MG:50%; Su:50%,MG;Su
+429,0.4142,8.11646,7.23513,False,multi-neighbour Voronoi split (nearest extension),Arlsh:49%; Esh:51%,Arlsh;Esh
+425,0.4135,4.05502,7.95569,False,multi-neighbour Voronoi split (nearest extension),M:51%; Qs:49%,M;Qs
+431,0.4119,4.08882,8.77189,False,multi-neighbour Voronoi split (nearest extension),GG:50%; NPss:50%,GG;NPss
+427,0.4119,6.71097,10.02589,False,multi-neighbour Voronoi split (nearest extension),M:50%; aMy:50%,M;aMy
+428,0.4116,10.48203,9.72666,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Kss:50%,Al;Kss
+430,0.4116,7.09148,9.66593,False,multi-neighbour Voronoi split (nearest extension),MG:49%; Su:51%,MG;Su
+423,0.4115,7.18226,9.97868,False,multi-neighbour Voronoi split (nearest extension),MG:10%; OGp:40%; Su:50%,MG;OGp;Su
+422,0.4109,6.02269,10.17512,False,multi-neighbour Voronoi split (nearest extension),M:50%; Su:50%,M;Su
+433,0.4108,3.89203,10.3609,False,multi-neighbour Voronoi split (nearest extension),GG:52%; OGp:48%,GG;OGp
+424,0.4091,4.76081,11.59205,False,multi-neighbour Voronoi split (nearest extension),M:52%; Qs:48%,M;Qs
+426,0.408,5.55674,11.51667,False,multi-neighbour Voronoi split (nearest extension),M:18%; OGm:32%; Su:50%,M;OGm;Sp;Su
+436,0.4079,7.41677,5.94369,False,multi-neighbour Voronoi split (nearest extension),Ajst:50%; LCM:50%,Ajst;LCM
+437,0.4073,2.71359,6.47633,True,single-neighbour extension,Al:100%,Al
+434,0.407,6.56479,12.84072,False,multi-neighbour Voronoi split (nearest extension),GIss:38%; M:1%; OGd:11%; Sp:50%,GG;GIss;M;OGd;Sp
+435,0.4065,11.84791,9.70446,False,multi-neighbour Voronoi split (nearest extension),Al:48%; Bss:52%,Al;Bss
+439,0.3996,8.50894,9.73152,False,multi-neighbour Voronoi split (nearest extension),M:49%; b:51%,M;b
+438,0.3982,12.47709,13.06492,True,multi-neighbour Voronoi split (nearest extension),Al:18%; Cst:82%,Al;Cst
+440,0.3942,4.58404,9.27026,False,multi-neighbour Voronoi split (nearest extension),M:51%; Su:49%,M;Su
+442,0.3923,11.268,7.03875,False,multi-neighbour Voronoi split (nearest extension),MG:49%; OGp:2%; b:49%,MG;OGp;b
+441,0.3905,7.67184,10.66084,False,longest-shared-border extension (Voronoi fallback),OGp:100%,OGp;Su
+443,0.385,7.72316,9.22709,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M
+448,0.3834,6.86477,5.83873,False,multi-neighbour Voronoi split (nearest extension),Issh:23%; MWS:29%; SDsm:48%,Issh;MWS;SDsm
+454,0.3827,9.53032,6.72149,False,multi-neighbour Voronoi split (nearest extension),M:51%; OGp:49%,M;OGp
+455,0.3825,4.91744,7.0702,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGu:50%,M;OGu
+447,0.3823,8.16443,7.22958,False,multi-neighbour Voronoi split (nearest extension),Esh:52%; Ess:48%,Esh;Ess
+456,0.3823,3.1399,7.27197,False,multi-neighbour Voronoi split (nearest extension),Asl:49%; M:51%,Asl;M
+444,0.3821,4.89212,7.56592,False,multi-neighbour Voronoi split (nearest extension),M:50%; Qs:50%,GG;M;Qs
+459,0.382,8.28168,7.44708,False,multi-neighbour Voronoi split (nearest extension),Arlsh:50%; Esh:50%,Arlsh;Esh
+452,0.3809,8.00378,8.53129,False,multi-neighbour Voronoi split (nearest extension),JyG:50%; OGu:50%,JyG;OGu;Su
+458,0.3805,3.2437,9.14954,False,multi-neighbour Voronoi split (nearest extension),GG:49%; OGm:51%,GG;OGm
+451,0.3793,7.35509,8.94701,False,multi-neighbour Voronoi split (nearest extension),M:14%; OGm:0%; OGp:36%; bG:50%,M;OGm;OGp;bG
+446,0.379,6.32953,10.59159,False,multi-neighbour Voronoi split (nearest extension),Qs:50%; bG:50%,Qs;bG
+461,0.3785,9.36511,9.62921,False,multi-neighbour Voronoi split (nearest extension),Ge:50%; OGp:50%,Ge;Mys;OGp
+450,0.3782,11.81139,11.22735,False,multi-neighbour Voronoi split (nearest extension),Cst:50%; Psh:50%,Cst;Psh
+453,0.3781,4.972,11.31415,False,multi-neighbour Voronoi split (nearest extension),MS:50%; qs:50%,MS;qs
+462,0.3775,8.4385,10.01367,False,multi-neighbour Voronoi split (nearest extension),M:50%; b:50%,M;b
+457,0.3769,7.80677,12.18593,False,multi-neighbour Voronoi split (nearest extension),M:48%; OPg:52%,M;OPg
+460,0.3759,6.63864,12.91,False,multi-neighbour Voronoi split (nearest extension),Al:50%; GG:11%; OGd:0%; Sp:40%,Al;GG;OGd;Sp
+445,0.3758,6.08322,12.95416,False,multi-neighbour Voronoi split (nearest extension),GIgss:50%; GIss:50%,GIgss;GIss
+449,0.3744,5.40903,13.82138,False,multi-neighbour Voronoi split (nearest extension),Gwss:50%; Wsh:50%,Gwss;Wsh
+463,0.3695,7.29285,11.81022,False,multi-neighbour Voronoi split (nearest extension),M:51%; OGd:49%,M;OGd
+464,0.3579,11.49798,11.54682,False,multi-neighbour Voronoi split (nearest extension),Cst:51%; Psh:49%,Cst;Psh
+465,0.3557,10.21251,10.03712,False,multi-neighbour Voronoi split (nearest extension),GG:21%; Kss:50%; OGp:29%,GG;Kss;OGp
+466,0.3525,9.54875,11.57774,False,multi-neighbour Voronoi split (nearest extension),Cst:54%; OGp:46%,Cst;OGp
+467,0.3521,7.28696,5.95131,False,multi-neighbour Voronoi split (nearest extension),Imsh:49%; Ncsh:51%,Imsh;Ncsh
+476,0.3511,9.06568,6.32024,False,multi-neighbour Voronoi split (nearest extension),GG:51%; OGp:49%,GG;OGp
+473,0.3505,9.34226,7.20891,False,multi-neighbour Voronoi split (nearest extension),Al:49%; Ess:0%; OGp:21%; r:31%,Al;Ess;OGp;OPg;r
+472,0.3504,3.88477,7.40853,False,multi-neighbour Voronoi split (nearest extension),M:50%; Su:50%,M;Su
+471,0.3499,2.86073,7.96164,False,multi-neighbour Voronoi split (nearest extension),M:50%; Su:50%,M;Su
+475,0.3489,8.97833,8.98812,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGp:50%,GG;OGp
+474,0.3488,7.22642,9.16629,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; OGu:50%,M;OGp;OGu;bG
+470,0.3478,8.31483,10.19796,False,multi-neighbour Voronoi split (nearest extension),M:50%; MyG:25%; OGp:25%,M;MyG;OGp
+477,0.347,11.62485,10.67839,False,multi-neighbour Voronoi split (nearest extension),GIss:50%; Psh:50%,GIss;Psh
+478,0.3466,9.29658,10.9464,False,multi-neighbour Voronoi split (nearest extension),JyG:29%; Myl:21%; OGp:50%,JyG;Myl;OGp
+469,0.3462,4.83067,11.58063,False,multi-neighbour Voronoi split (nearest extension),M:49%; Qs:51%,M;Qs
+468,0.3462,12.75548,11.49459,False,multi-neighbour Voronoi split (nearest extension),Cst:50%; Kss:50%,Cst;Kss
+479,0.346,12.2118,10.33649,False,multi-neighbour Voronoi split (nearest extension),M:50%; Yls:50%,M;Yls
+482,0.3436,9.78286,6.79005,True,single-neighbour extension,OGp:100%,OGp
+480,0.3391,5.15032,12.17449,False,multi-neighbour Voronoi split (nearest extension),Al:53%; GIss:47%,Al;GIss
+481,0.3369,12.96175,13.50358,True,single-neighbour extension,Cst:100%,Cst
+485,0.3331,9.8483,6.78002,True,single-neighbour extension,OGp:100%,OGp
+484,0.3322,7.40324,8.55905,False,multi-neighbour Voronoi split (nearest extension),M:48%; MS:52%,M;MS
+483,0.3315,4.78814,11.02352,False,multi-neighbour Voronoi split (nearest extension),Al:49%; MS:51%,Al;MS;Su
+487,0.3303,8.04452,5.63474,False,multi-neighbour Voronoi split (nearest extension),Arlsh:48%; Awst:49%; Esh:0%; bS:3%,Arlsh;Awst;Esh;bS
+486,0.3289,6.58045,10.36656,False,multi-neighbour Voronoi split (nearest extension),Su:49%; aMy:33%; bG-h:18%,Su;aMy;bG-h
+498,0.319,8.88773,6.33775,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGu:50%,GG;OGu
+504,0.3189,3.23761,6.71996,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Bnst:50%,Al;Bnst
+496,0.3185,4.55097,7.30851,False,multi-neighbour Voronoi split (nearest extension),MV:50%; OGp:38%; Su:12%,MV;OGp;Su
+490,0.3172,12.02853,9.13202,False,multi-neighbour Voronoi split (nearest extension),MG:50%; Yls:50%,MG;OGp;Yls
+492,0.3171,7.80133,9.15182,False,multi-neighbour Voronoi split (nearest extension),M:52%; Su:48%,M;Su
+506,0.3168,9.20598,9.44571,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGp:50%,GG;OGp;bb
+489,0.3167,4.49082,9.19674,False,multi-neighbour Voronoi split (nearest extension),Qs:50%; bG:50%,Qs;bG
+497,0.3164,7.0711,9.91244,False,multi-neighbour Voronoi split (nearest extension),MG:49%; Su:4%; Su:47%,MG;Su
+491,0.3164,8.34578,9.99619,False,multi-neighbour Voronoi split (nearest extension),M:53%; b:47%,M;b
+508,0.3162,4.44209,9.80356,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+495,0.3161,3.94949,10.38298,False,multi-neighbour Voronoi split (nearest extension),GG:50%; bG-h:50%,GG;bG-h
+505,0.316,9.04685,10.33882,False,multi-neighbour Voronoi split (nearest extension),GG:50%; JyG:17%; MyP:33%,GG;JyG;MyP
+500,0.3154,12.55448,10.97061,False,multi-neighbour Voronoi split (nearest extension),Bss:19%; OGp:47%; bb:34%,Bss;OGp;bb
+510,0.3152,8.3837,9.5241,False,multi-neighbour Voronoi split (nearest extension),M:47%; MyG:48%; b:5%,M;MyG;b
+493,0.3151,4.09186,11.13751,False,multi-neighbour Voronoi split (nearest extension),Mc:50%; Su:50%,Mc;Su
+499,0.315,10.22088,11.18928,False,multi-neighbour Voronoi split (nearest extension),JyG:50%; OGp:50%,JyG;OGp
+494,0.3148,4.84775,11.52124,False,multi-neighbour Voronoi split (nearest extension),M:51%; Qs:49%,M;Qs
+501,0.3148,3.95938,11.5654,False,multi-neighbour Voronoi split (nearest extension),GIss:50%; Gwss:50%,GIss;Gwss;Wss
+488,0.3143,8.79176,12.89004,True,single-neighbour extension,Cst:100%,Cst
+502,0.3142,4.13526,11.96132,False,multi-neighbour Voronoi split (nearest extension),Gmsh:50%; Gwss:50%,Gmsh;Gwss
+503,0.3135,6.48317,12.642,False,multi-neighbour Voronoi split (nearest extension),OGd:48%; Sp:52%,OGd;Sp
+509,0.3134,7.61386,10.85363,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGp:0%; Su:50%,GG;OGp;Su
+511,0.3133,3.29785,6.81957,False,multi-neighbour Voronoi split (nearest extension),ANsh:51%; Al:0%; Issh:49%,ANsh;Al;Issh
+507,0.3127,11.35898,13.29389,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Cst:50%,Al;Cst
+512,0.3102,7.69444,10.58196,False,multi-neighbour Voronoi split (nearest extension),M:2%; MS:48%; OGp:50%,M;MS;OGp
+513,0.3101,6.34152,8.0501,False,multi-neighbour Voronoi split (nearest extension),M:48%; Sf:50%; bG:2%,M;Sf;bG
+514,0.3095,7.43714,6.05109,False,multi-neighbour Voronoi split (nearest extension),Esh:49%; LCM:51%,Esh;LCM
+515,0.3075,4.96032,7.05772,False,multi-neighbour Voronoi split (nearest extension),M:51%; OGu:49%,M;OGu
+516,0.3043,10.61979,10.48988,False,longest-shared-border extension (Voronoi fallback),Kss:100%,Al;Kss
+517,0.2995,3.16805,6.56079,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Bnst:50%,Al;Bnst
+519,0.2913,3.48844,7.07405,False,longest-shared-border extension (Voronoi fallback),Asl:100%,Asl;M
+518,0.2904,12.37416,9.5051,False,multi-neighbour Voronoi split (nearest extension),Al:48%; Psh:3%; Yls:50%,Al;Psh;Yls
+530,0.2874,6.54575,6.13674,False,multi-neighbour Voronoi split (nearest extension),Bnst:44%; SDsm:56%,Bnst;SDsm
+525,0.287,3.88096,6.73215,False,multi-neighbour Voronoi split (nearest extension),Al:47%; Bnst:53%,Al;Bnst;SDsm
+527,0.287,7.55076,6.79407,False,multi-neighbour Voronoi split (nearest extension),LCM:47%; Nsh:53%,LCM;Nsh
+539,0.2868,2.71658,6.9743,True,single-neighbour extension,Bnst:100%,Bnst
+523,0.2865,3.93578,7.91305,False,multi-neighbour Voronoi split (nearest extension),Su:50%; m:50%,Qs;Su;m
+532,0.2865,4.10861,7.73565,False,multi-neighbour Voronoi split (nearest extension),D:50%; OGCh:50%,D;OGCh;Su
+541,0.285,8.90984,6.7223,False,multi-neighbour Voronoi split (nearest extension),Arlsh:4%; Esh:0%; Esh:49%; GG:47%,Arlsh;Esh;GG
+538,0.2846,7.86191,10.17664,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; Su:50%,M;OGp;Su
+534,0.2844,8.40502,10.35049,False,multi-neighbour Voronoi split (nearest extension),M:50%; MyG:0%; OGp:50%,M;MyG;OGp
+536,0.2843,9.03315,10.43475,False,multi-neighbour Voronoi split (nearest extension),JyG:24%; MG:50%; MyP:26%,GG;JyG;MG;MyP
+522,0.2841,7.0557,10.64565,False,multi-neighbour Voronoi split (nearest extension),OGm:51%; Su:49%,OGm;Su
+535,0.2837,10.10059,11.2243,False,multi-neighbour Voronoi split (nearest extension),JyG:50%; OGp:50%,JyG;OGp
+537,0.2835,5.35954,11.61565,False,multi-neighbour Voronoi split (nearest extension),M:50%; bG:50%,M;bG
+528,0.2833,7.17845,11.04233,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGm:50%,M;OGm
+531,0.283,8.05589,11.80828,False,multi-neighbour Voronoi split (nearest extension),M:52%; OGm:48%,M;OGm
+540,0.283,8.27334,10.36628,False,multi-neighbour Voronoi split (nearest extension),M:50%; MyG:50%,M;MyG
+524,0.2829,4.11699,11.95447,False,multi-neighbour Voronoi split (nearest extension),Gmsh:50%; Gwss:50%,Gmsh;Gwss
+526,0.2828,6.14756,12.03839,False,multi-neighbour Voronoi split (nearest extension),OGd:50%; OGr:50%,OGd;OGr;P
+521,0.2828,7.64289,12.05345,False,multi-neighbour Voronoi split (nearest extension),M:50%; Su:50%,M;Su
+529,0.2828,6.35516,12.00244,False,multi-neighbour Voronoi split (nearest extension),OGd:50%; Sp:50%,OGd;Sp
+533,0.2827,5.97117,12.16791,False,multi-neighbour Voronoi split (nearest extension),ODh:50%; OGd:14%; Sp:36%,ODh;OGd;OGm;Qs;Sp
+520,0.2821,12.59036,13.26688,True,single-neighbour extension,Cst:100%,Cst
+543,0.2806,8.34785,10.03893,False,multi-neighbour Voronoi split (nearest extension),M:51%; MGp:49%,M;MGp
+542,0.2785,10.52305,12.32051,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Cst:50%,Al;Cst
+544,0.2767,3.29914,7.12765,False,multi-neighbour Voronoi split (nearest extension),Asl:17%; Asl:7%; Qs:77%,Asl;Qs
+545,0.276,7.55378,4.45682,True,single-neighbour extension,Al:100%,Al
+547,0.2725,7.29236,6.04228,False,multi-neighbour Voronoi split (nearest extension),Imsh:50%; Ncsh:50%,Imsh;Ncsh
+546,0.2714,4.77455,9.27737,False,multi-neighbour Voronoi split (nearest extension),M:46%; Su:54%,M;Su
+548,0.268,4.61753,8.81641,False,multi-neighbour Voronoi split (nearest extension),M:47%; OGp:53%,M;OGp
+549,0.2638,8.25655,9.76752,False,multi-neighbour Voronoi split (nearest extension),M:55%; OGp:45%,M;OGp
+552,0.2584,7.35617,5.85542,False,multi-neighbour Voronoi split (nearest extension),Imsh:45%; Ncsh:55%,Imsh;Ncsh
+551,0.257,7.59861,11.25464,False,multi-neighbour Voronoi split (nearest extension),GG:53%; OGp:47%,GG;OGp
+550,0.2569,5.57974,13.18751,False,multi-neighbour Voronoi split (nearest extension),Al:47%; Tst:53%,Al;Tst
+568,0.2555,8.36971,6.09411,False,multi-neighbour Voronoi split (nearest extension),Arlsh:49%; Esh:51%,Arlsh;Esh
+566,0.2548,8.29386,7.29595,False,multi-neighbour Voronoi split (nearest extension),Arlsh:53%; Esh:47%,Arlsh;Esh
+563,0.2547,8.74764,7.42577,False,multi-neighbour Voronoi split (nearest extension),Arlsh:50%; Ess:50%,Arlsh;Ess
+556,0.2545,6.07447,7.88107,False,multi-neighbour Voronoi split (nearest extension),M:21%; OGp:50%; Su:29%,M;OGp;Su
+575,0.2543,7.73406,8.27166,False,multi-neighbour Voronoi split (nearest extension),Lass:50%; M:50%,Lass;M
+559,0.2541,9.56611,8.60819,False,multi-neighbour Voronoi split (nearest extension),Al:49%; Bss:16%; Esh:35%,Al;Bss;Esh
+571,0.254,3.18222,8.68738,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGm:50%,GG;OGm
+560,0.254,7.8141,8.69118,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:41%; OGu:10%,M;OGp;OGu
+553,0.2538,14.60636,12.18996,True,single-neighbour extension,Cst:100%,Cst
+576,0.2537,8.8961,9.20664,False,multi-neighbour Voronoi split (nearest extension),JyG:50%; MyG:50%,JyG;MyG
+574,0.2531,8.73108,9.96345,False,multi-neighbour Voronoi split (nearest extension),M:51%; OGp:49%,M;MyG;OGp
+582,0.253,3.16489,6.57554,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Bnst:50%,Al;Bnst
+573,0.253,6.0699,10.02665,False,multi-neighbour Voronoi split (nearest extension),GG:50%; Su:50%,GG;Su
+561,0.2527,5.68465,10.44312,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGm:50%,M;OGm
+569,0.2527,12.38784,10.47434,False,multi-neighbour Voronoi split (nearest extension),OGm:51%; bb:49%,OGm;bb
+562,0.2525,5.16159,10.90148,False,multi-neighbour Voronoi split (nearest extension),MG:29%; OGp:50%; Sa:21%,MG;MS;OGp;Sa
+558,0.2524,7.15485,10.91442,False,multi-neighbour Voronoi split (nearest extension),M:51%; OGm:49%,M;OGm
+557,0.2523,9.8836,10.99513,False,multi-neighbour Voronoi split (nearest extension),GG:50%; JyG:50%,GG;JyG;OGp
+555,0.2522,4.66365,11.0568,False,multi-neighbour Voronoi split (nearest extension),Al:50%; OGm:18%; bG:32%,Al;OGm;bG
+567,0.252,11.75048,11.36154,False,multi-neighbour Voronoi split (nearest extension),Cst:49%; Psh:51%,Cst;Psh
+564,0.252,4.06445,11.29311,False,multi-neighbour Voronoi split (nearest extension),GIss:53%; Mc:47%,GIss;Mc
+572,0.2517,4.79518,11.6187,False,multi-neighbour Voronoi split (nearest extension),M:50%; Qs:50%,M;MS;Qs
+565,0.2517,7.02313,11.72682,False,multi-neighbour Voronoi split (nearest extension),GG:44%; M:50%; OGp:6%,GG;M;OGp
+578,0.2515,5.24762,11.72605,False,multi-neighbour Voronoi split (nearest extension),M:50%; MS:36%; Sp:14%,M;MS;OGm;Sp
+570,0.2515,8.23638,11.89889,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+554,0.2512,4.25251,11.61489,False,multi-neighbour Voronoi split (nearest extension),GIss:50%; Wss:50%,GIss;Wss
+580,0.2511,9.23953,9.79605,False,multi-neighbour Voronoi split (nearest extension),JyG:50%; OGp:50%,JyG;OGp
+579,0.2511,7.72358,11.84709,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:3%; Su:47%,M;OGp;Su
+581,0.251,8.5207,9.93762,False,multi-neighbour Voronoi split (nearest extension),M:51%; OGm:49%,M;OGm
+577,0.2504,5.21336,13.13233,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Wsh:50%,Al;Wsh
+583,0.2458,7.06899,10.0328,False,multi-neighbour Voronoi split (nearest extension),OGm:53%; Su:47%,OGm;Su
+584,0.2442,6.6339,12.04305,False,multi-neighbour Voronoi split (nearest extension),GG:51%; OGm:49%,GG;OGm
+586,0.2428,4.50778,8.21103,False,multi-neighbour Voronoi split (nearest extension),M:52%; m:48%,M;m
+585,0.2411,7.0561,11.4979,False,multi-neighbour Voronoi split (nearest extension),GG:45%; M:55%,GG;M
+587,0.2394,3.31637,8.94035,False,multi-neighbour Voronoi split (nearest extension),OGm:49%; Qs:51%,OGm;Qs
+588,0.2378,8.03532,5.4676,False,multi-neighbour Voronoi split (nearest extension),Awst:47%; Esh:53%,Awst;Esh
+590,0.2345,8.44454,4.73993,True,single-neighbour extension,Al:100%,Al
+589,0.2337,8.60757,10.87057,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:48%; MyP:2%,GG;M;MyP
+591,0.2276,7.06958,10.28004,False,multi-neighbour Voronoi split (nearest extension),Qs:51%; Su:49%,Qs;Su
+595,0.2248,7.38992,6.26571,False,multi-neighbour Voronoi split (nearest extension),Ajst:56%; LCM:44%,Ajst;LCM
+592,0.2246,12.60179,13.27714,True,single-neighbour extension,Cst:100%,Cst
+596,0.2242,8.16595,5.3944,False,multi-neighbour Voronoi split (nearest extension),Mlst:50%; bS:50%,Mlst;bS
+598,0.2234,4.10176,7.09304,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:0%; Su:50%,M;OGp;Su
+617,0.2233,8.44309,6.56845,False,multi-neighbour Voronoi split (nearest extension),Esh:52%; b:48%,Esh;b
+620,0.2233,9.17639,6.67124,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M;OGp
+609,0.2232,9.46028,6.83733,False,multi-neighbour Voronoi split (nearest extension),GG:53%; OGp:47%,GG;OGp
+600,0.2232,3.98527,7.38922,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:28%; Qs:22%,M;OGp;Qs;Su
+619,0.223,3.25588,7.40978,False,multi-neighbour Voronoi split (nearest extension),ANsh:50%; MG:50%,ANsh;MG
+604,0.223,4.78547,7.29405,False,multi-neighbour Voronoi split (nearest extension),Qs:35%; bG:65%,OGu;Qs;bG
+610,0.2227,4.12612,7.78742,False,multi-neighbour Voronoi split (nearest extension),D:48%; M:46%; Su:6%,D;M;Su
+622,0.2224,9.10874,8.34628,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Esh:50%,Al;Esh
+603,0.2224,12.07297,8.44145,False,multi-neighbour Voronoi split (nearest extension),MG:50%; OGm:50%,MG;OGm
+607,0.2224,3.47363,8.4309,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; Sa:50%,M;OGm;Sa
+618,0.222,8.26373,9.23024,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M
+616,0.2219,8.70598,9.25994,False,multi-neighbour Voronoi split (nearest extension),JyG:51%; MyG:49%,JyG;MyG
+599,0.2219,8.16595,8.97137,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; OGu:50%,OGp;OGu
+593,0.2217,8.75085,12.90248,True,single-neighbour extension,Cst:100%,Cst
+613,0.2217,9.41383,9.35663,False,multi-neighbour Voronoi split (nearest extension),GG:16%; Ge:34%; JyG:50%,GG;Ge;JyG
+597,0.2215,6.90893,9.91244,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; Su:50%,MG;OGm;Su
+612,0.2214,8.48154,9.99924,False,multi-neighbour Voronoi split (nearest extension),M:51%; b:49%,M;b
+606,0.2214,6.787,10.14923,False,multi-neighbour Voronoi split (nearest extension),M:50%; aMy:50%,M;aMy
+625,0.2213,10.29909,10.40049,False,longest-shared-border extension (Voronoi fallback),OGp:100%,Gss;OGp
+611,0.2213,6.43383,10.23831,False,multi-neighbour Voronoi split (nearest extension),My:50%; Su:50%,My;Su
+626,0.2212,3.38007,7.60538,False,multi-neighbour Voronoi split (nearest extension),M:50%; Su:50%; qs:0%,M;Su;qs
+594,0.2211,5.84883,12.75683,False,multi-neighbour Voronoi split (nearest extension),Al:50%; GIss:50%,Al;GIgss;GIss
+615,0.2211,5.926,10.4949,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGm:50%,GG;OGm
+605,0.221,6.09274,10.60454,False,multi-neighbour Voronoi split (nearest extension),M:48%; Qs:52%,M;Qs
+614,0.2208,5.38314,10.7926,False,multi-neighbour Voronoi split (nearest extension),MG:50%; OGp:50%,MG;OGp
+601,0.2202,7.50845,11.71692,False,multi-neighbour Voronoi split (nearest extension),M:53%; qs:47%,M;qs
+621,0.2202,7.4656,11.75803,False,multi-neighbour Voronoi split (nearest extension),M:50%; qs:50%,M;qs
+624,0.2201,7.21728,9.68783,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; Su:50%,OGp;Su
+608,0.2201,7.95733,11.80752,False,multi-neighbour Voronoi split (nearest extension),GG:49%; OGp:51%,GG;OGp
+602,0.219,10.25971,13.22369,False,multi-neighbour Voronoi split (nearest extension),Cst:52%; JyG:48%,Cst;JyG
+623,0.219,10.2087,13.19476,False,multi-neighbour Voronoi split (nearest extension),Cst:50%; JyG:50%,Cst;JyG
+627,0.2178,3.59508,11.25994,True,multi-neighbour Voronoi split (nearest extension),GIss:50%; bG:50%,GIss;bG
+630,0.2177,3.30167,8.25094,False,multi-neighbour Voronoi split (nearest extension),MG:3%; OGm:49%; Sa:47%,MG;OGm;Sa
+629,0.2171,7.68028,11.15205,False,multi-neighbour Voronoi split (nearest extension),GG:51%; OGp:49%,GG;OGp
+628,0.217,5.45567,5.45591,True,multi-neighbour Voronoi split (nearest extension),AB:50%; MS:50%,AB;MS
+631,0.2152,4.84411,11.54548,False,multi-neighbour Voronoi split (nearest extension),M:46%; Qs:54%,M;Qs
+632,0.2131,7.64574,10.62903,False,multi-neighbour Voronoi split (nearest extension),OGp:49%; Su:51%,OGp;Su
+633,0.213,10.39848,10.21905,False,multi-neighbour Voronoi split (nearest extension),Al:49%; Kss:51%,Al;Kss
+634,0.213,3.24699,6.68473,False,multi-neighbour Voronoi split (nearest extension),Al:48%; Bnst:52%,Al;Bnst
+636,0.2082,8.39553,7.18324,False,multi-neighbour Voronoi split (nearest extension),Esh:48%; Ess:52%,Esh;Ess
+637,0.2066,8.37908,10.17248,False,multi-neighbour Voronoi split (nearest extension),M:55%; MyG:45%,M;MyG
+635,0.2055,14.50334,12.3285,True,single-neighbour extension,Cst:100%,Cst
+638,0.2027,7.15637,12.64849,False,multi-neighbour Voronoi split (nearest extension),M:49%; OGm:50%; Sf:2%,M;OGm;Sf
+639,0.1981,7.58511,10.48758,False,longest-shared-border extension (Voronoi fallback),M:100%,M;OGp
+640,0.196,10.98951,7.88569,False,multi-neighbour Voronoi split (nearest extension),MG:49%; OGm:1%; OGp:50%,MG;OGm;OGp
+642,0.1917,6.80767,4.95051,False,multi-neighbour Voronoi split (nearest extension),Bnst:50%; MS:50%,Bnst;MS;SDsm
+646,0.1914,9.11918,6.64167,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGp:50%,GG;OGp
+652,0.1913,3.66626,6.85244,False,multi-neighbour Voronoi split (nearest extension),ANsh:50%; Al:50%,ANsh;Al;Asl;Bnst
+643,0.1905,10.07622,8.21456,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Arlsh:50%; Yls:0%,Al;Arlsh;Yls
+647,0.1905,4.12841,8.69956,False,multi-neighbour Voronoi split (nearest extension),M:46%; NPss:12%; OGp:42%,M;NPss;OGp
+656,0.19,6.462,9.2645,False,multi-neighbour Voronoi split (nearest extension),Al:50%; MG:50%,Al;MG;NPss
+659,0.1897,8.89458,9.66195,False,multi-neighbour Voronoi split (nearest extension),JyG:50%; M:50%,JyG;M;bb
+653,0.1897,6.52063,10.00457,False,multi-neighbour Voronoi split (nearest extension),M:50%; aMy:50%,M;Su;aMy
+651,0.1894,10.32519,10.45911,False,multi-neighbour Voronoi split (nearest extension),Gss:50%; OGp:50%,Gss;OGp
+650,0.1893,7.14038,10.87864,False,multi-neighbour Voronoi split (nearest extension),M:52%; OGm:48%,M;OGm
+648,0.1893,7.37184,10.82458,False,multi-neighbour Voronoi split (nearest extension),M:52%; OGp:48%,M;OGp
+645,0.1892,7.24774,11.16492,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:21%; OGm:29%,GG;M;OGm
+660,0.1892,10.35412,10.50936,False,multi-neighbour Voronoi split (nearest extension),Gss:50%; OGp:50%,Gss;OGp
+658,0.189,11.86392,11.11923,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; Yls:7%; bb:43%,OGp;Yls;bG;bb
+644,0.1889,9.8874,11.43292,False,multi-neighbour Voronoi split (nearest extension),Al:50%; OGp:50%,Al;OGp
+654,0.1886,7.00714,11.91868,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; Sf:50%,OGm;Sf
+649,0.1885,7.76204,12.02147,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+662,0.1884,8.41941,6.19598,False,multi-neighbour Voronoi split (nearest extension),Esh:50%; Nsh:50%,Esh;Nsh
+661,0.1882,8.39078,7.57417,False,multi-neighbour Voronoi split (nearest extension),Esh:50%; Ess:50%,Esh;Ess
+655,0.1881,4.9446,12.66332,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Wsh:50%,Al;Wsh
+657,0.1877,8.80322,11.92097,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; OGp:50%,OGm;OGp
+641,0.1869,5.36944,13.13081,False,multi-neighbour Voronoi split (nearest extension),Al:50%; GIss:40%; Wsh:10%,Al;GIss;Wsh
+663,0.1845,8.44168,9.37705,False,multi-neighbour Voronoi split (nearest extension),M:56%; b:44%,M;b
+664,0.1838,10.61694,10.45808,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Kss:50%,Al;Kss
+665,0.1819,6.69288,10.52608,False,multi-neighbour Voronoi split (nearest extension),M:8%; Su:47%; qs:46%,M;Su;qs
+666,0.1814,4.58012,8.7881,False,multi-neighbour Voronoi split (nearest extension),M:52%; OGp:48%,M;OGp
+667,0.1797,7.92811,9.87386,False,multi-neighbour Voronoi split (nearest extension),M:59%; OGp:0%; Su:41%,M;OGp;Su
+668,0.179,8.43192,10.46394,False,multi-neighbour Voronoi split (nearest extension),M:51%; Sa:49%,M;Sa
+670,0.1777,7.35977,6.67918,False,multi-neighbour Voronoi split (nearest extension),Ajst:54%; Ess:46%,Ajst;Ess
+669,0.1765,4.13374,11.2307,False,multi-neighbour Voronoi split (nearest extension),GIss:42%; Glcl:49%; NPss:9%,GIss;Glcl;NPss
+673,0.1756,7.76433,6.34727,False,multi-neighbour Voronoi split (nearest extension),Esh:50%; Esh:50%,Esh
+671,0.1746,7.83275,12.16019,False,multi-neighbour Voronoi split (nearest extension),M:49%; OPg:51%,M;OPg
+672,0.1741,7.55755,10.36619,False,multi-neighbour Voronoi split (nearest extension),M:51%; OGp:49%,M;OGp
+674,0.1687,4.25707,6.7105,False,multi-neighbour Voronoi split (nearest extension),Ajst:38%; Asl:62%,Ajst;Asl
+675,0.1666,4.34719,7.59421,False,multi-neighbour Voronoi split (nearest extension),M:17%; MV:83%,M;MV
+676,0.161,7.24262,10.14598,False,multi-neighbour Voronoi split (nearest extension),Qs:45%; Su:55%,Qs;Su
+678,0.1598,7.6505,5.71037,False,multi-neighbour Voronoi split (nearest extension),Esh:50%; Imsh:50%,Esh;Imsh
+681,0.1595,8.45908,6.61794,False,multi-neighbour Voronoi split (nearest extension),Esh:45%; Esh:49%; b:6%,Esh;b
+682,0.1594,3.12386,6.92097,False,multi-neighbour Voronoi split (nearest extension),ANsh:46%; Issh:54%,ANsh;Issh
+692,0.1593,4.1817,7.39455,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+691,0.1591,3.68301,7.82854,False,multi-neighbour Voronoi split (nearest extension),M:50%; Qs:50%,M;Qs
+677,0.1587,11.34695,9.14725,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; Yls:50%,GG;OGp;Yls
+690,0.1583,8.17128,9.67032,False,multi-neighbour Voronoi split (nearest extension),GG:48%; M:52%,GG;M
+684,0.1582,8.91209,10.05787,False,multi-neighbour Voronoi split (nearest extension),GG:50%; JyG:27%; M:23%,GG;JyG;M
+685,0.158,6.2709,10.2977,False,multi-neighbour Voronoi split (nearest extension),My:50%; OGp:50%,My;OGp;bG
+687,0.1579,8.32508,10.61977,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; OGp:50%,OGm;OGp
+686,0.1578,6.29831,10.96239,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGm:50%,GG;M;OGm
+688,0.1571,7.66421,12.0131,False,multi-neighbour Voronoi split (nearest extension),M:52%; Su:48%,M;Su
+683,0.157,6.97517,11.97807,False,multi-neighbour Voronoi split (nearest extension),OGf:50%; Sf:50%,OGf;Sf
+680,0.157,5.94275,12.22171,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; Qs:50%,OGm;Qs
+689,0.1569,7.62949,12.36181,False,multi-neighbour Voronoi split (nearest extension),GG:49%; M:51%,GG;M
+679,0.1566,8.04108,12.83387,False,multi-neighbour Voronoi split (nearest extension),Gdss:50%; OGp:50%,Gdss;OGp
+693,0.1565,7.76206,10.13683,False,multi-neighbour Voronoi split (nearest extension),M:83%; OGp:17%,M;OGp
+694,0.1561,9.8683,7.62578,False,multi-neighbour Voronoi split (nearest extension),Ess:50%; bG:50%,Ess;bG
+696,0.1548,6.72073,7.7426,False,multi-neighbour Voronoi split (nearest extension),Al:49%; M:51%,Al;M
+695,0.1546,12.6686,9.6636,False,multi-neighbour Voronoi split (nearest extension),Al:5%; M:46%; Yls:49%,Al;M;Yls
+697,0.1535,4.73574,9.33239,False,multi-neighbour Voronoi split (nearest extension),M:50%; NPss:50%,M;NPss
+698,0.1529,9.88879,8.8988,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Bss:50%,Al;Bss
+699,0.1519,7.8052,11.02962,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGp:50%,GG;OGm;OGp
+700,0.1494,6.96278,10.19771,False,multi-neighbour Voronoi split (nearest extension),OGp:49%; Su:51%,OGp;Su
+702,0.1456,7.04706,7.4833,False,multi-neighbour Voronoi split (nearest extension),Ajst:52%; Ncsh:48%,Ajst;Ncsh
+701,0.1455,7.93221,8.6245,False,multi-neighbour Voronoi split (nearest extension),M:49%; MS:2%; OGp:50%,M;MS;OGp
+704,0.1442,7.7779,6.37303,False,multi-neighbour Voronoi split (nearest extension),Esh:48%; Esh:52%,Esh
+705,0.1439,8.34034,4.8306,True,multi-neighbour Voronoi split (nearest extension),Al:56%; OAlgs:44%,Al;OAlgs
+703,0.1428,12.49336,13.08511,True,single-neighbour extension,Cst:100%,Cst
+706,0.1374,12.50352,13.13785,True,single-neighbour extension,Cst:100%,Cst
+707,0.1366,12.49387,13.09351,True,single-neighbour extension,Cst:100%,Cst
+708,0.1365,5.6214,11.73376,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; Su:50%,OGm;Su
+709,0.1361,14.66623,12.17974,True,single-neighbour extension,Cst:100%,Cst
+710,0.1341,7.66936,9.19733,False,multi-neighbour Voronoi split (nearest extension),M:51%; MS:49%,M;MS
+711,0.1328,6.55356,6.24405,False,multi-neighbour Voronoi split (nearest extension),Bnst:50%; Issh:50%,Bnst;Issh
+719,0.1276,8.4507,6.59586,False,multi-neighbour Voronoi split (nearest extension),Esh:50%; b:50%,Esh;b
+728,0.1276,8.43319,6.57987,False,multi-neighbour Voronoi split (nearest extension),Esh:50%; Esh:50%,Esh;b
+738,0.1275,4.86237,6.92592,False,multi-neighbour Voronoi split (nearest extension),OGf:50%; OGu:50%,M;OGf;OGu
+723,0.1275,8.21163,6.85168,False,multi-neighbour Voronoi split (nearest extension),Esh:49%; Ess:51%,Esh;Ess
+716,0.1275,8.10123,6.77554,False,multi-neighbour Voronoi split (nearest extension),Esh:50%; Ess:50%,Esh;Ess
+729,0.1273,6.13005,7.89706,False,multi-neighbour Voronoi split (nearest extension),Qs:50%; Su:50%,Qs;Su
+720,0.1272,4.49463,8.24882,False,multi-neighbour Voronoi split (nearest extension),M:50%; m:50%,M;m
+737,0.1272,4.63852,8.02193,False,multi-neighbour Voronoi split (nearest extension),GG:50%; bG:50%,GG;bG
+725,0.127,3.02062,8.73991,False,multi-neighbour Voronoi split (nearest extension),OGf:50%; OGm:50%,OGf;OGm
+742,0.1268,7.4312,5.94768,False,multi-neighbour Voronoi split (nearest extension),Esh:4%; Esh:46%; LCM:50%,Esh;LCM
+722,0.1268,8.45527,9.30257,False,multi-neighbour Voronoi split (nearest extension),M:45%; b:55%,M;b
+735,0.1267,7.88843,9.61702,False,multi-neighbour Voronoi split (nearest extension),M:44%; Su:56%,M;Su
+734,0.1267,12.2111,9.43734,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Psh:50%,Al;Psh
+726,0.1267,7.29494,9.96117,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; Su:50%,MG;OGp;Su
+724,0.1266,4.46493,9.8363,False,multi-neighbour Voronoi split (nearest extension),GG:12%; M:38%; OGp:50%,GG;M;OGp
+733,0.1266,11.9332,9.92615,False,multi-neighbour Voronoi split (nearest extension),Bss:50%; Yls:50%,Bss;Yls
+730,0.1265,9.01868,10.21014,False,multi-neighbour Voronoi split (nearest extension),GG:50%; Myl:40%; r:10%,GG;MyP;Myl;r
+736,0.1265,12.56286,10.25202,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGu:50%,M;OGu
+721,0.1264,5.76459,10.48805,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGm:50%,M;OGm
+741,0.1264,10.00237,11.09715,False,multi-neighbour Voronoi split (nearest extension),JyG:50%; OGp:50%,JyG;OGp
+712,0.1262,6.23664,10.45911,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;NPss;OGp
+715,0.1262,7.59492,10.74387,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; Su:50%,OGp;Su
+739,0.1261,7.14191,11.02406,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGm:31%; Su:19%,M;OGm;Su
+713,0.126,5.83159,11.56616,False,multi-neighbour Voronoi split (nearest extension),GG:23%; MaG:27%; Sp:50%,GG;MaG;Sp
+717,0.126,4.81669,11.33318,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; Qs:50%,OGm;Qs
+718,0.1259,3.98146,11.67809,False,multi-neighbour Voronoi split (nearest extension),Glcl:50%; Gwss:50%,Glcl;Gwss
+714,0.1259,4.79232,11.33242,False,multi-neighbour Voronoi split (nearest extension),Qs:50%; bG:50%,Qs;bG
+731,0.1254,10.37392,12.73032,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Cst:50%,Al;Cst
+740,0.1252,6.9942,12.90239,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGp:50%,GG;OGp
+732,0.1252,5.82855,13.02802,False,multi-neighbour Voronoi split (nearest extension),Wcs:50%; Wss:50%,Wcs;Wss
+727,0.1248,11.47791,13.25339,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Cst:50%,Al;Cst
+743,0.1235,11.31148,6.94295,False,multi-neighbour Voronoi split (nearest extension),MG:50%; OGp:50%,MG;OGp
+744,0.1226,4.95764,8.7009,False,multi-neighbour Voronoi split (nearest extension),M:51%; OGp:49%,M;OGp
+745,0.1222,12.15487,9.86938,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+746,0.1214,7.02683,11.46555,False,multi-neighbour Voronoi split (nearest extension),M:52%; Su:48%,M;Su
+748,0.1172,8.06545,5.43577,False,multi-neighbour Voronoi split (nearest extension),Awst:50%; Esh:50%,Awst;Esh
+747,0.1163,6.13865,12.3851,False,multi-neighbour Voronoi split (nearest extension),OGd:51%; OGr:49%,OGd;OGr
+749,0.1141,4.78699,11.54513,False,multi-neighbour Voronoi split (nearest extension),M:59%; Qs:41%,M;Qs
+750,0.1128,6.23389,12.40181,False,multi-neighbour Voronoi split (nearest extension),OGd:60%; r:40%,OGd;r
+751,0.1121,11.964,11.19114,False,multi-neighbour Voronoi split (nearest extension),Cst:48%; bb:52%,Cst;bb
+752,0.1117,7.56051,10.66123,False,multi-neighbour Voronoi split (nearest extension),OGd:52%; Su:48%,OGd;Su
+753,0.1113,7.67664,11.0988,False,longest-shared-border extension (Voronoi fallback),OGp:100%,GG;OGp
+754,0.1079,7.79396,10.94103,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; OGp:50%,OGm;OGp
+755,0.1024,7.16913,10.18386,False,multi-neighbour Voronoi split (nearest extension),MG:54%; OGp:0%; Su:45%,MG;OGp;Su
+756,0.099,14.51509,12.30779,True,single-neighbour extension,Cst:100%,Cst
+757,0.096,5.66916,13.82843,True,multi-neighbour Voronoi split (nearest extension),Al:100%; GIss:0%,Al;GIss
+759,0.096,5.7321,4.61728,False,multi-neighbour Voronoi split (nearest extension),AB:50%; MS:50%,AB;MS
+762,0.0959,7.5264,5.87559,False,multi-neighbour Voronoi split (nearest extension),Esh:50%; Nsh:50%,Esh;Nsh
+763,0.0957,9.43896,6.82732,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGp:50%,GG;OGp
+771,0.0956,9.45952,7.15243,False,multi-neighbour Voronoi split (nearest extension),OGp:35%; OPg:15%; bG:50%,OGp;OPg;bG
+766,0.0951,8.04718,9.29801,False,multi-neighbour Voronoi split (nearest extension),M:48%; OGp:52%,M;OGp
+768,0.0951,12.15629,8.99345,False,single-neighbour extension,MG:100%,MG
+769,0.0949,9.40241,10.03426,False,multi-neighbour Voronoi split (nearest extension),GG:40%; MG:10%; OGp:50%,GG;MG;OGp
+765,0.0948,8.83139,10.32054,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGp:50%,GG;MyP;OGp
+770,0.0948,8.15377,10.47739,False,multi-neighbour Voronoi split (nearest extension),M:49%; OGp:51%,M;OGp
+760,0.0946,13.85795,11.19689,False,multi-neighbour Voronoi split (nearest extension),Cst:50%; Psh:50%,Cst;Psh
+764,0.0944,6.90664,11.63545,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGp:50%,GG;OGp
+758,0.0943,4.89434,7.82701,False,multi-neighbour Voronoi split (nearest extension),Qs:50%; bG:50%,Qs;bG
+761,0.0943,7.17998,10.61824,False,multi-neighbour Voronoi split (nearest extension),M:50%; Su:50%,M;Su
+773,0.0942,4.83112,8.62785,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGm:50%,M;OGm
+767,0.0942,6.31125,12.18288,False,multi-neighbour Voronoi split (nearest extension),GG:23%; OGS:50%; Sp:27%,GG;OGS;OGd;Sp
+772,0.094,6.07371,12.4113,False,multi-neighbour Voronoi split (nearest extension),GIss:24%; OGd:26%; Sp:50%,GIss;OGd;Sp
+774,0.0935,8.57804,9.39695,False,multi-neighbour Voronoi split (nearest extension),M:50%; b:50%,M;b
+775,0.0929,8.50037,9.2005,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M
+777,0.0917,2.73986,6.53257,False,multi-neighbour Voronoi split (nearest extension),Al:49%; Bnst:51%,Al;Bnst
+776,0.0911,7.75472,11.10663,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGp:50%,GG;OGp
+778,0.0904,8.01755,5.5951,False,multi-neighbour Voronoi split (nearest extension),Awst:50%; Esh:50%,Awst;Esh
+779,0.089,3.87852,6.68465,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Bnst:50%,Al;Bnst
+780,0.0873,7.20436,11.94855,False,multi-neighbour Voronoi split (nearest extension),OGm:1%; OGp:50%; Sf:50%,OGm;OGp;Sf
+781,0.0854,7.83574,10.83436,False,multi-neighbour Voronoi split (nearest extension),MS:0%; OGm:50%; OGp:50%,MS;OGm;OGp
+782,0.0849,7.04879,11.96003,False,multi-neighbour Voronoi split (nearest extension),OGf:49%; Sf:51%,OGf;Sf
+785,0.084,10.99321,7.8536,False,multi-neighbour Voronoi split (nearest extension),MG:49%; OGm:50%; OGp:2%,MG;OGm;OGp
+783,0.084,14.60781,11.86703,True,single-neighbour extension,Cst:100%,Cst
+784,0.0835,7.4192,11.7522,False,multi-neighbour Voronoi split (nearest extension),GG:49%; M:51%,GG;M
+786,0.0822,8.62384,4.90666,True,single-neighbour extension,Bnst:100%,Bnst
+787,0.0805,8.28252,7.26623,False,multi-neighbour Voronoi split (nearest extension),Arlsh:47%; Esh:53%,Arlsh;Esh
+789,0.0797,2.78764,7.07286,False,multi-neighbour Voronoi split (nearest extension),ANsh:50%; Issh:50%,ANsh;Issh
+790,0.0797,3.90913,7.20078,False,multi-neighbour Voronoi split (nearest extension),M:50%; Qs:50%,M;Qs
+788,0.0789,7.62487,10.70593,False,multi-neighbour Voronoi split (nearest extension),OGp:49%; Su:51%,OGp;Su
+791,0.078,7.98136,5.75676,False,multi-neighbour Voronoi split (nearest extension),Arlsh:46%; Esh:54%,Arlsh;Esh
+792,0.0735,7.16705,9.79959,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; Su:50%,OGp;Su
+793,0.0723,4.41184,8.09218,False,multi-neighbour Voronoi split (nearest extension),M:42%; Qs:58%,M;Qs
+794,0.0716,8.27235,7.51884,False,multi-neighbour Voronoi split (nearest extension),Arlsh:50%; Esh:50%,Arlsh;Esh
+795,0.0708,7.80791,12.02318,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+796,0.0687,8.40971,9.38772,False,multi-neighbour Voronoi split (nearest extension),M:54%; b:46%,M;b
+797,0.0664,7.26472,10.13606,False,multi-neighbour Voronoi split (nearest extension),Qs:39%; Su:61%,Qs;Su
+798,0.0656,7.41816,6.33645,False,multi-neighbour Voronoi split (nearest extension),Ajst:51%; LCM:49%,Ajst;LCM
+825,0.0651,10.45919,9.25156,False,multi-neighbour Voronoi split (nearest extension),Bss:50%; Psh:50%,Bss;Psh
+800,0.0647,3.57924,7.06476,False,multi-neighbour Voronoi split (nearest extension),Asl:42%; M:58%,Asl;M
+824,0.0639,4.37814,9.06426,False,multi-neighbour Voronoi split (nearest extension),GG:0%; GG:50%; OGp:4%; Su:46%,GG;OGp;Su
+799,0.0638,14.30461,12.3561,True,single-neighbour extension,Cst:100%,Cst
+819,0.0637,3.56043,9.01325,False,multi-neighbour Voronoi split (nearest extension),OGm:22%; OGp:50%; bG:28%,OGm;OGp;OPg;bG
+815,0.0637,10.51325,7.47526,False,multi-neighbour Voronoi split (nearest extension),GG:50%; MG:50%,GG;MG
+803,0.0637,4.44133,7.69377,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; s:50%,M;OGp;bG;s
+802,0.0637,3.30232,6.92401,False,multi-neighbour Voronoi split (nearest extension),ANsh:50%; Al:30%; Asl:20%,ANsh;Al;Asl
+813,0.0637,4.58142,7.67398,False,multi-neighbour Voronoi split (nearest extension),GG:50%; Su:40%; s:10%,GG;Su;s
+810,0.0636,11.85022,7.88107,False,multi-neighbour Voronoi split (nearest extension),MG:50%; OGp:50%,MG;OGp
+816,0.0636,3.87944,7.73793,False,multi-neighbour Voronoi split (nearest extension),M:35%; Qs:50%; Su:15%,M;Qs;Su
+808,0.0635,9.77092,8.73534,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Esh:50%,Al;Esh
+804,0.0635,5.76459,8.50693,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; Qs:50%,OGp;Qs;Su
+820,0.0635,11.31421,9.16933,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; Yls:50%,GG;OGp;Yls
+818,0.0633,8.10808,8.96147,False,multi-neighbour Voronoi split (nearest extension),OGu:50%; b:50%,OGu;b
+801,0.0633,11.67358,10.13096,False,multi-neighbour Voronoi split (nearest extension),Bss:50%; Yls:50%,Bss;Yls
+817,0.0632,4.59893,10.62357,False,multi-neighbour Voronoi split (nearest extension),MG:50%; Qs:50%,MG;Qs;Su
+821,0.0632,8.33421,10.06243,False,multi-neighbour Voronoi split (nearest extension),M:50%; MGp:22%; MyG:28%,M;MGp;MyG
+811,0.0632,5.3268,10.46064,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGm:50%,M;OGm
+806,0.0631,7.50736,10.89767,False,multi-neighbour Voronoi split (nearest extension),OGd:50%; Su:50%,GG;OGd;Su
+822,0.0631,12.43114,10.45911,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; bb:50%,OGm;bb
+807,0.063,4.04922,11.17938,False,multi-neighbour Voronoi split (nearest extension),GIss:50%; Su:50%,GIss;Su
+823,0.0629,11.53196,11.34003,False,multi-neighbour Voronoi split (nearest extension),Cst:37%; Kss:13%; Psh:50%,Cst;Kss;Psh
+805,0.0629,6.87619,11.78468,False,multi-neighbour Voronoi split (nearest extension),GG:51%; Sf:49%,GG;Sf
+812,0.0628,6.32115,12.14101,False,multi-neighbour Voronoi split (nearest extension),OGS:50%; Sp:50%,OGS;Sp
+809,0.0628,6.20999,12.39455,False,multi-neighbour Voronoi split (nearest extension),OGd:50%; r:50%,OGd;r
+814,0.0626,5.09915,13.06304,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Wsh:50%,Al;Wsh
+826,0.0619,8.52203,9.39854,False,multi-neighbour Voronoi split (nearest extension),M:50%; b:50%,M;b
+827,0.061,6.72953,10.55234,False,multi-neighbour Voronoi split (nearest extension),Su:50%; qs:50%,Su;qs
+829,0.0607,8.44621,6.2176,False,multi-neighbour Voronoi split (nearest extension),Esh:50%; Nsh:50%,Esh;Nsh
+828,0.0607,6.99445,10.26566,False,multi-neighbour Voronoi split (nearest extension),MG:50%; OGp:46%; Qs:4%,MG;OGp;Qs;Su
+831,0.0598,2.69757,8.32268,True,single-neighbour extension,M:100%,M
+830,0.0596,8.32776,9.42507,False,multi-neighbour Voronoi split (nearest extension),M:50%; b:50%,M;b
+832,0.0592,7.56418,10.53839,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGd:50%,M;OGd
+833,0.0586,12.35245,13.07951,True,single-neighbour extension,Cst:100%,Cst
+834,0.0584,7.21972,11.33459,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:50%,GG;M
+836,0.0579,10.19943,8.79616,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Esh:50%,Al;Esh
+837,0.0574,8.51306,10.60135,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGf:49%; Sa:1%,M;OGf;Sa
+835,0.0574,8.14341,11.78683,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGm:50%,M;OGm
+838,0.0572,5.63938,11.80212,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; Su:50%,OGm;Su
+839,0.057,8.04345,5.54758,False,multi-neighbour Voronoi split (nearest extension),Awst:50%; OGd:50%,Awst;OGd;bS
+840,0.0563,7.34621,9.63716,False,multi-neighbour Voronoi split (nearest extension),GG:53%; Su:47%,GG;Su
+841,0.0551,7.94742,10.56192,False,multi-neighbour Voronoi split (nearest extension),M:48%; OGm:49%; OGp:3%,M;OGm;OGp
+842,0.0543,12.48922,9.73047,False,multi-neighbour Voronoi split (nearest extension),M:49%; Yls:51%,M;Yls
+843,0.054,8.2793,7.75127,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Esh:47%; Ess:3%,Al;Esh;Ess
+844,0.0532,13.64538,10.85413,False,multi-neighbour Voronoi split (nearest extension),OGp:51%; Su:49%,OGp;Su
+846,0.0528,7.6411,5.69004,False,multi-neighbour Voronoi split (nearest extension),Esh:52%; Ncsh:48%,Esh;Ncsh
+845,0.0521,6.29725,12.23672,False,multi-neighbour Voronoi split (nearest extension),OGd:46%; OGm:15%; Sp:39%,OGd;OGm;Sp
+847,0.0517,7.7454,10.36687,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+848,0.0496,7.52297,9.9546,False,multi-neighbour Voronoi split (nearest extension),M:56%; OGp:44%,M;OGp
+849,0.0474,8.4507,10.49452,False,multi-neighbour Voronoi split (nearest extension),M:50%; Sa:50%,M;Sa
+850,0.0442,6.92389,12.91345,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGm:50%,GG;OGm
+851,0.044,3.95052,7.65435,False,multi-neighbour Voronoi split (nearest extension),Su:47%; m:53%,Su;m
+852,0.042,11.91795,7.53078,False,multi-neighbour Voronoi split (nearest extension),MG:50%; OGp:50%,MG;OGp
+853,0.0419,3.31193,6.82394,False,multi-neighbour Voronoi split (nearest extension),ANsh:41%; Al:59%,ANsh;Al;Bnst
+854,0.0408,7.89153,8.69575,False,multi-neighbour Voronoi split (nearest extension),M:5%; MS:46%; OGp:49%,M;MS;OGp;OGu
+855,0.0395,12.49571,13.10814,True,single-neighbour extension,Cst:100%,Cst
+856,0.0379,7.25337,10.14162,False,multi-neighbour Voronoi split (nearest extension),Qs:46%; Su:54%,Qs;Su
+857,0.0378,3.37153,7.13525,False,multi-neighbour Voronoi split (nearest extension),Asl:2%; Asl:49%; M:47%; MG:2%,Asl;M;MG
+858,0.0364,2.80159,7.4891,False,multi-neighbour Voronoi split (nearest extension),Asl:42%; M:58%,Asl;M
+859,0.0355,4.84096,9.02915,False,multi-neighbour Voronoi split (nearest extension),M:66%; Qs:34%,M;Qs
+860,0.0337,7.65045,10.88727,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGp:50%,GG;OGp
+861,0.0329,7.75584,11.08511,False,multi-neighbour Voronoi split (nearest extension),GG:45%; OGp:55%,GG;OGp
+877,0.0321,3.8802,7.91838,False,multi-neighbour Voronoi split (nearest extension),M:50%; Qs:50%,M;Qs
+869,0.0319,8.93189,7.09304,False,multi-neighbour Voronoi split (nearest extension),Arlsh:50%; Esh:50%,Arlsh;Esh;OGp
+879,0.0319,5.29711,7.9062,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGCh:50%,M;OGCh
+864,0.0319,9.37805,7.87422,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Arlsh:29%; OGp:21%,Al;Arlsh;OGp
+866,0.0318,4.62025,7.43795,False,multi-neighbour Voronoi split (nearest extension),GG:50%; Su:50%,GG;MV;OGp;Su
+876,0.0318,7.44645,9.2272,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; OGu:50%,OGp;OGu
+863,0.0317,4.39489,8.95767,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; bG:50%,OGp;OGu;bG
+865,0.0317,6.52444,10.49033,False,multi-neighbour Voronoi split (nearest extension),My:19%; OGp:50%; Su:30%,My;OGp;Su
+880,0.0317,6.80919,7.17603,False,multi-neighbour Voronoi split (nearest extension),Ajst:50%; Ncsh:50%,Ajst;Ncsh
+862,0.0316,4.57229,11.73138,False,multi-neighbour Voronoi split (nearest extension),M:50%; qs:50%,M;qs
+875,0.0316,9.56991,10.05939,False,multi-neighbour Voronoi split (nearest extension),GG:50%; MG:50%; OGp:0%,GG;MG;OGp
+868,0.0316,12.53925,9.99315,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:44%; OPg:6%,M;OGp;OPg
+871,0.0316,11.79083,10.68829,False,multi-neighbour Voronoi split (nearest extension),Psh:50%; bb:50%,Psh;bb
+873,0.0315,3.78122,10.96391,False,multi-neighbour Voronoi split (nearest extension),GIss:50%; MG:50%,GIss;MG
+872,0.0315,9.89959,11.23649,False,multi-neighbour Voronoi split (nearest extension),JyA:22%; OGm:50%; OGp:28%,JyA;OGm;OGp
+874,0.0315,9.93309,11.57073,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Cst:39%; OGp:11%,Al;Cst;OGp
+878,0.0315,5.41664,11.52429,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGm:50%,GG;OGm
+867,0.0314,6.03488,12.47297,False,multi-neighbour Voronoi split (nearest extension),GIgss:50%; GIss:19%; Sp:31%,GIgss;GIss;Qs;Sp
+881,0.0314,5.6344,11.71083,False,multi-neighbour Voronoi split (nearest extension),Sp:50%; Su:50%,Sp;Su
+870,0.0313,5.95113,12.16918,False,multi-neighbour Voronoi split (nearest extension),OGm:22%; Qs:28%; Sp:50%,ODh;OGm;Qs;Sp
+882,0.0306,6.73917,7.50937,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Su:50%,Al;Su
+884,0.0304,12.01541,8.70409,False,multi-neighbour Voronoi split (nearest extension),MG:50%; OGp:50%,MG;OGp
+886,0.0303,4.27835,6.74817,False,multi-neighbour Voronoi split (nearest extension),Ajst:50%; M:50%,Ajst;M
+883,0.0301,6.16058,12.01998,False,multi-neighbour Voronoi split (nearest extension),OGd:97%; P:3%,OGd;OGr;P
+887,0.03,8.42565,9.95512,False,multi-neighbour Voronoi split (nearest extension),M:50%; b:50%,M;b
+885,0.0298,6.88029,12.92063,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGm:50%,GG;OGm
+888,0.0296,7.95591,12.62986,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+889,0.0295,5.03591,8.77039,False,longest-shared-border extension (Voronoi fallback),M:100%,M;NPss;Su
+892,0.0292,3.41875,8.40343,False,multi-neighbour Voronoi split (nearest extension),OGS:50%; OGm:50%,OGS;OGm
+891,0.0292,9.90726,8.66965,False,multi-neighbour Voronoi split (nearest extension),Al:50%; Esh:50%,Al;Esh;Psh
+890,0.029,9.85765,11.46347,False,multi-neighbour Voronoi split (nearest extension),Cst:50%; OGp:50%,Cst;OGp
+893,0.0286,8.06404,10.34864,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGf:50%,M;OGf
+894,0.0285,6.99876,9.77242,False,multi-neighbour Voronoi split (nearest extension),MG:50%; Su:50%,MG;Su
+895,0.0283,6.9911,11.41305,False,multi-neighbour Voronoi split (nearest extension),M:50%; Su:50%,M;Su
+896,0.0281,7.86374,8.71774,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGp:50%,M;OGp
+897,0.0275,7.35659,10.16131,False,multi-neighbour Voronoi split (nearest extension),M:51%; Su:49%,M;Su
+899,0.0274,11.53059,6.64161,True,single-neighbour extension,MG:100%,MG
+898,0.0274,3.59687,9.47697,False,multi-neighbour Voronoi split (nearest extension),OGp:50%; Sa:1%; bG:49%,OGp;Sa;bG
+900,0.0238,5.16398,13.74392,True,multi-neighbour Voronoi split (nearest extension),Gwss:97%; Wsh:3%,Gwss;Wsh
+901,0.0221,8.04392,5.46497,False,multi-neighbour Voronoi split (nearest extension),Awst:54%; Esh:46%,Awst;Esh
+902,0.022,4.2697,7.4106,False,multi-neighbour Voronoi split (nearest extension),MV:50%; OGd:50%,MV;OGd;OGp
+903,0.0218,7.67473,6.15231,False,multi-neighbour Voronoi split (nearest extension),Esh:48%; Esh:52%,Esh
+904,0.0197,7.487,11.8651,False,multi-neighbour Voronoi split (nearest extension),M:57%; qs:43%,M;qs
+906,0.0182,3.3169,6.8197,False,multi-neighbour Voronoi split (nearest extension),Al:51%; Bnst:49%,ANsh;Al;Bnst
+905,0.0182,2.70415,6.3762,True,single-neighbour extension,Al:100%,Al
+907,0.017,6.92854,10.24693,False,longest-shared-border extension (Voronoi fallback),Su:100%,MG;Su
+908,0.0154,6.66071,6.25489,False,multi-neighbour Voronoi split (nearest extension),Bnst:19%; Issh:43%; MWS:37%,Bnst;Issh;MWS
+909,0.0103,2.76826,7.05561,True,single-neighbour extension,Issh:100%,Issh
+910,0.0098,3.32815,6.86064,False,multi-neighbour Voronoi split (nearest extension),ANsh:2%; Al:48%; Bnst:50%,ANsh;Al;Bnst;Issh
+911,0.0085,7.17784,10.18938,False,multi-neighbour Voronoi split (nearest extension),MG:15%; OGp:39%; Su:46%,MG;OGp;Su
+912,0.0078,7.08419,6.23836,False,multi-neighbour Voronoi split (nearest extension),Imsh:23%; Issh:77%,Imsh;Issh
+913,0.0074,12.83817,13.42987,True,single-neighbour extension,Cst:100%,Cst
+914,0.0043,6.40829,4.31963,True,single-neighbour extension,AB:100%,AB
+915,0.0041,3.44392,6.41046,True,single-neighbour extension,Al:100%,Al
+916,0.0037,7.7247,10.95691,False,multi-neighbour Voronoi split (nearest extension),GG:40%; OGp:60%,GG;OGp
+917,0.0036,14.57742,12.22275,True,single-neighbour extension,Cst:100%,Cst
+918,0.0035,3.31628,6.77106,False,multi-neighbour Voronoi split (nearest extension),Al:36%; Bnst:15%; Bnst:50%,Al;Bnst
+919,0.0034,12.97594,9.4696,True,single-neighbour extension,M:100%,M
+920,0.0027,6.60918,6.58737,False,multi-neighbour Voronoi split (nearest extension),Al:47%; Issh:46%; Issh:7%,Al;Issh
+921,0.0026,6.71337,10.62513,False,multi-neighbour Voronoi split (nearest extension),M:21%; Su:48%; qs:31%,M;Su;qs
+922,0.0021,14.45168,12.34615,True,single-neighbour extension,Cst:100%,Cst
+938,0.001,7.92383,9.24775,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGu:50%,M;OGp;OGu
+935,0.0007,9.52728,8.71631,False,multi-neighbour Voronoi split (nearest extension),Al:50%; M:50%,Al;M
+923,0.0005,6.12479,11.95899,False,multi-neighbour Voronoi split (nearest extension),OGr:49%; P:51%,OGd;OGr;P
+924,0.0005,3.75529,6.96657,False,multi-neighbour Voronoi split (nearest extension),Asl:46%; M:54%,Asl;M
+925,0.0004,2.7292,6.53369,True,multi-neighbour Voronoi split (nearest extension),Al:50%; Bnst:50%,Al;Bnst
+926,0.0002,14.60406,12.20429,True,single-neighbour extension,Cst:100%,Cst
+934,0.0002,8.66541,10.97076,False,multi-neighbour Voronoi split (nearest extension),GG:50%; OGm:50%; OGp:0%,GG;OGm;OGp
+937,0.0001,4.69334,6.76336,False,multi-neighbour Voronoi split (nearest extension),Ajst:50%; M:50%,Ajst;M
+939,0.0001,7.0574,9.8127,False,multi-neighbour Voronoi split (nearest extension),MG:50%; Su:50%,MG;Su
+928,0.0001,6.77264,7.16309,False,multi-neighbour Voronoi split (nearest extension),Ajst:50%; Ncsh:50%,Ajst;Al;Ncsh
+927,0.0001,8.88392,11.78544,False,multi-neighbour Voronoi split (nearest extension),OGm:50%; OGp:50%,OGm;OGp
+946,0.0001,6.19136,4.42787,True,multi-neighbour Voronoi split (nearest extension),AB:50%; MS:50%,AB;MS
+941,0.0001,9.98638,10.21471,False,multi-neighbour Voronoi split (nearest extension),OGCh:50%; OGf:50%,OGCh;OGf;OGp
+936,0.0001,5.30472,7.53997,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGCh:50%,M;OGCh
+949,0.0,3.32136,6.76793,False,multi-neighbour Voronoi split (nearest extension),Al:4%; Bnst:96%,Al;Bnst
+943,0.0,9.22806,9.20968,False,multi-neighbour Voronoi split (nearest extension),GG:50%; bb:50%,GG;bb
+948,0.0,3.39445,7.12883,False,multi-neighbour Voronoi split (nearest extension),MG:100%,Asl;M;MG
+942,0.0,10.23916,11.2007,False,multi-neighbour Voronoi split (nearest extension),JyG:50%; OGp:50%,JyG;OGp
+940,0.0,7.39773,10.33425,False,multi-neighbour Voronoi split (nearest extension),M:50%; Su:50%,M;Su
+933,0.0,6.03716,8.07903,False,multi-neighbour Voronoi split (nearest extension),OGm:14%; OGp:50%; Qs:36%,OGm;OGp;Qs;Su
+932,0.0,4.89511,11.34536,False,multi-neighbour Voronoi split (nearest extension),M:50%; Qs:50%,M;Qs
+945,0.0,8.20859,9.22263,False,multi-neighbour Voronoi split (nearest extension),GG:50%; M:1%; OGp:50%,GG;M;OGp
+947,0.0,6.23982,4.42326,True,multi-neighbour Voronoi split (nearest extension),AB:50%; MS:50%,AB;MS
+944,0.0,8.21544,9.22948,False,multi-neighbour Voronoi split (nearest extension),GG:41%; M:47%; OGp:11%,GG;M;OGp
+931,0.0,11.87762,10.05254,False,multi-neighbour Voronoi split (nearest extension),Bss:50%; Yls:50%,Bss;Yls
+929,0.0,5.61384,11.21745,False,longest-shared-border extension (Voronoi fallback),OGm:100%,M;OGm
+930,0.0,8.01215,10.26801,False,multi-neighbour Voronoi split (nearest extension),M:50%; OGm:50%,M;OGf;OGm

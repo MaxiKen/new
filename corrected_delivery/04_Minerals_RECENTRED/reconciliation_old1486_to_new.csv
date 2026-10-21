@@ -1,0 +1,1487 @@
+old_fid,old_mineral,old_leg_no,outcome,new_fid,new_leg_no,dist_px,note
+1,Clay,12,UNVERIFIED_DROPPED,,,8.8,no template candidate >=0.55 within 6px
+2,Clay,12,MATCHED,152.0,12.0,6.2,same class; det=WHITELIST_RECENTRED
+3,Clay,12,UNVERIFIED_DROPPED,,,7.0,no template candidate >=0.55 within 6px
+4,Clay,12,MATCHED,263.0,12.0,6.0,same class; det=RESCUE_RECENTRED
+5,Clay,12,MATCHED,,12.0,4.6,nearest new point within 6px (same symbol)
+6,Pyrite group,51,UNVERIFIED_DROPPED,,,6.3,no template candidate >=0.55 within 6px
+7,Clay,12,UNVERIFIED_DROPPED,,,6.8,no template candidate >=0.55 within 6px
+8,Kaolin,34,MATCHED,,34.0,4.7,nearest new point within 6px (same symbol)
+9,Clay,12,UNVERIFIED_DROPPED,,,7.1,no template candidate >=0.55 within 6px
+10,Kaolin,34,UNVERIFIED_DROPPED,,,7.5,no template candidate >=0.55 within 6px
+11,Clay,12,UNVERIFIED_DROPPED,,,6.2,no template candidate >=0.55 within 6px
+12,Kaolin,34,MATCHED,847.0,34.0,4.6,same class; det=RESCUE_RECENTRED
+13,Pyrite group,51,UNVERIFIED_DROPPED,,,6.0,no template candidate >=0.55 within 6px
+14,Kaolin,34,MATCHED,,12.0,4.0,nearest new point within 6px (same symbol)
+15,Kaolin,34,MATCHED,842.0,34.0,1.2,same class; det=RESCUE_RECENTRED
+16,Kaolin,34,MATCHED,846.0,34.0,1.1,same class; det=SCAN_COMPLETE
+17,Bentonite,5,MATCHED,149.0,12.0,3.9,class changed to Clay (glyph-based); det=WHITELIST_RECENTRED
+18,Chromite,11,MATCHED,141.0,11.0,1.4,same class; det=RESCUE_RECENTRED
+19,Lepidolite,37,UNVERIFIED_DROPPED,,,13.3,no template candidate >=0.55 within 6px
+20,Magnesite,45,MATCHED,1084.0,45.0,5.2,same class; det=WHITELIST_RECENTRED
+21,Magnesite,45,MATCHED,113.0,9.0,9.0,class changed to Brick Clay (glyph-based); det=MANUAL_VISUAL
+22,Lepidolite,37,MATCHED,931.0,37.0,1.9,same class; det=RESCUE_RECENTRED
+23,Lepidolite,37,MATCHED,925.0,37.0,2.8,same class; det=SCAN_COMPLETE
+24,Lepidolite,37,MATCHED,,22.0,5.6,nearest new point within 6px (same symbol)
+25,Kaolin,34,MATCHED,774.0,34.0,0.9,same class; det=RESCUE_RECENTRED
+26,Kaolin,34,MATCHED,796.0,34.0,1.1,same class; det=SCAN_PARTIAL_CLUSTER
+27,Pyrite group,51,UNVERIFIED_DROPPED,,,7.8,no template candidate >=0.55 within 6px
+28,Lepidolite,37,MATCHED,932.0,37.0,4.8,same class; det=RESCUE_RECENTRED
+29,Lepidolite,37,MATCHED,936.0,37.0,4.4,same class; det=SCAN_COMPLETE
+30,Kaolin,34,MATCHED,805.0,34.0,0.5,same class; det=SCAN_COMPLETE
+31,Kaolin,34,MATCHED,779.0,34.0,1.0,same class; det=RESCUE_RECENTRED
+32,Kaolin,34,UNVERIFIED_DROPPED,,,7.3,no template candidate >=0.55 within 6px
+33,Kaolin,34,MATCHED,784.0,34.0,2.7,same class; det=WHITELIST_RECENTRED
+34,Kaolin,34,MATCHED,773.0,34.0,0.5,same class; det=RESCUE_RECENTRED
+35,Kaolin,34,UNVERIFIED_DROPPED,,,10.2,no template candidate >=0.55 within 6px
+36,Kaolin,34,MATCHED,790.0,34.0,3.1,same class; det=RESCUE_RECENTRED
+37,Kaolin,34,MATCHED,804.0,34.0,3.1,same class; det=RESCUE_RECENTRED
+38,Kaolin,34,MATCHED,794.0,34.0,2.9,same class; det=RESCUE_RECENTRED
+39,Chromite,11,MATCHED,143.0,11.0,0.0,same class; det=OLD_CENTRE_KEPT
+40,Garnet,23,MATCHED,456.0,23.0,0.0,same class; det=WHITELIST_OLDCENTRE
+41,Clay,12,MATCHED,192.0,12.0,1.0,same class; det=RESCUE_RECENTRED
+42,Clay,12,MATCHED,179.0,12.0,0.6,same class; det=RESCUE_RECENTRED
+43,Clay,12,MATCHED,178.0,12.0,0.6,same class; det=SCAN_PARTIAL_CLUSTER
+44,Clay,12,MATCHED,181.0,12.0,0.6,same class; det=RESCUE_RECENTRED
+45,Clay,12,MATCHED,223.0,12.0,0.5,same class; det=RESCUE_RECENTRED
+46,Clay,12,MATCHED,177.0,12.0,0.6,same class; det=RESCUE_RECENTRED
+47,Clay,12,MATCHED,150.0,12.0,1.0,same class; det=RESCUE_RECENTRED
+48,Lepidolite,37,MATCHED,926.0,37.0,4.3,same class; det=SCAN_COMPLETE
+49,Lepidolite,37,MATCHED,927.0,37.0,4.3,same class; det=SCAN_COMPLETE
+50,Lepidolite,37,MATCHED,922.0,37.0,4.2,same class; det=SCAN_COMPLETE
+51,Lepidolite,37,MATCHED,921.0,37.0,6.0,same class; det=RESCUE_RECENTRED
+52,Lepidolite,37,MATCHED,915.0,37.0,4.4,same class; det=SCAN_COMPLETE
+53,Lepidolite,37,MATCHED,937.0,37.0,4.2,same class; det=SCAN_COMPLETE
+54,Lepidolite,37,MATCHED,917.0,37.0,4.2,same class; det=SCAN_COMPLETE
+55,Lepidolite,37,MATCHED,918.0,37.0,4.3,same class; det=SCAN_COMPLETE
+56,Limestone,39,MATCHED,1010.0,39.0,0.0,same class; det=WHITELIST_OLDCENTRE
+57,Limestone,39,UNVERIFIED_DROPPED,,,11.1,no template candidate >=0.55 within 6px
+58,Limestone,39,MATCHED,988.0,39.0,0.0,same class; det=WHITELIST_OLDCENTRE
+59,Lepidolite,37,MATCHED,916.0,37.0,2.9,same class; det=RESCUE_RECENTRED
+60,Coal,13,MATCHED,,12.0,3.2,nearest new point within 6px (same symbol)
+61,Gold,26,MATCHED,46.0,5.0,7.6,class changed to Bentonite (glyph-based); det=WHITELIST_RECENTRED
+62,Talc,57,UNVERIFIED_DROPPED,,,9.8,no template candidate >=0.55 within 6px
+63,Mica,44,MATCHED,1070.0,44.0,2.9,same class; det=SCAN_COMPLETE
+64,Clay,12,MATCHED,408.0,18.0,0.0,class changed to Dimension Stone (glyph-based); det=MANUAL_VISUAL
+65,Clay,12,MATCHED,407.0,18.0,0.0,class changed to Dimension Stone (glyph-based); det=MANUAL_VISUAL
+66,Clay,12,MATCHED,193.0,12.0,1.0,same class; det=RESCUE_RECENTRED
+67,Kaolin,34,UNVERIFIED_DROPPED,,,18.2,no template candidate >=0.55 within 6px
+68,Clay,12,MATCHED,1113.0,51.0,1.9,class changed to Pyrite group (glyph-based); det=WHITELIST_RECENTRED
+69,Tourmaline,61,MATCHED,1213.0,61.0,2.9,same class; det=RESCUE_RECENTRED
+70,Tourmaline,61,MATCHED,1212.0,61.0,2.1,same class; det=RESCUE_RECENTRED
+71,Wolframite,64,UNVERIFIED_DROPPED,,,6.7,no template candidate >=0.55 within 6px
+72,Clay,12,MATCHED,175.0,12.0,0.7,same class; det=SCAN_COMPLETE
+73,Clay,12,MATCHED,222.0,12.0,0.7,same class; det=SCAN_COMPLETE
+74,Clay,12,MATCHED,305.0,12.0,0.7,same class; det=SCAN_COMPLETE
+75,Clay,12,MATCHED,194.0,12.0,0.8,same class; det=SCAN_COMPLETE
+76,Clay,12,MATCHED,268.0,12.0,0.7,same class; det=SCAN_COMPLETE
+77,Clay,12,MATCHED,306.0,12.0,0.7,same class; det=SCAN_COMPLETE
+78,Clay,12,MATCHED,283.0,12.0,0.7,same class; det=SCAN_COMPLETE
+79,Clay,12,MATCHED,307.0,12.0,0.7,same class; det=SCAN_COMPLETE
+80,Clay,12,MATCHED,286.0,12.0,0.7,same class; det=SCAN_COMPLETE
+81,Clay,12,MATCHED,310.0,12.0,0.7,same class; det=SCAN_COMPLETE
+82,Clay,12,MATCHED,164.0,12.0,0.7,same class; det=SCAN_COMPLETE
+83,Clay,12,MATCHED,256.0,12.0,0.7,same class; det=SCAN_COMPLETE
+84,Clay,12,MATCHED,188.0,12.0,0.7,same class; det=SCAN_COMPLETE
+85,Clay,12,MATCHED,280.0,12.0,0.7,same class; det=SCAN_COMPLETE
+86,Clay,12,MATCHED,287.0,12.0,0.7,same class; det=SCAN_COMPLETE
+87,Clay,12,MATCHED,308.0,12.0,0.7,same class; det=SCAN_COMPLETE
+88,Clay,12,MATCHED,281.0,12.0,0.7,same class; det=SCAN_COMPLETE
+89,Clay,12,MATCHED,309.0,12.0,0.7,same class; det=SCAN_COMPLETE
+90,Clay,12,MATCHED,300.0,12.0,0.7,same class; det=SCAN_COMPLETE
+91,Clay,12,MATCHED,155.0,12.0,0.7,same class; det=SCAN_COMPLETE
+92,Clay,12,MATCHED,299.0,12.0,0.7,same class; det=SCAN_COMPLETE
+93,Clay,12,MATCHED,276.0,12.0,0.7,same class; det=SCAN_COMPLETE
+94,Clay,12,MATCHED,275.0,12.0,0.7,same class; det=SCAN_COMPLETE
+95,Clay,12,MATCHED,158.0,12.0,0.8,same class; det=SCAN_COMPLETE
+96,Clay,12,MATCHED,230.0,12.0,0.7,same class; det=SCAN_COMPLETE
+97,Clay,12,MATCHED,284.0,12.0,0.6,same class; det=SCAN_COMPLETE
+98,Clay,12,MATCHED,242.0,12.0,0.7,same class; det=SCAN_COMPLETE
+99,Clay,12,MATCHED,273.0,12.0,0.7,same class; det=SCAN_COMPLETE
+100,Clay,12,MATCHED,293.0,12.0,0.7,same class; det=SCAN_COMPLETE
+101,Clay,12,MATCHED,167.0,12.0,0.7,same class; det=SCAN_COMPLETE
+102,Clay,12,MATCHED,311.0,12.0,0.7,same class; det=SCAN_COMPLETE
+103,Clay,12,MATCHED,163.0,12.0,0.7,same class; det=SCAN_COMPLETE
+104,Clay,12,MATCHED,274.0,12.0,0.7,same class; det=SCAN_COMPLETE
+105,Clay,12,MATCHED,271.0,12.0,0.7,same class; det=SCAN_COMPLETE
+106,Clay,12,MATCHED,298.0,12.0,0.8,same class; det=SCAN_COMPLETE
+107,Clay,12,MATCHED,277.0,12.0,0.7,same class; det=SCAN_COMPLETE
+108,Clay,12,MATCHED,160.0,12.0,0.8,same class; det=SCAN_COMPLETE
+109,Clay,12,MATCHED,159.0,12.0,0.7,same class; det=SCAN_COMPLETE
+110,Clay,12,MATCHED,231.0,12.0,0.7,same class; det=SCAN_COMPLETE
+111,Clay,12,MATCHED,294.0,12.0,0.7,same class; det=SCAN_COMPLETE
+112,Clay,12,MATCHED,285.0,12.0,0.7,same class; det=SCAN_COMPLETE
+113,Clay,12,MATCHED,296.0,12.0,0.7,same class; det=SCAN_COMPLETE
+114,Clay,12,MATCHED,302.0,12.0,0.7,same class; det=SCAN_COMPLETE
+115,Clay,12,MATCHED,292.0,12.0,0.7,same class; det=SCAN_COMPLETE
+116,Clay,12,MATCHED,295.0,12.0,0.8,same class; det=SCAN_COMPLETE
+117,Clay,12,MATCHED,297.0,12.0,0.7,same class; det=SCAN_COMPLETE
+118,Clay,12,MATCHED,303.0,12.0,0.7,same class; det=SCAN_COMPLETE
+119,Clay,12,MATCHED,282.0,12.0,0.7,same class; det=SCAN_COMPLETE
+120,Clay,12,MATCHED,250.0,12.0,0.8,same class; det=SCAN_COMPLETE
+121,Clay,12,MATCHED,279.0,12.0,0.8,same class; det=SCAN_COMPLETE
+122,Clay,12,MATCHED,189.0,12.0,0.7,same class; det=SCAN_COMPLETE
+123,Clay,12,MATCHED,182.0,12.0,0.7,same class; det=SCAN_COMPLETE
+124,Clay,12,MATCHED,190.0,12.0,0.7,same class; det=SCAN_COMPLETE
+125,Clay,12,MATCHED,270.0,12.0,0.7,same class; det=SCAN_COMPLETE
+126,Clay,12,MATCHED,185.0,12.0,0.7,same class; det=SCAN_COMPLETE
+127,Clay,12,MATCHED,183.0,12.0,0.7,same class; det=SCAN_COMPLETE
+128,Clay,12,MATCHED,264.0,12.0,0.7,same class; det=SCAN_COMPLETE
+129,Clay,12,MATCHED,269.0,12.0,0.7,same class; det=SCAN_COMPLETE
+130,Clay,12,MATCHED,262.0,12.0,0.7,same class; det=SCAN_COMPLETE
+131,Clay,12,MATCHED,196.0,12.0,0.7,same class; det=SCAN_COMPLETE
+132,Clay,12,MATCHED,278.0,12.0,0.7,same class; det=SCAN_COMPLETE
+133,Clay,12,MATCHED,266.0,12.0,0.7,same class; det=SCAN_COMPLETE
+134,Clay,12,MATCHED,200.0,12.0,0.7,same class; det=SCAN_COMPLETE
+135,Clay,12,MATCHED,265.0,12.0,0.7,same class; det=SCAN_COMPLETE
+136,Clay,12,MATCHED,272.0,12.0,0.7,same class; det=SCAN_COMPLETE
+137,Clay,12,MATCHED,199.0,12.0,0.7,same class; det=SCAN_COMPLETE
+138,Clay,12,MATCHED,168.0,12.0,0.7,same class; det=SCAN_COMPLETE
+139,Clay,12,MATCHED,241.0,12.0,0.6,same class; det=SCAN_COMPLETE
+140,Clay,12,MATCHED,166.0,12.0,0.7,same class; det=SCAN_COMPLETE
+141,Clay,12,MATCHED,291.0,12.0,0.7,same class; det=SCAN_COMPLETE
+142,Clay,12,MATCHED,290.0,12.0,0.7,same class; det=SCAN_COMPLETE
+143,Clay,12,MATCHED,162.0,12.0,0.7,same class; det=SCAN_COMPLETE
+144,Clay,12,MATCHED,171.0,12.0,0.7,same class; det=SCAN_COMPLETE
+145,Clay,12,MATCHED,212.0,12.0,0.7,same class; det=SCAN_COMPLETE
+146,Clay,12,MATCHED,161.0,12.0,0.7,same class; det=SCAN_COMPLETE
+147,Clay,12,MATCHED,202.0,12.0,0.7,same class; det=SCAN_COMPLETE
+148,Clay,12,MATCHED,176.0,12.0,0.7,same class; det=SCAN_COMPLETE
+149,Clay,12,MATCHED,174.0,12.0,0.7,same class; det=SCAN_COMPLETE
+150,Clay,12,MATCHED,173.0,12.0,0.9,same class; det=SCAN_COMPLETE
+151,Clay,12,MATCHED,207.0,12.0,0.6,same class; det=RESCUE_RECENTRED
+152,Clay,12,MATCHED,243.0,12.0,0.8,same class; det=SCAN_COMPLETE
+153,Clay,12,MATCHED,172.0,12.0,0.7,same class; det=SCAN_COMPLETE
+154,Clay,12,MATCHED,197.0,12.0,0.7,same class; det=RESCUE_RECENTRED
+155,Clay,12,MATCHED,209.0,12.0,0.6,same class; det=SCAN_COMPLETE
+156,Clay,12,MATCHED,187.0,12.0,0.7,same class; det=SCAN_COMPLETE
+157,Clay,12,MATCHED,227.0,12.0,0.7,same class; det=SCAN_COMPLETE
+158,Clay,12,MATCHED,191.0,12.0,0.7,same class; det=SCAN_COMPLETE
+159,Clay,12,MATCHED,186.0,12.0,0.7,same class; det=SCAN_COMPLETE
+160,Clay,12,MATCHED,184.0,12.0,0.9,same class; det=SCAN_COMPLETE
+161,Clay,12,MATCHED,221.0,12.0,0.7,same class; det=SCAN_COMPLETE
+162,Clay,12,MATCHED,157.0,12.0,0.8,same class; det=SCAN_COMPLETE
+163,Clay,12,MATCHED,234.0,12.0,0.7,same class; det=SCAN_COMPLETE
+164,Clay,12,MATCHED,153.0,12.0,0.7,same class; det=SCAN_COMPLETE
+165,Clay,12,MATCHED,151.0,12.0,0.7,same class; det=SCAN_COMPLETE
+166,Clay,12,MATCHED,170.0,12.0,0.7,same class; det=SCAN_COMPLETE
+167,Clay,12,MATCHED,217.0,12.0,0.8,same class; det=SCAN_COMPLETE
+168,Clay,12,MATCHED,224.0,12.0,0.6,same class; det=RESCUE_RECENTRED
+169,Clay,12,MATCHED,213.0,12.0,0.7,same class; det=RESCUE_RECENTRED
+170,Clay,12,MATCHED,228.0,12.0,0.8,same class; det=SCAN_COMPLETE
+171,Clay,12,MATCHED,146.0,12.0,0.8,same class; det=SCAN_COMPLETE
+172,Clay,12,MATCHED,257.0,12.0,0.7,same class; det=SCAN_COMPLETE
+173,Clay,12,MATCHED,156.0,12.0,0.7,same class; det=SCAN_COMPLETE
+174,Clay,12,MATCHED,219.0,12.0,0.7,same class; det=SCAN_COMPLETE
+175,Clay,12,MATCHED,180.0,12.0,0.7,same class; det=SCAN_COMPLETE
+176,Clay,12,MATCHED,260.0,12.0,0.7,same class; det=SCAN_COMPLETE
+177,Clay,12,MATCHED,258.0,12.0,0.8,same class; det=SCAN_COMPLETE
+178,Clay,12,MATCHED,218.0,12.0,0.7,same class; det=SCAN_COMPLETE
+179,Clay,12,MATCHED,215.0,12.0,0.7,same class; det=SCAN_COMPLETE
+180,Clay,12,MATCHED,225.0,12.0,0.7,same class; det=RESCUE_RECENTRED
+181,Clay,12,MATCHED,220.0,12.0,0.7,same class; det=SCAN_COMPLETE
+182,Clay,12,MATCHED,233.0,12.0,0.7,same class; det=SCAN_COMPLETE
+183,Clay,12,MATCHED,214.0,12.0,0.7,same class; det=SCAN_COMPLETE
+184,Clay,12,MATCHED,237.0,12.0,0.7,same class; det=SCAN_COMPLETE
+185,Clay,12,MATCHED,240.0,12.0,0.7,same class; det=SCAN_COMPLETE
+186,Clay,12,MATCHED,245.0,12.0,0.8,same class; det=RESCUE_RECENTRED
+187,Clay,12,MATCHED,255.0,12.0,0.6,same class; det=SCAN_COMPLETE
+188,Clay,12,MATCHED,201.0,12.0,0.7,same class; det=SCAN_COMPLETE
+189,Clay,12,MATCHED,206.0,12.0,0.7,same class; det=SCAN_COMPLETE
+190,Clay,12,MATCHED,238.0,12.0,0.7,same class; det=SCAN_COMPLETE
+191,Clay,12,MATCHED,235.0,12.0,0.8,same class; det=SCAN_COMPLETE
+192,Clay,12,MATCHED,259.0,12.0,0.7,same class; det=SCAN_COMPLETE
+193,Clay,12,MATCHED,239.0,12.0,0.7,same class; det=SCAN_COMPLETE
+194,Clay,12,MATCHED,251.0,12.0,0.7,same class; det=SCAN_COMPLETE
+195,Clay,12,MATCHED,208.0,12.0,0.7,same class; det=SCAN_COMPLETE
+196,Clay,12,MATCHED,244.0,12.0,0.7,same class; det=SCAN_COMPLETE
+197,Clay,12,MATCHED,249.0,12.0,0.7,same class; det=SCAN_COMPLETE
+198,Clay,12,MATCHED,216.0,12.0,0.7,same class; det=SCAN_COMPLETE
+199,Clay,12,MATCHED,204.0,12.0,0.7,same class; det=SCAN_COMPLETE
+200,Clay,12,MATCHED,248.0,12.0,0.7,same class; det=SCAN_COMPLETE
+201,Clay,12,MATCHED,252.0,12.0,0.7,same class; det=SCAN_COMPLETE
+202,Clay,12,MATCHED,198.0,12.0,0.7,same class; det=SCAN_COMPLETE
+203,Clay,12,MATCHED,226.0,12.0,0.7,same class; det=SCAN_COMPLETE
+204,Kaolin,34,MATCHED,814.0,34.0,0.3,same class; det=RESCUE_RECENTRED
+205,Kaolin,34,MATCHED,845.0,34.0,0.9,same class; det=SCAN_COMPLETE
+206,Kaolin,34,MATCHED,864.0,34.0,0.7,same class; det=SCAN_COMPLETE
+207,Kaolin,34,MATCHED,863.0,34.0,0.7,same class; det=SCAN_COMPLETE
+208,Kaolin,34,MATCHED,862.0,34.0,0.7,same class; det=SCAN_COMPLETE
+209,Kaolin,34,MATCHED,839.0,34.0,0.7,same class; det=SCAN_COMPLETE
+210,Kaolin,34,MATCHED,840.0,34.0,0.7,same class; det=SCAN_COMPLETE
+211,Kaolin,34,MATCHED,828.0,34.0,0.7,same class; det=SCAN_COMPLETE
+212,Kaolin,34,MATCHED,834.0,34.0,0.7,same class; det=SCAN_COMPLETE
+213,Kaolin,34,MATCHED,838.0,34.0,0.7,same class; det=SCAN_COMPLETE
+214,Kaolin,34,MATCHED,822.0,34.0,0.8,same class; det=SCAN_COMPLETE
+215,Kaolin,34,MATCHED,855.0,34.0,0.7,same class; det=SCAN_COMPLETE
+216,Kaolin,34,MATCHED,827.0,34.0,0.7,same class; det=SCAN_COMPLETE
+217,Kaolin,34,MATCHED,785.0,34.0,0.7,same class; det=SCAN_COMPLETE
+218,Kaolin,34,MATCHED,832.0,34.0,0.7,same class; det=SCAN_COMPLETE
+219,Kaolin,34,MATCHED,825.0,34.0,0.8,same class; det=SCAN_COMPLETE
+220,Kaolin,34,MATCHED,807.0,34.0,0.8,same class; det=RESCUE_RECENTRED
+221,Kaolin,34,MATCHED,830.0,34.0,0.7,same class; det=SCAN_COMPLETE
+222,Kaolin,34,MATCHED,835.0,34.0,0.7,same class; det=SCAN_COMPLETE
+223,Kaolin,34,MATCHED,859.0,34.0,0.7,same class; det=SCAN_COMPLETE
+224,Kaolin,34,MATCHED,858.0,34.0,0.7,same class; det=SCAN_COMPLETE
+225,Kaolin,34,MATCHED,860.0,34.0,0.7,same class; det=SCAN_COMPLETE
+226,Kaolin,34,MATCHED,831.0,34.0,0.7,same class; det=SCAN_COMPLETE
+227,Kaolin,34,MATCHED,861.0,34.0,0.7,same class; det=SCAN_COMPLETE
+228,Kaolin,34,MATCHED,819.0,34.0,0.7,same class; det=SCAN_COMPLETE
+229,Kaolin,34,MATCHED,853.0,34.0,0.7,same class; det=SCAN_COMPLETE
+230,Kaolin,34,MATCHED,823.0,34.0,0.7,same class; det=SCAN_COMPLETE
+231,Kaolin,34,MATCHED,856.0,34.0,0.7,same class; det=SCAN_COMPLETE
+232,Kaolin,34,MATCHED,857.0,34.0,0.7,same class; det=SCAN_COMPLETE
+233,Kaolin,34,MATCHED,854.0,34.0,0.7,same class; det=SCAN_COMPLETE
+234,Kaolin,34,MATCHED,824.0,34.0,0.7,same class; det=SCAN_COMPLETE
+235,Kaolin,34,MATCHED,849.0,34.0,0.6,same class; det=SCAN_COMPLETE
+236,Kaolin,34,MATCHED,850.0,34.0,0.7,same class; det=SCAN_COMPLETE
+237,Kaolin,34,MATCHED,851.0,34.0,0.7,same class; det=SCAN_COMPLETE
+238,Kaolin,34,MATCHED,843.0,34.0,0.7,same class; det=SCAN_COMPLETE
+239,Kaolin,34,MATCHED,852.0,34.0,0.7,same class; det=SCAN_COMPLETE
+240,Kaolin,34,MATCHED,833.0,34.0,0.7,same class; det=SCAN_COMPLETE
+241,Kaolin,34,MATCHED,836.0,34.0,0.7,same class; det=SCAN_COMPLETE
+242,Kaolin,34,MATCHED,841.0,34.0,0.7,same class; det=SCAN_COMPLETE
+243,Kaolin,34,MATCHED,844.0,34.0,0.7,same class; det=SCAN_COMPLETE
+244,Kaolin,34,MATCHED,793.0,34.0,0.7,same class; det=SCAN_COMPLETE
+245,Kaolin,34,MATCHED,811.0,34.0,0.7,same class; det=SCAN_COMPLETE
+246,Kaolin,34,MATCHED,788.0,34.0,0.8,same class; det=SCAN_COMPLETE
+247,Kaolin,34,MATCHED,829.0,34.0,0.7,same class; det=SCAN_COMPLETE
+248,Kaolin,34,MATCHED,795.0,34.0,0.7,same class; det=SCAN_COMPLETE
+249,Kaolin,34,MATCHED,772.0,34.0,0.7,same class; det=SCAN_COMPLETE
+250,Kaolin,34,MATCHED,797.0,34.0,0.7,same class; det=SCAN_COMPLETE
+251,Kaolin,34,MATCHED,769.0,34.0,0.6,same class; det=SCAN_COMPLETE
+252,Kaolin,34,MATCHED,792.0,34.0,0.7,same class; det=SCAN_COMPLETE
+253,Kaolin,34,MATCHED,802.0,34.0,0.7,same class; det=SCAN_COMPLETE
+254,Kaolin,34,MATCHED,809.0,34.0,0.7,same class; det=SCAN_COMPLETE
+255,Kaolin,34,MATCHED,801.0,34.0,0.6,same class; det=SCAN_COMPLETE
+256,Kaolin,34,MATCHED,813.0,34.0,0.7,same class; det=SCAN_COMPLETE
+257,Kaolin,34,MATCHED,798.0,34.0,0.7,same class; det=SCAN_COMPLETE
+258,Kaolin,34,MATCHED,799.0,34.0,0.7,same class; det=SCAN_COMPLETE
+259,Kaolin,34,MATCHED,780.0,34.0,0.9,same class; det=SCAN_COMPLETE
+260,Kaolin,34,MATCHED,800.0,34.0,0.2,same class; det=RESCUE_RECENTRED
+261,Kaolin,34,MATCHED,848.0,34.0,0.8,same class; det=SCAN_COMPLETE
+262,Kaolin,34,MATCHED,837.0,34.0,0.8,same class; det=SCAN_COMPLETE
+263,Kaolin,34,MATCHED,815.0,34.0,0.7,same class; det=SCAN_COMPLETE
+264,Kaolin,34,MATCHED,781.0,34.0,0.7,same class; det=SCAN_COMPLETE
+265,Kaolin,34,MATCHED,787.0,34.0,0.6,same class; det=SCAN_COMPLETE
+266,Kaolin,34,MATCHED,803.0,34.0,0.7,same class; det=SCAN_COMPLETE
+267,Kaolin,34,MATCHED,806.0,34.0,1.0,same class; det=SCAN_COMPLETE
+268,Kaolin,34,MATCHED,808.0,34.0,0.7,same class; det=SCAN_COMPLETE
+269,Kaolin,34,MATCHED,810.0,34.0,0.7,same class; det=RESCUE_RECENTRED
+270,Kaolin,34,MATCHED,817.0,34.0,0.8,same class; det=SCAN_COMPLETE
+271,Kaolin,34,MATCHED,826.0,34.0,0.7,same class; det=SCAN_COMPLETE
+272,Kaolin,34,MATCHED,816.0,34.0,0.7,same class; det=SCAN_COMPLETE
+273,Kaolin,34,MATCHED,818.0,34.0,0.8,same class; det=RESCUE_RECENTRED
+274,Kaolin,34,MATCHED,789.0,34.0,0.6,same class; det=SCAN_COMPLETE
+275,Kaolin,34,MATCHED,786.0,34.0,0.4,same class; det=SCAN_PARTIAL_CLUSTER
+276,Kaolin,34,MATCHED,777.0,34.0,0.7,same class; det=SCAN_COMPLETE
+277,Magnesite,45,MATCHED,,39.0,2.3,nearest new point within 6px (same symbol)
+278,Clay,12,UNVERIFIED_DROPPED,,,11.9,no template candidate >=0.55 within 6px
+279,Chromite,11,MATCHED,145.0,11.0,3.2,same class; det=RESCUE_RECENTRED
+280,Clay,12,MATCHED,253.0,12.0,1.4,same class; det=RESCUE_RECENTRED
+281,Brine,10,UNVERIFIED_DROPPED,,,11.5,no template candidate >=0.55 within 6px
+282,Kaolin,34,MATCHED,783.0,34.0,0.0,same class; det=WHITELIST_OLDCENTRE
+283,Diatomite,17,MATCHED,406.0,17.0,0.7,same class; det=SCAN_COMPLETE
+284,Diatomite,17,MATCHED,404.0,17.0,0.7,same class; det=SCAN_COMPLETE
+285,Diatomite,17,MATCHED,401.0,17.0,0.7,same class; det=SCAN_COMPLETE
+286,Diatomite,17,MATCHED,405.0,17.0,0.7,same class; det=SCAN_COMPLETE
+287,Diatomite,17,MATCHED,403.0,17.0,0.7,same class; det=SCAN_COMPLETE
+288,Chromite,11,MATCHED,,36.0,3.4,nearest new point within 6px (same symbol)
+289,Clay,12,MATCHED,236.0,12.0,0.5,same class; det=SCAN_COMPLETE
+290,Wolframite,64,MATCHED,1250.0,64.0,0.7,same class; det=SCAN_COMPLETE
+291,Wolframite,64,MATCHED,1241.0,64.0,0.7,same class; det=SCAN_COMPLETE
+292,Wolframite,64,MATCHED,1243.0,64.0,0.7,same class; det=SCAN_COMPLETE
+293,Wolframite,64,MATCHED,1234.0,64.0,0.7,same class; det=SCAN_COMPLETE
+294,Wolframite,64,MATCHED,1247.0,64.0,0.8,same class; det=SCAN_COMPLETE
+295,Wolframite,64,MATCHED,1236.0,64.0,0.7,same class; det=SCAN_COMPLETE
+296,Wolframite,64,MATCHED,1235.0,64.0,0.7,same class; det=SCAN_COMPLETE
+297,Wolframite,64,MATCHED,1242.0,64.0,0.7,same class; det=SCAN_COMPLETE
+298,Wolframite,64,MATCHED,1251.0,64.0,0.7,same class; det=SCAN_COMPLETE
+299,Wolframite,64,MATCHED,1244.0,64.0,0.8,same class; det=SCAN_COMPLETE
+300,Dimension Stone,18,MATCHED,412.0,18.0,0.9,same class; det=SCAN_COMPLETE
+301,Dimension Stone,18,MATCHED,411.0,18.0,1.0,same class; det=SCAN_COMPLETE
+302,Clay,12,MATCHED,,18.0,1.0,nearest new point within 6px (same symbol)
+303,Clay,12,MATCHED,,18.0,1.0,nearest new point within 6px (same symbol)
+304,Kaolin,34,MATCHED,775.0,34.0,0.7,same class; det=SCAN_COMPLETE
+305,Limestone,39,UNVERIFIED_DROPPED,,,11.4,no template candidate >=0.55 within 6px
+306,Clay,12,UNVERIFIED_DROPPED,,,24.3,no template candidate >=0.55 within 6px
+307,Clay,12,MATCHED,232.0,12.0,1.1,same class; det=SCAN_COMPLETE
+308,Clay,12,MATCHED,195.0,12.0,1.0,same class; det=SCAN_COMPLETE
+309,Kaolin,34,MATCHED,791.0,34.0,1.7,same class; det=RESCUE_RECENTRED
+310,Clay,12,MATCHED,165.0,12.0,1.8,same class; det=RESCUE_RECENTRED
+311,Kaolin,34,MATCHED,812.0,34.0,0.6,same class; det=RESCUE_RECENTRED
+312,Wolframite,64,MATCHED,1249.0,64.0,0.8,same class; det=SCAN_COMPLETE
+313,Clay,12,UNVERIFIED_DROPPED,,,8.6,no template candidate >=0.55 within 6px
+314,Tourmaline,61,MATCHED,1217.0,61.0,2.3,same class; det=RESCUE_RECENTRED
+315,Tourmaline,61,UNVERIFIED_DROPPED,,,16.5,no template candidate >=0.55 within 6px
+316,Wolframite,64,MATCHED,1245.0,64.0,0.7,same class; det=SCAN_COMPLETE
+317,Kaolin,34,UNVERIFIED_DROPPED,,,10.8,no template candidate >=0.55 within 6px
+318,Lithium mineral,66,MATCHED,1267.0,66.0,0.7,same class; det=SCAN_COMPLETE
+319,Clay,12,UNVERIFIED_DROPPED,,,10.1,no template candidate >=0.55 within 6px
+320,Clay,12,MATCHED,261.0,12.0,0.7,same class; det=WHITELIST_RECENTRED
+321,Limestone,39,MATCHED,983.0,39.0,0.0,same class; det=WHITELIST_OLDCENTRE
+322,Wolframite,64,MATCHED,1248.0,64.0,0.8,same class; det=SCAN_COMPLETE
+323,Columbite,14,MATCHED,347.0,14.0,0.4,same class; det=RESCUE_RECENTRED
+324,Kaolin,34,MATCHED,778.0,34.0,0.0,same class; det=WHITELIST_OLDCENTRE
+325,Wolframite,64,MATCHED,1240.0,64.0,0.8,same class; det=SCAN_COMPLETE
+326,Wolframite,64,MATCHED,1239.0,64.0,0.8,same class; det=SCAN_COMPLETE
+327,Wolframite,64,MATCHED,1238.0,64.0,0.8,same class; det=SCAN_COMPLETE
+328,Wolframite,64,MATCHED,1237.0,64.0,0.8,same class; det=SCAN_COMPLETE
+329,Lithium mineral,66,UNVERIFIED_DROPPED,,,6.8,no template candidate >=0.55 within 6px
+330,Clay,12,MATCHED,267.0,12.0,0.6,same class; det=RESCUE_RECENTRED
+331,Lithium mineral,66,MATCHED,1270.0,66.0,0.6,same class; det=SCAN_COMPLETE
+332,Lithium mineral,66,MATCHED,1265.0,66.0,2.6,same class; det=SCAN_COMPLETE
+333,Lithium mineral,66,MATCHED,1269.0,66.0,0.6,same class; det=SCAN_COMPLETE
+334,Clay,12,UNVERIFIED_DROPPED,,,14.2,no template candidate >=0.55 within 6px
+335,Kaolin,34,MATCHED,5.0,3.0,6.3,class changed to Baryte (glyph-based); det=WHITELIST_RECENTRED
+336,Talc,57,MATCHED,1151.0,57.0,1.9,same class; det=WHITELIST_RECENTRED
+337,Talc,57,MATCHED,1145.0,57.0,0.0,same class; det=WHITELIST_OLDCENTRE
+338,Feldspar,20,MATCHED,,11.0,4.3,nearest new point within 6px (same symbol)
+339,Bauxitic Clay,4,MATCHED,,22.0,1.1,nearest new point within 6px (same symbol)
+340,Clay,12,MATCHED,421.0,20.0,6.1,class changed to Feldspar (glyph-based); det=WHITELIST_RECENTRED
+341,Kaolin,34,UNVERIFIED_DROPPED,,,9.6,no template candidate >=0.55 within 6px
+342,Salt-potash group,53,MATCHED,1138.0,54.0,2.5,class changed to Silica Sand (glyph-based); det=WHITELIST_RECENTRED
+343,Kaolin,34,UNVERIFIED_DROPPED,,,18.5,no template candidate >=0.55 within 6px
+344,Kaolin,34,UNVERIFIED_DROPPED,,,16.5,no template candidate >=0.55 within 6px
+345,Feldspar,20,UNVERIFIED_DROPPED,,,15.2,no template candidate >=0.55 within 6px
+346,Chromite,11,MATCHED,144.0,11.0,3.4,same class; det=RESCUE_RECENTRED
+347,Columbite,14,MATCHED,358.0,14.0,2.1,same class; det=SCAN_COMPLETE
+348,Columbite,14,MATCHED,392.0,14.0,0.5,same class; det=SCAN_COMPLETE
+349,Columbite,14,MATCHED,394.0,14.0,0.7,same class; det=SCAN_COMPLETE
+350,Columbite,14,MATCHED,367.0,14.0,0.5,same class; det=SCAN_COMPLETE
+351,Columbite,14,MATCHED,370.0,14.0,0.5,same class; det=SCAN_COMPLETE
+352,Columbite,14,MATCHED,379.0,14.0,1.0,same class; det=RESCUE_RECENTRED
+353,Columbite,14,MATCHED,371.0,14.0,0.7,same class; det=RESCUE_RECENTRED
+354,Columbite,14,MATCHED,389.0,14.0,0.7,same class; det=SCAN_COMPLETE
+355,Columbite,14,MATCHED,364.0,14.0,0.5,same class; det=SCAN_COMPLETE
+356,Columbite,14,MATCHED,384.0,14.0,0.8,same class; det=SCAN_COMPLETE
+357,Columbite,14,MATCHED,369.0,14.0,0.4,same class; det=SCAN_COMPLETE
+358,Columbite,14,MATCHED,388.0,14.0,0.6,same class; det=SCAN_COMPLETE
+359,Columbite,14,MATCHED,357.0,14.0,0.4,same class; det=SCAN_COMPLETE
+360,Columbite,14,MATCHED,375.0,14.0,0.6,same class; det=SCAN_COMPLETE
+361,Columbite,14,MATCHED,391.0,14.0,0.5,same class; det=SCAN_COMPLETE
+362,Columbite,14,MATCHED,382.0,14.0,0.7,same class; det=SCAN_COMPLETE
+363,Columbite,14,MATCHED,368.0,14.0,0.6,same class; det=SCAN_COMPLETE
+364,Columbite,14,MATCHED,386.0,14.0,0.6,same class; det=SCAN_COMPLETE
+365,Columbite,14,MATCHED,393.0,14.0,0.6,same class; det=SCAN_COMPLETE
+366,Columbite,14,MATCHED,387.0,14.0,0.7,same class; det=SCAN_COMPLETE
+367,Columbite,14,MATCHED,362.0,14.0,0.9,same class; det=SCAN_COMPLETE
+368,Columbite,14,MATCHED,383.0,14.0,0.6,same class; det=SCAN_COMPLETE
+369,Columbite,14,MATCHED,380.0,14.0,0.6,same class; det=SCAN_COMPLETE
+370,Columbite,14,MATCHED,373.0,14.0,0.5,same class; det=SCAN_COMPLETE
+371,Columbite,14,MATCHED,363.0,14.0,0.6,same class; det=SCAN_COMPLETE
+372,Columbite,14,MATCHED,360.0,14.0,0.5,same class; det=SCAN_COMPLETE
+373,Columbite,14,MATCHED,385.0,14.0,0.8,same class; det=SCAN_COMPLETE
+374,Columbite,14,MATCHED,377.0,14.0,0.5,same class; det=SCAN_COMPLETE
+375,Columbite,14,MATCHED,374.0,14.0,1.6,same class; det=SCAN_PARTIAL_CLUSTER
+376,Columbite,14,MATCHED,366.0,14.0,0.7,same class; det=SCAN_COMPLETE
+377,Columbite,14,MATCHED,365.0,14.0,0.5,same class; det=SCAN_COMPLETE
+378,Columbite,14,MATCHED,390.0,14.0,0.5,same class; det=SCAN_COMPLETE
+379,Columbite,14,MATCHED,372.0,14.0,0.5,same class; det=SCAN_COMPLETE
+380,Columbite,14,MATCHED,361.0,14.0,0.6,same class; det=SCAN_COMPLETE
+381,Columbite,14,MATCHED,350.0,14.0,0.7,same class; det=SCAN_COMPLETE
+382,Columbite,14,MATCHED,378.0,14.0,0.4,same class; det=RESCUE_RECENTRED
+383,Columbite,14,MATCHED,354.0,14.0,0.7,same class; det=SCAN_COMPLETE
+384,Columbite,14,MATCHED,351.0,14.0,0.7,same class; det=RESCUE_RECENTRED
+385,Columbite,14,MATCHED,359.0,14.0,0.4,same class; det=SCAN_COMPLETE
+386,Columbite,14,MATCHED,348.0,14.0,2.9,same class; det=SCAN_COMPLETE
+387,Columbite,14,MATCHED,355.0,14.0,0.7,same class; det=SCAN_COMPLETE
+388,Columbite,14,MATCHED,353.0,14.0,0.5,same class; det=SCAN_COMPLETE
+389,Columbite,14,MATCHED,352.0,14.0,0.7,same class; det=SCAN_COMPLETE
+390,Columbite,14,MATCHED,356.0,14.0,0.6,same class; det=SCAN_COMPLETE
+391,Ruby,16,MATCHED,,6.0,5.9,nearest new point within 6px (same symbol)
+392,Columbite,14,MATCHED,349.0,14.0,0.9,same class; det=SCAN_COMPLETE
+393,Kaolin,34,UNVERIFIED_DROPPED,,,9.7,no template candidate >=0.55 within 6px
+394,Gold,26,MATCHED,526.0,26.0,0.9,same class; det=RESCUE_RECENTRED
+395,Gold,26,MATCHED,622.0,26.0,1.4,same class; det=RESCUE_RECENTRED
+396,Gold,26,MATCHED,556.0,26.0,0.9,same class; det=RESCUE_RECENTRED
+397,Gold,26,UNVERIFIED_DROPPED,,,10.4,no template candidate >=0.55 within 6px
+398,Gold,26,MATCHED,554.0,26.0,0.8,same class; det=WHITELIST_RECENTRED
+399,Gold,26,MATCHED,563.0,26.0,1.2,same class; det=WHITELIST_RECENTRED
+400,Gold,26,MATCHED,551.0,26.0,0.0,same class; det=WHITELIST_OLDCENTRE
+401,Gold,26,MATCHED,528.0,26.0,0.9,same class; det=RESCUE_RECENTRED
+402,Gold,26,MATCHED,546.0,26.0,1.1,same class; det=WHITELIST_RECENTRED
+403,Gold,26,MATCHED,535.0,26.0,0.6,same class; det=RESCUE_RECENTRED
+404,Gold,26,DUPLICATE_OLD,,,16.4,duplicate of old fid 345 (two old points on one symbol)
+405,Gold,26,MATCHED,623.0,26.0,0.9,same class; det=RESCUE_RECENTRED
+406,Gold,26,UNVERIFIED_DROPPED,,,8.4,no template candidate >=0.55 within 6px
+407,Kaolin,34,UNVERIFIED_DROPPED,,,7.4,no template candidate >=0.55 within 6px
+408,Wolframite,64,MATCHED,1246.0,64.0,1.1,same class; det=RESCUE_RECENTRED
+409,Gold,26,MATCHED,523.0,26.0,0.7,same class; det=RESCUE_RECENTRED
+410,Limestone,39,UNVERIFIED_DROPPED,,,12.6,no template candidate >=0.55 within 6px
+411,Clay,12,DUPLICATE_OLD,,,7.1,duplicate of old fid 342 (two old points on one symbol)
+412,Columbite,14,MATCHED,381.0,14.0,0.4,same class; det=RESCUE_RECENTRED
+413,Corundum,16,MATCHED,400.0,16.0,0.6,same class; det=SCAN_COMPLETE
+414,Pyrite group,51,MATCHED,1109.0,51.0,0.5,same class; det=SCAN_COMPLETE
+415,Pyrite group,51,MATCHED,1110.0,51.0,0.0,same class; det=SCAN_COMPLETE
+416,Pyrite group,51,MATCHED,1116.0,51.0,0.0,same class; det=SCAN_COMPLETE
+417,Pyrite group,51,MATCHED,1115.0,51.0,0.1,same class; det=SCAN_COMPLETE
+418,Pyrite group,51,MATCHED,1112.0,51.0,0.5,same class; det=SCAN_COMPLETE
+419,Pyrite group,51,MATCHED,1111.0,51.0,0.7,same class; det=SCAN_COMPLETE
+420,Pyrite group,51,MATCHED,1114.0,51.0,0.5,same class; det=SCAN_COMPLETE
+421,Uranium,63,MATCHED,,44.0,3.1,nearest new point within 6px (same symbol)
+422,Uranium,63,MATCHED,1232.0,63.0,0.0,same class; det=WHITELIST_OLDCENTRE
+423,Clay,12,DUPLICATE_OLD,,,6.1,duplicate of old fid 31 (two old points on one symbol)
+424,Feldspar,20,MATCHED,435.0,20.0,0.5,same class; det=SCAN_COMPLETE
+425,Feldspar,20,MATCHED,434.0,20.0,0.5,same class; det=SCAN_COMPLETE
+426,Feldspar,20,MATCHED,438.0,20.0,0.5,same class; det=SCAN_COMPLETE
+427,Feldspar,20,MATCHED,437.0,20.0,0.5,same class; det=SCAN_COMPLETE
+428,Feldspar,20,MATCHED,450.0,20.0,0.5,same class; det=SCAN_COMPLETE
+429,Feldspar,20,MATCHED,449.0,20.0,0.5,same class; det=SCAN_COMPLETE
+430,Feldspar,20,MATCHED,424.0,20.0,0.5,same class; det=SCAN_COMPLETE
+431,Feldspar,20,MATCHED,446.0,20.0,0.5,same class; det=SCAN_COMPLETE
+432,Feldspar,20,MATCHED,436.0,20.0,0.5,same class; det=SCAN_COMPLETE
+433,Feldspar,20,MATCHED,422.0,20.0,0.5,same class; det=SCAN_COMPLETE
+434,Feldspar,20,MATCHED,429.0,20.0,0.5,same class; det=SCAN_COMPLETE
+435,Feldspar,20,MATCHED,445.0,20.0,3.1,same class; det=SCAN_COMPLETE
+436,Feldspar,20,MATCHED,447.0,20.0,0.5,same class; det=SCAN_COMPLETE
+437,Feldspar,20,MATCHED,448.0,20.0,0.5,same class; det=SCAN_COMPLETE
+438,Feldspar,20,MATCHED,414.0,20.0,0.8,same class; det=RESCUE_RECENTRED
+439,Feldspar,20,MATCHED,413.0,20.0,0.5,same class; det=SCAN_COMPLETE
+440,Feldspar,20,MATCHED,418.0,20.0,0.5,same class; det=SCAN_COMPLETE
+441,Feldspar,20,MATCHED,416.0,20.0,0.5,same class; det=SCAN_COMPLETE
+442,Feldspar,20,MATCHED,433.0,20.0,0.5,same class; det=SCAN_COMPLETE
+443,Feldspar,20,MATCHED,431.0,20.0,0.5,same class; det=SCAN_COMPLETE
+444,Feldspar,20,MATCHED,442.0,20.0,0.5,same class; det=SCAN_COMPLETE
+445,Feldspar,20,MATCHED,419.0,20.0,0.5,same class; det=SCAN_COMPLETE
+446,Feldspar,20,MATCHED,420.0,20.0,0.5,same class; det=SCAN_COMPLETE
+447,Feldspar,20,MATCHED,444.0,20.0,0.5,same class; det=SCAN_COMPLETE
+448,Feldspar,20,MATCHED,423.0,20.0,0.5,same class; det=SCAN_COMPLETE
+449,Feldspar,20,MATCHED,443.0,20.0,0.5,same class; det=RESCUE_RECENTRED
+450,Feldspar,20,MATCHED,426.0,20.0,0.5,same class; det=SCAN_COMPLETE
+451,Feldspar,20,MATCHED,427.0,20.0,0.5,same class; det=SCAN_COMPLETE
+452,Feldspar,20,MATCHED,425.0,20.0,0.5,same class; det=SCAN_COMPLETE
+453,Feldspar,20,MATCHED,441.0,20.0,1.0,same class; det=RESCUE_RECENTRED
+454,Feldspar,20,MATCHED,,20.0,0.5,nearest new point within 6px (same symbol)
+455,Feldspar,20,MATCHED,428.0,20.0,0.5,same class; det=SCAN_COMPLETE
+456,Feldspar,20,MATCHED,430.0,20.0,0.5,same class; det=SCAN_COMPLETE
+457,Feldspar,20,MATCHED,417.0,20.0,0.5,same class; det=SCAN_COMPLETE
+458,Feldspar,20,UNVERIFIED_DROPPED,,,11.7,no template candidate >=0.55 within 6px
+459,Talc,57,MATCHED,1150.0,57.0,1.1,same class; det=RESCUE_RECENTRED
+460,Talc,57,MATCHED,1148.0,57.0,0.0,same class; det=WHITELIST_OLDCENTRE
+461,Gold,26,MATCHED,531.0,26.0,8.2,same class; det=WHITELIST_RECENTRED
+462,Feldspar,20,MATCHED,439.0,20.0,0.7,same class; det=WHITELIST_RECENTRED
+463,Kaolin,34,MATCHED,776.0,34.0,1.4,same class; det=RESCUE_RECENTRED
+464,Mica,44,MATCHED,1073.0,44.0,1.1,same class; det=SCAN_COMPLETE
+465,Mica,44,MATCHED,1072.0,44.0,1.1,same class; det=SCAN_COMPLETE
+466,Mica,44,MATCHED,1078.0,44.0,1.1,same class; det=SCAN_COMPLETE
+467,Mica,44,MATCHED,1079.0,44.0,0.9,same class; det=SCAN_COMPLETE
+468,Mica,44,MATCHED,1076.0,44.0,1.2,same class; det=SCAN_COMPLETE
+469,Mica,44,MATCHED,1074.0,44.0,0.9,same class; det=SCAN_COMPLETE
+470,Mica,44,MATCHED,1069.0,44.0,1.2,same class; det=SCAN_COMPLETE
+471,Mica,44,MATCHED,1071.0,44.0,1.2,same class; det=SCAN_COMPLETE
+472,Mica,44,MATCHED,1080.0,44.0,1.3,same class; det=SCAN_COMPLETE
+473,Wolframite,64,MATCHED,1233.0,64.0,3.1,same class; det=WHITELIST_RECENTRED
+474,Brick Clay,9,MATCHED,,67.0,0.6,nearest new point within 6px (same symbol)
+475,Lepidolite,37,MATCHED,920.0,37.0,4.1,same class; det=WHITELIST_RECENTRED
+476,Mica,44,MATCHED,1075.0,44.0,1.1,same class; det=SCAN_COMPLETE
+477,Salt-potash group,53,MATCHED,,54.0,0.7,nearest new point within 6px (same symbol)
+478,Wolframite,64,MATCHED,,67.0,0.9,nearest new point within 6px (same symbol)
+479,Lithium mineral,66,MATCHED,1.0,1.0,0.0,class changed to Asbestos-serpentine group (glyph-based); det=MANUAL_VISUAL
+480,Feldspar,20,MATCHED,1215.0,61.0,1.8,class changed to Tourmaline (glyph-based); det=WHITELIST_RECENTRED
+481,Gold,26,MATCHED,601.0,26.0,0.7,same class; det=SCAN_COMPLETE
+482,Gold,26,MATCHED,613.0,26.0,0.7,same class; det=SCAN_COMPLETE
+483,Gold,26,MATCHED,584.0,26.0,0.7,same class; det=SCAN_COMPLETE
+484,Gold,26,MATCHED,609.0,26.0,0.7,same class; det=SCAN_COMPLETE
+485,Gold,26,MATCHED,592.0,26.0,0.7,same class; det=SCAN_COMPLETE
+486,Gold,26,MATCHED,558.0,26.0,0.8,same class; det=SCAN_COMPLETE
+487,Gold,26,MATCHED,575.0,26.0,0.7,same class; det=SCAN_COMPLETE
+488,Gold,26,MATCHED,564.0,26.0,0.8,same class; det=SCAN_COMPLETE
+489,Gold,26,MATCHED,617.0,26.0,0.6,same class; det=SCAN_PARTIAL_CLUSTER
+490,Gold,26,MATCHED,576.0,26.0,0.6,same class; det=SCAN_COMPLETE
+491,Gold,26,MATCHED,579.0,26.0,0.7,same class; det=SCAN_COMPLETE
+492,Gold,26,MATCHED,583.0,26.0,0.8,same class; det=SCAN_COMPLETE
+493,Gold,26,MATCHED,574.0,26.0,0.8,same class; det=SCAN_COMPLETE
+494,Gold,26,MATCHED,540.0,26.0,0.8,same class; det=SCAN_COMPLETE
+495,Gold,26,MATCHED,548.0,26.0,0.8,same class; det=SCAN_COMPLETE
+496,Gold,26,MATCHED,543.0,26.0,0.7,same class; det=SCAN_COMPLETE
+497,Gold,26,MATCHED,611.0,26.0,0.7,same class; det=SCAN_COMPLETE
+498,Gold,26,MATCHED,550.0,26.0,0.8,same class; det=SCAN_COMPLETE
+499,Gold,26,MATCHED,560.0,26.0,0.9,same class; det=SCAN_COMPLETE
+500,Gold,26,MATCHED,573.0,26.0,0.7,same class; det=SCAN_COMPLETE
+501,Gold,26,MATCHED,566.0,26.0,0.4,same class; det=SCAN_COMPLETE
+502,Gold,26,MATCHED,545.0,26.0,0.7,same class; det=SCAN_COMPLETE
+503,Gold,26,MATCHED,552.0,26.0,0.7,same class; det=SCAN_COMPLETE
+504,Gold,26,MATCHED,547.0,26.0,0.9,same class; det=SCAN_COMPLETE
+505,Gold,26,MATCHED,532.0,26.0,0.8,same class; det=SCAN_COMPLETE
+506,Gold,26,MATCHED,559.0,26.0,0.8,same class; det=SCAN_COMPLETE
+507,Gold,26,MATCHED,578.0,26.0,0.7,same class; det=SCAN_COMPLETE
+508,Gold,26,MATCHED,570.0,26.0,0.8,same class; det=SCAN_COMPLETE
+509,Gold,26,MATCHED,616.0,26.0,0.7,same class; det=SCAN_COMPLETE
+510,Gold,26,MATCHED,580.0,26.0,0.7,same class; det=SCAN_COMPLETE
+511,Gold,26,MATCHED,561.0,26.0,0.8,same class; det=SCAN_COMPLETE
+512,Gold,26,MATCHED,615.0,26.0,0.7,same class; det=SCAN_COMPLETE
+513,Gold,26,MATCHED,569.0,26.0,0.7,same class; det=SCAN_COMPLETE
+514,Gold,26,MATCHED,581.0,26.0,0.7,same class; det=SCAN_COMPLETE
+515,Gold,26,MATCHED,621.0,26.0,0.7,same class; det=SCAN_COMPLETE
+516,Gold,26,MATCHED,539.0,26.0,0.7,same class; det=SCAN_COMPLETE
+517,Gold,26,MATCHED,593.0,26.0,0.7,same class; det=SCAN_COMPLETE
+518,Gold,26,MATCHED,544.0,26.0,0.8,same class; det=SCAN_COMPLETE
+519,Gold,26,MATCHED,599.0,26.0,0.8,same class; det=RESCUE_RECENTRED
+520,Gold,26,MATCHED,594.0,26.0,0.8,same class; det=SCAN_COMPLETE
+521,Gold,26,MATCHED,604.0,26.0,0.7,same class; det=SCAN_COMPLETE
+522,Gold,26,MATCHED,598.0,26.0,0.7,same class; det=SCAN_COMPLETE
+523,Gold,26,MATCHED,595.0,26.0,0.8,same class; det=SCAN_COMPLETE
+524,Gold,26,MATCHED,549.0,26.0,0.7,same class; det=SCAN_COMPLETE
+525,Gold,26,MATCHED,542.0,26.0,0.7,same class; det=SCAN_COMPLETE
+526,Gold,26,MATCHED,533.0,26.0,0.8,same class; det=SCAN_COMPLETE
+527,Gold,26,MATCHED,596.0,26.0,0.7,same class; det=SCAN_COMPLETE
+528,Gold,26,MATCHED,538.0,26.0,0.7,same class; det=SCAN_COMPLETE
+529,Gold,26,MATCHED,587.0,26.0,0.7,same class; det=SCAN_COMPLETE
+530,Gold,26,MATCHED,529.0,26.0,0.8,same class; det=SCAN_COMPLETE
+531,Gold,26,MATCHED,582.0,26.0,0.7,same class; det=SCAN_COMPLETE
+532,Gold,26,MATCHED,541.0,26.0,0.7,same class; det=SCAN_COMPLETE
+533,Gold,26,MATCHED,534.0,26.0,0.7,same class; det=SCAN_COMPLETE
+534,Gold,26,MATCHED,607.0,26.0,0.7,same class; det=SCAN_COMPLETE
+535,Gold,26,MATCHED,536.0,26.0,0.7,same class; det=SCAN_COMPLETE
+536,Gold,26,MATCHED,602.0,26.0,0.7,same class; det=SCAN_COMPLETE
+537,Gold,26,MATCHED,600.0,26.0,0.7,same class; det=SCAN_COMPLETE
+538,Gold,26,MATCHED,605.0,26.0,0.7,same class; det=SCAN_COMPLETE
+539,Gold,26,MATCHED,590.0,26.0,0.7,same class; det=SCAN_COMPLETE
+540,Gold,26,MATCHED,589.0,26.0,0.7,same class; det=SCAN_COMPLETE
+541,Gold,26,MATCHED,530.0,26.0,0.8,same class; det=SCAN_COMPLETE
+542,Gold,26,MATCHED,586.0,26.0,0.7,same class; det=SCAN_COMPLETE
+543,Gold,26,MATCHED,597.0,26.0,0.7,same class; det=SCAN_COMPLETE
+544,Gold,26,MATCHED,585.0,26.0,0.8,same class; det=SCAN_COMPLETE
+545,Gold,26,MATCHED,591.0,26.0,0.7,same class; det=SCAN_COMPLETE
+546,Gold,26,MATCHED,524.0,26.0,0.8,same class; det=SCAN_COMPLETE
+547,Gold,26,MATCHED,608.0,26.0,0.7,same class; det=SCAN_COMPLETE
+548,Gold,26,MATCHED,567.0,26.0,0.7,same class; det=SCAN_COMPLETE
+549,Gold,26,MATCHED,565.0,26.0,0.7,same class; det=SCAN_COMPLETE
+550,Gold,26,MATCHED,610.0,26.0,0.7,same class; det=SCAN_COMPLETE
+551,Gold,26,MATCHED,606.0,26.0,0.7,same class; det=SCAN_COMPLETE
+552,Gold,26,MATCHED,522.0,26.0,0.7,same class; det=SCAN_COMPLETE
+553,Gold,26,MATCHED,588.0,26.0,0.8,same class; det=SCAN_COMPLETE
+554,Gold,26,MATCHED,521.0,26.0,0.7,same class; det=SCAN_COMPLETE
+555,Gold,26,MATCHED,614.0,26.0,0.7,same class; det=SCAN_COMPLETE
+556,Gold,26,MATCHED,603.0,26.0,0.7,same class; det=SCAN_COMPLETE
+557,Gold,26,MATCHED,537.0,26.0,0.7,same class; det=SCAN_COMPLETE
+558,Gold,26,MATCHED,520.0,26.0,0.7,same class; det=SCAN_COMPLETE
+559,Gold,26,MATCHED,562.0,26.0,0.8,same class; det=SCAN_COMPLETE
+560,Gold,26,MATCHED,568.0,26.0,0.8,same class; det=SCAN_COMPLETE
+561,Gold,26,MATCHED,553.0,26.0,0.7,same class; det=SCAN_COMPLETE
+562,Gold,26,MATCHED,555.0,26.0,0.8,same class; det=RESCUE_RECENTRED
+563,Gold,26,MATCHED,525.0,26.0,0.7,same class; det=SCAN_COMPLETE
+564,Gold,26,MATCHED,527.0,26.0,0.8,same class; det=SCAN_COMPLETE
+565,Gold,26,MATCHED,577.0,26.0,0.8,same class; det=SCAN_COMPLETE
+566,Gold,26,MATCHED,519.0,26.0,0.8,same class; det=SCAN_COMPLETE
+567,Gold,26,MATCHED,572.0,26.0,0.8,same class; det=SCAN_COMPLETE
+568,Gold,26,MATCHED,557.0,26.0,0.7,same class; det=SCAN_COMPLETE
+569,Gold,26,MATCHED,571.0,26.0,0.7,same class; det=RESCUE_RECENTRED
+570,Gold,26,MATCHED,612.0,26.0,0.7,same class; det=SCAN_COMPLETE
+571,Gold,26,MATCHED,619.0,26.0,0.7,same class; det=RESCUE_RECENTRED
+572,Gold,26,MATCHED,618.0,26.0,0.9,same class; det=SCAN_COMPLETE
+573,Lepidolite,37,MATCHED,919.0,37.0,2.6,same class; det=RESCUE_RECENTRED
+574,Feldspar,20,MATCHED,440.0,20.0,0.7,same class; det=RESCUE_RECENTRED
+575,Lepidolite,37,MATCHED,935.0,37.0,2.1,same class; det=RESCUE_RECENTRED
+576,Garnet,23,MATCHED,457.0,23.0,0.6,same class; det=SCAN_COMPLETE
+577,Garnet,23,MATCHED,459.0,23.0,0.6,same class; det=SCAN_COMPLETE
+578,Garnet,23,MATCHED,458.0,23.0,0.6,same class; det=SCAN_COMPLETE
+579,Garnet,23,MATCHED,460.0,23.0,0.6,same class; det=SCAN_COMPLETE
+580,Talc,57,MATCHED,1146.0,57.0,0.0,same class; det=WHITELIST_OLDCENTRE
+581,Magnesite,45,MATCHED,1089.0,45.0,3.0,same class; det=SCAN_COMPLETE
+582,Magnesite,45,MATCHED,1088.0,45.0,3.0,same class; det=SCAN_COMPLETE
+583,Magnesite,45,MATCHED,1093.0,45.0,3.1,same class; det=SCAN_COMPLETE
+584,Magnesite,45,MATCHED,1086.0,45.0,2.9,same class; det=SCAN_COMPLETE
+585,Magnesite,45,MATCHED,1085.0,45.0,3.0,same class; det=SCAN_COMPLETE
+586,Magnesite,45,MATCHED,1094.0,45.0,3.0,same class; det=SCAN_COMPLETE
+587,Magnesite,45,MATCHED,1091.0,45.0,3.1,same class; det=SCAN_COMPLETE
+588,Magnesite,45,MATCHED,1092.0,45.0,3.1,same class; det=SCAN_COMPLETE
+589,Magnesite,45,MATCHED,1087.0,45.0,3.1,same class; det=SCAN_COMPLETE
+590,Magnesite,45,MATCHED,1090.0,45.0,3.2,same class; det=SCAN_PARTIAL_CLUSTER
+591,Lepidolite,37,MATCHED,933.0,37.0,0.8,same class; det=RESCUE_RECENTRED
+592,Feldspar,20,MATCHED,415.0,20.0,0.5,same class; det=SCAN_COMPLETE
+593,Phosphate,32,MATCHED,,9.0,4.9,nearest new point within 6px (same symbol)
+594,Marl,43,MATCHED,1064.0,43.0,0.7,same class; det=SCAN_COMPLETE
+595,Marl,43,MATCHED,1065.0,43.0,0.7,same class; det=SCAN_COMPLETE
+596,Marl,43,MATCHED,1066.0,43.0,0.7,same class; det=SCAN_COMPLETE
+597,Marl,43,MATCHED,1068.0,43.0,0.7,same class; det=SCAN_COMPLETE
+598,Marl,43,MATCHED,1067.0,43.0,0.7,same class; det=SCAN_COMPLETE
+599,Wolframite,64,DUPLICATE_OLD,,,6.3,duplicate of old fid 32 (two old points on one symbol)
+600,Kaolin,34,UNVERIFIED_DROPPED,,,12.0,no template candidate >=0.55 within 6px
+601,Glass Sand,25,MATCHED,,26.0,0.6,nearest new point within 6px (same symbol)
+602,Tourmaline,61,MATCHED,1216.0,61.0,3.8,same class; det=RESCUE_RECENTRED
+603,Uranium,63,MATCHED,1230.0,63.0,0.7,same class; det=SCAN_COMPLETE
+604,Uranium,63,MATCHED,1231.0,63.0,0.7,same class; det=SCAN_COMPLETE
+605,Uranium,63,MATCHED,1229.0,63.0,0.8,same class; det=WHITELIST_RECENTRED
+606,Gold,26,UNVERIFIED_DROPPED,,,10.2,no template candidate >=0.55 within 6px
+607,Pyrite group,51,UNVERIFIED_DROPPED,,,9.7,no template candidate >=0.55 within 6px
+608,Manganese,40,MATCHED,1011.0,40.0,4.0,same class; det=SCAN_COMPLETE
+609,Limestone,39,MATCHED,,40.0,4.1,nearest new point within 6px (same symbol)
+610,Manganese,40,MATCHED,1013.0,40.0,4.1,same class; det=SCAN_COMPLETE
+611,Lepidolite,37,MATCHED,,41.0,4.5,nearest new point within 6px (same symbol)
+612,Talc,57,MATCHED,1167.0,57.0,0.7,same class; det=SCAN_COMPLETE
+613,Talc,57,MATCHED,1153.0,57.0,0.7,same class; det=SCAN_COMPLETE
+614,Talc,57,MATCHED,1161.0,57.0,0.7,same class; det=SCAN_COMPLETE
+615,Talc,57,MATCHED,1160.0,57.0,0.7,same class; det=SCAN_COMPLETE
+616,Talc,57,MATCHED,1169.0,57.0,0.7,same class; det=SCAN_COMPLETE
+617,Talc,57,MATCHED,1164.0,57.0,0.7,same class; det=SCAN_COMPLETE
+618,Talc,57,MATCHED,1165.0,57.0,0.7,same class; det=SCAN_COMPLETE
+619,Talc,57,MATCHED,1170.0,57.0,0.7,same class; det=SCAN_COMPLETE
+620,Talc,57,MATCHED,1159.0,57.0,0.7,same class; det=SCAN_COMPLETE
+621,Talc,57,MATCHED,1163.0,57.0,0.7,same class; det=SCAN_COMPLETE
+622,Talc,57,MATCHED,1168.0,57.0,0.7,same class; det=SCAN_COMPLETE
+623,Talc,57,MATCHED,1143.0,57.0,0.7,same class; det=SCAN_COMPLETE
+624,Talc,57,MATCHED,1156.0,57.0,0.7,same class; det=SCAN_COMPLETE
+625,Talc,57,MATCHED,1155.0,57.0,0.7,same class; det=SCAN_COMPLETE
+626,Talc,57,MATCHED,1154.0,57.0,0.6,same class; det=SCAN_PARTIAL_CLUSTER
+627,Talc,57,MATCHED,1144.0,57.0,0.7,same class; det=SCAN_COMPLETE
+628,Talc,57,MATCHED,1166.0,57.0,0.7,same class; det=SCAN_COMPLETE
+629,Talc,57,MATCHED,1149.0,57.0,0.7,same class; det=SCAN_COMPLETE
+630,Talc,57,MATCHED,1147.0,57.0,0.7,same class; det=SCAN_COMPLETE
+631,Talc,57,MATCHED,1162.0,57.0,0.7,same class; det=SCAN_COMPLETE
+632,Bauxitic Clay,4,MATCHED,,57.0,0.7,nearest new point within 6px (same symbol)
+633,Glass Sand,25,UNVERIFIED_DROPPED,,,11.8,no template candidate >=0.55 within 6px
+634,Glass Sand,25,MATCHED,,26.0,0.4,nearest new point within 6px (same symbol)
+635,Manganese,40,UNVERIFIED_DROPPED,,,10.7,no template candidate >=0.55 within 6px
+636,Tantalite,58,MATCHED,,40.0,4.1,nearest new point within 6px (same symbol)
+637,Glass Sand,25,MATCHED,508.0,25.0,2.1,same class; det=RESCUE_RECENTRED
+638,Glass Sand,25,MATCHED,509.0,25.0,2.1,same class; det=SCAN_COMPLETE
+639,Glass Sand,25,MATCHED,517.0,25.0,2.1,same class; det=SCAN_COMPLETE
+640,Glass Sand,25,MATCHED,515.0,25.0,2.1,same class; det=SCAN_COMPLETE
+641,Glass Sand,25,MATCHED,510.0,25.0,2.2,same class; det=SCAN_COMPLETE
+642,Glass Sand,25,MATCHED,514.0,25.0,2.1,same class; det=SCAN_COMPLETE
+643,Glass Sand,25,MATCHED,513.0,25.0,2.1,same class; det=SCAN_COMPLETE
+644,Glass Sand,25,MATCHED,512.0,25.0,2.1,same class; det=SCAN_COMPLETE
+645,Glass Sand,25,MATCHED,516.0,25.0,2.1,same class; det=SCAN_COMPLETE
+646,Glass Sand,25,MATCHED,518.0,25.0,2.1,same class; det=SCAN_COMPLETE
+647,Glass Sand,25,MATCHED,511.0,25.0,2.1,same class; det=SCAN_COMPLETE
+648,Glass Sand,25,UNVERIFIED_DROPPED,,,13.2,no template candidate >=0.55 within 6px
+649,Glass Sand,25,MATCHED,506.0,25.0,2.1,same class; det=SCAN_COMPLETE
+650,Glass Sand,25,MATCHED,507.0,25.0,2.1,same class; det=SCAN_COMPLETE
+651,Glass Sand,25,MATCHED,483.0,25.0,2.3,same class; det=SCAN_COMPLETE
+652,Glass Sand,25,MATCHED,484.0,25.0,2.2,same class; det=SCAN_COMPLETE
+653,Glass Sand,25,MATCHED,503.0,25.0,2.1,same class; det=SCAN_COMPLETE
+654,Glass Sand,25,MATCHED,485.0,25.0,2.1,same class; det=SCAN_COMPLETE
+655,Glass Sand,25,MATCHED,501.0,25.0,2.1,same class; det=SCAN_COMPLETE
+656,Glass Sand,25,MATCHED,486.0,25.0,2.0,same class; det=SCAN_PARTIAL_CLUSTER
+657,Glass Sand,25,MATCHED,487.0,25.0,2.1,same class; det=SCAN_COMPLETE
+658,Glass Sand,25,MATCHED,502.0,25.0,2.1,same class; det=SCAN_COMPLETE
+659,Glass Sand,25,MATCHED,493.0,25.0,2.2,same class; det=RESCUE_RECENTRED
+660,Glass Sand,25,MATCHED,491.0,25.0,2.1,same class; det=SCAN_COMPLETE
+661,Glass Sand,25,MATCHED,488.0,25.0,2.1,same class; det=SCAN_COMPLETE
+662,Glass Sand,25,MATCHED,489.0,25.0,2.1,same class; det=SCAN_COMPLETE
+663,Glass Sand,25,MATCHED,496.0,25.0,2.1,same class; det=SCAN_COMPLETE
+664,Glass Sand,25,MATCHED,504.0,25.0,2.1,same class; det=SCAN_COMPLETE
+665,Glass Sand,25,MATCHED,497.0,25.0,2.1,same class; det=SCAN_COMPLETE
+666,Glass Sand,25,MATCHED,499.0,25.0,2.1,same class; det=SCAN_COMPLETE
+667,Glass Sand,25,MATCHED,490.0,25.0,2.1,same class; det=SCAN_COMPLETE
+668,Glass Sand,25,MATCHED,505.0,25.0,2.1,same class; det=SCAN_COMPLETE
+669,Glass Sand,25,MATCHED,494.0,25.0,2.1,same class; det=SCAN_COMPLETE
+670,Glass Sand,25,MATCHED,500.0,25.0,2.1,same class; det=SCAN_COMPLETE
+671,Glass Sand,25,MATCHED,495.0,25.0,2.1,same class; det=SCAN_COMPLETE
+672,Glass Sand,25,MATCHED,492.0,25.0,2.1,same class; det=SCAN_COMPLETE
+673,Molybdenite,46,MATCHED,1095.0,46.0,0.7,same class; det=SCAN_COMPLETE
+674,Kaolin,34,UNVERIFIED_DROPPED,,,17.8,no template candidate >=0.55 within 6px
+675,Silica Sand,54,MATCHED,1140.0,54.0,0.5,same class; det=SCAN_COMPLETE
+676,Salt-potash group,53,UNVERIFIED_DROPPED,,,8.7,no template candidate >=0.55 within 6px
+677,Clay,12,DUPLICATE_OLD,,,21.8,duplicate of old fid 343 (two old points on one symbol)
+678,Topaz,60,MATCHED,1210.0,60.0,1.8,same class; det=SCAN_COMPLETE
+679,Fire Clay,21,MATCHED,452.0,21.0,1.1,same class; det=RESCUE_RECENTRED
+680,Limestone,39,MATCHED,451.0,21.0,3.5,class changed to Fire Clay (glyph-based); det=MANUAL_VISUAL
+681,Lead-zinc,36,MATCHED,,57.0,0.7,nearest new point within 6px (same symbol)
+682,Silica Sand,54,MATCHED,1139.0,54.0,0.5,same class; det=SCAN_COMPLETE
+683,Calcite,67,MATCHED,,15.0,2.7,nearest new point within 6px (same symbol)
+684,Calcite,67,MATCHED,,15.0,3.6,nearest new point within 6px (same symbol)
+685,Gold,26,UNVERIFIED_DROPPED,,,7.2,no template candidate >=0.55 within 6px
+686,Limestone,39,MATCHED,1001.0,39.0,0.0,same class; det=WHITELIST_OLDCENTRE
+687,Tourmaline,61,MATCHED,1214.0,61.0,0.5,same class; det=SCAN_COMPLETE
+688,Tourmaline,61,MATCHED,1211.0,61.0,0.4,same class; det=SCAN_COMPLETE
+689,Tourmaline,61,MATCHED,1220.0,61.0,0.5,same class; det=SCAN_COMPLETE
+690,Tourmaline,61,MATCHED,1218.0,61.0,0.5,same class; det=SCAN_COMPLETE
+691,Tourmaline,61,MATCHED,1219.0,61.0,0.5,same class; det=SCAN_COMPLETE
+692,Tourmaline,61,MATCHED,1228.0,61.0,0.5,same class; det=SCAN_COMPLETE
+693,Tourmaline,61,MATCHED,1225.0,61.0,0.5,same class; det=SCAN_COMPLETE
+694,Tourmaline,61,MATCHED,1226.0,61.0,0.5,same class; det=SCAN_COMPLETE
+695,Tourmaline,61,MATCHED,1222.0,61.0,0.5,same class; det=SCAN_COMPLETE
+696,Tourmaline,61,MATCHED,1223.0,61.0,0.5,same class; det=SCAN_COMPLETE
+697,Tourmaline,61,MATCHED,1224.0,61.0,0.5,same class; det=SCAN_COMPLETE
+698,Tourmaline,61,MATCHED,1221.0,61.0,0.5,same class; det=SCAN_COMPLETE
+699,Glass Sand,25,UNVERIFIED_DROPPED,,,9.9,no template candidate >=0.55 within 6px
+700,Iron Ore,33,MATCHED,731.0,33.0,0.5,same class; det=SCAN_COMPLETE
+701,Iron Ore,33,MATCHED,729.0,33.0,0.5,same class; det=SCAN_COMPLETE
+702,Iron Ore,33,MATCHED,727.0,33.0,0.5,same class; det=SCAN_COMPLETE
+703,Iron Ore,33,MATCHED,728.0,33.0,0.6,same class; det=RESCUE_RECENTRED
+704,Iron Ore,33,MATCHED,742.0,33.0,0.9,same class; det=SCAN_PARTIAL_CLUSTER
+705,Iron Ore,33,MATCHED,758.0,33.0,0.6,same class; det=SCAN_COMPLETE
+706,Iron Ore,33,MATCHED,767.0,33.0,0.5,same class; det=SCAN_COMPLETE
+707,Iron Ore,33,MATCHED,757.0,33.0,0.5,same class; det=SCAN_COMPLETE
+708,Iron Ore,33,MATCHED,749.0,33.0,0.5,same class; det=SCAN_COMPLETE
+709,Talc,57,UNVERIFIED_DROPPED,,,11.3,no template candidate >=0.55 within 6px
+710,Iron Ore,33,DUPLICATE_OLD,,,7.0,duplicate of old fid 310 (two old points on one symbol)
+711,Iron Ore,33,MATCHED,730.0,33.0,0.5,same class; det=SCAN_COMPLETE
+712,Iron Ore,33,MATCHED,743.0,33.0,0.4,same class; det=RESCUE_RECENTRED
+713,Iron Ore,33,MATCHED,740.0,33.0,0.6,same class; det=SCAN_COMPLETE
+714,Iron Ore,33,MATCHED,739.0,33.0,0.5,same class; det=SCAN_COMPLETE
+715,Iron Ore,33,MATCHED,734.0,33.0,0.5,same class; det=SCAN_COMPLETE
+716,Iron Ore,33,MATCHED,744.0,33.0,0.5,same class; det=SCAN_COMPLETE
+717,Iron Ore,33,MATCHED,735.0,33.0,0.5,same class; det=SCAN_COMPLETE
+718,Iron Ore,33,MATCHED,736.0,33.0,0.5,same class; det=SCAN_COMPLETE
+719,Iron Ore,33,MATCHED,745.0,33.0,0.5,same class; det=SCAN_COMPLETE
+720,Iron Ore,33,MATCHED,737.0,33.0,0.5,same class; det=SCAN_COMPLETE
+721,Iron Ore,33,MATCHED,766.0,33.0,0.5,same class; det=SCAN_COMPLETE
+722,Iron Ore,33,MATCHED,733.0,33.0,0.4,same class; det=SCAN_COMPLETE
+723,Iron Ore,33,MATCHED,738.0,33.0,0.7,same class; det=SCAN_COMPLETE
+724,Iron Ore,33,MATCHED,752.0,33.0,0.5,same class; det=SCAN_COMPLETE
+725,Iron Ore,33,MATCHED,747.0,33.0,0.5,same class; det=SCAN_COMPLETE
+726,Iron Ore,33,MATCHED,768.0,33.0,0.5,same class; det=SCAN_COMPLETE
+727,Iron Ore,33,MATCHED,756.0,33.0,0.4,same class; det=SCAN_COMPLETE
+728,Iron Ore,33,MATCHED,765.0,33.0,0.5,same class; det=SCAN_COMPLETE
+729,Ilmenite,33,MATCHED,763.0,33.0,0.5,same class; det=SCAN_COMPLETE
+730,Iron Ore,33,MATCHED,746.0,33.0,0.8,same class; det=RESCUE_RECENTRED
+731,Iron Ore,33,MATCHED,753.0,33.0,0.6,same class; det=SCAN_COMPLETE
+732,Iron Ore,33,MATCHED,762.0,33.0,0.5,same class; det=SCAN_COMPLETE
+733,Iron Ore,33,MATCHED,750.0,33.0,0.7,same class; det=SCAN_COMPLETE
+734,Iron Ore,33,MATCHED,755.0,33.0,0.5,same class; det=SCAN_COMPLETE
+735,Iron Ore,33,MATCHED,754.0,33.0,0.5,same class; det=SCAN_COMPLETE
+736,Iron Ore,33,MATCHED,759.0,33.0,0.5,same class; det=SCAN_COMPLETE
+737,Iron Ore,33,MATCHED,751.0,33.0,0.5,same class; det=SCAN_COMPLETE
+738,Iron Ore,33,MATCHED,748.0,33.0,1.0,same class; det=RESCUE_RECENTRED
+739,Iron Ore,33,MATCHED,761.0,33.0,0.4,same class; det=SCAN_COMPLETE
+740,Iron Ore,33,MATCHED,760.0,33.0,0.5,same class; det=SCAN_COMPLETE
+741,Coal,13,OTHER,,,20.9,not carried forward; see old_points_not_carried_forward.shp / README
+742,Brine,10,MATCHED,134.0,10.0,0.6,same class; det=RESCUE_RECENTRED
+743,Salt-potash group,53,MATCHED,1132.0,53.0,1.2,same class; det=SCAN_COMPLETE
+744,Brine,10,MATCHED,132.0,10.0,0.7,same class; det=SCAN_COMPLETE
+745,Brine,10,MATCHED,130.0,10.0,0.7,same class; det=SCAN_COMPLETE
+746,Salt-potash group,53,MATCHED,1133.0,53.0,0.7,same class; det=SCAN_COMPLETE
+747,Salt-potash group,53,MATCHED,1124.0,53.0,0.7,same class; det=SCAN_COMPLETE
+748,Brine,10,MATCHED,140.0,10.0,1.0,same class; det=SCAN_COMPLETE
+749,Salt-potash group,53,MATCHED,1137.0,53.0,1.1,same class; det=SCAN_COMPLETE
+750,Salt-potash group,53,MATCHED,1136.0,53.0,1.0,same class; det=SCAN_COMPLETE
+751,Brine,10,MATCHED,135.0,10.0,1.3,same class; det=SCAN_COMPLETE
+752,Salt-potash group,53,MATCHED,1135.0,53.0,0.7,same class; det=SCAN_COMPLETE
+753,Brine,10,MATCHED,137.0,10.0,1.2,same class; det=SCAN_COMPLETE
+754,Brine,10,MATCHED,133.0,10.0,0.7,same class; det=SCAN_COMPLETE
+755,Brine,10,MATCHED,136.0,10.0,1.1,same class; det=SCAN_COMPLETE
+756,Brine,10,MATCHED,138.0,10.0,0.7,same class; det=SCAN_COMPLETE
+757,Brine,10,MATCHED,127.0,10.0,0.7,same class; det=SCAN_COMPLETE
+758,Brine,10,MATCHED,121.0,10.0,0.7,same class; det=SCAN_COMPLETE
+759,Brine,10,MATCHED,126.0,10.0,0.7,same class; det=SCAN_COMPLETE
+760,Brine,10,MATCHED,122.0,10.0,1.0,same class; det=SCAN_COMPLETE
+761,Salt-potash group,53,MATCHED,1129.0,53.0,0.7,same class; det=SCAN_COMPLETE
+762,Salt-potash group,53,MATCHED,1130.0,53.0,0.9,same class; det=SCAN_COMPLETE
+763,Brine,10,MATCHED,120.0,10.0,0.7,same class; det=SCAN_COMPLETE
+764,Salt-potash group,53,MATCHED,1128.0,53.0,0.7,same class; det=SCAN_COMPLETE
+765,Brine,10,MATCHED,124.0,10.0,0.8,same class; det=SCAN_COMPLETE
+766,Salt-potash group,53,MATCHED,1126.0,53.0,1.1,same class; det=SCAN_COMPLETE
+767,Brine,10,MATCHED,129.0,10.0,0.7,same class; det=SCAN_COMPLETE
+768,Brine,10,MATCHED,125.0,10.0,0.6,same class; det=RESCUE_RECENTRED
+769,Brine,10,MATCHED,119.0,10.0,0.7,same class; det=SCAN_COMPLETE
+770,Salt-potash group,53,MATCHED,1127.0,53.0,1.0,same class; det=RESCUE_RECENTRED
+771,Salt-potash group,53,MATCHED,1123.0,53.0,1.1,same class; det=SCAN_COMPLETE
+772,Brine,10,MATCHED,128.0,10.0,0.7,same class; det=SCAN_COMPLETE
+773,Marcasite,42,MATCHED,,10.0,0.6,nearest new point within 6px (same symbol)
+774,Brine,10,MATCHED,117.0,10.0,1.1,same class; det=SCAN_PARTIAL_CLUSTER
+775,Brine,10,MATCHED,115.0,10.0,0.7,same class; det=SCAN_COMPLETE
+776,Salt-potash group,53,MATCHED,1122.0,53.0,0.7,same class; det=SCAN_COMPLETE
+777,Brine,10,MATCHED,123.0,10.0,0.7,same class; det=SCAN_COMPLETE
+778,Salt-potash group,53,MATCHED,1121.0,53.0,1.1,same class; det=SCAN_COMPLETE
+779,Talc,57,MATCHED,1157.0,57.0,0.8,same class; det=RESCUE_RECENTRED
+780,Iron Ore,33,MATCHED,741.0,33.0,0.8,same class; det=RESCUE_RECENTRED
+781,Salt-potash group,53,MATCHED,1120.0,53.0,1.0,same class; det=SCAN_COMPLETE
+782,Salt-potash group,53,MATCHED,1119.0,53.0,1.5,same class; det=SCAN_COMPLETE
+783,Salt-potash group,53,MATCHED,1118.0,53.0,1.0,same class; det=SCAN_COMPLETE
+784,Brine,10,MATCHED,131.0,10.0,1.0,same class; det=SCAN_COMPLETE
+785,Salt-potash group,53,MATCHED,1134.0,53.0,1.5,same class; det=SCAN_COMPLETE
+786,Brine,10,MATCHED,114.0,10.0,1.0,same class; det=SCAN_COMPLETE
+787,Clay,12,DUPLICATE_OLD,,,11.8,duplicate of old fid 461 (two old points on one symbol)
+788,Iron Ore,33,MATCHED,732.0,33.0,0.6,same class; det=SCAN_COMPLETE
+789,Mica,44,MATCHED,1077.0,44.0,0.7,same class; det=SCAN_COMPLETE
+790,Bentonite,5,UNVERIFIED_DROPPED,,,12.3,no template candidate >=0.55 within 6px
+791,Salt-potash group,53,UNVERIFIED_DROPPED,,,13.0,no template candidate >=0.55 within 6px
+792,Gold,26,UNVERIFIED_DROPPED,,,10.3,no template candidate >=0.55 within 6px
+793,Limestone,39,MATCHED,,39.0,5.5,nearest new point within 6px (same symbol)
+794,Glass Sand,25,UNVERIFIED_DROPPED,,,9.9,no template candidate >=0.55 within 6px
+795,Salt-potash group,53,MATCHED,1117.0,52.0,4.6,class changed to Rose Quartz (glyph-based); det=WHITELIST_RECENTRED
+796,Lead-zinc,36,MATCHED,892.0,36.0,0.8,same class; det=SCAN_COMPLETE
+797,Lead-zinc,36,MATCHED,895.0,36.0,0.8,same class; det=SCAN_COMPLETE
+798,Lead-zinc,36,MATCHED,880.0,36.0,0.7,same class; det=SCAN_COMPLETE
+799,Lead-zinc,36,MATCHED,877.0,36.0,0.8,same class; det=SCAN_COMPLETE
+800,Lead-zinc,36,MATCHED,874.0,36.0,0.8,same class; det=SCAN_COMPLETE
+801,Lead-zinc,36,MATCHED,878.0,36.0,1.2,same class; det=SCAN_COMPLETE
+802,Lead-zinc,36,MATCHED,898.0,36.0,1.0,same class; det=SCAN_COMPLETE
+803,Lead-zinc,36,MATCHED,909.0,36.0,0.8,same class; det=SCAN_COMPLETE
+804,Lead-zinc,36,MATCHED,914.0,36.0,0.8,same class; det=SCAN_COMPLETE
+805,Lead-zinc,36,MATCHED,912.0,36.0,0.8,same class; det=SCAN_COMPLETE
+806,Lead-zinc,36,MATCHED,887.0,36.0,0.8,same class; det=SCAN_COMPLETE
+807,Lead-zinc,36,MATCHED,883.0,36.0,0.8,same class; det=SCAN_COMPLETE
+808,Lead-zinc,36,MATCHED,886.0,36.0,0.8,same class; det=SCAN_COMPLETE
+809,Lead-zinc,36,MATCHED,911.0,36.0,0.9,same class; det=SCAN_COMPLETE
+810,Lead-zinc,36,MATCHED,910.0,36.0,0.8,same class; det=SCAN_COMPLETE
+811,Lead-zinc,36,MATCHED,885.0,36.0,0.8,same class; det=SCAN_COMPLETE
+812,Lead-zinc,36,MATCHED,875.0,36.0,1.5,same class; det=SCAN_COMPLETE
+813,Lead-zinc,36,MATCHED,897.0,36.0,1.1,same class; det=SCAN_COMPLETE
+814,Lead-zinc,36,MATCHED,903.0,36.0,0.8,same class; det=SCAN_COMPLETE
+815,Lead-zinc,36,MATCHED,899.0,36.0,0.7,same class; det=SCAN_COMPLETE
+816,Lead-zinc,36,MATCHED,908.0,36.0,0.8,same class; det=SCAN_COMPLETE
+817,Lead-zinc,36,MATCHED,872.0,36.0,1.1,same class; det=SCAN_COMPLETE
+818,Lead-zinc,36,MATCHED,901.0,36.0,0.8,same class; det=SCAN_COMPLETE
+819,Lead-zinc,36,MATCHED,884.0,36.0,1.3,same class; det=SCAN_COMPLETE
+820,Lead-zinc,36,MATCHED,876.0,36.0,0.8,same class; det=SCAN_COMPLETE
+821,Lead-zinc,36,MATCHED,907.0,36.0,0.6,same class; det=RESCUE_RECENTRED
+822,Lead-zinc,36,MATCHED,882.0,36.0,0.6,same class; det=SCAN_COMPLETE
+823,Lead-zinc,36,MATCHED,902.0,36.0,1.3,same class; det=SCAN_COMPLETE
+824,Lead-zinc,36,MATCHED,906.0,36.0,0.8,same class; det=SCAN_COMPLETE
+825,Lead-zinc,36,MATCHED,905.0,36.0,0.8,same class; det=SCAN_COMPLETE
+826,Lead-zinc,36,MATCHED,904.0,36.0,0.8,same class; det=SCAN_COMPLETE
+827,Lead-zinc,36,MATCHED,893.0,36.0,0.9,same class; det=RESCUE_RECENTRED
+828,Lead-zinc,36,MATCHED,896.0,36.0,0.8,same class; det=SCAN_COMPLETE
+829,Lead-zinc,36,MATCHED,890.0,36.0,0.8,same class; det=SCAN_COMPLETE
+830,Lead-zinc,36,MATCHED,894.0,36.0,0.8,same class; det=SCAN_COMPLETE
+831,Lead-zinc,36,MATCHED,889.0,36.0,1.2,same class; det=SCAN_COMPLETE
+832,Lead-zinc,36,MATCHED,888.0,36.0,0.6,same class; det=SCAN_COMPLETE
+833,Bismuth,7,MATCHED,112.0,7.0,4.8,same class; det=RESCUE_RECENTRED
+834,Marble,41,UNVERIFIED_DROPPED,,,6.7,no template candidate >=0.55 within 6px
+835,Clay,12,DUPLICATE_OLD,,,10.5,duplicate of old fid 685 (two old points on one symbol)
+836,Ball Clay,2,MATCHED,2.0,2.0,1.1,same class; det=SCAN_COMPLETE
+837,Lead-zinc,36,MATCHED,913.0,36.0,1.0,same class; det=SCAN_COMPLETE
+838,Coal,13,UNVERIFIED_DROPPED,,,14.6,no template candidate >=0.55 within 6px
+839,Lepidolite,37,MATCHED,934.0,37.0,0.0,same class; det=WHITELIST_OLDCENTRE
+840,Tourmaline,61,MATCHED,1227.0,61.0,1.5,same class; det=SCAN_COMPLETE
+841,Glass Sand,25,MATCHED,118.0,10.0,0.7,class changed to Brine (glyph-based); det=WHITELIST_RECENTRED
+842,Coal,13,UNVERIFIED_DROPPED,,,19.8,no template candidate >=0.55 within 6px
+843,Coal,13,UNVERIFIED_DROPPED,,,15.3,no template candidate >=0.55 within 6px
+844,Glass Sand,25,MATCHED,498.0,25.0,1.5,same class; det=RESCUE_RECENTRED
+845,Bentonite,5,MATCHED,59.0,5.0,2.5,same class; det=SCAN_COMPLETE
+846,Bentonite,5,MATCHED,58.0,5.0,2.5,same class; det=SCAN_COMPLETE
+847,Bentonite,5,MATCHED,57.0,5.0,2.5,same class; det=SCAN_COMPLETE
+848,Bentonite,5,MATCHED,51.0,5.0,2.5,same class; det=SCAN_COMPLETE
+849,Bentonite,5,MATCHED,56.0,5.0,2.5,same class; det=SCAN_COMPLETE
+850,Bentonite,5,MATCHED,50.0,5.0,2.5,same class; det=SCAN_COMPLETE
+851,Bentonite,5,MATCHED,49.0,5.0,2.6,same class; det=SCAN_COMPLETE
+852,Bentonite,5,MATCHED,52.0,5.0,2.5,same class; det=SCAN_COMPLETE
+853,Bentonite,5,MATCHED,53.0,5.0,2.5,same class; det=SCAN_COMPLETE
+854,Bentonite,5,MATCHED,55.0,5.0,2.6,same class; det=SCAN_COMPLETE
+855,Bentonite,5,MATCHED,54.0,5.0,2.6,same class; det=SCAN_COMPLETE
+856,Bentonite,5,MATCHED,48.0,5.0,2.6,same class; det=SCAN_COMPLETE
+857,Glass Sand,25,UNVERIFIED_DROPPED,,,10.1,no template candidate >=0.55 within 6px
+858,Bentonite,5,MATCHED,47.0,5.0,2.6,same class; det=SCAN_COMPLETE
+859,Galena,29,MATCHED,647.0,29.0,1.1,same class; det=SCAN_COMPLETE
+860,Galena,29,MATCHED,644.0,29.0,1.1,same class; det=SCAN_COMPLETE
+861,Galena,29,MATCHED,646.0,29.0,1.1,same class; det=SCAN_COMPLETE
+862,Galena,29,MATCHED,645.0,29.0,0.9,same class; det=RESCUE_RECENTRED
+863,Bauxitic Clay,4,MATCHED,39.0,4.0,2.7,same class; det=SCAN_COMPLETE
+864,Mica,44,MATCHED,,4.0,3.4,nearest new point within 6px (same symbol)
+865,Bauxitic Clay,4,MATCHED,41.0,4.0,3.3,same class; det=SCAN_COMPLETE
+866,Bauxitic Clay,4,MATCHED,44.0,4.0,3.4,same class; det=SCAN_COMPLETE
+867,Bauxitic Clay,4,MATCHED,45.0,4.0,3.4,same class; det=SCAN_COMPLETE
+868,Bauxitic Clay,4,MATCHED,42.0,4.0,5.6,same class; det=RESCUE_RECENTRED
+869,Bentonite,5,UNVERIFIED_DROPPED,,,14.4,no template candidate >=0.55 within 6px
+870,Kaolin,34,UNVERIFIED_DROPPED,,,11.4,no template candidate >=0.55 within 6px
+871,Bismuth,7,MATCHED,111.0,7.0,3.4,same class; det=RESCUE_RECENTRED
+872,Glass Sand,25,UNVERIFIED_DROPPED,,,16.5,no template candidate >=0.55 within 6px
+873,Zircon,65,MATCHED,1260.0,65.0,0.0,same class; det=OLD_CENTRE_KEPT
+874,Brine,10,MATCHED,139.0,10.0,0.8,same class; det=WHITELIST_RECENTRED
+875,Bentonite,5,UNVERIFIED_DROPPED,,,7.4,no template candidate >=0.55 within 6px
+876,Limestone,39,MATCHED,959.0,39.0,2.5,same class; det=SCAN_COMPLETE
+877,Limestone,39,MATCHED,958.0,39.0,2.6,same class; det=SCAN_COMPLETE
+878,Limestone,39,MATCHED,957.0,39.0,2.5,same class; det=SCAN_COMPLETE
+879,Limestone,39,MATCHED,956.0,39.0,2.5,same class; det=SCAN_COMPLETE
+880,Limestone,39,MATCHED,955.0,39.0,2.6,same class; det=SCAN_COMPLETE
+881,Limestone,39,MATCHED,953.0,39.0,2.6,same class; det=SCAN_COMPLETE
+882,Limestone,39,MATCHED,954.0,39.0,2.6,same class; det=SCAN_COMPLETE
+883,Limestone,39,MATCHED,1005.0,39.0,2.6,same class; det=SCAN_COMPLETE
+884,Limestone,39,MATCHED,1006.0,39.0,2.5,same class; det=SCAN_COMPLETE
+885,Limestone,39,MATCHED,985.0,39.0,2.5,same class; det=RESCUE_RECENTRED
+886,Limestone,39,MATCHED,1002.0,39.0,2.6,same class; det=SCAN_COMPLETE
+887,Limestone,39,MATCHED,1004.0,39.0,2.5,same class; det=SCAN_COMPLETE
+888,Limestone,39,MATCHED,1007.0,39.0,2.5,same class; det=SCAN_COMPLETE
+889,Limestone,39,MATCHED,1000.0,39.0,2.6,same class; det=SCAN_COMPLETE
+890,Limestone,39,UNVERIFIED_DROPPED,,,55.1,no template candidate >=0.55 within 6px
+891,Limestone,39,MATCHED,1003.0,39.0,2.6,same class; det=RESCUE_RECENTRED
+892,Kyanite,35,MATCHED,866.0,35.0,0.7,same class; det=SCAN_COMPLETE
+893,Limestone,39,MATCHED,1009.0,39.0,2.5,same class; det=RESCUE_RECENTRED
+894,Kyanite,35,MATCHED,867.0,35.0,0.8,same class; det=SCAN_COMPLETE
+895,Limestone,39,MATCHED,999.0,39.0,2.6,same class; det=SCAN_COMPLETE
+896,Limestone,39,MATCHED,1008.0,39.0,2.6,same class; det=SCAN_COMPLETE
+897,Limestone,39,MATCHED,998.0,39.0,2.6,same class; det=SCAN_COMPLETE
+898,Limestone,39,MATCHED,996.0,39.0,2.6,same class; det=SCAN_COMPLETE
+899,Kyanite,35,MATCHED,868.0,35.0,0.7,same class; det=SCAN_COMPLETE
+900,Kyanite,35,MATCHED,865.0,35.0,0.7,same class; det=SCAN_COMPLETE
+901,Limestone,39,MATCHED,995.0,39.0,2.5,same class; det=SCAN_COMPLETE
+902,Limestone,39,MATCHED,997.0,39.0,2.6,same class; det=SCAN_COMPLETE
+903,Limestone,39,MATCHED,994.0,39.0,2.5,same class; det=SCAN_COMPLETE
+904,Limestone,39,UNVERIFIED_DROPPED,,,21.4,no template candidate >=0.55 within 6px
+905,Kyanite,35,MATCHED,870.0,35.0,0.7,same class; det=SCAN_COMPLETE
+906,Limestone,39,MATCHED,981.0,39.0,2.6,same class; det=RESCUE_RECENTRED
+907,Limestone,39,MATCHED,992.0,39.0,2.6,same class; det=SCAN_COMPLETE
+908,Limestone,39,MATCHED,991.0,39.0,2.6,same class; det=SCAN_COMPLETE
+909,Limestone,39,MATCHED,987.0,39.0,2.7,same class; det=SCAN_COMPLETE
+910,Limestone,39,MATCHED,993.0,39.0,2.5,same class; det=SCAN_COMPLETE
+911,Limestone,39,MATCHED,989.0,39.0,2.5,same class; det=RESCUE_RECENTRED
+912,Limestone,39,MATCHED,986.0,39.0,2.5,same class; det=SCAN_COMPLETE
+913,Limestone,39,MATCHED,977.0,39.0,2.5,same class; det=SCAN_COMPLETE
+914,Limestone,39,MATCHED,984.0,39.0,2.5,same class; det=SCAN_COMPLETE
+915,Limestone,39,MATCHED,961.0,39.0,2.7,same class; det=RESCUE_RECENTRED
+916,Limestone,39,MATCHED,979.0,39.0,2.5,same class; det=SCAN_COMPLETE
+917,Limestone,39,MATCHED,975.0,39.0,2.5,same class; det=SCAN_COMPLETE
+918,Limestone,39,MATCHED,982.0,39.0,2.5,same class; det=SCAN_COMPLETE
+919,Limestone,39,MATCHED,949.0,39.0,2.5,same class; det=SCAN_COMPLETE
+920,Limestone,39,MATCHED,980.0,39.0,2.5,same class; det=SCAN_COMPLETE
+921,Limestone,39,MATCHED,972.0,39.0,2.5,same class; det=SCAN_COMPLETE
+922,Limestone,39,MATCHED,950.0,39.0,2.5,same class; det=RESCUE_RECENTRED
+923,Limestone,39,MATCHED,973.0,39.0,2.6,same class; det=SCAN_COMPLETE
+924,Limestone,39,MATCHED,952.0,39.0,2.6,same class; det=SCAN_COMPLETE
+925,Limestone,39,UNVERIFIED_DROPPED,,,11.5,no template candidate >=0.55 within 6px
+926,Limestone,39,MATCHED,966.0,39.0,2.5,same class; det=SCAN_COMPLETE
+927,Limestone,39,MATCHED,970.0,39.0,2.5,same class; det=SCAN_COMPLETE
+928,Limestone,39,MATCHED,976.0,39.0,2.6,same class; det=RESCUE_RECENTRED
+929,Limestone,39,MATCHED,964.0,39.0,2.6,same class; det=SCAN_COMPLETE
+930,Limestone,39,MATCHED,967.0,39.0,2.5,same class; det=SCAN_COMPLETE
+931,Limestone,39,MATCHED,962.0,39.0,2.5,same class; det=SCAN_COMPLETE
+932,Limestone,39,MATCHED,968.0,39.0,2.5,same class; det=SCAN_COMPLETE
+933,Limestone,39,MATCHED,965.0,39.0,2.5,same class; det=RESCUE_RECENTRED
+934,Limestone,39,MATCHED,971.0,39.0,2.6,same class; det=SCAN_COMPLETE
+935,Limestone,39,MATCHED,969.0,39.0,2.5,same class; det=SCAN_COMPLETE
+936,Limestone,39,MATCHED,960.0,39.0,2.6,same class; det=RESCUE_RECENTRED
+937,Limestone,39,MATCHED,974.0,39.0,2.5,same class; det=SCAN_COMPLETE
+938,Limestone,39,UNVERIFIED_DROPPED,,,24.2,no template candidate >=0.55 within 6px
+939,Diatomite,17,MATCHED,38.0,4.0,0.0,class changed to Bauxitic Clay (glyph-based); det=MANUAL_VISUAL
+940,Glass Sand,25,UNVERIFIED_DROPPED,,,9.7,no template candidate >=0.55 within 6px
+941,Kyanite,35,MATCHED,869.0,35.0,0.5,same class; det=RESCUE_RECENTRED
+942,Magnesite,45,UNVERIFIED_DROPPED,,,11.3,no template candidate >=0.55 within 6px
+943,Marble,41,UNVERIFIED_DROPPED,,,9.5,no template candidate >=0.55 within 6px
+944,Lepidolite,37,UNVERIFIED_DROPPED,,,8.9,no template candidate >=0.55 within 6px
+945,Marble,41,MATCHED,1104.0,48.0,0.0,class changed to Nickel (glyph-based); det=MANUAL_VISUAL
+946,Bauxitic Clay,4,UNVERIFIED_DROPPED,,,8.3,no template candidate >=0.55 within 6px
+947,Topaz,60,MATCHED,1105.0,48.0,0.0,class changed to Nickel (glyph-based); det=MANUAL_VISUAL
+948,Kaolin,34,UNVERIFIED_DROPPED,,,8.6,no template candidate >=0.55 within 6px
+949,Diatomite,17,UNVERIFIED_DROPPED,,,9.7,no template candidate >=0.55 within 6px
+950,Granite,30,MATCHED,,48.0,5.6,nearest new point within 6px (same symbol)
+951,Fluorite,22,MATCHED,,20.0,4.3,nearest new point within 6px (same symbol)
+952,Granite,30,DUPLICATE_OLD,,,11.5,duplicate of old fid 345 (two old points on one symbol)
+953,River Gravel,28,UNVERIFIED_DROPPED,,,15.0,no template candidate >=0.55 within 6px
+954,Limestone,39,MATCHED,990.0,39.0,2.6,same class; det=RESCUE_RECENTRED
+955,Coal,13,UNVERIFIED_DROPPED,,,9.3,no template candidate >=0.55 within 6px
+956,Fire Clay,21,MATCHED,,39.0,1.2,nearest new point within 6px (same symbol)
+957,Tar Sand,59,MATCHED,,26.0,3.3,nearest new point within 6px (same symbol)
+958,Granite,30,MATCHED,664.0,30.0,3.3,same class; det=RESCUE_RECENTRED
+959,Granite,30,MATCHED,665.0,30.0,3.2,same class; det=RESCUE_RECENTRED
+960,Granite,30,MATCHED,661.0,30.0,3.3,same class; det=RESCUE_RECENTRED
+961,Granite,30,MATCHED,658.0,30.0,2.7,same class; det=RESCUE_RECENTRED
+962,Granite,30,MATCHED,666.0,30.0,3.3,same class; det=RESCUE_RECENTRED
+963,Marble,41,MATCHED,1057.0,41.0,0.7,same class; det=SCAN_COMPLETE
+964,Marble,41,MATCHED,1061.0,41.0,0.7,same class; det=SCAN_COMPLETE
+965,Marble,41,MATCHED,1046.0,41.0,0.7,same class; det=SCAN_COMPLETE
+966,Marble,41,MATCHED,1063.0,41.0,0.7,same class; det=SCAN_COMPLETE
+967,Marble,41,MATCHED,1052.0,41.0,0.9,same class; det=SCAN_COMPLETE
+968,Marble,41,MATCHED,1050.0,41.0,0.7,same class; det=SCAN_COMPLETE
+969,Marble,41,MATCHED,1047.0,41.0,0.7,same class; det=SCAN_COMPLETE
+970,Marble,41,MATCHED,1056.0,41.0,0.7,same class; det=SCAN_COMPLETE
+971,Marble,41,MATCHED,1055.0,41.0,0.7,same class; det=SCAN_COMPLETE
+972,Marble,41,MATCHED,1029.0,41.0,0.7,same class; det=SCAN_COMPLETE
+973,Marble,41,MATCHED,1019.0,41.0,0.7,same class; det=SCAN_COMPLETE
+974,Marble,41,MATCHED,1024.0,41.0,0.7,same class; det=SCAN_COMPLETE
+975,Marble,41,MATCHED,1016.0,41.0,0.7,same class; det=SCAN_COMPLETE
+976,Marble,41,MATCHED,1015.0,41.0,0.7,same class; det=SCAN_COMPLETE
+977,Marble,41,MATCHED,1027.0,41.0,0.7,same class; det=SCAN_COMPLETE
+978,Marble,41,MATCHED,1053.0,41.0,0.7,same class; det=SCAN_COMPLETE
+979,Marble,41,DUPLICATE_OLD,,,12.8,duplicate of old fid 943 (two old points on one symbol)
+980,Marble,41,MATCHED,1059.0,41.0,0.7,same class; det=SCAN_COMPLETE
+981,Marble,41,MATCHED,,36.0,4.5,nearest new point within 6px (same symbol)
+982,Marble,41,MATCHED,1025.0,41.0,0.7,same class; det=SCAN_COMPLETE
+983,Marble,41,MATCHED,1023.0,41.0,0.7,same class; det=SCAN_COMPLETE
+984,Marble,41,MATCHED,1028.0,41.0,0.8,same class; det=SCAN_COMPLETE
+985,Marble,41,MATCHED,1054.0,41.0,0.7,same class; det=SCAN_COMPLETE
+986,Marble,41,MATCHED,1058.0,41.0,0.7,same class; det=SCAN_COMPLETE
+987,Marble,41,MATCHED,1031.0,41.0,0.7,same class; det=SCAN_COMPLETE
+988,Marble,41,MATCHED,1026.0,41.0,0.7,same class; det=SCAN_COMPLETE
+989,Marble,41,MATCHED,1034.0,41.0,0.6,same class; det=SCAN_COMPLETE
+990,Marble,41,MATCHED,1041.0,41.0,0.7,same class; det=SCAN_COMPLETE
+991,Marble,41,MATCHED,1037.0,41.0,0.7,same class; det=SCAN_COMPLETE
+992,Marble,41,MATCHED,1044.0,41.0,0.7,same class; det=SCAN_COMPLETE
+993,Marble,41,MATCHED,1033.0,41.0,0.7,same class; det=SCAN_COMPLETE
+994,Marble,41,MATCHED,1045.0,41.0,0.7,same class; det=SCAN_COMPLETE
+995,Marble,41,MATCHED,1020.0,41.0,0.7,same class; det=SCAN_COMPLETE
+996,Marble,41,MATCHED,1036.0,41.0,1.0,same class; det=RESCUE_RECENTRED
+997,Marble,41,MATCHED,1043.0,41.0,0.7,same class; det=SCAN_COMPLETE
+998,Marble,41,MATCHED,1022.0,41.0,0.9,same class; det=SCAN_COMPLETE
+999,Marble,41,MATCHED,1018.0,41.0,0.7,same class; det=SCAN_COMPLETE
+1000,Marble,41,MATCHED,1021.0,41.0,0.8,same class; det=RESCUE_RECENTRED
+1001,Marble,41,MATCHED,1038.0,41.0,0.6,same class; det=SCAN_COMPLETE
+1002,Marble,41,MATCHED,1042.0,41.0,0.9,same class; det=SCAN_COMPLETE
+1003,Marble,41,MATCHED,1048.0,41.0,0.8,same class; det=RESCUE_RECENTRED
+1004,Marble,41,MATCHED,1051.0,41.0,0.7,same class; det=SCAN_COMPLETE
+1005,Marble,41,MATCHED,1039.0,41.0,0.7,same class; det=SCAN_COMPLETE
+1006,Marble,41,MATCHED,1049.0,41.0,0.7,same class; det=RESCUE_RECENTRED
+1007,Marble,41,MATCHED,1035.0,41.0,0.6,same class; det=SCAN_COMPLETE
+1008,Marble,41,MATCHED,1040.0,41.0,0.6,same class; det=RESCUE_RECENTRED
+1009,Marble,41,MATCHED,1032.0,41.0,0.8,same class; det=SCAN_COMPLETE
+1010,Lithium mineral,66,MATCHED,1266.0,66.0,0.0,same class; det=WHITELIST_OLDCENTRE
+1011,Kaolin,34,MATCHED,169.0,12.0,4.9,class changed to Clay (glyph-based); det=WHITELIST_RECENTRED
+1012,Zircon,65,MATCHED,1252.0,65.0,0.0,same class; det=OLD_CENTRE_KEPT
+1013,Beryl group,6,MATCHED,107.0,6.0,0.0,same class; det=OLD_CENTRE_KEPT
+1014,Limestone,39,MATCHED,,39.0,4.5,nearest new point within 6px (same symbol)
+1015,Limestone,39,UNVERIFIED_DROPPED,,,9.5,no template candidate >=0.55 within 6px
+1016,Limestone,39,DUPLICATE_OLD,,,10.8,duplicate of old fid 1015 (two old points on one symbol)
+1017,Marble,41,DUPLICATE_OLD,,,11.4,duplicate of old fid 334 (two old points on one symbol)
+1018,Marble,41,MATCHED,1030.0,41.0,0.0,same class; det=WHITELIST_OLDCENTRE
+1019,Marble,41,UNVERIFIED_DROPPED,,,11.2,no template candidate >=0.55 within 6px
+1020,Marble,41,MATCHED,,33.0,5.9,nearest new point within 6px (same symbol)
+1021,Marble,41,MATCHED,,36.0,3.5,nearest new point within 6px (same symbol)
+1022,Gold,26,DUPLICATE_OLD,,,14.0,duplicate of old fid 790 (two old points on one symbol)
+1023,Granite,30,MATCHED,,41.0,0.8,nearest new point within 6px (same symbol)
+1024,Marble,41,MATCHED,1060.0,41.0,1.4,same class; det=SCAN_COMPLETE
+1025,Granite,30,MATCHED,663.0,30.0,3.2,same class; det=RESCUE_RECENTRED
+1026,Granite,30,MATCHED,660.0,30.0,2.5,same class; det=RESCUE_RECENTRED
+1027,Granite,30,MATCHED,652.0,30.0,0.0,same class; det=OLD_CENTRE_KEPT
+1028,Granite,30,MATCHED,656.0,30.0,2.6,same class; det=RESCUE_RECENTRED
+1029,Granite,30,MATCHED,657.0,30.0,0.0,same class; det=OLD_CENTRE_KEPT
+1030,Marble,41,DUPLICATE_OLD,,,6.9,duplicate of old fid 981 (two old points on one symbol)
+1031,Coal,13,UNVERIFIED_DROPPED,,,7.6,no template candidate >=0.55 within 6px
+1032,River Gravel,28,MATCHED,638.0,28.0,4.6,same class; det=RESCUE_RECENTRED
+1033,Granite,30,DUPLICATE_OLD,,,6.8,duplicate of old fid 1026 (two old points on one symbol)
+1034,Granite,30,MATCHED,,30.0,5.9,nearest new point within 6px (same symbol)
+1035,Granite,30,OTHER,,,8.0,not carried forward; see old_points_not_carried_forward.shp / README
+1036,Granite,30,DUPLICATE_OLD,,,7.3,duplicate of old fid 1028 (two old points on one symbol)
+1037,Granite,30,MATCHED,,30.0,5.9,nearest new point within 6px (same symbol)
+1038,Granite,30,MATCHED,650.0,30.0,0.0,same class; det=OLD_CENTRE_KEPT
+1039,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1040,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1041,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1042,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1043,Limestone,39,MATCHED,,39.0,3.1,nearest new point within 6px (same symbol)
+1044,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1045,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1046,Limestone,39,MATCHED,,39.0,3.1,nearest new point within 6px (same symbol)
+1047,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1048,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1049,Limestone,39,MATCHED,,39.0,3.1,nearest new point within 6px (same symbol)
+1050,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1051,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1052,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1053,Limestone,39,UNVERIFIED_DROPPED,,,8.6,no template candidate >=0.55 within 6px
+1054,Limestone,39,DUPLICATE_OLD,,,50.6,duplicate of old fid 890 (two old points on one symbol)
+1055,Limestone,39,MATCHED,,39.0,3.1,nearest new point within 6px (same symbol)
+1056,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1057,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1058,Limestone,39,MATCHED,,39.0,3.1,nearest new point within 6px (same symbol)
+1059,Limestone,39,MATCHED,,39.0,3.1,nearest new point within 6px (same symbol)
+1060,Limestone,39,MATCHED,,39.0,3.1,nearest new point within 6px (same symbol)
+1061,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1062,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1063,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1064,Limestone,39,DUPLICATE_OLD,,,16.3,duplicate of old fid 904 (two old points on one symbol)
+1065,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1066,Limestone,39,MATCHED,,39.0,3.1,nearest new point within 6px (same symbol)
+1067,Limestone,39,MATCHED,,39.0,3.1,nearest new point within 6px (same symbol)
+1068,Limestone,39,MATCHED,,39.0,3.1,nearest new point within 6px (same symbol)
+1069,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1070,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1071,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1072,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1073,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1074,Limestone,39,MATCHED,,39.0,3.0,nearest new point within 6px (same symbol)
+1075,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1076,Limestone,39,DUPLICATE_OLD,,,14.3,duplicate of old fid 942 (two old points on one symbol)
+1077,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1078,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1079,Limestone,39,MATCHED,,4.0,5.5,nearest new point within 6px (same symbol)
+1080,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1081,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1082,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1083,Limestone,39,MATCHED,,39.0,3.1,nearest new point within 6px (same symbol)
+1084,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1085,Limestone,39,MATCHED,,39.0,3.1,nearest new point within 6px (same symbol)
+1086,Limestone,39,MATCHED,,39.0,3.1,nearest new point within 6px (same symbol)
+1087,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1088,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1089,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1090,Limestone,39,MATCHED,,39.0,3.1,nearest new point within 6px (same symbol)
+1091,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1092,Limestone,39,MATCHED,,39.0,3.1,nearest new point within 6px (same symbol)
+1093,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1094,Limestone,39,MATCHED,978.0,39.0,3.1,same class; det=SCAN_COMPLETE
+1095,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1096,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1097,Limestone,39,DUPLICATE_OLD,,,8.0,duplicate of old fid 949 (two old points on one symbol)
+1098,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1099,Limestone,39,MATCHED,,39.0,3.1,nearest new point within 6px (same symbol)
+1100,Limestone,39,MATCHED,,39.0,3.2,nearest new point within 6px (same symbol)
+1101,Bauxitic Clay,4,MATCHED,,28.0,1.1,nearest new point within 6px (same symbol)
+1102,Granite,30,MATCHED,662.0,30.0,1.8,same class; det=RESCUE_RECENTRED
+1103,Granite,30,MATCHED,,36.0,3.0,nearest new point within 6px (same symbol)
+1104,Granite,30,MATCHED,659.0,30.0,4.6,same class; det=RESCUE_RECENTRED
+1105,Granite,30,MATCHED,651.0,30.0,1.9,same class; det=RESCUE_RECENTRED
+1106,Granite,30,MATCHED,655.0,30.0,1.8,same class; det=RESCUE_RECENTRED
+1107,Granite,30,DUPLICATE_OLD,,,6.5,duplicate of old fid 1032 (two old points on one symbol)
+1108,Granite,30,MATCHED,,28.0,1.9,nearest new point within 6px (same symbol)
+1109,Granite,30,MATCHED,649.0,30.0,0.0,same class; det=OLD_CENTRE_KEPT
+1110,Limestone,39,DUPLICATE_OLD,,,7.1,duplicate of old fid 925 (two old points on one symbol)
+1111,Granite,30,MATCHED,654.0,30.0,0.0,same class; det=OLD_CENTRE_KEPT
+1112,Granite,30,MATCHED,653.0,30.0,0.8,same class; det=RESCUE_RECENTRED
+1113,Granite,30,MATCHED,648.0,30.0,0.0,same class; det=OLD_CENTRE_KEPT
+1114,Granite,30,MATCHED,668.0,30.0,1.4,same class; det=RESCUE_RECENTRED
+1115,Granite,30,MATCHED,667.0,30.0,2.3,same class; det=RESCUE_RECENTRED
+1116,Granite,30,MATCHED,,30.0,4.8,nearest new point within 6px (same symbol)
+1117,Granite,30,MATCHED,,30.0,4.2,nearest new point within 6px (same symbol)
+1118,Granite,30,MATCHED,,30.0,4.7,nearest new point within 6px (same symbol)
+1119,Granite,30,DUPLICATE_OLD,,,6.4,duplicate of old fid 1105 (two old points on one symbol)
+1120,Granite,30,MATCHED,,30.0,4.8,nearest new point within 6px (same symbol)
+1121,Zircon,65,MATCHED,,65.0,3.6,nearest new point within 6px (same symbol)
+1122,Zircon,65,MATCHED,,65.0,1.8,nearest new point within 6px (same symbol)
+1123,Zircon,65,MATCHED,1264.0,65.0,5.6,same class; det=RESCUE_RECENTRED
+1124,Zircon,65,MATCHED,1263.0,65.0,3.7,same class; det=RESCUE_RECENTRED
+1125,Zircon,65,MATCHED,,65.0,1.8,nearest new point within 6px (same symbol)
+1126,Zircon,65,MATCHED,,65.0,5.6,nearest new point within 6px (same symbol)
+1127,Zircon,65,MATCHED,,65.0,3.5,nearest new point within 6px (same symbol)
+1128,Zircon,65,MATCHED,,65.0,1.6,nearest new point within 6px (same symbol)
+1129,Zircon,65,MATCHED,1262.0,65.0,5.6,same class; det=RESCUE_RECENTRED
+1130,Zircon,65,MATCHED,1259.0,65.0,3.4,same class; det=RESCUE_RECENTRED
+1131,Zircon,65,MATCHED,,65.0,1.5,nearest new point within 6px (same symbol)
+1132,Zircon,65,MATCHED,,65.0,3.5,nearest new point within 6px (same symbol)
+1133,Zircon,65,MATCHED,,65.0,1.5,nearest new point within 6px (same symbol)
+1134,Zircon,65,MATCHED,1254.0,65.0,5.5,same class; det=RESCUE_RECENTRED
+1135,Zircon,65,MATCHED,,65.0,3.6,nearest new point within 6px (same symbol)
+1136,Zircon,65,MATCHED,,65.0,1.7,nearest new point within 6px (same symbol)
+1137,Zircon,65,MATCHED,1261.0,65.0,5.6,same class; det=RESCUE_RECENTRED
+1138,Zircon,65,MATCHED,1256.0,65.0,0.0,same class; det=OLD_CENTRE_KEPT
+1139,Zircon,65,MATCHED,,65.0,2.0,nearest new point within 6px (same symbol)
+1140,Zircon,65,MATCHED,1255.0,65.0,1.9,same class; det=RESCUE_RECENTRED
+1141,Zircon,65,MATCHED,,65.0,3.5,nearest new point within 6px (same symbol)
+1142,Zircon,65,MATCHED,1257.0,65.0,1.5,same class; det=RESCUE_RECENTRED
+1143,Zircon,65,MATCHED,1258.0,65.0,3.3,same class; det=RESCUE_RECENTRED
+1144,Gypsum,31,MATCHED,672.0,31.0,1.1,same class; det=RESCUE_RECENTRED
+1145,Phosphate,32,MATCHED,714.0,32.0,0.7,same class; det=SCAN_COMPLETE
+1146,Gypsum,31,MATCHED,673.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1147,Gypsum,31,MATCHED,671.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1148,Bauxitic Clay,4,UNVERIFIED_DROPPED,,,16.9,no template candidate >=0.55 within 6px
+1149,Monazite,47,MATCHED,1103.0,47.0,2.5,same class; det=RESCUE_RECENTRED
+1150,Phosphate,32,MATCHED,713.0,32.0,0.7,same class; det=SCAN_COMPLETE
+1151,Chromite,11,DUPLICATE_OLD,,,11.2,duplicate of old fid 633 (two old points on one symbol)
+1152,Phosphate,32,MATCHED,711.0,32.0,0.7,same class; det=SCAN_COMPLETE
+1153,Phosphate,32,MATCHED,712.0,32.0,0.7,same class; det=SCAN_COMPLETE
+1154,Phosphate,32,MATCHED,710.0,32.0,0.7,same class; det=SCAN_COMPLETE
+1155,Phosphate,32,MATCHED,726.0,32.0,0.7,same class; det=SCAN_COMPLETE
+1156,Gypsum,31,MATCHED,706.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1157,Pyrite group,51,UNVERIFIED_DROPPED,,,6.7,no template candidate >=0.55 within 6px
+1158,Tantalite,58,MATCHED,1179.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1159,River Gravel,28,MATCHED,641.0,28.0,1.8,same class; det=SCAN_COMPLETE
+1160,Beryl group,6,MATCHED,,5.0,1.1,nearest new point within 6px (same symbol)
+1161,Tantalite,58,MATCHED,1189.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1162,Pyrite group,51,MATCHED,,58.0,5.6,nearest new point within 6px (same symbol)
+1163,Monazite,47,MATCHED,,5.0,1.1,nearest new point within 6px (same symbol)
+1164,Bentonite,5,UNVERIFIED_DROPPED,,,6.0,no template candidate >=0.55 within 6px
+1165,Phosphate,32,MATCHED,709.0,32.0,0.7,same class; det=SCAN_COMPLETE
+1166,Tantalite,58,MATCHED,1187.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1167,Tantalite,58,MATCHED,1180.0,58.0,1.5,same class; det=SCAN_COMPLETE
+1168,River Gravel,28,MATCHED,642.0,28.0,1.8,same class; det=SCAN_COMPLETE
+1169,Gypsum,31,MATCHED,675.0,31.0,0.6,same class; det=SCAN_PARTIAL_CLUSTER
+1170,Beryl group,6,MATCHED,64.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1171,Coal,13,MATCHED,,33.0,3.5,nearest new point within 6px (same symbol)
+1172,Gypsum,31,MATCHED,703.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1173,Bauxitic Clay,4,MATCHED,,4.0,1.2,nearest new point within 6px (same symbol)
+1174,Tantalite,58,MATCHED,1183.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1175,Gypsum,31,MATCHED,697.0,31.0,0.8,same class; det=SCAN_COMPLETE
+1176,Gypsum,31,MATCHED,696.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1177,Gypsum,31,MATCHED,702.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1178,Beryl group,6,MATCHED,100.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1179,Monazite,47,MATCHED,,5.0,1.1,nearest new point within 6px (same symbol)
+1180,Columbite,14,MATCHED,,58.0,4.7,nearest new point within 6px (same symbol)
+1181,Tantalite,58,MATCHED,1184.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1182,Tantalite,58,MATCHED,1185.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1183,Gypsum,31,MATCHED,701.0,31.0,0.7,same class; det=RESCUE_RECENTRED
+1184,Phosphate Rock,49,MATCHED,1108.0,49.0,0.8,same class; det=SCAN_COMPLETE
+1185,Phosphate,32,MATCHED,724.0,32.0,0.7,same class; det=SCAN_COMPLETE
+1186,Beryl,6,MATCHED,85.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1187,Graphite,27,MATCHED,630.0,27.0,0.6,same class; det=RESCUE_RECENTRED
+1188,Baryte,3,MATCHED,35.0,3.0,0.7,same class; det=SCAN_COMPLETE
+1189,Beryl,6,MATCHED,93.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1190,Tantalite,58,MATCHED,,26.0,4.6,nearest new point within 6px (same symbol)
+1191,Graphite,27,MATCHED,629.0,27.0,0.7,same class; det=SCAN_COMPLETE
+1192,Clay,12,DUPLICATE_OLD,,,6.2,duplicate of old fid 635 (two old points on one symbol)
+1193,Graphite,27,MATCHED,628.0,27.0,0.7,same class; det=SCAN_COMPLETE
+1194,Gypsum,31,MATCHED,707.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1195,Kyanite,35,MATCHED,,27.0,0.7,nearest new point within 6px (same symbol)
+1196,Tantalite,58,MATCHED,1204.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1197,Gypsum,31,MATCHED,699.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1198,Tantalite,58,MATCHED,1178.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1199,Beryl group,6,MATCHED,75.0,6.0,5.6,same class; det=RESCUE_RECENTRED
+1200,Beryl,6,MATCHED,90.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1201,Beryl group,6,MATCHED,,5.0,1.1,nearest new point within 6px (same symbol)
+1202,Beryl group,6,MATCHED,78.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1203,Tantalite,58,MATCHED,1208.0,58.0,0.6,same class; det=RESCUE_RECENTRED
+1204,Tantalite,58,MATCHED,1191.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1205,Graphite,27,MATCHED,625.0,27.0,0.9,same class; det=SCAN_COMPLETE
+1206,Graphite,27,MATCHED,7.0,3.0,4.0,class changed to Baryte (glyph-based); det=WHITELIST_RECENTRED
+1207,Tantalite,58,MATCHED,1176.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1208,Pyrite group,51,UNVERIFIED_DROPPED,,,6.5,no template candidate >=0.55 within 6px
+1209,Kyanite,35,MATCHED,6.0,3.0,4.1,class changed to Baryte (glyph-based); det=WHITELIST_RECENTRED
+1210,Beryl group,6,MATCHED,110.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1211,Columbite,14,MATCHED,,14.0,5.6,nearest new point within 6px (same symbol)
+1212,Clay,12,MATCHED,,26.0,5.0,nearest new point within 6px (same symbol)
+1213,Coal,13,UNVERIFIED_DROPPED,,,20.8,no template candidate >=0.55 within 6px
+1214,Gypsum,31,MATCHED,698.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1215,Tantalite,58,MATCHED,1198.0,58.0,0.7,same class; det=RESCUE_RECENTRED
+1216,Pyrite group,51,UNVERIFIED_DROPPED,,,7.1,no template candidate >=0.55 within 6px
+1217,Clay,12,UNVERIFIED_DROPPED,,,7.6,no template candidate >=0.55 within 6px
+1218,Beryl,6,MATCHED,81.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1219,Coal,13,MATCHED,399.0,15.0,6.6,class changed to Copper minerals (glyph-based); det=WHITELIST_RECENTRED
+1220,Tantalite,58,MATCHED,1177.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1221,Beryl group,6,MATCHED,77.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1222,Tantalite,58,MATCHED,1182.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1223,Coal,13,MATCHED,344.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1224,Beryl group,6,MATCHED,83.0,6.0,1.7,same class; det=RESCUE_RECENTRED
+1225,Pyrite group,51,UNVERIFIED_DROPPED,,,6.6,no template candidate >=0.55 within 6px
+1226,Gypsum,31,MATCHED,704.0,31.0,0.8,same class; det=RESCUE_RECENTRED
+1227,Beryl group,6,MATCHED,84.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1228,Beryl group,6,MATCHED,,5.0,1.1,nearest new point within 6px (same symbol)
+1229,Coal,13,MATCHED,343.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1230,Tantalite,58,MATCHED,1202.0,58.0,0.5,same class; det=RESCUE_RECENTRED
+1231,Beryl group,6,MATCHED,76.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1232,Columbite,14,MATCHED,,26.0,3.7,nearest new point within 6px (same symbol)
+1233,Tantalite,58,MATCHED,1203.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1234,Beryl group,6,MATCHED,,5.0,1.1,nearest new point within 6px (same symbol)
+1235,Gypsum,31,MATCHED,700.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1236,Beryl group,6,MATCHED,87.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1237,Columbite,14,UNVERIFIED_DROPPED,,,7.5,no template candidate >=0.55 within 6px
+1238,Tantalite,58,MATCHED,1197.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1239,Coal,13,MATCHED,342.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1240,Lignite,38,MATCHED,948.0,38.0,1.5,same class; det=SCAN_COMPLETE
+1241,Coal,13,MATCHED,345.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1242,Gypsum,31,MATCHED,693.0,31.0,0.9,same class; det=RESCUE_RECENTRED
+1243,Gypsum,31,MATCHED,695.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1244,Coal,13,DUPLICATE_OLD,,,6.3,duplicate of old fid 364 (two old points on one symbol)
+1245,Coal,13,UNVERIFIED_DROPPED,,,11.6,no template candidate >=0.55 within 6px
+1246,Gypsum,31,MATCHED,694.0,31.0,0.8,same class; det=RESCUE_RECENTRED
+1247,Tantalite,58,UNVERIFIED_DROPPED,,,9.9,no template candidate >=0.55 within 6px
+1248,Phosphate,32,MATCHED,722.0,32.0,0.7,same class; det=SCAN_PARTIAL_CLUSTER
+1249,Monazite,47,MATCHED,,5.0,1.6,nearest new point within 6px (same symbol)
+1250,Beryl group,6,MATCHED,,5.0,1.1,nearest new point within 6px (same symbol)
+1251,Beryl group,6,MATCHED,99.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1252,Tantalite,58,MATCHED,1209.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1253,Beryl group,6,MATCHED,,5.0,1.1,nearest new point within 6px (same symbol)
+1254,Gypsum,31,MATCHED,705.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1255,Beryl group,6,MATCHED,,5.0,1.1,nearest new point within 6px (same symbol)
+1256,Limestone,39,UNVERIFIED_DROPPED,,,8.6,no template candidate >=0.55 within 6px
+1257,Monazite,47,MATCHED,1101.0,47.0,1.8,same class; det=SCAN_COMPLETE
+1258,Beryl group,6,MATCHED,,5.0,1.1,nearest new point within 6px (same symbol)
+1259,Beryl group,6,MATCHED,98.0,6.0,0.9,same class; det=RESCUE_RECENTRED
+1260,Coal,13,UNVERIFIED_DROPPED,,,7.2,no template candidate >=0.55 within 6px
+1261,Beryl group,6,MATCHED,86.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1262,Gypsum,31,MATCHED,692.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1263,Beryl group,6,MATCHED,65.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1264,Pyrite group,51,MATCHED,,14.0,5.5,nearest new point within 6px (same symbol)
+1265,Monazite,47,MATCHED,1100.0,47.0,2.0,same class; det=SCAN_COMPLETE
+1266,Coal,13,MATCHED,346.0,13.0,0.8,same class; det=SCAN_COMPLETE
+1267,Tantalite,58,MATCHED,1206.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1268,Monazite,47,MATCHED,1102.0,47.0,2.0,same class; det=SCAN_COMPLETE
+1269,Tantalite,58,MATCHED,1196.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1270,Columbite,14,UNVERIFIED_DROPPED,,,8.0,no template candidate >=0.55 within 6px
+1271,Beryl,6,MATCHED,103.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1272,Phosphate,32,MATCHED,725.0,32.0,0.8,same class; det=RESCUE_RECENTRED
+1273,Baryte,3,MATCHED,37.0,3.0,0.0,same class; det=OLD_CENTRE_KEPT
+1274,Beryl,6,MATCHED,95.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1275,Phosphate,32,MATCHED,723.0,32.0,0.8,same class; det=RESCUE_RECENTRED
+1276,Tantalite,58,MATCHED,1207.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1277,Baryte,3,MATCHED,31.0,3.0,0.5,same class; det=SCAN_COMPLETE
+1278,Tantalite,58,MATCHED,1201.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1279,Baryte,3,MATCHED,32.0,3.0,0.0,same class; det=OLD_CENTRE_KEPT
+1280,Graphite,27,MATCHED,637.0,27.0,0.8,same class; det=RESCUE_RECENTRED
+1281,Beryl group,6,MATCHED,96.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1282,Beryl,6,MATCHED,102.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1283,Tantalite,58,MATCHED,1192.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1284,Beryl,6,MATCHED,101.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1285,Columbite,14,DUPLICATE_OLD,,,6.3,duplicate of old fid 381 (two old points on one symbol)
+1286,Baryte,3,MATCHED,34.0,3.0,4.8,same class; det=RESCUE_RECENTRED
+1287,Trona,62,MATCHED,,14.0,4.5,nearest new point within 6px (same symbol)
+1288,Beryl group,6,MATCHED,88.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1289,Beryl group,6,MATCHED,91.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1290,Graphite,27,MATCHED,635.0,27.0,0.7,same class; det=SCAN_COMPLETE
+1291,Columbite,14,UNVERIFIED_DROPPED,,,7.5,no template candidate >=0.55 within 6px
+1292,Tantalite,58,MATCHED,1188.0,58.0,0.5,same class; det=SCAN_COMPLETE
+1293,Tantalite,58,MATCHED,1193.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1294,Gypsum,31,MATCHED,691.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1295,Tantalite,58,UNVERIFIED_DROPPED,,,8.8,no template candidate >=0.55 within 6px
+1296,Beryl group,6,MATCHED,94.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1297,Graphite,27,MATCHED,632.0,27.0,0.7,same class; det=SCAN_COMPLETE
+1298,Glass Sand,25,DUPLICATE_OLD,,,9.7,duplicate of old fid 943 (two old points on one symbol)
+1299,Beryl group,6,MATCHED,79.0,6.0,1.5,same class; det=RESCUE_RECENTRED
+1300,Baryte,3,MATCHED,28.0,3.0,0.7,same class; det=SCAN_COMPLETE
+1301,Beryl group,6,MATCHED,70.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1302,Beryl,6,MATCHED,62.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1303,Feldspar,20,DUPLICATE_OLD,,,6.4,duplicate of old fid 48 (two old points on one symbol)
+1304,Baryte,3,MATCHED,21.0,3.0,0.6,same class; det=SCAN_COMPLETE
+1305,Beryl group,6,MATCHED,74.0,6.0,4.9,same class; det=RESCUE_RECENTRED
+1306,Columbite,14,DUPLICATE_OLD,,,8.2,duplicate of old fid 397 (two old points on one symbol)
+1307,Beryl,6,MATCHED,92.0,6.0,0.9,same class; det=RESCUE_RECENTRED
+1308,Baryte,3,MATCHED,36.0,3.0,0.0,same class; det=OLD_CENTRE_KEPT
+1309,Tantalite,58,MATCHED,1186.0,58.0,0.7,same class; det=RESCUE_RECENTRED
+1310,Lepidolite,37,MATCHED,923.0,37.0,3.2,same class; det=RESCUE_RECENTRED
+1311,Columbite,14,MATCHED,,14.0,3.6,nearest new point within 6px (same symbol)
+1312,Baryte,3,MATCHED,24.0,3.0,0.5,same class; det=SCAN_COMPLETE
+1313,Beryl group,6,MATCHED,71.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1314,Zircon,65,MATCHED,1253.0,65.0,0.0,same class; det=OLD_CENTRE_KEPT
+1315,Gold,26,MATCHED,,26.0,4.4,nearest new point within 6px (same symbol)
+1316,Tantalite,58,MATCHED,1194.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1317,Tantalite,58,MATCHED,1173.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1318,Coal,13,MATCHED,336.0,13.0,1.7,same class; det=SCAN_COMPLETE
+1319,Baryte,3,MATCHED,27.0,3.0,0.5,same class; det=SCAN_COMPLETE
+1320,Beryl group,6,MATCHED,72.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1321,Beryl group,6,MATCHED,63.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1322,Coal,13,MATCHED,338.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1323,Coal,13,MATCHED,339.0,13.0,0.5,same class; det=SCAN_COMPLETE
+1324,Coal,13,MATCHED,340.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1325,Baryte,3,MATCHED,26.0,3.0,0.5,same class; det=SCAN_COMPLETE
+1326,Tantalite,58,MATCHED,1174.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1327,Beryl group,6,MATCHED,89.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1328,Chromite,11,MATCHED,142.0,11.0,3.4,same class; det=RESCUE_RECENTRED
+1329,Baryte,3,MATCHED,14.0,3.0,0.5,same class; det=SCAN_COMPLETE
+1330,Coal,13,MATCHED,341.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1331,Baryte,3,MATCHED,25.0,3.0,0.5,same class; det=SCAN_COMPLETE
+1332,Coal,13,MATCHED,397.0,15.0,8.5,class changed to Copper minerals (glyph-based); det=WHITELIST_RECENTRED
+1333,Tantalite,58,MATCHED,1171.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1334,Baryte,3,MATCHED,23.0,3.0,0.5,same class; det=SCAN_COMPLETE
+1335,Tantalite,58,MATCHED,1195.0,58.0,0.7,same class; det=RESCUE_RECENTRED
+1336,Beryl,6,MATCHED,60.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1337,Baryte,3,MATCHED,29.0,3.0,0.0,same class; det=OLD_CENTRE_KEPT
+1338,Columbite,14,MATCHED,,58.0,5.0,nearest new point within 6px (same symbol)
+1339,Graphite,27,MATCHED,626.0,27.0,0.8,same class; det=RESCUE_RECENTRED
+1340,Tantalite,58,UNVERIFIED_DROPPED,,,8.7,no template candidate >=0.55 within 6px
+1341,Graphite,27,MATCHED,636.0,27.0,0.8,same class; det=SCAN_COMPLETE
+1342,Beryl group,6,MATCHED,73.0,6.0,0.9,same class; det=RESCUE_RECENTRED
+1343,Graphite,27,MATCHED,634.0,27.0,0.7,same class; det=SCAN_COMPLETE
+1344,Baryte,3,MATCHED,30.0,3.0,0.5,same class; det=SCAN_COMPLETE
+1345,Baryte,3,MATCHED,19.0,3.0,0.0,same class; det=OLD_CENTRE_KEPT
+1346,Graphite,27,MATCHED,631.0,27.0,0.7,same class; det=SCAN_COMPLETE
+1347,Beryl,6,MATCHED,61.0,6.0,1.5,same class; det=RESCUE_RECENTRED
+1348,Baryte,3,MATCHED,12.0,3.0,0.5,same class; det=SCAN_COMPLETE
+1349,Pyrite group,51,DUPLICATE_OLD,,,26.2,duplicate of old fid 306 (two old points on one symbol)
+1350,Beryl group,6,MATCHED,,5.0,1.0,nearest new point within 6px (same symbol)
+1351,Tantalite,58,MATCHED,,45.0,0.8,nearest new point within 6px (same symbol)
+1352,Coal,13,MATCHED,317.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1353,Coal,13,MATCHED,321.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1354,Tantalite,58,UNVERIFIED_DROPPED,,,18.8,no template candidate >=0.55 within 6px
+1355,Beryl group,6,MATCHED,69.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1356,Beryl,6,MATCHED,80.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1357,Phosphate,32,MATCHED,720.0,32.0,0.7,same class; det=SCAN_COMPLETE
+1358,Coal,13,MATCHED,318.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1359,Gypsum,31,MATCHED,686.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1360,Graphite,27,MATCHED,4.0,3.0,4.2,class changed to Baryte (glyph-based); det=WHITELIST_RECENTRED
+1361,Coal,13,MATCHED,326.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1362,Beryl,6,MATCHED,82.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1363,Coal,13,MATCHED,333.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1364,Gypsum,31,MATCHED,683.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1365,Baryte,3,MATCHED,16.0,3.0,0.5,same class; det=SCAN_COMPLETE
+1366,Glass Sand,25,MATCHED,,26.0,1.5,nearest new point within 6px (same symbol)
+1367,Coal,13,MATCHED,330.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1368,Lepidolite,37,DUPLICATE_OLD,,,13.4,duplicate of old fid 345 (two old points on one symbol)
+1369,Coal,13,MATCHED,334.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1370,Gypsum,31,MATCHED,688.0,31.0,0.5,same class; det=SCAN_COMPLETE
+1371,Bauxitic Clay,4,MATCHED,,4.0,2.4,nearest new point within 6px (same symbol)
+1372,Coal,13,MATCHED,328.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1373,Baryte,3,MATCHED,22.0,3.0,0.5,same class; det=SCAN_COMPLETE
+1374,Clay,12,UNVERIFIED_DROPPED,,,9.5,no template candidate >=0.55 within 6px
+1375,Clay,12,MATCHED,154.0,12.0,9.0,same class; det=WHITELIST_RECENTRED
+1376,Gypsum,31,MATCHED,687.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1377,Gypsum,31,MATCHED,684.0,31.0,0.8,same class; det=RESCUE_RECENTRED
+1378,Beryl group,6,MATCHED,104.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1379,Tantalite,58,MATCHED,,20.0,5.2,nearest new point within 6px (same symbol)
+1380,Evaporite,19,UNVERIFIED_DROPPED,,,11.3,"old point checked: on yellow-rect cluster, no Evaporite glyph"
+1381,Gypsum,31,MATCHED,690.0,31.0,0.5,same class; det=SCAN_COMPLETE
+1382,Beryl group,6,MATCHED,106.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1383,Beryl group,6,MATCHED,67.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1384,Beryl,6,MATCHED,105.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1385,Bauxitic Clay,4,MATCHED,,4.0,2.3,nearest new point within 6px (same symbol)
+1386,Baryte,3,MATCHED,20.0,3.0,0.0,same class; det=OLD_CENTRE_KEPT
+1387,Beryl,6,MATCHED,66.0,6.0,1.1,same class; det=RESCUE_RECENTRED
+1388,Phosphate,32,MATCHED,708.0,32.0,0.7,same class; det=SCAN_COMPLETE
+1389,Glass Sand,25,MATCHED,,48.0,5.7,nearest new point within 6px (same symbol)
+1390,Kaolin,34,MATCHED,,34.0,5.4,nearest new point within 6px (same symbol)
+1391,Gypsum,31,MATCHED,689.0,31.0,0.5,same class; det=SCAN_COMPLETE
+1392,Baryte,3,MATCHED,8.0,3.0,0.7,same class; det=SCAN_COMPLETE
+1393,Beryl group,6,MATCHED,68.0,6.0,0.7,same class; det=RESCUE_RECENTRED
+1394,Graphite,27,MATCHED,633.0,27.0,0.7,same class; det=SCAN_COMPLETE
+1395,Sillimanite,55,MATCHED,1142.0,55.0,1.5,same class; det=RESCUE_RECENTRED
+1396,Brick Clay,9,MATCHED,,64.0,4.8,nearest new point within 6px (same symbol)
+1397,Phosphate,32,MATCHED,718.0,32.0,0.7,same class; det=SCAN_COMPLETE
+1398,Kaolin,34,MATCHED,782.0,34.0,0.0,same class; det=WHITELIST_OLDCENTRE
+1399,Beryl group,6,MATCHED,109.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1400,Coal,13,MATCHED,315.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1401,Coal,13,UNVERIFIED_DROPPED,,,18.5,no template candidate >=0.55 within 6px
+1402,Baryte,3,MATCHED,18.0,3.0,0.6,same class; det=SCAN_COMPLETE
+1403,Phosphate,32,MATCHED,719.0,32.0,0.7,same class; det=SCAN_COMPLETE
+1404,Coal,13,MATCHED,324.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1405,Baryte,3,MATCHED,3.0,3.0,0.0,same class; det=OLD_CENTRE_KEPT
+1406,Coal,13,MATCHED,316.0,13.0,0.8,same class; det=SCAN_COMPLETE
+1407,Gypsum,31,MATCHED,676.0,31.0,0.6,same class; det=RESCUE_RECENTRED
+1408,Coal,13,MATCHED,329.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1409,Gypsum,31,MATCHED,669.0,31.0,0.7,same class; det=RESCUE_RECENTRED
+1410,River Gravel,28,MATCHED,643.0,28.0,2.4,same class; det=RESCUE_RECENTRED
+1411,Coal,13,MATCHED,332.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1412,Gypsum,31,MATCHED,674.0,31.0,0.5,same class; det=RESCUE_RECENTRED
+1413,Coal,13,MATCHED,325.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1414,Coal,13,MATCHED,314.0,13.0,0.6,same class; det=SCAN_COMPLETE
+1415,Baryte,3,MATCHED,17.0,3.0,0.0,same class; det=OLD_CENTRE_KEPT
+1416,Magnesite,45,MATCHED,1082.0,45.0,3.5,same class; det=RESCUE_RECENTRED
+1417,Gypsum,31,MATCHED,670.0,31.0,0.6,same class; det=RESCUE_RECENTRED
+1418,Lignite,38,MATCHED,939.0,38.0,4.7,same class; det=RESCUE_RECENTRED
+1419,Gypsum,31,MATCHED,677.0,31.0,0.0,same class; det=OLD_CENTRE_KEPT
+1420,Clay,12,MATCHED,,5.0,4.5,nearest new point within 6px (same symbol)
+1421,Graphite,27,MATCHED,627.0,27.0,0.7,same class; det=RESCUE_RECENTRED
+1422,Baryte,3,MATCHED,33.0,3.0,0.5,same class; det=SCAN_COMPLETE
+1423,Glass Sand,25,UNVERIFIED_DROPPED,,,6.5,no template candidate >=0.55 within 6px
+1424,Beryl,6,MATCHED,108.0,6.0,1.0,same class; det=RESCUE_RECENTRED
+1425,Lignite,38,MATCHED,940.0,38.0,1.5,same class; det=SCAN_COMPLETE
+1426,Gypsum,31,MATCHED,681.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1427,Coal,13,MATCHED,323.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1428,Gypsum,31,MATCHED,680.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1429,Coal,13,MATCHED,313.0,13.0,0.6,same class; det=SCAN_COMPLETE
+1430,Lignite,38,MATCHED,938.0,38.0,1.5,same class; det=SCAN_COMPLETE
+1431,Coal,13,MATCHED,327.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1432,Baryte,3,MATCHED,15.0,3.0,0.0,same class; det=OLD_CENTRE_KEPT
+1433,River Gravel,28,MATCHED,639.0,28.0,1.8,same class; det=SCAN_COMPLETE
+1434,Lignite,38,MATCHED,941.0,38.0,1.5,same class; det=SCAN_COMPLETE
+1435,River Gravel,28,MATCHED,640.0,28.0,1.8,same class; det=SCAN_COMPLETE
+1436,Oil and Gas,24,MATCHED,461.0,24.0,1.8,same class; det=WHITELIST_RECENTRED
+1437,Gypsum,31,MATCHED,685.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1438,Oil and Gas,24,MATCHED,463.0,24.0,2.0,same class; det=RESCUE_RECENTRED
+1439,Coal,13,MATCHED,319.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1440,Baryte,3,MATCHED,11.0,3.0,0.4,same class; det=SCAN_PARTIAL_CLUSTER
+1441,Coal,13,MATCHED,322.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1442,Baryte,3,MATCHED,13.0,3.0,0.5,same class; det=SCAN_COMPLETE
+1443,Gypsum,31,MATCHED,678.0,31.0,0.8,same class; det=SCAN_COMPLETE
+1444,Lignite,38,MATCHED,942.0,38.0,1.4,same class; det=SCAN_COMPLETE
+1445,Lignite,38,MATCHED,376.0,14.0,3.6,class changed to Columbite (glyph-based); det=WHITELIST_RECENTRED
+1446,Oil and Gas,24,MATCHED,464.0,24.0,1.8,same class; det=SCAN_COMPLETE
+1447,Bentonite,5,MATCHED,,38.0,1.4,nearest new point within 6px (same symbol)
+1448,Baryte,3,MATCHED,9.0,3.0,0.0,same class; det=OLD_CENTRE_KEPT
+1449,Corundum group,16,MATCHED,,65.0,1.1,nearest new point within 6px (same symbol)
+1450,Phosphate,32,MATCHED,716.0,32.0,0.8,same class; det=SCAN_PARTIAL_CLUSTER
+1451,Phosphate,32,MATCHED,715.0,32.0,0.7,same class; det=SCAN_COMPLETE
+1452,Coal,13,MATCHED,335.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1453,Oil and Gas,24,MATCHED,465.0,24.0,1.8,same class; det=SCAN_COMPLETE
+1454,Lignite,38,MATCHED,945.0,38.0,1.5,same class; det=SCAN_COMPLETE
+1455,Coal,13,MATCHED,331.0,13.0,0.7,same class; det=SCAN_COMPLETE
+1456,Baryte,3,MATCHED,10.0,3.0,0.0,same class; det=OLD_CENTRE_KEPT
+1457,Phosphate,32,MATCHED,717.0,32.0,0.7,same class; det=SCAN_COMPLETE
+1458,Monazite,47,MATCHED,1099.0,47.0,2.0,same class; det=SCAN_COMPLETE
+1459,Oil and Gas,24,MATCHED,462.0,24.0,0.0,same class; det=WHITELIST_OLDCENTRE
+1460,Bentonite,5,MATCHED,,38.0,1.5,nearest new point within 6px (same symbol)
+1461,Oil and Gas,24,MATCHED,466.0,24.0,1.8,same class; det=SCAN_COMPLETE
+1462,Gypsum,31,MATCHED,679.0,31.0,0.7,same class; det=SCAN_COMPLETE
+1463,Lignite,38,MATCHED,946.0,38.0,1.4,same class; det=SCAN_COMPLETE
+1464,Oil and Gas,24,MATCHED,472.0,24.0,1.8,same class; det=SCAN_COMPLETE
+1465,Oil and Gas,24,MATCHED,468.0,24.0,1.8,same class; det=SCAN_COMPLETE
+1466,Lignite,38,MATCHED,947.0,38.0,1.4,same class; det=RESCUE_RECENTRED
+1467,Phosphate,32,MATCHED,721.0,32.0,0.0,same class; det=OLD_CENTRE_KEPT
+1468,Oil and Gas,24,MATCHED,469.0,24.0,1.8,same class; det=SCAN_COMPLETE
+1469,Marcasite,42,DUPLICATE_OLD,,,6.0,duplicate of old fid 571 (two old points on one symbol)
+1470,Clay,12,MATCHED,,5.0,4.7,nearest new point within 6px (same symbol)
+1471,Beryl group,6,MATCHED,97.0,6.0,5.5,same class; det=RESCUE_RECENTRED
+1472,Tantalite,58,MATCHED,1200.0,58.0,0.7,same class; det=SCAN_COMPLETE
+1473,Oil and Gas,24,MATCHED,467.0,24.0,1.8,same class; det=SCAN_COMPLETE
+1474,Oil and Gas,24,MATCHED,473.0,24.0,1.8,same class; det=SCAN_COMPLETE
+1475,Oil and Gas,24,MATCHED,474.0,24.0,1.8,same class; det=SCAN_COMPLETE
+1476,Oil and Gas,24,MATCHED,475.0,24.0,1.8,same class; det=SCAN_COMPLETE
+1477,Oil and Gas,24,MATCHED,477.0,24.0,1.8,same class; det=SCAN_COMPLETE
+1478,Oil and Gas,24,MATCHED,479.0,24.0,1.8,same class; det=SCAN_COMPLETE
+1479,Oil and Gas,24,MATCHED,471.0,24.0,1.8,same class; det=SCAN_COMPLETE
+1480,Oil and Gas,24,MATCHED,470.0,24.0,1.8,same class; det=SCAN_COMPLETE
+1481,Oil and Gas,24,MATCHED,476.0,24.0,1.8,same class; det=SCAN_COMPLETE
+1482,Oil and Gas,24,MATCHED,481.0,24.0,1.8,same class; det=SCAN_COMPLETE
+1483,Oil and Gas,24,MATCHED,480.0,24.0,1.7,same class; det=SCAN_COMPLETE
+1484,Tantalite,58,MATCHED,,48.0,4.0,nearest new point within 6px (same symbol)
+1485,Oil and Gas,24,MATCHED,482.0,24.0,1.8,same class; det=RESCUE_RECENTRED
+1486,Oil and Gas,24,MATCHED,478.0,24.0,1.8,same class; det=WHITELIST_RECENTRED

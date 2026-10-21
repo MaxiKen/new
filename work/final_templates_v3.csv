@@ -1,0 +1,68 @@
+leg_no,name,n_old_dedup,source,self_med,size,mask_px
+1,Asbestos-serpentine group,0,legend-only default (no old pts),,"(13, 11)",75
+2,Ball Clay,1,legend-scaled sx=0.68 sy=0.84,0.859,"(9, 11)",63
+3,Baryte,31,legend-scaled sx=0.76 sy=0.76,0.974,"(11, 11)",28
+4,Bauxitic Clay,9,legend-scaled sx=0.68 sy=0.76,0.637,"(13, 13)",48
+5,Bentonite,20,map-exemplar,0.959,"(15, 15)",124
+6,Beryl group,51,legend-scaled sx=0.68 sy=0.76,0.89,"(7, 9)",18
+7,Bismuth,2,legend-scaled sx=0.76 sy=0.76,0.62,"(11, 11)",40
+8,Bitumen,0,legend-only default (no old pts),,"(11, 11)",28
+9,Brick Clay,1,legend-scaled sx=0.92 sy=0.76,0.332,"(17, 11)",133
+10,Brine,26,map-exemplar,0.976,"(15, 15)",124
+11,Chromite,6,legend-scaled sx=0.68 sy=0.84,0.613,"(13, 11)",90
+12,Clay,170,map-exemplar,0.685,"(19, 15)",192
+13,Coal,46,map-exemplar,0.703,"(17, 11)",112
+14,Columbite,52,map-exemplar,0.868,"(19, 15)",172
+15,Copper minerals,0,legend-only default (no old pts),,"(13, 13)",62
+16,Corundum group,2,legend-scaled sx=1.0 sy=0.76,0.65,"(13, 11)",88
+17,Diatomite,7,map-exemplar,0.981,"(19, 15)",192
+18,Dimension Stone,2,legend-scaled sx=1.0 sy=1.0,0.704,"(21, 15)",189
+19,Evaporite,0,legend-only default (no old pts),,"(15, 11)",75
+20,Feldspar,40,map-exemplar,0.971,"(23, 15)",165
+21,Fire Clay,2,legend-scaled sx=1.0 sy=0.84,0.631,"(11, 11)",62
+22,Fluorite,0,legend-only default (no old pts),,"(13, 13)",77
+23,Garnet,5,legend-scaled sx=1.0 sy=1.0,0.821,"(23, 13)",127
+24,Oil and Gas,22,map-exemplar,0.997,"(13, 15)",72
+25,Glass Sand,47,map-exemplar,0.73,"(11, 15)",95
+26,Gold,110,legend-scaled sx=1.0 sy=1.0,0.713,"(15, 13)",127
+27,Graphite,15,legend-scaled sx=0.92 sy=0.92,0.974,"(13, 13)",100
+28,River Gravel,7,legend-scaled sx=0.76 sy=0.76,0.497,"(11, 11)",64
+29,Galena,4,legend-scaled sx=1.0 sy=1.0,0.884,"(13, 13)",66
+30,Granite,24,legend-scaled sx=0.76 sy=0.92,0.64,"(9, 11)",26
+31,Gypsum,38,map-exemplar,0.987,"(15, 13)",82
+32,Phosphate,19,map-exemplar,0.992,"(15, 13)",82
+33,Iron Ore,41,map-exemplar,0.992,"(19, 13)",122
+34,Kaolin,110,legend-scaled sx=0.84 sy=0.76,0.719,"(15, 11)",104
+35,Kyanite,8,map-exemplar,0.987,"(13, 15)",88
+36,Lead-zinc,39,legend-scaled sx=1.0 sy=0.92,0.772,"(13, 13)",59
+37,Lepidolite,23,legend-scaled sx=0.76 sy=1.0,0.591,"(15, 13)",123
+38,Lignite,10,map-exemplar,0.979,"(15, 17)",140
+39,Limestone,72,map-exemplar,0.869,"(19, 15)",183
+40,Manganese,3,map-exemplar,0.718,"(21, 15)",158
+41,Marble,54,map-exemplar,1.0,"(9, 13)",50
+42,Marcasite,1,legend-scaled sx=0.92 sy=0.76,0.5,"(11, 11)",52
+43,Marl,5,map-exemplar,0.996,"(15, 15)",144
+44,Mica,13,legend-scaled sx=0.84 sy=1.0,0.749,"(11, 13)",69
+45,Magnesite,15,map-exemplar,0.912,"(23, 19)",225
+46,Molybdenite,1,legend-scaled sx=0.92 sy=0.92,0.644,"(13, 13)",78
+47,Monazite,5,legend-scaled sx=0.84 sy=0.76,0.879,"(9, 11)",41
+48,Nickel,0,legend-only default (no old pts),,"(13, 13)",95
+49,Phosphate Rock,1,legend-scaled sx=0.84 sy=0.76,0.743,"(11, 11)",31
+50,Psammite,0,legend-only default (no old pts),,"(19, 11)",50
+51,Pyrite group,16,legend-scaled sx=1.0 sy=0.92,0.383,"(17, 15)",141
+52,Rose Quartz,0,legend-only default (no old pts),,"(7, 11)",25
+53,Salt-potash group,23,map-exemplar,0.88,"(15, 15)",129
+54,Silica Sand,2,legend-scaled sx=0.84 sy=1.0,0.695,"(11, 13)",81
+55,Sillimanite,1,legend-scaled sx=0.68 sy=0.76,0.662,"(9, 11)",56
+56,Silver,0,legend-only default (no old pts),,"(13, 11)",73
+57,Talc,28,map-exemplar,0.903,"(15, 15)",124
+58,Tantalite,39,legend-scaled sx=0.92 sy=0.92,0.728,"(19, 13)",139
+59,Tar Sand,0,legend-only default (no old pts),,"(9, 13)",46
+60,Topaz,2,legend-scaled sx=0.68 sy=0.92,0.551,"(9, 13)",66
+61,Tourmaline,18,map-exemplar,0.972,"(17, 15)",120
+62,Trona,0,legend-only default (no old pts),,"(11, 11)",34
+63,Uranium,5,legend-scaled sx=0.92 sy=0.92,0.61,"(13, 13)",79
+64,Wolframite,21,legend-scaled sx=0.92 sy=1.0,0.654,"(17, 13)",154
+65,Zircon,18,legend-scaled sx=0.68 sy=0.84,0.656,"(9, 11)",48
+66,Lithium mineral,7,legend-scaled sx=1.0 sy=1.0,0.803,"(19, 17)",191
+67,Calcite,2,legend-scaled sx=0.68 sy=0.76,0.267,"(11, 11)",60

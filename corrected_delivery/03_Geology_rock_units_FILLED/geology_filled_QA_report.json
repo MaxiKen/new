@@ -1,0 +1,24 @@
+{
+  "original_features": 1542,
+  "final_features": 1502,
+  "dropped_features": 41,
+  "new_polygons_created": 1,
+  "admin_area_km2": 907499.58,
+  "final_union_km2": 907498.972,
+  "sum_feature_km2": 907498.965,
+  "final_gap_km2": 0.0,
+  "final_overflow_km2": 0.0,
+  "overlap_sum_minus_union_km2": -0.0064,
+  "gaps_filled": 950,
+  "gap_area_filled_km2": 9765.67,
+  "overlap_removed_km2": 8835.14,
+  "clipped_outside_km2": 5945.81,
+  "method_counts": {
+    "multi-neighbour Voronoi split (nearest extension)": 817,
+    "single-neighbour extension": 122,
+    "longest-shared-border extension (Voronoi fallback)": 10,
+    "NEW POLYGON (necessary): Lake Chad open water": 1
+  },
+  "crs": "EPSG:4326",
+  "note": "Union equals Nigeria Admin0 within numeric tolerance; overlaps resolved by PDF draw order (later src_seq on top, verified against printed colours). Gaps filled by extending neighbouring polygons (Voronoi nearest split where multiple neighbours; single-neighbour/longest-border otherwise). Only new polygon is Lake Chad WATER."
+}
