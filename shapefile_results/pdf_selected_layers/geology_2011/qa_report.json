@@ -1,0 +1,139 @@
+{
+  "source_local_raster_pdf": "Geological_Map_of_Nigeria.pdf",
+  "source_local_pdf_sha256": "b5bfa2f63fca54bb9b61cec41fbc66735bd636e03ad0d0d0914b69da5c87eb3b",
+  "matching_vector_pdf": "ilide.info-geological-map-of-nigeria-pr_a0987e407d194cb02682ac479336acb1.pdf",
+  "matching_vector_pdf_sha256": "9a92e22bbb2536981db033748cacd8aa5a5096cecda74c0109a1dddd95f629c8",
+  "source_repo": "https://github.com/MaxiKen/site",
+  "source_repo_commit": "138e9619fb8c1fad257f8cdefd3d03c51f6fb5c6",
+  "output_crs": "EPSG:4326",
+  "coordinate_method": "Graticule affine copied from the established local geology georeferencing.json. The public source shapefiles use the exact same affine values.",
+  "layers": {
+    "G1": {
+      "source_layer": "geological_boundaries",
+      "count": 2819,
+      "geometry_type": "POLYLINE",
+      "bbox": [
+        2.734340124726846,
+        4.41297442426409,
+        13.867082455106944,
+        13.894471996620583
+      ],
+      "fields": [
+        "ocg_id",
+        "layer",
+        "class",
+        "stroke",
+        "width_pt",
+        "n_frag",
+        "len_km",
+        "src_seq"
+      ],
+      "geometry_sha256_matches_source": true,
+      "attributes_sha256_matches_source": true,
+      "explicit_epsg_4326_prj": true
+    },
+    "G2": {
+      "source_layer": "faults",
+      "count": 648,
+      "geometry_type": "POLYLINE",
+      "bbox": [
+        2.727487795037108,
+        4.486067147284043,
+        13.752877066022835,
+        13.672909668069687
+      ],
+      "fields": [
+        "ocg_id",
+        "layer",
+        "class",
+        "stroke",
+        "width_pt",
+        "n_frag",
+        "len_km",
+        "src_seq"
+      ],
+      "geometry_sha256_matches_source": true,
+      "attributes_sha256_matches_source": true,
+      "explicit_epsg_4326_prj": true
+    },
+    "G3": {
+      "source_layer": "fold_axes",
+      "count": 90,
+      "geometry_type": "POLYLINE",
+      "bbox": [
+        7.524114580698045,
+        5.801736288540939,
+        12.65422111517396,
+        10.03197802987616
+      ],
+      "fields": [
+        "ocg_id",
+        "layer",
+        "class",
+        "stroke",
+        "width_pt",
+        "n_frag",
+        "len_km",
+        "src_seq"
+      ],
+      "geometry_sha256_matches_source": true,
+      "attributes_sha256_matches_source": true,
+      "explicit_epsg_4326_prj": true
+    },
+    "G4": {
+      "source_layer": "ridges",
+      "count": 2,
+      "geometry_type": "POLYLINE",
+      "bbox": [
+        11.893613154082196,
+        11.29739591612573,
+        14.045242836699389,
+        13.149839809474832
+      ],
+      "fields": [
+        "ocg_id",
+        "layer",
+        "class",
+        "stroke",
+        "width_pt",
+        "n_frag",
+        "len_km",
+        "src_seq"
+      ],
+      "geometry_sha256_matches_source": true,
+      "attributes_sha256_matches_source": true,
+      "explicit_epsg_4326_prj": true
+    },
+    "G5": {
+      "source_layer": "volcanic_plugs",
+      "count": 68,
+      "geometry_type": "POINT",
+      "bbox": [
+        11.066850644167117,
+        9.535387400629197,
+        11.657120108358438,
+        9.834359875774789
+      ],
+      "fields": [
+        "ocg_id",
+        "layer",
+        "name",
+        "name_kind",
+        "name_dist",
+        "src_seq",
+        "lon",
+        "lat",
+        "unit_code",
+        "unit",
+        "unit_era",
+        "unit_per"
+      ],
+      "geometry_sha256_matches_source": true,
+      "attributes_sha256_matches_source": true,
+      "explicit_epsg_4326_prj": true
+    }
+  },
+  "caveats": [
+    "G5 volcanic_plugs contains 68 candidate point marks. The source map legend sample is line-like; do not interpret these points as verified pipe linework or polygon extents."
+  ]
+}

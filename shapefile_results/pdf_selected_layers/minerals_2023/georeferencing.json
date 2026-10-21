@@ -1,0 +1,61 @@
+{
+  "source_pdf": "Mineral_Resources_Map_of_Nigeria_2023 (2).pdf",
+  "source_pdf_sha256": "d7a74aa425fb5950a39edd1d73ab9a0a7ecd19effb985b25af5e4fd3f0ec46d9",
+  "source_repo": "https://github.com/MaxiKen/site",
+  "source_repo_commit": "138e9619fb8c1fad257f8cdefd3d03c51f6fb5c6",
+  "output_crs": "EPSG:4326",
+  "method": "The existing local Mineral boundary-fit transform was applied. The PDF /VP geographic transform and the source raster PGW were not used for output coordinates.",
+  "page_size_pt": [
+    3960,
+    2160
+  ],
+  "raster_asset": "M2_source_raster_75dpi.png",
+  "raster_size_px": [
+    2060,
+    1677
+  ],
+  "raster_to_page": {
+    "page_x_pt": "0.95999595631068 * raster_col + 74.23968999999997",
+    "page_y_pt": "-0.95999595631068 * raster_row + 1801.27614999999832",
+    "pixel_center_convention": false
+  },
+  "page_to_wgs84": "lon = lon_center + lon_deg_per_1000_page_pt * (page_x - page_x_center) / 1000; lat = lat_center + lat_deg_per_1000_page_pt * (page_y - page_y_center) / 1000",
+  "parameters": {
+    "page_x_center_pt": 1104.0922160059586,
+    "page_y_center_pt": 1241.0996111966826,
+    "lon_center_deg": 8.999624062683695,
+    "lon_deg_per_1000_page_pt": 6.3408036208710055,
+    "lat_center_deg": 10.488502044741583,
+    "lat_deg_per_1000_page_pt": 6.350936179071387
+  },
+  "country_mask": "Fixed Nigeria Admin-0 polygon in shapefiles/nigeria_admin0/; applied to M2 raster classes to restrict output to Nigeria.",
+  "class_method": "Six filled-area classes matched to the map legend swatch RGB values, closed across small hatch/overprint gaps, and polygonized. Gneiss-Migmatite-Granite Complex was derived as the residual land polygon within the Nigeria mask after the six color-class polygons and mapped blue water were removed.",
+  "pegmatite_adjustment": {
+    "source_vp_affine": {
+      "lon = a*x + b": [
+        0.006345724172407311,
+        2.0050854046149746
+      ],
+      "lat = c*y + d": [
+        0.006345627204878867,
+        2.6164530590605355
+      ]
+    },
+    "pegmatite_coordinate_adjustment": "For each source point, invert the source /VP affine to recover PDF page x/y, then apply the local Mineral boundary-fit affine. The source /VP longitude/latitude remain in vp_lon/vp_lat.",
+    "pegmatite_adjustment_km": {
+      "count": 23,
+      "mean": 1.136,
+      "min": 0.989,
+      "max": 1.273
+    }
+  },
+  "limitations": [
+    "M2 geology is raster-only in the Mineral PDF. Polygon boundaries are approximate at about 0.68 km per source raster pixel.",
+    "Mineral symbols and text are burned into the source raster; small overprint gaps were generalized during polygonization.",
+    "The Gneiss-Migmatite-Granite Complex is a residual white class and is lower confidence than the color-matched classes.",
+    "Pegmatite geometries are locations of 23 printed P marks, not survey positions or mapped pegmatite body polygons.",
+    "Sand Bars appears as a separate line symbol in the legend; it was not converted to a polygon or included in the requested seven area classes.",
+    "Features are restricted to the fixed Admin-0 reference polygon for M2 polygonization; G1-G5 source geometries were not clipped.",
+    "Pegmatite near-locality distances and host-unit attributes are retained from the source extraction and were not recomputed after coordinate adjustment."
+  ]
+}

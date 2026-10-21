@@ -1,0 +1,50 @@
+{
+  "source": "Mineral PDF vector paths and raster layout only; PDF /VP /Measure geographic transform and CRS declaration were not used.",
+  "method": "Robust nearest-boundary registration of parsed International_Boundary vector paths in page coordinates to the fixed Nigeria Admin-0 polygon in a local metric projection. Printed graticule supplied only an initial guess.",
+  "model": "lon = lon_center + lon_deg_per_1000_page_pt * (page_x - page_x_center) / 1000; lat = lat_center + lat_deg_per_1000_page_pt * (page_y - page_y_center) / 1000",
+  "parameters": {
+    "page_x_center_pt": 1104.0922160059586,
+    "page_y_center_pt": 1241.0996111966826,
+    "lon_center_deg": 8.999624062683695,
+    "lon_deg_per_1000_page_pt": 6.3408036208710055,
+    "lat_center_deg": 10.488502044741583,
+    "lat_deg_per_1000_page_pt": 6.350936179071387
+  },
+  "raster_to_page": {
+    "page_x_pt": "0.95999595631068 * raster_col + 74.23968999999997",
+    "page_y_pt": "-0.95999595631068 * raster_row + 1801.27614999999832",
+    "rms_residual_pt": {
+      "x": 2.9032272448425847e-13,
+      "y": 6.601901761703328e-13
+    }
+  },
+  "boundary_fit": {
+    "vector_paths": 4,
+    "chains": 1,
+    "source_samples": 2349,
+    "reference_samples": 15105,
+    "reference_sample_spacing_m": 400,
+    "median_distance_m": 904.9656166188629,
+    "p90_distance_m": 2769.564841663715,
+    "p95_distance_m": 3720.879587765965,
+    "maximum_distance_m": 10982.26962362228
+  },
+  "independent_capital_check": {
+    "control_points": 33,
+    "raster_marker_squares_detected": 14,
+    "mean_dx_km": -8.103,
+    "mean_dy_km": -7.27,
+    "rms_distance_km": 12.388,
+    "median_distance_km": 12.108,
+    "p90_distance_km": 16.827,
+    "use": "QA only; many marker centers are obscured and the named city-center references are approximate, so they were not weighted against the stronger national-boundary fit."
+  },
+  "limitations": [
+    "Map-symbol raster resolution is approximately 0.68 km per pixel (75 dpi at roughly 1:2,000,000).",
+    "The Natural Earth reference polygon is generalized; boundary-fit residuals are not survey accuracy.",
+    "Capital-point check is less consistent than boundary alignment and is retained as a caution."
+  ],
+  "output_crs": "EPSG:4326",
+  "reference_polygon": "shapefiles/nigeria_admin0/ (fixed WGS 84 reference)",
+  "features_clipped_to_reference": false
+}

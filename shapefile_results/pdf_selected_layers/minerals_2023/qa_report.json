@@ -1,0 +1,383 @@
+{
+  "source_pdf_sha256": "d7a74aa425fb5950a39edd1d73ab9a0a7ecd19effb985b25af5e4fd3f0ec46d9",
+  "output_crs": "EPSG:4326",
+  "m2_raster": {
+    "path": "M2_source_raster_75dpi.png",
+    "size_px": [
+      2060,
+      1677
+    ],
+    "nigeria_mask_pixels": 2019625,
+    "water_mask_pixels": 22930,
+    "classes": {
+      "Alluvium": {
+        "legend_no": 1,
+        "rgb_hex": "#EDFF8C",
+        "pattern": "solid fill",
+        "raw_matching_pixels_inside_nigeria": 26751,
+        "retained_mask_pixels": 28534,
+        "retained_components_before_vector_union": 22,
+        "largest_component_pixels": [
+          14998,
+          6074,
+          3556,
+          861,
+          530,
+          428,
+          401,
+          400,
+          196,
+          184
+        ]
+      },
+      "Quaternary Sediments": {
+        "legend_no": 2,
+        "rgb_hex": "#FFFFDB",
+        "pattern": "fine vertical hatch",
+        "raw_matching_pixels_inside_nigeria": 275034,
+        "retained_mask_pixels": 348720,
+        "retained_components_before_vector_union": 13,
+        "largest_component_pixels": [
+          243472,
+          103556,
+          743,
+          285,
+          180,
+          150,
+          92,
+          85,
+          52,
+          48
+        ]
+      },
+      "Tertiary Sediments": {
+        "legend_no": 3,
+        "rgb_hex": "#FAF5E8",
+        "pattern": "fine grey hatch",
+        "raw_matching_pixels_inside_nigeria": 140972,
+        "retained_mask_pixels": 179276,
+        "retained_components_before_vector_union": 7,
+        "largest_component_pixels": [
+          86361,
+          50851,
+          17055,
+          13386,
+          10649,
+          919,
+          57
+        ]
+      },
+      "Cretaceous Sediments": {
+        "legend_no": 4,
+        "rgb_hex": "#EBFFCC",
+        "pattern": "fine dot hatch",
+        "raw_matching_pixels_inside_nigeria": 373690,
+        "retained_mask_pixels": 398092,
+        "retained_components_before_vector_union": 12,
+        "largest_component_pixels": [
+          332405,
+          51679,
+          3279,
+          2625,
+          2492,
+          1782,
+          1683,
+          1676,
+          256,
+          171
+        ]
+      },
+      "Younger Granite Complex": {
+        "legend_no": 5,
+        "rgb_hex": "#F7EAD8",
+        "pattern": "solid fill",
+        "raw_matching_pixels_inside_nigeria": 20800,
+        "retained_mask_pixels": 22346,
+        "retained_components_before_vector_union": 29,
+        "largest_component_pixels": [
+          2742,
+          2463,
+          2308,
+          1656,
+          1561,
+          1303,
+          1282,
+          1249,
+          976,
+          786
+        ]
+      },
+      "Schists": {
+        "legend_no": 7,
+        "rgb_hex": "#EDF5FF",
+        "pattern": "fine vertical hatch",
+        "raw_matching_pixels_inside_nigeria": 41972,
+        "retained_mask_pixels": 53149,
+        "retained_components_before_vector_union": 35,
+        "largest_component_pixels": [
+          11069,
+          8503,
+          5616,
+          5154,
+          4075,
+          3839,
+          2566,
+          1539,
+          1519,
+          1508
+        ]
+      },
+      "Gneiss - Migmatite - Granite Complex": {
+        "legend_no": 6,
+        "rgb_hex": "#FFFFFF / orange hatch",
+        "pattern": "white background residual after the six color classes and mapped water",
+        "raw_matching_pixels_inside_nigeria": 966700,
+        "retained_mask_pixels": 966700,
+        "retained_components_before_vector_union": null,
+        "largest_component_pixels": null,
+        "residual_vector_area_km2": 445911.813,
+        "residual_vector_feature_count": 445
+      }
+    }
+  },
+  "pegmatite_coordinate_shift_km": {
+    "count": 23,
+    "mean": 1.136,
+    "min": 0.989,
+    "max": 1.273
+  },
+  "layers": {
+    "G1": {
+      "count": 2819,
+      "geometry_type": "POLYLINE",
+      "bbox": [
+        2.734340124726846,
+        4.41297442426409,
+        13.867082455106944,
+        13.894471996620583
+      ],
+      "fields": [
+        "ocg_id",
+        "layer",
+        "class",
+        "stroke",
+        "width_pt",
+        "n_frag",
+        "len_km",
+        "src_seq"
+      ],
+      "source_layer": "geological_boundaries",
+      "crs": "EPSG:4326"
+    },
+    "G2": {
+      "count": 648,
+      "geometry_type": "POLYLINE",
+      "bbox": [
+        2.727487795037108,
+        4.486067147284043,
+        13.752877066022835,
+        13.672909668069687
+      ],
+      "fields": [
+        "ocg_id",
+        "layer",
+        "class",
+        "stroke",
+        "width_pt",
+        "n_frag",
+        "len_km",
+        "src_seq"
+      ],
+      "source_layer": "faults",
+      "crs": "EPSG:4326"
+    },
+    "G3": {
+      "count": 90,
+      "geometry_type": "POLYLINE",
+      "bbox": [
+        7.524114580698045,
+        5.801736288540939,
+        12.65422111517396,
+        10.03197802987616
+      ],
+      "fields": [
+        "ocg_id",
+        "layer",
+        "class",
+        "stroke",
+        "width_pt",
+        "n_frag",
+        "len_km",
+        "src_seq"
+      ],
+      "source_layer": "fold_axes",
+      "crs": "EPSG:4326"
+    },
+    "G4": {
+      "count": 2,
+      "geometry_type": "POLYLINE",
+      "bbox": [
+        11.893613154082196,
+        11.29739591612573,
+        14.045242836699389,
+        13.149839809474832
+      ],
+      "fields": [
+        "ocg_id",
+        "layer",
+        "class",
+        "stroke",
+        "width_pt",
+        "n_frag",
+        "len_km",
+        "src_seq"
+      ],
+      "source_layer": "ridges",
+      "crs": "EPSG:4326"
+    },
+    "G5": {
+      "count": 68,
+      "geometry_type": "POINT",
+      "bbox": [
+        11.066850644167117,
+        9.535387400629197,
+        11.657120108358438,
+        9.834359875774789
+      ],
+      "fields": [
+        "ocg_id",
+        "layer",
+        "name",
+        "name_kind",
+        "name_dist",
+        "src_seq",
+        "lon",
+        "lat",
+        "unit_code",
+        "unit",
+        "unit_era",
+        "unit_per"
+      ],
+      "source_layer": "volcanic_plugs",
+      "crs": "EPSG:4326"
+    },
+    "M2_geology_areas": {
+      "count": 572,
+      "geometry_type": "POLYGON",
+      "bbox": [
+        2.6710819900001184,
+        4.2789568644799845,
+        14.66993615700008,
+        13.880290832000057
+      ],
+      "fields": [
+        "poly_id",
+        "m2_class",
+        "legend_no",
+        "method",
+        "conf",
+        "area_km2",
+        "perim_km",
+        "rgb"
+      ],
+      "invalid_geometries": 0,
+      "crs": "EPSG:4326",
+      "class_summary": {
+        "Alluvium": {
+          "legend_no": 1,
+          "feature_count": 25,
+          "total_area_km2": 11980.907,
+          "method": "swatch-mask",
+          "confidence": "medium"
+        },
+        "Quaternary Sediments": {
+          "legend_no": 2,
+          "feature_count": 16,
+          "total_area_km2": 154156.644,
+          "method": "swatch-mask",
+          "confidence": "medium"
+        },
+        "Tertiary Sediments": {
+          "legend_no": 3,
+          "feature_count": 7,
+          "total_area_km2": 78992.751,
+          "method": "swatch-mask",
+          "confidence": "medium"
+        },
+        "Cretaceous Sediments": {
+          "legend_no": 4,
+          "feature_count": 14,
+          "total_area_km2": 176042.994,
+          "method": "swatch-mask",
+          "confidence": "medium"
+        },
+        "Younger Granite Complex": {
+          "legend_no": 5,
+          "feature_count": 29,
+          "total_area_km2": 9215.56,
+          "method": "swatch-mask",
+          "confidence": "medium"
+        },
+        "Schists": {
+          "legend_no": 7,
+          "feature_count": 36,
+          "total_area_km2": 22367.196,
+          "method": "swatch-mask",
+          "confidence": "medium"
+        },
+        "Gneiss - Migmatite - Granite Complex": {
+          "legend_no": 6,
+          "feature_count": 445,
+          "total_area_km2": 445911.813,
+          "method": "white-residual",
+          "confidence": "low"
+        }
+      }
+    },
+    "M2_pegmatite_marks": {
+      "count": 23,
+      "geometry_type": "POINT",
+      "bbox": [
+        3.683317521988572,
+        6.842956086945188,
+        7.513829991195606,
+        12.679128751946369
+      ],
+      "fields": [
+        "symbol",
+        "meaning",
+        "lon",
+        "lat",
+        "zone",
+        "size_pt",
+        "near_loc",
+        "near_km",
+        "near_mins",
+        "geo_code",
+        "geo_unit",
+        "geo_era",
+        "vp_lon",
+        "vp_lat",
+        "adj_km"
+      ],
+      "crs": "EPSG:4326"
+    }
+  },
+  "checks": {
+    "all_selected_layers_have_wgs84_prj": true,
+    "m2_polygon_invalid_geometries": 0,
+    "m2_polygon_classes_present": [
+      "Alluvium",
+      "Cretaceous Sediments",
+      "Gneiss - Migmatite - Granite Complex",
+      "Quaternary Sediments",
+      "Schists",
+      "Tertiary Sediments",
+      "Younger Granite Complex"
+    ],
+    "pegmatite_points_are_23": true,
+    "all_selected_layers_have_explicit_epsg_4326_authority": true,
+    "m2_polygon_max_pairwise_class_overlap_sq_degrees": 3.023795303836902e-17,
+    "m2_gneiss_is_residual_difference": true
+  }
+}
