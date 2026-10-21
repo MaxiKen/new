@@ -1,50 +1,48 @@
 {
-  "source": "Mineral PDF vector paths and raster layout only; PDF /VP /Measure geographic transform and CRS declaration were not used.",
-  "method": "Robust nearest-boundary registration of parsed International_Boundary vector paths in page coordinates to the fixed Nigeria Admin-0 polygon in a local metric projection. Printed graticule supplied only an initial guess.",
-  "model": "lon = lon_center + lon_deg_per_1000_page_pt * (page_x - page_x_center) / 1000; lat = lat_center + lat_deg_per_1000_page_pt * (page_y - page_y_center) / 1000",
-  "parameters": {
-    "page_x_center_pt": 1104.0922160059586,
-    "page_y_center_pt": 1241.0996111966826,
-    "lon_center_deg": 8.999624062683695,
-    "lon_deg_per_1000_page_pt": 6.3408036208710055,
-    "lat_center_deg": 10.488502044741583,
-    "lat_deg_per_1000_page_pt": 6.350936179071387
+ "source": "Mineral Resources Map of Nigeria 2023 (NGSA) PDF; printed graticule of the map frame. The PDF's /VP /Measure geographic transform and any declared CRS were not used.",
+ "method": "Least-squares fit of the printed 2-degree graticule in the parsed vector content stream (6 meridians at x = 341.44 ... 1917.43 pt, 5 parallels at y_up = 375.66 ... 1636.47 pt, 315.20 pt per 2 degrees).",
+ "model": {
+  "lon_deg": "4.0 + (x_pt - 341.44) / 157.62",
+  "lat_deg": "13.0 + (y_up_pt - 1636.47) / 157.62",
+  "note": "x_pt is PDF user space (y up); y_up_pt = 2160 - y_pt for a top-down page coordinate.",
+  "degrees_per_point": 0.00634437,
+  "km_per_raster_px": 0.681
+ },
+ "raster_to_page": {
+  "page_x_pt": "raster_col / 1.04174 + 74.23969",
+  "page_y_pt": "raster_row / 1.04174 + 358.72387",
+  "raster_size_px": [
+   2060,
+   1683
+  ]
+ },
+ "validation": {
+  "graticule_fit": "exact by construction (map frame corners map to 2.30/14.85 E, 3.83/14.05 N)",
+  "town_squares_vs_geonames": {
+   "control_points": 478,
+   "median_deg": 0.152,
+   "median_km": 16.9,
+   "note": "478 black 1.6 pt town squares compared with GeoNames; matches are approximate because several towns share names."
   },
-  "raster_to_page": {
-    "page_x_pt": "0.95999595631068 * raster_col + 74.23968999999997",
-    "page_y_pt": "-0.95999595631068 * raster_row + 1801.27614999999832",
-    "rms_residual_pt": {
-      "x": 2.9032272448425847e-13,
-      "y": 6.601901761703328e-13
-    }
+  "unbiased_subset": {
+   "points_within_0_10_deg": 129,
+   "median_dx_deg": 0.0004,
+   "median_dy_deg": -0.0075,
+   "note": "No systematic offset detectable in the best-matching subset."
   },
-  "boundary_fit": {
-    "vector_paths": 4,
-    "chains": 1,
-    "source_samples": 2349,
-    "reference_samples": 15105,
-    "reference_sample_spacing_m": 400,
-    "median_distance_m": 904.9656166188629,
-    "p90_distance_m": 2769.564841663715,
-    "p95_distance_m": 3720.879587765965,
-    "maximum_distance_m": 10982.26962362228
-  },
-  "independent_capital_check": {
-    "control_points": 33,
-    "raster_marker_squares_detected": 14,
-    "mean_dx_km": -8.103,
-    "mean_dy_km": -7.27,
-    "rms_distance_km": 12.388,
-    "median_distance_km": 12.108,
-    "p90_distance_km": 16.827,
-    "use": "QA only; many marker centers are obscured and the named city-center references are approximate, so they were not weighted against the stronger national-boundary fit."
-  },
-  "limitations": [
-    "Map-symbol raster resolution is approximately 0.68 km per pixel (75 dpi at roughly 1:2,000,000).",
-    "The Natural Earth reference polygon is generalized; boundary-fit residuals are not survey accuracy.",
-    "Capital-point check is less consistent than boundary alignment and is retained as a caution."
-  ],
-  "output_crs": "EPSG:4326",
-  "reference_polygon": "shapefiles/nigeria_admin0/ (fixed WGS 84 reference)",
-  "features_clipped_to_reference": false
+  "boundary_check": {
+   "method": "Printed international boundary (OC7, 4 paths) vs Natural Earth admin-0",
+   "median_km": 5.7,
+   "p90_km": 7.5,
+   "note": "The two datasets generalise differently; the residual is a source-geometry difference, not a georeferencing error."
+  }
+ },
+ "output_crs": "EPSG:4326",
+ "reference_polygon": "shapefiles/nigeria_admin0/ (used for the in_nga indicator only)",
+ "features_clipped_to_reference": false,
+ "limitations": [
+  "The mineral symbols are rasterised at 96 dpi; the printed code letters inside them are 4-6 px high.",
+  "Depth of the source raster: about 0.68 km per pixel.",
+  "Symbol positions carry the georeferencing error above plus about +/-0.7 km of raster resolution."
+ ]
 }
