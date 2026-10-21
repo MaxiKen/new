@@ -1,0 +1,1171 @@
+map_zone,map_no,ref,locality,commodity_codes,minerals_decoded
+A,1,A1,Rafin Duma,Gy,Gypsum
+A,10,A10,Sokoto,Ls,Limestone
+A,100,A100,Wasagu,M,Mica
+A,101,A101,Kwawai,Bx.Cl,Bauxitic Clay; Clay
+A,102,A102,Dutsin Koko,Ka,Kaolin
+A,103,A103,Bunza,E,Evaporite
+A,11,A11,MAR NONA,Gy,Gypsum
+A,12,A12,KALABAINA,Ls,Limestone
+A,13,A13,Wamakko,Ls,Limestone
+A,14,A14,Sauna,E,Evaporite
+A,15,A15,DANCE,P,Phosphate
+A,16,A16,Lambamaso,P,Phosphate
+A,17,A17,G.Makode,P,Phosphate
+A,18,A18,Jaida,P,Phosphate
+A,19,A19,Dabba,P,Phosphate
+A,2,A2,Gada,Gy.P,Gypsum; Phosphate
+A,20,A20,Gwande,Fe,Iron Ore
+A,21,A21,Pinaye,Cl,Clay
+A,22,A22,Kaigo,Fe,Iron Ore
+A,23,A23,Jeya,Ls,Limestone
+A,24,A24,Mayana,P,Phosphate
+A,25,A25,Mayana,Ls,Limestone
+A,26,A26,Kamba,?Ocr,?Ocr
+A,27,A27,Kwawal,Cl,Clay
+A,28,A28,Dakin Garinplateau-,Fe,Iron Ore
+A,29,A29,Fanpa,Fe,Iron Ore
+A,3,A3,Kwadoma,Ka,Kaolin
+A,30,A30,Dutsin,Ka.To.Ka,Kaolin; Topaz
+A,31,A31,Kiri,Au,Gold
+A,32,A32,Wasagu,M,Mica
+A,33,A33,Danko,Au,Gold
+A,34,A34,Gidan Gadu,Tm,Tourmaline
+A,35,A35,Kaoje,Mn,Manganese
+A,36,A36,Kaoje,Ka,Kaolin
+A,37,A37,Kangiwa,Tm,Tourmaline
+A,38,A38,Kangiwa,Qa,Rose Quartz
+A,39,A39,Buya,Mn,Manganese
+A,4,A4,Wurno,Cy,Clay
+A,40,A40,T.Ma Ilam,Ka,Kaolin
+A,41,A41,Gidan Gadu,M,Mica
+A,42,A42,Sakaba,M,Mica
+A,43,A43,Sakaba,Fp,Feldspar
+A,44,A44,DUKU,Au,Gold
+A,45,A45,DUKU,Au,Gold
+A,46,A46,Iri,Qa,Rose Quartz
+A,47,A47,Shirikafe,Sd,Glass Sand
+A,48,A48,Zurmi,Au,Gold
+A,49,A49,Boko,Au,Gold
+A,5,A5,Taloka,Cy,Clay
+A,50,A50,Maradun,Au,Gold
+A,51,A51,Maradun,Ta,Tantalite
+A,52,A52,Maradun,Gn,Granite
+A,53,A53,Maradun,Grl,River Gravel
+A,54,A54,Makera,Cl,Clay
+A,55,A55,Talata Mafara,Au,Gold
+A,56,A56,Talata Mafara,Cr,Chromite
+A,57,A57,Sabri,?A,?A
+A,58,A58,Kwashebawa,Au,Gold
+A,59,A59,Dampo,Au,Gold
+A,6,A6,Zugama,Us,Limestone
+A,60,A60,Damaga Maru,Au,Gold
+A,61,A61,Damaga Maru,Fe,Iron Ore
+A,62,A62,Damaga Maru,Ta,Tantalite
+A,63,A63,MAINCHI,Au,Gold
+A,64,A64,MARU,Au,Gold
+A,65,A65,Garla,Au,Gold
+A,66,A66,Roge,W,Wolframite
+A,67,A67,RDorowa,Au,Gold
+A,68,A68,GUM,Ml.Au,Marl; Gold
+A,69,A69,GAM,Ml.Sd,Marl; Glass Sand
+A,7,A7,Jama,Us,Limestone
+A,70,A70,BUKK UYUM,Au,Gold
+A,71,A71,ANKA,Au,Gold
+A,72,A72,Dan Garamk,Au,Gold
+A,73,A73,Kanoma,Au,Gold
+A,74,A74,Maje,Ta,Tantalite
+A,75,A75,Maje,Mn,Manganese
+A,76,A76,Chafe,Gn,Granite
+A,77,A77,Gwashi,Pb.Zn,Lead-zinc
+A,78,A78,Gwashi,Mo,Molybdenite
+A,79,A79,Bagega,Ag,Silver
+A,8,A8,Nachiadu,F,Fluorite
+A,80,A80,Bagega,Pb.Zn,Lead-zinc
+A,81,A81,Bagega,Cr,Chromite
+A,82,A82,Bagega,Ba,Baryte
+A,83,A83,Chafe,Ab.Tc,Asbestos-serpentine group; Talc
+A,84,A84,Baboali,Tc.Ab,Talc; Asbestos-serpentine group
+A,85,A85,Magami,Ta,Tantalite
+A,86,A86,DANGULBI,Au,Gold
+A,87,A87,Dan Fasa,?.G,?; G
+A,88,A88,R.Dawa,Ta,Tantalite
+A,89,A89,Funtayi,Ta,Tantalite
+A,9,A9,Balah,E,Evaporite
+A,90,A90,Zaman,Au,Gold
+A,91,A91,Dansado,Be,Beryl group
+A,92,A92,MALELE,Au,Gold
+A,93,A93,DAK AGA,Au,Gold
+A,94,A94,Gobirana,Au,Gold
+A,95,A95,DANGULBI,Au,Gold
+A,96,A96,KAR IVER,Au,Gold
+A,97,A97,BIR NINGW ARI,Au,Gold
+A,98,A98,BIR NINGW ARI,Fe,Iron Ore
+A,99,A99,Kweillo,Au,Gold
+B,1,B1,Jibiya,Cl,Clay
+B,10,B10,Ruma,Cr,Chromite
+B,100,B100,Kumbotsho,Ka,Kaolin
+B,101,B101,Gwarzo,Ka,Kaolin
+B,102,B102,Gwarzo,Fp,Feldspar
+B,103,B103,Gwarzo,Br,Brine
+B,104,B104,Wudil,Gs,Glass Sand
+B,105,B105,Karaye,Cl,Clay
+B,106,B106,Karaye,Qz.Qa,Rose Quartz
+B,107,B107,Kafin-chiri,Gm,Beryl group
+B,109,B109,Kafin-chiri,M,Mica
+B,109,B109,Kofin-chini,,
+B,11,B11,Bassari,Au,Gold
+B,110,B110,Burum,Qz.Qa,Rose Quartz
+B,111,B111,Banda,Sn,Columbite
+B,112,B112,Dando,Sn.Nb,Columbite
+B,113,B113,Rimi,Au,Gold
+B,114,B114,Saya Saya,Qz.Qa,Rose Quartz
+B,115,B115,Dando,Ls,Limestone
+B,116,B116,Makarfii,Ka,Kaolin
+B,117,B117,Giwa,Tm,Tourmaline
+B,118,B118,Ungunan Mallam Ayuba,Mn,Manganese
+B,119,B119,Zaria,Ka,Kaolin
+B,12,B12,Bassari,Cu,Copper minerals
+B,120,B120,Zaria,Qa,Rose Quartz
+B,121,B121,Yakasai,Bc,Brick Clay
+B,122,B122,Yakasai,Be,Beryl group
+B,123,B123,Maigana,Bi,Bismuth
+B,124,B124,Maigana,Fp,Feldspar
+B,125,B125,lkara,Be,Beryl group
+B,126,B126,Ikara,Fp,Feldspar
+B,127,B127,Ikara,Qa,Rose Quartz
+B,128,B128,Ikara,Na,Salt-potash group
+B,129,B129,Anchau,Sn.Nb,Columbite
+B,13,B13,Wajini,Py,Pyrite group
+B,130,B130,Anchau,Ka,Kaolin
+B,131,B131,Soba,Ka,Kaolin
+B,132,B132,Sharu,Ta,Tantalite
+B,133,B133,Yelwa,Au,Gold
+B,134,B134,Dutsinwai,Sn.Nb,Columbite
+B,135,B135,BANK EHILL,Sn.Nb.Ta,Columbite; Tantalite
+B,136,B136,GINIYA,W.Sn.Ta,Wolframite; Columbite; Tantalite
+B,137,B137,Banke,W,Wolframite
+B,138,B138,Zarara Hill,Cu,Copper minerals
+B,139,B139,LIR UEINK AN0,Sn.Ta.Nb.W,Columbite; Tantalite; Wolframite
+B,14,B14,Wajini,Au,Gold
+B,140,B140,LIR UEINK AN0,W.E.St.Py.Zn.Cu,Wolframite; Evaporite; Sillimanite; Pyrite group; Lead-zinc; Copper minerals
+B,141,B141,Shibure,Fe,Iron Ore
+B,142,B142,Shibure,Pb.Zn,Lead-zinc
+B,143,B143,Rumani,Sn,Columbite
+B,144,B144,Dariye,Py,Pyrite group
+B,145,B145,Dariye,W,Wolframite
+B,146,B146,Kubau,Ka,Kaolin
+B,147,B147,MAIGIS HER,Au,Gold
+B,148,B148,TS IBIRI,Au,Gold
+B,149,B149,Kaduna,Ka,Kaolin
+B,15,B15,kurfi,Qs,Rose Quartz
+B,150,B150,MAR AR ABAR IDO,Cl,Clay
+B,151,B151,Kujama,Bc,Brick Clay
+B,152,B152,Kujama,Na,Salt-potash group
+B,153,B153,Galadimawa,Sn.Nb,Columbite
+B,154,B154,Kakau,Bc,Brick Clay
+B,155,B155,Gwagwada,Be,Beryl group
+B,16,B16,Dutsin-Ma,Sn.Ta,Columbite; Tantalite
+B,17,B17,Dutsin-Ma,Au,Gold
+B,17,B17,Dutsin-Ma,Sn,Columbite
+B,18,B18,Dutsin-Ma,Nb,Columbite
+B,19,B19,D.Sabo,Au,Gold
+B,2,B2,Jibiya,Ni,Nickel
+B,20,B20,Kankawa,Sn.Nb.Mb,Columbite; Marble
+B,21,B21,Kankawa,Nb.Mb,Columbite; Marble
+B,22,B22,KANK ARA,Ka,Kaolin
+B,23,B23,Gwarzo,Fp,Feldspar
+B,24,B24,Malumfashi,Mb,Marble
+B,25,B25,Boni,Ka,Kaolin
+B,26,B26,Adanimai,Wa,Kaolin
+B,27,B27,Shemi,Ab.?Sp,Asbestos-serpentine group; ?Sp
+B,28,B28,Bakori,Au,Gold
+B,29,B29,Qkor~,Sn,Columbite
+B,3,B3,Jibiya,Cr,Chromite
+B,30,B30,Karage,Cl,Clay
+B,31,B31,Danmai Dak,Cl,Clay
+B,32,B32,Giwa,Mn,Manganese
+B,33,B33,Babura,?.O.s,?; O; s
+B,34,B34,Kasanmu,Br,Brine
+B,35,B35,Guri,Br,Brine
+B,36,B36,Gumel,Ml,Marl
+B,37,B37,Gumel,Br,Brine
+B,38,B38,Gumel,Ka,Kaolin
+B,39,B39,Roni,Fe,Iron Ore
+B,4,B4,Kadoji,Cl,Clay
+B,40,B40,Rode,Gs,Glass Sand
+B,41,B41,Kazaure,Gs,Glass Sand
+B,42,B42,Malam-Madori,Ml,Marl
+B,43,B43,Auyo,Ml,Marl
+B,44,B44,Danladi,Gs,Glass Sand
+B,45,B45,Doko,Gs,Glass Sand
+B,46,B46,Wurno,Cu,Copper minerals
+B,47,B47,Dutse,Nb.Sn,Columbite
+B,48,B48,Birninkudu,Sn.Nb.Ta,Columbite; Tantalite
+B,49,B49,Wurno,Ka,Kaolin
+B,5,B5,Kadoji,Fp,Feldspar
+B,50,B50,Gweram,Gr,Graphite
+B,51,B51,Fagam,Sn,Columbite
+B,52,B52,Fagam,Ta,Tantalite
+B,53,B53,Gumsi,Br,Brine
+B,54,B54,Gumsi,E,Evaporite
+B,55,B55,Kumaganum,Tr,Trona
+B,56,B56,Garrarak,Br,Brine
+B,57,B57,Yusufari,E,Evaporite
+B,58,B58,Tr,T.r,T; r
+B,59,B59,Nguru,Br,Brine
+B,6,B6,Jibiya,Py,Pyrite group
+B,60,B60,Nguru,Tr,Trona
+B,61,B61,Tikire,Cl,Clay
+B,62,B62,Katagum,Cl,Clay
+B,63,B63,Shufa,Cl,Clay
+B,64,B64,Hadejia,Ml,Marl
+B,65,B65,lta-Ladau,Cr,Chromite
+B,66,B66,Zubuki,Cl,Clay
+B,67,B67,Danman,Cl,Clay
+B,68,B68,River Jumare,Cl,Clay
+B,69,B69,Misau,Na,Salt-potash group
+B,7,B7,Ruma (Mahuta),Ka,Kaolin
+B,70,B70,Jagudu,Cl,Clay
+B,71,B71,Yana,Cl,Clay
+B,72,B72,Lumbu,Sn,Columbite
+B,73,B73,Ningi Hill,Gr,Graphite
+B,74,B74,Dutsin Hai,Gr,Graphite
+B,75,B75,River Gongola,Na,Salt-potash group
+B,76,B76,Alkaleri,Na,Salt-potash group
+B,77,B77,Kirti,Na,Salt-potash group
+B,78,B78,Ningi Hill,Sn.Nb.W,Columbite; Wolframite
+B,79,B79,Gidanjo,Be,Beryl group
+B,8,B8,Ruma,Au,Gold
+B,80,B80,Gidanjo,Pb.Zn,Lead-zinc
+B,81,B81,Kwado Kaya Hill,Sn.Ta,Columbite; Tantalite
+B,82,B82,Daqa Allah Hills,Sn.Ta,Columbite; Tantalite
+B,83,B83,Amo Hill,Sn.Nb.Ta,Columbite; Tantalite
+B,84,B84,Ye Ii HIlls,Sn.Nb.Ta,Columbite; Tantalite
+B,85,B85,Targo Hills,Ca.C.?z,Calcite; Coal; ?z
+B,86,B86,Yelwa Rish,Cu.Pb.Zn,Copper minerals; Lead-zinc
+B,87,B87,Rjshih,Il.Ls.Sn.W.Nb.Ta,Iron Ore; Limestone; Columbite; Wolframite; Tantalite
+B,88,B88,Torgo Hills,Sn.Nb.Ta,Columbite; Tantalite
+B,89,B89,Liruein Kano,Py,Pyrite group
+B,9,B9,Ruma,Sn,Columbite
+B,90,B90,TIBICHIHILL,Sn.Mb.Ta.W,Columbite; Marble; Tantalite; Wolframite
+B,91,B91,G.Abba,Na,Salt-potash group
+B,92,B92,Wawa,Na,Salt-potash group
+B,93,B93,Lomi Jamji,Cl,Clay
+B,94,B94,Danbala,Gs,Glass Sand
+B,95,B95,Bichi,Na,Salt-potash group
+B,96,B96,Bichi,Br,Brine
+B,97,B97,Tofa,Ka,Kaolin
+B,98,B98,Fogolama,Ka,Kaolin
+B,99,B99,Gezawa,Ka,Kaolin
+C,1,C1,Yusufari,Br,Brine
+C,10,C10,DAPCHI,?Di,?Di
+C,11,C11,Jawa,?In,?In
+C,12,C12,Mogono,Cl,Clay
+C,13,C13,Lantewa,Cl,Clay
+C,14,C14,Kalawa,Cl,Clay
+C,15,C15,Ngelzanma,Gy,Gypsum
+C,16,C16,Damagum,Gy,Gypsum
+C,17,C17,Ngaldum,Gy,Gypsum
+C,18,C18,Badejo,Gy,Gypsum
+C,19,C19,Badishi,Dt,Diatomite
+C,2,C2,Kwada Kaya Hill,E,Evaporite
+C,20,C20,Boikolo,Dt,Diatomite
+C,21,C21,Makinfari,Dt,Diatomite
+C,22,C22,Mutwe,Ls,Limestone
+C,22,C22,Nyakre,Ls,Limestone
+C,24,C24,Abakire,Dt,Diatomite
+C,25,C25,Gabai,Ls,Limestone
+C,26,C26,Gulat,Ls,Limestone
+C,27,C27,Bularaba,Ls,Limestone
+C,28,C28,Malo,Gy,Gypsum
+C,29,C29,Fike,Gy,Gypsum
+C,3,C3,Zumugu,?Tn,?Tn
+C,30,C30,Bumgai,?By,?By
+C,31,C31,Gongila,Dl,Diatomite
+C,32,C32,Falatau,Sn,Columbite
+C,32,C32,Bakin Kasuwa,Fp,Feldspar
+C,34,C34,Wurajeloye,Ls,Limestone
+C,35,C35,Kapiwoi,Ls,Limestone
+C,36,C36,Kapiwoi,Gy,Gypsum
+C,37,C37,Chongwon,Dl,Diatomite
+C,38,C38,Hongila,Ls,Limestone
+C,39,C39,Waldosahu,Gy,Gypsum
+C,4,C4,Bagayam,Tr,Trona
+C,40,C40,Wawa,Na,Salt-potash group
+C,41,C41,Tango,Ca,Calcite
+C,42,C42,Garba Maidugi,Cl,Clay
+C,43,C43,Doho,C,Coal
+C,44,C44,Gombe,Fr,Fluorite
+C,45,C45,Gombe,Fp,Feldspar
+C,46,C46,Kanawa,Gy,Gypsum
+C,47,C47,Kanawa,Zr,Zircon
+C,49,C49,Kanawa,Br,Brine
+C,49,C49,Kalshiogi,Ls,Limestone
+C,5,C5,Arlonjirori,Tr,Trona
+C,50,C50,Pindiga,Br,Brine
+C,51,C51,Kumo,Lg,Lignite
+C,52,C52,Gombe,U,Uranium
+C,53,C53,Kembu,C,Coal
+C,54,C54,Kukawa,Cl,Clay
+C,55,C55,Sinduldul,Gy,Gypsum
+C,56,C56,Cubio,Gy,Gypsum
+C,57,C57,Mongunu,Cl,Clay
+C,58,C58,Marte,Cl,Clay
+C,59,C59,Gambaru,Cl,Clay
+C,6,C6,Dagambi,Tr,Trona
+C,60,C60,Karachri,Bn,Bentonite
+C,61,C61,Ngala,Bn,Bentonite
+C,62,C62,Dikwa,Bn,Bentonite
+C,63,C63,Maiduguri,Cl,Clay
+C,64,C64,Maiduguri,Cl,Clay
+C,65,C65,Ngamdu,Tr,Trona
+C,66,C66,Bama,Dt,Diatomite
+C,67,C67,Nseyo,Ag,Silver
+C,68,C68,Gau,Ag,Silver
+C,69,C69,Wupti,Cl,Clay
+C,7,C7,GEIDAM,Tr,Trona
+C,70,C70,Wupti,Bn,Bentonite
+C,71,C71,GW OZA,Fp,Feldspar
+C,72,C72,Damboa,Gy,Gypsum
+C,73,C73,Gilam,Ls,Limestone
+C,74,C74,Kurnari,Cor,Corundum group
+C,75,C75,Shaffa,Ls,Limestone
+C,76,C76,Kida,Bn,Bentonite
+C,77,C77,Kwaya Kusar,Gy,Gypsum
+C,78,C78,Sakwa,Cl,Clay
+C,79,C79,SAK AS IM ITA,Mg,Magnesite
+C,8,C8,Dobiri,Na,Salt-potash group
+C,80,C80,Bashir,M,Mica
+C,81,C81,Garkida,Cl,Clay
+C,82,C82,Mubi,Cl,Clay
+C,83,C83,Girikilan,Cl,Clay
+C,84,C84,Gombi,Fp,Feldspar
+C,85,C85,Gombi,Cl,Clay
+C,86,C86,Kila Iu Ia,Mg,Magnesite
+C,9,C9,Dobiri-Koluri,Na,Salt-potash group
+D,1,D1,Birnin Gwari,Ka,Kaolin
+D,10,D10,Kumuna,?Si,?Si
+D,100,D100,Owode,Gn,Granite
+D,101,D101,Lajola,Gm,Beryl group
+D,102,D102,Ayetoro,Gm,Beryl group
+D,103,D103,Oreke,Mb,Marble
+D,104,D104,Yaru,M,Mica
+D,105,D105,Yaru,Mb,Marble
+D,106,D106,Yaru,Gm,Beryl group
+D,107,D107,lgbaja,Cl,Clay
+D,108,D108,Ilorin,Cl,Clay
+D,109,D109,Owa,Fe.M,Iron Ore; Mica
+D,11,D11,Manda,Au,Gold
+D,110,D110,Elere,Cl,Clay
+D,111,D111,Kajora,Fe.Cl,Iron Ore; Clay
+D,112,D112,Akutukpa,Ka,Kaolin
+D,113,D113,JAK URA,Mb,Marble
+D,114,D114,Koton-,Ka.R.Fe.Fe,Kaolin; Rose Quartz; Iron Ore
+D,115,D115,IGBETTI,Mb,Marble
+D,116,D116,ODOGBE,Tc,Talc
+D,117,D117,Odogbe,Sn,Columbite
+D,118,D118,Odosin,Au.Mb,Gold; Marble
+D,119,D119,Ejiba,Tc,Talc
+D,12,D12,MADADA,Au,Gold
+D,120,D120,Mope,Mb,Marble
+D,121,D121,Isanlu-ESa,Fp,Feldspar
+D,122,D122,Isanlu-Esa,M.Au,Mica; Gold
+D,123,D123,Egbe,Sn.Nb.Ta,Columbite; Tantalite
+D,124,D124,Ogga,Sn,Columbite
+D,125,D125,Idofin,Sn.Nb.Ta,Columbite; Tantalite
+D,126,D126,Kwali,?Ke,?Ke
+D,127,D127,Dangara,Cl,Clay
+D,128,D128,Tsauni,Pb.Zn,Lead-zinc
+D,129,D129,Tsauni,Au,Gold
+D,13,D13,Sabon Birnin Gwari,Au,Gold
+D,130,D130,Zango Kara,Tc,Talc
+D,131,D131,Igalyere,Tc,Talc
+D,132,D132,lga Iyere,Be,Beryl group
+D,133,D133,Irawo-,Il.E.Fe,Iron Ore; Evaporite
+D,134,D134,Ladele,Ta,Tantalite
+D,135,D135,Ladele,Gm,Beryl group
+D,136,D136,Ikomu,Be,Beryl group
+D,137,D137,Ikomu,Tc,Talc
+D,138,D138,lgboljiaye,Qa,Rose Quartz
+D,139,D139,lgboljiaye,M,Mica
+D,14,D14,Kajuru,Au,Gold
+D,140,D140,ltasa,Ta,Tantalite
+D,141,D141,Itasa,Be,Beryl group
+D,142,D142,lkoyi,Mb,Marble
+D,143,D143,Morai,Fp,Feldspar
+D,144,D144,Ajashe,Fe,Iron Ore
+D,145,D145,Foko,M,Mica
+D,146,D146,Ajashe,Sn.Nb.Ta,Columbite; Tantalite
+D,147,D147,Ajashe,Fe.Cl,Iron Ore; Clay
+D,148,D148,Oro Ke,,
+D,149,D149,Elerin-Oke,Nb.Ta,Columbite; Tantalite
+D,15,D15,KAR IGAR IVER,Au,Gold
+D,150,D150,lrore,Cor,Corundum group
+D,151,D151,Oro-Agor,Ms,Mica
+D,152,D152,Oro-Agor,Ks,Kaolin
+D,153,D153,Omu-Aran,Sn.Nb.Ta.C,Columbite; Tantalite; Coal
+D,154,D154,Kawari,Cl,Clay
+D,155,D155,Old Dokolo,Tc,Talc
+D,156,D156,Odo-Ore,Sn,Columbite
+D,156,D156,Gwagwada,Ta,Tantalite
+D,157,D157,Bakin Kasuwa,Cl,Clay
+D,158,D158,Chikun,Na.U,Salt-potash group; Uranium
+D,159,D159,Chikun,Ka,Kaolin
+D,16,D16,Dutsin Fari,Ky,Kyanite
+D,160,D160,Kajuru,Ka,Kaolin
+D,162,D162,Ramin Kura,Sn.Nb,Columbite
+D,163,D163,Ishem,Au,Gold
+D,164,D164,Geshare,Sn.Nb,Columbite
+D,164,D164,Rafi Gusu River,Sn.Ta,Columbite; Tantalite
+D,17,D17,Sakaba,Ab.E,Asbestos-serpentine group; Evaporite
+D,18,D18,Sakaba,M,Mica
+D,19,D19,Sakaba,Ta,Tantalite
+D,2,D2,Birnin Gwari,Ms,Mica
+D,20,D20,Warri,Ta,Tantalite
+D,21,D21,Warri,Be.Cr,Beryl group; Chromite
+D,22,D22,Galete,Au,Gold
+D,23,D23,Konkwesso,Ka,Kaolin
+D,24,D24,Agwara,W,Wolframite
+D,25,D25,Kinimu,Tc,Talc
+D,26,D26,Iboli,Be.Gm,Beryl group
+D,27,D27,lboli,Ta,Tantalite
+D,28,D28,kontagora,Ab,Asbestos-serpentine group
+D,29,D29,Kontagora,Fp,Feldspar
+D,3,D3,Birnin Gwari,Gr,Graphite
+D,30,D30,Pandogari,Tc,Talc
+D,31,D31,Pandogari,Qa,Rose Quartz
+D,32,D32,Bakura,Fp,Feldspar
+D,33,D33,Bakura,Be.Gm,Beryl group
+D,34,D34,G.Wushiyyu,Be,Beryl group
+D,35,D35,KAGARA,Tc,Talc
+D,36,D36,MOM AJI,Au,Gold
+D,37,D37,KAR IGAR IVER,Au,Gold
+D,38,D38,MADAKA,Au,Gold
+D,39,D39,Galadima Kogo,Au,Gold
+D,4,D4,Dodo,Ky,Kyanite
+D,40,D40,KUTA,Au,Gold
+D,41,D41,Kuta,Ky,Kyanite
+D,42,D42,Tegina,St,Sillimanite
+D,43,D43,Rawo,Ky,Kyanite
+D,44,D44,Guni,Tr,Trona
+D,45,D45,Minna,Au,Gold
+D,46,D46,WUS HIS HI,Au,Gold
+D,47,D47,Kishi,W,Wolframite
+D,48,D48,Kutuwengi,Cl,Clay
+D,49,D49,Dabban,Cl,Clay
+D,5,D5,Kakangi,Tm,Tourmaline
+D,50,D50,Lemu,Cl,Clay
+D,51,D51,River Kaduna,Cl,Clay
+D,52,D52,KW AK UTI,Mb,Marble
+D,53,D53,Kwakuti,Pb.Zn,Lead-zinc
+D,54,D54,Geji,Mb,Marble
+D,55,D55,Kumatu,Mo,Molybdenite
+D,56,D56,Lambata,M,Mica
+D,57,D57,Lambata,Qa,Rose Quartz
+D,58,D58,Lambata,Pb.Zn,Lead-zinc
+D,59,D59,Lemu,Cl,Clay
+D,6,D6,kakangi,Be,Beryl group
+D,60,D60,Badeggi,Cl,Clay
+D,61,D61,Bida,SS,Silica Sand
+D,62,D62,Bida,Tc,Talc
+D,63,D63,Bakek,Ka.M,Kaolin; Mica
+D,64,D64,Dakogi,SS,Silica Sand
+D,65,D65,Dakogi,Pb.Zn,Lead-zinc
+D,66,D66,Kuchikpa,Cl,Clay
+D,67,D67,Kokoro,Cl,Clay
+D,67,D67,A.M ELENDOR IVER,Au,Gold
+D,68,D68,SHAS HI,Au,Gold
+D,69,D69,BIN-Y AURI,Au,Gold
+D,7,D7,Randeji,Ru,Corundum group
+D,70,D70,LAKA,Au,Gold
+D,71,D71,Kuli,Au,Gold
+D,72,D72,Wurumokato,Au,Gold
+D,73,D73,YAS HIK IRA,Fp,Feldspar
+D,74,D74,KAIAMA,W.Sn,Wolframite; Columbite
+D,75,D75,KAIAMA,Au,Gold
+D,76,D76,Kugegi,Gm.Au,Beryl group; Gold
+D,77,D77,OKE,Mb,Marble
+D,78,D78,Gbanara,Au,Gold
+D,79,D79,Bacita,Au,Gold
+D,8,D8,Sabon Birnin Gwari,Ky,Kyanite
+D,80,D80,Bacita,Sn.Nb,Columbite
+D,81,D81,M.Lafiagi,Ka,Kaolin
+D,82,D82,Latiagi,Sn.Nb.Ta,Columbite; Tantalite
+D,83,D83,Lade,Gm,Beryl group
+D,84,D84,Maga,Ka,Kaolin
+D,85,D85,Kosoti,Ka,Kaolin
+D,86,D86,Erufu—,E.Ru.F.U.Au,Evaporite; Corundum group; Fluorite; Uranium; Gold
+D,87,D87,Koro,Tc,Talc
+D,88,D88,Koro,Au,Gold
+D,89,D89,Okolushe,Sn.Nb.Ta,Columbite; Tantalite
+D,9,D9,Sabon Birnin Gwari,Ta,Tantalite
+D,90,D90,Mashe,Sn.Nb.Ta,Columbite; Tantalite
+D,91,D91,Bishowa Sm,Nb.Ta,Columbite; Tantalite
+D,92,D92,SHARE,Ka,Kaolin
+D,93,D93,Okolom,Sn.Au,Columbite; Gold
+D,94,D94,Babanloma,Sn.Nb.Ta,Columbite; Tantalite
+D,95,D95,ELEBU,Mb,Marble
+D,96,D96,Alaka,Mb,Marble
+D,97,D97,Adio,Gm,Beryl group
+D,98,D98,Alapapopoola,Fp,Feldspar
+D,99,D99,Onire,Cl,Clay
+E,1,E1,Zunmo,Tr,Trona
+E,10,E10,Shebshi Hill,Sn,Columbite
+E,100,E100,Maro,Ls,Limestone
+E,101,E101,Wase,Pb.Zn,Lead-zinc
+E,102,E102,Mbar,Cl,Clay
+E,103,E103,Trum,Cl,Clay
+E,104,E104,Sha Hill,Sn.Ta,Columbite; Tantalite
+E,105,E105,Mushero,Ks,Kaolin
+E,106,E106,Bwoi,Cl,Clay
+E,107,E107,Taram,Cl,Clay
+E,108,E108,N.Fohkan,Cl,Clay
+E,109,E109,9.Damshia,Cl,Clay
+E,11,E11,Mayo Butale,Gr,Graphite
+E,110,E110,B.Chiyawa,Ba,Baryte
+E,111,E111,Namu,?S,?S
+E,112,E112,Nymus,Ba,Baryte
+E,113,E113,South Mada Hill,Sn.W,Columbite; Wolframite
+E,114,E114,Take Iafia,Fp.M,Feldspar; Mica
+E,115,E115,Don Swam,Gy,Gypsum
+E,116,E116,Shargam,Fp,Feldspar
+E,117,E117,Namu,Ba,Baryte
+E,118,E118,Takara,Mu,Mica
+E,119,E119,Gitata,Tm,Tourmaline
+E,12,E12,Beti,Gr,Graphite
+E,120,E120,Gitata,Sn.Nb,Columbite
+E,121,E121,G.Ejiqba,Qz,Rose Quartz
+E,122,E122,G.Aruwa,Be,Beryl group
+E,123,E123,G.Aruwa,Lp,Lepidolite
+E,124,E124,Nikoro,Qz,Rose Quartz
+E,125,E125,Ninva,Sn,Columbite
+E,126,E126,Ancho,Mu,Mica
+E,127,E127,Ancho,Ca,Calcite
+E,128,E128,Ganje,W,Wolframite
+E,129,E129,Wamba,Tr,Trona
+E,13,E13,Beti,Sn,Columbite
+E,130,E130,Mada,PbS,Galena
+E,131,E131,Wamba,Mu,Mica
+E,132,E132,Akwanga,M,Mica
+E,133,E133,Uke,Sn.Ta,Columbite; Tantalite
+E,134,E134,Keffi,Aq,Beryl group
+E,135,E135,Keffi,Sn,Columbite
+E,136,E136,Keffi,Ta,Tantalite
+E,137,E137,Ketfi,Tm,Tourmaline
+E,138,E138,Lanqalanga,Be,Beryl group
+E,139,E139,South Mada Hill,Sn.W,Columbite; Wolframite
+E,14,E14,Gomoti,Ds,Dimension Stone
+E,140,E140,Made,Tm.Rb,Tourmaline; Corundum group
+E,141,E141,N.Eggon,Ta,Tantalite
+E,142,E142,N.Eggon,Aq,Beryl group
+E,143,E143,N.Eggon,Qz,Rose Quartz
+E,144,E144,Eggon,?EmI,?EmI
+E,145,E145,T.Jankua,Sn,Columbite
+E,146,E146,Kaffin Shanu,Ca,Calcite
+E,147,E147,Takwa,Be,Beryl group
+E,148,E148,Siyabu,Gs,Glass Sand
+E,149,E149,Siyabu,Zr,Zircon
+E,15,E15,Lara,P,Phosphate
+E,150,E150,Lafia,Ka,Kaolin
+E,151,E151,LAFIA,C,Coal
+E,152,E152,Nassarawa,Ta.W,Tantalite; Wolframite
+E,153,E153,Nassarawa,Sn.Ta,Columbite; Tantalite
+E,154,E154,Keffi,Be,Beryl group
+E,155,E155,Roguwa,Fc,Fire Clay
+E,156,E156,Roguwa,Aq,Beryl group
+E,157,E157,Zagwan Daji,Be,Beryl group
+E,158,E158,Ombi,Tm,Tourmaline
+E,159,E159,Shabire,C,Coal
+E,16,E16,Pindiga,Gy,Gypsum
+E,160,E160,OBI,C,Coal
+E,161,E161,Agwatashi,?Sr,?Sr
+E,162,E162,ALOS HI,Ba,Baryte
+E,162,E162,KEANA,Pb.Zn,Lead-zinc
+E,164,E164,Adashu,Pb.Zn,Lead-zinc
+E,165,E165,Adashu,Ba,Baryte
+E,166,E166,Azare,Br,Brine
+E,167,E167,AWE,Ba,Baryte
+E,168,E168,Wuse,Ba,Baryte
+E,169,E169,Wuse,Br,Brine
+E,17,E17,Kaltunqo,Pb.Zn.Bn,Lead-zinc; Bentonite
+E,170,E170,AWE,Br,Brine
+E,171,E171,Ndora,PbS,Galena
+E,172,E172,Wanke,Ba.Br,Baryte; Brine
+E,173,E173,Osogh,PbS,Galena
+E,174,E174,Akwuya,Pb.Zn,Lead-zinc
+E,175,E175,Keana,Ba,Baryte
+E,176,E176,Demakaa,Br,Brine
+E,177,E177,Kadarko,Sn,Columbite
+E,178,E178,Yerwata,Gr,Graphite
+E,179,E179,Gidan Zabutu,Gs,Glass Sand
+E,18,E18,Kaltungo,Tr,Trona
+E,180,E180,Gidan Zabutu,Zr,Zircon
+E,181,E181,Udegi-Beki,Gs,Glass Sand
+E,182,E182,Udegi-Be Ki,Zr,Zircon
+E,183,E183,Udegi-Beki,Sn.Tr,Columbite; Trona
+E,184,E184,Gano,Sn,Columbite
+E,185,E185,TOTO,Fe.Mb,Iron Ore; Marble
+E,186,E186,Atarana,Mb,Marble
+E,187,E187,Ugia,Qa,Rose Quartz
+E,188,E188,Sharwa Hill,Sn.Nb.Ta,Columbite; Tantalite
+E,189,E189,Kachia,Ka,Kaolin
+E,19,E19,Chongwon,Ag,Silver
+E,190,E190,Kachia,Sn.Nb,Columbite
+E,191,E191,ZONK,Wa.Tc,Kaolin; Talc
+E,192,E192,Kagoro,Ka,Kaolin
+E,193,E193,Kaqoro,Sn.Nb,Columbite
+E,194,E194,Kafanchan,Ka,Kaolin
+E,195,E195,Kurmin Dagana,Sn.Nb,Columbite
+E,196,E196,Nok,Ta,Tantalite
+E,197,E197,Kagama,Sn.Nb,Columbite
+E,198,E198,kwoi,Sn.Nb,Columbite
+E,199,E199,Godogodo,Sn.Nb,Columbite
+E,2,E2,Guyuk,Bn,Bentonite
+E,20,E20,Chongwon,Tpz,Topaz
+E,200,E200,Jama’a,Sn.Nb.Ta.Zr,Columbite; Tantalite; Zircon
+E,201,E201,Sabongida,Sn.Nb,Columbite
+E,202,E202,Sabongida,Tm,Tourmaline
+E,203,E203,Bokana,Tm,Tourmaline
+E,204,E204,Ningishi Hill,Sn.Tm.Zr,Columbite; Tourmaline; Zircon
+E,205,E205,Sawmill,Be,Beryl group
+E,206,E206,Agameti,Be,Beryl group
+E,207,E207,Mayir,Sn.Nb,Columbite
+E,208,E208,DIKO,Au,Gold
+E,209,E209,Sarkin Pawa,Tm,Tourmaline
+E,21,E21,Kukam,Bn,Bentonite
+E,210,E210,Borari,Qz,Rose Quartz
+E,211,E211,Borari,Fp,Feldspar
+E,212,E212,Shenagu,Ky,Kyanite
+E,213,E213,Tsauni,Au,Gold
+E,214,E214,Kwarana,Ta,Tantalite
+E,215,E215,Kwarana,Zr,Zircon
+E,216,E216,Kabusokoro,C.M,Coal; Mica
+E,217,E217,TAK ALAFIA,Mb,Marble
+E,218,E218,BUR,U.M.Mb,Uranium; Mica; Marble
+E,219,E219,Yanga,Sn.Ta,Columbite; Tantalite
+E,22,E22,Kyadawa,Bn,Bentonite
+E,220,E220,Yanga,M,Mica
+E,221,E221,Kapati,Mb,Marble
+E,222,E222,Bwari,Qs.Fp,Rose Quartz; Feldspar
+E,223,E223,Tuku,Ba.Sn.Au,Baryte; Columbite; Gold
+E,224,E224,Kuje,Ta.Qa,Tantalite; Rose Quartz
+E,225,E225,AFUHILL,Sn.Ta.Nb.W,Columbite; Tantalite; Wolframite
+E,226,E226,Zazaga,M,Mica
+E,227,E227,Zazaga,W.Be,Wolframite; Beryl group
+E,228,E228,KAZ AI,Au,Gold
+E,229,E229,BERI,Au,Gold
+E,23,E23,Kaltungo,Zr,Zircon
+E,230,E230,Old Dokolo,Pb.Zn,Lead-zinc
+E,231,E231,Olddokole,Au,Gold
+E,232,E232,Abuchi,Tc,Talc
+E,232,E232,Kein-Yaku,Tc,Talc
+E,234,E234,Wana,Tpz,Topaz
+E,24,E24,Kunini,Ls,Limestone
+E,25,E25,Dumgel,Ba,Baryte
+E,26,E26,Gusuni,Pb.Zn,Lead-zinc
+E,27,E27,Kwoji,Ca,Calcite
+E,28,E28,Jauro,M.Ag.U.Fe,Mica; Silver; Uranium; Iron Ore
+E,29,E29,Ranewo,Br,Brine
+E,3,E3,Guyuk,Gy,Gypsum
+E,30,E30,Bumanda,Br,Brine
+E,31,E31,Bali,Gr,Graphite
+E,32,E32,K.Boyi,Ba,Baryte
+E,33,E33,K.Boyi,Pb.Zn,Lead-zinc
+E,34,E34,Gindimawaya,Fr,Fluorite
+E,35,E35,Gujuba,Fe,Iron Ore
+E,36,E36,Lav,E,Evaporite
+E,37,E37,Panguru,Br,Brine
+E,38,E38,Futuk,Ls,Limestone
+E,39,E39,Futuk,Gy,Gypsum
+E,4,E4,Kuma,Ls,Limestone
+E,40,E40,Dass,Ka,Kaolin
+E,41,E41,Dass,Tm,Tourmaline
+E,42,E42,S.Goal,Ka,Kaolin
+E,43,E43,Jankari,Cl,Clay
+E,44,E44,Jagudu,Ta,Tantalite
+E,45,E45,SHONAM,Il.E.?SSnW,Iron Ore; Evaporite; ?SSnW
+E,46,E46,JAR AW AHIL LSn,Nb.Ta,Columbite; Tantalite
+E,47,E47,Yerima,Br,Brine
+E,48,E48,Yerima,Ls,Limestone
+E,49,E49,Garin,Gy,Gypsum
+E,5,E5,Demsa,Gy.P,Gypsum; Phosphate
+E,5,E5,Mantari,Ba.Sn,Baryte; Columbite
+E,50,E50,Sanji,Br,Brine
+E,51,E51,Wunri,Pb.Zn,Lead-zinc
+E,52,E52,Burkulu,Pb.Zn,Lead-zinc
+E,53,E53,Burkulu,Ls,Limestone
+E,54,E54,River Lere,Ru,Corundum group
+E,55,E55,Mansur,Gy,Gypsum
+E,56,E56,A.Dabo,Ka,Kaolin
+E,57,E57,Shere Hil Is,Ka,Kaolin
+E,58,E58,SHER EHILLS,Ta,Tantalite
+E,6,E6,Nzuruwei,C,Coal
+E,60,E60,Naraguta,Cl,Clay
+E,60,E60,RAY FIEEO,Sn.Nb.Ta,Columbite; Tantalite
+E,61,E61,Fadera,Be,Beryl group
+E,62,E62,RUKU,Ba.Sn.Nb.Ta,Baryte; Columbite; Tantalite
+E,63,E63,Kona,Be,Beryl group
+E,64,E64,KIGOM HILLS,Sn.Nb.Ta,Columbite; Tantalite
+E,65,E65,VOM,Be,Beryl group
+E,66,E66,BUK,U.Ru.Zr,Uranium; Corundum group; Zircon
+E,67,E67,JOS,Nb,Columbite
+E,68,E68,Laugai,Sn,Columbite
+E,69,E69,Fursun,Mz,Monazite
+E,70,E70,Werram,Ka,Kaolin
+E,71,E71,Bukuru,?G,?G
+E,72,E72,Koro,Sn,Columbite
+E,73,E73,Sho— Gindi Akwati,Mb,Marble
+E,74,E74,ROPP,Nb.Ta,Columbite; Tantalite
+E,75,E75,MAJOR PORTER,Ka,Kaolin
+E,76,E76,Garam,Cl,Clay
+E,77,E77,Ampere,Qz,Rose Quartz
+E,78,E78,Ampere,Mb,Marble
+E,79,E79,Dal,Ta,Tantalite
+E,80,E80,Fan,Mz,Monazite
+E,81,E81,Fan,Sn.Nb,Columbite
+E,82,E82,Mangu,?Ma,?Ma
+E,83,E83,Basuras,Qz,Rose Quartz
+E,84,E84,Dengi,Be,Beryl group
+E,85,E85,Kwal,Qa,Rose Quartz
+E,86,E86,Mbar,Ka,Kaolin
+E,87,E87,Mangun,Nb,Columbite
+E,88,E88,Lankan,Gs,Glass Sand
+E,89,E89,Gwaktok,Cl,Clay
+E,9,E9,Ganye,Cl,Clay
+E,90,E90,Kunikyen,Ta.Au,Tantalite; Gold
+E,92,E92,Belnin,To,Topaz
+E,93,E93,Gurua,Cl,Clay
+E,93,E93,Libam,Be,Beryl group
+E,94,E94,Mustieve,Be,Beryl group
+E,95,E95,Kup,Gs,Glass Sand
+E,96,E96,Ba Itup,Tc,Talc
+E,97,E97,Jowandu,Cl,Clay
+E,98,E98,F.Ruwa,PbS,Galena
+E,99,E99,SGida,PbS,Galena
+F,1,F1,Ade,Mb,Marble
+F,10,F10,OBAJANA,Fp,Feldspar
+F,100,F100,SAPELE,Oil,Oil and Gas
+F,101,F101,Ikara,Cor,Corundum group
+F,102,F102,Oke -Agbo,Be,Beryl group
+F,103,F103,Akoko North,W.E.St.Mu,Wolframite; Evaporite; Sillimanite; Mica
+F,104,F104,Bode,Qa,Rose Quartz
+F,105,F105,Ikeram,Fe,Iron Ore
+F,106,F106,Akoko North East,Ds,Dimension Stone
+F,107,F107,Igbara-Oke,Ds,Dimension Stone
+F,108,F108,Alade,Ds,Dimension Stone
+F,109,F109,Idoani,Mb,Marble
+F,11,F11,Emoa,Cl,Clay
+F,111,F111,Oja-Odan,Ka,Kaolin
+F,112,F112,Ugbolan,Ks,Kaolin
+F,113,F113,Ifon,Cl,Clay
+F,114,F114,Ijagba,Cl,Clay
+F,115,F115,Ute,Mb,Marble
+F,116,F116,Okoluke,Cr,Chromite
+F,117,F117,Ute,C,Coal
+F,118,F118,Ode-Aiye,Ts,Tar Sand
+F,119,F119,IFON,Ka,Kaolin
+F,12,F12,Emoa,Fe,Iron Ore
+F,120,F120,Okitipupa,Ts,Tar Sand
+F,121,F121,Shogbon(Okitipup,?aCI,?aCI
+F,122,F122,IGBOK ODA,Gs.Ts,Glass Sand; Tar Sand
+F,123,F123,Agbabu,Ts,Tar Sand
+F,124,F124,Shabomi,C,Coal
+F,125,F125,lgodan-Lisa,Ks,Kaolin
+F,126,F126,Gbekebo,Gs,Glass Sand
+F,127,F127,Atokogbo,Ts,Tar Sand
+F,128,F128,Ipepe,Sd,Glass Sand
+F,129,F129,lshan,Cl,Clay
+F,13,F13,lyara,Mb,Marble
+F,130,F130,IJERO,Sn.Nb.Ta,Columbite; Tantalite
+F,131,F131,Ipoti,M,Mica
+F,132,F132,Ipoti,Tm.Ag,Tourmaline; Silver
+F,133,F133,Iddo– Ekiti,Cl,Clay
+F,134,F134,Orin,Cl,Clay
+F,135,F135,Awo Ekiti,Cl,Clay
+F,136,F136,IJER OEK ITI,Cl,Clay
+F,137,F137,Aramoko,Ta,Tantalite
+F,138,F138,Ire-Ekiti,Ka,Kaolin
+F,139,F139,Ilu-Omoba,Ka,Kaolin
+F,14,F14,Okomoba,Mb,Marble
+F,140,F140,Ikere,Ka,Kaolin
+F,141,F141,Orin-Ekiti,Bx,Bauxitic Clay
+F,142,F142,ILLA-OR ANGUN,Tc,Talc
+F,143,F143,Orangun,Ka,Kaolin
+F,144,F144,OR ANGUN,Tc,Talc
+F,145,F145,Ilobu,Cl,Clay
+F,146,F146,Igbona,Au,Gold
+F,147,F147,Awo,Gm,Beryl group
+F,148,F148,Ilesa,Gm,Beryl group
+F,149,F149,IPER INDO,Au,Gold
+F,15,F15,Akpara,U,Uranium
+F,150,F150,l FE,To,Topaz
+F,151,F151,Odo-Igbo,Au,Gold
+F,152,F152,Osu,Au,Gold
+F,153,F153,Oshogbo,Cl,Clay
+F,154,F154,lkire,Gm,Beryl group
+F,155,F155,Lamu Camp Ondo,C,Coal
+F,156,F156,Odeleye,Cl,Clay
+F,157,F157,Okin,Cl,Clay
+F,158,F158,Akoya,Be,Beryl group
+F,159,F159,Akoya,Ta,Tantalite
+F,16,F16,LOK OJA(AGBAJA,Fe,Iron Ore
+F,160,F160,Iganna,Ta,Tantalite
+F,161,F161,Oniko,Ka,Kaolin
+F,162,F162,Jobele,Mb,Marble
+F,163,F163,Monija,Ml,Marl
+F,164,F164,Egbeda,Be,Beryl group
+F,166,F166,ldi-Ayunre,Be,Beryl group
+F,166,F166,Olowa,Sl,Sillimanite
+F,167,F167,Olodo,St,Sillimanite
+F,168,F168,Alaqbede,Mb,Marble
+F,169,F169,Meko,Ka,Kaolin
+F,17,F17,Lokoja,C.?ICs,Coal; ?ICs
+F,170,F170,Afon,Au,Gold
+F,171,F171,Safara,Au,Gold
+F,172,F172,Sha-Orire,Gs,Glass Sand
+F,173,F173,AIY ET ORO,Ka,Kaolin
+F,174,F174,Aiyetoro,P,Phosphate
+F,175,F175,AR E-ABEOK,U.?TAK,Uranium; ?TAK
+F,176,F176,O.Kajola,Ka,Kaolin
+F,177,F177,Odeda,Ka,Kaolin
+F,178,F178,Olowu Akeusi,?SI,?SI
+F,179,F179,Oba,Ka,Kaolin
+F,18,F18,Aforo-Odugbo,Fc.Qa,Fire Clay; Rose Quartz
+F,180,F180,Ishara,Ka,Kaolin
+F,181,F181,l Ie-lqboro,P,Phosphate
+F,182,F182,Ohumbe,Gy.P,Gypsum; Phosphate
+F,183,F183,Ologiri,Gy,Gypsum
+F,184,F184,lbese,Ls,Limestone
+F,185,F185,EW EK ORO,Ls,Limestone
+F,186,F186,Oshosun,P,Phosphate
+F,187,F187,l FOJUNCT ION,P,Phosphate
+F,188,F188,SHAGAMU,Ls,Limestone
+F,189,F189,Tube,Ka,Kaolin
+F,19,F19,Zangon Daji,Fp.M,Feldspar; Mica
+F,190,F190,Atan,Au,Gold
+F,191,F191,Ijebu-lfe,Ts,Tar Sand
+F,192,F192,Epe,Cl,Clay
+F,193,F193,lwopin,Ts,Tar Sand
+F,194,F194,Imusin,Ts,Tar Sand
+F,195,F195,Idowa,Ls,Limestone
+F,196,F196,ljebu-Ode,Ka,Kaolin
+F,197,F197,Ajara,Cl,Clay
+F,198,F198,Badagry,Ts,Tar Sand
+F,199,F199,lkorodu,Cl,Clay
+F,2,F2,Mopa,Mb,Marble
+F,2,F2,lgbagun,Mb,Marble
+F,20,F20,Lokoja,U,Uranium
+F,200,F200,ljede,Gs,Glass Sand
+F,201,F201,Agbowa,Cl,Clay
+F,202,F202,Poka,Ka,Kaolin
+F,203,F203,Ibeju,Cl,Clay
+F,21,F21,OS AR AFOR,E.St.Mb,Evaporite; Sillimanite; Marble
+F,22,F22,OS AR AFOR,E.St.Fp,Evaporite; Sillimanite; Feldspar
+F,22,F22,Osara -,Qz,Rose Quartz
+F,24,F24,IT AK PEHILLS,Fe,Iron Ore
+F,25,F25,ltakpe,Be,Beryl group
+F,26,F26,ltakpe,Qa,Rose Quartz
+F,27,F27,UBO,Mb,Marble
+F,28,F28,Ukpilla,Au,Gold
+F,29,F29,Ukpilla,Fp,Feldspar
+F,30,F30,UK PILLA,Mb,Marble
+F,31,F31,AJAOKUTa,Mb,Marble
+F,32,F32,AJAOKUTa,Fe,Iron Ore
+F,32,F32,Ajaokuta,Sn.Nb.Ta,Columbite; Tantalite
+F,34,F34,Itobe,Qa,Rose Quartz
+F,35,F35,Onado,Tc,Talc
+F,36,F36,l TOBE,Mb,Marble
+F,37,F37,Gwoligyo,Ka,Kaolin
+F,38,F38,Okokonvi,Mb,Marble
+F,39,F39,Oyedega,Cl,Clay
+F,4,F4,AIY ET ORO,Fe,Iron Ore
+F,40,F40,Aguleri,Cl,Clay
+F,41,F41,lgbarian,Gs,Glass Sand
+F,42,F42,Nnegi-Umuleri,Fe,Iron Ore
+F,43,F43,Onitsha,Gs,Glass Sand
+F,44,F44,Omuoji,Cl,Clay
+F,45,F45,Nnewi,Lg,Lignite
+F,46,F46,Ozubulu-Ukpo,Ka,Kaolin
+F,47,F47,Ukpor,Lg,Lignite
+F,48,F48,okija,Ka,Kaolin
+F,49,F49,Awomama,Ka,Kaolin
+F,5,F5,Aiyetoro,Au.Ca,Gold; Calcite
+F,50,F50,Assa,Oil,Oil and Gas
+F,51,F51,Akabuna,Cl,Clay
+F,52,F52,OGBADA,Oil,Oil and Gas
+F,53,F53,Abua,Cl,Clay
+F,54,F54,Tombia,Cl,Clay
+F,55,F55,Asamabari,Cl,Clay
+F,56,F56,Sagbama,Gs,Glass Sand
+F,57,F57,Opukushi,Oil,Oil and Gas
+F,58,F58,Ogbia,Gs,Glass Sand
+F,59,F59,Ogbia,Cl,Clay
+F,6,F6,Egbede,Fe,Iron Ore
+F,60,F60,Ogwashi-Uku,Lg,Lignite
+F,61,F61,Asama,Ka,Kaolin
+F,62,F62,Agbor,Ka,Kaolin
+F,63,F63,Akiewe,Gs,Glass Sand
+F,64,F64,UZ ER EEAS,To.Il,Topaz; Iron Ore
+F,65,F65,UGHELLIEAS,To.Il,Topaz; Iron Ore
+F,66,F66,UGHS ELLI,Gs,Glass Sand
+F,67,F67,ES CR AVOS BEAC,?HOil,?HOil
+F,68,F68,Oja-sale,Mb.M,Marble; Mica
+F,69,F69,Komino,Ka,Kaolin
+F,7,F7,CHOK O-CHOK OF,E,Evaporite
+F,70,F70,Igarra,Au,Gold
+F,71,F71,lgarra,Ka,Kaolin
+F,72,F72,Agenebodo,Gy,Gypsum
+F,73,F73,Ago-ogbodo,U,Uranium
+F,74,F74,Ago-egbedo,Ls,Limestone
+F,75,F75,Auchi,Gs,Glass Sand
+F,76,F76,Auchi,Mb,Marble
+F,77,F77,Auchi,Sd,Glass Sand
+F,78,F78,Auchi,Ka,Kaolin
+F,79,F79,Ekpeshi,Ls,Limestone
+F,8,F8,Obajana,M,Mica
+F,80,F80,Afuze,C,Coal
+F,81,F81,Sabongida,Ka,Kaolin
+F,82,F82,Ora,Ls,Limestone
+F,83,F83,Ora,Gy,Gypsum
+F,84,F84,Uhonmora,Cl,Clay
+F,85,F85,ETS AK OW,E.St.Gy,Evaporite; Sillimanite; Gypsum
+F,86,F86,Uhen,Py,Pyrite group
+F,87,F87,Okada,Cl,Clay
+F,88,F88,Owoboana,Bit,Bitumen
+F,89,F89,Uromi,Cl,Clay
+F,9,F9,Obajana,Mb,Marble
+F,90,F90,Ubiaja,Lg,Lignite
+F,91,F91,Ilushi,Sd,Glass Sand
+F,92,F92,Orah,Cl,Clay
+F,93,F93,Orah,Sd,Glass Sand
+F,94,F94,Ute (Owa),?La,?La
+F,95,F95,IK POBAR IVER,Be.?NINGs,Beryl group; ?NINGs
+F,96,F96,Benin-City,Gvl,River Gravel
+F,97,F97,Benin-City,Sd,Glass Sand
+F,98,F98,Ago-Okoro,Gvl,River Gravel
+F,99,F99,GILLI-GILLI,Oil,Oil and Gas
+G,1,G1,Junga,Ls,Limestone
+G,10,G10,Mai Samari,Bx,Bauxitic Clay
+G,100,G100,New Heaven,C,Coal
+G,101,G101,Emene,Gy,Gypsum
+G,102,G102,Amaguuze,Ls,Limestone
+G,103,G103,Nsude,Gs,Glass Sand
+G,104,G104,Udi,Ls,Limestone
+G,105,G105,Ehuhe,Fe,Iron Ore
+G,106,G106,Awgu Achi Ogu Riv,?erFePbZ,?erFePbZ
+G,107,G107,UBUR ULAK,E.C.Br,Evaporite; Coal; Brine
+G,108,G108,Awlaw,Gy,Gypsum
+G,109,G109,Awgu a,Fe.Ls,Iron Ore; Limestone
+G,11,G11,Guraji,Bx,Bauxitic Clay
+G,110,G110,Umunbom,Bit,Bitumen
+G,112,G112,Ifute Logwana,Cl,Clay
+G,113,G113,Omor,Cl,Clay
+G,114,G114,Igbarium,Cl,Clay
+G,115,G115,Awka,C,Coal
+G,116,G116,Inyi,C,Coal
+G,117,G117,Owere.Ezukala,Fe.Cl,Iron Ore; Clay
+G,118,G118,Or Iu,Fe,Iron Ore
+G,119,G119,Achina,Cl,Clay
+G,12,G12,Mambila,Gm,Beryl group
+G,120,G120,Uzo-Loube,Gy,Gypsum
+G,121,G121,Uzo-Abam,Ls,Limestone
+G,122,G122,Dikenafai,Mc,Marcasite
+G,123,G123,Orlu,Lg,Lignite
+G,124,G124,AGBABANS,U.Ka,Uranium; Kaolin
+G,125,G125,Umunamu,Cl,Clay
+G,126,G126,Afor-Oru,Lg,Lignite
+G,127,G127,Agbobia,Gs,Glass Sand
+G,128,G128,Obinze,Gs,Glass Sand
+G,129,G129,Otoko,Ka.Ls,Kaolin; Limestone
+G,13,G13,Kuar,Ba,Baryte
+G,130,G130,Umede,Gs,Glass Sand
+G,131,G131,PORT -HAPCOUR,?TGs,?TGs
+G,132,G132,Bomu,Oil,Oil and Gas
+G,133,G133,Ukwa,Gs,Glass Sand
+G,134,G134,Obigbo,Gs,Glass Sand
+G,135,G135,Ajwanu,Cl,Clay
+G,136,G136,Igbere,P,Phosphate
+G,137,G137,Nkwoagu,Pb.Zn,Lead-zinc
+G,138,G138,Lokauku,Gy,Gypsum
+G,139,G139,Nwaogu-Ijouchi,Py.Br,Pyrite group; Brine
+G,14,G14,Dong,Be,Beryl group
+G,140,G140,Nbalaonu,Cl,Clay
+G,141,G141,Amawon,Cl,Clay
+G,142,G142,AGBHAR ANS,U.Ka,Uranium; Kaolin
+G,143,G143,Bende,P,Phosphate
+G,144,G144,Ajayi,P,Phosphate
+G,146,G146,Umuahia,Lg,Lignite
+G,146,G146,Umuahia,?RS,?RS
+G,147,G147,Amur,Cl,Clay
+G,148,G148,Arlam,Cl,Clay
+G,149,G149,Iwuo Ukem,Gs,Glass Sand
+G,15,G15,Ndum Yayi,Fe,Iron Ore
+G,150,G150,Afaka Offiong,Cl,Clay
+G,151,G151,Apochukwu,Ls,Limestone
+G,152,G152,Idima,Ls,Limestone
+G,153,G153,Ndi Okorie,Ls,Limestone
+G,154,G154,Ebo,?Sul,?Sul
+G,155,G155,Nkari,Lg,Lignite
+G,156,G156,Ikot Nkem,Ls,Limestone
+G,157,G157,Ibiaku Ntak Okpo,Cl,Clay
+G,158,G158,Uguok,?Da,?Da
+G,159,G159,Iduk,Cl,Clay
+G,16,G16,Ndum,Ba.Fe,Baryte; Iron Ore
+G,160,G160,Ibiaku Nfok,Bn,Bentonite
+G,161,G161,Alualbion,Cl,Clay
+G,162,G162,Uyo,Cl,Clay
+G,163,G163,Andia,Cl,Clay
+G,164,G164,Etinan,Cl,Clay
+G,165,G165,Azumini,Gs,Glass Sand
+G,166,G166,lkot Okoro,Bcl,Ball Clay
+G,167,G167,Afaha Offiong,Cl,Clay
+G,168,G168,Eket,Cl,Clay
+G,169,G169,Ikot,E.Ba.Bcl,Evaporite; Baryte; Ball Clay
+G,17,G17,Achebe,Ba,Baryte
+G,170,G170,AK ATA,Oil,Oil and Gas
+G,171,G171,Akatafie Id,Gy.P,Gypsum; Phosphate
+G,172,G172,IGUM ALE,Ls,Limestone
+G,173,G173,NK ALAGU,Ls,Limestone
+G,174,G174,Ngbo,Cl,Clay
+G,175,G175,Ofaraakpa,Pb.Zn,Lead-zinc
+G,176,G176,IBOKO,Cl,Clay
+G,177,G177,Abakaliki,Ilm,Iron Ore
+G,178,G178,Abakaliki,Cl,Clay
+G,179,G179,Ngbo,Ls,Limestone
+G,18,G18,Okaa,Br,Brine
+G,180,G180,ENY IGBA,Pb.Zn,Lead-zinc
+G,181,G181,Ameri-Amek,Ab.R,Asbestos-serpentine group; Rose Quartz
+G,182,G182,AM ER I-AM,E.Ka.Pb.Zn,Evaporite; Kaolin; Lead-zinc
+G,183,G183,Adari Igba,Gy,Gypsum
+G,184,G184,Amachare,Mc,Marcasite
+G,185,G185,Enyigba,Br,Brine
+G,186,G186,Enyigba,Pb.Zn,Lead-zinc
+G,187,G187,Ezeogudu,Ls,Limestone
+G,188,G188,Ugulangu,?S,?S
+G,189,G189,Omega,Cu,Copper minerals
+G,19,G19,Agbadu,Ba,Baryte
+G,190,G190,Omega,Ba,Baryte
+G,191,G191,Iglagu,F,Fluorite
+G,192,G192,UBUR ULA KE,Br,Brine
+G,193,G193,Uzarem,?.S,?; S
+G,194,G194,Erei,C,Coal
+G,196,G196,Akpaku,Ab.R,Asbestos-serpentine group; Rose Quartz
+G,196,G196,Egbokoriko,Ls,Limestone
+G,197,G197,Gabu(Ogaja,Ba,Baryte
+G,198,G198,Ogaja,Br,Brine
+G,199,G199,Okpoma,Br,Brine
+G,2,G2,Akwugo,Pb.Zn,Lead-zinc
+G,20,G20,Nyamsando,Ls,Limestone
+G,200,G200,Obudu,Cl,Clay
+G,201,G201,Busangfon,Gr,Graphite
+G,202,G202,Katia,Ka,Kaolin
+G,203,G203,Umaji,Br,Brine
+G,204,G204,Ubongilm,,
+G,205,G205,Ksaja,Qa,Rose Quartz
+G,206,G206,Owakande,Ls,Limestone
+G,207,G207,Dongala,Ba,Baryte
+G,208,G208,Okon,Qz.Qa,Rose Quartz
+G,209,G209,Efomi,Br,Brine
+G,21,G21,Gbaiumba,Bn,Bentonite
+G,210,G210,Ayamitef,Be,Beryl group
+G,211,G211,Agai Ibam,?iBa,?iBa
+G,212,G212,lkot Akpere,M.Gn,Mica; Granite
+G,213,G213,Akpet Central,Ba,Baryte
+G,214,G214,Ideacha,Qa,Rose Quartz
+G,215,G215,Orua,Gm,Beryl group
+G,216,G216,Orua,Sn,Columbite
+G,217,G217,MFAM OSI NG,Ls,Limestone
+G,218,G218,ODUK PANI,Ls,Limestone
+G,219,G219,Odukpani,Cl.Ls,Clay; Limestone
+G,22,G22,Gbaiumba,Br,Brine
+G,220,G220,Mfamosing,Py,Pyrite group
+G,221,G221,Ndigan,Tm,Tourmaline
+G,222,G222,Ndigan,Ru,Corundum group
+G,223,G223,Ndeke,Ta,Tantalite
+G,224,G224,Oban,Tm,Tourmaline
+G,225,G225,Ipoula,Mz,Monazite
+G,226,G226,Wukari,Ba,Baryte
+G,227,G227,Okarana,Mn,Manganese
+G,23,G23,Arufu,Fr,Fluorite
+G,24,G24,Akwana,Fr,Fluorite
+G,25,G25,Arufu,Pb,Lead-zinc
+G,26,G26,Amini,Fr,Fluorite
+G,27,G27,Ugba,Ls,Limestone
+G,28,G28,Tseakaa,Ls,Limestone
+G,29,G29,Moze,Ls,Limestone
+G,3,G3,AK,Wa.Na.Br,Kaolin; Salt-potash group; Brine
+G,30,G30,ljer,Ls,Limestone
+G,31,G31,Mbatiev,Ba,Baryte
+G,32,G32,YANDEV,Ls,Limestone
+G,33,G33,Yandev,Ba,Baryte
+G,34,G34,Itungwa,Pb,Lead-zinc
+G,35,G35,Ikpa,Ba,Baryte
+G,36,G36,Moi-Igbo,Br,Brine
+G,37,G37,Moi-Igbo,Ba,Baryte
+G,38,G38,Tsetyo,Gy,Gypsum
+G,39,G39,Ojantelle,Ka,Kaolin
+G,4,G4,Mayo Butale,Gr,Graphite
+G,40,G40,Bopo,C,Coal
+G,41,G41,Umogidi,Gy,Gypsum
+G,42,G42,Iga-Okpaya,C,Coal
+G,43,G43,EDUM OGAAM OD,Gy,Gypsum
+G,44,G44,Aliade,Ls,Limestone
+G,45,G45,Adoka,Gy,Gypsum
+G,46,G46,Opar,Gy,Gypsum
+G,47,G47,Ohuweyi,Ls,Limestone
+G,48,G48,Taraku,G.y,G; y
+G,49,G49,Ukpa,Gy,Gypsum
+G,5,G5,Gayan,Gr,Graphite
+G,50,G50,Orukpa,C,Coal
+G,51,G51,IGUM ALE,Ls,Limestone
+G,52,G52,Agila,Br.Ka,Brine; Kaolin
+G,54,G54,Egga,Ls,Limestone
+G,55,G55,Okokukwo,Ls,Limestone
+G,56,G56,Gabu,Br,Brine
+G,57,G57,Ise-,Ag.Be.R.Ag.Ba.Ls,Silver; Beryl group; Rose Quartz; Baryte; Limestone
+G,58,G58,Tyogbonda,Ba,Baryte
+G,59,G59,Fayun,Ls,Limestone
+G,6,G6,Wukari,Ba,Baryte
+G,60,G60,Lessel,Ba,Baryte
+G,61,G61,Lessel,Pb.Zn,Lead-zinc
+G,62,G62,Yatier,Br,Brine
+G,63,G63,Vandeikya,Ka,Kaolin
+G,64,G64,Umaisha,Tc,Talc
+G,65,G65,DEK INA,C,Coal
+G,66,G66,Dekina,Fe,Iron Ore
+G,67,G67,Ajia Ia,C,Coal
+G,68,G68,Afogun,C,Coal
+G,69,G69,OGBOY OGA,C,Coal
+G,7,G7,Takum,Mb.E,Marble; Evaporite
+G,70,G70,Awo-Akpali,Cl,Clay
+G,71,G71,Otochi,Ka,Kaolin
+G,72,G72,Odaru,G.y,G; y
+G,73,G73,Igadoba,Cl,Clay
+G,74,G74,Enugu-Ezike,C,Coal
+G,75,G75,Ezimo,C,Coal
+G,76,G76,Ugnuoqo-opi,Cl,Clay
+G,77,G77,Orba,Cl,Clay
+G,78,G78,Nsuk,Ka.Pb.Zn,Kaolin; Lead-zinc
+G,78,G78,3.Nimbo,Fe,Iron Ore
+G,79,G79,Okpuje,Fe,Iron Ore
+G,8,G8,Baissa,Be,Beryl group
+G,80,G80,Okpuje,Cl,Clay
+G,81,G81,Nkoloqwu,Gs,Glass Sand
+G,82,G82,Obimo,Fe,Iron Ore
+G,84,G84,Adani,Gy,Gypsum
+G,85,G85,Nkopologwu,Cl,Clay
+G,87,G87,Ugo Ozu,Fe,Iron Ore
+G,88,G88,Uguogu,Cl,Clay
+G,89,G89,Eha-,E.Mu.F.U.Ls,Evaporite; Mica; Fluorite; Uranium; Limestone
+G,9,G9,Galea,Gm,Beryl group
+G,90,G90,Nkalagu Obukpa-Ich,?iFe,?iFe
+G,91,G91,Emene Enugu,Gy,Gypsum
+G,92,G92,AWK,U.Na.Na.W.Fc,Uranium; Salt-potash group; Wolframite; Fire Clay
+G,93,G93,Oqbede,Gs,Glass Sand
+G,94,G94,Ibite Olo,Fe,Iron Ore
+G,95,G95,Umuhuokpo,Cl,Clay
+G,96,G96,ENUGU,C,Coal
+G,97,G97,Nsude,Fe,Iron Ore
+G,98,G98,Enugu,Gs,Glass Sand
+G,99,G99,Almansiodo,Cl,Clay
