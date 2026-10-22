@@ -17,7 +17,7 @@ Vector layers (ESRI Shapefile; .shp/.shx/.dbf/.prj/.cpg per layer):
   nigeria_states.shp               36 States + FCT (37 polygons).
   nigeria_geology_units.shp        Geological rock units (1,501 polygons,
                                      complete national coverage - see below).
-  nigeria_mineral_occurrences.shp  Mineral occurrence points (1,236 points,
+  nigeria_mineral_occurrences.shp  Mineral occurrence points (1,090 points,
                                      one point at the centre of every symbol
                                      found on the mineral map).
   nigeria_rivers.shp               Rivers and streams (1,344 reaches,
@@ -74,60 +74,70 @@ numeric age range in Ma), rock class, basin, area, centroid, QA flag.
 --------------------------------------------------------------------------------
 3. MINERAL OCCURRENCES  (nigeria_mineral_occurrences.shp)
 --------------------------------------------------------------------------------
-Method (as requested - standard symbol first, point at the calculated centre):
-  * A standard template was built for every one of the 67 legend symbols
-    (from clear instances on the map, at the map's exact print scale).
-  * The whole map face was searched exhaustively. Complete template matches
-    were taken first; in dense clusters where symbols overlap, half-symbol
-    (partial) matching was used so that partly-hidden symbols are still
-    captured. In every case the point was placed at the centre computed from
-    the standard symbol.
-  * Each found symbol was linked to the numbered locality tables printed on
-    the map (1,170 table rows, zones A-G). Field "stage" records how a point
-    was obtained:
-      1        complete match at its table number
-      2/2core/2partial/2na
-               matched at its table number, including partly-obscured
-               symbols inside clusters
-      3        extra symbol found by the full-map sweep (occurrence printed
-               on the map but not itemised at a number)
-      4audit   recovered in a final audit against the previous extract and
-               re-verified against the symbol template
-  * One point per symbol: duplicates within 5 map pixels were removed.
-  * "id_score" is the template-match confidence (1.00 = pixel-perfect);
-    "px_x/px_y" are the symbol-centre positions on the map image so you can
-    cross-check any point against the georeferenced TIFF supplied.
+This layer was rebuilt from zero by the requested procedure: standard symbol
+first, complete matches first, then partial matches, every point placed at
+the calculated centre of its symbol.
 
-Result: 1,236 points covering 60 of the 67 legend categories.
-An audit against the earlier extract shows 80% of its points agree with the
-new ones to within 8 map pixels; where they disagreed, the new point is the
-one sitting at the exact symbol centre (the old file had offset, doubled and
-mislabelled points, which is why this rebuild was necessary).
+Standard symbols: one template was built for each legend symbol from clear
+instances on the map at the exact print scale. A point's position is the
+centre computed from the standard symbol (its mask bounding-box centre),
+never an eyeballed click.
 
-Important notes - symbols that the printed map does NOT actually show:
-Visual inspection of the map face at every relevant table number confirmed
-that for the following categories the locality is listed in the tables but NO
-symbol is printed at the number. They therefore have few or no points, because
-points were only placed where a real symbol exists:
-  Asbestos (1): 0 found      Bitumen (8): 0 found (the Ondo belt occurrences
-  Nickel (48): 0 found       are printed with the Tar-Sand symbol, no. 59)
-  Trona (62): 0 found        Calcite (67): 0 found
-  Psammite (50): 0 found     Saltlake (53): only 2 printed
-  Uranium (63): only 4 printed (of 10 table entries)
-Also:
-  * Legend nos. 32 (Phosphate) and 49 (Phosphate Rock) use the identical
-    symbol and the same table code "P"; all such symbols are recorded as 32.
-  * Tin ("Sn" in the tables) is drawn with the Columbite symbol; those points
-    carry mineral = "Columbite .." (no. 14) with table_code preserving "Sn".
-    In the north-west several "Sn/Nb" localities print only the Tantalite
-    (58) bowl, so only that point exists for them.
-  * Of the 1,096 (number, mineral) occurrences implied by the tables at
-    printed map numbers, 855 are matched to a symbol at that number; the rest
-    have no corresponding symbol printed (see above) or are hidden under
-    neighbouring symbols in the densest clusters.
-  * Five points (creek/island and border symbols: Ikorodu, Port Harcourt,
-    Akatafie Id, Jibiya, Ndigan) fall a short distance outside the generalised
-    boundary polygon; they are exactly where the map prints those symbols.
+COMPLETE matching (1,079 points, match_type = "complete"): the whole map
+face was searched with the full templates (colour masked cross-correlation).
+Acceptance is tiered by match strength: certain matches (score >= 0.95)
+anywhere on the map; strong matches (>= 0.90) near a printed locality
+number; context-confirmed matches (>= 0.82) at a number whose table row lists
+that mineral. In addition, every table number received a windowed search
+with full-template and ink-only masks, which recovers symbols printed over
+different geology tints. The few tiny or generic symbols (Beryl diamond,
+Glass-Sand pentagon, Gold square, Coal bar) were protected by blob-shape
+checks against look-alike map detail, and doubtful centres were cross-checked
+against all competing templates.
+
+PARTIAL matching (11 points, match_type = "partial"): for table occurrences
+still unmatched after the complete pass - typically symbols half-buried in
+dense clusters - half-symbol templates (top / bottom / left / right halves)
+were searched at the locality number. Only partial matches whose visible half
+is strong and which survived full-template cross-checks plus a visual audit
+of every candidate were kept; "vis_part" records which half is visible. The
+point is still placed at the full symbol's computed centre.
+
+Linkage: 758 points are attached to the exact table row of their printed
+number (locality and commodity codes in the attributes); 320 further printed
+symbols that are not itemised at a number carry their nearest number for
+reference; 12 have no number within 48 map pixels. "id_score" is the match
+confidence (1.00 = pixel-perfect) and "px_x / px_y" are the symbol-centre
+positions on the map image, so any point can be cross-checked against the
+georeferenced TIFF in this zip. One point per symbol is guaranteed: the
+minimum separation between points is 5 map pixels (verified - no duplicates).
+
+Result: 1,090 points covering 58 of the 67 legend categories.
+
+Symbols the printed map does NOT actually show (verified visually at every
+relevant table number; no points were fabricated for them):
+  Asbestos (1) 0, Bismuth (7) 0, Bitumen (8) 0 - the Ondo belt occurrences are
+  printed with the Tar-Sand symbol (59); Nickel (48) 0, Psammite (50) 0,
+  Saltlake/Potash (53) 0, Sillimanite (55) 0, Trona (62) 0, Calcite (67) 0.
+  Uranium (63): only 3 discs are printed on the whole map.
+Further unavoidable cases:
+  * Phosphate (32) and Gypsum (31) are printed with the SAME glyph on this
+    map (white circle with horizontal bar; the legend's "+" never appears at
+    print scale - confirmed at every phosphate locality). Attribution
+    therefore follows the locality table at each number: 7 Phosphate points.
+    Legend no. 49 (Phosphate Rock) shares code "P" and the same glyph.
+  * Tin ("Sn") is drawn with the Columbite symbol; those points carry
+    mineral = Columbite (14) with table_code preserving "Sn". At several
+    north-western Sn/Nb localities only the white Tantalite (58) bowl is
+    printed, so only that point exists; likewise some Fe-coded localities
+    print no iron triangle. Of the 1,096 (number, mineral) occurrences
+    implied by the tables, 758 are matched to a symbol at their number;
+    the remainder are not printed as separate symbols.
+  * A handful of coastal / border symbols fall a short distance outside the
+    generalised boundary polygon; they are exactly where the map prints them.
+An audit against the superseded extract agrees with 76% of its points to
+within 8 map pixels; where they disagreed, the new point is the one at the
+exact symbol centre (the old file had offset, doubled and mislabelled points).
 
 --------------------------------------------------------------------------------
 4. RIVERS  (nigeria_rivers.shp, nigeria_river_labels.shp)
