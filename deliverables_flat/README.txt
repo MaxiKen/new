@@ -36,6 +36,24 @@ Tables:
                                      map zone/number, locality, commodity
                                      codes and decoded mineral names).
 
+
+Additional shapefiles included in this collection zip (flat, with the layers
+above; see Section 6 and collection_manifest.csv for the full list, sources,
+feature counts and license pointers):
+  G1_geological_boundaries, G2_faults, G3_fold_axes, G4_ridges,
+  G5_volcanic_plugs, M2_geology_areas, M2_pegmatite_marks,
+  nigeria_admin0, lga_boundaries, populated_places, rail_lines,
+  river_lines, road_lines, senatorial_districts, state_boundaries,
+  state_capitals, towns.
+
+Companion source / attribution files for the additional shapefiles:
+  collection_manifest.csv, online_layers_README.md,
+  online_layers_sources.json, online_layers_validation.json,
+  populated_places_ATTRIBUTION.txt, codab_lga_senatorial_crosswalk.csv,
+  nigeria_admin0_README.md, pdf_selected_layers_README.md,
+  pdf_selected_layers_inventory.csv, M2_accuracy_assessment.md,
+  M2_geology_legend.csv.
+
 --------------------------------------------------------------------------------
 1. GEOREFERENCED MAP IMAGES
 --------------------------------------------------------------------------------
@@ -185,6 +203,51 @@ file, which only carried the largest rivers.
 nigeria_boundary.shp (whole country, 1 polygon) and nigeria_states.shp
 (36 states + FCT) are included so the dataset is complete on its own.
 Areas were computed in an equal-area projection (EPSG:6933).
+
+
+--------------------------------------------------------------------------------
+6. ADDITIONAL SHAPEFILES IN THIS COLLECTION ZIP
+--------------------------------------------------------------------------------
+At the client's request, the other finished shapefile datasets held in the
+project repository were added to this same flat collection zip. They are
+reference / source layers in addition to the curated official-map extraction
+described in Sections 1-5; they do not replace the rebuilt mineral points,
+the watertight geology units, or the full river network above. All are in
+WGS 84 (EPSG:4326), and every dataset below was checked to open with matching
+.shp/.dbf record counts and complete .shp/.shx/.dbf/.prj/.cpg components. The
+one non-standard code-page file (rail_lines.cpg: "UTF-8,2GB_LIMIT=NO") was
+normalized to "UTF-8" in this flat copy so strict readers accept it.
+
+  * G1_geological_boundaries (2819 Polyline features) - Additional PDF-selected layer: geological boundary linework from the geology sheet.
+  * G2_faults (648 Polyline features) - Additional PDF-selected layer: fault linework from the geology sheet.
+  * G3_fold_axes (90 Polyline features) - Additional PDF-selected layer: fold axes from the geology sheet.
+  * G4_ridges (2 Polyline features) - Additional PDF-selected layer: ridge linework from the geology sheet.
+  * G5_volcanic_plugs (68 Point features) - Additional PDF-selected layer: volcanic plug points from the geology sheet.
+  * M2_geology_areas (572 Polygon features) - Additional PDF-selected reference polygons: geology areas as drawn on the 2023 mineral map (use nigeria_geology_units for the watertight geology layer).
+  * M2_pegmatite_marks (23 Point features) - Additional PDF-selected source marks for pegmatite fields (curated version: nigeria_pegmatite_fields).
+  * lga_boundaries (774 Polygon features) - Additional online layer: 774 LGA polygons (geoBoundaries/GRID3, representative year 2022; CC BY 4.0).
+  * nigeria_admin0 (1 Polygon features) - Additional reference layer: Natural Earth whole-country polygon.
+  * populated_places (22004 Point features) - Additional online layer: 22,004 OSM-derived settlement points (SafeSignal-Geo; ODbL; not a census).
+  * rail_lines (1429 Polyline features) - Additional online layer: railway lines (OpenStreetMap/OEX snapshot; ODbL).
+  * river_lines (35 Polyline features) - Additional online reference only: 35 generalized Natural Earth major-river centrelines (use nigeria_rivers for the full mapped network).
+  * road_lines (4708 Polyline features) - Additional online layer: road network lines (HDX/OpenStreetMap-derived; see online_layers_README).
+  * senatorial_districts (109 Polygon features) - Additional online layer: 109 senatorial districts (OCHA COD-AB; CC BY-IGO).
+  * state_boundaries (37 Polygon features) - Additional online reference layer: Natural Earth admin-1 states/FCT (compare curated nigeria_states).
+  * state_capitals (37 Point features) - Additional online layer: 37 state/FCT capital points.
+  * towns (927 Point features) - Additional online layer: 927 GeoNames-subset town/city points (comparison layer; not exhaustive).
+
+Sources and licenses differ by layer - there is no single license for the
+added layers. Retain attribution and follow each source's terms; start with
+online_layers_README.md, online_layers_sources.json and
+populated_places_ATTRIBUTION.txt for the online layers, and
+pdf_selected_layers_README.md / M2_accuracy_assessment.md for the PDF-selected
+layers. collection_manifest.csv lists every shapefile dataset in this zip
+with its repository source path, feature count, geometry type, CRS, bounding
+box and component files.
+
+Deliberately NOT re-added: the superseded pre-rebuild mineral extract and
+the duplicate pre-fix geology copy (their rebuilt replacements are the
+curated layers in Sections 2-3), and intermediate working files under work/.
 
 --------------------------------------------------------------------------------
 ACCURACY STATEMENT

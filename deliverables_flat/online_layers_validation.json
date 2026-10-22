@@ -1,0 +1,517 @@
+{
+  "generated_on": "2026-10-18",
+  "reference": {
+    "path": "shapefiles/nigeria_admin0/nigeria_admin0.shp",
+    "feature_count": 1,
+    "crs": {
+      "name": "WGS 84",
+      "epsg": 4326,
+      "authority": [
+        "EPSG",
+        "4326"
+      ]
+    },
+    "bounds_lon_lat": [
+      2.67108199,
+      4.272162177,
+      14.669936157,
+      13.880290832
+    ],
+    "area_km2_equal_area": 907499.579794,
+    "modified": false,
+    "component_sha256": {
+      "nigeria_admin0.cpg": "146d6789ffe033a5297c1ad046e6a62ee35319b86b021444f05b6ea2aa8a1f4a",
+      "nigeria_admin0.dbf": "07f350855e96c2c55e83112c15ead36bd38b2036560d1652b7cb61659de2cf8d",
+      "nigeria_admin0.prj": "c48fa0a08c78aa3bd747695ddd13b31c38fee66db41b76510c43428465d41dcb",
+      "nigeria_admin0.shp": "9d973b15d0ae3ed36f1222e4c928e312665b4433ee5913648c225081950bb9dc",
+      "nigeria_admin0.shx": "00e608015613f8b4bc73e2270b933754f77680f76bfeea29346119d924d6ac5b"
+    }
+  },
+  "area_comparison_projection": "+proj=aea +lat_1=4 +lat_2=12 +lat_0=0 +lon_0=9 +datum=WGS84 +units=m +no_defs +type=crs",
+  "layers": {
+    "state_boundaries": {
+      "path": "state_boundaries/state_boundaries.shp",
+      "feature_count": 37,
+      "geometry_type": "Polygon",
+      "expected_geometry_type": "Polygon",
+      "invalid_or_empty_count": 0,
+      "crs": {
+        "name": "WGS 84",
+        "epsg": 4326,
+        "authority": [
+          "EPSG",
+          "4326"
+        ]
+      },
+      "bounds_lon_lat": [
+        2.67108199,
+        4.272162177,
+        14.669936157,
+        13.880290832
+      ],
+      "fields": [
+        "STATE_NM",
+        "ADM1_CODE",
+        "ISO3166_2",
+        "TYPE_EN",
+        "REGION",
+        "ALT_NAME"
+      ],
+      "alignment_to_reference": {
+        "union_area_km2": 907499.585412,
+        "outside_reference_km2": 0.005635,
+        "reference_gap_km2": 1.7e-05,
+        "symmetric_difference_km2": 0.005652,
+        "outside_reference_pct": 1e-06,
+        "reference_gap_pct": 0.0
+      }
+    },
+    "senatorial_districts": {
+      "path": "senatorial_districts/senatorial_districts.shp",
+      "feature_count": 109,
+      "geometry_type": "Polygon",
+      "expected_geometry_type": "Polygon",
+      "invalid_or_empty_count": 0,
+      "crs": {
+        "name": "WGS 84",
+        "epsg": 4326,
+        "authority": [
+          "EPSG",
+          "4326"
+        ]
+      },
+      "bounds_lon_lat": [
+        2.668533563,
+        4.27300739,
+        14.678816234,
+        13.894419133
+      ],
+      "fields": [
+        "SEN_DIST",
+        "SEN_CODE",
+        "SEN_REF",
+        "SEN_ALT",
+        "SEN_ALT2",
+        "STATE",
+        "STATE_PC",
+        "COUNTRY",
+        "CNTRY_PC",
+        "DATA_DATE",
+        "VALID_ON",
+        "VALID_TO",
+        "VERSION"
+      ],
+      "alignment_to_reference": {
+        "union_area_km2": 909749.557046,
+        "outside_reference_km2": 5278.854086,
+        "reference_gap_km2": 3028.876834,
+        "symmetric_difference_km2": 8307.73092,
+        "outside_reference_pct": 0.581692,
+        "reference_gap_pct": 0.333761
+      },
+      "state_feature_counts": {
+        "Abia": 3,
+        "Adamawa": 3,
+        "Akwa Ibom": 3,
+        "Anambra": 3,
+        "Bauchi": 3,
+        "Bayelsa": 3,
+        "Benue": 3,
+        "Borno": 3,
+        "Cross River": 3,
+        "Delta": 3,
+        "Ebonyi": 3,
+        "Edo": 3,
+        "Ekiti": 3,
+        "Enugu": 3,
+        "Federal Capital Territory": 1,
+        "Gombe": 3,
+        "Imo": 3,
+        "Jigawa": 3,
+        "Kaduna": 3,
+        "Kano": 3,
+        "Katsina": 3,
+        "Kebbi": 3,
+        "Kogi": 3,
+        "Kwara": 3,
+        "Lagos": 3,
+        "Nasarawa": 3,
+        "Niger": 3,
+        "Ogun": 3,
+        "Ondo": 3,
+        "Osun": 3,
+        "Oyo": 3,
+        "Plateau": 3,
+        "Rivers": 3,
+        "Sokoto": 3,
+        "Taraba": 3,
+        "Yobe": 3,
+        "Zamfara": 3
+      },
+      "unique_district_names": 109,
+      "unique_district_codes": 109,
+      "symdiff_vs_OCHA_ADM2_union_m2": 142.916
+    },
+    "lga_boundaries": {
+      "path": "lga_boundaries/lga_boundaries.shp",
+      "feature_count": 774,
+      "geometry_type": "Polygon",
+      "expected_geometry_type": "Polygon",
+      "invalid_or_empty_count": 0,
+      "crs": {
+        "name": "WGS 84",
+        "epsg": 4326,
+        "authority": [
+          "EPSG",
+          "4326"
+        ]
+      },
+      "bounds_lon_lat": [
+        2.692612538,
+        4.270203986,
+        14.677967754,
+        13.885713987
+      ],
+      "fields": [
+        "LGA_NAME",
+        "LEVEL",
+        "REP_YEAR",
+        "SOURCE"
+      ],
+      "alignment_to_reference": {
+        "union_area_km2": 912512.681851,
+        "outside_reference_km2": 6765.518287,
+        "reference_gap_km2": 1752.41623,
+        "symmetric_difference_km2": 8517.934517,
+        "outside_reference_pct": 0.745512,
+        "reference_gap_pct": 0.193104
+      }
+    },
+    "river_lines": {
+      "path": "river_lines/river_lines.shp",
+      "feature_count": 35,
+      "geometry_type": "Polyline",
+      "expected_geometry_type": "Polyline",
+      "invalid_or_empty_count": 0,
+      "crs": {
+        "name": "WGS 84",
+        "epsg": 4326,
+        "authority": [
+          "EPSG",
+          "4326"
+        ]
+      },
+      "bounds_lon_lat": [
+        3.312744141,
+        4.419867255,
+        14.669472005,
+        13.572986545
+      ],
+      "fields": [
+        "RIVER_NAME",
+        "ALT_NAME",
+        "RIVER_NUM",
+        "SCALE_RANK",
+        "MIN_ZOOM",
+        "CLIP_REF"
+      ],
+      "length_km_equal_area_projection": 5137.286304,
+      "outside_reference_length_km": 7e-06,
+      "outside_reference_length_pct": 0.0
+    },
+    "road_lines": {
+      "path": "road_lines/road_lines.shp",
+      "feature_count": 4708,
+      "geometry_type": "Polyline",
+      "expected_geometry_type": "Polyline",
+      "invalid_or_empty_count": 0,
+      "crs": {
+        "name": "WGS 84",
+        "epsg": 4326,
+        "authority": [
+          "EPSG",
+          "4326"
+        ]
+      },
+      "bounds_lon_lat": [
+        2.678745001,
+        4.529137102,
+        14.653366533,
+        13.874735186
+      ],
+      "fields": [
+        "MED_DESCRI",
+        "RTT_DESCRI",
+        "F_CODE_DES",
+        "ISO",
+        "ISOCOUNTRY"
+      ],
+      "length_km_equal_area_projection": 81023.466558,
+      "outside_reference_length_km": 227.12216,
+      "outside_reference_length_pct": 0.280317
+    },
+    "rail_lines": {
+      "path": "rail_lines/rail_lines.shp",
+      "feature_count": 1429,
+      "geometry_type": "Polyline",
+      "expected_geometry_type": "Polyline",
+      "invalid_or_empty_count": 0,
+      "crs": {
+        "name": "WGS 84",
+        "epsg": 4326,
+        "authority": [
+          "EPSG",
+          "4326"
+        ]
+      },
+      "bounds_lon_lat": [
+        3.2087696,
+        4.7600183,
+        14.0739101,
+        12.8758193
+      ],
+      "fields": [
+        "id",
+        "name",
+        "name_en",
+        "name_yo",
+        "railway",
+        "ele",
+        "operator_t",
+        "layer",
+        "addr_full",
+        "addr_city",
+        "source",
+        "adm0_pcode",
+        "adm0_name",
+        "adm1_pcode",
+        "adm1_name",
+        "adm2_pcode",
+        "adm2_name",
+        "adm3_pcode",
+        "adm3_name",
+        "adm4_pcode",
+        "adm4_name",
+        "name_latin"
+      ],
+      "length_km_equal_area_projection": 4485.118834,
+      "outside_reference_length_km": 5.291676,
+      "outside_reference_length_pct": 0.117983
+    },
+    "state_capitals": {
+      "path": "state_capitals/state_capitals.shp",
+      "feature_count": 37,
+      "geometry_type": "Point",
+      "expected_geometry_type": "Point",
+      "invalid_or_empty_count": 0,
+      "crs": {
+        "name": "WGS 84",
+        "epsg": 4326,
+        "authority": [
+          "EPSG",
+          "4326"
+        ]
+      },
+      "bounds_lon_lat": [
+        3.34205,
+        4.77742,
+        13.15712,
+        13.06269
+      ],
+      "fields": [
+        "CAPITAL",
+        "GN_NAME",
+        "STATE",
+        "STATE_CD",
+        "GN_ADM1",
+        "GN_ADM2",
+        "COUNTRY",
+        "IN_REF",
+        "SOURCE"
+      ],
+      "inside_reference_count": 37,
+      "outside_reference_count": 0,
+      "flag_matches_geometry": true
+    },
+    "towns": {
+      "path": "towns/towns.shp",
+      "feature_count": 927,
+      "geometry_type": "Point",
+      "expected_geometry_type": "Point",
+      "invalid_or_empty_count": 0,
+      "crs": {
+        "name": "WGS 84",
+        "epsg": 4326,
+        "authority": [
+          "EPSG",
+          "4326"
+        ]
+      },
+      "bounds_lon_lat": [
+        2.7472,
+        4.31231,
+        14.46552,
+        13.7543
+      ],
+      "fields": [
+        "PLACE",
+        "STATE",
+        "STATE_CD",
+        "GN_ADM1",
+        "GN_ADM2",
+        "ADM2_NAME",
+        "COUNTRY",
+        "IN_REF",
+        "SOURCE"
+      ],
+      "inside_reference_count": 916,
+      "outside_reference_count": 11,
+      "flag_matches_geometry": true
+    },
+    "populated_places": {
+      "path": "populated_places/populated_places.shp",
+      "feature_count": 22004,
+      "geometry_type": "Point",
+      "expected_geometry_type": "Point",
+      "invalid_or_empty_count": 0,
+      "crs": {
+        "name": "WGS 84",
+        "epsg": 4326,
+        "authority": [
+          "EPSG",
+          "4326"
+        ]
+      },
+      "bounds_lon_lat": [
+        2.70197,
+        4.28604,
+        14.66711,
+        13.88776
+      ],
+      "fields": [
+        "PLACE_ID",
+        "PLACE",
+        "ALIASES",
+        "TYPE",
+        "STATE",
+        "LGA",
+        "LICENSE",
+        "SOURCE",
+        "LAT",
+        "LON",
+        "POP_SCORE",
+        "IN_REF"
+      ],
+      "source_package": "safesignal-geo 0.2.0",
+      "source_csv_row_count": 42315,
+      "source_filter": "type=settlement; row-level license=ODbL; source=osm:*",
+      "source_license_counts": {
+        "ODbL": 22004
+      },
+      "source_object_kind_counts": {
+        "node": 21869,
+        "way": 135
+      },
+      "unique_place_id_count": 22004,
+      "unique_source_id_count": 22004,
+      "unique_coordinate_count": 21637,
+      "duplicate_coordinate_records": 367,
+      "unknown_state_count": 688,
+      "missing_alias_count": 0,
+      "alias_truncated_count": 0,
+      "popularity_score_range": [
+        0,
+        200
+      ],
+      "state_feature_counts": {
+        "Abia": 93,
+        "Adamawa": 497,
+        "Akwa Ibom": 358,
+        "Anambra": 116,
+        "Bauchi": 346,
+        "Bayelsa": 360,
+        "Benue": 134,
+        "Borno": 5725,
+        "Cross River": 340,
+        "Delta": 762,
+        "Ebonyi": 178,
+        "Edo": 393,
+        "Ekiti": 91,
+        "Enugu": 196,
+        "Federal Capital Territory": 99,
+        "Gombe": 165,
+        "Imo": 166,
+        "Jigawa": 283,
+        "Kaduna": 538,
+        "Kano": 2201,
+        "Katsina": 293,
+        "Kebbi": 1731,
+        "Kogi": 353,
+        "Kwara": 346,
+        "Lagos": 284,
+        "Nasarawa": 139,
+        "Niger": 568,
+        "Ogun": 536,
+        "Ondo": 225,
+        "Osun": 158,
+        "Oyo": 377,
+        "Plateau": 190,
+        "Rivers": 500,
+        "Sokoto": 1480,
+        "Unknown": 688,
+        "Yobe": 247,
+        "Zamfara": 848
+      },
+      "alignment_to_reference": {
+        "reference_path": "shapefiles/nigeria_admin0/nigeria_admin0.shp",
+        "predicate": "covers(Point)",
+        "inside_reference_count": 21352,
+        "outside_reference_count": 652,
+        "inside_reference_pct": 97.036902,
+        "outside_reference_pct": 2.963098,
+        "outside_points_retained_and_flagged": true,
+        "flag_field": "IN_REF (Y/N)"
+      },
+      "attribute_mismatch_count": 0,
+      "string_field_widths_bytes": {
+        "PLACE_ID": 65,
+        "PLACE": 80,
+        "ALIASES": 73,
+        "TYPE": 12,
+        "STATE": 25,
+        "LGA": 24,
+        "LICENSE": 10,
+        "SOURCE": 24
+      },
+      "source_csv_sha256": "fd72b05cf77b3003d0bad2ba6008d7cf04e356c6ce8490bbebf80329731f85b3",
+      "package_wheel_sha256": "ab5917a54d678de194d6ca26b3ddef77d84b3ff102d3e809e528feaf0335dce2",
+      "package_release_date": "2026-05-20",
+      "source_data_snapshot_date": "not stated"
+    }
+  },
+  "codab_lga_senatorial_crosswalk": {
+    "row_count": 774,
+    "unique_lga_pcodes": 774,
+    "unique_sen_district_names": 109,
+    "unique_sen_pc_codes": 109
+  },
+  "supplemental_sources": {
+    "grid3_settlement_names": {
+      "status": "metadata verified; local geometry not acquired or validated",
+      "reported_feature_count": 292438,
+      "local_feature_count": null,
+      "local_output_path": "shapefiles/nigeria_online_layers/grid3_settlement_names/",
+      "geometry_type": "Point",
+      "crs_reported_by_service": "EPSG:4326",
+      "license_reported_by_service": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "service_item_id": "73d8522d1c4d4c75be6c10fa790c685c",
+      "reason_not_in_layer_validation": "The user-provided signed Azure CSV fetch returned HTTP 500; direct ArcGIS/Azure file hosts are outside the sandbox download allowlist. Only metadata and conversion scripts are present.",
+      "requested_output_attributes": [
+        "FID",
+        "LGA_NAME",
+        "STATE_NAME",
+        "SET_NAME"
+      ]
+    }
+  }
+}

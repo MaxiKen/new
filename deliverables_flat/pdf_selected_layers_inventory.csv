@@ -1,0 +1,8 @@
+layer,group,geometry_type,feature_count,crs,source_or_method
+G1_geological_boundaries,G1-G5 geology,POLYLINE,2819,EPSG:4326,matching 2011 vector-edition PDF; current geology graticule affine
+G2_faults,G1-G5 geology,POLYLINE,648,EPSG:4326,matching 2011 vector-edition PDF; current geology graticule affine
+G3_fold_axes,G1-G5 geology,POLYLINE,90,EPSG:4326,matching 2011 vector-edition PDF; current geology graticule affine
+G4_ridges,G1-G5 geology,POLYLINE,2,EPSG:4326,matching 2011 vector-edition PDF; current geology graticule affine
+G5_volcanic_plugs,G1-G5 geology,POINT,68,EPSG:4326,matching 2011 vector-edition PDF; current geology graticule affine
+M2_geology_areas,M2 minerals-map geology,POLYGON,474,EPSG:4326,raster color segmentation + residual class; current local boundary fit
+M2_pegmatite_marks,M2 minerals-map geology,POINT,23,EPSG:4326,23 PDF P marks; /VP coordinates adjusted to current local boundary fit
