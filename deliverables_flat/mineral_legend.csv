@@ -1,68 +1,68 @@
 legend_no,map_legend_category,point_attribute_name,commodity_group,occurrences_in_dataset
 1,Asbestos / Serpentine,Asbestos-serpentine group,industrial minerals,0
 2,Ball Clay,Ball Clay,construction materials,1
-3,Baryte,Baryte,industrial minerals,27
-4,Bauxitic Clay,Bauxitic Clay,construction materials,5
+3,Baryte,Baryte,industrial minerals,29
+4,Bauxitic Clay,Bauxitic Clay,construction materials,4
 5,Bentonite,Bentonite,industrial minerals,13
-6,"Beryl, Aquamarine, Emerald",Beryl group,gemstones,44
+6,"Beryl, Aquamarine, Emerald",Beryl group,gemstones,46
 7,Bismuth,Bismuth,base metals,0
 8,Bitumen,Bitumen,energy,0
-9,Brick Clay,Brick Clay,construction materials,9
-10,Brine,Brine,industrial minerals,40
-11,Chromite,Chromite,ferrous metals,3
-12,Clay / Pottery Clay,Clay,construction materials,148
-13,Coal,Coal,energy,26
-14,Columbite,Columbite,rare metals,51
+9,Brick Clay,Brick Clay,construction materials,7
+10,Brine,Brine,industrial minerals,38
+11,Chromite,Chromite,ferrous metals,4
+12,Clay / Pottery Clay,Clay,construction materials,151
+13,Coal,Coal,energy,28
+14,Columbite,Columbite,rare metals,41
 15,Copper minerals,Copper minerals,base metals,4
 16,"Corundum, Sapphire & Ruby",Corundum group,gemstones,1
-17,Diatomite,Diatomite,industrial minerals,4
+17,Diatomite,Diatomite,industrial minerals,6
 18,Dimension Stone,Dimension Stone,construction materials,4
-19,Evaporite,Evaporite,industrial minerals,4
-20,Feldspar,Feldspar,industrial minerals,30
-21,Fire Clay,Fire Clay,construction materials,2
+19,Evaporite,Evaporite,industrial minerals,7
+20,Feldspar,Feldspar,industrial minerals,32
+21,Fire Clay,Fire Clay,construction materials,1
 22,Flourite,Fluorite,industrial minerals,3
 23,Garnet,Garnet,gemstones,4
-24,Oil and Gas,Oil and Gas,energy,16
-25,Glass Sand,Glass Sand,construction materials,19
-26,Gold,Gold,precious metals,106
+24,Oil and Gas,Oil and Gas,energy,18
+25,Glass Sand,Glass Sand,construction materials,35
+26,Gold,Gold,precious metals,107
 27,Graphite,Graphite,industrial minerals,15
 28,River Gravel,River Gravel,construction materials,4
 29,Galena,Galena,base metals,4
-30,Granite,Granite,unknown,4
-31,Gypsum,Gypsum,industrial minerals,43
+30,Granite,Granite,unknown,0
+31,Gypsum,Gypsum,industrial minerals,49
 32,Phosphate,Phosphate,industrial minerals,7
-33,"Iron Ore (Magnetite, Ilmenite)",Iron Ore,ferrous metals,37
-34,Kaolin / kaolinitic clay,Kaolin,industrial minerals,74
+33,"Iron Ore (Magnetite, Ilmenite)",Iron Ore,ferrous metals,39
+34,Kaolin / kaolinitic clay,Kaolin,industrial minerals,80
 35,Kyanite,Kyanite,industrial minerals,6
-36,Lead - Zinc,Lead-zinc,base metals,30
-37,Lepidolite,Lepidolite,rare metals,8
+36,Lead - Zinc,Lead-zinc,base metals,34
+37,Lepidolite,Lepidolite,rare metals,3
 38,Lignite,Lignite,energy,8
-39,Limestone,Limestone,construction materials,66
+39,Limestone,Limestone,construction materials,63
 40,Manganese,Manganese,ferrous metals,3
-41,Marble,Marble,construction materials,42
-42,Marcasite,Marcasite,industrial minerals,1
+41,Marble,Marble,construction materials,44
+42,Marcasite,Marcasite,industrial minerals,2
 43,Marl,Marl,construction materials,5
-44,Mica,Mica,industrial minerals,18
-45,Magnesite,Magnesite,industrial minerals,7
+44,Mica,Mica,industrial minerals,9
+45,Magnesite,Magnesite,industrial minerals,12
 46,Molybdenite,Molybdenite,ferrous metals,1
 47,Monazite,Monazite,rare metals,3
 48,Nickel,Nickel,ferrous metals,0
 49,Phosphate Rock,Phosphate Rock,industrial minerals,0
 50,Psammite,Psammite,construction materials,0
-51,Pyrite / Pyroclore,Pyrite group,rare metals,7
-52,Rose Quartz,Rose Quartz,gemstones,17
-53,Saltlake/ Potash,Salt-potash group,industrial minerals,0
+51,Pyrite / Pyroclore,Pyrite group,rare metals,8
+52,Rose Quartz,Rose Quartz,gemstones,0
+53,Saltlake/ Potash,Salt-potash group,industrial minerals,2
 54,Silica Sand,Silica Sand,construction materials,2
 55,Sillimanite,Sillimanite,industrial minerals,0
 56,Silver,Silver,precious metals,1
-57,Talc,Talc,industrial minerals,19
-58,Tantalite,Tantalite,rare metals,45
-59,Tar Sand,Tar Sand,energy,9
-60,Topaz,Topaz,gemstones,1
-61,Tourmaline,Tourmaline,gemstones,13
+57,Talc,Talc,industrial minerals,21
+58,Tantalite,Tantalite,rare metals,50
+59,Tar Sand,Tar Sand,energy,10
+60,Topaz,Topaz,gemstones,2
+61,Tourmaline,Tourmaline,gemstones,15
 62,Trona,Trona,industrial minerals,0
 63,Uranium,Uranium,energy,3
 64,Wolframite,Wolframite,rare metals,13
-65,Zircon,Zircon,rare metals,7
-66,"Lithium (Ambligonite, Kunzite, Moganite, Spodumene, etc)",Lithium mineral,rare metals,3
+65,Zircon,Zircon,rare metals,8
+66,"Lithium (Ambligonite, Kunzite, Moganite, Spodumene, etc)",Lithium mineral,rare metals,4
 67,Calcite,Calcite,industrial minerals,0
