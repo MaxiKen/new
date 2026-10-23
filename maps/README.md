@@ -12,11 +12,14 @@ sheets in this repository:
 
 | File | What it is |
 |---|---|
-| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, 18 layers + metadata, all EPSG:4326 — this is the deliverable |
+| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, 20 layers, all EPSG:4326 — this is the deliverable |
 | `Nigeria_Geology_Minerals_4326.png` / `.pdf` | rendered map |
 | `build_combined.py` | rebuilds the GeoPackage |
 | `render_combined.py` | rebuilds the image/PDF |
-| `metadata.json` | provenance record (also embedded in the GPKG description) |
+| `metadata.json` | provenance record |
+| `accuracy_audit.md` | measured error budget: why ±10 km, what can and cannot be improved |
+| `refine_localities.py` | rebuilds the refined positions and the UTM layer |
+| `locality_reassignments.csv` | the 49 locality moves, for review |
 
 ---
 
@@ -64,6 +67,8 @@ graticule fit above supersedes it.
 |---|---|---|
 | `geology_units` | 1,518 polygons | 92 codes / 97 lithologies. Attributes: `unit`, `code`, `leg_desc`, `formation`, `strat_grp`, `age_print`, `eon`/`era`/`period`/`epoch`, `age_ma_min`/`age_ma_max`, `rock_cls`, `basins`, `area_km2`, `fill` |
 | `mineral_localities` | 999 points | `locality`, `zone`, `number`, `mineral_1`, `group_1`, `minerals`, `n_minerals`, `symbol`, plus the **host rock re-joined from the geology polygons**: `host_unit`, `host_code`, `host_era`, `host_period`, `host_age_ma`, `host_dist_m` |
+| `mineral_localities_refined` | 999 points | **use this one.** Same attributes plus `pos_method`, `pos_sigma_m` (0.7 / 1.2 / 10 km), `host_boundary_dist_m`, `near_contact`, `reassigned_from` |
+| `mineral_localities_utm32n` | 999 points | the same points on WGS 84 / UTM zone 32N (EPSG:32632) for measuring in metres — reprojection is exact, so this changes nothing about accuracy |
 | `mineral_symbols` | 1,609 points | every printed mineral symbol with its identified commodity and colour |
 | `faults` | 648 | major + inferred fractures |
 | `geology_boundaries` | 2,819 | exact / approximate / inferred / transitional |
@@ -88,8 +93,12 @@ polygon after the duplicates/overlaps were cleaned, and the geometry here is the
 1. **Attributes do not exist in the source PDFs.** Both sheets are drawing exports with no feature
    tables. Unit codes, stratigraphy, ages and mineral names were reconstructed from layer names,
    the printed legend, correlation chart and in-polygon labels. Spot-check before relying on any code.
-2. **Positional accuracy is that of a 1:2 M drawing**: 1 pt = 0.7 km on the ground, and the source
-   data were themselves digitised at that scale. Treat locations as ±10 km.
+2. **Positional accuracy is not uniform** — see `accuracy_audit.md`. Registration is 0.13 km and
+   reprojection is exact, so the error is in the sheet's own ink: 686 localities (68.7 %) are at a
+   printed symbol and carry **±0.7 km**; 49 more were recovered by mineral identity and carry
+   **±1.2 km**; the remaining 264 are located by their number label only, and on this sheet labels
+   sit a median 9 km from their symbols, so they carry **±10 km**. Median σ is 0.7 km. Use the
+   `pos_sigma_m` field rather than a blanket figure.
 3. **The two sheets disagree at the several-km level** on shared features (coastline median offset
    ~5 km, 90th percentile ~18 km; worst on the western Niger delta flank). They were compiled
    12 years apart and generalised independently. This dataset uses the **2011 sheet for all base
