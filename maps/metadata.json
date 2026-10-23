@@ -1,0 +1,46 @@
+[
+  {
+    "key":"title",
+    "value":"Geology and Mineral Resources of Nigeria - combined, EPSG:4326"
+  },
+  {
+    "key":"crs",
+    "value":"WGS 84, longitude\/latitude, EPSG:4326, degrees"
+  },
+  {
+    "key":"geology_source",
+    "value":"NGSA Geological Map of Nigeria, 1:2,000,000 (2011 edition, DG Prof. Siyan Malomo); vector PDF, 125 layers"
+  },
+  {
+    "key":"minerals_source",
+    "value":"NGSA Mineral Resources Map of Nigeria, 1:2,000,000, 2nd edition 2023 (DG Dr Abdulrazaq Garba); vector PDF"
+  },
+  {
+    "key":"geology_registration",
+    "value":"affine fitted to printed 1-degree graticule: lon = (x + 276.36)\/157.593, lat = (2281.63 - y)\/157.586; residual 0.20 pt"
+  },
+  {
+    "key":"minerals_registration",
+    "value":"affine fitted to printed graticule (not the embedded \/Measure, which disagrees with it): lon = (x + 288.67)\/157.288, lat = (2575.87 - y)\/157.602"
+  },
+  {
+    "key":"provenance_note",
+    "value":"Both sheets are unprojected equirectangular at 157.6 pt\/deg = 1:2,000,000; datum treated as WGS 84 (Minna datum would shift ~100-200 m, below drawing resolution)"
+  },
+  {
+    "key":"positional_accuracy",
+    "value":"1 pt = 0.7 km on the ground; graticule fit <0.3 pt; residual cartographic disagreement between the two sheets ~5 km median, 20 km p90"
+  },
+  {
+    "key":"area_check",
+    "value":"geology polygons total 924,900 km2 vs 923,768 km2 official - +0.1%"
+  },
+  {
+    "key":"attributes_note",
+    "value":"No attribute tables exist in either PDF; codes, strata and ages were reconstructed from layer names, the printed legend and in-polygon labels"
+  },
+  {
+    "key":"built",
+    "value":"2026-10-23"
+  }
+]
