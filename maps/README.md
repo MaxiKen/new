@@ -12,7 +12,7 @@ sheets in this repository:
 
 | File | What it is |
 |---|---|
-| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, 20 layers, all EPSG:4326 — this is the deliverable |
+| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, 22 layers, 13,627 features, all EPSG:4326 — this is the deliverable |
 | `Nigeria_Geology_Minerals_4326.png` / `.pdf` | rendered map |
 | `build_combined.py` | rebuilds the GeoPackage |
 | `render_combined.py` | rebuilds the image/PDF |
@@ -20,7 +20,43 @@ sheets in this repository:
 | `accuracy_audit.md` | measured error budget: why ±10 km, what can and cannot be improved |
 | `anchor_to_icons.py` | rebuilds the icon-anchored positions, the UTM layer and `icon_anchoring_report.json` |
 | `refine_localities.py` | previous policy, kept for comparison |
+| `fetch_source.py` | pulls the pinned source extraction (see provenance below) |
 | `locality_reassignments.csv` | the 49 locality moves, for review |
+
+---
+
+## Where the content comes from
+
+Nothing in `maps/` was digitised by hand, and the geometry was **not** extracted in this
+repository. The chain is:
+
+| step | who / what | artefact |
+|---|---|---|
+| 1. source drawings | NGSA. `Geological_Map_of_Nigeria.pdf` (2011) and `Mineral_Resources_Map_of_Nigeria_2023.pdf` (2023) — layered vector exports from ArcMap with **no attribute tables** | the two PDFs in the repo root |
+| 2. geometry extraction | done once in the sibling repo `MaxiKen/site` (pinned commit `138e961`): every vector path in the two PDFs sorted into layers, the affine fitted to each printed graticule, unit codes/ages rebuilt from layer names, the legend and in-polygon labels | `nigeria_maps.gpkg`, 40+ layers, 21 MB |
+| 3. assembly (here) | `build_combined.py` selects/simplifies those layers, validates geometry, dedups polygons, re-joins localities to their host unit, corrects the mineral QA graticule | `Nigeria_Geology_Minerals_4326.gpkg`, 18 base layers |
+| 4. point refinement (here) | `refine_localities.py`, then `anchor_to_icons.py` — move each locality onto the centre of its printed icon | +4 derived layers |
+| 5. render (here) | `render_combined.py` | PNG + PDF |
+
+**Step 2 is the one that matters, and it is external.** `fetch_source.py` pulls the exact
+file used, pinned to a commit and verified by SHA-256, so the build is reproducible without
+versioning a 21 MB intermediate:
+
+```bash
+python fetch_source.py          # clone MaxiKen/site @ 138e961, verify sha256, copy nigeria_maps.gpkg
+python build_combined.py        # 18 base layers
+python refine_localities.py     # + refined + UTM layers
+python anchor_to_icons.py       # + icon-anchored layers
+python render_combined.py       # PNG/PDF
+```
+
+`build_combined.py` accepts `--source` (or `MAPS_SOURCE`) if the extraction lives elsewhere.
+
+What is *this* repo's contribution to the coordinates: the verification that the extraction's
+registration is right (graticule residual 130 m, area +0.1 %, national border 0.1 km from the
+geology coverage edge), the correction of the one mislabelled QA table, and the point-accuracy
+work (`accuracy_audit.md`) — not the original digitisation.
+
 
 ---
 

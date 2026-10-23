@@ -22,6 +22,7 @@ locality -> host-unit join against the authoritative geology polygons).
 Outputs
     maps/Nigeria_Geology_Minerals_4326.gpkg
 """
+import argparse
 import json
 import pathlib
 import warnings
@@ -34,7 +35,21 @@ import pyogrio
 
 warnings.filterwarnings("ignore")
 
-SRC = pathlib.Path("/tmp/site/nigeria_maps.gpkg")   # extraction of the two NGSA sheets
+# The source extraction is NOT in this repository - see fetch_source.py and the
+# provenance section of README.md.  Override with --source or the MAPS_SOURCE
+# environment variable.
+import os
+
+_ap = argparse.ArgumentParser(description="Build the combined Nigeria map GeoPackage.")
+_ap.add_argument("--source", default=os.environ.get(
+    "MAPS_SOURCE", str(pathlib.Path(__file__).parent / "source_extraction" / "nigeria_maps.gpkg")),
+    help="path to nigeria_maps.gpkg from MaxiKen/site (pinned commit)")
+_args = _ap.parse_args()
+SRC = pathlib.Path(_args.source)
+if not SRC.exists():
+    raise SystemExit(
+        f"source extraction not found: {SRC}\n"
+        f"Run  python fetch_source.py  first (it clones the pinned commit and verifies the checksum).")
 OUT = pathlib.Path(__file__).parent
 GPKG = OUT / "Nigeria_Geology_Minerals_4326.gpkg"
 CRS = "EPSG:4326"
