@@ -56,6 +56,35 @@ The earlier easy-case backtest (95.5 % correct) was misleading because it could 
 the cases where the symbol was already close — i.e. exactly the ones the original
 extraction had already solved.
 
+## 3b. Anchoring every point on its icon (the brief) — implemented, with one correction
+
+You asked that the mineral points be the calculated centre of the symbol icons. Implemented
+in `anchor_to_icons.py`, with one correction that the measurement forced:
+
+| variant | points sitting on an icon | verdict |
+|---|---|---|
+| centroid of all icons owned by a locality | **693 / 999** | rejected — where a locality prints several icons they are a cluster with a median spread of 11.2 km, and their centroid falls **5.9 km** from the nearest icon, i.e. on blank paper |
+| medoid — the real icon nearest the group centre | **842 / 999** | used |
+
+So the rule is: one icon -> that icon's exact centre; several icons -> the printed icon nearest
+their centre. Either way the point always lands on ink, never between symbols. Both coordinates
+are kept (`group_centroid_lon/lat` records where the geometric centroid would have been).
+
+Icon assignment uses commodity identity (<=20 km), then recorded colour (<=15 km), then colour
+inferred from the commodity (<=12 km). Back-tested on the 686 localities whose icon is known:
+**97.4 % land on the correct icon** (685 of 686 resolved).
+
+| | before (numbers used) | refined | icon-anchored |
+|---|---|---|---|
+| points within 0.4 km of an icon | 686 (68.7 %) | 803 (80.4 %) | **842 (84.3 %)** |
+| p90 stray to nearest icon | 11.1 km | 11.0 km | **10.7 km** |
+
+**Does it reduce the stray? Yes, but modestly — not to zero.** 179 points still sit on their
+printed number, with a median 11.1 km stray, because for them the sheet prints nothing to anchor
+to: 58 are commodities that have no legend symbol at all (cassiterite and quartz are the biggest),
+and 121 have a legend symbol somewhere but none within the validated 12–20 km radius. Pointing
+those at a distant icon would be the 4 %-accurate case from §3, i.e. it would add stray.
+
 ## 4. Policy adopted
 
 | method | points | σ | grounds |

@@ -18,7 +18,8 @@ sheets in this repository:
 | `render_combined.py` | rebuilds the image/PDF |
 | `metadata.json` | provenance record |
 | `accuracy_audit.md` | measured error budget: why ±10 km, what can and cannot be improved |
-| `refine_localities.py` | rebuilds the refined positions and the UTM layer |
+| `anchor_to_icons.py` | rebuilds the icon-anchored positions, the UTM layer and `icon_anchoring_report.json` |
+| `refine_localities.py` | previous policy, kept for comparison |
 | `locality_reassignments.csv` | the 49 locality moves, for review |
 
 ---
@@ -67,7 +68,9 @@ graticule fit above supersedes it.
 |---|---|---|
 | `geology_units` | 1,518 polygons | 92 codes / 97 lithologies. Attributes: `unit`, `code`, `leg_desc`, `formation`, `strat_grp`, `age_print`, `eon`/`era`/`period`/`epoch`, `age_ma_min`/`age_ma_max`, `rock_cls`, `basins`, `area_km2`, `fill` |
 | `mineral_localities` | 999 points | `locality`, `zone`, `number`, `mineral_1`, `group_1`, `minerals`, `n_minerals`, `symbol`, plus the **host rock re-joined from the geology polygons**: `host_unit`, `host_code`, `host_era`, `host_period`, `host_age_ma`, `host_dist_m` |
-| `mineral_localities_refined` | 999 points | **use this one.** Same attributes plus `pos_method`, `pos_sigma_m` (0.7 / 3 / 10 km), `pos_confidence`, `host_boundary_dist_m`, `reassigned_from` |
+| `mineral_localities_icons` | 999 points | **use this one.** Every point is the centre of a printed mineral icon wherever one exists (842 points). Attributes: `n_icons`, `icon_tier`, `icon_spread_m`, `pos_method`, `moved_from_label_m`, `host_code`, `host_boundary_dist_m`, and `group_centroid_lon/lat` recording where the geometric centroid of a multi-icon group would fall |
+| `mineral_localities_icons_utm32n` | 999 points | the same on EPSG:32632 |
+| `mineral_localities_refined` | 999 points | previous policy (symbol where available, otherwise label) — kept for comparison |
 | `mineral_localities_utm32n` | 999 points | the same points on WGS 84 / UTM zone 32N (EPSG:32632) for measuring in metres — reprojection is exact, so this changes nothing about accuracy |
 | `mineral_symbols` | 1,609 points | every printed mineral symbol with its identified commodity and colour |
 | `faults` | 648 | major + inferred fractures |
@@ -94,12 +97,13 @@ polygon after the duplicates/overlaps were cleaned, and the geometry here is the
    tables. Unit codes, stratigraphy, ages and mineral names were reconstructed from layer names,
    the printed legend, correlation chart and in-polygon labels. Spot-check before relying on any code.
 2. **Positional accuracy is not uniform** — see `accuracy_audit.md`. Registration is 0.13 km and
-   reprojection is exact, so the error is in the sheet's own ink: 686 localities (68.7 %) sit on a
-   printed mineral symbol and carry **±0.7 km**; 117 had their symbol recovered by an unambiguous
-   identity/colour match within 12 km and carry **±3 km** (back-tested at 83 % correct); 196 are
-   located by their printed number only and carry **±10 km**, because on this sheet numbers sit a
-   median 9 km from their symbols. Median σ is 0.7 km — use `pos_sigma_m`, not a blanket figure.
-   Snapping the 196 further would make them worse: measured rms rises from 9.4 km to 11.8 km.
+   reprojection is exact, so all the error is in the sheet's own ink. **842 of 999 localities
+   (84.3 %) now sit exactly on the centre of a printed mineral icon**, assigned by commodity
+   identity, recorded colour or inferred colour and back-tested at 97.4 % correct: those carry
+   **±0.7 km**. The remaining 179 are located by their printed number only and carry **±10 km**,
+   because the sheet prints nothing to anchor them to — 58 are commodities with no legend symbol
+   (cassiterite, quartz) and 121 have one but not within the validated radius. Pointing those at a
+   distant icon would be right only 4 % of the time, so they are left on their labels.
 3. **The two sheets disagree at the several-km level** on shared features (coastline median offset
    ~5 km, 90th percentile ~18 km; worst on the western Niger delta flank). They were compiled
    12 years apart and generalised independently. This dataset uses the **2011 sheet for all base
