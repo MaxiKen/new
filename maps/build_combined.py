@@ -39,6 +39,28 @@ OUT = pathlib.Path(__file__).parent
 GPKG = OUT / "Nigeria_Geology_Minerals_4326.gpkg"
 CRS = "EPSG:4326"
 
+def _fix_mineral_graticule(g):
+    """Subtract the constant +0.172 deg longitude offset from the QA graticule table."""
+    import re
+    from shapely import affinity
+    offsets = []
+    for _, r in g.iterrows():
+        m = re.match(r"(\d+)", str(r.get("label", "")))
+        if not m:
+            continue
+        b = r.geometry.bounds
+        if (b[2] - b[0]) < 1e-9:                      # vertical = meridian
+            offsets.append((b[0] + b[2]) / 2 - float(m.group(1)))
+    if not offsets:
+        return g
+    shift = float(np.mean(offsets))
+    out = g.copy()
+    out["geometry"] = [affinity.translate(geom, xoff=-shift) for geom in out.geometry]
+    out["label_offset_deg"] = shift
+    print(f"  mineral graticule QA layer: removed +{shift:.4f} deg longitude label offset")
+    return out
+
+
 # ---------------------------------------------------------------- geology ----
 units = pyogrio.read_dataframe(SRC, layer="geology2011_geology_units")
 units["geometry"] = shapely.make_valid(units.geometry.values)
@@ -119,7 +141,12 @@ layers = {
     "mineral_symbols": syms,
     "international_boundary": pyogrio.read_dataframe(SRC, layer="minerals2023_international_boundary"),
     "graticule_geology": pyogrio.read_dataframe(SRC, layer="geology2011_graticule"),
-    "graticule_minerals": pyogrio.read_dataframe(SRC, layer="minerals2023_graticule"),
+    # The source extraction labelled this QA layer with a bad af fine: its
+    # "4 deg E" meridian is stored at 4.1718 E even though its latitude values
+    # are right.  The feature layers are unaffected (the 2023 national boundary
+    # sits 0.1 km from the 2011 coverage edge), so only this table is corrected.
+    "graticule_minerals": _fix_mineral_graticule(
+        pyogrio.read_dataframe(SRC, layer="minerals2023_graticule")),
 }
 
 for name, gdf in layers.items():

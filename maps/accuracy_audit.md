@@ -1,114 +1,110 @@
-# Accuracy audit — can another EPSG layer + adjusted coordinates get below ±10 km?
+# Accuracy audit — is the symbol centre the true point, and does snapping help?
 
-Short answer: **for the transform, no — it is already at its floor and provably cannot
-improve. For the point positions, partly yes, and that part is now implemented.**
-
-The ±10 km is not a georeferencing error. It is the distance between the ink that
-represents a locality (its printed symbol) and the ink that was used to place it (its
-number label). No reprojection or resampling can move a point closer to a symbol.
-
-All figures below are measured from the two PDFs and from the delivered GeoPackage.
+You asked whether the centre of each symbol should be taken as the actual location, and
+whether that improves things. **Yes for a single symbol — that is now the anchor for 686
+localities. No for a cluster of symbols, and only partly for the ones whose symbol has to
+be guessed.** All three claims are measured below.
 
 ---
 
-## 1. The transform is already optimal
+## 1. The symbol centre is the right anchor (and is already used)
 
-| Test | Result | What it means |
-|---|---|---|
-| Affine fit to the geology graticule (12 meridians, 10 parallels) | max residual **0.185 pt = 130 m**, rms 0.11 pt | registration is 77× finer than the 10 km figure |
-| 2nd-order polynomial instead of affine | **0.197 pt** (no improvement) | the sheet is a clean affine; there is no paper distortion left to model |
-| Mineral sheet, affine / 2nd-order | 2.94 pt / 2.72 pt (2.1 / 1.9 km) | also affine; the 2.9 pt is label-centring noise, not distortion |
-| Anisotropy (pt per degree lon ÷ lat) | 1.0000 (geology), 1.0005 (mineral) | the frames are square; nothing to un-skew |
-| EPSG:4326 → EPSG:32632 → EPSG:4326 round trip, all 999 points | max **0.000 mm** | reprojection is exact; a new EPSG layer changes the numbers, not the accuracy |
-| Area check, geology polygons | 924,900 km² vs 923,768 official (**+0.1 %**) | the geometry is not stretched anywhere |
+On the 2023 sheet a locality appears as a **mineral symbol**, which depicts the feature,
+plus a **printed number**, which is only a pointer. The symbol centre is authoritative; the
+number is wherever the cartographer could fit it.
 
-A higher-order warp would only be fitting the 0.1-pt noise of where the printer put the
-graticule lines. There is no residual signal at any wavelength worth removing.
-
-## 2. Where the ±10 km actually comes from
-
-On the 2023 sheet each locality is printed as a **number label** plus, sometimes, a
-**mineral symbol**. Measuring the distance between a label and the symbol that was
-accepted for it:
-
-| label → accepted symbol displacement (n = 686) | value |
+| | measured |
 |---|---|
-| median | **9.0 km** |
-| p75 | 10.8 km |
-| p90 | 12.8 km |
-| max | 17.3 km |
-| within 2 km | 10 points |
+| Distance from a locality's printed number to the symbol that represents it (n = 686) | median **9.0 km**, p90 12.8 km, max 17.3 km |
+| Locality anchored on its symbol centre | **686 (68.7 %)**, σ **±0.7 km** |
+| Host-rock agreement with the sheet's own reading, for those points | **95.7 %** |
 
-The cartographer moved the numbers off the symbols to keep the sheet legible. So the
-same sheet supports two very different accuracies depending on which ink you anchor to:
+One point of ink at 1:2,000,000 is 0.71 km, so a symbol centre is as good as this sheet allows.
 
-| Anchoring | Points | σ | Why |
+## 2. But the centre of a *group* of symbols is worse
+
+The obvious extension — average the nearby symbols and use the centre of that cluster —
+was rejected on measurement:
+
+| rule | error against the true symbol centre |
+|---|---|
+| nearest compatible symbol | **0.0 km** median (83–97 % hit it exactly) |
+| centroid of same-colour symbols within 20 km | **2.9 km** median |
+
+A cluster mixes symbols belonging to neighbouring localities, so its centre sits between
+two deposits rather than on either.
+
+## 3. Snapping helps only while the candidate is close — and hurts beyond that
+
+The hard question is the 313 localities whose symbol is *not* printed near their number.
+I simulated exactly that situation on the 686 known points: hide every symbol within 8.8 km
+of the printed number (the search radius the original extraction used), then apply the rule
+and see whether it finds the right symbol.
+
+| distance from number to the chosen symbol | n | lands on the right symbol | lands >5 km wrong | 
 |---|---|---|---|
-| Printed symbol centre | **686** (68.7 %) | **±0.7 km** | the symbol *is* the feature; 1 pt of ink = 0.71 km |
-| Symbol recovered by mineral identity + geometry | **49** (4.9 %) | **±1.2 km** | unambiguous match to a same-mineral symbol |
-| Label position only | **264** (26.4 %) | **±10 km** | label displaced from the feature by the margin above |
+| 8.8 – 12 km | 190 | **83.2 %** | 14.7 % |
+| 12 – 16 km | 78 | 66.7 % | 33.3 % |
+| 16 – 25 km | 90 | **4.4 %** | 95.6 % |
+| all | 358 | 59.8 % | 39.1 % |
 
-Result: **median positional σ is now ±0.7 km**, not ±10 km. The ±10 km applies only to
-the quarter of points whose symbol cannot be located.
+**A blanket snap is worse than no snap:** rms error 11.8 km after snapping versus 9.4 km
+leaving the points on their printed numbers. Beyond 16 km the rule is almost never right,
+so it is not a matter of tuning a radius.
 
-## 3. The adjustment you proposed — implemented, and here is what it yields
+The earlier easy-case backtest (95.5 % correct) was misleading because it could only test
+the cases where the symbol was already close — i.e. exactly the ones the original
+extraction had already solved.
 
-For each label-only locality the script searches for a symbol of *the same mineral*
-(identity, not just colour) and accepts the match only if it is unambiguous — the best
-candidate at least twice as close as the next, within 15 km.
+## 4. Policy adopted
 
-| Outcome | Points | Consequence |
-|---|---|---|
-| Accepted | **49** | moved median **6.9 km** (max 14.6 km); host rock changed for 12 |
-| Ambiguous (several same-mineral symbols nearby) | 41 | left at label position — a wrong 7 km snap is worse than an honest label |
-| No same-mineral symbol within 30 km | 223 | their symbols are either not printed or were exported as merged clusters (95 of 1,609 symbols are unidentified blobs) |
+| method | points | σ | grounds |
+|---|---|---|---|
+| Printed symbol centre | **686** | ±0.7 km | the symbol is the feature |
+| Symbol recovered by mineral identity / colour, unambiguous, ≤12 km | **117** | ±3 km | back-test: 83 % correct, 15 % wrong, rms ≈3 km |
+| Printed number only (no unambiguous symbol within 12 km) | **196** | ±10 km | snapping would make these worse |
 
-So geometric adjustment converts about 5 % of the sheet from ±10 km to ±1 km. It cannot
-do more, because **for 223 points the information is not on the sheet** — there is no
-symbol within 30 km to snap to.
+Median positional σ across the layer: **±0.7 km**. Every point carries `pos_method`,
+`pos_sigma_m` and `pos_confidence` (`high` / `probable` / `low`), and the 117 moves are listed
+in `locality_reassignments.csv` so any of them can be rejected individually.
 
-Every point now carries `pos_method` and `pos_sigma_m`, and the 49 moves are listed in
-`locality_reassignments.csv` so they can be reviewed or rejected individually.
+## 5. The transform cannot be improved (unchanged result)
 
-## 4. Why warping one sheet onto the other does not help either
+| test | result |
+|---|---|
+| affine fit to the geology graticule (12 meridians, 10 parallels) | 0.185 pt = **130 m** |
+| 2nd-order fit instead of affine | 0.197 pt — no gain, so no paper distortion to model |
+| anisotropy (pt per ° lon ÷ pt per ° lat) | 1.0000 |
+| EPSG:4326 → 32632 → 4326, all points | **0.000 mm** |
+| geology polygon area vs official Nigeria | +0.1 % |
 
-The two sheets share coast, borders and rivers, so they can be cross-registered. Doing
-that on the drawn coastline:
+A second EPSG layer re-expresses the same points; it does not re-measure them. `mineral_localities_utm32n`
+(EPSG:32632) is included for metric work.
 
-| | median | p90 |
-|---|---|---|
-| Offset as registered | 5.4 km | 17.9 km |
-| After the best possible global shift (−0.03°, −0.02°) | 4.9 km | 24.0 km |
+## 6. A defect found in the source extraction, and its scope
 
-The optimum shift is only 3 km and it barely changes the median. The disagreement is not
-a displaced frame — it is two different generalisations of the same coast, compiled 12
-years apart. The same is true of a thin-plate-spline warp: it would fit the ocean and
-distort everything else.
+While checking this, the `minerals2023_graticule` table in the reference extraction turned out
+to place the printed **4°E** meridian at **4.1718°** — a +0.172° (19 km) offset in longitude.
+That looked alarming, so the feature layers were tested independently:
 
-## 5. Error budget
+| test | result |
+|---|---|
+| 2023 national boundary → 2011 sheet's coverage edge (the national border) | **0.1 km** median |
+| 2023 towns → 2011 towns | 0.5 km |
+| 2023 railway / roads → 2011 | 1–2 km |
+| 2023 graticule table labels | 0.172° off |
 
-| Source | Magnitude | Reducible from these PDFs? |
-|---|---|---|
-| Graticule fit / registration | 0.13 km | already at floor |
-| Reprojection (4326 ↔ UTM / Albers) | 0.000 mm | n/a — exact |
-| Printed symbol size (1 pt ink) | 0.7 km | no |
-| Label placement, symbol-anchored points | covered by symbol centre | no |
-| Label placement, label-only points | 9–13 km | **only for 49/313** |
-| Source compilation & generalisation at 1:2 M | ~1–2 km | no |
-| Sheet-to-sheet base disagreement | 5 km median, 18 km p90 | no — content, not geometry |
-| **Best achievable for a symbol-anchored point** | **~0.7–1.2 km** | — |
-| **Best achievable for a label-only point** | **~10 km** | — |
+So only the QA graticule table was mislabelled; the feature layers are correctly georeferenced.
+That table is corrected in the GeoPackage (`label_offset_deg` records the adjustment). Had the
+offset been real, the boundary would have missed the border by 19 km — it misses by 100 m.
 
-## 6. If you need better than ±1 km
+## 7. What would actually reduce the ±10 km
 
-Not from these two files. What would actually do it, in order of cost:
+Nothing in these two files. In order of cost:
 
-1. **NGSA 1:100,000 sheet maps** — 132 sheets published 2004–2023, free from ngsa.gov.ng;
-   four times the linear scale, so 1 pt of ink is 0.18 km and the compilation error falls
-   with it.
-2. **NGSA state mineral resources maps at 1:250,000** — the 2023 national sheet is compiled
-   from these, so the locality symbols are placed at 8× the resolution before generalisation.
-3. **Field or GPS coordinates** for the specific deposits you care about, joined by name.
-4. **Authoritative vectors for the base** (OSM, Natural Earth, GADM) instead of the 2011
-   generalised coastline — this fixes the 5 km base disagreement but not the 9 km label
-   displacement, which is a property of the mineral sheet itself.
+1. **NGSA 1:100,000 sheets** (132 published 2004–2023, free) — 4× linear scale, so ink
+   resolution falls from 0.7 km to 0.18 km and the 9 km label placement problem disappears.
+2. **NGSA state mineral maps at 1:250,000** — the national sheet is compiled from these.
+3. GPS coordinates for specific deposits, joined by name.
+4. Authoritative base vectors (OSM/OSM-derived) to replace the 2011 generalised coastline —
+   fixes the 5 km base disagreement, not the label displacement.

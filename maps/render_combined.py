@@ -164,7 +164,7 @@ for i, (key, label) in enumerate(ERAS):
 fig.text(0.5, 0.008,
          "Geology: 1,518 unit polygons in 92 units, 1,509 dated  \u00b7  Minerals: 999 localities, "
          "80 commodities in 8 groups, each joined to its host unit  \u00b7  "
-         "median positional \u03c3 \u00b1 0.7 km (26 % of points are label-only, \u03c3 \u00b1 10 km)",
+         "median positional \u03c3 \u00b1 0.7 km (20 % of points are label-only, \u03c3 \u00b1 10 km)",
          ha="center", fontsize=7.6, color="#555")
 
 ax.set_xticks([])

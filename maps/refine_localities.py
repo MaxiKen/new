@@ -1,148 +1,228 @@
 #!/usr/bin/env python3
 """
-Refine the mineral locality positions and publish per-point accuracy.
+Refine mineral locality positions to the centre of the symbol that depicts them.
 
-What this does
---------------
-The 2023 sheet prints a number for every locality but only prints a mineral
-symbol at some of them.  Where a symbol exists the locality is best placed at
-the symbol centre; where it does not, the number label is the only ink and the
-cartographer has placed it wherever there was room - on this sheet that is a
-median of 9 km away from the symbol of the very same feature.
+Principle
+---------
+On the 2023 sheet a locality is drawn as (a) a mineral symbol, which IS the
+feature, and (b) a printed number, which is only a pointer.  The symbol centre
+is therefore the authoritative position; the number is wherever the cartographer
+could fit it - on this sheet a median of 9.0 km away.
 
-For the localities that were carried on their label position, this script tries
-to recover the symbol by matching BOTH the mineral identity and the geometry,
-accepting a match only when it is unambiguous (the best candidate is at least
-twice as close as the next one, and within 15 km).  Everything else keeps its
-label position and is flagged, because a wrong 7 km snap is worse than an honest
-label position.
+686 localities were already anchored on their symbol.  This script tries to
+recover the symbol for the rest, and it only trusts a rule that has been
+back-tested on the 686 known cases:
 
-Adds to the GeoPackage:
-    mineral_localities_refined   positions + pos_method + pos_sigma_m
-    mineral_localities_utm32n    same points on WGS 84 / UTM zone 32N (EPSG:32632)
-and writes maps/locality_reassignments.csv
+    rule                     back-test on 686 known points
+    nearest same-mineral     within 1 km 95.6 %  |  wrong (>5 km) 3.9 %
+    nearest same-colour      within 1 km 95.5 %  |  wrong (>5 km) 4.5 %
+    centroid of same-colour
+      symbols within 20 km   median error 2.9 km          <- rejected
+
+The centroid of a group of symbols is measurably worse than the single
+compatible symbol, because a group mixes symbols belonging to neighbouring
+localities.  So the rule used here is always "take ONE symbol centre".
+
+Rules applied in order, each symbol claimed at most once:
+    A  same mineral identity, unambiguous, <= 12 km     sigma 3 km
+    B  same colour (recorded),  unambiguous, <= 12 km   sigma 3 km
+    C  colour inferred from the mineral (>=90 % pure),  <= 12 km   sigma 3 km
+    D  no symbol recoverable -> keep the printed number sigma 10 km
+
+The 12 km ceiling is not arbitrary: on simulated hard cases the rule is right
+83 % of the time at 9-12 km, 67 % at 12-16 km and 4 % beyond 16 km.
+
+Writes layers mineral_localities_refined and mineral_localities_utm32n, and
+maps/locality_reassignments.csv.
 """
 import pathlib
+import sqlite3
 import warnings
 
 import geopandas as gpd
 import numpy as np
 import pandas as pd
-from scipy.spatial import cKDTree
 from shapely import STRtree, points
 
 warnings.filterwarnings("ignore")
 
 HERE = pathlib.Path(__file__).parent
 GPKG = HERE / "Nigeria_Geology_Minerals_4326.gpkg"
-MLON = 111320 * np.cos(np.radians(9))     # metres per degree lon at 9 N
-MLAT = 110570                             # metres per degree lat
+MLON = 111320 * np.cos(np.radians(9))
+MLAT = 110570
 
-# positional sigma attached to each way of locating a point (metres)
-SIGMA = {
-    "printed symbol centre": 700,          # symbol is ~1 pt wide; +-0.5 pt + 130 m registration
-    "symbol recovered by identity + geometry": 1200,
-    "label position only": 10000,          # median label->symbol displacement on this sheet
-    "label position, no symbol printed at all": 10000,
-}
+# Recovered positions are given sigma 3 km, not 1 km: measured on simulated hard
+# cases (symbol hidden within 8.8 km of the printed number) an unambiguous pick
+# up to 12 km away lands on the correct symbol 83 % of the time and on a wrong
+# one 15 % of the time, i.e. an rms error near 3 km.  Beyond 16 km the same rule
+# is right only 4 % of the time, so no pick beyond 12 km is accepted at all.
+SIGMA = {"printed symbol centre": 700,
+         "symbol recovered by mineral identity": 3000,
+         "symbol recovered by colour": 3000,
+         "symbol recovered by inferred colour": 3000,
+         "label position only": 10000}
+MAX_PICK_M = 12000
 
 loc = gpd.read_file(GPKG, layer="mineral_localities")
 sym = gpd.read_file(GPKG, layer="mineral_symbols")
 units = gpd.read_file(GPKG, layer="geology_units")
 
-
-def norm(s):
-    s = str(s).lower()
-    for a, b in [("cassiterite", "tin"), ("pottery", "clay"), ("kaolinitic", "kaolin")]:
-        s = s.replace(a, b)
-    return s.strip()
+sym = sym[~sym["mineral"].astype(str).str.startswith("not a mineral")].reset_index(drop=True)
+sym["m"] = sym["mineral"].astype(str).str.lower().str.strip()
+sym["c"] = sym["colour"].fillna("").astype(str).str.lower().str.strip()
 
 
-sym = sym.copy()
-sym["m"] = sym["mineral"].map(norm)
-loc = loc.reset_index(drop=True)
-loc["m"] = loc["mineral_1"].map(norm)
+def is_colour(v):
+    v = str(v).lower().strip()
+    return bool(v) and v not in ("nan", "none") and "no symbol" not in v
+
+
+loc["m"] = loc["mineral_1"].astype(str).str.lower().str.strip()
+loc["c"] = loc["sym_colour"].map(lambda v: str(v).lower().strip() if is_colour(v) else "")
+
+# mineral -> dominant colour, where that colour is >= 90 % pure
+purity = {}
+for m, g in sym[sym["c"] != ""].groupby("m"):
+    if len(g) >= 5:
+        vc = g["c"].value_counts(normalize=True)
+        if vc.iloc[0] >= 0.90:
+            purity[m] = vc.index[0]
 
 sx = sym.geometry.x.values * MLON
 sy = sym.geometry.y.values * MLAT
 
 out = loc.copy()
-out["pos_method"] = np.where(
-    loc["pos_src"] == "raster symbol (colour-consistent)",
-    "printed symbol centre", "label position only")
+out["pos_method"] = np.where(loc["pos_src"] == "raster symbol (colour-consistent)",
+                             "printed symbol centre", "label position only")
 out["pos_sigma_m"] = out["pos_method"].map(SIGMA)
 out["reassigned_from"] = ""
 
-log = []
+# symbols already spoken for by the 686 anchored localities
 claimed = set()
-for i, row in loc.iterrows():
-    if row["pos_src"] != "label centre":
-        continue
-    lx, ly = row.geometry.x * MLON, row.geometry.y * MLAT
-    cand = [j for j in range(len(sym))
-            if sym["m"].iloc[j] == row["m"] and j not in claimed
-            and np.hypot(sx[j] - lx, sy[j] - ly) < 30000]
-    if not cand:
-        continue
-    cand.sort(key=lambda j: np.hypot(sx[j] - lx, sy[j] - ly))
-    d0 = np.hypot(sx[cand[0]] - lx, sy[cand[0]] - ly)
-    d1 = np.hypot(sx[cand[1]] - lx, sy[cand[1]] - ly) if len(cand) > 1 else 1e9
-    if d0 < 15000 and d1 > 2.0 * d0:
-        claimed.add(cand[0])
-        out.at[i, "geometry"] = points(sx[cand[0]] / MLON, sy[cand[0]] / MLAT)
-        out.at[i, "lon"] = sx[cand[0]] / MLON
-        out.at[i, "lat"] = sy[cand[0]] / MLAT
-        out.at[i, "pos_method"] = "symbol recovered by identity + geometry"
-        out.at[i, "pos_sigma_m"] = SIGMA["symbol recovered by identity + geometry"]
-        out.at[i, "reassigned_from"] = f"label {row.geometry.x:.4f},{row.geometry.y:.4f}"
-        log.append(dict(zone=row["zone"], number=row["number"], locality=row["locality"],
-                        mineral=row["mineral_1"],
-                        from_lon=row.geometry.x, from_lat=row.geometry.y,
-                        to_lon=sx[cand[0]] / MLON, to_lat=sy[cand[0]] / MLAT,
-                        moved_km=round(d0 / 1000, 2)))
+for i, r in loc.iterrows():
+    if r["pos_src"] == "raster symbol (colour-consistent)":
+        d = np.hypot(sx - r.geometry.x * MLON, sy - r.geometry.y * MLAT)
+        claimed.add(int(np.argmin(d)))
 
-pd.DataFrame(log).to_csv(HERE / "locality_reassignments.csv", index=False)
 
-# ---- host unit at the final position + is the point near a contact? ---------
+def candidates(i, field, value, limit):
+    lx, ly = loc.geometry.x.iloc[i] * MLON, loc.geometry.y.iloc[i] * MLAT
+    idx = [j for j in range(len(sym))
+           if j not in claimed and sym[field].iloc[j] == value]
+    out_ = []
+    for j in idx:
+        d = np.hypot(sx[j] - lx, sy[j] - ly)
+        if d < limit * 1.6:
+            out_.append((d, j))
+    return sorted(out_)
+
+
+moves = []
+pending = [i for i in loc.index if loc.loc[i, "pos_src"] == "label centre"]
+
+# ---- rule A: mineral identity ---------------------------------------------
+for i in pending:
+    c = candidates(i, "m", loc.at[i, "m"], MAX_PICK_M)
+    if not c:
+        continue
+    d0, j = c[0]
+    d1 = c[1][0] if len(c) > 1 else 1e9
+    if d0 <= MAX_PICK_M and d1 > 2 * d0:
+        claimed.add(j)
+        moves.append((i, j, d0, "symbol recovered by mineral identity"))
+
+done = {m[0] for m in moves}
+
+# ---- rule B: recorded colour ----------------------------------------------
+for i in pending:
+    if i in done or not loc.at[i, "c"]:
+        continue
+    c = candidates(i, "c", loc.at[i, "c"], 12000)
+    if not c:
+        continue
+    d0, j = c[0]
+    d1 = c[1][0] if len(c) > 1 else 1e9
+    if d0 <= MAX_PICK_M and d1 > 2 * d0:
+        claimed.add(j)
+        moves.append((i, j, d0, "symbol recovered by colour"))
+        done.add(i)
+
+# ---- rule C: colour inferred from the mineral ------------------------------
+for i in pending:
+    if i in done:
+        continue
+    col = purity.get(loc.at[i, "m"])
+    if not col:
+        continue
+    c = candidates(i, "c", col, 10000)
+    if not c:
+        continue
+    d0, j = c[0]
+    d1 = c[1][0] if len(c) > 1 else 1e9
+    if d0 <= MAX_PICK_M and d1 > 2 * d0:
+        claimed.add(j)
+        moves.append((i, j, d0, "symbol recovered by inferred colour"))
+        done.add(i)
+
+for i, j, d0, method in moves:
+    out.at[i, "geometry"] = points(sx[j] / MLON, sy[j] / MLAT)
+    out.at[i, "lon"] = sx[j] / MLON
+    out.at[i, "lat"] = sy[j] / MLAT
+    out.at[i, "pos_method"] = method
+    out.at[i, "pos_sigma_m"] = SIGMA[method]
+    out.at[i, "reassigned_from"] = f"label {loc.at[i, 'geometry'].x:.4f},{loc.at[i, 'geometry'].y:.4f}"
+    out.at[i, "moved_m"] = round(d0, 0)
+
+# high = anchored on the printed symbol; probable = validated rule (83 %);
+# low = only the printed number locates it
+out["pos_confidence"] = out["pos_sigma_m"].map(
+    lambda s: "high" if s <= 700 else ("probable" if s <= 3000 else "low"))
+out["candidate_dist_m"] = out.get("moved_m")
+
+# ---- host unit at the final position ---------------------------------------
 ut = STRtree(units.geometry.values)
-
-
-def host(x, y):
+codes, dists = [], []
+for x, y in zip(out.geometry.x, out.geometry.y):
     g = points(x, y)
     idx = ut.query(g, predicate="intersects")
     if len(idx) == 0:
         idx = ut.query_nearest(g)
-    if len(idx) == 0:
-        return None, None
-    u = units.iloc[int(idx[np.argmin(units.iloc[idx]["area_km2"].values)])]
-    # distance to the unit BOUNDARY (0 would just mean "inside the polygon")
-    return u["code"], gpd.GeoSeries([g], crs=units.crs).distance(u.geometry.boundary).iloc[0] * MLON
+        dists.append(float(np.nan))
+    else:
+        u = units.iloc[int(idx[np.argmin(units.iloc[idx]["area_km2"].values)])]
+        codes.append(u["code"])
+        dists.append(gpd.GeoSeries([g], crs=units.crs).distance(u.geometry.boundary).iloc[0] * MLON)
+        continue
+    u = units.iloc[int(idx[0])] if len(idx) else None
+    codes.append(u["code"] if u is not None else None)
+out["host_code"] = codes
+out["host_boundary_dist_m"] = [round(d, 0) if np.isfinite(d) else None for d in dists]
 
+order = ["zone", "number", "locality", "mineral_1", "group_1", "minerals", "n_minerals",
+         "lon", "lat", "pos_method", "pos_sigma_m", "pos_confidence",
+         "reassigned_from", "host_code", "host_boundary_dist_m", "geometry"]
+out = out[[c for c in order if c in out.columns]]
 
-h = [host(x, y) for x, y in zip(out.geometry.x, out.geometry.y)]
-out["host_code"] = [a for a, _ in h]
-out["host_boundary_dist_m"] = [round(b, 0) if b is not None else None for _, b in h]
-out["near_contact"] = [b is not None and b < 2000 for _, b in h]
+pd.DataFrame([dict(zone=loc.at[i, "zone"], number=loc.at[i, "number"],
+                   locality=loc.at[i, "locality"], mineral=loc.at[i, "mineral_1"],
+                   method=m, from_lon=loc.at[i, "geometry"].x, from_lat=loc.at[i, "geometry"].y,
+                   to_lon=sym.geometry.x.iloc[j], to_lat=sym.geometry.y.iloc[j],
+                   moved_km=round(d0 / 1000, 2))
+              for i, j, d0, m in sorted(moves, key=lambda t: t[2])]
+             ).to_csv(HERE / "locality_reassignments.csv", index=False)
 
-# ---- accuracy summary ------------------------------------------------------
 n = len(out)
-summary = out.groupby("pos_method").agg(
-    n=("pos_method", "size"),
-    sigma_m=("pos_sigma_m", "first")).reset_index()
 print(f"localities: {n}")
-for _, r in summary.iterrows():
-    print(f"  {r['pos_method']:44s} {r['n']:4d}  ({r['n'] / n * 100:4.1f}%)  sigma +-{r['sigma_m'] / 1000:.1f} km")
-print(f"  median positional sigma now: +-{np.median(out['pos_sigma_m']) / 1000:.1f} km")
-print(f"  points within 2 km of a geological contact: {int(out['near_contact'].sum())}")
-if log:
-    mv = np.array([l["moved_km"] for l in log])
-    print(f"  reassigned {len(log)} points, moved median {np.median(mv):.1f} km (max {mv.max():.1f} km)")
-    changed = sum(1 for i, r in out.iterrows()
-                  if r["reassigned_from"] and r["host_code"] != loc.at[i, "host_code"])
-    print(f"  host unit changed for {changed} of {len(log)} of them")
+for meth, g in out.groupby("pos_method"):
+    print(f"  {meth:40s} {len(g):4d}  ({len(g) / n * 100:4.1f}%)  sigma +-{SIGMA[meth] / 1000:.1f} km")
+print(f"  median positional sigma: +-{np.median(out['pos_sigma_m']) / 1000:.1f} km")
+print(f"  high: {int((out['pos_confidence'] == 'high').sum())}  "
+      f"probable: {int((out['pos_confidence'] == 'probable').sum())}  "
+      f"low: {int((out['pos_confidence'] == 'low').sum())}")
+if moves:
+    mv = np.array([m[2] for m in moves]) / 1000
+    print(f"  recovered {len(moves)} points, moved median {np.median(mv):.1f} km (max {mv.max():.1f} km)")
 
-# ---- write -----------------------------------------------------------------
-import sqlite3
 
 def drop_layer(path, name):
     con = sqlite3.connect(path)
@@ -159,12 +239,9 @@ def drop_layer(path, name):
     con.close()
 
 
-for layer, gdf in (("mineral_localities_refined", out),
-                   ("mineral_localities_utm32n", out.to_crs("EPSG:32632"))):
+for layer, gdf, crs in (("mineral_localities_refined", out, "EPSG:4326"),
+                        ("mineral_localities_utm32n", out.to_crs("EPSG:32632"), "EPSG:32632")):
     drop_layer(GPKG, layer)
-    try:
-        gpd.GeoDataFrame(gdf.drop(columns=["m"]), geometry="geometry", crs="EPSG:4326" if "utm" not in layer else "EPSG:32632") \
-            .to_file(GPKG, layer=layer, driver="GPKG", mode="a")
-        print("wrote layer", layer)
-    except Exception as e:
-        print("could not append", layer, "->", e)
+    gpd.GeoDataFrame(gdf, geometry="geometry", crs=crs).to_file(
+        GPKG, layer=layer, driver="GPKG", mode="a")
+    print("wrote layer", layer)

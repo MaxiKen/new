@@ -67,7 +67,7 @@ graticule fit above supersedes it.
 |---|---|---|
 | `geology_units` | 1,518 polygons | 92 codes / 97 lithologies. Attributes: `unit`, `code`, `leg_desc`, `formation`, `strat_grp`, `age_print`, `eon`/`era`/`period`/`epoch`, `age_ma_min`/`age_ma_max`, `rock_cls`, `basins`, `area_km2`, `fill` |
 | `mineral_localities` | 999 points | `locality`, `zone`, `number`, `mineral_1`, `group_1`, `minerals`, `n_minerals`, `symbol`, plus the **host rock re-joined from the geology polygons**: `host_unit`, `host_code`, `host_era`, `host_period`, `host_age_ma`, `host_dist_m` |
-| `mineral_localities_refined` | 999 points | **use this one.** Same attributes plus `pos_method`, `pos_sigma_m` (0.7 / 1.2 / 10 km), `host_boundary_dist_m`, `near_contact`, `reassigned_from` |
+| `mineral_localities_refined` | 999 points | **use this one.** Same attributes plus `pos_method`, `pos_sigma_m` (0.7 / 3 / 10 km), `pos_confidence`, `host_boundary_dist_m`, `reassigned_from` |
 | `mineral_localities_utm32n` | 999 points | the same points on WGS 84 / UTM zone 32N (EPSG:32632) for measuring in metres — reprojection is exact, so this changes nothing about accuracy |
 | `mineral_symbols` | 1,609 points | every printed mineral symbol with its identified commodity and colour |
 | `faults` | 648 | major + inferred fractures |
@@ -94,11 +94,12 @@ polygon after the duplicates/overlaps were cleaned, and the geometry here is the
    tables. Unit codes, stratigraphy, ages and mineral names were reconstructed from layer names,
    the printed legend, correlation chart and in-polygon labels. Spot-check before relying on any code.
 2. **Positional accuracy is not uniform** — see `accuracy_audit.md`. Registration is 0.13 km and
-   reprojection is exact, so the error is in the sheet's own ink: 686 localities (68.7 %) are at a
-   printed symbol and carry **±0.7 km**; 49 more were recovered by mineral identity and carry
-   **±1.2 km**; the remaining 264 are located by their number label only, and on this sheet labels
-   sit a median 9 km from their symbols, so they carry **±10 km**. Median σ is 0.7 km. Use the
-   `pos_sigma_m` field rather than a blanket figure.
+   reprojection is exact, so the error is in the sheet's own ink: 686 localities (68.7 %) sit on a
+   printed mineral symbol and carry **±0.7 km**; 117 had their symbol recovered by an unambiguous
+   identity/colour match within 12 km and carry **±3 km** (back-tested at 83 % correct); 196 are
+   located by their printed number only and carry **±10 km**, because on this sheet numbers sit a
+   median 9 km from their symbols. Median σ is 0.7 km — use `pos_sigma_m`, not a blanket figure.
+   Snapping the 196 further would make them worse: measured rms rises from 9.4 km to 11.8 km.
 3. **The two sheets disagree at the several-km level** on shared features (coastline median offset
    ~5 km, 90th percentile ~18 km; worst on the western Niger delta flank). They were compiled
    12 years apart and generalised independently. This dataset uses the **2011 sheet for all base
