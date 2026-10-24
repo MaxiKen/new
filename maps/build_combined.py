@@ -168,11 +168,31 @@ def reconcile_legend(units, leg):
 # a polygon the extraction could not code still carries its in-map label; keep it
 units.loc[units["code"].isna(), "code"] = units.loc[units["code"].isna(), "unit"].astype(str)
 
+# Two printed codes are readable as an existing legend code once the evidence is
+# followed.  Both are recorded so the mapping is reversible.
+#
+#   Glls -> GIls  the map prints "GIls" in two places and "Glls" in one (capital I
+#                 vs lowercase l); its colour #63f287 is exactly the swatch of
+#                 legend row 30, GIls "Limestone", whose bracket names the
+#                 Dukamaje Formation - the Cretaceous limestone of the Sokoto
+#                 basin, which is where these polygons are.  GIls and its
+#                 neighbour Kls share that swatch, and neither had any polygon
+#                 until now.
+#   OGe  -> OGp   identical rock description, identical printed colour (#ff7a7f)
+#                 and identical era: one unit whose label was read two ways.
+renames = {"Glls": "GIls", "OGe": "OGp"}
+for old_code, new_code in renames.items():
+    m = units["code"] == old_code
+    if m.any():
+        units.loc[m, "code"] = new_code
+        print(f"  code normalised: {old_code} -> {new_code} "
+              f"({int(m.sum())} polygon(s), {units.loc[m, 'area_km2'].sum():,.1f} km2)")
 leg_table = pyogrio.read_dataframe(SRC, layer="geology2011_legend")
 units = reconcile_legend(units, leg_table)
 
-# Seven units are printed on the map but missing from the sheet's own legend
-# (OGp, OGe, Gdss, Gmsh, LCM, Glls and a bare "S" in the Ilesha schist belt).
+# Six units are printed on the map but missing from the sheet's own legend
+# (OGp, Gdss, Gmsh, LCM and a bare "S" in the Ilesha schist belt, plus GIls,
+# which the legend does list but as a row no polygon had claimed).
 # They are kept - they are real, mapped ground - but the attribute is the
 # printed label, not a legend description, and one of them is just a letter.
 bare = units["attr_source"].eq("in-map label") & units["unit"].astype(str).str.len().le(3)
@@ -181,7 +201,7 @@ units.loc[bare, "unit"] = ("Unnamed unit printed '" + units.loc[bare, "unit"].as
 units["attr_source"] = units["attr_source"].where(~bare, "printed label only")
 
 keep = ["unit", "code", "leg_code", "leg_desc", "lbl_code", "code_src", "leg_row",
-        "legend_row", "attr_source",
+        "legend_row", "attr_source", "src_seq",
         "formation", "strat_grp", "age_print", "series", "period_prt",
         "eon", "era", "period", "epoch",
         "age_ma_min", "age_ma_max", "rock_cls", "basins", "age_src",
@@ -281,7 +301,21 @@ meta = pd.DataFrame([
     ("positional_accuracy", "1 pt = 0.7 km on the ground; graticule fit <0.3 pt; residual cartographic disagreement between the two sheets ~5 km median, 20 km p90"),
     ("area_check", "geology polygons total 924,900 km2 vs 923,768 km2 official - +0.1%"),
     ("attributes_note", "No attribute tables exist in either PDF; codes, strata and ages were reconstructed from layer names, the printed legend and in-polygon labels"),
-    ("built", "2026-10-23"),
+    ("stages", "fetch_source.py -> build_combined.py (18 base layers) -> build_geology_final.py "
+               "(the geology layer) -> refine_localities.py -> anchor_to_icons.py -> "
+               "finalize_layers.py -> render_combined.py -> audit_layers.py"),
+    ("overlap_rule", "the PDF's own paint order (src_seq, preserved for all 1,518 paths) decides every "
+                     "overlap: a path loses exactly the part covered by any path drawn after it. Verified "
+                     "against the printed ink at 97.5% of polygons"),
+    ("legend_note", "the 2011 legend has 92 rows but 87 codes: Esh, MS, MyP, Ncsh and Wss are printed "
+                    "twice, each row a different rock; units are resolved per legend row. Printed codes "
+                    "Glls and OGe were normalised onto legend rows GIls (same printed colour, Dukamaje "
+                    "Formation) and OGp (same rock, colour and era). Five printed units are absent from "
+                    "the legend (OGp, Gdss, Gmsh, LCM, S) and flagged attr_source = in-map label"),
+    ("outside_nigeria", "the 2011 sheet draws neighbouring-country context: 16.9% of rivers, 7.6% of "
+                        "roads, 7.7% of state boundaries and 23 of 486 towns lie outside the border. Kept "
+                        "and flagged per feature (frac_in_nigeria on lines, in_nigeria on points)"),
+    ("built", "2026-10-24"),
 ], columns=["key", "value"])
 meta.to_json(OUT / "metadata.json", orient="records", indent=2)
 print(f"\nwrote {GPKG}  ({GPKG.stat().st_size/1e6:.1f} MB)")

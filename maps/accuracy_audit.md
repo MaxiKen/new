@@ -81,9 +81,18 @@ inferred from the commodity (<=12 km). Back-tested on the 686 localities whose i
 
 **Does it reduce the stray? Yes, but modestly — not to zero.** 179 points still sit on their
 printed number, with a median 11.1 km stray, because for them the sheet prints nothing to anchor
-to: 58 are commodities that have no legend symbol at all (cassiterite and quartz are the biggest),
-and 121 have a legend symbol somewhere but none within the validated 12–20 km radius. Pointing
-those at a distant icon would be the 4 %-accurate case from §3, i.e. it would add stray.
+to. Re-measured against the shipped layers:
+
+| why the 179 stayed | points |
+|---|---|
+| the commodity has no legend symbol at all (cassiterite, quartz, clay…) | 58 |
+| a same-commodity symbol is printed, but a median **56 km** away | 102 |
+| no same-commodity symbol anywhere on the sheet | 19 |
+
+In the 15 cases where a same-commodity symbol *is* within 10 km, that symbol is **already claimed
+by another locality**, so snapping would steal it rather than place this one. Pointing these at a
+distant icon would be the 4 %-accurate case from §3, i.e. it would add stray. This is a limit of
+the printed sheet, not of the processing.
 
 ## 4. Policy adopted
 

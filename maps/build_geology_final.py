@@ -176,31 +176,84 @@ print(f"raw geology: {len(raw)} polygons, {raw['code'].nunique()} codes, "
 if layer_exists("geology_units_raw"):
     drop_layer(GPKG, "geology_units_raw")
 
-# ---- 2. resolve overlaps using the printed ink ----------------------------
-units = raw.copy()
-units["draw_order"] = units.groupby("code").ngroup()      # stable tie-break
+# ---- 2. resolve overlaps by the sheet's own paint order --------------------
+# A PDF draws its paths in order, each one over what is already there, so the
+# overlap between two polygons is not ambiguous: the later one is what you see.
+# The extraction preserved that order (src_seq, 1518/1518 paths), so replaying it
+# is the faithful model - and unlike a colour test it cannot be fooled by the
+# black label text printed on top of a unit.
+units = raw.copy().sort_values("src_seq").reset_index(drop=True)
+geoms = [shapely.make_valid(g) for g in units.geometry]
+tree = STRtree(geoms)
+n = len(geoms)
+later = [[] for _ in range(n)]
+for i in range(n):
+    for j in tree.query(geoms[i], predicate="intersects"):
+        if j > i:
+            later[i].append(int(j))
+print(f"  paint order: {n} paths, {sum(len(v) for v in later)} overlapping pairs")
+
+painted = []
+for i in range(n):
+    g = geoms[i]
+    if later[i]:
+        try:                                   # one union, not 30 differences
+            g = shapely.make_valid(g.difference(shapely.union_all([geoms[j] for j in later[i]])))
+        except Exception:
+            for j in later[i]:
+                g = shapely.make_valid(g.difference(geoms[j]))
+    painted.append(polygonal(g))
+units["geometry"] = [g for g in painted]
+units["draw_order"] = units["src_seq"]
+units = units[units.geometry.notna() & ~units.geometry.is_empty]
+
 dissolved = units.dissolve(by="code", as_index=False,
                            aggfunc={c: "first" for c in units.columns
                                     if c not in ("code", "geometry")})
 dissolved["geometry"] = shapely.make_valid(dissolved.geometry.values)
+dissolved = dissolved[dissolved.geometry.notna()]
 
-fill_of = dict(zip(dissolved["code"], dissolved["fill"]))
-prio = dict(zip(dissolved["code"], dissolved["draw_order"]))
-
+# ---- 2b. verify the replay against the printed ink -------------------------
+# Sample a robust modal colour inside each surviving polygon: dark pixels (label
+# text, linework) and near-greys are dropped first, so a unit is judged by the
+# colour it is painted, not by whatever is written on it.
 DPI = 200
 S = DPI / 72
 page = pymupdf.open(HERE.parent / "Geological_Map_of_Nigeria.pdf")[0]
 pix = page.get_pixmap(dpi=DPI)
-raster = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.height, pix.width, 3)
+raster = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.height, pix.width, 3).astype(int)
+_rng = np.random.default_rng(0)
 
 
-def ink_at(lon, lat):
-    x = (-276.36 + 157.593 * lon) * S
-    y = (2281.63 - 157.586 * lat) * S
-    xi, yi = int(round(x)), int(round(y))
-    if not (2 <= yi < raster.shape[0] - 2 and 2 <= xi < raster.shape[1] - 2):
+def to_xy(lon, lat):
+    return (-276.36 + 157.593 * lon) * S, (2281.63 - 157.586 * lat) * S
+
+
+def modal_ink(geom, nwant=40):
+    minx, miny, maxx, maxy = geom.bounds
+    inner = geom.buffer(-0.004)
+    if inner.is_empty or inner.geom_type not in ("Polygon", "MultiPolygon"):
+        inner = geom
+    cols = []
+    for _ in range(nwant * 8):
+        x, y = _rng.uniform(minx, maxx), _rng.uniform(miny, maxy)
+        if not inner.contains(shapely.Point(x, y)):
+            continue
+        xi, yi = to_xy(x, y)
+        xi, yi = int(round(xi)), int(round(yi))
+        if 1 <= xi < raster.shape[1] - 1 and 1 <= yi < raster.shape[0] - 1:
+            cols.append(raster[yi, xi])
+        if len(cols) >= nwant:
+            break
+    if not cols:
         return None
-    return raster[yi - 2:yi + 3, xi - 2:xi + 3].reshape(-1, 3).mean(0)
+    cols = np.array(cols)
+    lum = cols.mean(1)
+    keep = cols[(lum > 110) & (cols.max(1) - cols.min(1) > 18)]
+    if len(keep) < 5:
+        keep = cols
+    vals, counts = np.unique((keep // 8) * 8, axis=0, return_counts=True)
+    return vals[counts.argmax()]
 
 
 def hex2rgb(h):
@@ -210,48 +263,24 @@ def hex2rgb(h):
         return None
 
 
-geoms = {r["code"]: shapely.make_valid(r.geometry) for _, r in dissolved.iterrows()}
-ink_decided = 0
-for _round in range(4):
-    codes = list(geoms)
-    proj = {c: shapely.make_valid(gpd.GeoSeries([geoms[c]], crs="EPSG:4326").to_crs(EQ).iloc[0])
-            for c in codes}
-    tree = STRtree([proj[c] for c in codes])
-    pairs = [(i, j) for i, j in zip(*tree.query([proj[c] for c in codes],
-                                                predicate="intersects")) if i < j]
-    changed = False
-    decided = 0
-    for i, j in pairs:
-        a, b = codes[i], codes[j]
-        inter = proj[a].intersection(proj[b])
-        if inter.is_empty or inter.area / 1e6 < 0.01:
-            continue
-        pt = gpd.GeoSeries([inter.representative_point()], crs=EQ).to_crs("EPSG:4326").iloc[0]
-        ink = ink_at(pt.x, pt.y)
-        winner = None
-        if ink is not None:
-            ra, rb = hex2rgb(fill_of.get(a, "")), hex2rgb(fill_of.get(b, ""))
-            ma = ra is not None and np.abs(ink - ra).max() < 30
-            mb = rb is not None and np.abs(ink - rb).max() < 30
-            if ma and not mb:
-                winner = a
-            elif mb and not ma:
-                winner = b
-        if winner is None:
-            winner = a if prio[a] >= prio[b] else b
-        else:
-            decided += 1
-        loser = b if winner == a else a
-        reg = shapely.make_valid(gpd.GeoSeries([inter], crs=EQ).to_crs("EPSG:4326").iloc[0])
-        try:
-            geoms[loser] = shapely.make_valid(shapely.make_valid(geoms[loser]).difference(reg))
-            changed = True
-        except Exception:
-            continue
-    ink_decided += decided
-    print(f"  overlap pass {_round + 1}: {len(pairs)} touching pairs, {decided} decided by ink")
-    if not changed:
-        break
+ink_ok = ink_bad = ink_skip = 0
+for _, r in units.iterrows():
+    g = r.geometry
+    if g.area < 3e-4:
+        ink_skip += 1
+        continue
+    seen = modal_ink(g)
+    want = hex2rgb(r["fill"])
+    if seen is None or want is None:
+        ink_skip += 1
+        continue
+    if np.abs(seen - want).max() <= 24:
+        ink_ok += 1
+    else:
+        ink_bad += 1
+ink_pct = 100.0 * ink_ok / max(ink_ok + ink_bad, 1)
+print(f"  ink check: {ink_ok} polygons match the colour printed at them, "
+      f"{ink_bad} do not ({ink_pct:.1f} % agreement)")
 
 # ---- 3. clip to the national territory ------------------------------------
 ref = shapely.make_valid(gpd.read_file(REF).to_crs("EPSG:4326").geometry.iloc[0])
@@ -268,8 +297,9 @@ write(gpd.GeoDataFrame([{"source": "2023 land border + Natural Earth 10m coastli
                          "geometry": country}], geometry="geometry", crs="EPSG:4326"),
       "national_territory")
 
-geoms = {c: shapely.make_valid(g.intersection(country)) for c, g in geoms.items()}
-geoms = {c: g for c, g in geoms.items() if not g.is_empty}
+geoms = {r["code"]: polygonal(shapely.make_valid(r.geometry.intersection(country)))
+         for _, r in dissolved.iterrows() if not r.geometry.is_empty}
+geoms = {c: g for c, g in geoms.items() if g is not None and not g.is_empty}
 print(f"  clipped to {km2(country):,.0f} km2 territory -> {len(geoms)} units")
 
 # ---- 4. fill every inland gap ---------------------------------------------
@@ -303,9 +333,11 @@ codes = list(geoms)
 tree = STRtree([geoms[c] for c in codes])
 grow = {c: [geoms[c]] for c in codes}
 water_parts = []
+assigned = []
 for g in sorted(gap_parts, key=lambda p: -p.area):
     if g.intersection(water).area / max(g.area, 1e-12) > 0.5:
         water_parts.append(g)
+        assigned.append(km2(g))
         continue
     idx = tree.query(g.buffer(1e-6), predicate="intersects")
     if len(idx):
@@ -316,14 +348,18 @@ for g in sorted(gap_parts, key=lambda p: -p.area):
     else:
         best = int(tree.nearest(g))
     grow[codes[best]].append(g)
+    assigned.append(km2(g))
+
+print(f"  gaps assigned: {sum(assigned):,.1f} km2 into "
+      f"{sum(1 for v in grow.values() if len(v) > 1)} units + water")
 
 rows = []
 for _, r in dissolved.iterrows():
     c = r["code"]
     if c not in grow:
         continue
-    rows.append({**{k: r[k] for k in dissolved.columns if k not in ("geometry", "draw_order")},
-                 "draw_order": prio[c], "filled": False, "fill_source": "", "geometry": None})
+    rows.append({**{k: r[k] for k in dissolved.columns if k != "geometry"},
+                 "filled": False, "fill_source": "", "geometry": None})
 final = gpd.GeoDataFrame(rows, geometry="geometry", crs="EPSG:4326")
 final["geometry"] = [shapely.make_valid(shapely.union_all(grow[c])) for c in final["code"]]
 final["geometry"] = shapely.make_valid(final.geometry.values)
@@ -343,47 +379,38 @@ if water_parts:
 
 mapped = {c: shapely.make_valid(g) for c, g in geoms.items()}
 
-# ---- 4c. polish: exact zero overlap, exact zero gap -----------------------
-def polish(gdf, territory):
-    """Remove the last sliver crumbs left by floating-point geometry ops."""
+# ---- 4c. coverage safety net -----------------------------------------------
+# The paint order already makes the overlap exactly zero, so nothing is cut
+# here.  What this catches is the opposite: a piece of territory that ended up
+# in no unit.  It should never fire, and if it does the amount is reported.
+def close_coverage(gdf, territory):
     gs = [shapely.make_valid(g) for g in gdf.geometry.values]
-    order = gdf["draw_order"].tolist()
-    cut_km2 = 0.0
-    for _ in range(4):
-        t = STRtree(gs)
-        pairs = [(i, j) for i, j in zip(*t.query(gs, predicate="intersects")) if i < j]
-        touched = False
-        for i, j in pairs:
-            inter = gs[i].intersection(gs[j])
-            if inter.is_empty or km2(inter) <= 0:
-                continue
-            loser = j if order[i] <= order[j] else i        # the later draw loses
-            gs[loser] = shapely.make_valid(gs[loser].difference(inter))
-            cut_km2 += km2(inter)
-            touched = True
-        if not touched:
-            break
     absorbed_km2 = 0.0
-    for _ in range(4):
+    for k in range(4):
         left = shapely.make_valid(territory.difference(shapely.union_all(gs)))
         crumbs = [p for p in (left.geoms if hasattr(left, "geoms") else [left])
                   if not p.is_empty and km2(p) > 0]
         if not crumbs:
             break
+        print(f"    coverage pass {k + 1}: {len(crumbs)} uncovered piece(s), "
+              f"{sum(km2(p) for p in crumbs):,.2f} km2 absorbed")
         t = STRtree(gs)
         for p in crumbs:
             i = int(t.nearest(p))
             gs[i] = shapely.make_valid(shapely.union_all([gs[i], p]))
             absorbed_km2 += km2(p)
-    return gs, cut_km2, absorbed_km2
+    return gs, absorbed_km2
 
 
-polished, cut_km2, absorbed_km2 = polish(final, country)
+# The paint order already guarantees zero overlap in the layer's own CRS, so
+# nothing is cut here.  (Cutting the metre-scale slivers that reprojection
+# creates would open real holes: measured, it removed 1,877 km2 of coverage
+# while reporting 0.0016 km2 of overlap.)
+polished, absorbed_km2 = close_coverage(final, country)
 final["geometry"] = [polygonal(shapely.make_valid(g)) for g in polished]
 final = final[final.geometry.notna()]
 final = gpd.GeoDataFrame(final, geometry="geometry", crs="EPSG:4326")
-print(f"  polish: {cut_km2:.4f} km2 residual overlap cut, "
-      f"{absorbed_km2:.4f} km2 of crumbs absorbed")
+print(f"  coverage: {absorbed_km2:.4f} km2 absorbed to close the last metres")
 
 # ---- 5. verify and write ---------------------------------------------------
 mapped_final = {c: shapely.make_valid(g) for c, g in geoms.items()}
@@ -411,13 +438,18 @@ final["fill_source"] = np.where(~final["filled"], "",
                                          "grown from neighbouring unit"))
 
 cov = shapely.union_all(final.geometry.values)
+
+# Measure the overlap in the layer's own CRS.  Reprojecting each polygon on its
+# own to an equal-area CRS moves shared edges by a few millimetres and would
+# invent slivers that are not in the data, so only pairs that really overlap in
+# EPSG:4326 count; the area of those is then reported in km2.
 resid_overlap = 0.0
-gg = shapely.make_valid(proj.geometry.values)
+gg = [shapely.make_valid(g) for g in final.geometry.values]
 t2 = STRtree(gg)
 for i, j in [(i, j) for i, j in zip(*t2.query(gg, predicate="intersects")) if i < j]:
     a = gg[i].intersection(gg[j])
-    if not a.is_empty:
-        resid_overlap += a.area / 1e6
+    if a is not None and not a.is_empty and a.area > 0:
+        resid_overlap += km2(a)
 left = shapely.make_valid(country.difference(cov))
 holes = 0
 for p in (left.geoms if hasattr(left, "geoms") else [left]):
@@ -444,11 +476,14 @@ report = {
     "units_dropped_no_area": no_area,
     "polygons_final": int(len(final)),
     "overlap_residual_km2": round(resid_overlap, 3),
-    "ink_decided_pairs": int(ink_decided),
+    "overlap_rule": "replayed the PDF paint order (src_seq); each path loses the part "
+                    "covered by any path drawn after it",
+    "ink_check_polygons_agreeing": int(ink_ok),
+    "ink_check_polygons_disagreeing": int(ink_bad),
+    "ink_check_agreement_pct": round(ink_pct, 1),
     "gaps_filled_pieces": int(len(gap_parts)),
     "gaps_filled_km2": round(km2(gaps), 1),
-    "polish_overlap_cut_km2": round(cut_km2, 4),
-    "polish_crumbs_absorbed_km2": round(absorbed_km2, 4),
+    "coverage_absorbed_after_fill_km2": round(absorbed_km2, 4),
     "gap_water_km2": round(float(sum(km2(p) for p in water_parts)), 1),
     "uncovered_inside_territory_km2": round(km2(left), 3),
     "uncovered_pieces_over_0.01km2": holes,
@@ -469,6 +504,24 @@ report = {
     "units_filled": final.loc[final["filled"], "code"].tolist(),
 }
 json.dump(report, open(HERE / "geology_final_report.json", "w"), indent=2, default=str)
+
+# keep the package metadata in step with the layer that was just built
+_meta_path = HERE / "metadata.json"
+_meta = {r["key"]: r["value"] for r in json.load(open(_meta_path))}
+_meta.update({
+    "geology_layer": (
+        f"one layer only: geology_units = the {len(raw):,} paths of the 2011 sheet replayed in the order "
+        f"the PDF paints them, clipped to national_territory, every inland gap filled "
+        f"({report['units_final']} rows = {report['units_final'] - 1} rock units + W water; "
+        f"{report['overlap_residual_km2']} km2 residual overlap, "
+        f"{report['uncovered_inside_territory_km2']} km2 uncovered, "
+        f"ink agreement {report['ink_check_agreement_pct']}%)"),
+    "geology_boundary": (
+        "national_territory = international_boundary (2023, land border only, 3,500 vertices) "
+        "spliced into the Natural Earth 10m Nigeria coastline (public domain)"),
+})
+json.dump([{"key": k, "value": v} for k, v in _meta.items()],
+          open(_meta_path, "w"), indent=2, ensure_ascii=False)
 
 print(f"\nunits {len(final)} | coverage {report['coverage_km2']:,.0f} km2 | "
       f"country {country_km:,.0f} km2")

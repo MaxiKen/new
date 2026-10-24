@@ -92,7 +92,7 @@
    "ocg_id_fragments": 2815
   },
   "geology_units": {
-   "features": 96,
+   "features": 97,
    "crs": "EPSG:4326",
    "declared_geometry_type": "MULTIPOLYGON",
    "geometry_types_present": [
@@ -129,22 +129,22 @@
    "area_inside_nigeria_km2": 907157.0,
    "frac_inside": 1.0,
    "null_counts": {
-    "leg_desc": 7,
+    "leg_desc": 6,
     "legend_row": 6,
     "attr_source": 1,
-    "era": 3,
-    "period": 4,
-    "eon": 4,
+    "era": 4,
+    "period": 5,
+    "eon": 5,
     "epoch": 6,
-    "age_ma_min": 5,
-    "age_ma_max": 5,
-    "rock_cls": 1,
+    "age_ma_min": 6,
+    "age_ma_max": 6,
+    "rock_cls": 2,
     "formation": 6
    },
    "code_unique": true
   },
   "geology_units_equal_area": {
-   "features": 96,
+   "features": 97,
    "crs": "EPSG:6933",
    "declared_geometry_type": "MULTIPOLYGON",
    "geometry_types_present": [
@@ -182,22 +182,22 @@
    "area_inside_nigeria_km2": 907157.0,
    "frac_inside": 1.0,
    "null_counts": {
-    "leg_desc": 7,
+    "leg_desc": 6,
     "legend_row": 6,
     "attr_source": 1,
-    "era": 3,
-    "period": 4,
-    "eon": 4,
+    "era": 4,
+    "period": 5,
+    "eon": 5,
     "epoch": 6,
-    "age_ma_min": 5,
-    "age_ma_max": 5,
-    "rock_cls": 1,
+    "age_ma_min": 6,
+    "age_ma_max": 6,
+    "rock_cls": 2,
     "formation": 6
    },
    "code_unique": true
   },
   "geology_units_utm32n": {
-   "features": 96,
+   "features": 97,
    "crs": "EPSG:32632",
    "declared_geometry_type": "MULTIPOLYGON",
    "geometry_types_present": [
@@ -230,20 +230,20 @@
    "empty_geometry": 0,
    "invalid_geometry": 0,
    "duplicate_geometry": 0,
-   "area_km2": 907157.1,
-   "area_inside_nigeria_km2": 907157.1,
+   "area_km2": 907157.0,
+   "area_inside_nigeria_km2": 907157.0,
    "frac_inside": 1.0,
    "null_counts": {
-    "leg_desc": 7,
+    "leg_desc": 6,
     "legend_row": 6,
     "attr_source": 1,
-    "era": 3,
-    "period": 4,
-    "eon": 4,
+    "era": 4,
+    "period": 5,
+    "eon": 5,
     "epoch": 6,
-    "age_ma_min": 5,
-    "age_ma_max": 5,
-    "rock_cls": 1,
+    "age_ma_min": 6,
+    "age_ma_max": 6,
+    "rock_cls": 2,
     "formation": 6
    },
    "code_unique": true
@@ -916,7 +916,9 @@
   }
  },
  "checks": {
-  "geology_overlap_km2": 0.0001,
+  "geology_overlap_km2": 0.0016,
+  "geology_overlap_pairs": 73,
+  "geology_overlap_note": "area of pairs that overlap in the layer's own CRS; reprojecting each polygon alone would add edge slivers",
   "uncovered_inside_territory_km2": 0.0,
   "drawn_outside_territory_km2": 0.0,
   "area_4326_km2": 907157.0,

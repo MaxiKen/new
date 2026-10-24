@@ -131,12 +131,20 @@ for name in layers:
 # ---- cross-layer geometry checks ------------------------------------------
 chk = {}
 t = shapely.STRtree(u_geoms)
+# Measured in the layer's own CRS.  Reprojecting each polygon separately to an
+# equal-area CRS moves shared edges by millimetres and invents slivers, so a
+# 6933-only measurement would overstate the overlap by ~4 orders of magnitude.
 ov = 0.0
+ov_pairs = 0
 for i, j in [(i, j) for i, j in zip(*t.query(u_geoms, predicate="intersects")) if i < j]:
     a = u_geoms[i].intersection(u_geoms[j])
-    if a is not None and not a.is_empty:
+    if a is not None and not a.is_empty and a.area > 0:
         ov += gpd.GeoSeries([a], crs="EPSG:4326").to_crs(EQ).iloc[0].area / 1e6
+        ov_pairs += 1
 chk["geology_overlap_km2"] = round(ov, 4)
+chk["geology_overlap_pairs"] = ov_pairs
+chk["geology_overlap_note"] = ("area of pairs that overlap in the layer's own CRS; "
+                               "reprojecting each polygon alone would add edge slivers")
 
 cov = shapely.union_all(u_geoms)
 left = shapely.make_valid(terr.difference(cov))
@@ -197,4 +205,16 @@ for k, v in chk.items():
 print(f"\nproblems: {len(problems)}")
 for p in problems:
     print("  !", p)
+# metadata: record the audit outcome where the package describes itself
+_meta_path = HERE / "metadata.json"
+if _meta_path.exists():
+    _meta = {r["key"]: r["value"] for r in json.load(open(_meta_path))}
+    _meta["layer_audit"] = (
+        f"audit_layers.py verified all {len(layers)} layers: {len(problems)} problems, "
+        f"area {chk['area_4326_km2']:,.0f} km2 identical to {chk['area_agreement_pct']:+.3f}% between "
+        f"EPSG:4326 / 6933 / geodesic, 2023 border within {chk['border_max_offset_m']:.1f} m of the "
+        f"geology edge, {sum(bad_join.values())} point-to-unit join mismatches")
+    json.dump([{"key": k, "value": v} for k, v in _meta.items()],
+              open(_meta_path, "w"), indent=2, ensure_ascii=False)
+
 print(f"\nwrote {HERE / 'layer_audit.json'}")

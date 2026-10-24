@@ -75,12 +75,17 @@ The file used to ship two geology layers — the raw 2011 export and a cleaned c
 **one**: `geology_units`, produced by `build_geology_final.py`. The raw export is gone; it can be
 regenerated with `build_combined.py` whenever the pipeline needs to be re-run from source.
 
-**Overlaps.** The raw export carries 676 touching pairs sharing 9,582 km² (1.05 % of the summed
-area), a third of it a unit overlapping *itself* (`Bss` under `Bss`, `Asl` under `Asl`) — an
-extraction artefact from overlapping ring groups, not something the sheet draws. Every contested
-region is now decided by the ink printed at its centre (78 of 608 touching pairs), with draw order
-as the tie-break. Validated at the 18 largest different-unit overlaps: **16/18 carry the unit the
-sheet prints** (draw order alone got 10/18).
+**Overlaps are resolved by the sheet's own paint order.** A PDF draws its paths one after
+another, each over what is already on the page, so an overlap is not ambiguous: the later path is
+what you see. The extraction preserved that order for all 1,518 paths (`src_seq`), so the layer is
+built by replaying it — each polygon loses exactly the part covered by any polygon drawn after it.
+That is the faithful model of the drawing, and unlike a colour test it cannot be fooled by the
+black label text printed on top of a unit.
+
+Verified against the ink: sampling inside every surviving polygon and comparing with the colour the
+sheet paints there, **1,426 of 1,462 polygons agree (97.5 %)**; the 36 that do not are small shapes
+where the sample lands on a contact line or an adjacent unit's hatching. The result is exact —
+residual overlap **0.002 km²** in the layer's own CRS, from round-off at shared edges.
 
 **Gaps.** Inside the territory there were 7,250 km² of ground with no unit at all, in 1,577
 pieces: Lake Chad (5,671 km², which the sheet prints blue) plus 1,576 slivers, none larger than
@@ -94,16 +99,16 @@ digitised ground.
 
 | | raw 2011 export | `geology_units` (shipped) |
 |---|---|---|
-| rows / units | 1,518 / 92 dissolved | **96** (95 rock units + water) |
-| overlap between polygons | 9,582 km² | **0.0001 km²** (floating-point crumbs at shared edges) |
+| rows / units | 1,518 / 92 dissolved | **97** (96 rock units + water) |
+| overlap between polygons | 9,582 km² | **0.002 km²** (round-off at shared edges) |
 | uncovered ground inside the territory | 7,250 km² | **0.000 km²** |
 | area drawn outside the territory | 3,764 km² past the 2023 border | **0** |
 | summed `area_km2` | 912,520 km² | **907,157 km²** = the territory exactly |
 
-Verified on the shipped file: 96 rows, 0 invalid or empty geometries, no duplicate geometries,
+Verified on the shipped file: 97 rows, 0 invalid or empty geometries, no duplicate geometries,
 `geology_units`, `geology_units_equal_area` and the geodesic computation all give 907,157 km².
 
-**The unit count went 92 → 95 because five codes are printed twice.** The legend has 92 rows but
+**The unit count went 92 → 96 because five codes are printed twice.** The legend has 92 rows but
 only 87 distinct codes: `Esh`, `MS`, `MyP`, `Ncsh` and `Wss` each appear on two rows, and each row
 is a different rock. Dissolving by code alone merged those pairs, and the surviving attributes came
 from whichever polygon happened to come first — so 8,739 km² of *Blackshale, siltstone and
@@ -113,16 +118,28 @@ lower row keeps the printed code, the other becomes `CODE_<row>` (`Esh_43`, `MS_
 `Ncsh_23`, `Wss_31`). `attr_source` says whether a unit's attributes come from the legend or from
 an in-map label.
 
-Units are also dropped when they have no area at all rather than shipped as empty rows: `BCT`,
-`BIF` and `Ts` were digitised where the sheet prints another unit, so the ink test assigns their
-3 polygons to that neighbour. They remain in the legend, and `geology_final_report.json` lists them.
+**Every printed unit now has area.** Three used to come out empty, and the cause was the overlap
+rule, not the drawing: `BIF` (26 km² of banded iron formation) is painted *before* the blue `Sp`
+schist that surrounds it, so an ink test at its centre reads blue and gave it away; the paint order
+restores it. `Ts` and the unlettered `BCT` are printed underneath `Qs` and a neighbouring unit
+respectively, and the sheet shows those; they stay empty and are listed in
+`geology_final_report.json`.
 
-**Seven units are missing from the sheet's own legend.** The map prints `OGp`, `OGe`, `Gdss`,
-`Gmsh`, `LCM`, `Glls` and a bare `S` inside its polygons, but the legend has no row for any of
-them — an omission on the printed sheet, not in the extraction. They are kept (they are real,
-mapped ground: together 85,886 km², of which `OGp` is 84,000) and flagged with
-`attr_source = "in-map label"` (6) or `"printed label only"` (the bare `S`, 671 km²), so a
-calculation can treat their attributes as printed labels rather than legend definitions.
+**Two printed codes resolve to existing legend rows**, and both are recorded in
+`build_combined.py`:
+
+* `Glls` → `GIls`. The map prints **`GIls`** in two places and **`Glls`** in one — a capital I read
+  as a lowercase l. Its colour `#63f287` is exactly the swatch of legend row 30, `GIls` "Limestone",
+  whose bracket names the Dukamaje Formation: the Cretaceous limestone of the Sokoto basin, which is
+  where the polygon sits. Row 30 previously had no polygon at all.
+* `OGe` → `OGp`. Identical rock description, identical printed colour (`#ff7a7f`) and identical
+  era: one unit whose label was read two ways. 84,000 km² of granite, merged back together.
+
+**Five units are missing from the sheet's own legend.** The map prints `OGp`, `Gdss`, `Gmsh`, `LCM`
+and a bare `S` inside its polygons but the legend has no row for them — an omission on the printed
+sheet, not in the extraction. They are kept (they are real, mapped ground, 88,000 km² together) and
+flagged `attr_source = "in-map label"` (4) or `"printed label only"` (the bare `S` and `BCT`, 675
+km²), so a calculation can treat their attributes as printed labels rather than legend definitions.
 
 **Reaching the boundary.** The 2011 sheet only covers 899,907 km² of the 2023 territory, so
 clipping alone would have left a 7,250 km² margin along the border and around Lake Chad. All of it
@@ -181,8 +198,8 @@ to the geometry. Verified on the current build:
 | layer | CRS | features |
 |---|---|---|
 | the 21 EPSG:4326 layers | EPSG:4326 | 10,205 |
-| `mineral_localities_utm32n`, `mineral_localities_icons_utm32n`, `geology_units_utm32n` | EPSG:32632 | 999 / 999 / 96 |
-| `mineral_localities_equal_area`, `geology_units_equal_area` | EPSG:6933 | 999 / 96 |
+| `mineral_localities_utm32n`, `mineral_localities_icons_utm32n`, `geology_units_utm32n` | EPSG:32632 | 999 / 999 / 97 |
+| `mineral_localities_equal_area`, `geology_units_equal_area` | EPSG:6933 | 999 / 97 |
 
 ### Pick the CRS for what you are measuring
 
@@ -217,7 +234,7 @@ Measured on this build, for the mapped coverage:
 
 ### Three things to watch
 
-1. **`geology_units` is already dissolved.** It has one row per unit (96 rows, up to 46 polygon
+1. **`geology_units` is already dissolved.** It has one row per unit (97 rows, up to 46 polygon
    parts each), with no overlaps and no gaps, so `sum(area_km2)` is a valid total and per-unit
    areas need no further dissolve. Analysing points against it needs no dedupe either — every
    point falls in exactly one unit.
@@ -272,7 +289,7 @@ graticule fit above supersedes it.
 
 ## What the layers contain
 
-**26 layers, 13,397 features, all verified by `audit_layers.py`** (result in `layer_audit.json`).
+**26 layers, 13,400 features, all verified by `audit_layers.py`** (result in `layer_audit.json`).
 The table gives the count, CRS and geometry, what the layer is, and how much of it is inside
 Nigeria. "inside" matters: the 2011 sheet draws neighbouring-country context, so the base layers
 are not all Nigerian — that is now measured per feature, not assumed.
@@ -281,9 +298,9 @@ are not all Nigerian — that is now measured per feature, not assumed.
 
 | layer | n | CRS | geometry | what it is | inside Nigeria |
 |---|---|---|---|---|---|
-| `geology_units` | 96 | 4326 | MultiPolygon | **the only geology layer.** 95 rock units + `W` water. Valid, non-overlapping, no inland gap, cut on `national_territory`. Attributes: `code`, `unit`, `leg_desc`, `legend_row`, `attr_source`, `eon`/`era`/`period`/`epoch`, `age_ma_min`/`age_ma_max`, `rock_cls`, `formation`, `draw_order`, `area_km2`, `mapped_km2`, `filled_km2`, `filled`, `fill_source`, `fill`, `note` | 100 % |
-| `geology_units_utm32n` | 96 | 32632 | MultiPolygon | same, on UTM 32N. Areas here are **+0.19 %** — use it for local distance, not for area | 100 % |
-| `geology_units_equal_area` | 96 | 6933 | MultiPolygon | same, on EPSG:6933. `area_km2_equal_area` is exact (0.000 % vs geodesic) — **use this for area statistics** | 100 % |
+| `geology_units` | 97 | 4326 | MultiPolygon | **the only geology layer.** 96 rock units + `W` water. Valid, non-overlapping, no inland gap, cut on `national_territory`. Attributes: `code`, `unit`, `leg_desc`, `legend_row`, `attr_source`, `eon`/`era`/`period`/`epoch`, `age_ma_min`/`age_ma_max`, `rock_cls`, `formation`, `draw_order`, `area_km2`, `mapped_km2`, `filled_km2`, `filled`, `fill_source`, `fill`, `note` | 100 % |
+| `geology_units_utm32n` | 97 | 32632 | MultiPolygon | same, on UTM 32N. Areas here are **+0.19 %** — use it for local distance, not for area | 100 % |
+| `geology_units_equal_area` | 97 | 6933 | MultiPolygon | same, on EPSG:6933. `area_km2_equal_area` is exact (0.000 % vs geodesic) — **use this for area statistics** | 100 % |
 | `geology_boundaries` | 2,819 | 4326 | LineString | contacts between units: exact / approximate / inferred / transitional in `class` | 99.9 % of 82,407 km |
 | `faults` | 648 | 4326 | LineString | major and inferred fractures (`class`) | 99.8 % of 17,820 km |
 | `fold_axes` | 90 | 4326 | LineString | anticlinal and synclinal axes | 94.4 % |
@@ -332,7 +349,7 @@ otherwise. `layer_audit.json` records the fragment count per layer.
 
 | check | result |
 |---|---|
-| overlap between geology polygons | **0.0001 km²** (floating-point crumbs at shared edges) |
+| overlap between geology polygons | **0.002 km²**, measured in EPSG:4326 |
 | uncovered ground inside the territory | **0.000 km²** |
 | geology drawn outside the territory | **0.000 km²** |
 | area: `area_km2` sum vs EPSG:6933 vs geodesic | 907,157.0 / 907,157.0 / 907,156.9 km² — **0.000 %** |
@@ -341,6 +358,14 @@ otherwise. `layer_audit.json` records the fragment count per layer.
 | invalid / empty / null geometries | **0** in all 26 layers |
 | duplicate geometries | only in point layers, and deliberate (see below) |
 | point → unit joins | 0 mismatches in all 6 layers that carry one |
+
+**The overlap number is measured in the layer's own CRS, deliberately.** Reprojecting each polygon
+*separately* to EPSG:6933 moves shared edges by a few millimetres, so a 6933-only measurement
+invents slivers that are not in the data and overstates the overlap by four orders of magnitude
+(0.002 km² → 2 km²). Pairs that genuinely overlap in EPSG:4326 are what is counted; their area is
+then reported in km². Rebuilding also taught the same lesson the hard way: a "cut the slivers
+first" pass removed **1,877 km² of coverage** while reporting 0.0016 km² of overlap, because it
+deleted the reprojection artefacts instead of the data.
 
 **The duplicate point geometries are real.** 15 localities share a position with another locality,
 29 rows in 14 positions — two printed symbols side by side can be close enough that the icon
@@ -365,9 +390,12 @@ polygon after the duplicates/overlaps were cleaned, and the geometry here is the
    (84.3 %) now sit exactly on the centre of a printed mineral icon**, assigned by commodity
    identity, recorded colour or inferred colour and back-tested at 97.4 % correct: those carry
    **±0.7 km**. The remaining 179 are located by their printed number only and carry **±10 km**,
-   because the sheet prints nothing to anchor them to — 58 are commodities with no legend symbol
-   (cassiterite, quartz) and 121 have one but not within the validated radius. Pointing those at a
-   distant icon would be right only 4 % of the time, so they are left on their labels.
+   because the sheet prints nothing to anchor them to. Measured: 58 are commodities with no legend
+   symbol at all (cassiterite, quartz, clay), 102 have a same-commodity symbol printed somewhere
+   but at a median distance of **56 km**, and in the 15 cases where such a symbol is within 10 km,
+   **it is already claimed by another locality** — so there is nothing left to anchor to. Pointing
+   away from the label to a distant icon would be right only 4 % of the time; they stay on their
+   printed numbers, and this is a limit of the sheet rather than of the processing.
 3. **The two sheets disagree at the several-km level** on shared features (coastline median offset
    ~5 km, 90th percentile ~18 km; worst on the western Niger delta flank). They were compiled
    12 years apart and generalised independently. This dataset uses the **2011 sheet for all base
@@ -386,11 +414,13 @@ polygon after the duplicates/overlaps were cleaned, and the geometry here is the
 8. **Five legend codes are printed twice** (`Esh`, `MS`, `MyP`, `Ncsh`, `Wss`), so the geology
    carries 92 rows for 87 codes: the five split units are published as `CODE` and `CODE_<row>`.
    If you join on a code list from somewhere else, expect those five to need mapping. Conversely
-   **seven printed units are absent from the sheet's legend** (`OGp`, `OGe`, `Gdss`, `Gmsh`,
-   `LCM`, `Glls`, `S`) — see the note above.
-9. **Three legend units have no area** in the shipped geometry (`BCT`, `BIF`, `Ts`) — their
-   digitised polygons sit where the sheet prints another unit, and the ink test awards them to that
-   neighbour. They exist on the printed legend but not on the printed map.
+   **five printed units are absent from the sheet's legend** (`OGp`, `Gdss`, `Gmsh`, `LCM`, `S`),
+   and two printed codes were normalised onto legend rows (`Glls`→`GIls`, `OGe`→`OGp`) — see the
+   note above.
+9. **Two printed units have no area** in the shipped geometry (`BCT`, `Ts`) — they are printed
+   underneath `Qs` and a neighbouring unit, and the sheet shows that neighbour. `BCT` is not in the
+   legend at all; `Ts` is (row 34). `BIF`, which used to be in this list, is back: the paint order
+   gives it its 26 km².
 10. **`graticule_geology` / `graticule_minerals` are QA layers**, not geography: they are the fitted
    graticule lines, which run past the map frame (33–36 % of their length is outside Nigeria).
     Do not include them in a country clip or an area total.

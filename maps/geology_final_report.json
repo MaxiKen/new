@@ -1,33 +1,22 @@
 {
   "raw_polygons": 1518,
   "raw_overlap_km2": 9582.2,
-  "units_final": 96,
-  "units_dropped_no_area": [
-    {
-      "code": "BCT",
-      "unit": "Unnamed unit printed 'BCT' on the map (no legend row)"
-    },
-    {
-      "code": "BIF",
-      "unit": "Banded Iron Formation"
-    },
-    {
-      "code": "Ts",
-      "unit": "Siltstone and Sandstone"
-    }
-  ],
-  "polygons_final": 96,
+  "units_final": 97,
+  "units_dropped_no_area": [],
+  "polygons_final": 97,
   "overlap_residual_km2": 0.002,
-  "ink_decided_pairs": 86,
-  "gaps_filled_pieces": 1577,
-  "gaps_filled_km2": 7249.9,
-  "polish_overlap_cut_km2": 0.0264,
-  "polish_crumbs_absorbed_km2": 0.0538,
+  "overlap_rule": "replayed the PDF paint order (src_seq); each path loses the part covered by any path drawn after it",
+  "ink_check_polygons_agreeing": 1426,
+  "ink_check_polygons_disagreeing": 36,
+  "ink_check_agreement_pct": 97.5,
+  "gaps_filled_pieces": 1573,
+  "gaps_filled_km2": 7240.8,
+  "coverage_absorbed_after_fill_km2": 0.0141,
   "gap_water_km2": 5671.0,
   "uncovered_inside_territory_km2": 0.0,
   "uncovered_pieces_over_0.01km2": 0,
   "coverage_km2": 907157.0,
-  "mapped_before_fill_km2": 899907.1,
+  "mapped_before_fill_km2": 899916.2,
   "border_reach": {
     "border": "international_boundary (2023), land border",
     "vertices": 3500,
@@ -65,6 +54,7 @@
     "Ess",
     "GG",
     "GIgss",
+    "GIpg",
     "GIss",
     "Gdss",
     "Ge",
@@ -82,12 +72,9 @@
     "MS_78",
     "MV",
     "MWS",
-    "Mcst",
     "Mlst",
     "MyG",
     "MyP",
-    "MyP_54",
-    "Myl",
     "NPss",
     "Ncsh",
     "Ncsh_23",
@@ -98,7 +85,6 @@
     "OGS",
     "OGd",
     "OGf",
-    "OGh",
     "OGm",
     "OGp",
     "OGr",
