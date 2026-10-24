@@ -161,11 +161,15 @@ for i, (key, label) in enumerate(ERAS):
              f"{label}  ({round(sub['area_km2'].sum() / 1000):,}k km\u00b2)",
              fontsize=7.5, va="center")
 
+n_units = int(units.loc[units["code"] != "W", "code"].nunique())
+n_water = int((units["code"] == "W").sum())
+area_total = units["area_km2"].sum()
 fig.text(0.5, 0.008,
-         "Geology: 1,518 unit polygons in 92 units, 1,509 dated  \u00b7  Minerals: 999 localities, "
-         "80 commodities in 8 groups, each joined to its host unit  \u00b7  "
-         "842 of 999 points sit on a printed mineral symbol (84 %); the rest are label-only, \u03c3 \u00b1 10 km",
-         ha="center", fontsize=7.6, color="#555")
+         f"Geology: {n_units} units" + (f" + water ({n_water})" if n_water else "") +
+         f", {area_total:,.0f} km\u00b2 \u2014 no overlaps, no inland gaps, 2023 boundary  \u00b7  "
+         "Minerals: 999 localities, 80 commodities, each joined to its host unit  \u00b7  "
+         "842/999 on a printed mineral symbol (84 %), the rest label-only, \u03c3 \u00b1 10 km",
+         ha="center", fontsize=7.0, color="#555")
 
 ax.set_xticks([])
 ax.set_yticks([])

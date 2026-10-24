@@ -1,7 +1,6 @@
 {
-  "layers_total": 24,
+  "layers_total": 26,
   "crs_by_layer": {
-    "geology_units": "EPSG:4326",
     "geology_boundaries": "EPSG:4326",
     "faults": "EPSG:4326",
     "fold_axes": "EPSG:4326",
@@ -21,6 +20,9 @@
     "graticule_minerals": "EPSG:4326",
     "mineral_localities_refined": "EPSG:4326",
     "mineral_localities_utm32n": "EPSG:32632",
+    "national_territory": "EPSG:4326",
+    "geology_units": "EPSG:4326",
+    "geology_units_utm32n": "EPSG:32632",
     "mineral_localities_icons": "EPSG:4326",
     "mineral_localities_icons_utm32n": "EPSG:32632",
     "mineral_localities_equal_area": "EPSG:6933",
@@ -31,21 +33,21 @@
     "EPSG:4326",
     "EPSG:6933"
   ],
-  "geodesic_area_km2": 903679.6,
+  "geodesic_area_km2": 907156.9,
   "area_by_crs": {
-    "EPSG:4326": 74.480756,
-    "EPSG:6933": 903679.69,
+    "EPSG:4326": 74.775253,
+    "EPSG:6933": 907157.012,
     "EPSG:6933_error_pct": 0.0,
-    "EPSG:3857": 936761.977,
-    "EPSG:3857_error_pct": 3.6608,
-    "EPSG:32632": 905406.865,
-    "EPSG:32632_error_pct": 0.1911
+    "EPSG:3857": 940568.332,
+    "EPSG:3857_error_pct": 3.6831,
+    "EPSG:32632": 908907.007,
+    "EPSG:32632_error_pct": 0.1929
   },
   "locality_id_unique": true,
   "localities": 999,
   "shared_printed_numbers": 78,
-  "offshore_points": 3,
-  "max_dist_to_coast_m": 8578.616730722839,
+  "offshore_points": 4,
+  "max_dist_to_coast_m": 5738.378720365858,
   "guidance": {
     "store": "EPSG:4326 (degrees) - never compute area in it",
     "area": "EPSG:6933 (equal area) - exact; geology_units_equal_area and mineral_localities_equal_area are ready",

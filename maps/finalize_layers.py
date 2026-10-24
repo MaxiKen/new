@@ -114,11 +114,10 @@ write(icons, "mineral_localities_icons", "EPSG:4326")
 write(icons.to_crs("EPSG:32632"), "mineral_localities_icons_utm32n", "EPSG:32632")
 write(icons.to_crs(EQ_AREA), "mineral_localities_equal_area", EQ_AREA)
 
-units_ea = units.copy()
-units_proj = units_ea.to_crs(EQ_AREA)
-units_proj["geometry"] = shapely.make_valid(units_proj.geometry.values)
-units_ea["area_km2_equal_area"] = np.round(units_proj.area.values / 1e6, 3)
-write(units_ea.to_crs(EQ_AREA), "geology_units_equal_area", EQ_AREA)
+units_ea = units.to_crs(EQ_AREA)
+units_ea["geometry"] = shapely.make_valid(units_ea.geometry.values)   # to_crs can self-intersect
+units_ea["area_km2_equal_area"] = np.round(units_ea.area.values / 1e6, 3)
+write(units_ea, "geology_units_equal_area", EQ_AREA)
 
 # ---- QA report -------------------------------------------------------------
 uni = land

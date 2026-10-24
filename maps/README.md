@@ -12,7 +12,7 @@ sheets in this repository:
 
 | File | What it is |
 |---|---|
-| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, 22 layers, 13,627 features, all EPSG:4326 — this is the deliverable |
+| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, 26 layers, 13,388 features, all EPSG:4326 — this is the deliverable |
 | `Nigeria_Geology_Minerals_4326.png` / `.pdf` | rendered map |
 | `build_combined.py` | rebuilds the GeoPackage |
 | `render_combined.py` | rebuilds the image/PDF |
@@ -21,7 +21,8 @@ sheets in this repository:
 | `anchor_to_icons.py` | rebuilds the icon-anchored positions, the UTM layer and `icon_anchoring_report.json` |
 | `refine_localities.py` | previous policy, kept for comparison |
 | `fetch_source.py` | pulls the pinned source extraction (see provenance below) |
-| `build_clean_geology.py` | resolves the polygon overlaps using the printed ink; writes `geology_units_clean` and `overlap_resolution.json` |
+| `build_geology_final.py` | **builds the single geology layer**: resolves the overlaps from the printed ink, clips to the 2023 border, fills every inland gap; writes `geology_units`, `national_territory` and `geology_final_report.json` |
+| `build_clean_geology.py` | superseded by `build_geology_final.py`; kept because it produced the `overlap_resolution.json` evidence for the ink test |
 | `finalize_layers.py` | adds stable IDs, lon/lat, flags and the equal-area layers; writes `crs_qa_report.json` |
 | `locality_reassignments.csv` | the 49 locality moves, for review |
 
@@ -46,11 +47,17 @@ versioning a 21 MB intermediate:
 
 ```bash
 python fetch_source.py          # clone MaxiKen/site @ 138e961, verify sha256, copy nigeria_maps.gpkg
-python build_combined.py        # 18 base layers
+python build_combined.py        # 18 base layers, with the raw geology (1,518 polygons)
+python build_geology_final.py   # THE geology layer: no overlaps, no gaps, 2023 border
 python refine_localities.py     # + refined + UTM layers
 python anchor_to_icons.py       # + icon-anchored layers
+python finalize_layers.py       # stable IDs, equal-area layers, crs_qa_report.json
 python render_combined.py       # PNG/PDF
 ```
+
+`build_geology_final.py` must run **after** `build_combined.py` and **before** `finalize_layers.py`:
+it consumes the raw geology and rebuilds the derived layers. It refuses to run twice on its own
+output, so start from `build_combined.py` when re-running it.
 
 `build_combined.py` accepts `--source` (or `MAPS_SOURCE`) if the extraction lives elsewhere.
 
@@ -60,32 +67,39 @@ geology coverage edge), the correction of the one mislabelled QA table, and the 
 work (`accuracy_audit.md`) — not the original digitisation.
 
 
-### Is the overlap in the geology layer genuine?
+### One geology layer: no overlaps, no inland gaps, 2023 boundary
 
-Partly. `geology_units` reproduces the sheet faithfully, including its overlaps: 676 pairs
-share 9,582 km² (1.05 % of the summed area). They split into two very different kinds:
+The file used to ship two geology layers — the raw 2011 export and a cleaned copy. It now ships
+**one**: `geology_units`, produced by `build_geology_final.py`. The raw export is gone; it can be
+regenerated with `build_combined.py` whenever the pipeline needs to be re-run from source.
 
-| kind | area | verdict |
+**Overlaps.** The raw export carries 676 touching pairs sharing 9,582 km² (1.05 % of the summed
+area), a third of it a unit overlapping *itself* (`Bss` under `Bss`, `Asl` under `Asl`) — an
+extraction artefact from overlapping ring groups, not something the sheet draws. Every contested
+region is now decided by the ink printed at its centre (78 of 608 touching pairs), with draw order
+as the tie-break. Validated at the 18 largest different-unit overlaps: **16/18 carry the unit the
+sheet prints** (draw order alone got 10/18).
+
+**Gaps.** Inside the territory there were 7,250 km² of ground with no unit at all, in 1,577
+pieces: Lake Chad (5,671 km², which the sheet prints blue) plus 1,576 slivers, none larger than
+6.3 km². All of it is now assigned. A gap lying in a lake or reservoir drawn on the sheet becomes
+`W` / "Water body"; every other gap joins the neighbour it shares the longest boundary with —
+growth from the edge, not a nearest-centroid guess. Each row records `mapped_km2`, `filled_km2`
+and a `filled` flag, so a calculation can drop the assigned slivers if it wants only directly
+digitised ground.
+
+**Result**
+
+| | raw 2011 export | `geology_units` (shipped) |
 |---|---|---|
-| the **same unit overlapping itself** (e.g. `Bss` under `Bss`, `Asl` under `Asl`) | **3,133 km²** (33 %) | **not genuine** — a unit cannot overlie itself; this is an extraction artefact from overlapping ring groups |
-| **different units** overlapping | 6,449 km² | mostly **over-extension**, not a deliberate overlay: the sheet prints exactly one colour there, and in 13 of 17 sampled overlaps the ink matches the *later-drawn* polygon, meaning the lower polygon runs on beneath its neighbour |
+| rows / units | 1,518 / 92 | **93** (92 units + water) |
+| overlap between polygons | 9,582 km² | **0** (7 × 10⁻¹¹ deg², shared-edge round-off) |
+| uncovered ground inside the territory | 9,773 km² | **0.000 km²** |
+| area outside the territory | 3,764 km² drawn past the 2023 border | **0** |
+| summed `area_km2` | 912,520 km² | **907,157 km²** = the territory exactly |
 
-**Resolved layer: `geology_units_clean`.** Each overlap region is decided by the ink printed at
-its centre — the region goes to the unit whose legend colour the sheet actually shows (76 of 608
-touching pairs decided by ink; the rest, where the ink was ambiguous, by draw order). Result:
-
-| | before | `geology_units_clean` |
-|---|---|---|
-| polygons / units | 1,518 / 92 | 1,518 merged into 92 units |
-| overlap | 9,582 km² | **0.434 km²** |
-| summed area | 912,520 km² | **903,671 km²** (= dissolved coverage) |
-
-Validated against the printed ink at the 18 largest different-unit overlaps: **16/18 now carry
-the unit the sheet shows** (draw order alone managed 10/18). Largest losses are `Bss` −3,795 km²
-(its own self-overlap), `M` −1,189, `Al` −919 (alluvium drawn over bedrock).
-
-Use `geology_units` for cartography (it matches the sheet edge-for-edge) and
-`geology_units_clean` for any area statistic or point-in-polygon lookup.
+Verified on the shipped file: 93 rows, 0 invalid or empty geometries, no duplicate geometries,
+`geology_units`, `geology_units_equal_area` and the geodesic computation all give 907,157 km².
 
 ### Which border to publish
 
@@ -108,12 +122,19 @@ Three candidates exist in the data, and they are not equivalent:
 * it is the newer compilation and its shape agrees with the internationally used dataset to
   3.1 km at p90.
 
-Two caveats before publishing:
+**What the file actually uses.** The 2023 layer is the **land border only** — an open line from
+(2.70°E, 6.37°N) to (8.52°E, 4.74°N) that cannot close into a polygon on its own. So the territory
+polygon is a splice, stored as `national_territory`: 3,906 km of reference land edge replaced,
+vertex for vertex, by the 2023 line; 2,056 km of Natural Earth coastline kept; the two junctions
+snapped by 0.5 km and 1.5 km. That polygon is 907,157 km² and `geology_units` is cut on it, so the
+layer's edge *is* the 2023 border everywhere the border exists. The raw 2023 line remains in
+`international_boundary`; the 2011 coverage edge is no longer used for anything.
 
-1. The 2023 layer is the **land border only** — it runs from (2.70°E, 6.37°N) to (8.52°E, 4.74°N)
-   and does not close along the coast, so it cannot be turned into a country polygon on its own.
-   For a web country polygon use **Natural Earth 10m** (public domain, no attribution burden, and
-   within 3 km of this line) or an OSM-derived boundary if you need delta detail (ODbL).
+Two caveats:
+
+1. For a web country polygon, use **Natural Earth 10m** (public domain, no attribution burden — it
+   is within 3.1 km at p90 of the 2023 line) or an OSM-derived boundary if you need delta detail
+   (ODbL).
 2. Neither NGSA line is authoritative for a legal or diplomatic purpose; the Nigeria–Cameroon
    boundary in the Lake Chad area in particular is treaty-defined and should be taken from an
    official gazette or the ICJ ruling, not from a 1:2,000,000 map.
@@ -123,15 +144,15 @@ Two caveats before publishing:
 
 ## Using these layers for calculation
 
-**Every layer is EPSG:4326 except the four explicitly projected copies.** All geometries are
+**Every layer is EPSG:4326 except the five explicitly projected copies.** All geometries are
 valid, all have a CRS, no null or empty geometries, and `lon`/`lat` fields are asserted equal
 to the geometry. Verified on the current build:
 
 | layer | CRS | features |
 |---|---|---|
-| all 18 base layers + `mineral_localities_icons` | EPSG:4326 | 12,630 |
-| `mineral_localities_*_utm32n` | EPSG:32632 | 999 each |
-| `mineral_localities_equal_area`, `geology_units_equal_area` | EPSG:6933 | 999 / 1,518 |
+| the 21 EPSG:4326 layers | EPSG:4326 | 10,205 |
+| `mineral_localities_utm32n`, `mineral_localities_icons_utm32n`, `geology_units_utm32n` | EPSG:32632 | 999 / 999 / 93 |
+| `mineral_localities_equal_area`, `geology_units_equal_area` | EPSG:6933 | 999 / 93 |
 
 ### Pick the CRS for what you are measuring
 
@@ -141,17 +162,17 @@ to the geometry. Verified on the current build:
 | area, coverage, density | **EPSG:6933** (`*_equal_area` layers) | exact: 0.000 % error against the geodesic area |
 | length / nearest-neighbour, countrywide | geodesic metres (`pyproj.Geod` on the 4326 layer) | no projection error anywhere |
 | length / nearest-neighbour, local | EPSG:32631 / 32632 / 32633 **by zone** | Nigeria spans zones 31N (2.7–6°E), 32N (6–12°E) and 33N (12–15°E); the provided UTM 32N layer is 0.19 % off in area and worse in length at the east/west edges |
-| never | EPSG:3857 | +3.66 % area error over Nigeria (936,762 vs 903,680 km²) |
+| never | EPSG:3857 | +3.68 % area error over Nigeria (940,568 vs 907,157 km²) |
 
 Measured on this build, for the mapped coverage:
 
 | CRS | area | error |
 |---|---|---|
-| geodesic (truth) | 903,680 km² | — |
-| EPSG:6933 | 903,680 km² | +0.000 % |
-| ESRI:102022 (Africa Albers) | 903,680 km² | +0.000 % |
-| EPSG:32632 | 905,407 km² | +0.191 % |
-| EPSG:3857 | 936,762 km² | +3.661 % |
+| geodesic (truth) | 907,157 km² | — |
+| EPSG:6933 | 907,157 km² | +0.000 % |
+| ESRI:102022 (Africa Albers) | 907,157 km² | +0.000 % |
+| EPSG:32632 | 908,907 km² | +0.193 % |
+| EPSG:3857 | 940,568 km² | +3.683 % |
 
 ### Fields you can rely on
 
@@ -164,15 +185,19 @@ Measured on this build, for the mapped coverage:
   unit's boundary (useful to exclude points sitting on a contact).
 * `n_icons`, `icon_tier`, `pos_method` — how the position was derived (see accuracy_audit.md).
 
-### Two things to watch
+### Three things to watch
 
-1. **`geology_units` overlaps by 8,840 km²** (0.97 %). The polygons are valid but not
-   topologically clean: adjacent units overlap slightly, mostly Alluvium and Bida-basin units.
-   Summing `area_km2` therefore gives 912,881 km² while the dissolved coverage is 903,680 km².
-   For a correct total, dissolve first; for per-unit stats, expect ~1 % double counting.
-2. **The border is represented twice.** `international_boundary` comes from the 2023 sheet and
-   follows the 2011 coverage edge to a median of 80 m — except across Lake Chad, where the two
-   sheets differ by up to 47 km (172 of 3,500 vertices). Use one or the other, not both.
+1. **`geology_units` is already dissolved.** It has one row per unit (93 rows, up to 46 polygon
+   parts each), with no overlaps and no gaps, so `sum(area_km2)` is a valid total and per-unit
+   areas need no further dissolve. Analysing points against it needs no dedupe either — every
+   point falls in exactly one unit.
+2. **Not all of it is directly digitised.** `filled_km2` is 0 for 33 units and non-zero for 60;
+   7,250 km² of the 907,157 km² is assigned rather than drawn (5,671 of that is Lake Chad, printed
+   as water on the sheet). Filter on `filled_km2 == 0` if a statistic must exclude it.
+3. **The border appears in three layers for three purposes.** `national_territory` is the polygon
+   the geology is cut on, `international_boundary` is the raw 2023 land border line, and
+   `geology_units`'s own outer edge coincides with the land border by construction. Use
+   `national_territory` for a country polygon.
 
 
 ---
@@ -219,7 +244,9 @@ graticule fit above supersedes it.
 
 | Layer | Features | Notes |
 |---|---|---|
-| `geology_units` | 1,518 polygons | 92 codes / 97 lithologies. Attributes: `unit`, `code`, `leg_desc`, `formation`, `strat_grp`, `age_print`, `eon`/`era`/`period`/`epoch`, `age_ma_min`/`age_ma_max`, `rock_cls`, `basins`, `area_km2`, `fill` |
+| `geology_units` | 93 polygons | **the only geology layer.** 92 codes / 97 lithologies + `W` water. Attributes: `unit`, `code`, `leg_desc`, `formation`, `strat_grp`, `age_print`, `eon`/`era`/`period`/`epoch`, `age_ma_min`/`age_ma_max`, `rock_cls`, `draw_order`, `area_km2`, `mapped_km2`, `filled_km2`, `filled`, `fill_source`, `fill` |
+| `geology_units_utm32n` / `geology_units_equal_area` | 93 each | the same layer on EPSG:32632 / EPSG:6933 |
+| `national_territory` | 1 polygon | the clip: 2023 land border + Natural Earth coastline, 907,157 km². Attributes record which edge came from where |
 | `mineral_localities` | 999 points | `locality`, `zone`, `number`, `mineral_1`, `group_1`, `minerals`, `n_minerals`, `symbol`, plus the **host rock re-joined from the geology polygons**: `host_unit`, `host_code`, `host_era`, `host_period`, `host_age_ma`, `host_dist_m` |
 | `mineral_localities_icons` | 999 points | **use this one.** Every point is the centre of a printed mineral icon wherever one exists (842 points). Attributes: `n_icons`, `icon_tier`, `icon_spread_m`, `pos_method`, `moved_from_label_m`, `host_code`, `host_boundary_dist_m`, and `group_centroid_lon/lat` recording where the geometric centroid of a multi-icon group would fall |
 | `mineral_localities_icons_utm32n` | 999 points | the same on EPSG:32632 |
@@ -264,5 +291,6 @@ polygon after the duplicates/overlaps were cleaned, and the geometry here is the
    two vintages.
 4. **Datum unrecorded.** WGS 84 assumed.
 5. **`state_capitals` are label centres**, not surveyed points (±15 km).
-6. Small slivers and overlaps from the source remain (≈8,800 km² of overlap between adjacent units,
-   mostly Alluvium and Bida-basin units); the polygons are valid but not topologically clean.
+6. **The geology is seamless, but 7,250 km² of it was assigned rather than drawn** — see
+   "Three things to watch". Slivers of a few hundred metres were grown into the neighbouring unit;
+   near a contact, a point that falls in such a sliver may belong to the unit on the other side.
