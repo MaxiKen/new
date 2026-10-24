@@ -593,6 +593,44 @@
    "outside_flag_column": "in_nigeria",
    "null_counts": {}
   },
+  "minerals_named": {
+   "features": 1323,
+   "crs": "EPSG:4326",
+   "declared_geometry_type": "POINT",
+   "geometry_types_present": [
+    "Point"
+   ],
+   "attributes": [
+    "canvas_x",
+    "canvas_y",
+    "lon",
+    "lat",
+    "colour_family",
+    "mineral",
+    "tier",
+    "confidence",
+    "family_accuracy_pct",
+    "mineral_class",
+    "previously_named",
+    "prior_name",
+    "w_px",
+    "h_px",
+    "details",
+    "in_nigeria"
+   ],
+   "null_geometry": 0,
+   "empty_geometry": 0,
+   "invalid_geometry": 0,
+   "duplicate_geometry": 0,
+   "features_inside_nigeria": 1179,
+   "features_outside_nigeria": 144,
+   "outside_flag_column": "in_nigeria",
+   "null_counts": {
+    "mineral": 18,
+    "mineral_class": 18,
+    "prior_name": 437
+   }
+  },
   "national_territory": {
    "features": 1,
    "crs": "EPSG:4326",

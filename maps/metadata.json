@@ -68,7 +68,11 @@
     "value": "national_territory = international_boundary (2023, land border only, 3,500 vertices) spliced into the Natural Earth 10m Nigeria coastline (public domain)"
   },
   {
+    "key": "minerals_named",
+    "value": "1,323 printed mineral symbols re-detected on the sheet at its native 75 dpi, each point the centroid of its glyph; named against the source extraction's appearance reference with 80.8% leave-one-out accuracy, per-row tier probable/tentative/unidentified. Positions are valid; per-mineral totals are not (Limestone 30 vs 136) - use mineral_symbols.mineral for counts and this layer for position. 144 symbols sit outside the border because the sheet maps the whole region; in_nigeria flags them. See mineral_audit.md and minerals_named.md"
+  },
+  {
     "key": "layer_audit",
-    "value": "audit_layers.py verified all 26 layers: 0 problems, area 907,157 km2 identical to +0.000% between EPSG:4326 / 6933 / geodesic, 2023 border within 7.5 m of the geology edge, 0 point-to-unit join mismatches"
+    "value": "audit_layers.py verified all 27 layers: 0 problems, area 907,157 km2 identical to +0.000% between EPSG:4326 / 6933 / geodesic, 2023 border within 7.5 m of the geology edge, 0 point-to-unit join mismatches"
   }
 ]
