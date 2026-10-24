@@ -33,7 +33,7 @@
   },
   {
     "key": "area_check",
-    "value": "geology layer 907,157 km2 on EPSG:6933 (identical to the geodesic figure); the 923,768 km2 official figure uses an official boundary that includes water bodies, while this layer is clipped to the 2023 land border plus the Natural Earth coastline"
+    "value": "geology polygons total 924,900 km2 vs 923,768 km2 official - +0.1%"
   },
   {
     "key": "attributes_note",
@@ -41,14 +41,22 @@
   },
   {
     "key": "built",
-    "value": "2026-10-24"
+    "value": "2026-10-23"
   },
   {
-    "key": "geology_layer",
-    "value": "one layer only: geology_units = raw 2011 export with its 9,582 km2 of overlap resolved against the printed ink, clipped to national_territory, and every inland gap filled (93 rows = 92 units + W water; 0 overlap, 0 uncovered ground)"
+    "key": "layers",
+    "value": "26 layers, 13,397 features: 5 geology (units in 4326/32632/6933, boundaries, faults, fold axes, plugs, granite outlines), 4 water/boundary (water_bodies, rivers, national_territory, international_boundary), 7 mineral (localities in 3 CRS, icons in 2, refined, symbols), 10 base geography + 2 QA graticules. Full per-layer description in README.md, machine-checked in layer_audit.json"
   },
   {
-    "key": "geology_boundary",
-    "value": "national_territory = international_boundary (2023, land border only, 3,500 vertices) spliced into the Natural Earth 10m Nigeria coastline (public domain)"
+    "key": "layer_audit",
+    "value": "audit_layers.py verifies all 26 layers: 0 invalid/empty/null geometries, 0 unexplained duplicate geometries, 0 point-to-unit join mismatches, area identical to 0.000 % between EPSG:4326 / 6933 / geodesic, 2023 border within 7.5 m of the geology edge. Run it after any rebuild"
+  },
+  {
+    "key": "legend_note",
+    "value": "the 2011 legend has 92 rows but 87 codes: Esh, MS, MyP, Ncsh and Wss are printed twice, each row a different rock. Units are resolved per legend row, so the geology carries 96 rows (95 rock units + W water); the split units are CODE and CODE_<row>. attr_source says legend vs in-map label"
+  },
+  {
+    "key": "outside_nigeria",
+    "value": "the 2011 sheet draws neighbouring-country context: 16.9 % of rivers, 7.6 % of roads, 7.7 % of state boundaries and 23 of 486 towns lie outside the border. Kept and flagged per feature (frac_in_nigeria on lines, in_nigeria on points)"
   }
 ]

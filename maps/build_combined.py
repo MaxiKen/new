@@ -85,7 +85,94 @@ units["geometry"] = shapely.normalize(units.geometry.values)          # stable r
 units["_wkb"] = shapely.to_wkb(units.geometry.values)
 units = units.drop_duplicates(subset="_wkb").drop(columns="_wkb").reset_index(drop=True)
 
+
+def reconcile_legend(units, leg):
+    """Resolve each polygon against the printed legend.
+
+    The legend has 92 rows but only 87 distinct codes: `Esh`, `MS`, `MyP`, `Ncsh`
+    and `Wss` are each printed twice, so each of those codes stands for two
+    different units.  Dissolving by code alone merged them - and, because the
+    first polygon of each group won, gave the merged unit one unit's name and
+    colour (e.g. 8,739 km2 of "Blackshale, siltstone and sandstone" was being
+    published as "Shale and limestone").
+
+    Rules:
+      * code printed once  -> that row defines the unit; every polygon of the
+        code adopts it (a few polygons carry another unit's fill or an in-map
+        label instead of a legend row);
+      * code printed twice -> polygons are split by the legend row they carry;
+        the lower row keeps the printed code, the other becomes CODE_<row>;
+      * code not in the legend -> the unit is known only from its in-map label;
+        kept and flagged attr_source = "in-map label".
+
+    `fill` is the colour the sheet actually paints the unit: the dominant fill
+    among the group's polygons (the MS swatches are swapped in the legend
+    extraction, and the printed ink matches the polygons), falling back to the
+    legend swatch.
+    """
+    attrs = ["formation", "strat_grp", "age_print", "series", "period_prt", "eon",
+             "era", "period", "epoch", "age_ma_min", "age_ma_max", "rock_cls", "basins"]
+    leg = leg.copy()
+    leg["code"] = leg["code"].astype(str)
+    rows_per_code = leg.groupby("code").size().to_dict()
+    units["code"] = units["code"].astype(str).replace({"nan": np.nan})
+    units["legend_row"] = pd.array(units["leg_row"], dtype="Float64")
+    units["attr_source"] = "in-map label"
+
+    def apply(mask, row):
+        units.loc[mask, "unit"] = row["description"]
+        units.loc[mask, "leg_code"] = row["code"]
+        units.loc[mask, "leg_desc"] = row["description"]
+        units.loc[mask, "leg_row"] = row["row"]
+        units.loc[mask, "attr_source"] = "legend"
+        for a in attrs:
+            if a in leg.columns:
+                units.loc[mask, a] = row[a]
+        fills = units.loc[mask, "fill"].value_counts(dropna=True)
+        fill = fills.index[0] if len(fills) and fills.iloc[0] >= 0.5 * mask.sum() else row["fill"]
+        units.loc[mask, "fill"] = fill
+
+    split = []
+    for code, n in rows_per_code.items():
+        rows = leg[leg["code"] == code].sort_values("row")
+        carries = units["code"] == code
+        if not carries.any():
+            continue
+        if n == 1:
+            apply(carries, rows.iloc[0])
+            continue
+        for k, (_, row) in enumerate(rows.iterrows()):
+            new_code = code if k == 0 else f"{code}_{int(row['row'])}"
+            mask = carries & (units["legend_row"] == row["row"])
+            if not mask.any():                       # no polygon claims this row
+                continue
+            units.loc[mask, "code"] = new_code
+            apply(mask, row)
+            split.append(new_code)
+    # a polygon whose code is printed twice but whose row is missing: give it
+    # the first row rather than dropping it silently
+    for code, n in rows_per_code.items():
+        if n < 2:
+            continue
+        rows = leg[leg["code"] == code].sort_values("row")
+        stray = (units["code"] == code) & (units["legend_row"].isna()
+                                           | ~units["legend_row"].isin(rows["row"]))
+        if stray.any():
+            apply(stray, rows.iloc[0])
+    print(f"  legend reconciliation: {len(rows_per_code)} codes, "
+          f"{int(sum(n - 1 for n in rows_per_code.values() if n > 1))} printed twice "
+          f"-> split into {int(sum(rows_per_code.values()))} units ({', '.join(split)})")
+    return units
+
+
+# a polygon the extraction could not code still carries its in-map label; keep it
+units.loc[units["code"].isna(), "code"] = units.loc[units["code"].isna(), "unit"].astype(str)
+
+leg_table = pyogrio.read_dataframe(SRC, layer="geology2011_legend")
+units = reconcile_legend(units, leg_table)
+
 keep = ["unit", "code", "leg_code", "leg_desc", "lbl_code", "code_src", "leg_row",
+        "legend_row", "attr_source",
         "formation", "strat_grp", "age_print", "series", "period_prt",
         "eon", "era", "period", "epoch",
         "age_ma_min", "age_ma_max", "rock_cls", "basins", "age_src",

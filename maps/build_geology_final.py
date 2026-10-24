@@ -135,6 +135,16 @@ def write(gdf, layer, crs="EPSG:4326"):
     print(f"  wrote {layer:28s} {n:5d} features")
 
 
+def polygonal(geom):
+    """Keep only the polygonal parts: make_valid() can return a collection of
+    polygons plus collapsed lines, which breaks area and point-in-polygon work."""
+    if geom is None or geom.is_empty or geom.geom_type != "GeometryCollection":
+        return geom
+    parts = [g for g in geom.geoms
+             if g.geom_type in ("Polygon", "MultiPolygon") and not g.is_empty]
+    return shapely.union_all(parts) if parts else None
+
+
 def km2(geom):
     if geom is None or geom.is_empty:
         return 0.0
@@ -275,6 +285,20 @@ wb = gpd.read_file(GPKG, layer="water_bodies")
 # reservoirs (both drawn blue on the sheet) can.
 water = shapely.union_all(wb[wb["kind"].isin(["lake", "lake / reservoir"])].geometry.values)
 
+# say what each water polygon is, and how much of it is actually in Nigeria
+wb["printed_polygon"] = wb["kind"].isin(["lake", "lake / reservoir"])
+wb["area_in_nigeria_km2"] = [round(km2(shapely.make_valid(g.intersection(country))), 1)
+                             for g in wb.geometry]
+wb["frac_in_nigeria"] = [round(a / km2(g), 3) if km2(g) else 0.0
+                         for a, g in zip(wb["area_in_nigeria_km2"], wb.geometry)]
+wb["geometry"] = [polygonal(shapely.make_valid(g)) for g in wb.geometry]
+wb = wb[wb.geometry.notna()].reset_index(drop=True)
+wb["note"] = ""
+wb.loc[wb["kind"] == "river", "note"] = (
+    "corridor enclosing the Niger and Benue channels, not a printed water polygon")
+wb.loc[wb["kind"] == "sea", "note"] = "sea area of the sheet; clipped by the coastline only"
+write(wb, "water_bodies")
+
 codes = list(geoms)
 tree = STRtree([geoms[c] for c in codes])
 grow = {c: [geoms[c]] for c in codes}
@@ -355,7 +379,8 @@ def polish(gdf, territory):
 
 
 polished, cut_km2, absorbed_km2 = polish(final, country)
-final["geometry"] = polished
+final["geometry"] = [polygonal(shapely.make_valid(g)) for g in polished]
+final = final[final.geometry.notna()]
 final = gpd.GeoDataFrame(final, geometry="geometry", crs="EPSG:4326")
 print(f"  polish: {cut_km2:.4f} km2 residual overlap cut, "
       f"{absorbed_km2:.4f} km2 of crumbs absorbed")
@@ -368,8 +393,19 @@ proj = final.to_crs(EQ)
 final["area_km2"] = np.round(proj.area.values / 1e6, 3)
 final["filled_km2"] = np.round(final["area_km2"] - final["mapped_km2"], 3).clip(lower=0)
 
+# a legend unit whose polygons were digitised where the sheet prints another
+# unit ends up with no area at all; a zero-area row in a map layer is worse than
+# no row, so it is dropped and recorded here
+final["note"] = ""
+final.loc[final["code"] == "W", "note"] = "filled from the water body printed on the sheet"
+no_area = final.loc[final["area_km2"] < 0.001, ["code", "unit"]].to_dict("records")
+final = final[final["area_km2"] >= 0.001].reset_index(drop=True)
+if no_area:
+    print(f"  dropped {len(no_area)} legend unit(s) with no mapped area: "
+          + ", ".join(f"{r['code']} ({r['unit']})" for r in no_area))
+
 # how much of each unit is fill rather than mapped geology
-final["filled"] = final["filled_km2"] > 0.5
+final["filled"] = final["filled_km2"] > 0.0
 final["fill_source"] = np.where(~final["filled"], "",
                                 np.where(final["code"] == "W", "water body",
                                          "grown from neighbouring unit"))
@@ -405,6 +441,7 @@ report = {
     "raw_polygons": int(len(raw)),
     "raw_overlap_km2": 9582.2,
     "units_final": int(final["code"].nunique()),
+    "units_dropped_no_area": no_area,
     "polygons_final": int(len(final)),
     "overlap_residual_km2": round(resid_overlap, 3),
     "ink_decided_pairs": int(ink_decided),
@@ -440,13 +477,18 @@ print(f"overlap residual {resid_overlap:.3f} km2 | uncovered inside territory "
 print(f"gaps filled {report['gaps_filled_km2']:,.1f} km2 "
       f"(water {report['gap_water_km2']:,.1f} km2)")
 
-keep = ["code", "unit", "fill", "leg_desc", "era", "period", "eon", "epoch",
-        "age_ma_min", "age_ma_max", "rock_cls", "formation", "draw_order",
-        "filled", "fill_source", "mapped_km2", "filled_km2", "area_km2", "geometry"]
+keep = ["code", "unit", "fill", "leg_desc", "legend_row", "attr_source", "era", "period",
+        "eon", "epoch", "age_ma_min", "age_ma_max", "rock_cls", "formation", "draw_order",
+        "filled", "fill_source", "mapped_km2", "filled_km2", "area_km2", "note", "geometry"]
 keep = [k for k in keep if k in final.columns]
 out = final[keep].sort_values("area_km2", ascending=False).reset_index(drop=True)
 write(out, "geology_units")
-write(out.to_crs("EPSG:32632"), "geology_units_utm32n", "EPSG:32632")
+
+# reprojection to UTM creates self-intersections, so repair and re-clean here
+utm = out.to_crs("EPSG:32632")
+utm["geometry"] = [polygonal(shapely.make_valid(g)) for g in utm.geometry]
+utm = utm[utm.geometry.notna()]
+write(utm, "geology_units_utm32n", "EPSG:32632")
 for old in ("geology_units_clean", "geology_units_clean_utm32n", "geology_units_equal_area"):
     drop_layer(GPKG, old)
 print("  removed superseded geology_units_clean* / equal_area (rebuilt later)")

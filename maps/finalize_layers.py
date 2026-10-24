@@ -38,6 +38,7 @@ import warnings
 
 import geopandas as gpd
 import numpy as np
+import pandas as pd
 import shapely
 from pyproj import Geod
 
@@ -65,10 +66,21 @@ def drop_layer(path, name):
     con.close()
 
 
+def polygonal(geom):
+    """Drop the collapsed line/point parts make_valid() leaves behind, so a
+    polygon layer contains polygons only."""
+    if geom is None or geom.is_empty or geom.geom_type != "GeometryCollection":
+        return geom
+    parts = [g for g in geom.geoms
+             if g.geom_type in ("Polygon", "MultiPolygon") and not g.is_empty]
+    return shapely.union_all(parts) if parts else None
+
+
 def write(gdf, layer, crs):
     # reprojection can introduce self-intersections: repair before writing
     gdf = gdf.copy()
     gdf["geometry"] = shapely.make_valid(gdf.geometry.values)
+    gdf["geometry"] = [polygonal(g) for g in gdf.geometry.values]
     gdf = gdf[gdf.geometry.notna() & ~gdf.geometry.is_empty]
     drop_layer(GPKG, layer)
     gpd.GeoDataFrame(gdf, geometry="geometry", crs=crs).to_file(
@@ -102,6 +114,117 @@ dist_out = np.array([
     for pt in icons.geometry])
 icons["dist_to_coast_m"] = np.round(dist_out, 0)
 n_off = int((dist_out > 0).sum())
+
+# ---- re-link everything that points at a geology unit ----------------------
+# build_combined.py joins points to the *raw* polygons (which overlap); the
+# shipped geology is dissolved and gap-filled, so those joins are re-made here
+# against the layer that actually ships.  Without this, 3 localities and 21
+# towns carried a unit that the file no longer places them in.
+territory = gpd.read_file(GPKG, layer="national_territory").geometry.iloc[0]
+unit_geoms = [shapely.make_valid(g) for g in units.geometry.values]
+unit_tree = shapely.STRtree(unit_geoms)
+u_code = units["code"].values
+u_name = units["unit"].values
+u_era = units["era"].values
+u_per = units["period"].values
+u_area = units["area_km2"].values
+
+
+def unit_index(pt):
+    idx = unit_tree.query(pt, predicate="intersects")
+    if len(idx) == 0:
+        return None
+    return int(idx[int(np.argmin(u_area[idx]))])
+
+
+def relink_points(g, code_col="unit_code", name_col="unit", era_col="unit_era",
+                  per_col="unit_per", dist_col=None, nearest_fallback=False):
+    """Set the unit fields from the shipped geology.
+
+    A point outside every unit gets null (the sheet also prints a few
+    neighbouring towns, which have no Nigerian unit) unless nearest_fallback is
+    set, in which case it takes the nearest unit and `dist_col` records how far
+    outside it lies — appropriate for the mineral layers, where the host is a
+    property of the deposit rather than of the point's position.
+    """
+    codes, names, eras, pers, dists = [], [], [], [], []
+    for pt in g.geometry:
+        j = unit_index(pt)
+        if j is None and nearest_fallback:
+            j = int(unit_tree.nearest(pt))
+        if j is None:
+            codes.append(None); names.append(None); eras.append(None); pers.append(None)
+            if dist_col:
+                dists.append(None)
+            continue
+        codes.append(u_code[j]); names.append(u_name[j]); eras.append(u_era[j]); pers.append(u_per[j])
+        if dist_col:
+            dists.append(round(GEOID.geometry_length(
+                shapely.shortest_line(pt, unit_geoms[j].boundary)), 0))
+    n_before = int((g[code_col] != pd.Series(codes, index=g.index)).sum()) if code_col in g else 0
+    g[code_col] = codes
+    if name_col and name_col in g:
+        g[name_col] = names
+    if era_col and era_col in g:
+        g[era_col] = eras
+    if per_col and per_col in g:
+        g[per_col] = pers
+    if dist_col:
+        g[dist_col] = dists
+    return g, n_before
+
+
+icons, n_relinked = relink_points(icons, code_col="host_code", name_col=None,
+                                  era_col=None, per_col=None,
+                                  dist_col="host_boundary_dist_m", nearest_fallback=True)
+print(f"  locality host units re-linked against the shipped geology: {n_relinked} changed")
+
+for layer, code_col, dist_col in (("mineral_localities", "host_code", "host_dist_m"),
+                                  ("mineral_localities_refined", "host_code", None)):
+    g = gpd.read_file(GPKG, layer=layer)
+    if code_col not in g:
+        continue
+    g, changed = relink_points(g, code_col=code_col, name_col=None, era_col=None,
+                               per_col=None, dist_col=dist_col, nearest_fallback=True)
+    write(g, layer, "EPSG:4326")
+    print(f"  {layer}: {changed} host links corrected")
+
+for layer in ("towns", "state_capitals", "volcanic_plugs"):
+    g = gpd.read_file(GPKG, layer=layer)
+    if "unit_code" not in g:
+        continue
+    g, changed = relink_points(g)
+    write(g, layer, "EPSG:4326")
+    print(f"  {layer}: {changed} unit links corrected, "
+          f"{int(g['unit_code'].isna().sum())} now null (outside Nigeria)")
+
+# ---- how much of each base layer is actually inside Nigeria ----------------
+# The 2011 sheet draws neighbouring-country rivers, roads, state lines and towns
+# for context, so those layers are not 100 % Nigerian.  Flag it, do not delete it.
+for layer, kind in (("rivers", "line"), ("roads", "line"), ("state_boundaries", "line"),
+                    ("faults", "line"), ("fold_axes", "line"),
+                    ("geology_boundaries", "line"), ("younger_granite_outlines", "line"),
+                    ("towns", "point"), ("state_capitals", "point"),
+                    ("volcanic_plugs", "point"), ("mineral_symbols", "point"),
+                    ("mineral_localities", "point"), ("mineral_localities_refined", "point")):
+    try:
+        g = gpd.read_file(GPKG, layer=layer)
+    except Exception:
+        continue
+    if kind == "point":
+        g["in_nigeria"] = g.geometry.apply(lambda p: bool(territory.contains(p)))
+        write(g, layer, "EPSG:4326")
+        print(f"  {layer}: {int((~g['in_nigeria']).sum())} features outside Nigeria flagged")
+    else:
+        gg = g.to_crs(EQ_AREA).geometry
+        inside = np.array([shapely.make_valid(x.intersection(
+            gpd.GeoSeries([territory], crs="EPSG:4326").to_crs(EQ_AREA).iloc[0])).length
+            if x is not None else 0 for x in gg])
+        total = np.array([shapely.make_valid(x).length if x is not None else 0 for x in gg])
+        g["km_in_nigeria"] = np.round(inside / 1000, 3)
+        g["frac_in_nigeria"] = np.round(np.where(total > 0, inside / total, 0), 4)
+        write(g, layer, "EPSG:4326")
+        print(f"  {layer}: {100 * inside.sum() / total.sum():.1f} % of its length inside Nigeria")
 
 order = ["locality_id", "zone", "number", "locality", "mineral_1", "group_1", "minerals",
          "n_minerals", "n_icons", "icon_tier", "icon_spread_m", "pos_method",

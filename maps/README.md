@@ -5,7 +5,7 @@ sheets in this repository:
 
 | Source | Sheet | Contribution |
 |---|---|---|
-| `Geological_Map_of_Nigeria.pdf` | NGSA Geological Map of Nigeria, 1:2,000,000, 2011 edition (DG Prof. Siyan Malomo) | ~92 rock units (1,518 polygons), boundaries, faults, fold axes, volcanic plugs, rivers, roads, railway, towns |
+| `Geological_Map_of_Nigeria.pdf` | NGSA Geological Map of Nigeria, 1:2,000,000, 2011 edition (DG Prof. Siyan Malomo) | 92 legend rows / 87 codes (1,518 polygons), boundaries, faults, fold axes, volcanic plugs, rivers, roads, railway, towns |
 | `Mineral_Resources_Map_of_Nigeria_2023.pdf` | NGSA Mineral Resources Map of Nigeria, 1:2,000,000, 2nd edition 2023 (DG Dr Abdulrazaq Garba) | 999 mineral localities, 80 commodities in 8 groups, pegmatite marks, international boundary |
 
 **Deliverables**
@@ -23,7 +23,8 @@ sheets in this repository:
 | `fetch_source.py` | pulls the pinned source extraction (see provenance below) |
 | `build_geology_final.py` | **builds the single geology layer**: resolves the overlaps from the printed ink, clips to the 2023 border, fills every inland gap; writes `geology_units`, `national_territory` and `geology_final_report.json` |
 | `build_clean_geology.py` | superseded by `build_geology_final.py`; kept because it produced the `overlap_resolution.json` evidence for the ink test |
-| `finalize_layers.py` | adds stable IDs, lon/lat, flags and the equal-area layers; writes `crs_qa_report.json` |
+| `finalize_layers.py` | adds stable IDs, lon/lat, flags, the equal-area layers, **re-links every point to the shipped geology** and measures how much of each layer is inside Nigeria; writes `crs_qa_report.json` |
+| `audit_layers.py` | **verifies all 26 layers** and writes `layer_audit.json`: geometry validity, CRS, duplicates, in-country share, area agreement, border flushness, point→unit joins |
 | `locality_reassignments.csv` | the 49 locality moves, for review |
 
 ---
@@ -53,6 +54,7 @@ python refine_localities.py     # + refined + UTM layers
 python anchor_to_icons.py       # + icon-anchored layers
 python finalize_layers.py       # stable IDs, equal-area layers, crs_qa_report.json
 python render_combined.py       # PNG/PDF
+python audit_layers.py          # verify all 26 layers -> layer_audit.json
 ```
 
 `build_geology_final.py` must run **after** `build_combined.py` and **before** `finalize_layers.py`:
@@ -92,21 +94,35 @@ digitised ground.
 
 | | raw 2011 export | `geology_units` (shipped) |
 |---|---|---|
-| rows / units | 1,518 / 92 | **93** (92 units + water) |
-| overlap between polygons | 9,582 km² | **0** (7 × 10⁻¹¹ deg², shared-edge round-off) |
-| uncovered ground inside the territory | 9,773 km² | **0.000 km²** |
-| area outside the territory | 3,764 km² drawn past the 2023 border | **0** |
+| rows / units | 1,518 / 92 dissolved | **96** (95 rock units + water) |
+| overlap between polygons | 9,582 km² | **0.0001 km²** (floating-point crumbs at shared edges) |
+| uncovered ground inside the territory | 7,250 km² | **0.000 km²** |
+| area drawn outside the territory | 3,764 km² past the 2023 border | **0** |
 | summed `area_km2` | 912,520 km² | **907,157 km²** = the territory exactly |
 
-Verified on the shipped file: 93 rows, 0 invalid or empty geometries, no duplicate geometries,
+Verified on the shipped file: 96 rows, 0 invalid or empty geometries, no duplicate geometries,
 `geology_units`, `geology_units_equal_area` and the geodesic computation all give 907,157 km².
+
+**The unit count went 92 → 95 because five codes are printed twice.** The legend has 92 rows but
+only 87 distinct codes: `Esh`, `MS`, `MyP`, `Ncsh` and `Wss` each appear on two rows, and each row
+is a different rock. Dissolving by code alone merged those pairs, and the surviving attributes came
+from whichever polygon happened to come first — so 8,739 km² of *Blackshale, siltstone and
+sandstone* was published as *Shale and limestone*, and 8,551 km² of *Sand, Clay and Mangrove
+Swamps* as *Pelitic Schist*. Each polygon is now resolved against the legend row it carries; the
+lower row keeps the printed code, the other becomes `CODE_<row>` (`Esh_43`, `MS_78`, `MyP_54`,
+`Ncsh_23`, `Wss_31`). `attr_source` says whether a unit's attributes come from the legend or from
+an in-map label.
+
+Units are also dropped when they have no area at all rather than shipped as empty rows: `BCT`,
+`BIF` and `Ts` were digitised where the sheet prints another unit, so the ink test assigns their
+3 polygons to that neighbour. They remain in the legend, and `geology_final_report.json` lists them.
 
 **Reaching the boundary.** The 2011 sheet only covers 899,907 km² of the 2023 territory, so
 clipping alone would have left a 7,250 km² margin along the border and around Lake Chad. All of it
-is filled, and the layer is flush with the line: **all 3,500 vertices of the 2023 land border sit
-within 7.5 m of the geology** (one vertex; every other one is on it exactly), and the build aborts
-if any vertex is more than 50 m away. Along the coast the edge is the Natural Earth coastline,
-because the 2023 layer stops at the shore and has no sea edge.
+is filled, and the layer is flush with the line: **every one of the 3,500 vertices of the 2023 land
+border sits within 7.5 m of the geology**, and the build aborts if any vertex is more than 50 m
+away. Along the coast the edge is the Natural Earth coastline, because the 2023 layer stops at the
+shore and has no sea edge.
 
 ### Which border to publish
 
@@ -158,8 +174,8 @@ to the geometry. Verified on the current build:
 | layer | CRS | features |
 |---|---|---|
 | the 21 EPSG:4326 layers | EPSG:4326 | 10,205 |
-| `mineral_localities_utm32n`, `mineral_localities_icons_utm32n`, `geology_units_utm32n` | EPSG:32632 | 999 / 999 / 93 |
-| `mineral_localities_equal_area`, `geology_units_equal_area` | EPSG:6933 | 999 / 93 |
+| `mineral_localities_utm32n`, `mineral_localities_icons_utm32n`, `geology_units_utm32n` | EPSG:32632 | 999 / 999 / 96 |
+| `mineral_localities_equal_area`, `geology_units_equal_area` | EPSG:6933 | 999 / 96 |
 
 ### Pick the CRS for what you are measuring
 
@@ -194,11 +210,11 @@ Measured on this build, for the mapped coverage:
 
 ### Three things to watch
 
-1. **`geology_units` is already dissolved.** It has one row per unit (93 rows, up to 46 polygon
+1. **`geology_units` is already dissolved.** It has one row per unit (96 rows, up to 46 polygon
    parts each), with no overlaps and no gaps, so `sum(area_km2)` is a valid total and per-unit
    areas need no further dissolve. Analysing points against it needs no dedupe either — every
    point falls in exactly one unit.
-2. **Not all of it is directly digitised.** `filled_km2` is 0 for 33 units and non-zero for 60;
+2. **Not all of it is directly digitised.** `filled_km2` is 0 for 18 units and non-zero for 78;
    7,250 km² of the 907,157 km² is assigned rather than drawn (5,671 of that is Lake Chad, printed
    as water on the sheet). Filter on `filled_km2 == 0` if a statistic must exclude it.
 3. **The border appears in three layers for three purposes.** `national_territory` is the polygon
@@ -249,27 +265,81 @@ graticule fit above supersedes it.
 
 ## What the layers contain
 
-| Layer | Features | Notes |
-|---|---|---|
-| `geology_units` | 93 polygons | **the only geology layer.** 92 codes / 97 lithologies + `W` water. Attributes: `unit`, `code`, `leg_desc`, `formation`, `strat_grp`, `age_print`, `eon`/`era`/`period`/`epoch`, `age_ma_min`/`age_ma_max`, `rock_cls`, `draw_order`, `area_km2`, `mapped_km2`, `filled_km2`, `filled`, `fill_source`, `fill` |
-| `geology_units_utm32n` / `geology_units_equal_area` | 93 each | the same layer on EPSG:32632 / EPSG:6933 |
-| `national_territory` | 1 polygon | the clip: 2023 land border + Natural Earth coastline, 907,157 km². Attributes record which edge came from where |
-| `mineral_localities` | 999 points | `locality`, `zone`, `number`, `mineral_1`, `group_1`, `minerals`, `n_minerals`, `symbol`, plus the **host rock re-joined from the geology polygons**: `host_unit`, `host_code`, `host_era`, `host_period`, `host_age_ma`, `host_dist_m` |
-| `mineral_localities_icons` | 999 points | **use this one.** Every point is the centre of a printed mineral icon wherever one exists (842 points). Attributes: `n_icons`, `icon_tier`, `icon_spread_m`, `pos_method`, `moved_from_label_m`, `host_code`, `host_boundary_dist_m`, and `group_centroid_lon/lat` recording where the geometric centroid of a multi-icon group would fall |
-| `mineral_localities_icons_utm32n` | 999 points | the same on EPSG:32632 |
-| `mineral_localities_refined` | 999 points | previous policy (symbol where available, otherwise label) — kept for comparison |
-| `mineral_localities_utm32n` | 999 points | the same points on WGS 84 / UTM zone 32N (EPSG:32632) for measuring in metres — reprojection is exact, so this changes nothing about accuracy |
-| `mineral_symbols` | 1,609 points | every printed mineral symbol with its identified commodity and colour |
-| `faults` | 648 | major + inferred fractures |
-| `geology_boundaries` | 2,819 | exact / approximate / inferred / transitional |
-| `fold_axes` | 90 | anticlinal + synclinal |
-| `volcanic_plugs` | 68 | |
-| `younger_granite_outlines` | 59 | Jos Plateau ring complexes |
-| `rivers` / `water_bodies` | 1,054 / 4 | |
-| `state_boundaries` / `international_boundary` | 83 / 1 | |
-| `roads` / `railway` | 122 / 6 | |
-| `towns` / `state_capitals` | 486 / 32 | capitals are label-centre approximations, ±15 km |
-| `graticule_geology` / `graticule_minerals` | 22 / 11 | the fitted graticules, kept for QA |
+**26 layers, 13,397 features, all verified by `audit_layers.py`** (result in `layer_audit.json`).
+The table gives the count, CRS and geometry, what the layer is, and how much of it is inside
+Nigeria. "inside" matters: the 2011 sheet draws neighbouring-country context, so the base layers
+are not all Nigerian — that is now measured per feature, not assumed.
+
+### Geology
+
+| layer | n | CRS | geometry | what it is | inside Nigeria |
+|---|---|---|---|---|---|
+| `geology_units` | 96 | 4326 | MultiPolygon | **the only geology layer.** 95 rock units + `W` water. Valid, non-overlapping, no inland gap, cut on `national_territory`. Attributes: `code`, `unit`, `leg_desc`, `legend_row`, `attr_source`, `eon`/`era`/`period`/`epoch`, `age_ma_min`/`age_ma_max`, `rock_cls`, `formation`, `draw_order`, `area_km2`, `mapped_km2`, `filled_km2`, `filled`, `fill_source`, `fill`, `note` | 100 % |
+| `geology_units_utm32n` | 96 | 32632 | MultiPolygon | same, on UTM 32N. Areas here are **+0.19 %** — use it for local distance, not for area | 100 % |
+| `geology_units_equal_area` | 96 | 6933 | MultiPolygon | same, on EPSG:6933. `area_km2_equal_area` is exact (0.000 % vs geodesic) — **use this for area statistics** | 100 % |
+| `geology_boundaries` | 2,819 | 4326 | LineString | contacts between units: exact / approximate / inferred / transitional in `class` | 99.9 % of 82,407 km |
+| `faults` | 648 | 4326 | LineString | major and inferred fractures (`class`) | 99.8 % of 17,820 km |
+| `fold_axes` | 90 | 4326 | LineString | anticlinal and synclinal axes | 94.4 % |
+| `volcanic_plugs` | 68 | 4326 | Point | plugs and necks, with the host unit attached | 68/68 |
+| `younger_granite_outlines` | 59 | 4326 | LineString | Jos Plateau ring-complex outlines. **Outlines, not closed rings** — 18 of 59 return to their start point, the rest do not, so do not treat them as polygons | 100 % |
+
+### Water
+
+| layer | n | CRS | geometry | what it is | inside Nigeria |
+|---|---|---|---|---|---|
+| `water_bodies` | 4 | 4326 | MultiPolygon | `kind` = `sea`, `lake` (Chad), `river`, `lake / reservoir`. **Read `note` and `printed_polygon` before using it**: `river` is a corridor enclosing the Niger–Benue channels, not water printed as a polygon; `sea` is the sheet's sea area. Only `lake` and `lake / reservoir` are water drawn as polygons, and only those were used to fill gaps in the geology | 9.2 % — by design, this is sea plus cross-border water |
+| `rivers` | 1,054 | 4326 | LineString | river centrelines | 83.1 % of 40,482 km |
+| `national_territory` | 1 | 4326 | Polygon | the clip polygon: 2023 land border + Natural Earth 10m coastline, 907,157 km². `land_edge`, `sea_edge`, `border_layer`, `area_km2` record the construction | 100 % |
+| `international_boundary` | 1 | 4326 | LineString | the 2023 boundary as printed: 4,166 km, 3,500 vertices, **open** (2.70°E 6.37°N → 8.52°E 4.74°N). Land border only | 100 % |
+
+### Minerals
+
+| layer | n | CRS | geometry | what it is | inside Nigeria |
+|---|---|---|---|---|---|
+| `mineral_localities_icons` | 999 | 4326 | Point | **use this one for the 999 localities.** Position = centre of the printed mineral icon where one exists (842), otherwise the printed label. `locality_id` is the unique key; `n_icons`, `icon_tier`, `icon_spread_m`, `pos_method`, `moved_from_label_m`, `host_code`, `host_boundary_dist_m`, `group_centroid_lon/lat`, `shared_number` | 995/999 |
+| `mineral_localities_icons_utm32n` | 999 | 32632 | Point | the same positions, metres | 995/999 |
+| `mineral_localities_equal_area` | 999 | 6933 | Point | the same positions, equal-area | 995/999 |
+| `mineral_localities` | 999 | 4326 | Point | the localities before icon anchoring, with the full source vocabulary (`symbol`, `sym_colour`, `min_conf`, `pos_src`, `label_lon/lat`, `groups`) | 991/999 |
+| `mineral_localities_refined` | 999 | 4326 | Point | the previous positioning policy, kept for comparison | 992/999 |
+| `mineral_localities_utm32n` | 999 | 32632 | Point | the same | 991/999 |
+| `mineral_symbols` | 1,609 | 4326 | Point | every printed mineral symbol, with commodity, colour and how it was identified (`ident_mth`, `ident_scr`) | 1,603/1,609 |
+
+### Settlements, transport, QA
+
+| layer | n | CRS | geometry | what it is | inside Nigeria |
+|---|---|---|---|---|---|
+| `towns` | 486 | 4326 | Point | towns; 82 unnamed, 23 are in neighbouring countries (`in_nigeria = False`, unit fields null) | 463/486 |
+| `state_capitals` | 32 | 4326 | Point | label-centre approximations, ±15 km | 32/32 |
+| `state_boundaries` | 83 | 4326 | LineString | state lines; `km_in_nigeria`, `frac_in_nigeria` per feature | 92.3 % of 36,043 km |
+| `roads` | 122 | 4326 | LineString | trunk roads | 92.6 % |
+| `railway` | 6 | 4326 | LineString | | 100 % |
+| `graticule_geology` | 22 | 4326 | LineString | the graticule fitted to the 2011 sheet — QA only | 66.5 % (it runs past the corners; that is the point) |
+| `graticule_minerals` | 11 | 4326 | LineString | the graticule fitted to the 2023 sheet, with the +0.172° longitude label offset removed — QA only | 63.6 % |
+
+**`ocg_id` is not a unique key.** It identifies the object on the source sheet, and one printed line
+can be exported as several fragments (1,054 river fragments from a single source layer, 2,819
+boundary fragments from 4). Use `locality_id` for the localities, `code` for the geology, and the row order
+otherwise. `layer_audit.json` records the fragment count per layer.
+
+### Cross-layer checks (all passing)
+
+| check | result |
+|---|---|
+| overlap between geology polygons | **0.0001 km²** (floating-point crumbs at shared edges) |
+| uncovered ground inside the territory | **0.000 km²** |
+| geology drawn outside the territory | **0.000 km²** |
+| area: `area_km2` sum vs EPSG:6933 vs geodesic | 907,157.0 / 907,157.0 / 907,156.9 km² — **0.000 %** |
+| 2023 border vertices on the geology edge | 3,500, worst **7.5 m** |
+| codes in 4326 / 32632 / 6933 copies | identical sets |
+| invalid / empty / null geometries | **0** in all 26 layers |
+| duplicate geometries | only in point layers, and deliberate (see below) |
+| point → unit joins | 0 mismatches in all 6 layers that carry one |
+
+**The duplicate point geometries are real.** 15 localities share a position with another locality,
+29 rows in 14 positions — two printed symbols side by side can be close enough that the icon
+centres coincide, and a few localities print one number over several icons. They are distinct
+records (`locality_id` unique), not duplicates to be dropped; the 46 duplicates in
+`mineral_localities` are the same effect at the un-anchored positions.
 
 Localities sit on a mapped unit 995/999 times; the other 4 are 1.7–4.7 km offshore or outside the
 drawn polygon and are flagged by `host_dist_m > 0`. Host codes agree with the 2023 sheet's own
@@ -301,3 +371,17 @@ polygon after the duplicates/overlaps were cleaned, and the geometry here is the
 6. **The geology is seamless, but 7,250 km² of it was assigned rather than drawn** — see
    "Three things to watch". Slivers of a few hundred metres were grown into the neighbouring unit;
    near a contact, a point that falls in such a sliver may belong to the unit on the other side.
+7. **The base layers are not all Nigerian.** The 2011 sheet draws neighbouring-country rivers,
+   roads, state lines and towns for context: 16.9 % of `rivers`, 7.6 % of `roads`, 7.7 % of
+   `state_boundaries`, and 23 of 486 `towns` lie outside the border. They are kept (they are what
+   the sheet shows) and flagged per feature — `frac_in_nigeria` on the lines, `in_nigeria` on the
+   points. Filter on those rather than on your own clip.
+8. **Five legend codes are printed twice** (`Esh`, `MS`, `MyP`, `Ncsh`, `Wss`), so the geology
+   carries 92 rows for 87 codes: the five split units are published as `CODE` and `CODE_<row>`.
+   If you join on a code list from somewhere else, expect those five to need mapping.
+9. **Three legend units have no area** in the shipped geometry (`BCT`, `BIF`, `Ts`) — their
+   digitised polygons sit where the sheet prints another unit, and the ink test awards them to that
+   neighbour. They exist on the printed legend but not on the printed map.
+10. **`graticule_geology` / `graticule_minerals` are QA layers**, not geography: they are the fitted
+   graticule lines, which run past the map frame (33–36 % of their length is outside Nigeria).
+    Do not include them in a country clip or an area total.
