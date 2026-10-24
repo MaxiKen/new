@@ -101,6 +101,13 @@ digitised ground.
 Verified on the shipped file: 93 rows, 0 invalid or empty geometries, no duplicate geometries,
 `geology_units`, `geology_units_equal_area` and the geodesic computation all give 907,157 km².
 
+**Reaching the boundary.** The 2011 sheet only covers 899,907 km² of the 2023 territory, so
+clipping alone would have left a 7,250 km² margin along the border and around Lake Chad. All of it
+is filled, and the layer is flush with the line: **all 3,500 vertices of the 2023 land border sit
+within 7.5 m of the geology** (one vertex; every other one is on it exactly), and the build aborts
+if any vertex is more than 50 m away. Along the coast the edge is the Natural Earth coastline,
+because the 2023 layer stops at the shore and has no sea edge.
+
 ### Which border to publish
 
 Three candidates exist in the data, and they are not equivalent:

@@ -13,6 +13,14 @@
   "uncovered_inside_territory_km2": 0.0,
   "uncovered_pieces_over_0.01km2": 0,
   "coverage_km2": 907157.0,
+  "mapped_before_fill_km2": 899907.1,
+  "border_reach": {
+    "border": "international_boundary (2023), land border",
+    "vertices": 3500,
+    "max_distance_km": 0.0075,
+    "vertices_beyond_50m": 0,
+    "note": "the layer is cut on the 2023 line, so the border lies on its edge; along the coast the edge is the Natural Earth coastline because the 2023 layer has no sea edge"
+  },
   "country_km2": 907157.0,
   "boundary_source": {
     "land_edge": "international_boundary (2023), 3500 vertices",

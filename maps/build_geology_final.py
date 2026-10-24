@@ -389,6 +389,18 @@ for p in (left.geoms if hasattr(left, "geoms") else [left]):
         holes += 1
 country_km = km2(country)
 
+# does the geology actually reach the 2023 border, or does it stop short of it?
+border_pts = np.array(land_border.coords)
+reach_km = np.array([shapely.distance(shapely.Point(c), cov) for c in border_pts]) * 111.0
+reach_max = float(reach_km.max())
+reach_bad = int((reach_km > 0.05).sum())
+if reach_bad:
+    raise SystemExit(f"{reach_bad} of the 2023 border vertices are more than 50 m "
+                     f"from the geology (worst {reach_max:.2f} km): the layer stops short "
+                     "of the boundary it was clipped on")
+print(f"  border reach: {len(border_pts)} vertices, max {reach_max*1000:.1f} m from the "
+      f"geology ({reach_bad} over 50 m)")
+
 report = {
     "raw_polygons": int(len(raw)),
     "raw_overlap_km2": 9582.2,
@@ -404,6 +416,16 @@ report = {
     "uncovered_inside_territory_km2": round(km2(left), 3),
     "uncovered_pieces_over_0.01km2": holes,
     "coverage_km2": round(float(final["area_km2"].sum()), 1),
+    "mapped_before_fill_km2": round(float(final["area_km2"].sum()) - km2(gaps), 1),
+    "border_reach": {
+        "border": "international_boundary (2023), land border",
+        "vertices": int(len(border_pts)),
+        "max_distance_km": round(reach_max, 4),
+        "vertices_beyond_50m": reach_bad,
+        "note": "the layer is cut on the 2023 line, so the border lies on its edge; "
+                "along the coast the edge is the Natural Earth coastline because the "
+                "2023 layer has no sea edge",
+    },
     "country_km2": round(country_km, 1),
     "boundary_source": clip_info,
     "official_area_km2": 923768,

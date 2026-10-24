@@ -5,6 +5,8 @@ import warnings
 
 import geopandas as gpd
 import numpy as np
+import pandas as pd
+import shapely
 import matplotlib
 
 matplotlib.use("Agg")
@@ -25,6 +27,15 @@ water = gpd.read_file(GPKG, layer="water_bodies")
 state = gpd.read_file(GPKG, layer="state_boundaries")
 natb = gpd.read_file(GPKG, layer="international_boundary")
 loc = gpd.read_file(GPKG, layer="mineral_localities_icons")
+terr = gpd.read_file(GPKG, layer="national_territory").geometry.iloc[0]
+
+# keep the sea at full extent, but cut lakes and rivers at the border: the sheet's
+# water polygons run on into Niger, Chad and Cameroon, which reads as if the country
+# extended there
+water_land = water[water["kind"] != "sea"].copy()
+water_land["geometry"] = [shapely.make_valid(g.intersection(terr)) for g in water_land.geometry]
+water = gpd.GeoDataFrame(pd.concat([water[water["kind"] == "sea"], water_land[~water_land.is_empty]],
+                                   ignore_index=True), geometry="geometry", crs="EPSG:4326")
 
 GROUP_COLOURS = {
     "precious metals": "#d4a017",
@@ -75,7 +86,9 @@ riv.plot(ax=ax, color="#5a9ac9", linewidth=0.45, zorder=3)
 state.plot(ax=ax, color="none", edgecolor="#7a7a7a", linewidth=0.4, linestyle=(0, (4, 2)), zorder=4)
 bnd.plot(ax=ax, color="#4d4d4d", linewidth=0.25, alpha=0.7, zorder=4)
 fault.plot(ax=ax, color="#111111", linewidth=0.65, zorder=5)
-natb.plot(ax=ax, color="#8b0000", linewidth=1.3, zorder=6)
+gpd.GeoSeries([terr], crs="EPSG:4326").plot(ax=ax, color="none", edgecolor="#8b0000",
+                                            linewidth=0.8, zorder=6)
+natb.plot(ax=ax, color="#8b0000", linewidth=1.3, zorder=6.5)
 
 # ---- mineral localities -----------------------------------------------------
 for grp, g in loc.groupby("group_1"):
