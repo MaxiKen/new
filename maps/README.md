@@ -21,6 +21,7 @@ sheets in this repository:
 | `anchor_to_icons.py` | rebuilds the icon-anchored positions, the UTM layer and `icon_anchoring_report.json` |
 | `refine_localities.py` | previous policy, kept for comparison |
 | `fetch_source.py` | pulls the pinned source extraction (see provenance below) |
+| `build_clean_geology.py` | resolves the polygon overlaps using the printed ink; writes `geology_units_clean` and `overlap_resolution.json` |
 | `finalize_layers.py` | adds stable IDs, lon/lat, flags and the equal-area layers; writes `crs_qa_report.json` |
 | `locality_reassignments.csv` | the 49 locality moves, for review |
 
@@ -57,6 +58,65 @@ What is *this* repo's contribution to the coordinates: the verification that the
 registration is right (graticule residual 130 m, area +0.1 %, national border 0.1 km from the
 geology coverage edge), the correction of the one mislabelled QA table, and the point-accuracy
 work (`accuracy_audit.md`) — not the original digitisation.
+
+
+### Is the overlap in the geology layer genuine?
+
+Partly. `geology_units` reproduces the sheet faithfully, including its overlaps: 676 pairs
+share 9,582 km² (1.05 % of the summed area). They split into two very different kinds:
+
+| kind | area | verdict |
+|---|---|---|
+| the **same unit overlapping itself** (e.g. `Bss` under `Bss`, `Asl` under `Asl`) | **3,133 km²** (33 %) | **not genuine** — a unit cannot overlie itself; this is an extraction artefact from overlapping ring groups |
+| **different units** overlapping | 6,449 km² | mostly **over-extension**, not a deliberate overlay: the sheet prints exactly one colour there, and in 13 of 17 sampled overlaps the ink matches the *later-drawn* polygon, meaning the lower polygon runs on beneath its neighbour |
+
+**Resolved layer: `geology_units_clean`.** Each overlap region is decided by the ink printed at
+its centre — the region goes to the unit whose legend colour the sheet actually shows (76 of 608
+touching pairs decided by ink; the rest, where the ink was ambiguous, by draw order). Result:
+
+| | before | `geology_units_clean` |
+|---|---|---|
+| polygons / units | 1,518 / 92 | 1,518 merged into 92 units |
+| overlap | 9,582 km² | **0.434 km²** |
+| summed area | 912,520 km² | **903,671 km²** (= dissolved coverage) |
+
+Validated against the printed ink at the 18 largest different-unit overlaps: **16/18 now carry
+the unit the sheet shows** (draw order alone managed 10/18). Largest losses are `Bss` −3,795 km²
+(its own self-overlap), `M` −1,189, `Al` −919 (alluvium drawn over bedrock).
+
+Use `geology_units` for cartography (it matches the sheet edge-for-edge) and
+`geology_units_clean` for any area statistic or point-in-polygon lookup.
+
+### Which border to publish
+
+Three candidates exist in the data, and they are not equivalent:
+
+| candidate | vertices | agreement with Natural Earth 10m (median / p90 / max) |
+|---|---|---|
+| `international_boundary` (2023 sheet) | 3,500 | **1.2 km / 3.1 km / 12.2 km** |
+| 2011 coverage edge (union of geology polygons) | 7,258 | 1.4 km / 5.2 km / **53.1 km** |
+| Natural Earth 10m admin-0 Nigeria | 1,772 | — (reference) |
+
+**Retain the 2023 `international_boundary`.** Reasons, measured:
+
+* it is a *dedicated boundary layer*, whereas the 2011 "edge" is a by-product of polygon union
+  that carries **803 interior hole rings** and offshore excursions — 15 % of its outline sits
+  more than 50 km from the 2023 border (65 % of those points are along the coast, worst case
+  338 km), so it is not a national boundary at all;
+* across **Lake Chad** — the only place the two sheets disagree seriously — the 2023 line tracks
+  Natural Earth to a median 1.7 km, while the 2011 edge is 31–53 km away;
+* it is the newer compilation and its shape agrees with the internationally used dataset to
+  3.1 km at p90.
+
+Two caveats before publishing:
+
+1. The 2023 layer is the **land border only** — it runs from (2.70°E, 6.37°N) to (8.52°E, 4.74°N)
+   and does not close along the coast, so it cannot be turned into a country polygon on its own.
+   For a web country polygon use **Natural Earth 10m** (public domain, no attribution burden, and
+   within 3 km of this line) or an OSM-derived boundary if you need delta detail (ODbL).
+2. Neither NGSA line is authoritative for a legal or diplomatic purpose; the Nigeria–Cameroon
+   boundary in the Lake Chad area in particular is treaty-defined and should be taken from an
+   official gazette or the ICJ ruling, not from a 1:2,000,000 map.
 
 
 ---
