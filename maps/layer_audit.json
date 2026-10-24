@@ -938,7 +938,8 @@
    "mineral_localities": 0,
    "mineral_localities_icons": 0,
    "mineral_localities_refined": 0
-  }
+  },
+  "numeric_stored_as_text": []
  },
  "problems": []
 }

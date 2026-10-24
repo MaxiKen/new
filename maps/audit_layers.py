@@ -128,6 +128,26 @@ for name in layers:
           f"invalid={rec['invalid_geometry']} dup={rec['duplicate_geometry']} "
           f"inside={rec.get('frac_inside', rec.get('features_inside_nigeria'))}")
 
+# ---- numeric fields must be stored as numbers ------------------------------
+# A text column that holds numbers is a trap for a calculation: `age_ma_min < 100`
+# compares strings, and "538.8" < "100" is false while "66.0" < "100" is true.
+textnum = []
+for name in layers:
+    g = gpd.read_file(P, layer=name)
+    for c in g.columns:
+        if c == g.geometry.name:
+            continue
+        s = g[c]
+        if not (pd.api.types.is_string_dtype(s) or s.dtype == object):
+            continue
+        vals = s.dropna().astype(str)
+        if len(vals) < 2:
+            continue
+        if pd.to_numeric(vals, errors="coerce").notna().mean() > 0.95:
+            textnum.append(f"{name}.{c}")
+if textnum:
+    problems.append(f"{len(textnum)} numeric field(s) stored as text: {', '.join(textnum[:5])}")
+
 # ---- cross-layer geometry checks ------------------------------------------
 chk = {}
 t = shapely.STRtree(u_geoms)
@@ -195,6 +215,7 @@ for layer, (col, nearest) in POINT_TARGETS.items():
         problems.append(f"{layer}: {n_bad} rows carry a {col} that the shipped geology does not support")
 chk["join_mismatches"] = bad_join
 
+chk["numeric_stored_as_text"] = textnum
 report["checks"] = chk
 report["problems"] = problems
 json.dump(report, open(HERE / "layer_audit.json", "w"), indent=1, default=str)

@@ -223,6 +223,10 @@ Measured on this build, for the mapped coverage:
 
 ### Fields you can rely on
 
+* `age_ma_min` / `age_ma_max` — **float64, numeric.** `min` is the younger bound, `max` the older,
+  so a unit spans `age_ma_min`–`age_ma_max` Ma. They were shipped as text until this build, which
+  made `age_ma_min < 100` a string comparison (and every value here is 0–4000, so it was wrong).
+
 * `locality_id` — **unique key for all 999 rows.** Do not key on `zone`+`number`: 39 printed
   numbers are shared by two records (78 rows), flagged by `shared_number`.
 * `lon` / `lat` — decimal degrees, identical to the geometry.
@@ -358,6 +362,7 @@ otherwise. `layer_audit.json` records the fragment count per layer.
 | invalid / empty / null geometries | **0** in all 26 layers |
 | duplicate geometries | only in point layers, and deliberate (see below) |
 | point → unit joins | 0 mismatches in all 6 layers that carry one |
+| numeric fields stored as text | **none** — `age_ma_min` / `age_ma_max` are float64 |
 
 **The overlap number is measured in the layer's own CRS, deliberately.** Reprojecting each polygon
 *separately* to EPSG:6933 moves shared edges by a few millimetres, so a 6933-only measurement

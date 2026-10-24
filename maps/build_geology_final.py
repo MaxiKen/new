@@ -535,6 +535,13 @@ keep = ["code", "unit", "fill", "leg_desc", "legend_row", "attr_source", "era", 
         "filled", "fill_source", "mapped_km2", "filled_km2", "area_km2", "note", "geometry"]
 keep = [k for k in keep if k in final.columns]
 out = final[keep].sort_values("area_km2", ascending=False).reset_index(drop=True)
+
+# numeric fields must be numeric: as text, `age_ma_min < 100` compares strings
+# and every Ma value on this map is 0-4000, so "538.8" > "100" but "66.0" < "100"
+for col, kind in (("age_ma_min", float), ("age_ma_max", float), ("legend_row", "Int64"),
+                  ("draw_order", int)):
+    if col in out.columns:
+        out[col] = pd.to_numeric(out[col], errors="coerce").astype(kind)
 write(out, "geology_units")
 
 # reprojection to UTM creates self-intersections, so repair and re-clean here
