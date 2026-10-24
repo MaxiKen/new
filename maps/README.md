@@ -12,7 +12,7 @@ sheets in this repository:
 
 | File | What it is |
 |---|---|
-| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, 26 layers, 13,388 features, all EPSG:4326 — this is the deliverable |
+| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, 27 layers, 14,723 features, all EPSG:4326 — this is the deliverable |
 | `Nigeria_Geology_Minerals_4326.png` / `.pdf` | rendered map |
 | `build_combined.py` | rebuilds the GeoPackage |
 | `render_combined.py` | rebuilds the image/PDF |
@@ -24,7 +24,7 @@ sheets in this repository:
 | `build_geology_final.py` | **builds the single geology layer**: resolves the overlaps from the printed ink, clips to the 2023 border, fills every inland gap; writes `geology_units`, `national_territory` and `geology_final_report.json` |
 | `build_clean_geology.py` | superseded by `build_geology_final.py`; kept because it produced the `overlap_resolution.json` evidence for the ink test |
 | `finalize_layers.py` | adds stable IDs, lon/lat, flags, the equal-area layers, **re-links every point to the shipped geology** and measures how much of each layer is inside Nigeria; writes `crs_qa_report.json` |
-| `audit_layers.py` | **verifies all 26 layers** and writes `layer_audit.json`: geometry validity, CRS, duplicates, in-country share, area agreement, border flushness, point→unit joins |
+| `audit_layers.py` | **verifies all 27 layers** and writes `layer_audit.json`: geometry validity, CRS, duplicates, in-country share, area agreement, border flushness, point→unit joins |
 | `locality_reassignments.csv` | the 49 locality moves, for review |
 
 ---
@@ -54,7 +54,7 @@ python refine_localities.py     # + refined + UTM layers
 python anchor_to_icons.py       # + icon-anchored layers
 python finalize_layers.py       # stable IDs, equal-area layers, crs_qa_report.json
 python render_combined.py       # PNG/PDF
-python audit_layers.py          # verify all 26 layers -> layer_audit.json
+python audit_layers.py          # verify all 27 layers -> layer_audit.json
 ```
 
 `build_geology_final.py` must run **after** `build_combined.py` and **before** `finalize_layers.py`:
@@ -293,7 +293,7 @@ graticule fit above supersedes it.
 
 ## What the layers contain
 
-**26 layers, 13,400 features, all verified by `audit_layers.py`** (result in `layer_audit.json`).
+**27 layers, 14,723 features, all verified by `audit_layers.py`** (result in `layer_audit.json`).
 The table gives the count, CRS and geometry, what the layer is, and how much of it is inside
 Nigeria. "inside" matters: the 2011 sheet draws neighbouring-country context, so the base layers
 are not all Nigerian — that is now measured per feature, not assumed.
@@ -337,6 +337,7 @@ are not all Nigerian — that is now measured per feature, not assumed.
 | `mineral_localities_refined` | 999 | 4326 | Point | the previous positioning policy, kept for comparison | 992/999 |
 | `mineral_localities_utm32n` | 999 | 32632 | Point | the same | 991/999 |
 | `mineral_symbols` | 1,609 | 4326 | Point | **POSITIONS INVALID — see `mineral_audit.md` and `mineral_symbols_detected.gpkg`.** the extraction's symbol rows, with commodity, colour and how it was identified (`ident_mth`, `ident_scr`); the attributes are usable, the geometry is not (median 9.6 km from any symbol) | 1,603/1,609 |
+| `minerals_named` | 1,323 | 4326 | Point | **the printed symbols, correctly placed.** Every glyph re-detected on the sheet at its native 75 dpi, each point the centroid of its symbol (±0.35 km). Named with the accuracy stated per row: `mineral`, `tier` (probable ≥70 % / tentative 50–70 % / unidentified), `family_accuracy_pct`, `mineral_class`, `details`, `in_nigeria`. **Use this for position; use `mineral_symbols.mineral` for counts.** 144 symbols are printed outside the border because the sheet maps the whole region (Niger, Benin, Cameroon) — `in_nigeria=False`, not an error | 1,179/1,323 |
 
 ### Settlements, transport, QA
 
@@ -365,7 +366,7 @@ otherwise. `layer_audit.json` records the fragment count per layer.
 | area: `area_km2` sum vs EPSG:6933 vs geodesic | 907,157.0 / 907,157.0 / 907,156.9 km² — **0.000 %** |
 | 2023 border vertices on the geology edge | 3,500, worst **7.5 m** |
 | codes in 4326 / 32632 / 6933 copies | identical sets |
-| invalid / empty / null geometries | **0** in all 26 layers |
+| invalid / empty / null geometries | **0** in all 27 layers |
 | duplicate geometries | only in point layers, and deliberate (see below) |
 | point → unit joins | 0 mismatches in all 6 layers that carry one |
 | numeric fields stored as text | **none** — `age_ma_min` / `age_ma_max` are float64 |
