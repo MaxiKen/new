@@ -117,6 +117,13 @@ Units are also dropped when they have no area at all rather than shipped as empt
 `BIF` and `Ts` were digitised where the sheet prints another unit, so the ink test assigns their
 3 polygons to that neighbour. They remain in the legend, and `geology_final_report.json` lists them.
 
+**Seven units are missing from the sheet's own legend.** The map prints `OGp`, `OGe`, `Gdss`,
+`Gmsh`, `LCM`, `Glls` and a bare `S` inside its polygons, but the legend has no row for any of
+them — an omission on the printed sheet, not in the extraction. They are kept (they are real,
+mapped ground: together 85,886 km², of which `OGp` is 84,000) and flagged with
+`attr_source = "in-map label"` (6) or `"printed label only"` (the bare `S`, 671 km²), so a
+calculation can treat their attributes as printed labels rather than legend definitions.
+
 **Reaching the boundary.** The 2011 sheet only covers 899,907 km² of the 2023 territory, so
 clipping alone would have left a 7,250 km² margin along the border and around Lake Chad. All of it
 is filled, and the layer is flush with the line: **every one of the 3,500 vertices of the 2023 land
@@ -378,7 +385,9 @@ polygon after the duplicates/overlaps were cleaned, and the geometry here is the
    points. Filter on those rather than on your own clip.
 8. **Five legend codes are printed twice** (`Esh`, `MS`, `MyP`, `Ncsh`, `Wss`), so the geology
    carries 92 rows for 87 codes: the five split units are published as `CODE` and `CODE_<row>`.
-   If you join on a code list from somewhere else, expect those five to need mapping.
+   If you join on a code list from somewhere else, expect those five to need mapping. Conversely
+   **seven printed units are absent from the sheet's legend** (`OGp`, `OGe`, `Gdss`, `Gmsh`,
+   `LCM`, `Glls`, `S`) — see the note above.
 9. **Three legend units have no area** in the shipped geometry (`BCT`, `BIF`, `Ts`) — their
    digitised polygons sit where the sheet prints another unit, and the ink test awards them to that
    neighbour. They exist on the printed legend but not on the printed map.

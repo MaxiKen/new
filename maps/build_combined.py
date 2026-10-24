@@ -171,6 +171,15 @@ units.loc[units["code"].isna(), "code"] = units.loc[units["code"].isna(), "unit"
 leg_table = pyogrio.read_dataframe(SRC, layer="geology2011_legend")
 units = reconcile_legend(units, leg_table)
 
+# Seven units are printed on the map but missing from the sheet's own legend
+# (OGp, OGe, Gdss, Gmsh, LCM, Glls and a bare "S" in the Ilesha schist belt).
+# They are kept - they are real, mapped ground - but the attribute is the
+# printed label, not a legend description, and one of them is just a letter.
+bare = units["attr_source"].eq("in-map label") & units["unit"].astype(str).str.len().le(3)
+units.loc[bare, "unit"] = ("Unnamed unit printed '" + units.loc[bare, "unit"].astype(str)
+                           + "' on the map (no legend row)")
+units["attr_source"] = units["attr_source"].where(~bare, "printed label only")
+
 keep = ["unit", "code", "leg_code", "leg_desc", "lbl_code", "code_src", "leg_row",
         "legend_row", "attr_source",
         "formation", "strat_grp", "age_print", "series", "period_prt",
