@@ -1,0 +1,74 @@
+[
+  {
+    "key": "title",
+    "value": "Geology and Mineral Resources of Nigeria - combined, EPSG:4326"
+  },
+  {
+    "key": "crs",
+    "value": "WGS 84, longitude/latitude, EPSG:4326, degrees"
+  },
+  {
+    "key": "geology_source",
+    "value": "NGSA Geological Map of Nigeria, 1:2,000,000 (2011 edition, DG Prof. Siyan Malomo); vector PDF, 125 layers"
+  },
+  {
+    "key": "minerals_source",
+    "value": "NGSA Mineral Resources Map of Nigeria, 1:2,000,000, 2nd edition 2023 (DG Dr Abdulrazaq Garba); vector PDF"
+  },
+  {
+    "key": "geology_registration",
+    "value": "affine fitted to printed 1-degree graticule: lon = (x + 276.36)/157.593, lat = (2281.63 - y)/157.586; residual 0.20 pt"
+  },
+  {
+    "key": "minerals_registration",
+    "value": "affine fitted to printed graticule (not the embedded /Measure, which disagrees with it): lon = (x + 288.67)/157.288, lat = (2575.87 - y)/157.602"
+  },
+  {
+    "key": "provenance_note",
+    "value": "Both sheets are unprojected equirectangular at 157.6 pt/deg = 1:2,000,000; datum treated as WGS 84 (Minna datum would shift ~100-200 m, below drawing resolution)"
+  },
+  {
+    "key": "positional_accuracy",
+    "value": "1 pt = 0.7 km on the ground; graticule fit <0.3 pt; residual cartographic disagreement between the two sheets ~5 km median, 20 km p90"
+  },
+  {
+    "key": "area_check",
+    "value": "geology polygons total 924,900 km2 vs 923,768 km2 official - +0.1%"
+  },
+  {
+    "key": "attributes_note",
+    "value": "No attribute tables exist in either PDF; codes, strata and ages were reconstructed from layer names, the printed legend and in-polygon labels"
+  },
+  {
+    "key": "stages",
+    "value": "fetch_source.py -> build_combined.py (18 base layers) -> build_geology_final.py (the geology layer) -> refine_localities.py -> anchor_to_icons.py -> finalize_layers.py -> render_combined.py -> audit_layers.py"
+  },
+  {
+    "key": "overlap_rule",
+    "value": "the PDF's own paint order (src_seq, preserved for all 1,518 paths) decides every overlap: a path loses exactly the part covered by any path drawn after it. Verified against the printed ink at 97.5% of polygons"
+  },
+  {
+    "key": "legend_note",
+    "value": "the 2011 legend has 92 rows but 87 codes: Esh, MS, MyP, Ncsh and Wss are printed twice, each row a different rock; units are resolved per legend row. Printed codes Glls and OGe were normalised onto legend rows GIls (same printed colour, Dukamaje Formation) and OGp (same rock, colour and era). Five printed units are absent from the legend (OGp, Gdss, Gmsh, LCM, S) and flagged attr_source = in-map label"
+  },
+  {
+    "key": "outside_nigeria",
+    "value": "the 2011 sheet draws neighbouring-country context: 16.9% of rivers, 7.6% of roads, 7.7% of state boundaries and 23 of 486 towns lie outside the border. Kept and flagged per feature (frac_in_nigeria on lines, in_nigeria on points)"
+  },
+  {
+    "key": "built",
+    "value": "2026-10-24"
+  },
+  {
+    "key": "geology_layer",
+    "value": "one layer only: geology_units = the 1,518 paths of the 2011 sheet replayed in the order the PDF paints them, clipped to national_territory, every inland gap filled (97 rows = 96 rock units + W water; 0.002 km2 residual overlap, 0.0 km2 uncovered, ink agreement 97.5%)"
+  },
+  {
+    "key": "geology_boundary",
+    "value": "national_territory = international_boundary (2023, land border only, 3,500 vertices) spliced into the Natural Earth 10m Nigeria coastline (public domain)"
+  },
+  {
+    "key": "layer_audit",
+    "value": "audit_layers.py verified all 26 layers: 0 problems, area 907,157 km2 identical to +0.000% between EPSG:4326 / 6933 / geodesic, 2023 border within 7.5 m of the geology edge, 0 point-to-unit join mismatches"
+  }
+]
