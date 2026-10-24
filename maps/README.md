@@ -322,15 +322,21 @@ are not all Nigerian — that is now measured per feature, not assumed.
 
 ### Minerals
 
+> **Status: the mineral point layers are withdrawn for calculation.** A 2026-10 audit of the printed
+> symbols (`mineral_audit.md`) found the stored coordinates sit a median 9.6 km from any symbol on
+> the sheet and carry no positional signal. `mineral_symbols_detected.gpkg` is the replacement for
+> the printed-symbol layer: **1,323 symbols, point = measured centre of each glyph, ±0.35 km**,
+> 886 of them named. The locality layers below are queued for rebuild on top of it.
+
 | layer | n | CRS | geometry | what it is | inside Nigeria |
 |---|---|---|---|---|---|
-| `mineral_localities_icons` | 999 | 4326 | Point | **use this one for the 999 localities.** Position = centre of the printed mineral icon where one exists (842), otherwise the printed label. `locality_id` is the unique key; `n_icons`, `icon_tier`, `icon_spread_m`, `pos_method`, `moved_from_label_m`, `host_code`, `host_boundary_dist_m`, `group_centroid_lon/lat`, `shared_number` | 995/999 |
+| `mineral_localities_icons` | 999 | 4326 | Point | **POSITIONS INVALID — see `mineral_audit.md`; queued for rebuild.** Position was intended to be the centre of the printed mineral icon where one exists (842), otherwise the printed label, but the source symbol coordinates are ~9.6 km noise, so the anchoring does not hold. `locality_id` is the unique key; `n_icons`, `icon_tier`, `icon_spread_m`, `pos_method`, `moved_from_label_m`, `host_code`, `host_boundary_dist_m`, `group_centroid_lon/lat`, `shared_number` | 995/999 |
 | `mineral_localities_icons_utm32n` | 999 | 32632 | Point | the same positions, metres | 995/999 |
 | `mineral_localities_equal_area` | 999 | 6933 | Point | the same positions, equal-area | 995/999 |
 | `mineral_localities` | 999 | 4326 | Point | the localities before icon anchoring, with the full source vocabulary (`symbol`, `sym_colour`, `min_conf`, `pos_src`, `label_lon/lat`, `groups`) | 991/999 |
 | `mineral_localities_refined` | 999 | 4326 | Point | the previous positioning policy, kept for comparison | 992/999 |
 | `mineral_localities_utm32n` | 999 | 32632 | Point | the same | 991/999 |
-| `mineral_symbols` | 1,609 | 4326 | Point | every printed mineral symbol, with commodity, colour and how it was identified (`ident_mth`, `ident_scr`) | 1,603/1,609 |
+| `mineral_symbols` | 1,609 | 4326 | Point | **POSITIONS INVALID — see `mineral_audit.md` and `mineral_symbols_detected.gpkg`.** the extraction's symbol rows, with commodity, colour and how it was identified (`ident_mth`, `ident_scr`); the attributes are usable, the geometry is not (median 9.6 km from any symbol) | 1,603/1,609 |
 
 ### Settlements, transport, QA
 
@@ -390,17 +396,18 @@ polygon after the duplicates/overlaps were cleaned, and the geometry here is the
 1. **Attributes do not exist in the source PDFs.** Both sheets are drawing exports with no feature
    tables. Unit codes, stratigraphy, ages and mineral names were reconstructed from layer names,
    the printed legend, correlation chart and in-polygon labels. Spot-check before relying on any code.
-2. **Positional accuracy is not uniform** — see `accuracy_audit.md`. Registration is 0.13 km and
-   reprojection is exact, so all the error is in the sheet's own ink. **842 of 999 localities
-   (84.3 %) now sit exactly on the centre of a printed mineral icon**, assigned by commodity
-   identity, recorded colour or inferred colour and back-tested at 97.4 % correct: those carry
-   **±0.7 km**. The remaining 179 are located by their printed number only and carry **±10 km**,
-   because the sheet prints nothing to anchor them to. Measured: 58 are commodities with no legend
-   symbol at all (cassiterite, quartz, clay), 102 have a same-commodity symbol printed somewhere
-   but at a median distance of **56 km**, and in the 15 cases where such a symbol is within 10 km,
-   **it is already claimed by another locality** — so there is nothing left to anchor to. Pointing
-   away from the label to a distant icon would be right only 4 % of the time; they stay on their
-   printed numbers, and this is a limit of the sheet rather than of the processing.
+2. **The mineral point layers are withdrawn — do not use them for calculation.** A 2026-10 audit
+   measured the stored symbol coordinates against the sheet itself and found them to carry no
+   positional information: median **14.1 px (9.6 km)** from the nearest symbol ink, only 5.9 %
+   within 1 px, and a nearest-neighbour distance distribution statistically indistinguishable
+   from a random scatter of the same size. The earlier claim that 84.3 % of localities "sit
+   exactly on the centre of a printed icon" (±0.7 km) was computed on those coordinates and is
+   **withdrawn**. The cause is upstream: the transform stored with the extraction is 0.2 % out in
+   longitude scale and 3.5 pt out in latitude offset versus the sheet's own graticule, and the
+   per-symbol positions were never on the glyphs in the first place. See `mineral_audit.md`.
+   `mineral_symbols_detected.gpkg` replaces the printed-symbol layer with 1,323 symbols whose
+   points are the measured centre of each glyph (±0.5 px = ±0.35 km). The `mineral_localities*`
+   layers (999 rows each) still rest on the discredited coordinates and are queued for rebuild.
 3. **The two sheets disagree at the several-km level** on shared features (coastline median offset
    ~5 km, 90th percentile ~18 km; worst on the western Niger delta flank). They were compiled
    12 years apart and generalised independently. This dataset uses the **2011 sheet for all base
