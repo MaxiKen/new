@@ -21,6 +21,7 @@ sheets in this repository:
 | `anchor_to_icons.py` | rebuilds the icon-anchored positions, the UTM layer and `icon_anchoring_report.json` |
 | `refine_localities.py` | previous policy, kept for comparison |
 | `fetch_source.py` | pulls the pinned source extraction (see provenance below) |
+| `finalize_layers.py` | adds stable IDs, lon/lat, flags and the equal-area layers; writes `crs_qa_report.json` |
 | `locality_reassignments.csv` | the 49 locality moves, for review |
 
 ---
@@ -56,6 +57,62 @@ What is *this* repo's contribution to the coordinates: the verification that the
 registration is right (graticule residual 130 m, area +0.1 %, national border 0.1 km from the
 geology coverage edge), the correction of the one mislabelled QA table, and the point-accuracy
 work (`accuracy_audit.md`) — not the original digitisation.
+
+
+---
+
+## Using these layers for calculation
+
+**Every layer is EPSG:4326 except the four explicitly projected copies.** All geometries are
+valid, all have a CRS, no null or empty geometries, and `lon`/`lat` fields are asserted equal
+to the geometry. Verified on the current build:
+
+| layer | CRS | features |
+|---|---|---|
+| all 18 base layers + `mineral_localities_icons` | EPSG:4326 | 12,630 |
+| `mineral_localities_*_utm32n` | EPSG:32632 | 999 each |
+| `mineral_localities_equal_area`, `geology_units_equal_area` | EPSG:6933 | 999 / 1,518 |
+
+### Pick the CRS for what you are measuring
+
+| task | use | why |
+|---|---|---|
+| storage, exchange, web maps | **EPSG:4326** | degrees; **never compute area in it** — the result is square degrees |
+| area, coverage, density | **EPSG:6933** (`*_equal_area` layers) | exact: 0.000 % error against the geodesic area |
+| length / nearest-neighbour, countrywide | geodesic metres (`pyproj.Geod` on the 4326 layer) | no projection error anywhere |
+| length / nearest-neighbour, local | EPSG:32631 / 32632 / 32633 **by zone** | Nigeria spans zones 31N (2.7–6°E), 32N (6–12°E) and 33N (12–15°E); the provided UTM 32N layer is 0.19 % off in area and worse in length at the east/west edges |
+| never | EPSG:3857 | +3.66 % area error over Nigeria (936,762 vs 903,680 km²) |
+
+Measured on this build, for the mapped coverage:
+
+| CRS | area | error |
+|---|---|---|
+| geodesic (truth) | 903,680 km² | — |
+| EPSG:6933 | 903,680 km² | +0.000 % |
+| ESRI:102022 (Africa Albers) | 903,680 km² | +0.000 % |
+| EPSG:32632 | 905,407 km² | +0.191 % |
+| EPSG:3857 | 936,762 km² | +3.661 % |
+
+### Fields you can rely on
+
+* `locality_id` — **unique key for all 999 rows.** Do not key on `zone`+`number`: 39 printed
+  numbers are shared by two records (78 rows), flagged by `shared_number`.
+* `lon` / `lat` — decimal degrees, identical to the geometry.
+* `dist_to_coast_m` — 0 for the 996 localities inside the mapped landmass; 3 points lie
+  1.7–8.6 km offshore (islands/creek settlements) and are flagged here rather than dropped.
+* `host_code`, `host_boundary_dist_m` — host unit at the point, and its distance to that
+  unit's boundary (useful to exclude points sitting on a contact).
+* `n_icons`, `icon_tier`, `pos_method` — how the position was derived (see accuracy_audit.md).
+
+### Two things to watch
+
+1. **`geology_units` overlaps by 8,840 km²** (0.97 %). The polygons are valid but not
+   topologically clean: adjacent units overlap slightly, mostly Alluvium and Bida-basin units.
+   Summing `area_km2` therefore gives 912,881 km² while the dissolved coverage is 903,680 km².
+   For a correct total, dissolve first; for per-unit stats, expect ~1 % double counting.
+2. **The border is represented twice.** `international_boundary` comes from the 2023 sheet and
+   follows the 2011 coverage edge to a median of 80 m — except across Lake Chad, where the two
+   sheets differ by up to 47 km (172 of 3,500 vertices). Use one or the other, not both.
 
 
 ---
