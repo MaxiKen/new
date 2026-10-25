@@ -132,14 +132,16 @@
     "leg_desc": 6,
     "legend_row": 6,
     "attr_source": 1,
-    "era": 4,
-    "period": 5,
-    "eon": 5,
-    "epoch": 6,
+    "era": 5,
+    "period": 24,
+    "eon": 6,
+    "epoch": 52,
     "age_ma_min": 6,
     "age_ma_max": 6,
     "rock_cls": 2,
-    "formation": 6
+    "formation": 57,
+    "fill_source": 22,
+    "note": 96
    },
    "code_unique": true
   },
@@ -582,7 +584,8 @@
     "ident_scr",
     "link",
     "near_num",
-    "in_nigeria"
+    "in_nigeria",
+    "is_symbol"
    ],
    "null_geometry": 0,
    "empty_geometry": 0,
@@ -917,7 +920,8 @@
    "frac_inside": 0.092,
    "null_counts": {
     "name": 1,
-    "labels_in": 2
+    "labels_in": 2,
+    "note": 2
    },
    "ocg_id_groups": 1,
    "ocg_id_fragments": 3

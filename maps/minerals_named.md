@@ -129,4 +129,11 @@ symbols, and the missing ~200 are concentrated in exactly the small, plain glyph
 (Limestone, Marble, Gypsum, Granite, Baryte) that fail both detection and naming.
 
 If you need commodity totals for calculation, take them from the extraction's `mineral`
-column — which is sound — and use this layer only for **where** each symbol is.
+column — which is sound — and use this layer only for **where** each symbol is. **Filter
+that column on `is_symbol = 1` first.** It holds 1,609 rows, and 120 of them are not a
+countable symbol: 56 raster slivers, 21 state-capital squares, 8 linework/label fragments,
+5 bridge or water markings, 5 merged clusters, 15 fragments and 8 halves of a symbol that is
+already counted as its own row, and 2 merged touching pairs. Unfiltered, `value_counts()` reports
+a phantom commodity called `not a mineral symbol: raster sliver` with 56 members and
+inflates the real ones. On the 1,489 rows that are symbols the totals are, for example,
+Limestone 136, Clay 174, Gold 112, Kaolin 109.

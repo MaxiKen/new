@@ -2,7 +2,13 @@
   "raw_polygons": 1518,
   "raw_overlap_km2": 9582.2,
   "units_final": 97,
-  "units_dropped_no_area": [],
+  "units_dropped_no_area": [
+    {
+      "code": "Ts",
+      "unit": "Ts (legend row 34)",
+      "reason": "printed underneath Qs, so the paint-order replay leaves it no area"
+    }
+  ],
   "polygons_final": 97,
   "overlap_residual_km2": 0.002,
   "overlap_rule": "replayed the PDF paint order (src_seq); each path loses the part covered by any path drawn after it",
@@ -112,5 +118,38 @@
     "r",
     "s",
     "W"
-  ]
+  ],
+  "units_without_era": [
+    {
+      "code": "Gdss",
+      "unit": "Sandstone, siltstone and clay",
+      "area_km2": 4193.71,
+      "attr_source": "in-map label"
+    },
+    {
+      "code": "s",
+      "unit": "Unnamed unit printed 's' on the map (no legend row)",
+      "area_km2": 670.911,
+      "attr_source": "printed label only"
+    },
+    {
+      "code": "P",
+      "unit": "Pegmatite",
+      "area_km2": 311.699,
+      "attr_source": "legend"
+    },
+    {
+      "code": "Gmsh",
+      "unit": "Shale with Limestone intercalation",
+      "area_km2": 114.753,
+      "attr_source": "in-map label"
+    },
+    {
+      "code": "BCT",
+      "unit": "Unnamed unit printed 'BCT' on the map (no legend row)",
+      "area_km2": 4.541,
+      "attr_source": "printed label only"
+    }
+  ],
+  "area_without_era_km2": 5295.6
 }

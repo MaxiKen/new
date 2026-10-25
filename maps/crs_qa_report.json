@@ -1,5 +1,5 @@
 {
-  "layers_total": 26,
+  "layers_total": 27,
   "crs_by_layer": {
     "railway": "EPSG:4326",
     "international_boundary": "EPSG:4326",
@@ -26,7 +26,8 @@
     "mineral_localities_icons": "EPSG:4326",
     "mineral_localities_icons_utm32n": "EPSG:32632",
     "mineral_localities_equal_area": "EPSG:6933",
-    "geology_units_equal_area": "EPSG:6933"
+    "geology_units_equal_area": "EPSG:6933",
+    "minerals_named": "EPSG:4326"
   },
   "all_layers_crs": [
     "EPSG:32632",
