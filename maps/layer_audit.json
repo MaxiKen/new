@@ -993,13 +993,13 @@
    "bands": 4,
    "dtype": "uint8",
    "bounds": [
-    1.6109,
-    2.8154,
-    19.2371,
-    15.6062
+    1.6361,
+    2.867,
+    19.2623,
+    15.6579
    ],
-   "territory_covered_pct": 99.66,
-   "pixels_outside_territory_pct": 0.67
+   "territory_covered_pct": 99.25,
+   "pixels_outside_territory_pct": 0.53
   },
   "raster_dominant_soils": {
    "kind": "raster",
@@ -1010,11 +1010,11 @@
    "dtype": "uint8",
    "bounds": [
     2.4156,
-    3.9082,
+    3.9309,
     18.1776,
-    14.2986
+    14.3214
    ],
-   "territory_covered_pct": 99.01,
+   "territory_covered_pct": 98.88,
    "pixels_outside_territory_pct": 0.0
   },
   "raster_ethnic_groups": {
@@ -1025,13 +1025,13 @@
    "bands": 4,
    "dtype": "uint8",
    "bounds": [
-    -0.2497,
-    0.8731,
-    16.3726,
-    17.6683
+    -0.126,
+    0.9231,
+    16.4963,
+    17.7183
    ],
-   "territory_covered_pct": 98.41,
-   "pixels_outside_territory_pct": 0.88
+   "territory_covered_pct": 96.55,
+   "pixels_outside_territory_pct": 0.64
   },
   "raster_forest_reserves": {
    "kind": "raster",
@@ -1041,12 +1041,12 @@
    "bands": 4,
    "dtype": "uint8",
    "bounds": [
-    2.197,
-    4.4326,
-    15.2163,
-    14.3253
+    2.29,
+    4.3391,
+    15.5046,
+    14.3802
    ],
-   "territory_covered_pct": 96.98,
+   "territory_covered_pct": 96.38,
    "pixels_outside_territory_pct": 0.0
   },
   "raster_general_geology": {
@@ -1058,12 +1058,12 @@
    "dtype": "uint8",
    "bounds": [
     1.6444,
-    -2.1915,
+    -2.3946,
     15.4394,
-    15.9613
+    15.7581
    ],
-   "territory_covered_pct": 99.62,
-   "pixels_outside_territory_pct": 1.54
+   "territory_covered_pct": 99.22,
+   "pixels_outside_territory_pct": 1.25
   },
   "raster_landcover": {
    "kind": "raster",
@@ -1089,13 +1089,13 @@
    "bands": 4,
    "dtype": "uint8",
    "bounds": [
-    0.2286,
-    3.5052,
-    17.9958,
-    14.1128
+    0.2692,
+    3.4738,
+    18.5694,
+    14.3996
    ],
-   "territory_covered_pct": 91.97,
-   "pixels_outside_territory_pct": 0.39
+   "territory_covered_pct": 96.79,
+   "pixels_outside_territory_pct": 0.53
   },
   "raster_soil_ph": {
    "kind": "raster",
@@ -1105,13 +1105,13 @@
    "bands": 4,
    "dtype": "uint8",
    "bounds": [
-    -0.353,
-    2.6616,
-    18.1226,
-    15.899
+    -0.221,
+    2.7685,
+    18.2545,
+    16.006
    ],
-   "territory_covered_pct": 99.86,
-   "pixels_outside_territory_pct": 0.75
+   "territory_covered_pct": 98.91,
+   "pixels_outside_territory_pct": 0.44
   },
   "raster_temperature": {
    "kind": "raster",
@@ -1121,13 +1121,13 @@
    "bands": 4,
    "dtype": "uint8",
    "bounds": [
-    1.9164,
-    -1.0454,
-    15.5647,
-    16.781
+    1.883,
+    -1.0791,
+    15.5312,
+    16.7473
    ],
-   "territory_covered_pct": 99.95,
-   "pixels_outside_territory_pct": 1.26
+   "territory_covered_pct": 99.31,
+   "pixels_outside_territory_pct": 0.91
   }
  },
  "problems": []

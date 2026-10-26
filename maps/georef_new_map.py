@@ -9,15 +9,28 @@ map with a legend and a title round it.  Guessing an extent from the image
 corners would put every one of them tens of km out.
 
 So each image is fitted to data this repository already trusts: the
-`national_territory` polygon.  The fit is a four-parameter similarity in
+`national_territory` polygon.  The fit is a four-parameter affine in
 longitude/latitude
 
     lon = lon0 + x * sx          lat = lat0 - y * sy
 
-(x, y = pixel column/row, y down), found by maximising the intersection-over-
-union between the image's own country mask and the territory polygon
-rasterised at the same guess.  IoU is reported per image, so the fit is
-auditable rather than asserted.
+(x, y = pixel column/row, y down), found in five stages, each one kept only if
+it makes the drawn country and the territory overlap better:
+
+  1. an exact FFT cross-correlation of the sheet's country mask with a rasterised
+     territory, over a small scale fan - a translation search, not a hill-climb,
+     which is what keeps it stable on masks that are only roughly right;
+  2. a chamfer polish against the sheet's dark ink;
+  3. a polish against the *drawn outline curve* (the ink is full of legends,
+     titles and interior class boundaries; the outline is a clean closed curve);
+  4. **bloat closure**: on several sheets the country colour is painted a few
+     pixels outside the cartographer's border line, which biases the fit
+     outwards.  The outward bias is measured, the mask is shrunk by it, and the
+     fit is re-polished;
+  5. the border offsets are then *measured* on the finished fit, per side.
+
+The overlap (IoU) and the border offsets are both recorded, so the fit is
+auditable rather than asserted, and a stage that does not help cannot survive.
 
 Two image families need different treatment:
 
@@ -548,6 +561,81 @@ def fit_outline(mask, terr, method, shape, start, span=0.06, step=8):
     return best, dict(outline_px=round(best_c, 2))
 
 
+def fit_sheet(small, spec, terr, water=None):
+    """The whole georeferencing chain for one sheet, with every stage gated.
+
+    Five stages, each one kept only if it makes the drawn country and the
+    territory overlap better:
+
+      1. FFT translation search over a scale fan      (exact, stable)
+      2. chamfer polish on the ink                   (small correction)
+      3. polish on the drawn outline curve           (no legend ink)
+      4. bloat closure: the painted edge often sits a few pixels outside the
+         cartographer's border line, which biases the fit outwards; measure it,
+         shrink the mask by it, re-fit
+      5. read the border offsets off the finished fit - the measurement, not an
+         input to it
+    """
+    mask = plate_mask(small, **spec.get("mask", {}))
+    edges = edge_points(small)
+    H, W = small.shape[:2]
+
+    (lon0, lat0, sx, sy), iou_fft = fit_fft(mask, terr, spec["method"], (H, W))
+    met = {"iou_fft": round(iou_fft, 4), "refined": False,
+           "outline_refined": False, "debloat_px": 0.0}
+
+    def better(cand):
+        return iou(mask, make_territory_raster(terr, mask.shape, cand))
+
+    base = better((lon0, lat0, sx, sy))
+    (l2, a2, sx2, sy2), met2 = refine((lon0, lat0, sx, sy), edges, terr,
+                                      spec["method"], (H, W))
+    if better((l2, a2, sx2, sy2)) > base:
+        lon0, lat0, sx, sy = l2, a2, sx2, sy2
+        base = better((lon0, lat0, sx, sy))
+        met["refined"] = True
+
+    (l3, a3, sx3, sy3), _ = fit_outline(mask, terr, spec["method"], (H, W),
+                                        (lon0, lat0, sx, sy))
+    if better((l3, a3, sx3, sy3)) > base:
+        lon0, lat0, sx, sy = l3, a3, sx3, sy3
+        base = better((lon0, lat0, sx, sy))
+        met["outline_refined"] = True
+
+    # --- bloat closure -----------------------------------------------------
+    # each pass measures the bloat that is *left* and shrinks by that much, so the
+    # erosion accumulates; it stops as soon as nothing is left to take off
+    working, taken = mask, 0.0
+    for _ in range(3):
+        # the signal is the whole mask edge, sea included: the sea is part of the
+        # mask, so it is part of what the fit is being asked to align.  Whether the
+        # erosion is right is decided by the overlap afterwards, not by opinion.
+        o = border_offsets(working, terr, (lon0, lat0, sx, sy), working.shape,
+                           step=8, clip=80.0, water=water)["all"]
+        if o is None:
+            break
+        km_px = (sx * 111.32 * math.cos(math.radians(9.0)) + sy * 110.57) / 2
+        want = o["median_km"] / km_px
+        if want < 0.75:                     # nothing left, or the edge is inside
+            break
+        cand = debloat(mask, taken + want)
+        (lc, ac, sxc, syc), _ = fit_outline(cand, terr, spec["method"],
+                                            cand.shape, (lon0, lat0, sx, sy))
+        if iou(cand, make_territory_raster(terr, cand.shape, (lc, ac, sxc, syc))) > iou(
+                cand, make_territory_raster(terr, cand.shape, (lon0, lat0, sx, sy))):
+            lon0, lat0, sx, sy = lc, ac, sxc, syc
+        working, taken = cand, taken + want
+        met["debloat_px"] = round(taken, 2)
+    mask = working
+
+    met["iou"] = round(iou(mask, make_territory_raster(terr, mask.shape,
+                                                       (lon0, lat0, sx, sy))), 4)
+    met["offsets"] = border_offsets(mask, terr, (lon0, lat0, sx, sy), mask.shape,
+                                    water=water)
+    met["mask"] = mask
+    return (lon0, lat0, sx, sy), met
+
+
 def to_rgba(a, keep, feather=1):
     """RGBA where alpha follows the country mask, softened by one pixel."""
     h, w, _ = a.shape
@@ -620,6 +708,7 @@ def write_layer(dst, name, rgba, transform, description):
 def main():
     terr_gdf = gpd.read_file(GPKG, layer="national_territory")
     terr = terr_gdf.geometry.union_all()
+    water = gpd.read_file(GPKG, layer="water_bodies").geometry.union_all()
     rows = []
     for spec in IMAGES:
         im = load_rgb(SRC / spec["file"])
@@ -629,38 +718,9 @@ def main():
         small = np.asarray(im.resize((max(1, int(W * f)), max(1, int(H * f))),
                                      Image.BILINEAR))
 
-        mask = plate_mask(small, **spec.get("mask", {}))
-        edges = edge_points(small)
-
-        # The FFT fit is the primary: it optimises the thing that matters (how
-        # well the drawn country overlaps the territory).  The chamfer refine is
-        # only accepted if it improves that same measure - it is a small polish,
-        # not an authority, because a border that happens to run along a legend
-        # rule can look "covered" while being wrong.
-        (lon0, lat0, sx, sy), iou_fft = fit_fft(mask, terr, spec["method"],
-                                                small.shape[:2])
-        (l2, a2, sx2, sy2), met = refine((lon0, lat0, sx, sy), edges, terr,
-                                         spec["method"], small.shape[:2])
-        t = make_territory_raster(terr, mask.shape, (l2, a2, sx2, sy2))
-        if iou(mask, t) > iou_fft:
-            lon0, lat0, sx, sy = l2, a2, sx2, sy2
-        # last: align against the drawn outline curve, which carries no legend
-        # ink; kept only when it improves the fit, never on faith
-        (l3, a3, sx3, sy3), oc = fit_outline(mask, terr, spec["method"],
-                                             small.shape[:2], (lon0, lat0, sx, sy))
-        t3 = make_territory_raster(terr, mask.shape, (l3, a3, sx3, sy3))
-        if iou(mask, t3) > iou(mask, t):
-            lon0, lat0, sx, sy = l3, a3, sx3, sy3
-            met["outline_refined"] = True
-        else:
-            met["outline_refined"] = False
-        met["refined"] = bool(iou(mask, t) > iou_fft)
-
-        # everything reported below describes the fit that is actually written
-        final = (lon0, lat0, sx, sy)
-        met["iou"] = round(iou(mask, make_territory_raster(terr, mask.shape, final)), 4)
-        met["iou_fft"] = round(iou_fft, 4)
-        met["outline_px"] = round(fit_outline.cost(*final), 2)   # both directions
+        (lon0, lat0, sx, sy), met = fit_sheet(small, spec, terr, water)
+        mask = met.pop("mask")
+        off = met["offsets"]
 
         sx_n, sy_n = sx * f, sy * f          # degrees per native pixel
         transform = Affine(sx_n, 0.0, lon0, 0.0, -sy_n, lat0)
@@ -678,39 +738,46 @@ def main():
         km_e = sx_n * 111.32 * math.cos(math.radians(9))
         km_n = sy_n * 110.57
         km_px = (km_e + km_n) / 2                    # ground km per native pixel
-        err_km = met["resid_px"] / f * km_px         # chamfer, all dark ink
-        # the objective adds the two one-way medians; halving it gives the
-        # familiar one-way figure: "the border is X km from the drawn line"
-        out_km = met["outline_px"] * km_px / f / 2
-        met["outline_km"] = round(out_km, 2)
-        quality = ("high" if out_km < 15 else
-                   "medium" if out_km < 30 else "approximate")
-        met["quality"] = quality
+
+        a = off["land"] or off["all"]      # the land border is the honest measure
+        coast = off["coast"]
+        out_km = a["abs_median_km"]        # the border, measured against the sheet
+        quality = ("high" if out_km < 6 else
+                   "medium" if out_km < 15 else "approximate")
+        sides = {k: (off[k]["median_km"] if off[k] else None)
+                 for k in ("north", "south", "west", "east")}
+        side_txt = ", ".join(f"{k} {v:+.0f} km" for k, v in sides.items() if v is not None)
         desc = (f"{spec['title']}. Source: new map/{spec['file']} ({W}x{H} px). "
-                f"Georeferenced by fitting the drawn country outline of the scanned "
-                f"sheet to national_territory (affine, no rotation): the mapped "
-                f"border sits a median {out_km:.1f} km from the drawn outline, and "
-                f"the fitted country overlaps the drawn one with IoU {met['iou']:.3f} "
-                f"({quality} confidence). "
+                f"Georeferenced by fitting the drawn country of the scanned sheet to "
+                f"national_territory (affine, no rotation, no re-projection of the "
+                f"pixels). Measured fit on the land border: {out_km:.1f} km median "
+                f"offset ({side_txt}); RMS {a['rms_km']:.1f} km, 90th percentile "
+                f"{a['p90_km']:+.1f} km; the two country shapes overlap with IoU "
+                f"{met['iou']:.3f} ({quality} confidence). "
                 f"{km_e:.3f} km/px east-west, {km_n:.3f} km/px north-south. "
                 f"Clipped to the national territory. {spec['note']}")
         write_layer(GPKG, spec["layer"], rgba, transform, desc)
 
         rows.append(dict(layer=spec["layer"], file=spec["file"], title=spec["title"],
                          theme=spec["theme"], method=spec["method"],
-                         iou=met["iou"], iou_fft=met["iou_fft"], refined=met["refined"],
-                         outline_km=met["outline_km"], fit_quality=met["quality"],
-                         border_chamfer_px=met["resid_px"],
-                         border_chamfer_km=round(err_km, 2),
-                         border_near_ink_pct=round(met["coverage"] * 100, 1),
-                         outline_refined=met["outline_refined"],
+                         iou=met["iou"], iou_fft=met["iou_fft"],
+                         refined=met["refined"], outline_refined=met["outline_refined"],
+                         debloat_px=met["debloat_px"],
+                         border_offset_km=out_km,
+                         border_rms_km=a["rms_km"],
+                         border_p90_km=a["p90_km"],
+                         border_sides_km=sides,
+                         border_worst_km=a["worst_abs_km"],
+                         border_n=a["n"],
+                         coast_offset_km=(coast["abs_median_km"] if coast else None),
+                         coast_n=(coast["n"] if coast else 0),
+                         fit_quality=quality,
                          km_per_px_ew=round(km_e, 4), km_per_px_ns=round(km_n, 4),
                          lon0=round(lon0, 6), lat0=round(lat0, 6),
                          deg_per_px_lon=round(sx_n, 9), deg_per_px_lat=round(sy_n, 9),
                          native_px=[W, H], note=spec["note"], legend=spec["legend"]))
-        print(f"  {spec['layer']:26s} IoU {met['iou']:.3f}  outline "
-              f"{out_km:5.1f} km  chamfer {err_km:5.1f} km  "
-              f"{km_e:6.3f} x {km_n:6.3f} km/px  {W}x{H}")
+        print(f"  {spec['layer']:24s} IoU {met['iou']:.3f}  border {out_km:5.1f} km "
+              f"({side_txt})  rms {a['rms_km']:4.1f}  {km_e:6.3f}x{km_n:6.3f} km/px")
 
     # dropping the previous copy of each raster leaves free pages behind; VACUUM
     # gives the space back so the deliverable does not creep upwards on re-runs
@@ -720,6 +787,107 @@ def main():
     json.dump(rows, open(REPORT, "w"), indent=2)
     print(f"\nwrote {REPORT.name} and {len(rows)} raster layers into {GPKG.name}")
 
+
+
+
+
+def border_offsets(mask, terr, params, shape, step=4, clip=60.0, water=None):
+    """Deduce how far the sheet's own border sits from the official one, per side.
+
+    Every point of the *mapped* outline is paired with the nearest point of the
+    official `national_territory` boundary, and the gap is signed: negative where
+    the sheet draws Nigeria smaller than it is (the printed border falls inside
+    the official line), positive where it draws it larger.  Reported per side so a
+    sheet that is scaled or shifted on one axis cannot hide behind an average.
+
+    The **coast is reported separately and excluded from the headline figure**.
+    Several sheets paint the Gulf of Guinea in a land colour, so their southern
+    edge is not a border at all but the edge of the drawing; mixing it in would
+    blame the registration for what the cartographer did with the sea.
+
+    This is a measurement, not an input to the fit: the fit is decided first, from
+    the overlap of the two shapes, and only then is the offset read off.
+    """
+    from scipy.spatial import cKDTree
+    from shapely import distance as shp_distance
+    from shapely.geometry import Point
+
+    H, W = shape
+    lon0, lat0, sx, sy = params
+    KX = 111.32 * math.cos(math.radians(9.0))          # km per degree longitude
+    KY = 110.57                                        # km per degree latitude
+
+    ys, xs = np.nonzero(mask_outline(mask))
+    if len(ys) > 60000:
+        sel = np.linspace(0, len(ys) - 1, 60000).astype(int)
+        ys, xs = ys[sel], xs[sel]
+    mlon = lon0 + xs * sx
+    mlat = lat0 - ys * sy
+
+    tp = territory_boundary(terr, step=step)
+    _, idx = cKDTree(tp).query(np.c_[mlon, mlat], workers=-1)
+    dist_km = np.hypot((mlon - tp[idx, 0]) * KX, (mlat - tp[idx, 1]) * KY)
+
+    tb = make_territory_raster(terr, (H, W), params)
+    inside = tb[ys, xs]
+    signed = np.where(inside, -dist_km, dist_km)
+
+    blon, blat = tp[idx, 0], tp[idx, 1]
+    coast = np.zeros(len(blon), bool)
+    if water is not None:
+        # a border point within `tol` of the sea is a coastal point
+        tol = 0.02
+        near = water.buffer(tol) if hasattr(water, "buffer") else water
+        for i in np.nonzero((np.abs(blat - 5.0) < 4.0))[0]:
+            coast[i] = near.contains(Point(blon[i], blat[i]))
+
+    def stats(v):
+        if len(v) < 25:
+            return None
+        return dict(
+            n=int(len(v)),
+            median_km=round(float(np.median(v)), 2),
+            mean_km=round(float(v.mean()), 2),
+            rms_km=round(float(np.sqrt((v ** 2).mean())), 2),
+            p10_km=round(float(np.percentile(v, 10)), 2),
+            p90_km=round(float(np.percentile(v, 90)), 2),
+            worst_abs_km=round(float(np.abs(v).max()), 2),
+            abs_median_km=round(float(np.median(np.abs(v))), 2),
+        )
+
+    good = np.abs(signed) < clip          # gross mismatches are not a border
+    out = {"all": stats(signed[good]),
+           "land": stats(signed[good & ~coast]),
+           "coast": stats(signed[good & coast])}
+    for name, sel in (("north", blat > 11.4), ("south", blat < 6.6),
+                      ("west", blon < 4.6), ("east", blon > 13.2)):
+        out[name] = stats(signed[good & ~coast & sel])
+    return out
+def _densify(coords, spacing_deg=0.008):
+    """Resample a polyline at a fixed spacing so nearest-point matches are fair."""
+    d = np.r_[0.0, np.cumsum(np.linalg.norm(np.diff(coords, axis=0), axis=1))]
+    if d[-1] < spacing_deg or len(coords) < 2:
+        return coords
+    n = max(2, int(d[-1] / spacing_deg))
+    t = np.linspace(0, d[-1], n)
+    return np.c_[np.interp(t, d, coords[:, 0]), np.interp(t, d, coords[:, 1])]
+
+
+def debloat(mask, px, cap=24.0):
+    """Shrink the mask edge onto the drawn border by `px` pixels.
+
+    On several sheets the country colour is painted a few pixels *outside* the
+    printed border line (or the fill is anti-aliased over it).  That shows up as a
+    border offset that is positive on all four sides at once - a constant, not a
+    registration error - and it makes the overlap score reward a fit that is
+    slightly too large.  Eroding the mask by the measured amount leaves the mask
+    edge where the cartographer drew the country.
+    """
+    if px <= 0.25:
+        return mask
+    px = min(px, cap)
+    dist = ndimage.distance_transform_edt(mask)
+    return dist > px
 
 
 if __name__ == "__main__":

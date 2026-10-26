@@ -7,24 +7,83 @@ never be more accurate than the print) but is placed in EPSG:4326, clipped to th
 2023 national boundary, and documented with its printed legend and a measured
 positional error.
 
-| Layer | Sheet | Native px | km/px E‑W × N‑S | Border offset | Fit quality |
-|---|---|---|---|---|---|
-| `raster_dem` | Digital Elevation Model of Nigeria | 2000×1415 | 0.97 × 1.00 | 4.7 km | high |
-| `raster_soil_ph` | Soil pH distribution | 2000×1415 | 1.02 × 1.03 | 13.7 km | high |
-| `raster_temperature` | Historical average temperature | 816×1056 | 1.84 × 1.87 | 14.8 km | high |
-| `raster_forest_reserves` | Forest reserves | 6600×5100 | 0.22 × 0.21 | 26.8 km | medium |
-| `raster_landcover` | Land cover | 609×510 | 3.05 × 3.04 | 3.0 km | high |
-| `raster_population` | Population distribution | 850×520 | 2.30 × 2.26 | 35.1 km | approximate |
-| `raster_ethnic_groups` | Ethno‑linguistic groups | 1344×1344 | 1.36 × 1.38 | 11.3 km | high |
-| `raster_dominant_soils` | Dominant soils | 10234×6678 | 0.17 × 0.17 | 4.1 km | high |
-| `raster_general_geology` | Generalised geology | 615×715 | 2.47 × 2.81 | 7.7 km | high |
+| Layer | Sheet | Native px | km/px E‑W × N‑S | Border offset | North / South / West / East | RMS | Overlap | Quality |
+|---|---|---|---|---|---|---|---|---|
+| `raster_landcover` | Land cover | 609×510 | 3.05 × 3.04 | **3.7 km** | −2 / −5 / −3 / +1 | 7.5 | 0.984 | high |
+| `raster_dem` | Digital Elevation Model | 2000×1415 | 0.97 × 1.00 | **4.1 km** | −2 / +10 / −4 / −3 | 9.3 | 0.958 | high |
+| `raster_temperature` | Historical average temperature | 816×1056 | 1.84 × 1.87 | **4.1 km** | −3 / −4 / −3 / +1 | 7.0 | 0.975 | high |
+| `raster_dominant_soils` | Dominant soils | 10234×6678 | 0.17 × 0.17 | **4.1 km** | −1 / +4 / −3 / −9 | 7.3 | 0.891 | high |
+| `raster_soil_ph` | Soil pH distribution | 2000×1415 | 1.02 × 1.03 | **4.7 km** | −3 / −1 / −4 / −4 | 7.6 | 0.970 | high |
+| `raster_general_geology` | Generalised geology | 615×715 | 2.47 × 2.81 | **4.7 km** | −3 / +4 / −6 / −8 | 10.1 | 0.965 | high |
+| `raster_ethnic_groups` | Ethno‑linguistic groups | 1344×1344 | 1.36 × 1.38 | **4.7 km** | −2 / −3 / −4 / −4 | 15.9 | 0.949 | high |
+| `raster_forest_reserves` | Forest reserves | 6600×5100 | 0.22 × 0.22 | **10.4 km** | −2 / −4 / +0 / +5 | 18.1 | 0.852 | medium |
+| `raster_population` | Population distribution | 850×520 | 2.37 × 2.32 | **10.9 km** | −9 / +5 / −25 / −12 | 18.2 | 0.928 | medium |
 
-*Border offset* is the measured median distance between the mapped national
-border and the border drawn on the sheet — the honest statement of how well each
-scan is registered. The full machine-readable record, including every fit
-parameter and the transcribed legend, is `raster_georeferencing.json`; the
-overlay used to check each one is `raster_georeferencing_qc.png` (raster image,
-red = `national_territory`, cyan = `state_boundaries`).
+Sign convention: a **positive** side figure means the sheet draws that side of
+Nigeria *further out* than the official border, negative means it draws it
+*smaller*. The headline *Border offset* is the median absolute offset on the
+**land border**; the coast is measured separately (see below), because several
+sheets paint the Gulf of Guinea in a land colour and their southern edge is then
+the edge of the drawing rather than a border.
+
+The full machine-readable record, including every fit parameter, the per-side
+offsets and the transcribed legend, is `raster_georeferencing.json`; the overlay
+used to check each one is `raster_georeferencing_qc.png` (raster image, red =
+`national_territory`, cyan = `state_boundaries`).
+
+## Deducing the border offset
+
+The offset is not assumed and not taken from the sheet's own scale bar. It is
+read off the finished fit, by walking the boundary that the cartographer drew and
+asking, for every point of it, how far the nearest point of the official border
+is — in km, **signed**: outside the official line counts positive (the sheet
+draws Nigeria bigger), inside counts negative.
+
+Three decisions make the number mean something:
+
+1. **The coast is excluded from the headline.** `water_bodies` is used to label
+   the coastal stretch of the official border, and offsets are reported for the
+   land border and the coast separately. On the sheets that paint the Gulf of
+   Guinea in a land colour (elevation, soil pH, dominant soils) the southern edge
+   of the drawing is not a border at all, and including it would report the
+   cartographer's treatment of the sea as a registration error.
+2. **It is measured per side** — north, south, west, east. A single number can
+   hide the two failure modes that matter: a sheet drawn uniformly a few per cent
+   too large (all four sides positive) versus one that is shifted (opposite signs
+   on opposite sides). Every sheet here shows the first, except `raster_population`
+   and `raster_forest_reserves`, which show the second — see below.
+3. **Bloat is removed before measuring, but only where it exists.** The painted
+   country edge frequently sits a few pixels outside the printed border line. That
+   reads as a uniform positive offset on all four sides, and it biases the fit
+   outwards. The measured amount is eroded off the mask and the fit re-polished;
+   whether the erosion was right is decided by the overlap, not by opinion. The
+   temperature sheet was 8.6 px (~16 km) bloated on every side: removing it took
+   the overlap from 0.925 to **0.975**.
+
+### What the per-side numbers say about the individual sheets
+
+* **`raster_dem`, `raster_soil_ph`, `raster_temperature`, `raster_landcover`** —
+  all four sides within ±4 km, RMS under 10 km. These are as well registered as a
+  scanned thematic map can be.
+* **`raster_dominant_soils`, `raster_general_geology`, `raster_ethnic_groups`** —
+  ±4 km typical, with one side (east −9 km, east −8 km, and RMS 16 km
+  respectively) carrying the residual. For the geology sheet that is the eastern
+  border, where the sheet's generalisation is visibly coarser than the 2023
+  border; for the ethnic sheet it is the schematic nature of the map itself.
+* **`raster_dem` south +10 km** — the Gulf of Guinea is painted in the lowest
+  elevation class, so the mask edge runs offshore; the land fit is good
+  (±3 km on the other three sides) and the southern figure is reported rather
+  than smoothed away.
+* **`raster_forest_reserves`, `raster_population`** — the only two sheets whose
+  sides disagree in sign, i.e. they are **not** uniformly scaled but displaced.
+  Population is −25 km on the west and −12 km on the east with the north only
+  −9 km: its coloured districts stop short of the western border, and no affine
+  fit can satisfy both ends, so the compromise costs overlap (0.928) and shows up
+  in the offsets. The forest-reserve sheet draws its own border — the grey band
+  along its north-west edge is the sheet's border, and it lies ~100 km east of the
+  real one in that stretch; the fitted border follows the drawn line the best an
+  affine can (0.852). Both are limits of the **sheets**, not of the fit, and are
+  the reason those two layers are marked *medium* rather than *high*.
 
 ## Format decisions
 
@@ -52,6 +111,8 @@ red = `national_territory`, cyan = `state_boundaries`).
 `georef_new_map.py` (rerun it to regenerate everything; it merges into the
 existing GeoPackage without touching the 27 vector layers):
 
+The full chain, and what each stage is allowed to decide:
+
 1. **Plate mask.** The plot frame is found from the printed rule, and the paper
    colour is read from a ring of pixels just *inside* the frame. The country is
    the largest object that differs from that colour. The plate settings differ per
@@ -66,10 +127,18 @@ existing GeoPackage without touching the 27 vector layers):
    curve; edge maps are not, because they carry legends, titles and interior
    class boundaries. A small pattern search minimises the symmetric distance
    between the mapped border and that curve.
-4. **Clipping and writing.** The result is checked by eye for all nine
+4. **Bloat closure.** The measured outward offset is eroded off the mask and the
+   fit re-polished, until nothing is left to take off (see above).
+5. **Measurement.** The border offset is read off the finished fit, per side.
+6. **Clipping and writing.** The result is checked by eye for all nine
    (`raster_georeferencing_qc.png`) and by `audit_layers.py`, which verifies CRS,
    grid, tile count, how much of the territory carries pixels and how many pixels
    fall outside it. Current audit: **0 problems**.
+
+Every stage is gated on the same measure — the overlap between the drawn country
+and the territory — so no stage can be accepted on faith. Mean overlap across the
+nine sheets is **0.941** (worst 0.852, best 0.984); mean land-border offset is
+**5.7 km**.
 
 ### Things the numbers must not be used for
 
