@@ -49,9 +49,11 @@ Three decisions make the number mean something:
    cartographer's treatment of the sea as a registration error.
 2. **It is measured per side** — north, south, west, east. A single number can
    hide the two failure modes that matter: a sheet drawn uniformly a few per cent
-   too large (all four sides positive) versus one that is shifted (opposite signs
-   on opposite sides). Every sheet here shows the first, except `raster_population`
-   and `raster_forest_reserves`, which show the second — see below.
+   too large (all four sides the same sign) versus one that is shifted (opposite
+   signs on opposite sides, a few km on one side and tens on the other). Two sheets
+   are uniformly *small* (soil pH, ethnic groups); most change sign by 1–5 km on
+   one side, which is the drawn coast and their own generalisation; two are
+   genuinely displaced (`raster_population`, `raster_forest_reserves`) — see below.
 3. **Bloat is removed before measuring, but only where it exists.** The painted
    country edge frequently sits a few pixels outside the printed border line. That
    reads as a uniform positive offset on all four sides, and it biases the fit
@@ -62,28 +64,35 @@ Three decisions make the number mean something:
 
 ### What the per-side numbers say about the individual sheets
 
-* **`raster_dem`, `raster_soil_ph`, `raster_temperature`, `raster_landcover`** —
-  all four sides within ±4 km, RMS under 10 km. These are as well registered as a
-  scanned thematic map can be.
-* **`raster_dominant_soils`, `raster_general_geology`, `raster_ethnic_groups`** —
-  ±4 km typical, with one side (east −9 km, east −8 km, and RMS 16 km
-  respectively) carrying the residual. For the geology sheet that is the eastern
-  border, where the sheet's generalisation is visibly coarser than the 2023
-  border; for the ethnic sheet it is the schematic nature of the map itself.
-* **`raster_dem` south +10 km** — the Gulf of Guinea is painted in the lowest
-  elevation class, so the mask edge runs offshore; the land fit is good
-  (±3 km on the other three sides) and the southern figure is reported rather
-  than smoothed away.
-* **`raster_forest_reserves`, `raster_population`** — the only two sheets whose
-  sides disagree in sign, i.e. they are **not** uniformly scaled but displaced.
-  Population is −25 km on the west and −12 km on the east with the north only
-  −9 km: its coloured districts stop short of the western border, and no affine
-  fit can satisfy both ends, so the compromise costs overlap (0.928) and shows up
-  in the offsets. The forest-reserve sheet draws its own border — the grey band
-  along its north-west edge is the sheet's border, and it lies ~100 km east of the
-  real one in that stretch; the fitted border follows the drawn line the best an
-  affine can (0.852). Both are limits of the **sheets**, not of the fit, and are
-  the reason those two layers are marked *medium* rather than *high*.
+**No sheet is within ±4 km on all four sides.** The best is `raster_soil_ph`, at
+−3.2 / −0.9 / −4.1 / −3.7 km — within ±4.2 km — and every other sheet has at
+least one side outside ±4 km. The figure that is worth reading is not "the worst
+side" but *which* side and why:
+
+* **`raster_soil_ph` (−3.2 / −0.9 / −4.1 / −3.7) and `raster_ethnic_groups`
+  (−2.5 / −3.3 / −4.0 / −4.2)** — the most even registration here: all four sides
+  negative, i.e. the sheet draws Nigeria very slightly smaller than the 2023
+  border, by under 4.2 km everywhere.
+* **`raster_temperature` (−2.6 / −4.5 / −2.5 / +1.4) and `raster_landcover`
+  (−2.0 / −4.9 / −3.1 / +1.0)** — three sides small, the east about 1 km proud. On
+  land-cover the largest land side is 4.9 km, which at 3.05 km/px is a pixel and
+  a half: as good as that scan can be read.
+* **`raster_dem` (−1.7 / +9.8 / −4.1 / −2.7)** — the three land sides are within
+  ±4.1 km; the southern figure is the Gulf of Guinea painted in the lowest
+  elevation class, so the mask edge runs offshore. Reported, not smoothed away.
+* **`raster_dominant_soils` (−1.3 / +3.7 / −2.6 / −9.3)** and
+  **`raster_general_geology` (−3.1 / +3.9 / −5.6 / −8.0)** — good in the north and
+  centre, with the residual concentrated on the eastern edge — the stretch where
+  these small-scale sheets generalise the border most, and where the two of them
+  disagree with each other by 1–2 km.
+* **`raster_forest_reserves` (−1.9 / −3.8 / +0.3 / +4.5)** and
+  **`raster_population` (−8.7 / +5.3 / −25.0 / −11.9)** — the only two whose sides
+  disagree in sign *by more than a few km*: they are **displaced**, not uniformly
+  scaled, and no affine fit can satisfy both ends. Population's coloured districts
+  stop 25 km short of the western border; the forest-reserve sheet draws its own
+  border, and along the north-west the grey band is that drawn border, about
+  100 km east of the real one. Both are limits of the **sheets**, and are why
+  those two are marked *medium* rather than *high*.
 
 ## Format decisions
 
@@ -105,14 +114,32 @@ Three decisions make the number mean something:
   `geology_era`, dissolved from the attributed `geology_units` rather than traced
   from a screenshot; the rest stay rasters because they are rendered surfaces
   (hillshade, isotherms, dotted fills) or too coarse to gain anything.
-* **Each layer is titled, described and legended** in `gpkg_contents` and in the
-  JSON, including the caveats — a reader can tell a picture of an elevation map
-  from a real DEM without opening this file.
+* **One zoom level per raster, and the matrix says so.** Each sheet is stored at
+  its own resolution only, 256 × 256 tiles under a single `gpkg_tile_matrix`
+  level. GDAL declares a level for every overview it *could* write, so the first
+  build advertised 38 levels of which 9 held tiles; a client that trusted the
+  matrix asked for tiles that were never written and drew nothing when zoomed out.
+  Overviews would fix that and cost about 45 % of the file size (1.06 → 1.54 MB
+  for one sheet on its own), which the deliverable's size budget does not carry,
+  so the matrix now declares only the level that exists.
+* **Titled, described and legended inside the file.** Every one of the 40 layers
+  has a `gpkg_contents.description` — what it is, how many features, its CRS, the
+  script that wrote it, and what it must not be used for; the rasters carry their
+  measured km/px, land-border offset, per-side offsets and overlap. Written by
+  `describe_layers.py`, and `audit_layers.py` fails if any description is blank.
+  (Before this pass every description was empty: the file contained names only.)
+* **Registers verified, not assumed.** `fix_gpkg_hygiene.py` removes register
+  entries that name something absent — a layer, an index, a zoom level — declares
+  indexes that exist but were never declared, and records every change in
+  `gpkg_hygiene.json`. `audit_layers.py` now checks all of that, plus blank
+  descriptions, so its "0 problems" covers the file's self-description as well as
+  its contents. What was wrong, measured on the shipped copy, is in
+  `gpkg_hygiene_before.json` and in `RASTER_VS_VECTOR.md`.
 
 ## How the georeferencing works
 
 `georef_new_map.py` (rerun it to regenerate everything; it merges into the
-existing GeoPackage without touching the 27 vector layers):
+existing GeoPackage without touching the 31 feature layers):
 
 The full chain, and what each stage is allowed to decide:
 
@@ -190,11 +217,18 @@ Source `new map/soil-ph-map-of-nigeria.jpg` · soil pH, 5 classes · 2000×1415 
 
 Flat classes, no shading, so the classes are clean; the map has no graticule and no source citation.
 
+The first swatch is printed in dark navy with no legible value next to it. The
+transcription of this sheet originally recorded that row as `0`, which reads as a
+pH of zero and is not what the sheet says. The swatch is a real printed fill —
+2,422 pixels of the georeferenced sheet lie within ΔE 30 of `#00227b`, against 15
+near-black ones — so `poly_soil_ph` keeps it, named `unlabelled (dark navy,
+legend swatch 1)`, and measures it (3,209 km²). See `RASTER_VS_VECTOR.md`.
+
 Printed legend:
 
 | Swatch | Class |
 |---|---|
-| `#0b2f7a` | 0 |
+| `#0b2f7a` (measured `#00227b`) | *no readable label* — dark navy, kept as "unlabelled" |
 | `#1f9e8f` | 0.01 - 5.5 |
 | `#5fd63f` | 5.6 - 6.8 |
 | `#f5a623` | 6.9 - 7.8 |

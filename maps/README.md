@@ -12,7 +12,7 @@ sheets in this repository:
 
 | File | What it is |
 |---|---|
-| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, **31 vector layers, 60,559 features** plus **9 georeferenced raster layers** (24 MB of tiles), EPSG:4326 with five projected copies — this is the deliverable |
+| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, **31 vector layers, 60,555 features** plus **9 georeferenced raster layers** (30 MB of tiles), EPSG:4326 with five projected copies — this is the deliverable |
 | `Nigeria_Geology_Minerals_4326.png` / `.pdf` | rendered map |
 | `build_combined.py` | rebuilds the GeoPackage |
 | `render_combined.py` | rebuilds the image/PDF |
@@ -24,7 +24,7 @@ sheets in this repository:
 | `build_geology_final.py` | **builds the single geology layer**: resolves the overlaps from the printed ink, clips to the 2023 border, fills every inland gap; writes `geology_units`, `national_territory` and `geology_final_report.json` |
 | `build_clean_geology.py` | superseded by `build_geology_final.py`; kept because it produced the `overlap_resolution.json` evidence for the ink test |
 | `finalize_layers.py` | adds stable IDs, lon/lat, flags, the equal-area layers, **re-links every point to the shipped geology** and measures how much of each layer is inside Nigeria; writes `crs_qa_report.json` |
-| `audit_layers.py` | **verifies all 27 layers** and writes `layer_audit.json`: geometry validity, CRS, duplicates, in-country share, area agreement, border flushness, point→unit joins |
+| `audit_layers.py` | **verifies all 31 feature layers, the 9 rasters and the file's own registers** and writes `layer_audit.json`: geometry validity, CRS, duplicates, in-country share, area agreement, border flushness, point→unit joins, dangling `gpkg_extensions`, orphan/undeclared spatial indexes, empty tile-matrix zoom levels, blank layer descriptions |
 | `locality_reassignments.csv` | the 117 locality moves made by the (now superseded) icon-anchoring policy, for review |
 | `find_sites.py` | detects every printed mineral glyph on the 2023 sheet at its native 75 dpi and writes `mineral_symbols_detected.gpkg` |
 | `name_glyphs.py` / `name_the_437.py` | name those glyphs against the extraction's appearance reference; write `minerals_named.gpkg`, `minerals_named.csv` and `minerals_named.md` |
@@ -37,7 +37,11 @@ sheets in this repository:
 | `towns_report.json` / `towns_geonames_qc.png` | its counts and checks, and the overlay it was checked against |
 | `RASTER_VS_VECTOR.md` | **which of the nine scans should be polygons and which must stay rasters**, with the measurement behind each verdict |
 | `read_legend_swatches.py` | reads the printed legend swatches off each sheet — the colour-to-class mapping was transcribed by eye and was up to dE 100 wrong |
-| `build_vector_layers.py` | writes `poly_soil_ph`, `poly_population` (traced from the sheets) and `geology_era` (dissolved from `geology_units`) |
+| `build_vector_layers.py` | writes `poly_soil_ph`, `poly_population` (traced from the sheets, ink seams repaired on the soil sheet only) and `geology_era` (dissolved from `geology_units`) |
+| `check_polygon_colour.py` | tests every class polygon against the sheet it was traced from; writes `polygon_colour_check.json` |
+| `describe_layers.py` | writes the `gpkg_contents` description of all 40 layers — what each is, its counts, and what it must not be used for |
+| `fix_gpkg_hygiene.py` | repairs the GeoPackage's registers (dangling extensions, orphan and undeclared indexes, empty zoom levels); idempotent, records every change |
+| `make_vector_qc.py` | redraws `vector_layers_qc.png`, including the ground the sheets leave blank |
 | `vectorisation_study.py` | the purity / fragmentation / round-trip test each sheet passes or fails |
 | `georef_new_map.py` | **georeferences the nine scans in `new map/`** into the GeoPackage as clipped RGBA raster layers, with a measured border offset per layer |
 | `RASTER_LAYERS.md` | the nine raster layers: format decisions, legend transcriptions, measured positional error and what each must not be used for |
@@ -71,7 +75,7 @@ python anchor_to_icons.py       # + icon-anchored layers
 python finalize_layers.py       # stable IDs, equal-area layers, crs_qa_report.json
 python add_named_minerals.py    # + minerals_named, refresh crs_qa_report.json
 python render_combined.py       # PNG/PDF (draws minerals_named, not the localities)
-python audit_layers.py          # verify all 28 layers -> layer_audit.json
+python audit_layers.py          # verify all 31 layers + 9 rasters + the file's registers -> layer_audit.json
 python georef_new_map.py        # + the 9 raster layers (merges tiles, never rebuilds the vectors)
 python build_towns.py           # + towns_geonames, the gazetteer (downloads ~450 MB once, caches it)
 ```
@@ -79,7 +83,10 @@ python build_towns.py           # + towns_geonames, the gazetteer (downloads ~45
 `georef_new_map.py` and `build_towns.py` are the two steps that are safe to run
 against the finished GeoPackage: the first writes each raster into a scratch file
 and merges the tiles, the second replaces only its own layer. Neither touches the
-27 layers the sheet-by-sheet build produced. Re-running them replaces the nine
+27 layers the sheet-by-sheet build produced (`geology_era`, `poly_soil_ph` and
+`poly_population` come from `build_vector_layers.py`, `towns_geonames` from
+`build_towns.py`; `describe_layers.py` and `fix_gpkg_hygiene.py` only touch
+metadata and are safe on the finished file). Re-running them replaces the nine
 raster layers and `towns_geonames` in place. See `RASTER_LAYERS.md` and
 `towns_geonames.md`.
 
@@ -342,8 +349,8 @@ graticule fit above supersedes it.
 
 ## What the layers contain
 
-**27 layers, 14,723 features, all verified by `audit_layers.py`** (22 layers in EPSG:4326, three
-in 32632, two in 6933) (result in `layer_audit.json`).
+**31 layers, 60,555 features, all verified by `audit_layers.py`** (26 layers in EPSG:4326 with
+57,364 features, three in 32632, two in 6933) (result in `layer_audit.json`).
 The table gives the count, CRS and geometry, what the layer is, and how much of it is inside
 Nigeria. "inside" matters: the 2011 sheet draws neighbouring-country context, so the base layers
 are not all Nigerian — that is now measured per feature, not assumed.
@@ -420,10 +427,12 @@ otherwise. `layer_audit.json` records the fragment count per layer.
 | area: `area_km2` sum vs EPSG:6933 vs geodesic | 907,157.0 / 907,157.0 / 907,156.9 km² — **0.000 %** |
 | 2023 border vertices on the geology edge | 3,500, worst **7.5 m** |
 | codes in 4326 / 32632 / 6933 copies | identical sets |
-| invalid / empty / null geometries | **0** in all 27 layers |
+| invalid / empty / null geometries | **0** in all 31 layers |
 | duplicate geometries | only in point layers, and deliberate (see below) |
 | point → unit joins | 0 mismatches in all 6 layers that carry one |
 | numeric fields stored as text | **none** — `age_ma_min` / `age_ma_max` are float64 |
+| dangling `gpkg_extensions` rows / orphan rtree tables | **0 / 0** (16 dead rows and 7 dead indexes removed, 17 undeclared indexes declared, 29 empty zoom levels dropped) |
+| layers without a description inside the file | **0** of 40 |
 
 **The overlap number is measured in the layer's own CRS, deliberately.** Reprojecting each polygon
 *separately* to EPSG:6933 moves shared edges by a few millimetres, so a 6933-only measurement

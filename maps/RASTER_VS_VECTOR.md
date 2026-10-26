@@ -24,8 +24,8 @@ with the classified source.
 
 | sheet | 90 % of the area is… | round trip | verdict | why |
 |---|---|---|---|---|
-| `raster_soil_ph` | 5 flat classes | 0.986 | **polygons** → `poly_soil_ph` | 115 polygons, 873,582 km², 5 classes; colour agreement at polygon centres **98.3 %** |
-| `raster_population` | 5 flat classes | 0.958 | **polygons** → `poly_population` | 299 polygons, 839,255 km²; agreement **99.3 %** |
+| `raster_soil_ph` | 5 flat classes | 0.986 | **polygons** → `poly_soil_ph` | 111 polygons, 906,612 km², 5 classes, 99.94 % of the territory covered; colour agreement at polygon interior points **100 %** within dE 24 (median 1.8) |
+| `raster_population` | 5 flat classes | 0.958 | **polygons** → `poly_population` | 299 polygons, 839,255 km², 92.51 % of the territory covered; agreement **99.3 %** within dE 24 (median 1.7) |
 | `raster_general_geology` | 9 flat classes | 0.907 | **neither** → `geology_era` | it is a simplified picture of `geology_units`, which we already hold as 97 attributed polygons. The era classes are **dissolved from that vector**, not traced from a 2.5 km/px screenshot |
 | `raster_temperature` | **4 colours** | 0.992 | raster | the cleanest flat map in the set by colour, but it is a *smooth field*: the class boundary is an isotherm drawn through a continuous surface, and the printed classes are 16 bands whose swatches cannot even be read off the page (6 detected of 16). Polygons would invent hard edges the climate does not have |
 | `raster_ethnic_groups` | 32 classes, 88 % flat edges | 0.985 | raster | schematic, 32 classes and a 2-px-thick black surround; its legend swatches could not be read (8 of 32 detected), so a polygon layer would carry unverified class labels |
@@ -48,11 +48,88 @@ too, so nothing was taken away.
    The polygon layers are right *because* of this correction, not despite it.
 2. **A first attempt attached labels by area order** — the biggest class got the
    first legend row. That is arbitrary and was discarded; labels now come from the
-   measured swatch order, and the two shipped layers were verified against the
-   raster at polygon centres (98.3 % and 99.3 % colour agreement).
+   measured swatch order. `check_polygon_colour.py` now tests the claim on every
+   polygon, at an interior point (a centroid can fall outside a crescent and read
+   the wrong class): for soil pH **106 of 111** polygons sample a sheet pixel
+   within dE 24 of their own swatch — the other five have their interior point
+   outside the sheet's pixel footprint, where the printed plate stops short of the
+   border (see the per-side offsets in `RASTER_LAYERS.md`) — and for population
+   **297 of 299**. Three population polygons read a pixel nearer a *neighbouring*
+   swatch than their own (310 km², 434 km² and 2,346 km²); that is the row
+   classification at 2.4 km/px disagreeing with the traced fill by one class, and
+   it is reported rather than hidden. `polygon_colour_check.json` holds every
+   sample.
 3. **Polygonising without clipping to the country produced a "Nigeria" of
    930,000 km²** — the plate mask includes painted sea and paper margins. Every
    polygon is now intersected with `national_territory`.
+
+## What the two traced layers cover, and what they leave blank
+
+A traced class map is only complete where the sheet is. Measured against
+`national_territory` (`audit_layers.py` → `layer_checks.class_polygons`,
+`vector_layers_report.json`):
+
+| layer | polygons | km² | share of the territory covered | left blank | largest blank | what the blank is |
+|---|---|---|---|---|---|---|
+| `poly_soil_ph` | 111 | 906,612 | **99.94 %** | 545 km² in 143 pieces | 177 km² | seams and ink between fills |
+| `poly_population` | 299 | 839,255 | **92.51 %** | **67,902 km²** in 1,786 pieces | **26,116 km²** (north-east corner) | the sheet prints no class there |
+
+**Seam repair, applied to soil pH and deliberately not to population.** Before
+the repair the soil-pH layer left 33,575 km² unclassified in 974 pieces, and
+measurement of those holes against the classified raster showed **96.2 % of them
+within 3 px of a fill**: they are the ink line between two colours and the
+letters of place names, not missing data. So unclassified pixels within 3 px of
+a class are now claimed by the nearest class (`fill_gaps_px` in
+`build_vector_layers.py`), which is what took the blank from 33,575 km² to
+545 km². The same test on the population sheet says the opposite — only 26.8 %
+of its blank pixels are within 3 px of a fill and **66.9 % are more than 12 px
+away** — so nothing is filled there: a district the sheet does not colour stays
+uncoloured rather than acquiring an invented population class.
+
+The repair has one exemption: the dark-navy swatch whose label cannot be read
+(below) is not used as a *source* for filling. Ink lines are dark, dark navy is
+the nearest legend colour to them, and filling from it would quietly grow the one
+class whose meaning is unknown — it did, by 624 km², in the first version of this
+repair, which is how the exemption was found.
+
+## The legend swatch that cannot be read
+
+Class 1 of the soil-pH sheet is printed in dark navy (`#00227b` measured) with no
+readable value beside it; the hand transcription had recorded the label as `0`,
+which reads as a pH of exactly zero and is not something the sheet says. The
+swatch itself is real — 2,422 raster pixels lie within dE 30 of it, against 15
+near-black pixels, so it is a printed fill and not a scanning artefact — so it is
+kept, named `unlabelled (dark navy, legend swatch 1)`, and measured: 3,209 km² in
+4 polygons. Naming it `0` would have been an invented value; dropping it would
+have deleted a real class. The name now says what is known and no more.
+
+## What the file itself claims
+
+A GeoPackage can read perfectly and still misdescribe itself. Two checks were
+added because the earlier audit's "0 problems" did not cover them:
+
+* **Registers** (`fix_gpkg_hygiene.py`, `gpkg_hygiene_before.json` →
+  `gpkg_hygiene.json`). The shipped file carried **16 `gpkg_extensions` rows for
+  things that do not exist** — 7 for exploratory layers dropped long before
+  (`poly_dem`, `poly_landcover`, …) and 9 declaring an rtree index on the
+  `tile_data` BLOB of each raster, which cannot be indexed — plus **7 orphan
+  `rtree_*` index tables** for the dropped layers and **17 spatial indexes that
+  existed but were never declared**, so no conforming client could use them. All
+  17 are now declared, the 23 dead rows and 7 dead indexes are gone, and every
+  feature layer has exactly one declared, present index.
+* **Tile pyramids.** GDAL declares a `gpkg_tile_matrix` zoom level for every
+  overview it *could* write; these rasters are single-resolution, so 29 of the 38
+  declared levels held no tiles at all. A client that trusts the matrix asks for
+  a tile that was never written and draws nothing when zoomed out. The matrix now
+  declares exactly the one level per raster that holds tiles (38 → 9 rows).
+* **Descriptions.** `gpkg_contents.description` was empty for **all 40 layers** —
+  nothing inside the file said what a layer was, where it came from, or what it
+  must not be used for. `describe_layers.py` now writes a description for every
+  layer, caveats included, and `audit_layers.py` fails if one is blank.
+
+None of this removes data: 31 feature layers, 9 raster layers, 60,555 features and
+every tile are still there, and `gpkg_hygiene.json` records each register entry
+that was corrected.
 
 ## Where the numbers live
 
@@ -62,6 +139,12 @@ too, so nothing was taken away.
 | `vectorise_sheets.py` | the conversion itself (k-means palette, majority filter, sliver floor, clip, measure) |
 | `legend_swatches.json` | the measured swatch colours and positions, per sheet |
 | `vector_layers_report.json` | what `build_vector_layers.py` wrote |
-| `vector_layers_qc.png` | the three new layers drawn |
+| `polygon_colour_check.json` | `check_polygon_colour.py`: every polygon's sheet pixel against its own swatch |
+| `vector_layers_qc.png` | the three layers drawn, with the ground the sheets leave blank in grey (`make_vector_qc.py`) |
+| `layer_descriptions.json` | the description now stored for each of the 40 layers |
+| `gpkg_hygiene.json` / `gpkg_hygiene_before.json` | the register entries corrected, and the state they were found in |
+| `layer_audit.json` | `audit_layers.py`, including the GeoPackage-conformance checks |
 
-Reproduce: `python read_legend_swatches.py && python build_vector_layers.py`.
+Reproduce: `python read_legend_swatches.py && python build_vector_layers.py &&
+python describe_layers.py && python make_vector_qc.py && python check_polygon_colour.py
+&& python audit_layers.py`.

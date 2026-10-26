@@ -56,6 +56,7 @@ import json
 import math
 import pathlib
 import sqlite3
+import subprocess
 
 import numpy as np
 import geopandas as gpd
@@ -96,7 +97,8 @@ IMAGES = [
          theme="soil pH, 5 classes",
          note="Flat classes, no shading, so the classes are clean; the map has "
               "no graticule and no source citation.",
-         legend=[("#0b2f7a", "0"), ("#1f9e8f", "0.01 - 5.5"),
+         legend=[("#0b2f7a", "unlabelled (dark navy, legend swatch 1)"),
+                 ("#1f9e8f", "0.01 - 5.5"),
                  ("#5fd63f", "5.6 - 6.8"), ("#f5a623", "6.9 - 7.8"),
                  ("#c0392b", "7.9 - 8.3")]),
     dict(file="temperature-map-of-nigeria.png", mask=dict(n_bg=2, tol=26, margin=6), layer="raster_temperature", method="bbox4",
@@ -688,6 +690,11 @@ def write_layer(dst, name, rgba, transform, description):
         cur.execute('DELETE FROM main.gpkg_tile_matrix WHERE table_name = ?', (name,))
         cur.execute('INSERT INTO main.gpkg_tile_matrix SELECT * FROM src.gpkg_tile_matrix'
                     ' WHERE table_name = ?', (name,))
+        # GDAL declares a zoom level for every overview it *could* write, including
+        # ones it did not (the rasters are single-resolution).  Leave only the
+        # levels that actually hold tiles, so the matrix describes the data.
+        cur.execute('DELETE FROM main.gpkg_tile_matrix WHERE table_name = ? AND zoom_level'
+                    ' NOT IN (SELECT DISTINCT zoom_level FROM main."%s")' % name, (name,))
         cur.execute("SELECT data_type, identifier, description, last_change, min_x, min_y,"
                     " max_x, max_y, srs_id FROM src.gpkg_contents WHERE table_name = ?", (name,))
         row = cur.fetchone()
@@ -785,6 +792,10 @@ def main():
         con.execute("VACUUM")
 
     json.dump(rows, open(REPORT, "w"), indent=2)
+    # GDAL declares an rtree index on each new `tile_data` BLOB and a zoom level
+    # for overviews it did not write; both are register debris, so clean up here
+    # rather than leaving a file that describes things it does not contain
+    subprocess.run([sys.executable, str(HERE / "fix_gpkg_hygiene.py")], check=True)
     print(f"\nwrote {REPORT.name} and {len(rows)} raster layers into {GPKG.name}")
 
 

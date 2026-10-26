@@ -700,7 +700,7 @@
    "null_counts": {}
   },
   "poly_soil_ph": {
-   "features": 115,
+   "features": 111,
    "crs": "EPSG:4326",
    "declared_geometry_type": "MULTIPOLYGON",
    "geometry_types_present": [
@@ -716,8 +716,8 @@
    "empty_geometry": 0,
    "invalid_geometry": 0,
    "duplicate_geometry": 0,
-   "area_km2": 873582.1,
-   "area_inside_nigeria_km2": 873582.1,
+   "area_km2": 906612.0,
+   "area_inside_nigeria_km2": 906612.0,
    "frac_inside": 1.0,
    "null_counts": {}
   },
@@ -1090,6 +1090,37 @@
    "mineral_localities_refined": 0
   },
   "numeric_stored_as_text": [],
+  "geopackage_conformance": {
+   "contents_layers": 40,
+   "integrity_check": "ok",
+   "foreign_key_check": 0,
+   "user_version": 10400,
+   "dangling_extension_rows": [],
+   "orphan_geometry_columns": [],
+   "rtree_indexes": 31,
+   "layers_without_spatial_index": [],
+   "orphan_rtree_tables": [],
+   "tile_matrix_levels_without_tiles": [],
+   "undescribed_layers": []
+  },
+  "class_polygons": {
+   "poly_population": {
+    "polygons": 299,
+    "sum_area_km2": 839255.4,
+    "union_area_km2": 839255.4,
+    "self_overlap_km2": 0.0,
+    "coverage_of_territory_pct": 92.51,
+    "outside_territory_km2": 0.001
+   },
+   "poly_soil_ph": {
+    "polygons": 111,
+    "sum_area_km2": 906612.0,
+    "union_area_km2": 906612.0,
+    "self_overlap_km2": -0.0,
+    "coverage_of_territory_pct": 99.94,
+    "outside_territory_km2": 0.0012
+   }
+  },
   "raster_layers": 9
  },
  "rasters": {

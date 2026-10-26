@@ -69,7 +69,7 @@
  },
  {
   "key": "layer_audit",
-  "value": "audit_layers.py verified all 31 layers: 0 problems, area 907,157 km2 identical to +0.000% between EPSG:4326 / 6933 / geodesic, 2023 border within 7.5 m of the geology edge, 0 point-to-unit join mismatches"
+  "value": "audit_layers.py verified all 31 feature layers, 9 rasters and the file's own registers (dangling gpkg_extensions rows, orphan and undeclared spatial indexes, empty tile-matrix zoom levels, blank descriptions): 0 problems, area 907,157 km2 identical to +0.000% between EPSG:4326 / 6933 / geodesic, 2023 border within 7.5 m of the geology edge, 0 point-to-unit join mismatches"
  },
  {
   "key": "mineral_symbols_note",
@@ -85,15 +85,15 @@
  },
  {
   "key": "crs_layers",
-  "value": "27 layers: 22 in EPSG:4326 (11,532 features), 3 in EPSG:32632, 2 in EPSG:6933 (EPSG:4326 is the storage CRS; never compute area in it)"
+  "value": "31 layers: 26 in EPSG:4326 (57,364 features), 3 in EPSG:32632 (2,095), 2 in EPSG:6933 (1,096). Storage CRS is 4326; the projected copies exist so that area and length never have to be computed in degrees."
  },
  {
   "key": "layers_note",
-  "value": "27 layers, 14,723 features"
+  "value": "31 feature layers, 60,555 features, plus 9 georeferenced raster layers"
  },
  {
   "key": "built",
-  "value": "2026-10-25"
+  "value": "2026-10-26"
  },
  {
   "key": "towns_geonames_source",
@@ -109,10 +109,14 @@
  },
  {
   "key": "vector_layers",
-  "value": "raster-or-vector was decided per sheet by measurement (RASTER_VS_VECTOR.md): poly_soil_ph (115 polygons, 5 pH classes) and poly_population (299 polygons, 5 classes) are traced from the sheets, clipped to the border, with the palette measured from the printed legend swatches (98.3% / 99.3% colour agreement at polygon centres); geology_era (7 eras) is dissolved from the attributed geology_units rather than traced from a 2.5 km/px screenshot; the other six sheets stay rasters because they are rendered surfaces (hillshade, isotherms, dotted fills) or too coarse to gain anything"
+  "value": "raster-or-vector was decided per sheet by measurement (RASTER_VS_VECTOR.md): poly_soil_ph (111 polygons, 5 pH classes, 906,612 km2, 99.94% of the territory covered) and poly_population (299 polygons, 5 classes, 839,255 km2, 92.51% - the rest is blank on the sheet and is left blank) are traced from the sheets, clipped to the border, with the palette measured from the printed legend swatches and the class polygons re-tested against the sheet (polygon_colour_check.json: 100% / 99.3% within dE 24 at polygon interior points); soil-pH ink seams no wider than 3 px are repaired, population's blank areas are not, because 66.9% of them lie more than 12 px from any fill. The soil sheet's first swatch is printed dark navy with no readable value and is kept as 'unlabelled (dark navy, legend swatch 1)', not guessed as '0'. geology_era (7 eras) is dissolved from the attributed geology_units rather than traced from a 2.5 km/px screenshot; the other six sheets stay rasters because they are rendered surfaces (hillshade, isotherms, dotted fills) or too coarse to gain anything."
  },
  {
   "key": "legend_palette_correction",
   "value": "the colour-to-class legend in the old IMAGES table was transcribed by eye and was up to dE 100 wrong (median 15-27). read_legend_swatches.py measures the printed swatches off each sheet; those measured colours are what the polygon layers carry in legend_hex"
+ },
+ {
+  "key": "gpkg_registers",
+  "value": "the file's self-description was audited and repaired (fix_gpkg_hygiene.py, gpkg_hygiene_before.json -> gpkg_hygiene.json): 16 gpkg_extensions rows named things that do not exist (7 dropped exploratory layers, 9 rtree declarations on raster tile_data BLOBs), 7 orphan rtree indexes removed, 17 spatial indexes that existed but were undeclared are now declared (every feature layer has exactly one), and 29 of 38 declared tile-matrix zoom levels held no tiles and were dropped - each raster now declares exactly the one level that holds tiles. All 40 layers now carry a gpkg_contents description (describe_layers.py), which audit_layers.py checks."
  }
 ]

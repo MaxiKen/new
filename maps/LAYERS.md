@@ -1,6 +1,6 @@
 # Layer catalogue — `Nigeria_Geology_Minerals_4326.gpkg`
 
-**31 vector layers, 60,559 features** — plus **9 georeferenced raster layers**, documented
+**31 vector layers, 60,555 features** — plus **9 georeferenced raster layers**, documented
 separately in [`RASTER_LAYERS.md`](RASTER_LAYERS.md), and one added gazetteer layer,
 [`towns_geonames`](towns_geonames.md) (45,415 points), documented in
 [`towns_geonames.md`](towns_geonames.md). 23 layers in EPSG:4326 (56,947 features), 3 in EPSG:32632
@@ -51,8 +51,8 @@ Navigation: [Boundary & water](#1-boundary-and-water) · [Geology](#2-geology) �
 | 26 | `graticule_geology` | 22 | 4326 | LineString | 66.5 %* | QA: the 2011 graticule fit |
 | 27 | `graticule_minerals` | 11 | 4326 | LineString | 63.6 %* | QA: the 2023 graticule fit |
 | 28 | `towns_geonames` | 45,415 | 4326 | Point | 98.9 % | **the gazetteer** — every populated place GeoNames records for Nigeria; state, population where known. See [`towns_geonames.md`](towns_geonames.md) |
-| 29 | `poly_soil_ph` | 115 | 4326 | MultiPolygon | 100 % | **the soil-pH sheet as polygons**: 5 pH classes, palette measured from the printed swatches, clipped to the border |
-| 30 | `poly_population` | 299 | 4326 | MultiPolygon | 100 % | **the population sheet as polygons**: 5 absolute-count classes by unnamed district |
+| 29 | `poly_soil_ph` | 111 | 4326 | MultiPolygon | 100 % | **the soil-pH sheet as polygons**: 5 pH classes, palette measured from the printed swatches, clipped to the border; covers 99.94 % of the territory |
+| 30 | `poly_population` | 299 | 4326 | MultiPolygon | 100 % | **the population sheet as polygons**: 5 absolute-count classes by unnamed district; covers 92.51 % of the territory, the rest is blank on the sheet |
 | 31 | `geology_era` | 7 | 4326 | MultiPolygon | 100 % | the 9-era generalisation of `geology_units`, dissolved from the attributed vector — the vector answer to the general-geology sheet |
 
 \* low "in Nigeria" share is by design for these three — they are sea, cross-border water and
@@ -411,6 +411,86 @@ Layer 20 in metres (the raw extraction, with `pos_sigma_m`/`pos_confidence`). Sa
 applies.
 
 ---
+
+## 4b. The class polygons (29–31)
+
+These three are not traced from a scan for its own sake: the raster-or-vector
+question was decided per sheet by measurement, and only the sheets whose classes
+are flat fills with a readable legend became polygons (`RASTER_VS_VECTOR.md`).
+Every one keeps its source raster beside it.
+
+### 29. `poly_soil_ph` — 111 polygons, 906,612 km², 5 classes
+
+The soil-pH sheet, traced: 1.02 km/px print, class colours measured from the
+printed swatches (not transcribed by eye), clipped to `national_territory`,
+33,030 km² of seam holes no wider than 3 px repaired by claiming the nearest
+labelled class (the blank went from 33,575 km² in 974 pieces to 545 km² in 143).
+
+| class | km² | polygons | swatch |
+|---|---|---|---|
+| 0.01 - 5.5 | 358,348 | 26 | `#10ad7a` |
+| 5.6 - 6.8 | 364,326 | 38 | `#7df901` |
+| 6.9 - 7.8 | 88,084 | 20 | `#fcba04` |
+| 7.9 - 8.3 | 92,644 | 23 | `#c94d35` |
+| *unlabelled (dark navy, legend swatch 1)* | 3,209 | 4 | `#00227b` |
+
+* **The fifth class has no printed value.** Its swatch is a real printed fill
+  (2,422 sheet pixels within ΔE 30 of it) with no legible label. It is named for
+  what is known — the colour and its position in the legend — rather than `0`,
+  which is what an earlier transcription guessed and what the sheet does not say.
+* **Class edges are good to about 1 km, plus the sheet's own registration error**
+  (per-side offsets −3.2 / −0.9 / −4.1 / −3.7 km).
+* Verified: 106 of 111 polygons sample a sheet pixel within ΔE 24 of their own
+  swatch at an interior point (`polygon_colour_check.json`); the other five have
+  their interior point beyond the edge of the printed plate.
+
+### 30. `poly_population` — 299 polygons, 839,255 km², 5 classes
+
+The population sheet, traced: 2.37 km/px, classes of **absolute** population by
+**unnamed** district.
+
+| class | km² | polygons | swatch |
+|---|---|---|---|
+| 0 - 110,85 | 137,172 | 60 | `#f7f5a3` |
+| 110,853 - 144,579 | 138,857 | 64 | `#f5db70` |
+| 144,580 - 179,550 | 155,355 | 70 | `#f1b944` |
+| 179,551 - 232,287 | 203,122 | 57 | `#c16018` |
+| 232,288 - 1,319,571 | 204,750 | 48 | `#600a14` |
+
+* **7.5 % of the territory is not covered, and that is correct**: 67,902 km² in
+  1,786 pieces, the largest 26,116 km² in the north-east corner, are places the
+  sheet leaves uncoloured. Only 26.8 % of that blank lies within 3 px of a fill,
+  against 96.2 % for the soil-pH sheet, so nothing is filled in.
+* **The class labels are as printed, and the first one is a truncated reading**:
+  `0 - 110,85` — almost certainly 110,85x on the sheet, cut off in the scan. The
+  labels also contain commas, so join on `class_id` (1–5) and keep `class_name`
+  for display.
+* **The districts are unnamed**, so this cannot be joined to any admin layer, and
+  as an absolute count it cannot be normalised by area. It is a picture of a
+  population sheet, in polygons.
+* Three polygons (3,090 km² in total) read a sheet pixel one class away from
+  their traced class at their interior point — row-classification noise at
+  2.4 km/px, reported in `polygon_colour_check.json`.
+
+### 31. `geology_era` — 7 polygons, 907,157 km²
+
+The nine era classes the general-geology sheet shows, **dissolved from the
+attributed `geology_units` vector** rather than traced from the 2.5 km/px
+screenshot. It is therefore exact in area and carries no tracing error.
+
+| era | km² |
+|---|---|
+| Cenozoic | 303,554 |
+| Archaean-Palaeoproterozoic, reworked in the Neoproterozoic | 222,935 |
+| Mesozoic | 177,131 |
+| Neoproterozoic-Palaeozoic | 136,202 |
+| Neoproterozoic (Pan-African deformed) | 56,369 |
+| Water | 5,671 |
+| unclassified | 5,296 |
+
+`unclassified` is the five units the source map gives no stratigraphy for (`Gdss`,
+`s`, `P`, `Gmsh`, `BCT`) — see §7, item 5. It is not a gap in coverage: the layer
+covers all 907,157 km².
 
 ## 5. QA layers
 

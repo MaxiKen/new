@@ -22,6 +22,8 @@ Layers written:
 """
 import json
 import pathlib
+import sqlite3
+import subprocess
 import sys
 
 import geopandas as gpd
@@ -43,7 +45,8 @@ REPORT = HERE / "vector_layers_report.json"
 
 # sheets that become polygons, with the work settings
 VECTORISE = {
-    "raster_soil_ph":   dict(maxpx=2400, smooth=2, min_km2=3.0),
+    # fill_gaps_px: repair unclassified pixels within N px of a class (ink seams)
+    "raster_soil_ph":   dict(maxpx=2400, smooth=2, min_km2=3.0, fill_gaps_px=3),
     "raster_population": dict(maxpx=2000, smooth=2, min_km2=4.0),
 }
 
@@ -85,6 +88,29 @@ def build(spec, fit, swatches, plan, terr):
         med = ndimage.median_filter(np.where(cls < 0, len(pal), cls), size=3)
         cls = np.where(mask & (med < len(pal)), med, -1)
 
+    # A printed class map has no holes *inside* a class fill: what looks like a
+    # hole is the ink line drawn between two colours, or a letter.  Holes within
+    # `fill_gaps_px` of a class are therefore repaired by claiming the nearest
+    # class.  This is applied to soil pH only, and deliberately not to the
+    # population sheet, where large blank areas are places the sheet genuinely
+    # leaves uncoloured - inventing values there would be fabrication.
+    r = plan.get("fill_gaps_px")
+    if r:
+        # The unreadable dark-navy swatch must not act as a *source*: the ink
+        # line drawn between two class fills is itself dark, and dark navy is
+        # the nearest legend colour to it, so it would swallow every seam and
+        # quietly grow the one class whose meaning is unknown.
+        src_cls = np.ones(len(pal), bool)
+        for i, nm in enumerate(names):
+            if nm.lower().startswith("unlabelled"):
+                src_cls[i] = False
+        src = (cls >= 0) & src_cls[np.maximum(cls, 0)]
+        dist, (iy, ix) = ndimage.distance_transform_edt(~src, return_indices=True)
+        seam = mask & (cls < 0) & (dist <= r)
+        cls = np.where(seam, cls[iy, ix], cls)
+        print(f"    seam repair: filled {int(seam.sum())} px within {r} px of a "
+              f"labelled class")
+
     km_px = fit["km_per_px_ew"] / f
     min_px = max(24, plan["min_km2"] / km_px ** 2)
     for i in range(len(pal)):
@@ -119,19 +145,29 @@ def main():
     sw = json.load(open(HERE / "legend_swatches.json"))
     terr = gpd.read_file(GPKG, layer="national_territory").geometry.union_all()
 
-    # remove the exploratory layers from the first conversion attempt
+    # Drop every layer this script is about to write, *with its registers*.
+    # GDAL's `to_file` appends a layer to an existing GeoPackage and refuses a
+    # table name that `gpkg_contents` already advertises, and a half-finished
+    # drop leaves `gpkg_contents` pointing at a table that is gone.  Dropping
+    # table + rtree + register rows together makes a rerun deterministic.
+    targets = {"geology_era"} | {n.replace("raster_", "poly_")
+                                for n in VECTORISE}
+    con = sqlite3.connect(GPKG, isolation_level=None)   # explicit commits
     have = {n for n, _ in pyogrio.list_layers(GPKG)}
-    stale = [n for n in have if n.startswith("poly_")]
+    stale = sorted(n for n in have if n.startswith("poly_") or n in targets)
+    for n in stale:
+        for t in [r[0] for r in con.execute(
+                "SELECT name FROM sqlite_master WHERE type = 'table'"
+                " AND name LIKE 'rtree_%'")]:
+            if t.startswith(f"rtree_{n}_") and not any(
+                    t.endswith(x) for x in ("_node", "_rowid", "_parent", "_data")):
+                con.execute(f'DROP TABLE IF EXISTS "{t}"')
+        con.execute(f'DROP TABLE IF EXISTS "{n}"')
+        for t in ("gpkg_contents", "gpkg_geometry_columns", "gpkg_extensions"):
+            con.execute(f"DELETE FROM {t} WHERE table_name = ?", (n,))
+    con.close()
     if stale:
-        import sqlite3
-        con = sqlite3.connect(GPKG)
-        for n in stale:
-            con.execute(f'DROP TABLE IF EXISTS "{n}"')
-            for t in ("gpkg_contents", "gpkg_geometry_columns"):
-                con.execute(f"DELETE FROM {t} WHERE table_name = ?", (n,))
-        con.commit()
-        con.close()
-        print(f"  dropped {len(stale)} exploratory layers: {', '.join(sorted(stale))}")
+        print(f"  rebuilt in place: {', '.join(stale)}")
 
     out = []
     for spec in G.IMAGES:
@@ -165,6 +201,9 @@ def main():
           f"{era.area_km2.sum():.0f} km2")
 
     json.dump(out, open(REPORT, "w"), indent=1)
+    # a rebuild leaves register debris; clean it in the same run so the shipped
+    # file never advertises a layer, index or zoom level it does not contain
+    subprocess.run([sys.executable, str(HERE / "fix_gpkg_hygiene.py")], check=True)
     print(f"\nwrote {REPORT.name}")
 
 

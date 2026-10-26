@@ -224,6 +224,94 @@ chk["join_mismatches"] = bad_join
 
 chk["numeric_stored_as_text"] = textnum
 
+# ---- GeoPackage conformance: the registers must describe the contents ------
+# A SQLite integrity check says "ok" for a file that advertises a layer, an
+# index or a zoom level that is not there: the data is fine, the *description*
+# is wrong.  Every register is therefore checked against `gpkg_contents`.
+con = sqlite3.connect(P)
+gpkg = {}
+tables = {r[0] for r in con.execute(
+    "SELECT name FROM sqlite_master WHERE type = 'table'")}
+contents = {r[0] for r in con.execute("SELECT table_name FROM gpkg_contents")}
+gpkg["contents_layers"] = len(contents)
+gpkg["integrity_check"] = con.execute("PRAGMA integrity_check").fetchone()[0]
+gpkg["foreign_key_check"] = len(con.execute("PRAGMA foreign_key_check").fetchall())
+gpkg["user_version"] = con.execute("PRAGMA user_version").fetchone()[0]
+if gpkg["integrity_check"] != "ok":
+    problems.append(f"integrity check: {gpkg['integrity_check']}")
+
+dangling_ext = [f"{t}.{c} ({e})" for t, c, e in con.execute(
+    "SELECT table_name, column_name, extension_name FROM gpkg_extensions")
+    if t not in contents]
+gpkg["dangling_extension_rows"] = dangling_ext
+if dangling_ext:
+    problems.append(f"{len(dangling_ext)} gpkg_extensions row(s) name a layer that does"
+                    f" not exist: {', '.join(dangling_ext[:5])}")
+
+orphan_gc = sorted(r[0] for r in con.execute(
+    "SELECT table_name FROM gpkg_geometry_columns") if r[0] not in contents)
+gpkg["orphan_geometry_columns"] = orphan_gc
+if orphan_gc:
+    problems.append(f"gpkg_geometry_columns names missing tables: {orphan_gc}")
+
+rtree = sorted(t for t in tables if t.startswith("rtree_")
+               and not t.endswith(("_node", "_rowid", "_parent", "_data")))
+# the index name comes from the register ("rtree_<layer>_<column>"); a split on
+# "_" would call `rtree_towns_geom` an orphan because `rtree_towns` is no layer
+declared_idx = {(t, c) for t, c, e in con.execute(
+    "SELECT table_name, column_name, extension_name FROM gpkg_extensions"
+    " WHERE extension_name = 'gpkg_rtree_index'")}
+orphan_rtree = sorted(t for t in rtree if t not in {f"rtree_{t_}_{c}"
+                                                    for t_, c in declared_idx})
+gpkg["rtree_indexes"] = len(rtree)
+gpkg["layers_without_spatial_index"] = sorted(
+    t for t, c in declared_idx if f"rtree_{t}_{c}" not in rtree)
+if gpkg["layers_without_spatial_index"]:
+    problems.append("spatial index declared but missing for "
+                    f"{gpkg['layers_without_spatial_index'][:3]}")
+gpkg["orphan_rtree_tables"] = orphan_rtree
+if orphan_rtree:
+    problems.append(f"{len(orphan_rtree)} orphan rtree index table(s), e.g. {orphan_rtree[:3]}")
+
+# every declared zoom level must hold at least one tile, or a tile client asks
+# for a tile that was never written and draws nothing
+stale_zoom = []
+for t in [r[0] for r in con.execute(
+        "SELECT table_name FROM gpkg_contents WHERE data_type = 'tiles'")]:
+    have = {r[0] for r in con.execute('SELECT DISTINCT zoom_level FROM "%s"' % t)}
+    declared_z = {r[0] for r in con.execute(
+        "SELECT zoom_level FROM gpkg_tile_matrix WHERE table_name = ?", (t,))}
+    if declared_z - have:
+        stale_zoom.append(f"{t}:{sorted(declared_z - have)}")
+gpkg["tile_matrix_levels_without_tiles"] = stale_zoom
+if stale_zoom:
+    problems.append(f"tile matrix declares empty zoom levels: {', '.join(stale_zoom[:5])}")
+gpkg["undescribed_layers"] = sorted(
+    r[0] for r in con.execute("SELECT table_name, description FROM gpkg_contents")
+    if not r[1])
+if gpkg["undescribed_layers"]:
+    problems.append(f"{len(gpkg['undescribed_layers'])} layer(s) carry no description: "
+                    f"{gpkg['undescribed_layers'][:3]}")
+con.close()
+chk["geopackage_conformance"] = gpkg
+
+# ---- class polygons: no self-overlap, and how much they actually cover -----
+poly_chk = {}
+for name in [n for n in layers if n.startswith("poly_")]:
+    g = gpd.read_file(P, layer=name).to_crs(EQ)
+    geoms = [shapely.make_valid(x) for x in g.geometry if x is not None]
+    tot = sum(x.area for x in geoms) / 1e6
+    uni = shapely.union_all(geoms).area / 1e6
+    inside = shapely.make_valid(shapely.union_all(geoms).intersection(terr_ea)).area / 1e6
+    poly_chk[name] = dict(polygons=len(geoms), sum_area_km2=round(tot, 1),
+                          union_area_km2=round(uni, 1), self_overlap_km2=round(tot - uni, 4),
+                          coverage_of_territory_pct=round(100 * inside / (terr_ea.area / 1e6), 2),
+                          outside_territory_km2=round(uni - inside, 4))
+    if tot - uni > 0.01:
+        problems.append(f"{name}: {tot - uni:.3f} km2 of self-overlap")
+chk["class_polygons"] = poly_chk
+
+
 # ---- raster layers ---------------------------------------------------------
 # The nine georeferenced images are rasters, not features, so pyogrio does not
 # list them.  They are verified directly: CRS, grid, tile count, and - the check
@@ -285,11 +373,15 @@ _meta_path = HERE / "metadata.json"
 if _meta_path.exists():
     _meta = {r["key"]: r["value"] for r in json.load(open(_meta_path))}
     _meta["layer_audit"] = (
-        f"audit_layers.py verified all {len(layers)} layers: {len(problems)} problems, "
+        f"audit_layers.py verified all {len(layers)} feature layers, {chk['raster_layers']} "
+        f"rasters and the file's own registers (dangling gpkg_extensions rows, orphan and "
+        f"undeclared spatial indexes, empty tile-matrix zoom levels, blank descriptions): "
+        f"{len(problems)} problems, "
         f"area {chk['area_4326_km2']:,.0f} km2 identical to {chk['area_agreement_pct']:+.3f}% between "
         f"EPSG:4326 / 6933 / geodesic, 2023 border within {chk['border_max_offset_m']:.1f} m of the "
         f"geology edge, {sum(bad_join.values())} point-to-unit join mismatches")
+    # one-space indent: the file's own style, so a re-audit does not churn it
     json.dump([{"key": k, "value": v} for k, v in _meta.items()],
-              open(_meta_path, "w"), indent=2, ensure_ascii=False)
+              open(_meta_path, "w"), indent=1, ensure_ascii=False)
 
 print(f"\nwrote {HERE / 'layer_audit.json'}")

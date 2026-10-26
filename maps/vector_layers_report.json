@@ -2,9 +2,9 @@
  {
   "km_px": 1.016,
   "classes": 5,
-  "classified_pct": 95.4,
-  "polygons": 115,
-  "area_km2": 873582.1,
+  "classified_pct": 99.7,
+  "polygons": 111,
+  "area_km2": 906612.0,
   "palette": [
    "#00227b",
    "#10ad7a",
