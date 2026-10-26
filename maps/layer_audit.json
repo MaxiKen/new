@@ -91,6 +91,26 @@
    "ocg_id_groups": 4,
    "ocg_id_fragments": 2815
   },
+  "geology_era": {
+   "features": 7,
+   "crs": "EPSG:4326",
+   "declared_geometry_type": "MULTIPOLYGON",
+   "geometry_types_present": [
+    "MultiPolygon"
+   ],
+   "attributes": [
+    "class_name",
+    "area_km2"
+   ],
+   "null_geometry": 0,
+   "empty_geometry": 0,
+   "invalid_geometry": 0,
+   "duplicate_geometry": 0,
+   "area_km2": 907157.0,
+   "area_inside_nigeria_km2": 907157.0,
+   "frac_inside": 1.0,
+   "null_counts": {}
+  },
   "geology_units": {
    "features": 97,
    "crs": "EPSG:4326",
@@ -654,6 +674,50 @@
    "duplicate_geometry": 0,
    "area_km2": 907157.0,
    "area_inside_nigeria_km2": 907157.0,
+   "frac_inside": 1.0,
+   "null_counts": {}
+  },
+  "poly_population": {
+   "features": 299,
+   "crs": "EPSG:4326",
+   "declared_geometry_type": "MULTIPOLYGON",
+   "geometry_types_present": [
+    "MultiPolygon"
+   ],
+   "attributes": [
+    "class_id",
+    "class_name",
+    "legend_hex",
+    "area_km2"
+   ],
+   "null_geometry": 0,
+   "empty_geometry": 0,
+   "invalid_geometry": 0,
+   "duplicate_geometry": 0,
+   "area_km2": 839255.4,
+   "area_inside_nigeria_km2": 839255.4,
+   "frac_inside": 1.0,
+   "null_counts": {}
+  },
+  "poly_soil_ph": {
+   "features": 115,
+   "crs": "EPSG:4326",
+   "declared_geometry_type": "MULTIPOLYGON",
+   "geometry_types_present": [
+    "MultiPolygon"
+   ],
+   "attributes": [
+    "class_id",
+    "class_name",
+    "legend_hex",
+    "area_km2"
+   ],
+   "null_geometry": 0,
+   "empty_geometry": 0,
+   "invalid_geometry": 0,
+   "duplicate_geometry": 0,
+   "area_km2": 873582.1,
+   "area_inside_nigeria_km2": 873582.1,
    "frac_inside": 1.0,
    "null_counts": {}
   },

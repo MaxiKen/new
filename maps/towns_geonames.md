@@ -27,7 +27,7 @@ resulting layer and `towns_report.json`.
 |---|---|
 | `geonameid` | the GeoNames id — the stable key, use this to join back |
 | `name`, `ascii_name` | the name as GeoNames prefers it, and ASCII-folded |
-| `alt_names` | up to 300 characters of recorded alternative spellings |
+| `alt_names` | up to 120 characters of recorded alternative spellings |
 | `feature_code`, `feature_type` | `PPL` village/town (45,141), `PPLA` state capital (36), `PPLA2` (82), `PPLC` national capital (1 — Abuja), `PPLX` section of a place (44), `PPLQ` abandoned (40), `PPLL` locality (41), `PPLS` (25), `PPLF` farm (4), `PPLR` religious (1), with the plain-language type beside each |
 | `state` | state name, from the state polygon the point falls in |
 | `state_gn` | the state GeoNames itself records (70 % of places have none) |

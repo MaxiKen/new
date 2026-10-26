@@ -198,7 +198,7 @@ def read_nigeria(db):
     df["feature_type"] = df.feature_code.map(lambda c: fc.get(c, ("", ""))[0])
     df["state"] = [a1.get(("NG", c)) for c in df.admin1_code]
     df["lga"] = [a2.get(("NG", a, b)) for a, b in zip(df.admin1_code, df.admin2_code)]
-    df["alt_names"] = df.alt_names.fillna("").str.slice(0, 300)
+    df["alt_names"] = df.alt_names.fillna("").str.slice(0, 120)
     df["population"] = df.population.fillna(0).astype("int64")
     return df
 

@@ -98,10 +98,13 @@ Three decisions make the number mean something:
 * **Clipped to `national_territory`** with a 1‑pixel inward erosion and an
   intersection with the map object, so a legend that happens to fall inside the
   country rectangle cannot survive as stray pixels.
-* **Not converted to vector.** Automatic vectorisation of a 60‑class soil map
-  would produce hundreds of thousands of slivers with no attribution, and the
-  classes are only knowable from a printed legend; a documented raster is the
-  better product here.
+* **Vector or raster was decided per sheet, by measurement** — see
+  [`RASTER_VS_VECTOR.md`](RASTER_VS_VECTOR.md). Two sheets are flat enough, and
+  their printed legends readable enough, to ship as real polygons
+  (`poly_soil_ph`, `poly_population`); the general-geology sheet is answered by
+  `geology_era`, dissolved from the attributed `geology_units` rather than traced
+  from a screenshot; the rest stay rasters because they are rendered surfaces
+  (hillshade, isotherms, dotted fills) or too coarse to gain anything.
 * **Each layer is titled, described and legended** in `gpkg_contents` and in the
   JSON, including the caveats — a reader can tell a picture of an elevation map
   from a real DEM without opening this file.

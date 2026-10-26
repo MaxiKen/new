@@ -69,7 +69,7 @@
  },
  {
   "key": "layer_audit",
-  "value": "audit_layers.py verified all 28 layers: 0 problems, area 907,157 km2 identical to +0.000% between EPSG:4326 / 6933 / geodesic, 2023 border within 7.5 m of the geology edge, 0 point-to-unit join mismatches"
+  "value": "audit_layers.py verified all 31 layers: 0 problems, area 907,157 km2 identical to +0.000% between EPSG:4326 / 6933 / geodesic, 2023 border within 7.5 m of the geology edge, 0 point-to-unit join mismatches"
  },
  {
   "key": "mineral_symbols_note",
@@ -106,5 +106,13 @@
  {
   "key": "raster_layers",
   "value": "9 georeferenced scanned maps (DEM, soil pH, temperature, forest reserves, land cover, population, ethnic groups, dominant soils, general geology) as clipped RGBA tiles in EPSG:4326, built by georef_new_map.py. Mean border offset 5.7 km, mean overlap 0.941. See RASTER_LAYERS.md"
+ },
+ {
+  "key": "vector_layers",
+  "value": "raster-or-vector was decided per sheet by measurement (RASTER_VS_VECTOR.md): poly_soil_ph (115 polygons, 5 pH classes) and poly_population (299 polygons, 5 classes) are traced from the sheets, clipped to the border, with the palette measured from the printed legend swatches (98.3% / 99.3% colour agreement at polygon centres); geology_era (7 eras) is dissolved from the attributed geology_units rather than traced from a 2.5 km/px screenshot; the other six sheets stay rasters because they are rendered surfaces (hillshade, isotherms, dotted fills) or too coarse to gain anything"
+ },
+ {
+  "key": "legend_palette_correction",
+  "value": "the colour-to-class legend in the old IMAGES table was transcribed by eye and was up to dE 100 wrong (median 15-27). read_legend_swatches.py measures the printed swatches off each sheet; those measured colours are what the polygon layers carry in legend_hex"
  }
 ]

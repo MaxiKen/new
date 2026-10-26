@@ -12,7 +12,7 @@ sheets in this repository:
 
 | File | What it is |
 |---|---|
-| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, **28 vector layers, 60,138 features** plus **9 georeferenced raster layers** (24 MB of tiles), EPSG:4326 with five projected copies — this is the deliverable |
+| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, **31 vector layers, 60,559 features** plus **9 georeferenced raster layers** (24 MB of tiles), EPSG:4326 with five projected copies — this is the deliverable |
 | `Nigeria_Geology_Minerals_4326.png` / `.pdf` | rendered map |
 | `build_combined.py` | rebuilds the GeoPackage |
 | `render_combined.py` | rebuilds the image/PDF |
@@ -35,6 +35,10 @@ sheets in this repository:
 | `build_towns.py` | adds **`towns_geonames`** — the 45,415-place GeoNames gazetteer of Nigeria, with state, and the two accuracy checks against outside data |
 | `towns_geonames.md` | that layer: provenance, licence, fields, the measured accuracy, and what it must not be used for |
 | `towns_report.json` / `towns_geonames_qc.png` | its counts and checks, and the overlay it was checked against |
+| `RASTER_VS_VECTOR.md` | **which of the nine scans should be polygons and which must stay rasters**, with the measurement behind each verdict |
+| `read_legend_swatches.py` | reads the printed legend swatches off each sheet — the colour-to-class mapping was transcribed by eye and was up to dE 100 wrong |
+| `build_vector_layers.py` | writes `poly_soil_ph`, `poly_population` (traced from the sheets) and `geology_era` (dissolved from `geology_units`) |
+| `vectorisation_study.py` | the purity / fragmentation / round-trip test each sheet passes or fails |
 | `georef_new_map.py` | **georeferences the nine scans in `new map/`** into the GeoPackage as clipped RGBA raster layers, with a measured border offset per layer |
 | `RASTER_LAYERS.md` | the nine raster layers: format decisions, legend transcriptions, measured positional error and what each must not be used for |
 | `raster_georeferencing.json` / `raster_georeferencing_qc.png` | the fit record for every raster layer, and the overlay it was checked against |

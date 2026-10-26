@@ -1,6 +1,6 @@
 # Layer catalogue — `Nigeria_Geology_Minerals_4326.gpkg`
 
-**28 vector layers, 60,138 features** — plus **9 georeferenced raster layers**, documented
+**31 vector layers, 60,559 features** — plus **9 georeferenced raster layers**, documented
 separately in [`RASTER_LAYERS.md`](RASTER_LAYERS.md), and one added gazetteer layer,
 [`towns_geonames`](towns_geonames.md) (45,415 points), documented in
 [`towns_geonames.md`](towns_geonames.md). 23 layers in EPSG:4326 (56,947 features), 3 in EPSG:32632
@@ -51,6 +51,9 @@ Navigation: [Boundary & water](#1-boundary-and-water) · [Geology](#2-geology) �
 | 26 | `graticule_geology` | 22 | 4326 | LineString | 66.5 %* | QA: the 2011 graticule fit |
 | 27 | `graticule_minerals` | 11 | 4326 | LineString | 63.6 %* | QA: the 2023 graticule fit |
 | 28 | `towns_geonames` | 45,415 | 4326 | Point | 98.9 % | **the gazetteer** — every populated place GeoNames records for Nigeria; state, population where known. See [`towns_geonames.md`](towns_geonames.md) |
+| 29 | `poly_soil_ph` | 115 | 4326 | MultiPolygon | 100 % | **the soil-pH sheet as polygons**: 5 pH classes, palette measured from the printed swatches, clipped to the border |
+| 30 | `poly_population` | 299 | 4326 | MultiPolygon | 100 % | **the population sheet as polygons**: 5 absolute-count classes by unnamed district |
+| 31 | `geology_era` | 7 | 4326 | MultiPolygon | 100 % | the 9-era generalisation of `geology_units`, dissolved from the attributed vector — the vector answer to the general-geology sheet |
 
 \* low "in Nigeria" share is by design for these three — they are sea, cross-border water and
 graticule lines that run past the map frame. Do not clip them, do not add them to an area total.

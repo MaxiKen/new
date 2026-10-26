@@ -1,0 +1,695 @@
+[
+ {
+  "k": 7,
+  "km_px": 0.969,
+  "roundtrip": 0.98,
+  "polygons": 860,
+  "palette_hex": [
+   "#8ac847",
+   "#fafeb7",
+   "#f56106",
+   "#0d96f6",
+   "#95350d",
+   "#ccd3ca",
+   "#a59833"
+  ],
+  "labels_matched": 7,
+  "label_dE_median": 17.5,
+  "label_dE_max": 65.0,
+  "colour_to_label": {
+   "#fafeb7": [
+    "140 - 260",
+    11.2
+   ],
+   "#95350d": [
+    "540 - 720",
+    11.6
+   ],
+   "#ccd3ca": [
+    "730 - 1,100",
+    17.1
+   ],
+   "#f56106": [
+    "390 - 530",
+    17.5
+   ],
+   "#8ac847": [
+    "270 - 380",
+    20.3
+   ],
+   "#0d96f6": [
+    "-25 - 130",
+    21.3
+   ],
+   "#a59833": [
+    "1,200 - 2,100",
+    65.0
+   ]
+  },
+  "layer": "poly_dem",
+  "source_layer": "raster_dem",
+  "vertices": 96779,
+  "area_km2": 886621.0
+ },
+ {
+  "k": 5,
+  "km_px": 1.016,
+  "roundtrip": 0.986,
+  "polygons": 116,
+  "palette_hex": [
+   "#1cac78",
+   "#7bf70c",
+   "#f0bc17",
+   "#c45034",
+   "#1a2366"
+  ],
+  "labels_matched": 5,
+  "label_dE_median": 15.6,
+  "label_dE_max": 24.8,
+  "colour_to_label": {
+   "#1a2366": [
+    "0",
+    7.3
+   ],
+   "#c45034": [
+    "7.9 - 8.3",
+    9.4
+   ],
+   "#f0bc17": [
+    "6.9 - 7.8",
+    15.6
+   ],
+   "#1cac78": [
+    "0.01 - 5.5",
+    22.5
+   ],
+   "#7bf70c": [
+    "5.6 - 6.8",
+    24.8
+   ]
+  },
+  "layer": "poly_soil_ph",
+  "source_layer": "raster_soil_ph",
+  "vertices": 41455,
+  "area_km2": 899906.7
+ },
+ {
+  "k": 16,
+  "km_px": 1.839,
+  "roundtrip": 0.992,
+  "polygons": 30,
+  "palette_hex": [
+   "#fcbe49",
+   "#fca03d",
+   "#fcde56",
+   "#fa802f",
+   "#686868",
+   "#fafa64",
+   "#00c5ff",
+   "#000000",
+   "#e3eb75",
+   "#f56325",
+   "#ffffff",
+   "#fcde56",
+   "#fcbe49",
+   "#fca03d",
+   "#fcde56",
+   "#fca03d"
+  ],
+  "labels_matched": 16,
+  "label_dE_median": 27.1,
+  "label_dE_max": 111.8,
+  "colour_to_label": {
+   "#fca03d": [
+    "> 42",
+    54.7
+   ],
+   "#fa802f": [
+    "36 - 38",
+    8.0
+   ],
+   "#00c5ff": [
+    "water",
+    8.1
+   ],
+   "#f56325": [
+    "38 - 40",
+    9.6
+   ],
+   "#fcbe49": [
+    "30 - 32",
+    19.8
+   ],
+   "#e3eb75": [
+    "28 - 30",
+    15.3
+   ],
+   "#686868": [
+    "18 - 20",
+    21.7
+   ],
+   "#ffffff": [
+    "24 - 26",
+    32.5
+   ],
+   "#fcde56": [
+    "20 - 22",
+    70.9
+   ],
+   "#000000": [
+    "< 16",
+    62.1
+   ],
+   "#fafa64": [
+    "16 - 18",
+    111.8
+   ]
+  },
+  "layer": "poly_temperature",
+  "source_layer": "raster_temperature",
+  "vertices": 10590,
+  "area_km2": 904442.9
+ },
+ {
+  "k": 4,
+  "km_px": 0.484,
+  "roundtrip": 0.98,
+  "polygons": 922,
+  "palette_hex": [
+   "#e8ffbd",
+   "#d8d9d9",
+   "#0671fe",
+   "#8adb0d"
+  ],
+  "labels_matched": 4,
+  "label_dE_median": 21.5,
+  "label_dE_max": 66.5,
+  "colour_to_label": {
+   "#e8ffbd": [
+    "States Boundary fill",
+    6.3
+   ],
+   "#8adb0d": [
+    "Forest Reserves",
+    15.1
+   ],
+   "#0671fe": [
+    "Major Rivers",
+    27.8
+   ],
+   "#d8d9d9": [
+    "Gulf Of Guinea",
+    66.5
+   ]
+  },
+  "layer": "poly_forest_reserves",
+  "source_layer": "raster_forest_reserves",
+  "vertices": 112620,
+  "area_km2": 880486.5
+ },
+ {
+  "k": 14,
+  "km_px": 3.049,
+  "roundtrip": 0.858,
+  "polygons": 324,
+  "palette_hex": [
+   "#d4f9b9",
+   "#f4f57e",
+   "#feab02",
+   "#4e7705",
+   "#82c054",
+   "#a1770c",
+   "#aa690c",
+   "#737407",
+   "#b6ae58",
+   "#147d56",
+   "#242524",
+   "#f7d03f",
+   "#9a9c91",
+   "#0820ff"
+  ],
+  "labels_matched": 14,
+  "label_dE_median": 19.0,
+  "label_dE_max": 72.1,
+  "colour_to_label": {
+   "#d4f9b9": [
+    "Wooded Grassland",
+    8.3
+   ],
+   "#147d56": [
+    "Evergreen Needleleaf Forest",
+    9.7
+   ],
+   "#9a9c91": [
+    "Open Shrubland",
+    11.0
+   ],
+   "#82c054": [
+    "Deciduous Broadleaf Forest",
+    14.7
+   ],
+   "#b6ae58": [
+    "Bare",
+    14.7
+   ],
+   "#f4f57e": [
+    "Closed Shrubland",
+    17.7
+   ],
+   "#4e7705": [
+    "Evergreen Broadleaf Forest",
+    18.7
+   ],
+   "#aa690c": [
+    "Crop land",
+    19.3
+   ],
+   "#a1770c": [
+    "Woodland",
+    23.8
+   ],
+   "#0820ff": [
+    "Water",
+    39.8
+   ],
+   "#737407": [
+    "Mixed Forest",
+    41.1
+   ],
+   "#f7d03f": [
+    "Rangeland",
+    43.8
+   ],
+   "#242524": [
+    "Deciduous Needleleaf Forest",
+    57.8
+   ],
+   "#feab02": [
+    "Urban",
+    72.1
+   ]
+  },
+  "layer": "poly_landcover",
+  "source_layer": "raster_landcover",
+  "vertices": 21943,
+  "area_km2": 771071.7
+ },
+ {
+  "k": 5,
+  "km_px": 2.367,
+  "roundtrip": 0.958,
+  "polygons": 214,
+  "palette_hex": [
+   "#eec459",
+   "#bd631d",
+   "#641014",
+   "#f0eba1",
+   "#555151"
+  ],
+  "labels_matched": 5,
+  "label_dE_median": 11.6,
+  "label_dE_max": 80.4,
+  "colour_to_label": {
+   "#bd631d": [
+    "179,551 - 232,287",
+    5.3
+   ],
+   "#eec459": [
+    "144,580 - 179,550",
+    10.3
+   ],
+   "#641014": [
+    "232,288 - 1,319,571",
+    11.6
+   ],
+   "#f0eba1": [
+    "0 - 110,85",
+    15.9
+   ],
+   "#555151": [
+    "110,853 - 144,579",
+    80.4
+   ]
+  },
+  "layer": "poly_population",
+  "source_layer": "raster_population",
+  "vertices": 22508,
+  "area_km2": 855430.4
+ },
+ {
+  "k": 32,
+  "km_px": 1.36,
+  "roundtrip": 0.985,
+  "polygons": 166,
+  "palette_hex": [
+   "#fe8dd6",
+   "#88e023",
+   "#50a9d6",
+   "#f5da40",
+   "#fc6c25",
+   "#ac4c7a",
+   "#fcb815",
+   "#66a527",
+   "#ebc2d7",
+   "#67f6ad",
+   "#bc9679",
+   "#427949",
+   "#fdc997",
+   "#aa7128",
+   "#a6bde1",
+   "#8d6fb3",
+   "#3efa3d",
+   "#fd9965",
+   "#f43b3b",
+   "#f3eef0",
+   "#e04f66",
+   "#d66ba6",
+   "#f9fd04",
+   "#fbe7b0",
+   "#d3a8f8",
+   "#1170f0",
+   "#372f36",
+   "#be502d",
+   "#7c7881",
+   "#243221",
+   "#59283b",
+   "#97d2a2"
+  ],
+  "labels_matched": 32,
+  "label_dE_median": 15.2,
+  "label_dE_max": 68.1,
+  "colour_to_label": {
+   "#ebc2d7": [
+    "Yedina",
+    3.8
+   ],
+   "#e04f66": [
+    "Eleme",
+    5.0
+   ],
+   "#bc9679": [
+    "Kambari",
+    5.6
+   ],
+   "#fc6c25": [
+    "Tiv-Gade",
+    6.4
+   ],
+   "#fdc997": [
+    "Ibibio-Efik",
+    6.6
+   ],
+   "#f5da40": [
+    "Dakarkari",
+    6.8
+   ],
+   "#fbe7b0": [
+    "Bokyi",
+    8.8
+   ],
+   "#be502d": [
+    "Tarok",
+    9.9
+   ],
+   "#a6bde1": [
+    "Bariba",
+    10.2
+   ],
+   "#427949": [
+    "Ewe",
+    10.8
+   ],
+   "#f43b3b": [
+    "Abua-Ogbia-Atissa",
+    10.8
+   ],
+   "#8d6fb3": [
+    "Bade",
+    11.1
+   ],
+   "#50a9d6": [
+    "Kanuri",
+    12.8
+   ],
+   "#fcb815": [
+    "Jukun",
+    13.2
+   ],
+   "#d3a8f8": [
+    "Baggara",
+    13.3
+   ],
+   "#fd9965": [
+    "Gbagyi",
+    14.5
+   ],
+   "#ac4c7a": [
+    "Fulani",
+    16.0
+   ],
+   "#d66ba6": [
+    "Hausa",
+    17.3
+   ],
+   "#97d2a2": [
+    "Edo",
+    18.3
+   ],
+   "#66a527": [
+    "Yoruba",
+    18.5
+   ],
+   "#88e023": [
+    "Idoma-Ighde",
+    21.5
+   ],
+   "#aa7128": [
+    "Berom-Jarawa",
+    21.6
+   ],
+   "#1170f0": [
+    "Songhay",
+    21.7
+   ],
+   "#fe8dd6": [
+    "Angas",
+    24.0
+   ],
+   "#f3eef0": [
+    "Tera-Mandara",
+    25.7
+   ],
+   "#243221": [
+    "Ijaw",
+    29.9
+   ],
+   "#67f6ad": [
+    "Igala",
+    33.3
+   ],
+   "#59283b": [
+    "Mande (Busa)",
+    33.3
+   ],
+   "#f9fd04": [
+    "Nupe-Ebira",
+    35.1
+   ],
+   "#7c7881": [
+    "Atyap",
+    37.7
+   ],
+   "#372f36": [
+    "Itsekiri",
+    55.4
+   ],
+   "#3efa3d": [
+    "Igbo",
+    68.1
+   ]
+  },
+  "layer": "poly_ethnic_groups",
+  "source_layer": "raster_ethnic_groups",
+  "vertices": 31114,
+  "area_km2": 886083.2
+ },
+ {
+  "k": 20,
+  "km_px": 0.722,
+  "roundtrip": 0.953,
+  "polygons": 3392,
+  "palette_hex": [
+   "#fbf1d7",
+   "#f8eb75",
+   "#e6c799",
+   "#fbf3fb",
+   "#cf3b2c",
+   "#e7939c",
+   "#dfa76c",
+   "#b6c6ec",
+   "#dddaeb",
+   "#a98969",
+   "#e83a41",
+   "#bba8b5",
+   "#657bcd",
+   "#78737a",
+   "#c0b69e",
+   "#ac443b",
+   "#9e6161",
+   "#ec352e",
+   "#ed652f",
+   "#3f3d49"
+  ],
+  "labels_matched": 20,
+  "label_dE_median": 18.9,
+  "label_dE_max": 85.2,
+  "colour_to_label": {
+   "#e6c799": [
+    "Phaeozems (PH)",
+    4.6
+   ],
+   "#c0b69e": [
+    "Gleysols (GL)",
+    5.8
+   ],
+   "#a98969": [
+    "Regosols (RG)",
+    5.9
+   ],
+   "#cf3b2c": [
+    "Luvisols (LV)",
+    6.3
+   ],
+   "#fbf1d7": [
+    "Chernozems (CH)",
+    7.3
+   ],
+   "#fbf3fb": [
+    "Rock outcrops",
+    9.2
+   ],
+   "#ac443b": [
+    "Leptosols (LP)",
+    14.0
+   ],
+   "#f8eb75": [
+    "Alisols (AL)",
+    15.4
+   ],
+   "#bba8b5": [
+    "Solonchaks (SC)",
+    15.8
+   ],
+   "#b6c6ec": [
+    "Water bodies",
+    17.9
+   ],
+   "#dfa76c": [
+    "Cambisols (CM)",
+    19.9
+   ],
+   "#9e6161": [
+    "Fluvisols (FL)",
+    20.5
+   ],
+   "#78737a": [
+    "Solonetz (SN)",
+    22.4
+   ],
+   "#e7939c": [
+    "Nitisols (NT)",
+    22.8
+   ],
+   "#dddaeb": [
+    "Vertisols (VR)",
+    26.0
+   ],
+   "#3f3d49": [
+    "Planosols (PL)",
+    34.3
+   ],
+   "#ed652f": [
+    "Podzols (PZ)",
+    57.7
+   ],
+   "#657bcd": [
+    "Plinthosols (PT)",
+    62.5
+   ],
+   "#e83a41": [
+    "Histosols (HS)",
+    74.1
+   ],
+   "#ec352e": [
+    "Acrisols (AC)",
+    85.2
+   ]
+  },
+  "layer": "poly_dominant_soils",
+  "source_layer": "raster_dominant_soils",
+  "vertices": 310587,
+  "area_km2": 861159.2
+ },
+ {
+  "k": 9,
+  "km_px": 2.466,
+  "roundtrip": 0.907,
+  "polygons": 401,
+  "palette_hex": [
+   "#f79e9a",
+   "#faf99d",
+   "#fcfc86",
+   "#d9be7f",
+   "#fdfc07",
+   "#7f6f53",
+   "#a55d5c",
+   "#f04473",
+   "#bcc5c7"
+  ],
+  "labels_matched": 9,
+  "label_dE_median": 22.9,
+  "label_dE_max": 58.7,
+  "colour_to_label": {
+   "#fdfc07": [
+    "Cenozoic: sands, clays, shales, sandstones, lignites, grits",
+    1.6
+   ],
+   "#faf99d": [
+    "Cenozoic: alluvials, sand, gravels, clay, mangrove swamps, pebbles",
+    2.7
+   ],
+   "#d9be7f": [
+    "Palaeozoic-Proterozoic: metasediments, schists, quartzites",
+    10.6
+   ],
+   "#f79e9a": [
+    "Palaeozoic-Proterozoic: basement complex",
+    14.3
+   ],
+   "#f04473": [
+    "Palaeozoic-Proterozoic: older granites",
+    22.9
+   ],
+   "#bcc5c7": [
+    "Mesozoic: granites, syenites, gabbros, rhyolites (Jurassic)",
+    26.8
+   ],
+   "#7f6f53": [
+    "Mesozoic: basic and intermediate intrusions",
+    29.0
+   ],
+   "#fcfc86": [
+    "Mesozoic: sands, clays, coals, shales, sandstones, mudstones, limestones",
+    31.2
+   ],
+   "#a55d5c": [
+    "Cenozoic: volcanics (basalts, trachytes, rhyolites)",
+    58.7
+   ]
+  },
+  "layer": "poly_general_geology",
+  "source_layer": "raster_general_geology",
+  "vertices": 27562,
+  "area_km2": 827946.9
+ }
+]
