@@ -1,98 +1,110 @@
 [
-  {
-    "key": "title",
-    "value": "Geology and Mineral Resources of Nigeria - combined, EPSG:4326"
-  },
-  {
-    "key": "crs",
-    "value": "WGS 84, longitude/latitude, EPSG:4326, degrees"
-  },
-  {
-    "key": "geology_source",
-    "value": "NGSA Geological Map of Nigeria, 1:2,000,000 (2011 edition, DG Prof. Siyan Malomo); vector PDF, 125 layers"
-  },
-  {
-    "key": "minerals_source",
-    "value": "NGSA Mineral Resources Map of Nigeria, 1:2,000,000, 2nd edition 2023 (DG Dr Abdulrazaq Garba); vector PDF"
-  },
-  {
-    "key": "geology_registration",
-    "value": "affine fitted to printed 1-degree graticule: lon = (x + 276.36)/157.593, lat = (2281.63 - y)/157.586; residual 0.20 pt"
-  },
-  {
-    "key": "minerals_registration",
-    "value": "the 2023 sheet's own printed graticule gives lon = (x + 288.95)/157.5987, lat = (2572.35 - y)/157.6015 (residual 0.000 pt). The affine the extraction stored - lon = (x + 288.67)/157.288, lat = (2575.87 - y)/157.602 - is 0.2 % out in longitude scale and 3.5 pt out in latitude offset, which is why the mineral_symbols and mineral_localities positions are withdrawn: see mineral_audit.md. The measured graticule is what minerals_named uses"
-  },
-  {
-    "key": "provenance_note",
-    "value": "Both sheets are unprojected equirectangular at 157.6 pt/deg = 1:2,000,000; datum treated as WGS 84 (Minna datum would shift ~100-200 m, below drawing resolution)"
-  },
-  {
-    "key": "positional_accuracy",
-    "value": "1 pt = 0.7 km on the ground; graticule fit <0.3 pt; residual cartographic disagreement between the two sheets ~5 km median, 20 km p90"
-  },
-  {
-    "key": "area_check",
-    "value": "geology_units sums to 907,157 km2, which is the national_territory polygon exactly (0.000 % between EPSG:4326, EPSG:6933 and the geodesic computation). The official land area is 923,768 km2, 1.7 % larger: the official figure treats Lake Chad and the coastal creeks differently, so it is not a check on this layer - the territory polygon is what the geology was cut on"
-  },
-  {
-    "key": "attributes_note",
-    "value": "No attribute tables exist in either PDF; codes, strata and ages were reconstructed from layer names, the printed legend and in-polygon labels"
-  },
-  {
-    "key": "stages",
-    "value": "fetch_source.py -> build_combined.py (18 base layers) -> build_geology_final.py (the geology layer) -> refine_localities.py -> anchor_to_icons.py -> finalize_layers.py -> render_combined.py -> audit_layers.py"
-  },
-  {
-    "key": "overlap_rule",
-    "value": "the PDF's own paint order (src_seq, preserved for all 1,518 paths) decides every overlap: a path loses exactly the part covered by any path drawn after it. Checked against the printed ink: 1,426 of 1,462 polygons carry their own colour at a sample point (97.5%). That is a one-sample-per-polygon test, not an area-weighted one - see README 'How faithful is the geology layer'"
-  },
-  {
-    "key": "legend_note",
-    "value": "the 2011 legend has 92 rows but 87 codes: Esh, MS, MyP, Ncsh and Wss are printed twice, each row a different rock; units are resolved per legend row. Printed codes Glls and OGe were normalised onto legend rows GIls (same printed colour, Dukamaje Formation) and OGp (same rock, colour and era). Five printed units are absent from the legend (OGp, Gdss, Gmsh, LCM, S) and flagged attr_source = in-map label"
-  },
-  {
-    "key": "outside_nigeria",
-    "value": "the 2011 sheet draws neighbouring-country context: 16.9% of the rivers' length, 7.4% of roads, 7.7% of state boundaries and 23 of 486 towns lie outside the border. Kept and flagged per feature (frac_in_nigeria on lines, in_nigeria on points)"
-  },
-  {
-    "key": "geology_layer",
-    "value": "one layer only: geology_units = the 1,518 paths of the 2011 sheet replayed in the order the PDF paints them, clipped to national_territory, every inland gap filled (97 rows = 96 rock units + W water; 0.002 km2 residual overlap, 0.0 km2 uncovered, ink agreement 97.5%)"
-  },
-  {
-    "key": "geology_boundary",
-    "value": "national_territory = international_boundary (2023, land border only, 3,500 vertices) spliced into the Natural Earth 10m Nigeria coastline (public domain)"
-  },
-  {
-    "key": "minerals_named",
-    "value": "1,323 printed mineral symbols re-detected on the sheet at its native 75 dpi, each point the centroid of its glyph; named against the source extraction's appearance reference with 80.8% leave-one-out accuracy, per-row tier probable/tentative/unidentified. Positions are valid; per-mineral totals are not (Limestone 30 vs 136) - use mineral_symbols.mineral for counts - filtered on is_symbol = 1, see mineral_symbols_note - and this layer for position. 144 symbols sit outside the border because the sheet maps the whole region; in_nigeria flags them. See mineral_audit.md and minerals_named.md"
-  },
-  {
-    "key": "layer_audit",
-    "value": "audit_layers.py verified all 27 layers: 0 problems, area 907,157 km2 identical to +0.000% between EPSG:4326 / 6933 / geodesic, 2023 border within 7.5 m of the geology edge, 0 point-to-unit join mismatches"
-  },
-  {
-    "key": "mineral_symbols_note",
-    "value": "1,609 rows, of which 1,489 are countable printed symbols: is_symbol = 0 marks 56 raster slivers, 21 state-capital squares, 8 linework/label fragments, 5 bridge or water markings, 5 merged clusters, 15 fragments and 8 halves of a symbol already counted, and 2 merged touching pairs. Filter on is_symbol before counting a commodity. The positions in this layer are withdrawn (median 9.6 km from any printed symbol); minerals_named carries the valid positions"
-  },
-  {
-    "key": "units_without_era",
-    "value": "5 units have no era on the sheet (Gdss, s, P, Gmsh, BCT: 5,296 km2, 0.6 % of the layer) because they are printed labels with no legend row, or a legend row that leaves the era blank. Their stratigraphic fields are NULL - not guessed - and they are listed in geology_final_report.json -> units_without_era. The PNG's era legend carries them as their own entry"
-  },
-  {
-    "key": "dropped_units",
-    "value": "a unit that ends up with no area is dropped from geology_units and recorded in geology_final_report.json -> units_dropped_no_area with the reason. Ts (legend row 34) is dropped that way: the sheet prints it under Qs, so the paint-order replay leaves it no area"
-  },
-  {
-    "key": "crs_layers",
-    "value": "27 layers: 22 in EPSG:4326 (11,532 features), 3 in EPSG:32632, 2 in EPSG:6933 (EPSG:4326 is the storage CRS; never compute area in it)"
-  },
-  {
-    "key": "layers_note",
-    "value": "27 layers, 14,723 features"
-  },
-  {
-    "key": "built",
-    "value": "2026-10-25"
-  }
+ {
+  "key": "title",
+  "value": "Geology and Mineral Resources of Nigeria - combined, EPSG:4326"
+ },
+ {
+  "key": "crs",
+  "value": "WGS 84, longitude/latitude, EPSG:4326, degrees"
+ },
+ {
+  "key": "geology_source",
+  "value": "NGSA Geological Map of Nigeria, 1:2,000,000 (2011 edition, DG Prof. Siyan Malomo); vector PDF, 125 layers"
+ },
+ {
+  "key": "minerals_source",
+  "value": "NGSA Mineral Resources Map of Nigeria, 1:2,000,000, 2nd edition 2023 (DG Dr Abdulrazaq Garba); vector PDF"
+ },
+ {
+  "key": "geology_registration",
+  "value": "affine fitted to printed 1-degree graticule: lon = (x + 276.36)/157.593, lat = (2281.63 - y)/157.586; residual 0.20 pt"
+ },
+ {
+  "key": "minerals_registration",
+  "value": "the 2023 sheet's own printed graticule gives lon = (x + 288.95)/157.5987, lat = (2572.35 - y)/157.6015 (residual 0.000 pt). The affine the extraction stored - lon = (x + 288.67)/157.288, lat = (2575.87 - y)/157.602 - is 0.2 % out in longitude scale and 3.5 pt out in latitude offset, which is why the mineral_symbols and mineral_localities positions are withdrawn: see mineral_audit.md. The measured graticule is what minerals_named uses"
+ },
+ {
+  "key": "provenance_note",
+  "value": "Both sheets are unprojected equirectangular at 157.6 pt/deg = 1:2,000,000; datum treated as WGS 84 (Minna datum would shift ~100-200 m, below drawing resolution)"
+ },
+ {
+  "key": "positional_accuracy",
+  "value": "1 pt = 0.7 km on the ground; graticule fit <0.3 pt; residual cartographic disagreement between the two sheets ~5 km median, 20 km p90"
+ },
+ {
+  "key": "area_check",
+  "value": "geology_units sums to 907,157 km2, which is the national_territory polygon exactly (0.000 % between EPSG:4326, EPSG:6933 and the geodesic computation). The official land area is 923,768 km2, 1.7 % larger: the official figure treats Lake Chad and the coastal creeks differently, so it is not a check on this layer - the territory polygon is what the geology was cut on"
+ },
+ {
+  "key": "attributes_note",
+  "value": "No attribute tables exist in either PDF; codes, strata and ages were reconstructed from layer names, the printed legend and in-polygon labels"
+ },
+ {
+  "key": "stages",
+  "value": "fetch_source.py -> build_combined.py (18 base layers) -> build_geology_final.py (the geology layer) -> refine_localities.py -> anchor_to_icons.py -> finalize_layers.py -> render_combined.py -> audit_layers.py"
+ },
+ {
+  "key": "overlap_rule",
+  "value": "the PDF's own paint order (src_seq, preserved for all 1,518 paths) decides every overlap: a path loses exactly the part covered by any path drawn after it. Checked against the printed ink: 1,426 of 1,462 polygons carry their own colour at a sample point (97.5%). That is a one-sample-per-polygon test, not an area-weighted one - see README 'How faithful is the geology layer'"
+ },
+ {
+  "key": "legend_note",
+  "value": "the 2011 legend has 92 rows but 87 codes: Esh, MS, MyP, Ncsh and Wss are printed twice, each row a different rock; units are resolved per legend row. Printed codes Glls and OGe were normalised onto legend rows GIls (same printed colour, Dukamaje Formation) and OGp (same rock, colour and era). Five printed units are absent from the legend (OGp, Gdss, Gmsh, LCM, S) and flagged attr_source = in-map label"
+ },
+ {
+  "key": "outside_nigeria",
+  "value": "the 2011 sheet draws neighbouring-country context: 16.9% of the rivers' length, 7.4% of roads, 7.7% of state boundaries and 23 of 486 towns lie outside the border. Kept and flagged per feature (frac_in_nigeria on lines, in_nigeria on points)"
+ },
+ {
+  "key": "geology_layer",
+  "value": "one layer only: geology_units = the 1,518 paths of the 2011 sheet replayed in the order the PDF paints them, clipped to national_territory, every inland gap filled (97 rows = 96 rock units + W water; 0.002 km2 residual overlap, 0.0 km2 uncovered, ink agreement 97.5%)"
+ },
+ {
+  "key": "geology_boundary",
+  "value": "national_territory = international_boundary (2023, land border only, 3,500 vertices) spliced into the Natural Earth 10m Nigeria coastline (public domain)"
+ },
+ {
+  "key": "minerals_named",
+  "value": "1,323 printed mineral symbols re-detected on the sheet at its native 75 dpi, each point the centroid of its glyph; named against the source extraction's appearance reference with 80.8% leave-one-out accuracy, per-row tier probable/tentative/unidentified. Positions are valid; per-mineral totals are not (Limestone 30 vs 136) - use mineral_symbols.mineral for counts - filtered on is_symbol = 1, see mineral_symbols_note - and this layer for position. 144 symbols sit outside the border because the sheet maps the whole region; in_nigeria flags them. See mineral_audit.md and minerals_named.md"
+ },
+ {
+  "key": "layer_audit",
+  "value": "audit_layers.py verified all 28 layers: 0 problems, area 907,157 km2 identical to +0.000% between EPSG:4326 / 6933 / geodesic, 2023 border within 7.5 m of the geology edge, 0 point-to-unit join mismatches"
+ },
+ {
+  "key": "mineral_symbols_note",
+  "value": "1,609 rows, of which 1,489 are countable printed symbols: is_symbol = 0 marks 56 raster slivers, 21 state-capital squares, 8 linework/label fragments, 5 bridge or water markings, 5 merged clusters, 15 fragments and 8 halves of a symbol already counted, and 2 merged touching pairs. Filter on is_symbol before counting a commodity. The positions in this layer are withdrawn (median 9.6 km from any printed symbol); minerals_named carries the valid positions"
+ },
+ {
+  "key": "units_without_era",
+  "value": "5 units have no era on the sheet (Gdss, s, P, Gmsh, BCT: 5,296 km2, 0.6 % of the layer) because they are printed labels with no legend row, or a legend row that leaves the era blank. Their stratigraphic fields are NULL - not guessed - and they are listed in geology_final_report.json -> units_without_era. The PNG's era legend carries them as their own entry"
+ },
+ {
+  "key": "dropped_units",
+  "value": "a unit that ends up with no area is dropped from geology_units and recorded in geology_final_report.json -> units_dropped_no_area with the reason. Ts (legend row 34) is dropped that way: the sheet prints it under Qs, so the paint-order replay leaves it no area"
+ },
+ {
+  "key": "crs_layers",
+  "value": "27 layers: 22 in EPSG:4326 (11,532 features), 3 in EPSG:32632, 2 in EPSG:6933 (EPSG:4326 is the storage CRS; never compute area in it)"
+ },
+ {
+  "key": "layers_note",
+  "value": "27 layers, 14,723 features"
+ },
+ {
+  "key": "built",
+  "value": "2026-10-25"
+ },
+ {
+  "key": "towns_geonames_source",
+  "value": "GeoNames allCountries dump, 2014-10-02 build (CC BY 4.0, attribution 'GeoNames, geonames.org'), via github.com/albert-decatur/geonames2sqlite@1515c01, joined to Natural Earth admin-1 states (public domain, nvkelso/natural-earth-vector@ca96624) for the state name"
+ },
+ {
+  "key": "towns_geonames",
+  "value": "45,415 populated places, EPSG:4326, built by build_towns.py. 98.9% inside national_territory (the 500 outside are a median 0.8 km beyond the border, generalisation); 15 major cities agree with published coordinates to 0.55 km median; 99.8% carry a state; 450 carry a population figure. Kept beside the 486 printed 2011 labels (layer 'towns') rather than replacing them. See towns_geonames.md"
+ },
+ {
+  "key": "raster_layers",
+  "value": "9 georeferenced scanned maps (DEM, soil pH, temperature, forest reserves, land cover, population, ethnic groups, dominant soils, general geology) as clipped RGBA tiles in EPSG:4326, built by georef_new_map.py. Mean border offset 5.7 km, mean overlap 0.941. See RASTER_LAYERS.md"
+ }
 ]

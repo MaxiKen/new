@@ -847,6 +847,50 @@
    "ocg_id_groups": 1,
    "ocg_id_fragments": 485
   },
+  "towns_geonames": {
+   "features": 45415,
+   "crs": "EPSG:4326",
+   "declared_geometry_type": "POINT",
+   "geometry_types_present": [
+    "Point"
+   ],
+   "attributes": [
+    "geonameid",
+    "name",
+    "ascii_name",
+    "alt_names",
+    "feature_code",
+    "feature_type",
+    "state",
+    "state_gn",
+    "state_agree",
+    "admin1_code",
+    "admin2_code",
+    "lga",
+    "population",
+    "elevation_m",
+    "dem_m",
+    "timezone",
+    "moddate",
+    "in_nigeria",
+    "ngsa_town_km",
+    "dup_group"
+   ],
+   "null_geometry": 0,
+   "empty_geometry": 0,
+   "invalid_geometry": 0,
+   "duplicate_geometry": 2638,
+   "features_inside_nigeria": 44915,
+   "features_outside_nigeria": 500,
+   "outside_flag_column": "in_nigeria",
+   "null_counts": {
+    "state": 84,
+    "state_gn": 13502,
+    "state_agree": 13929,
+    "lga": 45404,
+    "dup_group": 44773
+   }
+  },
   "volcanic_plugs": {
    "features": 68,
    "crs": "EPSG:4326",

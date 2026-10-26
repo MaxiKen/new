@@ -12,7 +12,7 @@ sheets in this repository:
 
 | File | What it is |
 |---|---|
-| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, **27 vector layers, 14,723 features** plus **9 georeferenced raster layers** (36 MB of tiles), EPSG:4326 with five projected copies — this is the deliverable |
+| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, **28 vector layers, 60,138 features** plus **9 georeferenced raster layers** (24 MB of tiles), EPSG:4326 with five projected copies — this is the deliverable |
 | `Nigeria_Geology_Minerals_4326.png` / `.pdf` | rendered map |
 | `build_combined.py` | rebuilds the GeoPackage |
 | `render_combined.py` | rebuilds the image/PDF |
@@ -32,6 +32,9 @@ sheets in this repository:
 | `mineral_audit.md` | why the mineral positions were withdrawn, and the measurement of the rebuild |
 | `minerals_named.md` | how each of the 1,323 glyphs was named, per-colour-family accuracy, and the totals that are *not* reliable |
 | `REVIEW_2026-10-25.md` | an independent review of this dataset against the two source PDFs, and what it changed |
+| `build_towns.py` | adds **`towns_geonames`** — the 45,415-place GeoNames gazetteer of Nigeria, with state, and the two accuracy checks against outside data |
+| `towns_geonames.md` | that layer: provenance, licence, fields, the measured accuracy, and what it must not be used for |
+| `towns_report.json` / `towns_geonames_qc.png` | its counts and checks, and the overlay it was checked against |
 | `georef_new_map.py` | **georeferences the nine scans in `new map/`** into the GeoPackage as clipped RGBA raster layers, with a measured border offset per layer |
 | `RASTER_LAYERS.md` | the nine raster layers: format decisions, legend transcriptions, measured positional error and what each must not be used for |
 | `raster_georeferencing.json` / `raster_georeferencing_qc.png` | the fit record for every raster layer, and the overlay it was checked against |
@@ -64,14 +67,17 @@ python anchor_to_icons.py       # + icon-anchored layers
 python finalize_layers.py       # stable IDs, equal-area layers, crs_qa_report.json
 python add_named_minerals.py    # + minerals_named, refresh crs_qa_report.json
 python render_combined.py       # PNG/PDF (draws minerals_named, not the localities)
-python audit_layers.py          # verify all 27 layers -> layer_audit.json
-python georef_new_map.py        # + the 9 raster layers, merged in (never rebuilds the vectors)
+python audit_layers.py          # verify all 28 layers -> layer_audit.json
+python georef_new_map.py        # + the 9 raster layers (merges tiles, never rebuilds the vectors)
+python build_towns.py           # + towns_geonames, the gazetteer (downloads ~450 MB once, caches it)
 ```
 
-`georef_new_map.py` is the one step that is safe to run against the finished
-GeoPackage: it writes each raster into a scratch file and merges the tiles, so the
-27 vector layers are untouched. Re-running it replaces the nine raster layers in
-place. See `RASTER_LAYERS.md`.
+`georef_new_map.py` and `build_towns.py` are the two steps that are safe to run
+against the finished GeoPackage: the first writes each raster into a scratch file
+and merges the tiles, the second replaces only its own layer. Neither touches the
+27 layers the sheet-by-sheet build produced. Re-running them replaces the nine
+raster layers and `towns_geonames` in place. See `RASTER_LAYERS.md` and
+`towns_geonames.md`.
 
 `build_geology_final.py` must run **after** `build_combined.py` and **before** `finalize_layers.py`:
 it consumes the raw geology and rebuilds the derived layers. It refuses to run twice on its own

@@ -139,6 +139,11 @@ for name in layers:
     for c in g.columns:
         if c == g.geometry.name:
             continue
+        # a code is an identifier, not a quantity: `admin1_code` "00" for an
+        # unknown state must stay a string, or it becomes 0 and starts comparing
+        # like a number
+        if c.endswith("_code"):
+            continue
         s = g[c]
         if not (pd.api.types.is_string_dtype(s) or s.dtype == object):
             continue

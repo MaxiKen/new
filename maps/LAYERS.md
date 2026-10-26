@@ -1,7 +1,9 @@
 # Layer catalogue — `Nigeria_Geology_Minerals_4326.gpkg`
 
-**27 vector layers, 14,723 features** — plus **9 georeferenced raster layers**, documented
-separately in [`RASTER_LAYERS.md`](RASTER_LAYERS.md). 22 layers in EPSG:4326 (11,532 features), 3 in EPSG:32632
+**28 vector layers, 60,138 features** — plus **9 georeferenced raster layers**, documented
+separately in [`RASTER_LAYERS.md`](RASTER_LAYERS.md), and one added gazetteer layer,
+[`towns_geonames`](towns_geonames.md) (45,415 points), documented in
+[`towns_geonames.md`](towns_geonames.md). 23 layers in EPSG:4326 (56,947 features), 3 in EPSG:32632
 (2,095), 2 in EPSG:6933 (1,096). Every layer has a CRS, 0 invalid / empty / null geometries,
 and is verified by `audit_layers.py` (result: `layer_audit.json`, 0 problems).
 
@@ -35,7 +37,7 @@ Navigation: [Boundary & water](#1-boundary-and-water) · [Geology](#2-geology) �
 | 12 | `roads` | 122 | 4326 | LineString | 92.6 % of 19,842 km | trunk roads |
 | 13 | `railway` | 6 | 4326 | LineString | 100 % of 3,131 km | rail lines |
 | 14 | `state_boundaries` | 83 | 4326 | LineString | 92.3 % of 36,044 km | 36 states + FCT |
-| 15 | `towns` | 486 | 4326 | Point | 463/486 | settlements, with host unit |
+| 15 | `towns` | 486 | 4326 | Point | 463/486 | settlements **as printed on the 2011 sheet**, with host unit. For coverage use `towns_geonames` (28) |
 | 16 | `state_capitals` | 32 | 4326 | Point | 32/32 | capitals, label centres ±15 km |
 | 17 | `volcanic_plugs` | 68 | 4326 | Point | 68/68 | plugs and necks |
 | 18 | `mineral_symbols` | 1,609 | 4326 | Point | 1,603/1,609 | **positions withdrawn**; attributes usable |
@@ -48,6 +50,7 @@ Navigation: [Boundary & water](#1-boundary-and-water) · [Geology](#2-geology) �
 | 25 | `mineral_localities_utm32n` | 999 | 32632 | Point | 991/999 | (20) in metres |
 | 26 | `graticule_geology` | 22 | 4326 | LineString | 66.5 %* | QA: the 2011 graticule fit |
 | 27 | `graticule_minerals` | 11 | 4326 | LineString | 63.6 %* | QA: the 2023 graticule fit |
+| 28 | `towns_geonames` | 45,415 | 4326 | Point | 98.9 % | **the gazetteer** — every populated place GeoNames records for Nigeria; state, population where known. See [`towns_geonames.md`](towns_geonames.md) |
 
 \* low "in Nigeria" share is by design for these three — they are sea, cross-border water and
 graticule lines that run past the map frame. Do not clip them, do not add them to an area total.
