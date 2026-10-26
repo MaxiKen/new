@@ -42,6 +42,7 @@ colour-to-class legend transcribed from the printed map.
 import json
 import math
 import pathlib
+import sqlite3
 
 import numpy as np
 import geopandas as gpd
@@ -575,8 +576,8 @@ def write_layer(dst, name, rgba, transform, description):
         prof = dict(driver="GPKG", width=rgba.shape[2], height=rgba.shape[1],
                     count=4, dtype="uint8", crs="EPSG:4326", transform=transform,
                     photometric="RGB", alpha="YES", tiled=True,
-                    blockxsize=512, blockysize=512, compress="DEFLATE",
-                    zlevel=6, RASTER_TABLE=name, RASTER_IDENTIFIER=name,
+                    blockxsize=256, blockysize=256, compress="DEFLATE",
+                    zlevel=9, RASTER_TABLE=name, RASTER_IDENTIFIER=name,
                     DESCRIPTION=description)
         with rasterio.open(tmp, "w", **prof) as d:
             d.write(rgba)
@@ -710,6 +711,11 @@ def main():
         print(f"  {spec['layer']:26s} IoU {met['iou']:.3f}  outline "
               f"{out_km:5.1f} km  chamfer {err_km:5.1f} km  "
               f"{km_e:6.3f} x {km_n:6.3f} km/px  {W}x{H}")
+
+    # dropping the previous copy of each raster leaves free pages behind; VACUUM
+    # gives the space back so the deliverable does not creep upwards on re-runs
+    with sqlite3.connect(GPKG) as con:
+        con.execute("VACUUM")
 
     json.dump(rows, open(REPORT, "w"), indent=2)
     print(f"\nwrote {REPORT.name} and {len(rows)} raster layers into {GPKG.name}")
