@@ -1,0 +1,711 @@
+[
+  {
+    "layer": "raster_dem",
+    "file": "DEM-of-map-of-nigeria.jpg",
+    "title": "Digital Elevation Model of Nigeria",
+    "theme": "elevation, 7 classes, metres",
+    "method": "bbox3",
+    "iou": 0.9424,
+    "iou_fft": 0.9112,
+    "refined": true,
+    "outline_km": 4.65,
+    "fit_quality": "high",
+    "border_chamfer_px": 43.1,
+    "border_chamfer_km": 60.6,
+    "border_near_ink_pct": 4.9,
+    "outline_refined": true,
+    "km_per_px_ew": 0.969,
+    "km_per_px_ns": 0.9995,
+    "lon0": 1.610877,
+    "lat0": 15.606228,
+    "deg_per_px_lon": 0.008813134,
+    "deg_per_px_lat": 0.009039478,
+    "native_px": [
+      2000,
+      1415
+    ],
+    "note": "Elevation is drawn as a classified image with hillshading; the class boundaries were read from the printed legend, not from the pixels, so this is a picture of an elevation map, not a DEM. For actual elevations use a real DEM.",
+    "legend": [
+      [
+        "#1f6fe0",
+        "-25 - 130"
+      ],
+      [
+        "#d9ec9a",
+        "140 - 260"
+      ],
+      [
+        "#5f9e3f",
+        "270 - 380"
+      ],
+      [
+        "#d4551f",
+        "390 - 530"
+      ],
+      [
+        "#8a3b1e",
+        "540 - 720"
+      ],
+      [
+        "#b0a49c",
+        "730 - 1,100"
+      ],
+      [
+        "#ffffff",
+        "1,200 - 2,100"
+      ]
+    ]
+  },
+  {
+    "layer": "raster_soil_ph",
+    "file": "soil-ph-map-of-nigeria.jpg",
+    "title": "Soil pH distribution in Nigeria",
+    "theme": "soil pH, 5 classes",
+    "method": "bbox3",
+    "iou": 0.9068,
+    "iou_fft": 0.9093,
+    "refined": false,
+    "outline_km": 13.71,
+    "fit_quality": "high",
+    "border_chamfer_px": 44.93,
+    "border_chamfer_km": 65.79,
+    "border_near_ink_pct": 5.1,
+    "outline_refined": true,
+    "km_per_px_ew": 1.0157,
+    "km_per_px_ns": 1.0344,
+    "lon0": -0.352972,
+    "lat0": 15.899045,
+    "deg_per_px_lon": 0.009237773,
+    "deg_per_px_lat": 0.009355087,
+    "native_px": [
+      2000,
+      1415
+    ],
+    "note": "Flat classes, no shading, so the classes are clean; the map has no graticule and no source citation.",
+    "legend": [
+      [
+        "#0b2f7a",
+        "0"
+      ],
+      [
+        "#1f9e8f",
+        "0.01 - 5.5"
+      ],
+      [
+        "#5fd63f",
+        "5.6 - 6.8"
+      ],
+      [
+        "#f5a623",
+        "6.9 - 7.8"
+      ],
+      [
+        "#c0392b",
+        "7.9 - 8.3"
+      ]
+    ]
+  },
+  {
+    "layer": "raster_temperature",
+    "file": "temperature-map-of-nigeria.png",
+    "title": "Nigeria historical average temperature, Jan-Dec 1986-2015",
+    "theme": "mean temperature, 13 classes, degrees C",
+    "method": "bbox4",
+    "iou": 0.925,
+    "iou_fft": 0.925,
+    "refined": false,
+    "outline_km": 14.82,
+    "fit_quality": "high",
+    "border_chamfer_px": 6.81,
+    "border_chamfer_km": 12.62,
+    "border_near_ink_pct": 41.4,
+    "outline_refined": false,
+    "km_per_px_ew": 1.839,
+    "km_per_px_ns": 1.8665,
+    "lon0": 1.916439,
+    "lat0": 16.78105,
+    "deg_per_px_lon": 0.016725774,
+    "deg_per_px_lat": 0.01688109,
+    "native_px": [
+      816,
+      1056
+    ],
+    "note": "USGS/EROS, FEWS NET; CHIRTSmax data. The classes are drawn as a smooth surface, so class edges are interpolated in the artwork.",
+    "legend": [
+      [
+        "#1f77b4",
+        "< 16"
+      ],
+      [
+        "#5b9bd5",
+        "16 - 18"
+      ],
+      [
+        "#7f9aa8",
+        "18 - 20"
+      ],
+      [
+        "#8fb0a8",
+        "20 - 22"
+      ],
+      [
+        "#a8c39a",
+        "22 - 24"
+      ],
+      [
+        "#cfe0a8",
+        "24 - 26"
+      ],
+      [
+        "#e8efa8",
+        "26 - 28"
+      ],
+      [
+        "#f5e58a",
+        "28 - 30"
+      ],
+      [
+        "#f7d27a",
+        "30 - 32"
+      ],
+      [
+        "#f5b95c",
+        "32 - 34"
+      ],
+      [
+        "#f09a45",
+        "34 - 36"
+      ],
+      [
+        "#e8722f",
+        "36 - 38"
+      ],
+      [
+        "#d9541f",
+        "38 - 40"
+      ],
+      [
+        "#b8321a",
+        "40 - 42"
+      ],
+      [
+        "#8e1a12",
+        "> 42"
+      ],
+      [
+        "#29b6f6",
+        "water"
+      ]
+    ]
+  },
+  {
+    "layer": "raster_forest_reserves",
+    "file": "forest-reserve-map-of-nigeria.png",
+    "title": "Forest reserves and major rivers of Nigeria",
+    "theme": "forest reserves / major rivers / water",
+    "method": "bbox4",
+    "iou": 0.8286,
+    "iou_fft": 0.8209,
+    "refined": false,
+    "outline_km": 26.83,
+    "fit_quality": "medium",
+    "border_chamfer_px": 35.15,
+    "border_chamfer_km": 35.74,
+    "border_near_ink_pct": 16.6,
+    "outline_refined": true,
+    "km_per_px_ew": 0.2169,
+    "km_per_px_ns": 0.2145,
+    "lon0": 2.197043,
+    "lat0": 14.325304,
+    "deg_per_px_lon": 0.001972622,
+    "deg_per_px_lat": 0.001939741,
+    "native_px": [
+      6600,
+      5100
+    ],
+    "note": "Graticule labelled on all four sides; the fit agrees with the printed graticule to within the residual below.",
+    "legend": [
+      [
+        "#1f7fe0",
+        "Major Rivers"
+      ],
+      [
+        "#8ed43f",
+        "Forest Reserves"
+      ],
+      [
+        "#eaf7c0",
+        "States Boundary fill"
+      ],
+      [
+        "#1f7fe0",
+        "Gulf Of Guinea"
+      ]
+    ]
+  },
+  {
+    "layer": "raster_landcover",
+    "file": "landcover-map-of-nigeria.png",
+    "title": "Land cover of Nigeria",
+    "theme": "land cover, 15 classes",
+    "method": "bbox4",
+    "iou": 0.9836,
+    "iou_fft": 0.935,
+    "refined": true,
+    "outline_km": 3.05,
+    "fit_quality": "high",
+    "border_chamfer_px": 1.48,
+    "border_chamfer_km": 4.51,
+    "border_near_ink_pct": 79.4,
+    "outline_refined": false,
+    "km_per_px_ew": 3.0485,
+    "km_per_px_ns": 3.0431,
+    "lon0": -0.339453,
+    "lat0": 14.46149,
+    "deg_per_px_lon": 0.027726486,
+    "deg_per_px_lat": 0.027522375,
+    "native_px": [
+      609,
+      510
+    ],
+    "note": "Smallest of the set (609x510 px): ~2.4 km per pixel, so useful as a locator only. The legend box overlaps the map in the SW corner.",
+    "legend": [
+      [
+        "#0b6b4f",
+        "Evergreen Needleleaf Forest"
+      ],
+      [
+        "#2e7d32",
+        "Evergreen Broadleaf Forest"
+      ],
+      [
+        "#1fa39a",
+        "Deciduous Needleleaf Forest"
+      ],
+      [
+        "#4caf50",
+        "Deciduous Broadleaf Forest"
+      ],
+      [
+        "#8d6e3a",
+        "Woodland"
+      ],
+      [
+        "#c8a15a",
+        "Bare"
+      ],
+      [
+        "#b3b3b3",
+        "Open Shrubland"
+      ],
+      [
+        "#c97b4a",
+        "Crop land"
+      ],
+      [
+        "#f2f2a0",
+        "Closed Shrubland"
+      ],
+      [
+        "#a8d08d",
+        "Mixed Forest"
+      ],
+      [
+        "#cfe8a0",
+        "Wooded Grassland"
+      ],
+      [
+        "#e8d5a0",
+        "Rangeland"
+      ],
+      [
+        "#1f3fd0",
+        "Water"
+      ],
+      [
+        "#8b1a1a",
+        "Urban"
+      ]
+    ]
+  },
+  {
+    "layer": "raster_population",
+    "file": "population distribution-map-of-nigeria.png",
+    "title": "Population distribution of Nigeria",
+    "theme": "population by district, 5 classes (absolute)",
+    "method": "bbox4",
+    "iou": 0.8613,
+    "iou_fft": 0.8465,
+    "refined": false,
+    "outline_km": 35.1,
+    "fit_quality": "approximate",
+    "border_chamfer_px": 20.05,
+    "border_chamfer_km": 45.65,
+    "border_near_ink_pct": 20.7,
+    "outline_refined": true,
+    "km_per_px_ew": 2.2982,
+    "km_per_px_ns": 2.2555,
+    "lon0": 0.228628,
+    "lat0": 14.112776,
+    "deg_per_px_lon": 0.020902548,
+    "deg_per_px_lat": 0.020399109,
+    "native_px": [
+      850,
+      520
+    ],
+    "note": "Class breaks are absolute counts per drawn district, not density, and the districts are not named, so this layer cannot be joined to administrative units. Graticule labelled at 2.5-degree intervals.",
+    "legend": [
+      [
+        "#fdf3c8",
+        "0 - 110,85"
+      ],
+      [
+        "#f8e06a",
+        "110,853 - 144,579"
+      ],
+      [
+        "#f2b544",
+        "144,580 - 179,550"
+      ],
+      [
+        "#c8631f",
+        "179,551 - 232,287"
+      ],
+      [
+        "#4a1004",
+        "232,288 - 1,319,571"
+      ]
+    ]
+  },
+  {
+    "layer": "raster_ethnic_groups",
+    "file": "Ethnic-map-in-nigeria.png",
+    "title": "Ethno-linguistic groups of Nigeria",
+    "theme": "ethno-linguistic groups, 35 classes",
+    "method": "bbox4",
+    "iou": 0.9136,
+    "iou_fft": 0.9188,
+    "refined": false,
+    "outline_km": 11.35,
+    "fit_quality": "high",
+    "border_chamfer_px": 17.44,
+    "border_chamfer_km": 23.91,
+    "border_near_ink_pct": 11.1,
+    "outline_refined": true,
+    "km_per_px_ew": 1.3598,
+    "km_per_px_ns": 1.3817,
+    "lon0": -0.249695,
+    "lat0": 17.668293,
+    "deg_per_px_lon": 0.012367771,
+    "deg_per_px_lat": 0.012496391,
+    "native_px": [
+      1344,
+      1344
+    ],
+    "note": "Third-party cartography (@Atlas_Cartography) from the 2006 census and 'Ethnographic survey of Africa'. Boundaries are schematic; the image is square with a black surround, so the fit is weaker (see IoU). Do not use for area statistics.",
+    "legend": [
+      [
+        "#f48fb1",
+        "Hausa"
+      ],
+      [
+        "#8e3b52",
+        "Fulani"
+      ],
+      [
+        "#7e6b9e",
+        "Bade"
+      ],
+      [
+        "#e8b4c8",
+        "Tera-Mandara"
+      ],
+      [
+        "#4a90c8",
+        "Kanuri"
+      ],
+      [
+        "#f7c8e0",
+        "Yedina"
+      ],
+      [
+        "#b39ddb",
+        "Baggara"
+      ],
+      [
+        "#1565c0",
+        "Songhay"
+      ],
+      [
+        "#90a4c0",
+        "Bariba"
+      ],
+      [
+        "#a03b3b",
+        "Mande (Busa)"
+      ],
+      [
+        "#b08968",
+        "Kambari"
+      ],
+      [
+        "#f5e642",
+        "Dakarkari"
+      ],
+      [
+        "#f0a860",
+        "Gbagyi"
+      ],
+      [
+        "#f2d04a",
+        "Nupe-Ebira"
+      ],
+      [
+        "#a8905a",
+        "Atyap"
+      ],
+      [
+        "#e8641f",
+        "Tiv-Gade"
+      ],
+      [
+        "#7a4a1f",
+        "Berom-Jarawa"
+      ],
+      [
+        "#e84a9a",
+        "Angas"
+      ],
+      [
+        "#e8a020",
+        "Jukun"
+      ],
+      [
+        "#a03b1f",
+        "Tarok"
+      ],
+      [
+        "#5cb85c",
+        "Yoruba"
+      ],
+      [
+        "#3b7d3b",
+        "Ewe"
+      ],
+      [
+        "#7fe8d0",
+        "Edo"
+      ],
+      [
+        "#4a7a1f",
+        "Igbo"
+      ],
+      [
+        "#a8e06a",
+        "Igala"
+      ],
+      [
+        "#1f6b4a",
+        "Ijaw"
+      ],
+      [
+        "#4ad64a",
+        "Idoma-Ighde"
+      ],
+      [
+        "#1f8f6f",
+        "Itsekiri"
+      ],
+      [
+        "#d02020",
+        "Abua-Ogbia-Atissa"
+      ],
+      [
+        "#e84a6a",
+        "Eleme"
+      ],
+      [
+        "#f5d0a0",
+        "Ibibio-Efik"
+      ],
+      [
+        "#f7e8a0",
+        "Bokyi"
+      ]
+    ]
+  },
+  {
+    "layer": "raster_dominant_soils",
+    "file": "dominant-soil-map-of-nigeria.jpg",
+    "title": "Dominant soils of Nigeria",
+    "theme": "dominant soil unit, ~60 classes (FAO/UNESCO)",
+    "method": "bbox4",
+    "iou": 0.8883,
+    "iou_fft": 0.859,
+    "refined": true,
+    "outline_km": 4.12,
+    "fit_quality": "high",
+    "border_chamfer_px": 11.49,
+    "border_chamfer_km": 14.34,
+    "border_near_ink_pct": 21.2,
+    "outline_refined": true,
+    "km_per_px_ew": 0.1693,
+    "km_per_px_ns": 0.172,
+    "lon0": 2.415638,
+    "lat0": 14.298608,
+    "deg_per_px_lon": 0.001540155,
+    "deg_per_px_lat": 0.001555921,
+    "native_px": [
+      10234,
+      6678
+    ],
+    "note": "10,234 x 6,678 px scan of the printed sheet (GIS Laboratory, Department of Geography, University of Lagos), with five small inset maps on the right that are NOT part of the main map and are removed by the clip. Class names are printed in the legend but at scan resolution the symbols are not reliably machine-readable, so the class table below lists the legend headings only.",
+    "legend": [
+      [
+        "#f2e8a0",
+        "Acrisols (AC)"
+      ],
+      [
+        "#e8d27a",
+        "Alisols (AL)"
+      ],
+      [
+        "#c9b98a",
+        "Cambisols (CM)"
+      ],
+      [
+        "#e8e8d8",
+        "Chernozems (CH)"
+      ],
+      [
+        "#8a6a4a",
+        "Fluvisols (FL)"
+      ],
+      [
+        "#b8b8a8",
+        "Gleysols (GL)"
+      ],
+      [
+        "#d8c8a8",
+        "Histosols (HS)"
+      ],
+      [
+        "#8a3b1f",
+        "Leptosols (LP)"
+      ],
+      [
+        "#c0392b",
+        "Luvisols (LV)"
+      ],
+      [
+        "#e8846a",
+        "Nitisols (NT)"
+      ],
+      [
+        "#f5d0a0",
+        "Phaeozems (PH)"
+      ],
+      [
+        "#7a5a3a",
+        "Planosols (PL)"
+      ],
+      [
+        "#a89078",
+        "Plinthosols (PT)"
+      ],
+      [
+        "#d8b89a",
+        "Podzols (PZ)"
+      ],
+      [
+        "#9a7a5a",
+        "Regosols (RG)"
+      ],
+      [
+        "#c8b0a0",
+        "Solonchaks (SC)"
+      ],
+      [
+        "#b0a090",
+        "Solonetz (SN)"
+      ],
+      [
+        "#e0d0b0",
+        "Vertisols (VR)"
+      ],
+      [
+        "#7a9ac0",
+        "Water bodies"
+      ],
+      [
+        "#f0f0e8",
+        "Rock outcrops"
+      ]
+    ]
+  },
+  {
+    "layer": "raster_general_geology",
+    "file": "general-geology-map-of-nigeria.png",
+    "title": "General geology of Nigeria (simplified)",
+    "theme": "geology, simplified to 9 classes by era",
+    "method": "bbox4",
+    "iou": 0.9403,
+    "iou_fft": 0.9273,
+    "refined": true,
+    "outline_km": 7.69,
+    "fit_quality": "high",
+    "border_chamfer_px": 6.06,
+    "border_chamfer_km": 15.98,
+    "border_near_ink_pct": 21.0,
+    "outline_refined": false,
+    "km_per_px_ew": 2.4663,
+    "km_per_px_ns": 2.8072,
+    "lon0": 1.644414,
+    "lat0": 15.961257,
+    "deg_per_px_lon": 0.022430801,
+    "deg_per_px_lat": 0.025388447,
+    "native_px": [
+      615,
+      715
+    ],
+    "note": "615 x 715 px - the coarsest item in the set and a simplified 9-class generalisation of the same subject as geology_units. It is kept because it is the only sheet in the set with the eras labelled in plain language, NOT as a substitute for geology_units. Spot elevations in its margins are printed in a corrupt format (715057 deg E) and are unusable.",
+    "legend": [
+      [
+        "#f7f7a0",
+        "Cenozoic: alluvials, sand, gravels, clay, mangrove swamps, pebbles"
+      ],
+      [
+        "#ffff00",
+        "Cenozoic: sands, clays, shales, sandstones, lignites, grits"
+      ],
+      [
+        "#f0a030",
+        "Cenozoic: volcanics (basalts, trachytes, rhyolites)"
+      ],
+      [
+        "#f5f5c0",
+        "Mesozoic: sands, clays, coals, shales, sandstones, mudstones, limestones"
+      ],
+      [
+        "#4a7a4a",
+        "Mesozoic: basic and intermediate intrusions"
+      ],
+      [
+        "#7ac0e8",
+        "Mesozoic: granites, syenites, gabbros, rhyolites (Jurassic)"
+      ],
+      [
+        "#e8d8a0",
+        "Palaeozoic-Proterozoic: metasediments, schists, quartzites"
+      ],
+      [
+        "#f07a8a",
+        "Palaeozoic-Proterozoic: older granites"
+      ],
+      [
+        "#f5b8b8",
+        "Palaeozoic-Proterozoic: basement complex"
+      ]
+    ]
+  }
+]

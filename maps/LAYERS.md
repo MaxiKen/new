@@ -1,6 +1,7 @@
 # Layer catalogue — `Nigeria_Geology_Minerals_4326.gpkg`
 
-**27 layers, 14,723 features.** 22 layers in EPSG:4326 (11,532 features), 3 in EPSG:32632
+**27 vector layers, 14,723 features** — plus **9 georeferenced raster layers**, documented
+separately in [`RASTER_LAYERS.md`](RASTER_LAYERS.md). 22 layers in EPSG:4326 (11,532 features), 3 in EPSG:32632
 (2,095), 2 in EPSG:6933 (1,096). Every layer has a CRS, 0 invalid / empty / null geometries,
 and is verified by `audit_layers.py` (result: `layer_audit.json`, 0 problems).
 

@@ -30,7 +30,9 @@ GEOID = Geod(ellps="WGS84")
 EQ = "EPSG:6933"
 
 con = sqlite3.connect(P)
-layers = [r[0] for r in con.execute("SELECT table_name FROM gpkg_contents ORDER BY table_name")]
+# feature layers only - the nine georeferenced images are tiles, verified below
+layers = [r[0] for r in con.execute(
+    "SELECT table_name FROM gpkg_contents WHERE data_type = 'features' ORDER BY table_name")]
 declared = {r[0]: (r[1], r[2]) for r in con.execute(
     "SELECT c.table_name, g.geometry_type_name, g.srs_id FROM gpkg_contents c "
     "LEFT JOIN gpkg_geometry_columns g ON g.table_name = c.table_name")}
@@ -216,6 +218,53 @@ for layer, (col, nearest) in POINT_TARGETS.items():
 chk["join_mismatches"] = bad_join
 
 chk["numeric_stored_as_text"] = textnum
+
+# ---- raster layers ---------------------------------------------------------
+# The nine georeferenced images are rasters, not features, so pyogrio does not
+# list them.  They are verified directly: CRS, grid, tile count, and - the check
+# that matters - how much of the territory actually carries pixels, which catches
+# a georeferencing slip that put the image mostly outside the border.
+raster_report = {}
+try:
+    import rasterio
+    from rasterio.features import rasterize as _rasterize
+    con = sqlite3.connect(P)
+    rnames = [r[0] for r in con.execute(
+        "select table_name from gpkg_contents where data_type = 'tiles' order by table_name")]
+    con.close()
+    terr_geom = terr
+    for name in rnames:
+        with rasterio.open(f"GPKG:{P}:{name}") as ds:
+            step = max(1, ds.width // 1200)
+            out_shape = (ds.height // step, ds.width // step)
+            alpha = ds.read(ds.count, out_shape=out_shape)
+            tr = ds.transform * ds.transform.scale(ds.width / out_shape[1],
+                                                   ds.height / out_shape[0])
+            inside = _rasterize([(terr_geom, 1)], out_shape=out_shape, transform=tr,
+                                fill=0, all_touched=True, dtype="uint8").astype(bool)
+            have = alpha > 0
+            covered = (have & inside).sum() / max(inside.sum(), 1)
+            spill = (have & ~inside).sum() / max(have.sum(), 1)
+            rec = dict(kind="raster", crs=ds.crs.to_string() if ds.crs else None,
+                       width=ds.width, height=ds.height, bands=ds.count,
+                       dtype=ds.dtypes[0],
+                       bounds=[round(v, 4) for v in ds.bounds],
+                       territory_covered_pct=round(100 * covered, 2),
+                       pixels_outside_territory_pct=round(100 * spill, 2))
+            raster_report[name] = rec
+            if rec["crs"] != "EPSG:4326":
+                problems.append(f"{name}: raster is in {rec['crs']}, not EPSG:4326")
+            # a small shortfall is expected and correct: the raster is clipped to
+            # where the drawn country actually reaches, so it must not be invented
+            # beyond the printed border.  A large one means the fit is off.
+            if covered < 0.90:
+                problems.append(f"{name}: only {100*covered:.1f} % of the territory carries pixels")
+            if spill > 0.05:
+                problems.append(f"{name}: {100*spill:.1f} % of its pixels fall outside the territory")
+except ImportError:
+    raster_report = {"note": "rasterio not installed - rasters not verified"}
+chk["raster_layers"] = len(raster_report)
+report["rasters"] = raster_report
 report["checks"] = chk
 report["problems"] = problems
 json.dump(report, open(HERE / "layer_audit.json", "w"), indent=1, default=str)

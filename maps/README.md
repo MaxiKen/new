@@ -12,7 +12,7 @@ sheets in this repository:
 
 | File | What it is |
 |---|---|
-| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, 27 layers, 14,723 features, EPSG:4326 with five projected copies — this is the deliverable |
+| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, **27 vector layers, 14,723 features** plus **9 georeferenced raster layers** (36 MB of tiles), EPSG:4326 with five projected copies — this is the deliverable |
 | `Nigeria_Geology_Minerals_4326.png` / `.pdf` | rendered map |
 | `build_combined.py` | rebuilds the GeoPackage |
 | `render_combined.py` | rebuilds the image/PDF |
@@ -32,6 +32,9 @@ sheets in this repository:
 | `mineral_audit.md` | why the mineral positions were withdrawn, and the measurement of the rebuild |
 | `minerals_named.md` | how each of the 1,323 glyphs was named, per-colour-family accuracy, and the totals that are *not* reliable |
 | `REVIEW_2026-10-25.md` | an independent review of this dataset against the two source PDFs, and what it changed |
+| `georef_new_map.py` | **georeferences the nine scans in `new map/`** into the GeoPackage as clipped RGBA raster layers, with a measured border offset per layer |
+| `RASTER_LAYERS.md` | the nine raster layers: format decisions, legend transcriptions, measured positional error and what each must not be used for |
+| `raster_georeferencing.json` / `raster_georeferencing_qc.png` | the fit record for every raster layer, and the overlay it was checked against |
 
 ---
 
@@ -62,7 +65,13 @@ python finalize_layers.py       # stable IDs, equal-area layers, crs_qa_report.j
 python add_named_minerals.py    # + minerals_named, refresh crs_qa_report.json
 python render_combined.py       # PNG/PDF (draws minerals_named, not the localities)
 python audit_layers.py          # verify all 27 layers -> layer_audit.json
+python georef_new_map.py        # + the 9 raster layers, merged in (never rebuilds the vectors)
 ```
+
+`georef_new_map.py` is the one step that is safe to run against the finished
+GeoPackage: it writes each raster into a scratch file and merges the tiles, so the
+27 vector layers are untouched. Re-running it replaces the nine raster layers in
+place. See `RASTER_LAYERS.md`.
 
 `build_geology_final.py` must run **after** `build_combined.py` and **before** `finalize_layers.py`:
 it consumes the raw geology and rebuilds the derived layers. It refuses to run twice on its own

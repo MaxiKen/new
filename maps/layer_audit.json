@@ -981,7 +981,154 @@
    "mineral_localities_icons": 0,
    "mineral_localities_refined": 0
   },
-  "numeric_stored_as_text": []
+  "numeric_stored_as_text": [],
+  "raster_layers": 9
+ },
+ "rasters": {
+  "raster_dem": {
+   "kind": "raster",
+   "crs": "EPSG:4326",
+   "width": 2000,
+   "height": 1415,
+   "bands": 4,
+   "dtype": "uint8",
+   "bounds": [
+    1.6109,
+    2.8154,
+    19.2371,
+    15.6062
+   ],
+   "territory_covered_pct": 99.66,
+   "pixels_outside_territory_pct": 0.67
+  },
+  "raster_dominant_soils": {
+   "kind": "raster",
+   "crs": "EPSG:4326",
+   "width": 10234,
+   "height": 6678,
+   "bands": 4,
+   "dtype": "uint8",
+   "bounds": [
+    2.4156,
+    3.9082,
+    18.1776,
+    14.2986
+   ],
+   "territory_covered_pct": 99.01,
+   "pixels_outside_territory_pct": 0.0
+  },
+  "raster_ethnic_groups": {
+   "kind": "raster",
+   "crs": "EPSG:4326",
+   "width": 1344,
+   "height": 1344,
+   "bands": 4,
+   "dtype": "uint8",
+   "bounds": [
+    -0.2497,
+    0.8731,
+    16.3726,
+    17.6683
+   ],
+   "territory_covered_pct": 98.41,
+   "pixels_outside_territory_pct": 0.88
+  },
+  "raster_forest_reserves": {
+   "kind": "raster",
+   "crs": "EPSG:4326",
+   "width": 6600,
+   "height": 5100,
+   "bands": 4,
+   "dtype": "uint8",
+   "bounds": [
+    2.197,
+    4.4326,
+    15.2163,
+    14.3253
+   ],
+   "territory_covered_pct": 96.98,
+   "pixels_outside_territory_pct": 0.0
+  },
+  "raster_general_geology": {
+   "kind": "raster",
+   "crs": "EPSG:4326",
+   "width": 615,
+   "height": 715,
+   "bands": 4,
+   "dtype": "uint8",
+   "bounds": [
+    1.6444,
+    -2.1915,
+    15.4394,
+    15.9613
+   ],
+   "territory_covered_pct": 99.62,
+   "pixels_outside_territory_pct": 1.54
+  },
+  "raster_landcover": {
+   "kind": "raster",
+   "crs": "EPSG:4326",
+   "width": 609,
+   "height": 510,
+   "bands": 4,
+   "dtype": "uint8",
+   "bounds": [
+    -0.3395,
+    0.4251,
+    16.546,
+    14.4615
+   ],
+   "territory_covered_pct": 99.92,
+   "pixels_outside_territory_pct": 1.66
+  },
+  "raster_population": {
+   "kind": "raster",
+   "crs": "EPSG:4326",
+   "width": 850,
+   "height": 520,
+   "bands": 4,
+   "dtype": "uint8",
+   "bounds": [
+    0.2286,
+    3.5052,
+    17.9958,
+    14.1128
+   ],
+   "territory_covered_pct": 91.97,
+   "pixels_outside_territory_pct": 0.39
+  },
+  "raster_soil_ph": {
+   "kind": "raster",
+   "crs": "EPSG:4326",
+   "width": 2000,
+   "height": 1415,
+   "bands": 4,
+   "dtype": "uint8",
+   "bounds": [
+    -0.353,
+    2.6616,
+    18.1226,
+    15.899
+   ],
+   "territory_covered_pct": 99.86,
+   "pixels_outside_territory_pct": 0.75
+  },
+  "raster_temperature": {
+   "kind": "raster",
+   "crs": "EPSG:4326",
+   "width": 816,
+   "height": 1056,
+   "bands": 4,
+   "dtype": "uint8",
+   "bounds": [
+    1.9164,
+    -1.0454,
+    15.5647,
+    16.781
+   ],
+   "territory_covered_pct": 99.95,
+   "pixels_outside_territory_pct": 1.26
+  }
  },
  "problems": []
 }
