@@ -26,7 +26,11 @@ riv = gpd.read_file(GPKG, layer="rivers")
 water = gpd.read_file(GPKG, layer="water_bodies")
 state = gpd.read_file(GPKG, layer="state_boundaries")
 natb = gpd.read_file(GPKG, layer="international_boundary")
-loc = gpd.read_file(GPKG, layer="mineral_localities_icons")
+# NOT mineral_localities_icons: those positions are withdrawn (median 9.6 km from
+# any printed symbol, statistically indistinguishable from a random scatter - see
+# mineral_audit.md).  minerals_named is the layer whose points are the measured
+# centre of each printed glyph, so that is what a published map must show.
+syms = gpd.read_file(GPKG, layer="minerals_named")
 terr = gpd.read_file(GPKG, layer="national_territory").geometry.iloc[0]
 
 # keep the sea at full extent, but cut lakes and rivers at the border: the sheet's
@@ -37,17 +41,13 @@ water_land["geometry"] = [shapely.make_valid(g.intersection(terr)) for g in wate
 water = gpd.GeoDataFrame(pd.concat([water[water["kind"] == "sea"], water_land[~water_land.is_empty]],
                                    ignore_index=True), geometry="geometry", crs="EPSG:4326")
 
-GROUP_COLOURS = {
-    "precious metals": "#d4a017",
-    "base metals": "#6a3d9a",
-    "ferrous metals": "#8c564b",
-    "rare metals": "#e32636",
-    "gemstones": "#c71585",
-    "industrial minerals": "#2e86c1",
-    "construction materials": "#7f8c8d",
+CLASS_COLOURS = {
+    "metallic": "#b8860b",
+    "industrial": "#2e86c1",
+    "gemstone": "#c71585",
     "energy": "#1b4f72",
-    "no code printed": "#000000",
 }
+UNIDENTIFIED = "#555555"
 
 ERAS = [
     ("Cenozoic", "Cenozoic cover (Quaternary-Neogene)"),
@@ -90,12 +90,13 @@ gpd.GeoSeries([terr], crs="EPSG:4326").plot(ax=ax, color="none", edgecolor="#8b0
                                             linewidth=0.8, zorder=6)
 natb.plot(ax=ax, color="#8b0000", linewidth=1.3, zorder=6.5)
 
-# ---- mineral localities -----------------------------------------------------
-for grp, g in loc.groupby("group_1"):
-    ax.scatter(g.geometry.x, g.geometry.y,
-               s=11 + 3.0 * g["n_minerals"].fillna(1),
-               c=GROUP_COLOURS.get(grp, "#000000"),
-               edgecolors="white", linewidths=0.3, alpha=0.93, zorder=8)
+# ---- printed mineral symbols ------------------------------------------------
+# one dot per symbol printed on the 2023 sheet; the point is the centre of the
+# glyph, so it is the deposit's position as the sheet places it, not a label.
+for cls, g in syms.groupby(syms["mineral_class"].fillna("unidentified")):
+    ax.scatter(g.geometry.x, g.geometry.y, s=6.5,
+               c=CLASS_COLOURS.get(cls, UNIDENTIFIED),
+               edgecolors="white", linewidths=0.22, alpha=0.95, zorder=8)
 
 # ---- frame + graticule ------------------------------------------------------
 ax.set_xlim(X0, X1)
@@ -118,11 +119,15 @@ for n, (lo, la) in CITIES.items():
                 bbox=dict(boxstyle="round,pad=0.14", fc="white", ec="none", alpha=0.7))
 
 # ---- legends ----------------------------------------------------------------
-gh = [Line2D([], [], marker="o", ls="", mfc=c, mec="white", ms=6, label=g)
-      for g, c in GROUP_COLOURS.items()]
+gh = [Line2D([], [], marker="o", ls="", mfc=c, mec="white", ms=5,
+               label=f"{cls} ({int((syms['mineral_class'] == cls).sum()):,})")
+      for cls, c in CLASS_COLOURS.items()]
+gh.append(Line2D([], [], marker="o", ls="", mfc=UNIDENTIFIED, mec="white", ms=5,
+                 label=f"not identified ({int(syms['mineral_class'].isna().sum()):,})"))
 leg = ax.legend(handles=gh, loc="upper left", fontsize=7.2, frameon=True, facecolor="white",
-                framealpha=0.93, title="Mineral localities, 2023", title_fontsize=8,
-                borderpad=0.7, labelspacing=0.42)
+                framealpha=0.93, title="Printed mineral symbols, 2023\n"
+                                       f"({len(syms):,}; glyph centres)",
+                title_fontsize=8, borderpad=0.7, labelspacing=0.42)
 leg.set_zorder(20)
 
 lh = [Line2D([], [], color="#8b0000", lw=1.4, label="International boundary"),
@@ -158,8 +163,13 @@ fig.text(0.5, 0.938,
 # ---- bottom strip: geological units by era ---------------------------------
 fig.text(0.045, 0.093, "GEOLOGICAL UNITS BY ERA", fontsize=9, fontweight="bold")
 COLS, COLW = 3, 0.305
-for i, (key, label) in enumerate(ERAS):
-    sub = units[units["era_class"] == key]
+blocks = [(label, units[units["era_class"] == key]) for key, label in ERAS]
+# the five units the sheet gives no era for are not silently left out of a legend
+# that accounts for the whole country - they get their own entry.
+no_era = units[units["era_class"].isna() & units["code"].ne("W")]
+if not no_era.empty:
+    blocks.append((f"no era on the sheet ({', '.join(no_era['code'])})", no_era))
+for i, (label, sub) in enumerate(blocks):
     if sub.empty:
         continue
     col, row = i % COLS, i // COLS
@@ -180,8 +190,10 @@ area_total = units["area_km2"].sum()
 fig.text(0.5, 0.008,
          f"Geology: {n_units} units" + (f" + water ({n_water})" if n_water else "") +
          f", {area_total:,.0f} km\u00b2 \u2014 no overlaps, no inland gaps, 2023 boundary  \u00b7  "
-         "Minerals: 999 localities, 80 commodities, each joined to its host unit  \u00b7  "
-         "842/999 on a printed mineral symbol (84 %), the rest label-only, \u03c3 \u00b1 10 km",
+         f"Minerals: {len(syms):,} printed symbols, point = measured centre of the glyph "
+         f"(\u00b1 0.35 km); {int(syms['in_nigeria'].sum()):,} inside Nigeria; "
+         f"{int(syms['mineral'].notna().sum()):,} named (81 % accurate), "
+         f"{int(syms['mineral'].isna().sum())} withheld",
          ha="center", fontsize=7.0, color="#555")
 
 ax.set_xticks([])

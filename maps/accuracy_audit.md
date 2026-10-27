@@ -1,9 +1,33 @@
 # Accuracy audit — is the symbol centre the true point, and does snapping help?
 
+> ## ⚠ WITHDRAWN IN PART — read this first
+>
+> **Every number in §1 and §3b that describes where a locality sits is retracted.** Those
+> figures were computed from the coordinates the source extraction stored for the 2023
+> symbols, and a later audit measured those coordinates against the sheet itself: they sit
+> a median **14.1 px (9.6 km)** from any printed symbol, and their nearest-neighbour
+> distribution is statistically indistinguishable from a random scatter of the same size.
+> The stored lon/lat carry **no positional information**, so "842 (84.3 %) on a printed
+> symbol", "686 anchored", "σ ± 0.7 km", "97.4 % land on the correct icon" and
+> "93.5 % host-rock agreement" are all withdrawn. See `mineral_audit.md` and README
+> caveat 2.
+>
+> What survives: the *method* (§1's finding that a symbol centre is a better anchor than
+> the printed number, §2's rejection of cluster centroids, §3's measurement that snapping
+> beyond ~16 km is worse than not snapping, §5's transform residuals, §6's mislabelled QA
+> graticule). Those are properties of the printed sheet and of the registration, and they
+> are re-measured on the rebuilt, correctly placed layer:
+> `minerals_named` — 1,323 symbols, point = measured glyph centre, ±0.35 km.
+>
+> **The rebuild has not been done.** The `mineral_localities*` layers (999 rows each) still
+> rest on the discredited coordinates and are queued for rebuild on top of
+> `minerals_named`; until that happens the figures below describe a layer that must not be
+> used for calculation. §4's field list is also stale: see the note at the end of §4.
+
 You asked whether the centre of each symbol should be taken as the actual location, and
-whether that improves things. **Yes for a single symbol — that is now the anchor for 686
-localities. No for a cluster of symbols, and only partly for the ones whose symbol has to
-be guessed.** All three claims are measured below.
+whether that improves things. **Yes for a single symbol — that was the anchor for 686
+localities (withdrawn, see above). No for a cluster of symbols, and only partly for the
+ones whose symbol has to be guessed.** All three claims are measured below.
 
 ---
 
@@ -22,6 +46,11 @@ number is wherever the cartographer could fit it.
 One point of ink at 1:2,000,000 is 0.71 km, so a symbol centre is as good as this sheet allows.
 
 ## 2. But the centre of a *group* of symbols is worse
+
+> Measured on the printed sheet's own symbol geometry — one of the findings that survives
+> the withdrawal. It is also what `anchor_to_icons.py` does: where a locality owns several
+> printed icons it takes the medoid — the real icon nearest the group centre — and never the
+> centroid, which can land on blank paper between two deposits.
 
 The obvious extension — average the nearby symbols and use the centre of that cluster —
 was rejected on measurement:
@@ -57,6 +86,13 @@ the cases where the symbol was already close — i.e. exactly the ones the origi
 extraction had already solved.
 
 ## 3b. Anchoring every point on its icon (the brief) — implemented, with one correction
+
+> **Withdrawn.** The "842 / 999 (84.3 %)" row is the headline number of the retracted
+> result: it was measured with the stored symbol coordinates. Re-measured on the printed
+> sheet, those coordinates are 9.6 km noise (`mineral_audit.md`), so neither the 84.3 % nor
+> the before/after comparison below is a statement about the shipped data. `minerals_named`
+> replaces it: 1,323 glyphs, each point the measured centre, 94.9 % of them within 1 px of
+> the symbol ink (a random point in the same area: 8.5 %).
 
 You asked that the mineral points be the calculated centre of the symbol icons. Implemented
 in `anchor_to_icons.py`, with one correction that the measurement forced:
@@ -95,6 +131,13 @@ distant icon would be the 4 %-accurate case from §3, i.e. it would add stray. T
 the printed sheet, not of the processing.
 
 ## 4. Policy adopted
+
+> **Withdrawn.** This table describes the superseded positions. The shipped
+> `mineral_localities_icons` layer carries `pos_method`, `n_icons`, `icon_tier`,
+> `icon_spread_m` and `moved_from_label_m` — it does **not** carry `pos_sigma_m` or
+> `pos_confidence`; those exist only in `mineral_localities_refined`, which is kept for
+> comparison. And the positions they describe are ~10 km noise (see the banner), so the
+> whole policy is queued for rebuild on `minerals_named`.
 
 | method | points | σ | grounds |
 |---|---|---|---|
@@ -135,6 +178,23 @@ That looked alarming, so the feature layers were tested independently:
 So only the QA graticule table was mislabelled; the feature layers are correctly georeferenced.
 That table is corrected in the GeoPackage (`label_offset_deg` records the adjustment). Had the
 offset been real, the boundary would have missed the border by 19 km — it misses by 100 m.
+
+## 6b. What the deep audit of the locality layers changed
+
+The ±10 km in this document is the *locating* error, and it is unchanged. A later
+layer-by-layer audit of the GeoPackage found defects of a different kind — record-level
+inconsistencies that no accuracy figure would have revealed — and fixed them. They matter here
+because two of them could have been mistaken for accuracy:
+
+| defect | how it showed up | what was wrong | now |
+|---|---|---|---|
+| stale host stratigraphy | one locality (number **70**, host code `GIgss`) carried `Cenozoic / Quaternary` while its host unit is `Mesozoic / Cretaceous` | the host join had been made before the unit table was final; 999 rows were checked and only this one had drifted | re-joined; the audit's `denormalised_unit_attribute_drift` check guards it |
+| "projected copy" that was not one | `mineral_localities_utm32n` disagreed with `mineral_localities` by up to 11.9 km in 117 rows | it is the EPSG:32632 copy of `mineral_localities_**refined**` (the de-duplicated positions), not of the raw digitised layer — the name and the catalogue both implied otherwise | documented as the copy of `_refined`; attribute-identical to it, 0 m round-trip |
+| position stored twice | `towns`, `state_capitals`, `volcanic_plugs` keep `lon`/`lat` **and** geometry | the pair had been rounded to 6 dp and the geometry had not, so the two disagreed by up to 0.1 m — harmless, but a file should not hold two answers to one question | geometry snapped to `lon`/`lat` (residual < 1 nm); the audit re-checks it at 1 cm, the EPSG:6933 round-trip figure of 1.4 mm |
+
+Neither of the first two changes any coordinate. The third moves points by at most 0.1 m. The
+±10 km stands, and the audit's job from here is to keep such record-level errors from being
+read as measurement error.
 
 ## 7. What would actually reduce the ±10 km
 

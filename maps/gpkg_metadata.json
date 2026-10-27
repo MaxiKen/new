@@ -1,0 +1,59 @@
+{
+ "tables_added": [
+  "gpkg_metadata",
+  "gpkg_metadata_reference"
+ ],
+ "files": {
+  "Nigeria_Geology_Minerals_4326.gpkg": {
+   "records": 4,
+   "references": 8,
+   "integrity": "ok",
+   "about": [
+    "the whole file",
+    "towns_geonames",
+    "national_territory",
+    "international_boundary",
+    "mineral_symbols",
+    "mineral_localities",
+    "mineral_localities_refined",
+    "mineral_localities_icons"
+   ]
+  },
+  "Nigeria_Geology_Minerals_projected_copies.gpkg": {
+   "records": 2,
+   "references": 9,
+   "integrity": "ok",
+   "about": [
+    "the whole file",
+    "geology_units_equal_area",
+    "geology_units_utm32n",
+    "mineral_localities_equal_area",
+    "mineral_localities_icons_utm32n",
+    "mineral_localities_utm32n",
+    "mineral_localities_utm32n",
+    "mineral_localities_icons_utm32n",
+    "mineral_localities_equal_area"
+   ]
+  }
+ },
+ "timestamp_used": "2026-10-27T00:00:00.000Z",
+ "licences": [
+  {
+   "source": "NGSA printed sheets (geology, minerals, soils, land cover, climate, population, ethnography, forest reserves)",
+   "terms": "Nigeria Geological Survey Agency; digitised for this dataset, no separate licence granted by NGSA - cite the Agency and the sheet"
+  },
+  {
+   "source": "towns_geonames",
+   "terms": "GeoNames, CC BY 4.0 (https://www.geonames.org/)"
+  },
+  {
+   "source": "national_territory / international_boundary",
+   "terms": "Natural Earth 1:10m (public domain), edited onto the 2023 sheet border"
+  },
+  {
+   "source": "everything else",
+   "terms": "derived from the NGSA sheets by the scripts in maps/"
+  }
+ ],
+ "note": "ids and timestamps are pinned, so a rerun rewrites the same bytes"
+}

@@ -1,57 +1,79 @@
 {
   "layers_total": 26,
   "crs_by_layer": {
-    "railway": "EPSG:4326",
-    "international_boundary": "EPSG:4326",
     "graticule_geology": "EPSG:4326",
     "graticule_minerals": "EPSG:4326",
-    "national_territory": "EPSG:4326",
-    "water_bodies": "EPSG:4326",
-    "geology_units": "EPSG:4326",
-    "geology_units_utm32n": "EPSG:32632",
-    "mineral_localities_utm32n": "EPSG:32632",
-    "rivers": "EPSG:4326",
-    "roads": "EPSG:4326",
-    "state_boundaries": "EPSG:4326",
-    "faults": "EPSG:4326",
-    "fold_axes": "EPSG:4326",
-    "geology_boundaries": "EPSG:4326",
-    "younger_granite_outlines": "EPSG:4326",
-    "towns": "EPSG:4326",
+    "minerals_named": "EPSG:4326",
     "state_capitals": "EPSG:4326",
     "volcanic_plugs": "EPSG:4326",
+    "towns_geonames": "EPSG:4326",
     "mineral_symbols": "EPSG:4326",
     "mineral_localities": "EPSG:4326",
     "mineral_localities_refined": "EPSG:4326",
     "mineral_localities_icons": "EPSG:4326",
-    "mineral_localities_icons_utm32n": "EPSG:32632",
-    "mineral_localities_equal_area": "EPSG:6933",
-    "geology_units_equal_area": "EPSG:6933"
+    "towns": "EPSG:4326",
+    "state_boundaries": "EPSG:4326",
+    "fold_axes": "EPSG:4326",
+    "roads": "EPSG:4326",
+    "rivers": "EPSG:4326",
+    "faults": "EPSG:4326",
+    "geology_boundaries": "EPSG:4326",
+    "younger_granite_outlines": "EPSG:4326",
+    "railway": "EPSG:4326",
+    "international_boundary": "EPSG:4326",
+    "national_territory": "EPSG:4326",
+    "geology_units": "EPSG:4326",
+    "geology_era": "EPSG:4326",
+    "poly_soil_ph": "EPSG:4326",
+    "poly_population": "EPSG:4326",
+    "water_bodies": "EPSG:4326"
   },
   "all_layers_crs": [
-    "EPSG:32632",
-    "EPSG:4326",
-    "EPSG:6933"
+    "EPSG:4326"
   ],
-  "geodesic_area_km2": 907156.9,
+  "geodesic_area_km2": 907156.8,
   "area_by_crs": {
     "EPSG:4326": 74.775253,
-    "EPSG:6933": 907157.012,
+    "EPSG:6933": 907157.008,
     "EPSG:6933_error_pct": 0.0,
-    "EPSG:3857": 940568.332,
+    "EPSG:3857": 940568.336,
     "EPSG:3857_error_pct": 3.6831,
-    "EPSG:32632": 908907.007,
+    "EPSG:32632": 908906.897,
     "EPSG:32632_error_pct": 0.1929
   },
   "locality_id_unique": true,
   "localities": 999,
   "shared_printed_numbers": 78,
   "offshore_points": 4,
-  "max_dist_to_coast_m": 5738.378720365858,
+  "max_dist_to_coast_m": 5738.0,
+  "projected_copies_file": "Nigeria_Geology_Minerals_projected_copies.gpkg",
+  "projected_copies": {
+    "mineral_localities_utm32n": {
+      "crs": "EPSG:32632",
+      "features": 999
+    },
+    "mineral_localities_icons_utm32n": {
+      "crs": "EPSG:32632",
+      "features": 999
+    },
+    "mineral_localities_equal_area": {
+      "crs": "EPSG:6933",
+      "features": 999
+    },
+    "geology_units_utm32n": {
+      "crs": "EPSG:32632",
+      "features": 97
+    },
+    "geology_units_equal_area": {
+      "crs": "EPSG:6933",
+      "features": 97
+    }
+  },
   "guidance": {
     "store": "EPSG:4326 (degrees) - never compute area in it",
-    "area": "EPSG:6933 (equal area) - exact; geology_units_equal_area and mineral_localities_equal_area are ready",
+    "area": "EPSG:6933 (equal area) - exact; to_crs('EPSG:6933') on the 4326 layers, or the stored copies in Nigeria_Geology_Minerals_projected_copies.gpkg",
     "distance": "local: EPSG:32631/32632/32633 by zone; countrywide: geodesic",
-    "avoid": "EPSG:3857 (+3.66 % area error over Nigeria)"
+    "single_crs": "the deliverable is EPSG:4326 throughout, so layers can be laid on each other; the 6933/32632 reprojections live in Nigeria_Geology_Minerals_projected_copies.gpkg",
+    "avoid": "EPSG:3857 (+3.68 % area error over Nigeria)"
   }
 }

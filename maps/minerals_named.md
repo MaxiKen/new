@@ -5,7 +5,9 @@
 This file names them, says how much to trust each name, and describes the commodities.
 
 Layer: **`minerals_named.gpkg`** (layer `minerals_named`, plus `minerals_named.csv`).
-1,323 points, EPSG:4326, one row per printed symbol.
+1,323 points, EPSG:4326, one row per printed symbol; 1,179 of them fall inside the
+national territory. The other 144 are kept rather than dropped — the sheet prints symbols
+past the border and into the sea margin, and a median 27.6 km beyond it (furthest 196 km).
 
 ---
 
@@ -129,4 +131,11 @@ symbols, and the missing ~200 are concentrated in exactly the small, plain glyph
 (Limestone, Marble, Gypsum, Granite, Baryte) that fail both detection and naming.
 
 If you need commodity totals for calculation, take them from the extraction's `mineral`
-column — which is sound — and use this layer only for **where** each symbol is.
+column — which is sound — and use this layer only for **where** each symbol is. **Filter
+that column on `is_symbol = 1` first.** It holds 1,609 rows, and 120 of them are not a
+countable symbol: 56 raster slivers, 21 state-capital squares, 8 linework/label fragments,
+5 bridge or water markings, 5 merged clusters, 15 fragments and 8 halves of a symbol that is
+already counted as its own row, and 2 merged touching pairs. Unfiltered, `value_counts()` reports
+a phantom commodity called `not a mineral symbol: raster sliver` with 56 members and
+inflates the real ones. On the 1,489 rows that are symbols the totals are, for example,
+Limestone 136, Clay 174, Gold 112, Kaolin 109.

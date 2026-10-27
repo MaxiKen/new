@@ -1,0 +1,44 @@
+[
+ {
+  "km_px": 1.016,
+  "classes": 5,
+  "classified_pct": 99.7,
+  "polygons": 111,
+  "area_km2": 906612.0,
+  "palette": [
+   "#00227b",
+   "#10ad7a",
+   "#7df901",
+   "#fcba04",
+   "#c94d35"
+  ],
+  "layer": "poly_soil_ph",
+  "source": "raster_soil_ph",
+  "geometry": "Polygon (MultiPolygon)"
+ },
+ {
+  "km_px": 2.367,
+  "classes": 5,
+  "classified_pct": 93.8,
+  "polygons": 299,
+  "area_km2": 839255.4,
+  "palette": [
+   "#f7f5a3",
+   "#f5db70",
+   "#f1b944",
+   "#c16018",
+   "#600a14"
+  ],
+  "layer": "poly_population",
+  "source": "raster_population",
+  "geometry": "Polygon (MultiPolygon)"
+ },
+ {
+  "layer": "geology_era",
+  "source": "geology_units (vector, no raster)",
+  "classes": 7,
+  "polygons": 7,
+  "area_km2": 907157.0,
+  "note": "dissolved by era; the same 9 classes the general geology sheet shows, but from attributed vector geology"
+ }
+]

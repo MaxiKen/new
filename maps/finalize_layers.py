@@ -82,6 +82,14 @@ def write(gdf, layer, crs):
     gdf["geometry"] = shapely.make_valid(gdf.geometry.values)
     gdf["geometry"] = [polygonal(g) for g in gdf.geometry.values]
     gdf = gdf[gdf.geometry.notna() & ~gdf.geometry.is_empty]
+    # pandas holds a NULL in an object column as NaN, and GDAL writes NaN to a
+    # text field as "" - which silently breaks the file's own convention that a
+    # missing value is NULL. Make the intent explicit before writing.
+    for c in gdf.columns:
+        if c == "geometry":
+            continue
+        if gdf[c].dtype == object or str(gdf[c].dtype).startswith("string"):
+            gdf[c] = gdf[c].astype(object).where(gdf[c].notna(), None).replace("", None)
     drop_layer(GPKG, layer)
     gpd.GeoDataFrame(gdf, geometry="geometry", crs=crs).to_file(
         GPKG, layer=layer, driver="GPKG", mode="a")
@@ -225,6 +233,36 @@ for layer, kind in (("rivers", "line"), ("roads", "line"), ("state_boundaries", 
         g["frac_in_nigeria"] = np.round(np.where(total > 0, inside / total, 0), 4)
         write(g, layer, "EPSG:4326")
         print(f"  {layer}: {100 * inside.sum() / total.sum():.1f} % of its length inside Nigeria")
+
+# `locality_id` was invented here for the icon-anchored layer, while LAYERS.md
+# names it as *the* key for the locality family - so the other three 4326/32632
+# layers get it too. Same rows, same order, asserted rather than assumed.
+family_key = list(zip(icons["zone"], icons["number"], icons["locality"]))
+for fam_layer, fam_crs in (("mineral_localities", "EPSG:4326"),
+                           ("mineral_localities_refined", "EPSG:4326"),
+                           ("mineral_localities_utm32n", "EPSG:32632")):
+    fam = gpd.read_file(GPKG, layer=fam_layer)
+    if "locality_id" in fam.columns:
+        continue
+    assert list(zip(fam["zone"], fam["number"], fam["locality"])) == family_key, (
+        f"{fam_layer}: rows do not line up with mineral_localities_icons")
+    fam.insert(len(fam.columns) - 1, "locality_id", list(icons["locality_id"]))
+    write(fam, fam_layer, fam_crs)
+    print(f"  {fam_layer}: locality_id added")
+
+# ---- one position per point ------------------------------------------------
+# These three keep the position twice - as geometry at 12 decimal places and as
+# lon/lat at 6 - and the two copies drifted apart by up to 0.1 m. The lon/lat
+# pair is what the sheet supports, so the geometry is made from it.
+for label_layer in ("towns", "state_capitals", "volcanic_plugs"):
+    g = gpd.read_file(GPKG, layer=label_layer)
+    if "lon" not in g.columns:
+        continue
+    off = float(np.max(np.hypot(g.geometry.x - g["lon"], g.geometry.y - g["lat"]))) * 111_000
+    if off > 1e-6:
+        g["geometry"] = gpd.points_from_xy(g["lon"], g["lat"])
+        write(g, label_layer, "EPSG:4326")
+        print(f"  {label_layer}: geometry snapped to lon/lat (was up to {off * 1000:.1f} mm out)")
 
 order = ["locality_id", "zone", "number", "locality", "mineral_1", "group_1", "minerals",
          "n_minerals", "n_icons", "icon_tier", "icon_spread_m", "pos_method",

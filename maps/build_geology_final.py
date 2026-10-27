@@ -302,6 +302,16 @@ geoms = {r["code"]: polygonal(shapely.make_valid(r.geometry.intersection(country
 geoms = {c: g for c, g in geoms.items() if g is not None and not g.is_empty}
 print(f"  clipped to {km2(country):,.0f} km2 territory -> {len(geoms)} units")
 
+# A unit can vanish, and the two ways it can happen must both be on the record:
+#   * the sheet prints it, but every polygon of it is covered by a path drawn
+#     later, so the paint-order replay leaves it no area (Ts, printed under Qs);
+#   * it has area on the sheet, but none of that area is inside the 2023
+#     territory, so clipping takes all of it.
+# Silently losing a legend row is how "Ts stays empty" became "Ts is not there".
+vanished = [{"code": r["code"], "unit": r["unit"],
+             "reason": "no area inside the 2023 territory after clipping"}
+            for _, r in dissolved.iterrows() if r["code"] not in geoms]
+
 # ---- 4. fill every inland gap ---------------------------------------------
 u = shapely.union_all(list(geoms.values()))
 gaps = shapely.make_valid(country.difference(u))
@@ -317,13 +327,35 @@ water = shapely.union_all(wb[wb["kind"].isin(["lake", "lake / reservoir"])].geom
 
 # say what each water polygon is, and how much of it is actually in Nigeria
 wb["printed_polygon"] = wb["kind"].isin(["lake", "lake / reservoir"])
-wb["area_in_nigeria_km2"] = [round(km2(shapely.make_valid(g.intersection(country))), 1)
-                             for g in wb.geometry]
-wb["frac_in_nigeria"] = [round(a / km2(g), 3) if km2(g) else 0.0
-                         for a, g in zip(wb["area_in_nigeria_km2"], wb.geometry)]
+# area in EPSG:6933 from the geometry in the row (as every other area in the file),
+# perimeter geodesic including the interior rings, and an in-Nigeria area that
+# cannot exceed the total - computing each with a different measure is how the
+# reservoir ended up 0.06 % in Nigeria and 0.06 % larger than itself.
+_wb_ea = wb.to_crs(EQ)
+wb["area_km2"] = np.round(_wb_ea.area.values / 1e6, 3)
+_ins = gpd.GeoSeries([shapely.make_valid(g.intersection(country)) for g in wb.geometry],
+                     crs="EPSG:4326").to_crs(EQ).area.values / 1e6
+wb["area_in_nigeria_km2"] = np.round(np.minimum(_ins, wb["area_km2"].values), 3)
+wb["frac_in_nigeria"] = np.round(
+    np.where(wb["area_km2"].values > 0, wb["area_in_nigeria_km2"] / wb["area_km2"], 0.0), 4)
+
+
+def _geodesic_perimeter(geom):
+    if geom is None or geom.is_empty:
+        return 0.0
+    parts = [geom] if geom.geom_type == "Polygon" else list(getattr(geom, "geoms", []))
+    total = 0.0
+    for p in parts:
+        for ring in [p.exterior] + list(p.interiors):
+            xs, ys = np.asarray(ring.coords).T[:2]
+            total += GEOID.line_length(xs, ys)
+    return total / 1000
+
+
+wb["perim_km"] = np.round([_geodesic_perimeter(g) for g in wb.geometry], 3)
 wb["geometry"] = [polygonal(shapely.make_valid(g)) for g in wb.geometry]
 wb = wb[wb.geometry.notna()].reset_index(drop=True)
-wb["note"] = ""
+wb["note"] = None   # NULL, not "": an empty string is not a value
 wb.loc[wb["kind"] == "river", "note"] = (
     "corridor enclosing the Niger and Benue channels, not a printed water polygon")
 wb.loc[wb["kind"] == "sea", "note"] = "sea area of the sheet; clipped by the coastline only"
@@ -423,17 +455,20 @@ final["filled_km2"] = np.round(final["area_km2"] - final["mapped_km2"], 3).clip(
 # a legend unit whose polygons were digitised where the sheet prints another
 # unit ends up with no area at all; a zero-area row in a map layer is worse than
 # no row, so it is dropped and recorded here
-final["note"] = ""
+final["note"] = None   # NULL, not "": an empty string is not a value
 final.loc[final["code"] == "W", "note"] = "filled from the water body printed on the sheet"
 no_area = final.loc[final["area_km2"] < 0.001, ["code", "unit"]].to_dict("records")
+for r in no_area:
+    r["reason"] = "no mapped area after the paint-order replay"
+no_area = no_area + vanished
 final = final[final["area_km2"] >= 0.001].reset_index(drop=True)
 if no_area:
     print(f"  dropped {len(no_area)} legend unit(s) with no mapped area: "
-          + ", ".join(f"{r['code']} ({r['unit']})" for r in no_area))
+          + ", ".join(f"{r['code']} ({r['unit']}: {r['reason']})" for r in no_area))
 
 # how much of each unit is fill rather than mapped geology
 final["filled"] = final["filled_km2"] > 0.0
-final["fill_source"] = np.where(~final["filled"], "",
+final["fill_source"] = np.where(~final["filled"], None,
                                 np.where(final["code"] == "W", "water body",
                                          "grown from neighbouring unit"))
 
@@ -469,6 +504,11 @@ if reach_bad:
 print(f"  border reach: {len(border_pts)} vertices, max {reach_max*1000:.1f} m from the "
       f"geology ({reach_bad} over 50 m)")
 
+# units the sheet gives no stratigraphy for: a printed label with no legend row,
+# or a legend row whose era is blank.  They are real mapped ground, so they stay in
+# the layer with period/era NULL - never guessed - and are listed in the report.
+no_era = final.loc[final["era"].isna() & final["code"].ne("W")]
+
 report = {
     "raw_polygons": int(len(raw)),
     "raw_overlap_km2": 9582.2,
@@ -502,6 +542,8 @@ report = {
     "boundary_source": clip_info,
     "official_area_km2": 923768,
     "units_filled": final.loc[final["filled"], "code"].tolist(),
+    "units_without_era": no_era[["code", "unit", "area_km2", "attr_source"]].to_dict("records"),
+    "area_without_era_km2": round(float(no_era["area_km2"].sum()), 1),
 }
 json.dump(report, open(HERE / "geology_final_report.json", "w"), indent=2, default=str)
 
@@ -519,6 +561,24 @@ _meta.update({
     "geology_boundary": (
         "national_territory = international_boundary (2023, land border only, 3,500 vertices) "
         "spliced into the Natural Earth 10m Nigeria coastline (public domain)"),
+    "area_check": (
+        f"geology_units sums to {report['coverage_km2']:,.0f} km2, which is the national_territory "
+        f"polygon exactly (0.000 % between EPSG:4326, EPSG:6933 and the geodesic computation). "
+        f"The official land area is {report['official_area_km2']:,} km2, 1.7 % larger: the "
+        f"official figure treats Lake Chad and the coastal creeks differently, so it is not a "
+        f"check on this layer - the territory polygon is what the geology was cut on"),
+    "units_without_era": (
+        f"{len(no_era)} units have no era on the sheet ("
+        + ", ".join(no_era["code"]) + f": {report['area_without_era_km2']:,.0f} km2, "
+        f"{100 * report['area_without_era_km2'] / report['coverage_km2']:.1f} % of the layer) "
+        "because they are printed labels with no legend row, or a legend row that leaves the era "
+        "blank. Their stratigraphic fields are NULL - not guessed - and they are listed in "
+        "geology_final_report.json -> units_without_era"),
+    "dropped_units": (
+        "a unit that ends up with no area is dropped from geology_units and recorded in "
+        "geology_final_report.json -> units_dropped_no_area, with the reason. Ts (legend row 34) "
+        "is dropped this way: the sheet prints it under Qs, so the paint-order replay leaves it "
+        "no area"),
 })
 json.dump([{"key": k, "value": v} for k, v in _meta.items()],
           open(_meta_path, "w"), indent=2, ensure_ascii=False)
@@ -542,6 +602,24 @@ for col, kind in (("age_ma_min", float), ("age_ma_max", float), ("legend_row", "
                   ("draw_order", int)):
     if col in out.columns:
         out[col] = pd.to_numeric(out[col], errors="coerce").astype(kind)
+
+# The paint-order replay leaves hairline slits where a path runs out along a
+# contact and comes back along it, and duplicate vertices from the boolean ops.
+# They cost no area, so no area/overlap/gap check sees them, and they break
+# simplification and rendering. Snap the rings to 1e-9 deg (0.05 mm, six orders
+# of magnitude below the 0.7 km ink the layer was read at) and re-validate.
+def _clean_rings(geom):
+    if geom is None or geom.is_empty:
+        return geom
+    fixed = shapely.make_valid(shapely.set_precision(geom, 1e-9))
+    parts = list(fixed.geoms) if fixed.geom_type.startswith("Multi") else [fixed]
+    return shapely.geometry.MultiPolygon([p for p in parts if p.geom_type == "Polygon"])
+
+
+_area_before = float(out.geometry.area.sum())
+out["geometry"] = [_clean_rings(g) for g in out.geometry]
+assert abs(float(out.geometry.area.sum()) - _area_before) / _area_before < 1e-10
+out = out[out.geometry.notna() & ~out.geometry.is_empty].reset_index(drop=True)
 write(out, "geology_units")
 
 # reprojection to UTM creates self-intersections, so repair and re-clean here

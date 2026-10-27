@@ -23,6 +23,7 @@ Outputs
     maps/Nigeria_Geology_Minerals_4326.gpkg
 """
 import argparse
+import datetime
 import json
 import pathlib
 import warnings
@@ -200,6 +201,13 @@ units.loc[bare, "unit"] = ("Unnamed unit printed '" + units.loc[bare, "unit"].as
                            + "' on the map (no legend row)")
 units["attr_source"] = units["attr_source"].where(~bare, "printed label only")
 
+# missing stratigraphy is NULL, never an empty string: "" is not a value, it
+# survives every isna() filter, and it made "which units have no era?" answer
+# four when the true answer was five (P's era was "").
+for c in ("era", "period", "eon", "epoch", "formation", "strat_grp", "leg_desc", "rock_cls"):
+    if c in units:
+        units.loc[units[c].astype(str) == "", c] = None
+
 keep = ["unit", "code", "leg_code", "leg_desc", "lbl_code", "code_src", "leg_row",
         "legend_row", "attr_source", "src_seq",
         "formation", "strat_grp", "age_print", "series", "period_prt",
@@ -220,6 +228,23 @@ syms = pyogrio.read_dataframe(SRC, layer="minerals2023_mineral_symbols_raster")
 syms = syms[[c for c in syms.columns
              if c in ("mineral", "colour", "fill", "ident_mth", "ident_scr", "link", "near_num")
              ] + ["geometry"]]
+
+# Not every row the extraction calls a symbol is one, and counting them all
+# overstates every commodity.  Three groups must be excluded before value_counts():
+#   * marks that are not symbols at all - 56 raster slivers, 21 state-capital
+#     squares, 8 linework/label fragments, 5 bridge or water markings, 5 merged
+#     clusters (the extractor names these "not a mineral symbol: ...");
+#   * one half or one fragment of a symbol whose other half is already a row
+#     (8 halves + 15 fragments), and touching pairs merged into one (2 rows).
+# They stay in the layer - they are what the extraction found - but `is_symbol`
+# marks the 1,489 rows that are one countable printed symbol.
+FRAGMENTS = {"sliver signature", "fragment of a symbol of the same colour",
+             "half of a symbol cut by an overprint", "merged pair of touching symbols"}
+syms["is_symbol"] = (~syms["ident_mth"].isin(FRAGMENTS)
+                     & ~syms["mineral"].astype(str).str.startswith("not a mineral symbol")
+                     ).astype(int)
+print(f"  mineral symbols: {int(syms['is_symbol'].sum())} countable of {len(syms)} rows "
+      f"({int((syms['is_symbol'] == 0).sum())} slivers, fragments, halves and non-symbol marks)")
 
 # ---------------------------------------------------- host-unit re-join -----
 # The 2023 sheet prints only symbols next to numbered localities; the host rock
@@ -296,26 +321,34 @@ meta = pd.DataFrame([
     ("geology_source", "NGSA Geological Map of Nigeria, 1:2,000,000 (2011 edition, DG Prof. Siyan Malomo); vector PDF, 125 layers"),
     ("minerals_source", "NGSA Mineral Resources Map of Nigeria, 1:2,000,000, 2nd edition 2023 (DG Dr Abdulrazaq Garba); vector PDF"),
     ("geology_registration", "affine fitted to printed 1-degree graticule: lon = (x + 276.36)/157.593, lat = (2281.63 - y)/157.586; residual 0.20 pt"),
-    ("minerals_registration", "affine fitted to printed graticule (not the embedded /Measure, which disagrees with it): lon = (x + 288.67)/157.288, lat = (2575.87 - y)/157.602"),
+    ("minerals_registration", "the 2023 sheet's own printed graticule gives lon = (x + 288.95)/157.5987, "
+                              "lat = (2572.35 - y)/157.6015 (residual 0.000 pt). The affine the extraction "
+                              "stored - lon = (x + 288.67)/157.288, lat = (2575.87 - y)/157.602 - is 0.2 % out "
+                              "in longitude scale and 3.5 pt out in latitude offset, which is why the "
+                              "mineral_symbols and mineral_localities positions are withdrawn: see "
+                              "mineral_audit.md. The graticule above is the one this repository measures "
+                              "from the sheet and is what minerals_named uses"),
     ("provenance_note", "Both sheets are unprojected equirectangular at 157.6 pt/deg = 1:2,000,000; datum treated as WGS 84 (Minna datum would shift ~100-200 m, below drawing resolution)"),
     ("positional_accuracy", "1 pt = 0.7 km on the ground; graticule fit <0.3 pt; residual cartographic disagreement between the two sheets ~5 km median, 20 km p90"),
-    ("area_check", "geology polygons total 924,900 km2 vs 923,768 km2 official - +0.1%"),
     ("attributes_note", "No attribute tables exist in either PDF; codes, strata and ages were reconstructed from layer names, the printed legend and in-polygon labels"),
     ("stages", "fetch_source.py -> build_combined.py (18 base layers) -> build_geology_final.py "
                "(the geology layer) -> refine_localities.py -> anchor_to_icons.py -> "
-               "finalize_layers.py -> render_combined.py -> audit_layers.py"),
+               "finalize_layers.py -> add_named_minerals.py -> render_combined.py -> "
+               "audit_layers.py"),
     ("overlap_rule", "the PDF's own paint order (src_seq, preserved for all 1,518 paths) decides every "
-                     "overlap: a path loses exactly the part covered by any path drawn after it. Verified "
-                     "against the printed ink at 97.5% of polygons"),
+                     "overlap: a path loses exactly the part covered by any path drawn after it. Checked "
+                     "against the printed ink: 1,426 of 1,462 polygons carry their own colour at a sample "
+                     "point (97.5%). That is a one-sample-per-polygon test, not an area-weighted one - see "
+                     "README 'How faithful is the geology layer'"),
     ("legend_note", "the 2011 legend has 92 rows but 87 codes: Esh, MS, MyP, Ncsh and Wss are printed "
                     "twice, each row a different rock; units are resolved per legend row. Printed codes "
                     "Glls and OGe were normalised onto legend rows GIls (same printed colour, Dukamaje "
                     "Formation) and OGp (same rock, colour and era). Five printed units are absent from "
                     "the legend (OGp, Gdss, Gmsh, LCM, S) and flagged attr_source = in-map label"),
-    ("outside_nigeria", "the 2011 sheet draws neighbouring-country context: 16.9% of rivers, 7.6% of "
-                        "roads, 7.7% of state boundaries and 23 of 486 towns lie outside the border. Kept "
-                        "and flagged per feature (frac_in_nigeria on lines, in_nigeria on points)"),
-    ("built", "2026-10-24"),
+    ("outside_nigeria", "the 2011 sheet draws neighbouring-country context: 16.9% of the rivers' length, "
+                        "7.4% of roads, 7.7% of state boundaries and 23 of 486 towns lie outside the border. "
+                        "Kept and flagged per feature (frac_in_nigeria on lines, in_nigeria on points)"),
+    ("built", datetime.date.today().isoformat()),
 ], columns=["key", "value"])
 meta.to_json(OUT / "metadata.json", orient="records", indent=2)
 print(f"\nwrote {GPKG}  ({GPKG.stat().st_size/1e6:.1f} MB)")

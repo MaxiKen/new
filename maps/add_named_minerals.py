@@ -60,9 +60,33 @@ def main():
     json.dump(m, open("metadata.json", "w"), indent=1)
     print("metadata entries:", len(m))
 
-    total = sum(pyogrio.read_info(GPKG, layer=n)["features"]
-                for n, _ in pyogrio.list_layers(GPKG))
-    print("gpkg:", len(pyogrio.list_layers(GPKG)), "layers,", total, "features")
+    layers = [n for n, _ in pyogrio.list_layers(GPKG)]
+    total = sum(pyogrio.read_info(GPKG, layer=n)["features"] for n in layers)
+    print("gpkg:", len(layers), "layers,", total, "features")
+
+    # crs_qa_report.json is written by finalize_layers.py, which runs *before* this
+    # step - so without this refresh its layer count and CRS table describe a file
+    # that did not yet have minerals_named (it said 26 layers of 27).
+    _refresh_crs_report(layers)
+
+
+def _refresh_crs_report(layers):
+    import pathlib
+
+    path = pathlib.Path("crs_qa_report.json")
+    if not path.exists():
+        return
+    rep = json.loads(path.read_text())
+    crs_by_layer = {}
+    for name in layers:
+        info = pyogrio.read_info(GPKG, layer=name)
+        crs_by_layer[name] = info.get("crs")   # already "EPSG:4326"
+    rep["layers_total"] = len(layers)
+    rep["crs_by_layer"] = crs_by_layer
+    rep["all_layers_crs"] = sorted({v for v in crs_by_layer.values() if v})
+    path.write_text(json.dumps(rep, indent=2))
+    print(f"crs_qa_report.json: {len(layers)} layers, "
+          f"{', '.join(rep['all_layers_crs'])}")
 
 
 if __name__ == "__main__":
