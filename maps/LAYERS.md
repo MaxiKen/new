@@ -3,9 +3,17 @@
 **31 vector layers, 60,555 features** — plus **9 georeferenced raster layers**, documented
 separately in [`RASTER_LAYERS.md`](RASTER_LAYERS.md), and one added gazetteer layer,
 [`towns_geonames`](towns_geonames.md) (45,415 points), documented in
-[`towns_geonames.md`](towns_geonames.md). 23 layers in EPSG:4326 (56,947 features), 3 in EPSG:32632
+[`towns_geonames.md`](towns_geonames.md). 26 layers in EPSG:4326 (57,364 features), 3 in EPSG:32632
 (2,095), 2 in EPSG:6933 (1,096). Every layer has a CRS, 0 invalid / empty / null geometries,
 and is verified by `audit_layers.py` (result: `layer_audit.json`, 0 problems).
+
+The file also carries its own provenance: `gpkg_metadata` holds four ISO 19139 records — the
+whole file (title, lineage, bounding box, the licence of every source), the GeoNames CC BY 4.0
+attribution for `towns_geonames`, the Natural Earth terms for the outline, and the
+positions-withdrawn notice attached to the seven mineral layers — with
+`gpkg_metadata_reference` saying which part of the file each one is about. `add_gpkg_metadata.py`
+writes them and `audit_layers.py` checks that they are well-formed and still complete, so the
+attribution survives the file being copied on its own.
 
 Two sheets feed it, and it matters which one for what:
 
@@ -289,9 +297,12 @@ label-placement error; this is a gazetteer, not a coordinates table.
 
 ### 16. `state_capitals` — 32 points
 
-One point per state capital plus Abuja, named (`ILORIN`, `UYO`, `ABAKILIKI`, …), with the
-same host-unit fields as towns. **These are label centres, not surveyed points — ±15 km.**
-Good enough to label a map; not good enough to measure distance to a capital city.
+**32 of the 37 capitals** (36 states plus the FCT), named as the sheet names them (`ILORIN`,
+`UYO`, `ABAKILIKI`, `BENIN - CITY`, …), with the same host-unit fields as towns. The five the
+sheet's label layer does not carry are **Abuja, Owerri, Yenagoa, Abeokuta and Osogbo** — they
+are not in `towns` either, so this layer cannot supply them; take them from `towns_geonames`
+(`PPLC`/`PPLA` rows). **These are label centres, not surveyed points — ±15 km.** Good enough to
+label a map; not good enough to measure distance to a capital city.
 
 ### 17. `volcanic_plugs` — 68 points, all inside Nigeria
 
@@ -487,7 +498,7 @@ only one of the 32 state capitals appears in both layers.
 | `coord_dp` | decimal places GeoNames recorded for the position: **7,372 of 45,415 entries have 2 or fewer**, i.e. a position good to about 1 km at best and 50 km at worst. Filter on it before measuring distances |
 | `state`, `state_gn`, `state_agree` | state from the polygon the point falls in; GeoNames' own state; and `state_agree` as a real BOOLEAN where both exist (93.7 % of 31,913 agree; 427 of those have no polygon state, so they agree by construction) |
 | `population` | 0 where GeoNames records none — only **450** places carry a figure |
-| `elevation_m`, `dem_m` | spot elevation and digital model height, as recorded, NULL where absent |
+| `elevation_m`, `dem_m` | spot elevation and digital model height, as recorded, NULL where absent. GeoNames records a spot elevation for only 22 rows, so use `dem_m`: it holds 45,371 values, with 44 NULLs where GeoNames gave the SRTM void `-9999` or a small negative over water |
 | `dup_group` | 642 rows are a second spelling of a place already in the layer; 2,638 rows share an exact coordinate with another row |
 
 Full provenance, the licence, and the two independent accuracy checks are in
@@ -596,6 +607,18 @@ covers all 907,157 km².
 | work with the 999 numbered localities and their commodity lists | `mineral_localities` (attributes), `mineral_localities_icons` (`locality_id`), **positions not yet rebuilt** |
 | plot towns / capitals / roads / rivers | layers 11–17, filtered on `in_nigeria` / `frac_in_nigeria` if you need only Nigeria |
 | check the georeferencing | `graticule_geology`, `graticule_minerals` |
+
+## Provenance inside the file
+
+`gpkg_metadata` holds four ISO 19139 records and `gpkg_metadata_reference` says what each
+one is about: the whole file (`geopackage` scope — title, abstract, lineage, bounding box
+and the licence of every source), `towns_geonames` (the GeoNames **CC BY 4.0** attribution),
+`national_territory` and `international_boundary` (Natural Earth 1:10m, public domain,
+edited onto the 2023 sheet border), and the seven mineral layers (the positions-withdrawn
+notice, so a reader who opens `mineral_symbols` in any GIS finds it). `add_gpkg_metadata.py`
+writes them with pinned ids and dates, so a rerun is byte-identical; `audit_layers.py`
+re-parses the XML on every run and fails if a record is malformed, a reference is dangling,
+the CC BY 4.0 text is missing, or the withdrawal notice is gone.
 
 ## 9. Read this before you compute
 

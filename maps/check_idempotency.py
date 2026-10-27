@@ -20,8 +20,8 @@ import sys
 HERE = pathlib.Path(__file__).parent
 GPKG = HERE / "Nigeria_Geology_Minerals_4326.gpkg"
 OUT = HERE / "idempotency_check.json"
-PIPELINE = ["normalise_nulls.py", "repair_layers.py", "describe_layers.py",
-            "fix_gpkg_hygiene.py"]
+PIPELINE = ["normalise_nulls.py", "repair_layers.py", "add_gpkg_metadata.py",
+            "describe_layers.py", "fix_gpkg_hygiene.py"]
 
 
 def fingerprint():
@@ -32,6 +32,8 @@ def fingerprint():
         "SELECT table_name FROM gpkg_contents ORDER BY 1")]
     prints = {}
     for t in tables:
+        # every column, `fid` included: a rewrite that renumbers the primary key
+        # breaks any fid a user has saved, so that is a change, not a detail
         h = hashlib.sha256()
         for row in con.execute(f'SELECT * FROM "{t}" ORDER BY rowid'):
             h.update(repr(tuple(row)).encode())

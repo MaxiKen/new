@@ -85,8 +85,11 @@ FEATURES = {
         "(`dup_group`) and 2,638 share an exact coordinate with another row. "
         "98.9 % fall inside the border. See towns_geonames.md."),
     "state_capitals": (
-        "The 36 state capitals plus Abuja, as label centres.",
-        "Label centres: good to about 15 km, not city-centre coordinates."),
+        "State capitals named on the sheet, as label centres - 32 of the 37 "
+        "(36 states plus the FCT).",
+        "Label centres: good to about 15 km, not city-centre coordinates. "
+        "Abuja, Owerri, Yenagoa, Abeokuta and Osogbo are not labelled here (nor "
+        "in `towns`); take them from `towns_geonames`."),
     "volcanic_plugs": ("Volcanic plugs and necks as points.", None),
     "mineral_symbols": (
         "Minerals read off the printed symbols, 1,609 points, with the printed "
@@ -112,7 +115,8 @@ FEATURES = {
         "in 117 of 999 rows).",
         "Positions withdrawn - the projection does not fix them."),
     "mineral_localities_equal_area": (
-        "`mineral_localities` in EPSG:6933.",
+        "`mineral_localities_icons` in EPSG:6933 - the icon-anchored layer, not "
+        "the raw extraction.",
         "Positions withdrawn - the projection does not fix them."),
     "mineral_localities_icons_utm32n": (
         "`mineral_localities_icons` in EPSG:32632.",
@@ -163,8 +167,8 @@ RASTER_CAVEAT = {
                          "approximate",
     "raster_ethnic_groups": "schematic: boundaries indicative, close colours "
                             "deliberately encode close languages",
-    "raster_dominant_soils": "five inset panels on the right are removed by the "
-                             "clip; the main map is the layer",
+    "raster_dominant_soils": "the five inset panels on the right were clipped "
+                             "away, so the layer is the main map alone",
     "raster_general_geology": "a simplification of the geology already shipped "
                               "as `geology_units`; use `geology_era` for the "
                               "class areas",
@@ -180,7 +184,7 @@ for name, kind in rows:
         what, caveat = FEATURES[name]
         g = pyogrio.read_info(GPKG, layer=name)
         n = g["features"]
-        text = f"{what} {n:,} features, {g['crs']}."
+        text = f"{what} {n:,} feature{'' if n == 1 else 's'}, {g['crs']}."
     else:
         f = fits[name]
         sides = f["border_sides_km"]

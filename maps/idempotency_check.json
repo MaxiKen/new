@@ -4,6 +4,7 @@
  "pipeline": [
   "normalise_nulls.py",
   "repair_layers.py",
+  "add_gpkg_metadata.py",
   "describe_layers.py",
   "fix_gpkg_hygiene.py"
  ],

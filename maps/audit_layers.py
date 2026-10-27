@@ -446,12 +446,28 @@ for name in layers:
                             for x in g.geometry]) if len(g) else ((0,), (0,))
         rec["duplicate_vertices"] = int(sum(dups))
         rec["degenerate_parts"] = int(sum(degen))
+        # ring winding: exterior counter-clockwise, holes clockwise, as GeoJSON
+        # and GeoParquet require, so an export does not flip every polygon
+        cw_ext = cw_hole = 0
+        for geom in g.geometry:
+            if geom is None or geom.is_empty:
+                continue
+            for poly in ([geom] if geom.geom_type == "Polygon"
+                         else list(getattr(geom, "geoms", []))):
+                if not poly.exterior.is_ccw:
+                    cw_ext += 1
+                cw_hole += sum(1 for h in poly.interiors if h.is_ccw)
+        rec["clockwise_exteriors"] = cw_ext
+        rec["counter_clockwise_holes"] = cw_hole
     rec["has_z"] = bool(any(getattr(x, "has_z", False) for x in g.geometry if x is not None))
     geom_chk[name] = {k: v for k, v in rec.items() if v not in (0, False, [])} or "clean"
     if rec.get("slit_vertices") or rec.get("duplicate_vertices") or rec.get("invalid"):
         problems.append(f"{name}: {rec.get('slit_vertices', 0)} slit vertices, "
                         f"{rec.get('duplicate_vertices', 0)} duplicate vertices, "
                         f"{rec['invalid']} invalid geometries")
+    if rec.get("clockwise_exteriors") or rec.get("counter_clockwise_holes"):
+        problems.append(f"{name}: {rec['clockwise_exteriors']} clockwise exteriors, "
+                        f"{rec['counter_clockwise_holes']} counter-clockwise holes")
     if rec["has_z"]:
         problems.append(f"{name}: carries Z values in a 2D layer")
 attr["geometry_hygiene"] = geom_chk
@@ -717,7 +733,73 @@ gpkg["undescribed_layers"] = sorted(
 if gpkg["undescribed_layers"]:
     problems.append(f"{len(gpkg['undescribed_layers'])} layer(s) carry no description: "
                     f"{gpkg['undescribed_layers'][:3]}")
+
+# the file header: a .gpkg should identify itself as one, and as a 1.x file
+gpkg["application_id"] = con.execute("PRAGMA application_id").fetchone()[0]
+if gpkg["application_id"] != 0x47504B47:      # "GPKG"
+    problems.append(f"application_id is {gpkg['application_id']:#x}, not the GeoPackage 0x47504b47")
+if gpkg["user_version"] < 10200:
+    problems.append(f"user_version {gpkg['user_version']} claims a GeoPackage older than 1.2")
+
+# ---- provenance inside the file --------------------------------------------
+# The licence and the withdrawal notice must travel *with* the file, not only in
+# the sibling markdown: gpkg_metadata + gpkg_metadata_reference exist for this.
+meta = {}
+if "gpkg_metadata" in tables:
+    import xml.etree.ElementTree as ET
+    recs = con.execute("SELECT id, md_scope, md_standard_uri, mime_type, metadata"
+                       " FROM gpkg_metadata ORDER BY id").fetchall()
+    meta["records"] = len(recs)
+    bad_xml, bad_mime, scopes = [], [], {}
+    for mid, scope, uri, mime, text in recs:
+        scopes[scope] = scopes.get(scope, 0) + 1
+        if mime != "text/xml":
+            bad_mime.append(mid)
+        try:
+            ET.fromstring(text)
+        except ET.ParseError as exc:
+            bad_xml.append(f"{mid}: {exc}")
+    meta["scopes"] = scopes
+    meta["unparsable"] = bad_xml
+    meta["wrong_mime"] = bad_mime
+    if bad_xml:
+        problems.append(f"gpkg_metadata record(s) are not well-formed XML: {bad_xml[:3]}")
+    if bad_mime:
+        problems.append(f"gpkg_metadata record(s) with a mime_type other than text/xml: {bad_mime}")
+    if not recs:
+        problems.append("gpkg_metadata exists but holds no record")
+
+    refs = con.execute("SELECT reference_scope, table_name, md_file_id"
+                       " FROM gpkg_metadata_reference").fetchall()
+    meta["references"] = len(refs)
+    meta["scopes_referenced"] = sorted({r[0] for r in refs})
+    missing_tbl = sorted({t for _, t, _ in refs if t and t not in contents})
+    missing_md = sorted({m for _, _, m in refs if m not in {r[0] for r in recs}})
+    meta["references_to_missing_tables"] = missing_tbl
+    meta["references_to_missing_records"] = missing_md
+    if missing_tbl:
+        problems.append(f"gpkg_metadata_reference names tables that are not there: {missing_tbl[:4]}")
+    if missing_md:
+        problems.append(f"gpkg_metadata_reference points at missing metadata ids: {missing_md}")
+
+    # the two obligations a reuser cannot be expected to infer from the data
+    text_all = " ".join(r[4] for r in recs)
+    meta["mentions_cc_by_4"] = "CC BY 4.0" in text_all
+    meta["mentions_withdrawn"] = "POSITIONS WITHDRAWN" in text_all
+    meta["attributes_town_licence"] = any(
+        t == "towns_geonames" for _, t, _ in refs)
+    if not meta["mentions_cc_by_4"]:
+        problems.append("no metadata record carries the GeoNames CC BY 4.0 attribution")
+    if not meta["attributes_town_licence"]:
+        problems.append("the CC BY 4.0 record is not attached to towns_geonames")
+    if not meta["mentions_withdrawn"]:
+        problems.append("no metadata record carries the withdrawn-positions notice")
+else:
+    meta["records"] = 0
+    problems.append("no gpkg_metadata table: the licence and the warnings do not "
+                    "travel with the file")
 con.close()
+chk["metadata"] = meta
 chk["geopackage_conformance"] = gpkg
 
 # ---- class polygons: no self-overlap, and how much they actually cover -----

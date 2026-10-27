@@ -27,7 +27,7 @@ resulting layer and `towns_report.json`.
 |---|---|
 | `geonameid` | the GeoNames id — the stable key, use this to join back |
 | `name`, `ascii_name` | the name as GeoNames prefers it, and ASCII-folded |
-| `alt_names` | up to 120 characters of recorded alternative spellings |
+| `alt_names` | the alternative spellings GeoNames records, comma-separated and cut at 120 characters (the longest in the layer is 116) |
 | `feature_code`, `feature_type` | `PPL` village/town (45,141), `PPLA` state capital (36), `PPLA2` (82), `PPLC` national capital (1 — Abuja), `PPLX` section of a place (44), `PPLQ` abandoned (40), `PPLL` locality (41), `PPLS` (25), `PPLF` farm (4), `PPLR` religious (1), with the plain-language type beside each |
 | `state` | state name, from the state polygon the point falls in |
 | `state_gn` | the state GeoNames itself records (70 % of places have none) |
@@ -35,7 +35,7 @@ resulting layer and `towns_report.json`.
 | `admin1_code`, `admin2_code` | GeoNames' own codes, as printed — `admin1_code` is `00` for 13,501 rows, which is GeoNames saying it does not know the state, so use `state` (from the polygon) rather than this code; `admin2_code` is populated for 12 rows |
 | `lga` | the local government area, resolved from GeoNames' own `admin2` names: **11 of 45,415**. GeoNames has almost no Nigerian LGA coverage and no LGA was invented from another source |
 | `population` | 0 where GeoNames records none; only **450** places carry a figure |
-| `elevation_m`, `dem_m` | spot elevation and digital elevation model, in metres, as recorded — `INTEGER`, NULL where GeoNames has none (45,393 rows) |
+| `elevation_m`, `dem_m` | spot elevation and digital elevation model, in metres, as recorded — `elevation_m` is `INTEGER`, `dem_m` `REAL`, both NULL where GeoNames has none. GeoNames records a spot elevation for only **22** of the 45,415 places, so `elevation_m` is almost always NULL and `dem_m` is the field to use; `dem_m` is populated for 45,371, the other 44 being the SRTM void `-9999` and two small negatives over water, which are NULL rather than elevations |
 | `timezone`, `moddate` | as recorded by GeoNames |
 | `coord_dp` | **the precision of the position**, in decimal places (0–5). GeoNames does not record an accuracy, but it does record the number of digits: see below |
 | `in_nigeria` | point falls inside `national_territory` |
@@ -67,7 +67,8 @@ nearest-name distance, not a true error). For any distance calculation, filter:
 
 ### Duplicate coordinates
 
-**2,638 rows share an exact coordinate with another row** — more than the 642 that
+**2,638 rows repeat a coordinate already used** — 4,373 rows in all sit on a coordinate that
+at least one other row also has — more than the 642 that
 `dup_group` marks, because GeoNames also gives neighbouring hamlets and two
 different spellings the same rounded position, and because at `coord_dp` 0–2 the
 rounding itself coincides. A spatial join therefore returns several places for one
@@ -82,7 +83,7 @@ merged or dropped to hide it.
 | the 500 outside | median **0.8 km** beyond the border (generalisation), worst 292 km (a place GeoNames locates in a neighbouring country) |
 | against published coordinates for 15 major cities (independent of this repository) | median **0.55 km**, worst 5.7 km (Ibadan) |
 | against the NGSA map labels — for each of the 404 named labels, the nearest same-name gazetteer place | **257 within 15 km**, median 10.8 km, 90th percentile 98 km |
-| state agreement, GeoNames' own field vs. the polygon | **93.6 %** of 31,486 |
+| state agreement, GeoNames' own field vs. the polygon | **93.7 %** of 31,913 (427 of them have no polygon state, so they agree by construction) |
 | state present | 99.8 % of rows (from the polygon) |
 | positions with `coord_dp >= 3` | 38,043 of 45,415 = **83.8 %** (7,372 at 2 or fewer) |
 

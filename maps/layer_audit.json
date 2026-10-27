@@ -1478,6 +1478,25 @@
     "towns_geonames.alt_names": 0
    }
   },
+  "metadata": {
+   "records": 4,
+   "scopes": {
+    "dataset": 1,
+    "featureType": 3
+   },
+   "unparsable": [],
+   "wrong_mime": [],
+   "references": 11,
+   "scopes_referenced": [
+    "geopackage",
+    "table"
+   ],
+   "references_to_missing_tables": [],
+   "references_to_missing_records": [],
+   "mentions_cc_by_4": true,
+   "mentions_withdrawn": true,
+   "attributes_town_licence": true
+  },
   "geopackage_conformance": {
    "contents_layers": 40,
    "integrity_check": "ok",
@@ -1491,7 +1510,8 @@
    "tile_matrix_levels_without_tiles": [],
    "ogr_contents_stale_rows": [],
    "ogr_contents_wrong_counts": [],
-   "undescribed_layers": []
+   "undescribed_layers": [],
+   "application_id": 1196444487
   },
   "class_polygons": {
    "poly_population": {
@@ -1506,7 +1526,7 @@
     "polygons": 111,
     "sum_area_km2": 906612.0,
     "union_area_km2": 906612.0,
-    "self_overlap_km2": -0.0,
+    "self_overlap_km2": 0.0,
     "coverage_of_territory_pct": 99.94,
     "outside_territory_km2": 0.0012
    }

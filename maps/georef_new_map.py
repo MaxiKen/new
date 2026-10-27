@@ -179,7 +179,7 @@ IMAGES = [
                  ("#7a9ac0", "Water bodies"), ("#f0f0e8", "Rock outcrops")]),
     dict(file="general-geology-map-of-nigeria.png", mask=dict(n_bg=2, tol=26, margin=6), layer="raster_general_geology", method="bbox4",
          title="General geology of Nigeria (simplified)",
-         theme="geology, simplified to 9 classes by era",
+         theme="geology, 9 legend classes by era and lithology",
          note="615 x 715 px - the coarsest item in the set and a simplified "
               "9-class generalisation of the same subject as geology_units. It "
               "is kept because it is the only sheet in the set with the eras "

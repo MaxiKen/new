@@ -633,6 +633,50 @@ report["repairs"]["water_bodies_geometry_measures"] = dict(
 print(f"  water_bodies: area {sum(stored.values()):,.1f} -> {wb2['area_km2'].sum():,.1f} km2 "
       f"(EPSG:6933), perimeter geodesic, in-Nigeria <= total")
 
+# 16. one ring convention: exterior counter-clockwise, holes clockwise ---------
+# Every exterior ring in the file was wound clockwise (4,268 of them), the
+# shapefile convention. A GeoPackage stores WKB and does not require either
+# winding, but GeoJSON (RFC 7946) and GeoParquet require counter-clockwise
+# exteriors, so a clockwise file silently flips when it is exported and a
+# consumer that trusts ring order gets the interior and the exterior the wrong
+# way round. Normalising costs nothing: the point set, the area and the geometry
+# are unchanged, only the vertex order along each ring.
+wind = {}
+
+
+def _ccw(geom):
+    if geom is None or geom.is_empty or "Polygon" not in geom.geom_type:
+        return geom
+    return shapely.orient_polygons(geom, exterior_cw=False)
+
+
+for layer in ("national_territory", "geology_units", "geology_units_utm32n",
+              "geology_units_equal_area", "geology_era", "poly_soil_ph",
+              "poly_population", "water_bodies"):
+    g = gpd.read_file(GPKG, layer=layer)
+    parts = lambda geom: ([geom] if geom.geom_type == "Polygon"
+                          else list(getattr(geom, "geoms", [])))
+    before_cw = sum(1 for geom in g.geometry for p in parts(geom) if not p.exterior.is_ccw)
+    before_ccw_interior = sum(
+        1 for geom in g.geometry for p in parts(geom)
+        for h in p.interiors if h.is_ccw)
+
+    def fix(g):
+        g["geometry"] = [_ccw(x) for x in g.geometry]
+        return len(g)
+
+    rewrite(layer, fix)
+    g2 = gpd.read_file(GPKG, layer=layer)
+    after_cw = sum(1 for geom in g2.geometry for p in parts(geom) if not p.exterior.is_ccw)
+    after_ccw_interior = sum(1 for geom in g2.geometry for p in parts(geom)
+                             for h in p.interiors if h.is_ccw)
+    assert after_cw == 0 and after_ccw_interior == 0, (layer, after_cw, after_ccw_interior)
+    wind[layer] = dict(clockwise_exteriors_before=before_cw, after=after_cw,
+                       clockwise_holes_before=before_ccw_interior, holes_after=after_ccw_interior)
+    print(f"  {layer:26s} clockwise exteriors {before_cw:5d} -> 0; "
+          f"counter-clockwise holes {before_ccw_interior:3d} -> 0")
+report["repairs"]["ring_orientation"] = wind
+
 # a second run finds every repair already applied; keep the first run's record
 if OUT.exists():
     prev = json.load(open(OUT))

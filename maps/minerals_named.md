@@ -5,7 +5,9 @@
 This file names them, says how much to trust each name, and describes the commodities.
 
 Layer: **`minerals_named.gpkg`** (layer `minerals_named`, plus `minerals_named.csv`).
-1,323 points, EPSG:4326, one row per printed symbol.
+1,323 points, EPSG:4326, one row per printed symbol; 1,179 of them fall inside the
+national territory. The other 144 are kept rather than dropped — the sheet prints symbols
+past the border and into the sea margin, and a median 27.6 km beyond it (furthest 196 km).
 
 ---
 

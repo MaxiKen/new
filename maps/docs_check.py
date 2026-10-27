@@ -18,6 +18,7 @@ import re
 import sys
 
 import pyogrio
+import geopandas as gpd
 
 HERE = pathlib.Path(__file__).parent
 P = HERE / "Nigeria_Geology_Minerals_4326.gpkg"
@@ -112,7 +113,10 @@ for name in sorted(found - sectioned):
     checks.append(dict(layer=name, check="has its own section", doc=None, measured=None, ok=False))
 
 # ---- header totals ---------------------------------------------------------
-m = re.search(r"\*\*(\d+) vector layers, ([\d,]+) features\*\*", text)
+m = re.search(r"\*\*(\d+) vector layers,\s+([\d,]+) features\*\*", text)
+if not m and "vector layers" in text:
+    checks.append(dict(layer="(file)", check="header totals are parseable",
+                       doc="vector layers, ... features", measured="matched nothing", ok=False))
 if m:
     n_layers = len(found)
     n_feat = sum(v["features"] for v in audit.values())
@@ -121,8 +125,16 @@ if m:
     checks.append(dict(layer="(file)", check="header feature count",
                        doc=int(m.group(2).replace(",", "")), measured=n_feat,
                        ok=int(m.group(2).replace(",", "")) == n_feat))
-m = re.search(r"(\d+) layers in EPSG:4326 \(([\d,]+) features\), (\d+) in EPSG:32632 \(([\d,]+)\), "
-              r"(\d+) in EPSG:6933 \(([\d,]+)\)", text)
+# `\s+` between the groups, not a literal space: this sentence wraps across two
+# lines in LAYERS.md, and a literal-space pattern silently matched nothing, so a
+# wrong figure ("23 layers in EPSG:4326") was reported as 0 wrong for several runs.
+# A claim that cannot be parsed is now a failure, not a skip.
+_crs_pat = (r"(\d+) layers in EPSG:4326\s*\(([\d,]+) features\), (\d+) in EPSG:32632"
+            r"\s*\(([\d,]+)\), (\d+) in EPSG:6933\s*\(([\d,]+)\)")
+m = re.search(_crs_pat, text)
+if not m and "layers in EPSG:4326" in text:
+    checks.append(dict(layer="(file)", check="header CRS split is parseable",
+                       doc="layers in EPSG:4326", measured="matched nothing", ok=False))
 if m:
     want = {4326: (int(m.group(1)), int(m.group(2).replace(",", ""))),
             32632: (int(m.group(3)), int(m.group(4).replace(",", ""))),
@@ -137,6 +149,90 @@ if m:
                            measured=got.get(crs, (0, 0))[0], ok=got.get(crs, (0, 0))[0] == nl))
         checks.append(dict(layer="(file)", check=f"header EPSG:{crs} features", doc=nf,
                            measured=got.get(crs, (0, 0))[1], ok=got.get(crs, (0, 0))[1] == nf))
+
+# ---- the same claims, in the README's own layer table ------------------------
+# Two documents quote the same figures. A number corrected in one and not the
+# other is the most ordinary way for a package to start contradicting itself.
+readme = HERE / "README.md"
+if readme.exists():
+    rtext = readme.read_text()
+    rrows = re.findall(r"^\|\s*`([^`]+)`\s*\|\s*([\d,]+)\s*\|\s*(\d+)\s*\|\s*"
+                       r"([A-Za-z]+)\s*\|([^|]*)\|([^|]*)\|", rtext, re.M)
+    for name, n, crs, geom, purpose, inside in rrows:
+        rec = audit.get(name)
+        if rec is None:
+            checks.append(dict(layer=name, check="README: present in file", doc="listed",
+                               measured=None, ok=False))
+            continue
+        checks.append(dict(layer=name, check="README: feature count",
+                           doc=int(n.replace(",", "")),
+                           measured=rec["features"], ok=rec["features"] == int(n.replace(",", ""))))
+        checks.append(dict(layer=name, check="README: CRS", doc=crs,
+                           measured=rec["crs"], ok=rec["crs"] == f"EPSG:{crs}"))
+        types = set(rec["geometry_types_present"])
+        checks.append(dict(layer=name, check="README: geometry type", doc=geom,
+                           measured="/".join(sorted(types)),
+                           ok=geom in types or geom.rstrip("s") in types))
+        cell = inside.strip().replace("*", "")
+        m = re.match(r"([\d.]+)\s*%", cell)
+        if m and rec.get("frac_inside") is not None:
+            checks.append(dict(layer=name, check="README: in-Nigeria share", doc=float(m.group(1)),
+                               measured=round(100 * rec["frac_inside"], 1),
+                               ok=abs(100 * rec["frac_inside"] - float(m.group(1))) <= 0.15))
+        m = re.search(r"(\d[\d,]*)/(\d[\d,]*)", cell)
+        if m:
+            want_in = int(m.group(1).replace(",", ""))
+            checks.append(dict(layer=name, check="README: inside count", doc=want_in,
+                               measured=rec.get("features_inside_nigeria"),
+                               ok=rec.get("features_inside_nigeria") == want_in))
+            checks.append(dict(layer=name, check="README: total count",
+                               doc=int(m.group(2).replace(",", "")),
+                               measured=rec["features"],
+                               ok=rec["features"] == int(m.group(2).replace(",", ""))))
+        # any length quoted in the row, in km, must be the measured length
+        if rec.get("length_km") and "±" not in purpose + inside:
+            for km in re.findall(r"(?<![\d.])(\d{1,3}(?:,\d{3})*)\s*km(?![²2])", purpose + " " + inside):
+                val = int(km.replace(",", ""))
+                if val < 100:
+                    continue          # tolerances, not lengths
+                checks.append(dict(layer=name, check="README: length km", doc=val,
+                                   measured=rec["length_km"], ok=abs(rec["length_km"] - val) <= 1.5))
+
+# ---- the raster catalogue's table -------------------------------------------
+rdoc = HERE / "RASTER_LAYERS.md"
+if rdoc.exists():
+    fits = {f["layer"]: f for f in json.load(open(HERE / "raster_georeferencing.json"))}
+    for row in re.findall(r"^\| `(raster_[a-z_]+)` \|([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|"
+                          r"([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|", rdoc.read_text(), re.M):
+        layer = row[0]
+        f = fits.get(layer)
+        if f is None:
+            checks.append(dict(layer=layer, check="raster: has a fit record", doc="listed",
+                               measured=None, ok=False))
+            continue
+        px = row[2].strip().replace("×", "x")
+        want_px = "x".join(str(v) for v in f["native_px"])
+        checks.append(dict(layer=layer, check="raster: native px", doc=px, measured=want_px,
+                           ok=px == want_px))
+        km = row[3].strip().replace("×", "x")
+        want_km = f"{f['km_per_px_ew']:.2f} x {f['km_per_px_ns']:.2f}"
+        checks.append(dict(layer=layer, check="raster: km/px", doc=km, measured=want_km,
+                           ok=km == want_km))
+        m = re.search(r"([\d.]+)", row[4])
+        if m:
+            checks.append(dict(layer=layer, check="raster: border offset km",
+                               doc=float(m.group(1)), measured=f["border_offset_km"],
+                               ok=abs(f["border_offset_km"] - float(m.group(1))) <= 0.05))
+        sides_doc = [x.strip().replace("\u2212", "-").replace("+", "") for x in row[5].split("/")]
+        sides = f["border_sides_km"]
+        sides_meas = [f"{sides[k]:+.0f}".replace("+", "") for k in ("north", "south", "west", "east")]
+        checks.append(dict(layer=layer, check="raster: side offsets", doc=sides_doc,
+                           measured=sides_meas, ok=sides_doc == sides_meas))
+        m = re.search(r"([\d.]+)", row[7])
+        if m:
+            checks.append(dict(layer=layer, check="raster: overlap", doc=float(m.group(1)),
+                               measured=round(f["iou"], 3),
+                               ok=abs(f["iou"] - float(m.group(1))) <= 0.001))
 
 # ---- field tables: every field the catalogue names must exist in that layer ---
 # A field table is read as the layer's schema. This checks it against the schema.
@@ -173,6 +269,76 @@ for line in text.splitlines():
                 checks.append(dict(layer=current, check="field exists", doc=part,
                                    measured=None,
                                    ok=part in cols_by_layer[current]))
+
+
+# ---- the gazetteer's own page -------------------------------------------------
+# `towns_geonames.md` quotes 30-odd numbers about the same layer. They were checked
+# by hand in the first pass and one of them was wrong (`elevation_m` was given as
+# 45,393 non-null rows - the number of rows *without* a spot height). They are
+# checked here instead.
+_t = gpd.read_file(P, layer="towns_geonames")
+_txt = (HERE / "towns_geonames.md").read_text()
+_dp = _t["coord_dp"].value_counts()
+_geo = _t.groupby("geometry").size()
+_expect = [
+    ("points", f"**{len(_t):,} points"),
+    ("inside the territory", f"**{int(_t['in_nigeria'].sum()):,} of {len(_t):,} = "
+                             f"{100 * _t['in_nigeria'].mean():.1f} %**"),
+    ("state agreement", f"**{100 * _t['state_agree'].mean():.1f} %** of "
+                        f"{int(_t['state_agree'].notna().sum()):,}"),
+    ("agree / disagree", f"{int((_t['state_agree'] == 1).sum()):,} agree, "
+                         f"{int((_t['state_agree'] == 0).sum()):,} do not"),
+    ("population", f"only **{int((_t['population'] > 0).sum()):,}** places"),
+    ("dem_m non-null", f"{int(_t['dem_m'].notna().sum()):,}"),
+    ("elevation_m non-null", f"**{int(_t['elevation_m'].notna().sum())}** of the {len(_t):,} places"),
+    ("dup_group", f"**{int(_t['dup_group'].notna().sum()):,} rows**"),
+    ("coord_dp 0 and 5", f"| 0 | {_dp.get(0, 0):,} |"),
+    ("coord_dp 5", f"| 5 | {_dp.get(5, 0):,} |"),
+    ("2 dp or fewer", f"**{int((_t['coord_dp'] <= 2).sum()):,} entries"),
+    ("3 dp or more", f"{int((_t['coord_dp'] >= 3).sum()):,} of {len(_t):,}"),
+    ("PPL", f"`PPL` village/town ({int((_t['feature_code'] == 'PPL').sum()):,})"),
+    ("PPLC", f"`PPLC` national capital ({int((_t['feature_code'] == 'PPLC').sum())}"),
+    ("admin1_code 00", f"`admin1_code` is `00` for {int((_t['admin1_code'] == '00').sum()):,} rows"),
+    ("lga", f"**{int(_t['lga'].notna().sum())} of {len(_t):,}**"),
+    ("alt_names width", f"(the longest in the layer is "
+                        f"{int(_t['alt_names'].dropna().str.len().max())})"),
+    ("state present", f"{100 * _t['state'].notna().mean():.1f} % of rows"),
+    ("shared coordinates", f"**{int(_geo[_geo > 1].sum() - len(_geo[_geo > 1])):,} rows "
+                           f"repeat a coordinate already used**"),
+]
+for _label, _want in _expect:
+    checks.append(dict(layer="towns_geonames.md", check=_label, doc=_want,
+                       measured=_want, ok=_want in _txt))
+
+# the same for the named-minerals page, where the counts live in two files
+_mn = gpd.read_file(P, layer="minerals_named")
+_ms = gpd.read_file(P, layer="mineral_symbols")
+_mtxt = (HERE / "minerals_named.md").read_text()
+_expect = [
+    ("named rows", f"{len(_mn):,} points, EPSG:4326, one row per printed symbol"),
+    ("previously named", f"named {int(_mn['previously_named'].sum()):,} of its {len(_mn):,}"),
+    ("unidentified", f"{int((_mn['tier'] == 'unidentified').sum())}"),
+    ("symbols in mineral_symbols", f"It holds {len(_ms):,} rows"),
+    ("non-symbols", f"{int((_ms['is_symbol'] == 0).sum())} of them are not a"),
+    ("countable symbols", f"On the {int((_ms['is_symbol'] == 1).sum()):,} rows that are symbols"),
+    ("in Nigeria", f"{int(_mn['in_nigeria'].sum()):,} of them fall inside the"),
+    ("outside the territory", f"The other {int((~_mn['in_nigeria']).sum())} are kept rather than dropped"),
+]
+for _label, _want in _expect:
+    checks.append(dict(layer="minerals_named.md", check=_label, doc=_want,
+                       measured=_want, ok=_want in _mtxt))
+
+# ---- the README's own claim count -------------------------------------------
+# README says "(408 claims in all)". That sentence is a claim too, so it is
+# checked against this run's total; a new block that changes the count without
+# updating the sentence fails here.
+_readme = (HERE / "README.md").read_text()
+_m = re.search(r"\((\d[\d,]*) claims in all\)", _readme)
+if _m:
+    _stated = int(_m.group(1).replace(",", ""))
+    _total = len(checks) + 1  # this count is itself one of the claims
+    checks.append(dict(layer="README.md", check="stated claim count", doc=str(_stated),
+                       measured=_total, ok=_stated == _total))
 
 bad = [c for c in checks if not c["ok"]]
 json.dump({"checks": checks, "failures": bad}, open(OUT, "w"), indent=1)
