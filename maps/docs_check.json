@@ -248,8 +248,8 @@
   {
    "layer": "fold_axes",
    "check": "in-Nigeria share",
-   "doc": 94.4,
-   "measured": 94.4,
+   "doc": 94.6,
+   "measured": 94.6,
    "ok": true
   },
   {
@@ -333,7 +333,7 @@
    "layer": "roads",
    "check": "in-Nigeria share",
    "doc": 92.6,
-   "measured": 92.6,
+   "measured": 92.5,
    "ok": true
   },
   {
@@ -389,7 +389,7 @@
    "layer": "state_boundaries",
    "check": "in-Nigeria share",
    "doc": 92.3,
-   "measured": 92.3,
+   "measured": 92.2,
    "ok": true
   },
   {
@@ -724,8 +724,8 @@
   {
    "layer": "graticule_minerals",
    "check": "in-Nigeria share",
-   "doc": 63.6,
-   "measured": 63.6,
+   "doc": 63.8,
+   "measured": 63.8,
    "ok": true
   },
   {
@@ -843,8 +843,8 @@
   {
    "layer": "international_boundary",
    "check": "heading length km",
-   "doc": 4166.0,
-   "measured": 4165.6,
+   "doc": 4093.0,
+   "measured": 4093.4,
    "ok": true
   },
   {
@@ -906,8 +906,8 @@
   {
    "layer": "geology_boundaries",
    "check": "heading length km",
-   "doc": 84001.0,
-   "measured": 84000.6,
+   "doc": 81849.0,
+   "measured": 81849.2,
    "ok": true
   },
   {
@@ -927,8 +927,8 @@
   {
    "layer": "faults",
    "check": "heading length km",
-   "doc": 18669.0,
-   "measured": 18668.7,
+   "doc": 17704.0,
+   "measured": 17704.3,
    "ok": true
   },
   {
@@ -948,15 +948,15 @@
   {
    "layer": "fold_axes",
    "check": "heading length km",
-   "doc": 1983.0,
-   "measured": 1983.1,
+   "doc": 1962.0,
+   "measured": 1961.8,
    "ok": true
   },
   {
    "layer": "fold_axes",
    "check": "heading inside share",
-   "doc": 94.4,
-   "measured": 94.4,
+   "doc": 94.6,
+   "measured": 94.6,
    "ok": true
   },
   {
@@ -969,8 +969,8 @@
   {
    "layer": "younger_granite_outlines",
    "check": "heading length km",
-   "doc": 2519.0,
-   "measured": 2519.3,
+   "doc": 2466.0,
+   "measured": 2465.7,
    "ok": true
   },
   {
@@ -983,8 +983,8 @@
   {
    "layer": "rivers",
    "check": "heading length km",
-   "doc": 41194.0,
-   "measured": 41194.2,
+   "doc": 40206.0,
+   "measured": 40206.4,
    "ok": true
   },
   {
@@ -1004,15 +1004,15 @@
   {
    "layer": "roads",
    "check": "heading length km",
-   "doc": 19842.0,
-   "measured": 19842.0,
+   "doc": 19630.0,
+   "measured": 19629.6,
    "ok": true
   },
   {
    "layer": "roads",
    "check": "heading inside share",
-   "doc": 92.6,
-   "measured": 92.6,
+   "doc": 92.5,
+   "measured": 92.5,
    "ok": true
   },
   {
@@ -1025,8 +1025,8 @@
   {
    "layer": "railway",
    "check": "heading length km",
-   "doc": 3131.0,
-   "measured": 3131.1,
+   "doc": 3084.0,
+   "measured": 3084.2,
    "ok": true
   },
   {
@@ -1046,15 +1046,15 @@
   {
    "layer": "state_boundaries",
    "check": "heading length km",
-   "doc": 36044.0,
-   "measured": 36043.5,
+   "doc": 35588.0,
+   "measured": 35587.5,
    "ok": true
   },
   {
    "layer": "state_boundaries",
    "check": "heading inside share",
-   "doc": 92.3,
-   "measured": 92.3,
+   "doc": 92.2,
+   "measured": 92.2,
    "ok": true
   },
   {
@@ -1151,8 +1151,8 @@
   {
    "layer": "graticule_geology",
    "check": "heading length km",
-   "doc": 24230.0,
-   "measured": 24230.0,
+   "doc": 24041.0,
+   "measured": 24040.5,
    "ok": true
   },
   {
@@ -1165,8 +1165,8 @@
   {
    "layer": "graticule_minerals",
    "check": "heading length km",
-   "doc": 13765.0,
-   "measured": 13764.9,
+   "doc": 13664.0,
+   "measured": 13664.1,
    "ok": true
   },
   {
@@ -1230,6 +1230,447 @@
    "check": "header feature count",
    "doc": 60555,
    "measured": 60555,
+   "ok": true
+  },
+  {
+   "layer": "national_territory",
+   "check": "field exists",
+   "doc": "source",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "national_territory",
+   "check": "field exists",
+   "doc": "land_edge",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "national_territory",
+   "check": "field exists",
+   "doc": "sea_edge",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "national_territory",
+   "check": "field exists",
+   "doc": "border_layer",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "national_territory",
+   "check": "field exists",
+   "doc": "area_km2",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "water_bodies",
+   "check": "field exists",
+   "doc": "name",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "code",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "unit",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "leg_desc",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "legend_row",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "attr_source",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "era",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "period",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "eon",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "epoch",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "age_ma_min",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "age_ma_max",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "rock_cls",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "formation",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "draw_order",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "filled",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "fill_source",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "mapped_km2",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "filled_km2",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "area_km2",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "fill",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_units",
+   "check": "field exists",
+   "doc": "note",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_boundaries",
+   "check": "field exists",
+   "doc": "class",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "mineral_symbols",
+   "check": "field exists",
+   "doc": "mineral",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "mineral_symbols",
+   "check": "field exists",
+   "doc": "is_symbol",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "mineral_symbols",
+   "check": "field exists",
+   "doc": "colour",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "mineral_symbols",
+   "check": "field exists",
+   "doc": "fill",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "mineral_symbols",
+   "check": "field exists",
+   "doc": "ident_mth",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "mineral_symbols",
+   "check": "field exists",
+   "doc": "ident_scr",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "mineral_symbols",
+   "check": "field exists",
+   "doc": "link",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "mineral_symbols",
+   "check": "field exists",
+   "doc": "near_num",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "mineral_symbols",
+   "check": "field exists",
+   "doc": "in_nigeria",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "minerals_named",
+   "check": "field exists",
+   "doc": "canvas_x",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "minerals_named",
+   "check": "field exists",
+   "doc": "canvas_y",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "minerals_named",
+   "check": "field exists",
+   "doc": "lon",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "minerals_named",
+   "check": "field exists",
+   "doc": "lat",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "minerals_named",
+   "check": "field exists",
+   "doc": "colour_family",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "minerals_named",
+   "check": "field exists",
+   "doc": "w_px",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "minerals_named",
+   "check": "field exists",
+   "doc": "h_px",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "minerals_named",
+   "check": "field exists",
+   "doc": "mineral",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "minerals_named",
+   "check": "field exists",
+   "doc": "tier",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "minerals_named",
+   "check": "field exists",
+   "doc": "confidence",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "minerals_named",
+   "check": "field exists",
+   "doc": "family_accuracy_pct",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "minerals_named",
+   "check": "field exists",
+   "doc": "mineral_class",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "minerals_named",
+   "check": "field exists",
+   "doc": "previously_named",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "minerals_named",
+   "check": "field exists",
+   "doc": "prior_name",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "minerals_named",
+   "check": "field exists",
+   "doc": "details",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "minerals_named",
+   "check": "field exists",
+   "doc": "in_nigeria",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "towns_geonames",
+   "check": "field exists",
+   "doc": "geonameid",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "towns_geonames",
+   "check": "field exists",
+   "doc": "coord_dp",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "towns_geonames",
+   "check": "field exists",
+   "doc": "state",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "towns_geonames",
+   "check": "field exists",
+   "doc": "state_gn",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "towns_geonames",
+   "check": "field exists",
+   "doc": "state_agree",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "towns_geonames",
+   "check": "field exists",
+   "doc": "population",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "towns_geonames",
+   "check": "field exists",
+   "doc": "elevation_m",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "towns_geonames",
+   "check": "field exists",
+   "doc": "dem_m",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "towns_geonames",
+   "check": "field exists",
+   "doc": "dup_group",
+   "measured": null,
+   "ok": true
+  },
+  {
+   "layer": "geology_era",
+   "check": "field exists",
+   "doc": "class_id",
+   "measured": null,
    "ok": true
   }
  ],

@@ -29,6 +29,7 @@ import sys
 import geopandas as gpd
 import numpy as np
 import pyogrio
+import shapely
 from PIL import Image
 from scipy import ndimage
 from shapely.geometry import shape
@@ -189,6 +190,15 @@ def main():
     gu["era_class"] = gu["era"].fillna("unclassified")
     era = gu.dissolve(by="era_class", as_index=False)[["era_class", "geometry"]]
     era = era.rename(columns={"era_class": "class_name"})
+    # dissolving leaves the hairline slits of its inputs in the output rings; a
+    # 1e-9 deg snap removes them without moving any boundary by a measurable
+    # amount (see repair_layers.py and LAYERS.md §2)
+    def _clean(geom):
+        fixed = shapely.make_valid(shapely.set_precision(geom, 1e-9))
+        parts = list(fixed.geoms) if fixed.geom_type.startswith("Multi") else [fixed]
+        return shapely.geometry.MultiPolygon([p for p in parts if p.geom_type == "Polygon"])
+
+    era["geometry"] = [_clean(g) for g in era.geometry]
     era["area_km2"] = (era.to_crs("EPSG:6933").area / 1e6).round(2)
     era = era.sort_values("area_km2", ascending=False).reset_index(drop=True)
     era.to_file(GPKG, layer="geology_era", driver="GPKG")

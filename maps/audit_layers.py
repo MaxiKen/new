@@ -62,6 +62,26 @@ def expect(types):
 
 
 report = {"file": str(P), "layers": {}, "checks": {}}
+from pyproj import Geod
+
+GEOD = Geod(ellps="WGS84")
+
+
+def _geo_len(geom):
+    """Ellipsoidal length in km of a (multi)line, 0 for anything else."""
+    if geom is None or geom.is_empty:
+        return 0.0
+    parts = ([geom] if geom.geom_type == "LineString"
+             else [x for x in getattr(geom, "geoms", []) if x.geom_type == "LineString"])
+    total = 0.0
+    for ln in parts:
+        if ln.is_empty or len(ln.coords) < 2:
+            continue
+        xs, ys = np.asarray(ln.coords).T[:2]
+        total += GEOD.line_length(xs, ys)
+    return total / 1000
+
+
 problems = []
 
 for name in layers:
@@ -97,11 +117,14 @@ for name in layers:
         rec["area_inside_nigeria_km2"] = round(inside / 1e6, 1)
         rec["frac_inside"] = round(inside / tot, 4) if tot else None
     elif "LineString" in "".join(types):
-        gg = [shapely.make_valid(x) for x in g.to_crs(EQ).geometry if x is not None]
-        tot = sum(x.length for x in gg)
-        inside = sum(shapely.make_valid(x.intersection(terr_ea)).length for x in gg)
-        rec["length_km"] = round(tot / 1000, 1)
-        rec["length_inside_nigeria_km"] = round(inside / 1000, 1)
+        # measured on the ellipsoid, not on the equal-area grid: 6933 stretches a
+        # north-south line by up to 14 % at this latitude, and the layer's own
+        # `len_km` is geodesic, so the two must be measured the same way to be
+        # comparable at all
+        tot = sum(_geo_len(x) for x in g.geometry)
+        inside = sum(_geo_len(shapely.make_valid(x.intersection(terr))) for x in g.geometry)
+        rec["length_km"] = round(tot, 1)
+        rec["length_inside_nigeria_km"] = round(inside, 1)
         rec["frac_inside"] = round(inside / tot, 4) if tot else None
     else:
         pts = g.geometry if (g.crs is None or g.crs.to_epsg() == 4326) else g.to_crs("EPSG:4326").geometry
@@ -249,7 +272,10 @@ if empties:
 COPY_PAIRS = [("geology_units", "geology_units_utm32n"),
               ("geology_units", "geology_units_equal_area"),
               ("mineral_localities_icons", "mineral_localities_icons_utm32n"),
-              ("mineral_localities_icons", "mineral_localities_equal_area")]
+              ("mineral_localities_icons", "mineral_localities_equal_area"),
+              # easy to miss, and missing it is what hid the mis-lineage: the UTM
+              # copy descends from _refined, not from the 4326 layer of that name
+              ("mineral_localities_refined", "mineral_localities_utm32n")]
 copy_diffs = {}
 for a, b in COPY_PAIRS:
     ta = {r[1]: r[2] for r in con.execute(f'PRAGMA table_info("{a}")')}
@@ -364,6 +390,238 @@ if no_class_id:
 con.close()
 chk["attribute_integrity"] = attr
 
+
+# 5. geometry hygiene: a defect that costs no area and so no area test finds it
+# ---------------------------------------------------------------------------
+# The paint-order replay leaves hairline slits - a ring that runs out along a
+# contact and returns along the same line - and duplicate consecutive vertices.
+# Both leave the area, the coverage and the overlap residual untouched, so a
+# polygon can be "valid" by every aggregate test and still be non-simple in a way
+# that breaks simplification and rendering.
+def _needles(geom):
+    n = 0
+    polys = ([geom] if geom.geom_type == "Polygon"
+             else list(geom.geoms) if geom.geom_type.startswith("MultiPolygon") else [])
+    for p in polys:
+        for ring in [p.exterior] + list(p.interiors):
+            a = np.asarray(ring.coords)[:, :2]
+            if len(a) < 4:
+                continue
+            v1, v2, v3 = a[:-2], a[1:-1], a[2:]
+            d1, d2 = v2 - v1, v3 - v2
+            cross = np.abs(d1[:, 0] * d2[:, 1] - d1[:, 1] * d2[:, 0])
+            dot = (d1 * d2).sum(1)
+            l1, l2 = np.hypot(*d1.T), np.hypot(*d2.T)
+            n += int(((dot < 0) & (l1 > 1e-9) & (l2 > 1e-9)
+                      & (cross < 1e-9 * np.maximum(l1 * l2, 1e-18))).sum())
+    return n
+
+
+def _self_touching(geom):
+    """Consecutive duplicate vertices, and parts with no area at all."""
+    dup = 0
+    degenerate = 0
+    polys = ([geom] if geom.geom_type == "Polygon"
+             else list(geom.geoms) if geom.geom_type.startswith("MultiPolygon") else [])
+    for p in polys:
+        if p.area == 0:
+            degenerate += 1
+        for ring in [p.exterior] + list(p.interiors):
+            a = np.asarray(ring.coords)[:, :2]
+            if len(a) > 1:
+                dup += int((np.abs(np.diff(a, axis=0)).sum(axis=1) == 0).sum())
+    return dup, degenerate
+
+
+geom_chk = {}
+for name in layers:
+    g = gpd.read_file(P, layer=name)
+    rec = dict(geometry_types=sorted(set(g.geometry.geom_type.dropna())),
+               empty=int(g.geometry.is_empty.sum()),
+               invalid=int((~g.geometry.is_valid).sum()),
+               null=int(g.geometry.isna().sum()))
+    if any(t.endswith("Polygon") for t in rec["geometry_types"]):
+        rec["slit_vertices"] = sum(_needles(x) for x in g.geometry if x is not None)
+        dups, degen = zip(*[_self_touching(x) if x is not None else (0, 0)
+                            for x in g.geometry]) if len(g) else ((0,), (0,))
+        rec["duplicate_vertices"] = int(sum(dups))
+        rec["degenerate_parts"] = int(sum(degen))
+    rec["has_z"] = bool(any(getattr(x, "has_z", False) for x in g.geometry if x is not None))
+    geom_chk[name] = {k: v for k, v in rec.items() if v not in (0, False, [])} or "clean"
+    if rec.get("slit_vertices") or rec.get("duplicate_vertices") or rec.get("invalid"):
+        problems.append(f"{name}: {rec.get('slit_vertices', 0)} slit vertices, "
+                        f"{rec.get('duplicate_vertices', 0)} duplicate vertices, "
+                        f"{rec['invalid']} invalid geometries")
+    if rec["has_z"]:
+        problems.append(f"{name}: carries Z values in a 2D layer")
+attr["geometry_hygiene"] = geom_chk
+
+# 6. every projected copy really is its parent, reprojected -------------------
+# Attributes matching is not enough: a copy taken before a repair keeps the old
+# geometry with the new attributes.
+copy_geom = {}
+for a, b in COPY_PAIRS:
+    ga = gpd.read_file(P, layer=a)
+    gb = gpd.read_file(P, layer=b)
+    if len(ga) != len(gb):
+        problems.append(f"{b}: {len(gb)} rows against {len(ga)} in {a}")
+        copy_geom[b] = dict(rows=[len(ga), len(gb)])
+        continue
+    direct = ga.to_crs(gb.crs)
+    sym = max((x.symmetric_difference(y).area for x, y in zip(direct.geometry, gb.geometry)),
+              default=0)
+    copy_geom[b] = dict(parent=a, crs=gb.crs.to_string(), rows=len(gb),
+                        max_symmetric_difference_m2=round(float(sym), 3))
+    if sym > 1.0:
+        problems.append(f"{b}: geometry departs from {a} reprojected by {sym:,.1f} m2")
+attr["projected_copy_geometry"] = copy_geom
+
+# 7. values that would be read as measurements ------------------------------
+# A sentinel is worse than a NULL: -9999 in an elevation column is an elevation.
+# 9999 is deliberately absent: it occurs once in moved_from_label_m where values
+# up to 19,713 m are real, so the repeat is coincidence, not a sentinel
+SENTINELS = (-9999, -99999, -32768)
+BAD_NEGATIVE = {"population": "count", "elevation_m": "metres above sea level",
+                "dem_m": "metres above sea level", "area_km2": "an area",
+                "len_km": "a length", "length_km": "a length", "km_in_nigeria": "a length",
+                "mapped_km2": "an area", "filled_km2": "an area",
+                "area_km2_equal_area": "an area", "dist_to_coast_m": "a distance",
+                "host_boundary_dist_m": "a distance", "icon_spread_m": "a distance",
+                "moved_from_label_m": "a distance", "name_dist": "a distance"}
+sentinel = {}
+for name in layers:
+    g = gpd.read_file(P, layer=name)
+    for c in g.columns:
+        if c == "geometry" or not pd.api.types.is_numeric_dtype(g[c]):
+            continue
+        for s in SENTINELS:
+            n = int((g[c] == s).sum())
+            if n:
+                sentinel[f"{name}.{c}"] = dict(value=s, rows=n)
+                problems.append(f"{name}.{c}: {n} rows hold the sentinel {s}")
+        if c in BAD_NEGATIVE and (g[c] < 0).any():
+            n = int((g[c] < 0).sum())
+            sentinel[f"{name}.{c}"] = dict(negative=n, why=f"{c} is {BAD_NEGATIVE[c]}")
+            problems.append(f"{name}.{c}: {n} negative values")
+    # min/max pairs must be ordered
+    for lo, hi in (("age_ma_min", "age_ma_max"),):
+        if lo in g.columns and hi in g.columns:
+            bad = int((g[lo] > g[hi]).sum())
+            if bad:
+                problems.append(f"{name}: {bad} rows have {lo} > {hi}")
+attr["sentinel_values"] = sentinel
+
+# 7b. the length attributes must be the measurement, not a different one -----
+line_chk = {}
+for name in layers:
+    rec = report["layers"][name]
+    if "length_km" not in rec:
+        continue
+    g = gpd.read_file(P, layer=name)
+    if "len_km" not in g.columns:
+        # the two graticules are constructed QA geometry, not lines read off a
+        # sheet: their length is a property of the drawing grid, not a measurement
+        if not name.startswith("graticule_"):
+            problems.append(f"{name}: a line layer with no len_km")
+        continue
+    d = float(np.max(np.abs(g["len_km"] - np.array(
+        [_geo_len(x) for x in g.geometry])))) if len(g) else 0.0
+    line_chk[name] = dict(len_km_max_diff_km=round(d, 3))
+    if d > 0.01:
+        problems.append(f"{name}: len_km is off the geodesic measurement by {d:.3f} km")
+    if "km_in_nigeria" in g.columns:
+        over = int((g["km_in_nigeria"] > g["len_km"] + 1e-6).sum())
+        ratio_bad = int((np.abs(g["frac_in_nigeria"]
+                                - np.where(g["len_km"] > 0, g["km_in_nigeria"] / g["len_km"].replace(0, np.nan), 0)
+                                ) > 0.001).sum())
+        line_chk[name].update(rows_inside_longer_than_total=over, frac_mismatches=ratio_bad)
+        if over:
+            problems.append(f"{name}: {over} rows where km_in_nigeria exceeds len_km")
+        if ratio_bad:
+            problems.append(f"{name}: {ratio_bad} rows where frac_in_nigeria is not the ratio")
+attr["line_length_attributes"] = line_chk
+
+# 7c. a boolean that encodes a comparison must actually be able to be True ----
+# `state_agree` was converted, not computed, on a second run and every one of its
+# 29,470 True values silently became False. The type, the NULL count and every
+# other check still passed: only recomputing the comparison finds it.
+import unicodedata
+
+
+def _fold(v):
+    if not isinstance(v, str):
+        return ""
+    v = unicodedata.normalize("NFKD", v).encode("ascii", "ignore").decode()
+    v = v.lower().replace("-", " ").replace("'", "").replace(" state", "")
+    return " ".join(v.split())
+
+
+tg = gpd.read_file(P, layer="towns_geonames")
+recomputed = [None if (pd.isna(a) or pd.isna(b) or not str(a).strip() or not str(b).strip())
+              else _fold(a) == _fold(b) for a, b in zip(tg["state"], tg["state_gn"])]
+got = [None if pd.isna(v) else bool(v) for v in tg["state_agree"]]
+n_bad = sum(1 for a, b in zip(recomputed, got) if a != b)
+truthy = sum(1 for v in got if v is True)
+attr["state_agree"] = dict(rows=len(tg), true=truthy, false=sum(1 for v in got if v is False),
+                           null=sum(1 for v in got if v is None), mismatches=n_bad)
+if n_bad:
+    problems.append(f"towns_geonames.state_agree: {n_bad} rows disagree with state vs state_gn")
+if truthy == 0 and any(v is False for v in got):
+    problems.append("towns_geonames.state_agree: a boolean with no True values")
+
+booleans = {}
+for name in layers:
+    g = gpd.read_file(P, layer=name)
+    for c in g.columns:
+        if c == "geometry" or not pd.api.types.is_bool_dtype(g[c]):
+            continue
+        t = int((g[c] == True).sum())
+        f = int((g[c] == False).sum())
+        booleans[f"{name}.{c}"] = dict(true=t, false=f, null=int(g[c].isna().sum()))
+        if (t and not f) or (f and not t):
+            # one-sided is legitimate where every row is by construction inside
+            # the country; it is recorded so a regression is visible
+            attr.setdefault("one_sided_booleans", {})[f"{name}.{c}"] = (
+                "all True" if t else "all False")
+attr["boolean_columns"] = booleans
+
+# 8. text hygiene: padding, runs of spaces, and truncation ------------------
+text_chk = {}
+for name in layers:
+    g = gpd.read_file(P, layer=name)
+    for c in g.columns:
+        if c == "geometry" or g[c].dtype != object:
+            continue
+        vals = [v for v in g[c] if isinstance(v, str)]
+        if not vals:
+            continue
+        pad = sum(1 for v in vals if v != v.strip())
+        dbl = sum(1 for v in vals if "  " in v)
+        ctrl = sum(1 for v in vals if any(ch < " " or ch == "\x7f" for ch in v))
+        if pad or dbl or ctrl:
+            text_chk[f"{name}.{c}"] = {k: v for k, v in
+                                       dict(padding=pad, double_space=dbl, control=ctrl).items() if v}
+            problems.append(f"{name}.{c}: {pad} padded, {dbl} with a double space, {ctrl} control chars")
+# the two fixed-width cuts that were found in this pass must not reappear
+if "lnk" not in dir():
+    pass
+truncated = {}
+for name, col, must in (("mineral_symbols", "link", "considered"),
+                        ("towns_geonames", "alt_names", None)):
+    g = gpd.read_file(P, layer=name)
+    vals = [v for v in g[col] if isinstance(v, str)]
+    if must:
+        n = sum(1 for v in vals if must not in v and "colour not" in v)
+        truncated[f"{name}.{col}"] = n
+        if n:
+            problems.append(f"{name}.{col}: {n} values cut before '{must}'")
+    else:
+        n = sum(1 for v in vals if v.endswith((",", " ")) or v != v.strip())
+        truncated[f"{name}.{col}"] = n
+        if n:
+            problems.append(f"{name}.{col}: {n} values end mid-name")
+attr["text_hygiene"] = text_chk
+attr["truncated_values"] = truncated
 
 # ---- GeoPackage conformance: the registers must describe the contents ------
 # A SQLite integrity check says "ok" for a file that advertises a layer, an

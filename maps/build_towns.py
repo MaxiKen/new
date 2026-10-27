@@ -266,6 +266,9 @@ def main(cache="/tmp/geonames_cache"):
 
     # --- the checks that make the layer auditable --------------------------
     g["in_nigeria"] = g.geometry.within(terr).to_numpy()
+    # WAT is WAT either side of the border, but a Nigerian gazetteer should not
+    # label a place inside Nigeria with the neighbouring country's zone
+    g.loc[(g["timezone"] == "Africa/Douala") & g["in_nigeria"], "timezone"] = "Africa/Lagos"
     gm = g.to_crs(NG_AEQD)                       # metres, for every distance
     ngsa_m = ngsa.to_crs(NG_AEQD)
 
@@ -357,6 +360,9 @@ def main(cache="/tmp/geonames_cache"):
     # numeric fields must be numbers: `elevation_m > 500` on TEXT compares strings
     out = g.copy()
     out["elevation_m"] = pd.to_numeric(out["elevation_m"], errors="coerce").astype("Int64")
+    # -9999 is the SRTM void, and it must not be read as an elevation of -9,999 m
+    out["dem_m"] = pd.to_numeric(out["dem_m"], errors="coerce")
+    out.loc[(out["dem_m"] == -9999) | (out["dem_m"] < 0), "dem_m"] = pd.NA
     for code_col in ("admin1_code", "admin2_code"):
         out[code_col] = out[code_col].replace("", None)
     # how precisely GeoNames records the position, in decimal places: 7,372 of

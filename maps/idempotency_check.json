@@ -1,0 +1,11 @@
+{
+ "rows_fingerprinted": 40,
+ "changed": {},
+ "pipeline": [
+  "normalise_nulls.py",
+  "repair_layers.py",
+  "describe_layers.py",
+  "fix_gpkg_hygiene.py"
+ ],
+ "idempotent": true
+}

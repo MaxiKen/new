@@ -31,7 +31,7 @@ resulting layer and `towns_report.json`.
 | `feature_code`, `feature_type` | `PPL` village/town (45,141), `PPLA` state capital (36), `PPLA2` (82), `PPLC` national capital (1 — Abuja), `PPLX` section of a place (44), `PPLQ` abandoned (40), `PPLL` locality (41), `PPLS` (25), `PPLF` farm (4), `PPLR` religious (1), with the plain-language type beside each |
 | `state` | state name, from the state polygon the point falls in |
 | `state_gn` | the state GeoNames itself records (70 % of places have none) |
-| `state_agree` | a real BOOLEAN (1/0, NULL where either side is unknown) — they agree on **93.6 %** of 31,486 comparisons; disagreeing rows are worth a look before trusting either |
+| `state_agree` | a real BOOLEAN (1/0, NULL where either side is unknown) — they agree on **93.7 %** of 31,913 comparisons (29,903 agree, 2,010 do not); disagreeing rows are worth a look before trusting either. 427 of the 31,913 fall outside every state polygon on the sheet, so their `state` *is* GeoNames' own and they agree by construction |
 | `admin1_code`, `admin2_code` | GeoNames' own codes, as printed — `admin1_code` is `00` for 13,501 rows, which is GeoNames saying it does not know the state, so use `state` (from the polygon) rather than this code; `admin2_code` is populated for 12 rows |
 | `lga` | the local government area, resolved from GeoNames' own `admin2` names: **11 of 45,415**. GeoNames has almost no Nigerian LGA coverage and no LGA was invented from another source |
 | `population` | 0 where GeoNames records none; only **450** places carry a figure |

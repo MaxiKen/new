@@ -84,6 +84,7 @@ python describe_layers.py       # a description for every layer, inside the file
 python fix_gpkg_hygiene.py      # registers: dangling extensions, indexes, zoom levels
 python audit_layers.py          # verify all 31 layers + 9 rasters + the file's registers -> layer_audit.json
 python docs_check.py            # test every number in LAYERS.md against the file
+python check_idempotency.py     # run the repairs twice: the second run must change no row
 python georef_new_map.py        # + the 9 raster layers (merges tiles, never rebuilds the vectors)
 python build_towns.py           # + towns_geonames, the gazetteer (downloads ~450 MB once, caches it)
 ```
@@ -352,6 +353,14 @@ graticule fit above supersedes it.
 - **Town positions** (only 3 names are unique enough to check against modern coordinates) agree
   to ~10 km; the same offset appears in both sheets, so it is the source drawing's generalization,
   not a registration error.
+- **The measurements the file ships describe the geometry it ships.** Every stored length, area,
+  perimeter and fraction is recomputed from the geometry in `audit_layers.py`. That check found
+  `km_in_nigeria` measured on the equal-area grid while `len_km` was geodesic — so in-Nigeria
+  length came out *longer than the line itself* in 3,174 rows across six layers, with
+  `frac_in_nigeria` clamped to hide it.
+- **The text is text.** No value ends mid-word, no name carries padding or a double space, and no
+  numeric column holds a sentinel instead of NULL — the 42 × `-9999` in `dem_m` were SRTM voids
+  being read as elevations of -9,999 m.
 
 ---
 
@@ -430,8 +439,8 @@ otherwise. `layer_audit.json` records the fragment count per layer.
 | check | result |
 |---|---|
 | overlap between geology polygons | **0.002 km²**, measured in EPSG:4326 |
-| uncovered ground inside the territory | **0.000 km²** |
-| geology drawn outside the territory | **0.000 km²** |
+| uncovered ground inside the territory | **0.000 km²** in EPSG:4326 (0.006 km² if each polygon is reprojected on its own — same artefact as the overlap row) |
+| geology drawn outside the territory | **0.000 km²** in EPSG:4326 (0.001 km² reprojected separately) |
 | area: `area_km2` sum vs EPSG:6933 vs geodesic | 907,157.0 / 907,157.0 / 907,156.9 km² — **0.000 %** |
 | 2023 border vertices on the geology edge | 3,500, worst **7.5 m** |
 | codes in 4326 / 32632 / 6933 copies | identical sets |
@@ -441,6 +450,13 @@ otherwise. `layer_audit.json` records the fragment count per layer.
 | numeric fields stored as text | **none** — `age_ma_min` / `age_ma_max` are float64 |
 | dangling `gpkg_extensions` rows / orphan rtree tables | **0 / 0** (16 dead rows and 7 dead indexes removed, 17 undeclared indexes declared, 29 empty zoom levels dropped) |
 | layers without a description inside the file | **0** of 40 |
+| hairline slits / duplicate vertices in polygon rings | **0 / 0** (35 + 14 removed from `geology_units`, 95 from `geology_era`) |
+| sentinel values in numeric columns (`-9999`, `-99999`, `-32768`) | **0** |
+| text values with padding, double spaces or control characters | **0** |
+| values cut off at a fixed width | **0** |
+| stored lengths / areas / perimeters reproduced from the geometry | **all** — `len_km` and `km_in_nigeria` geodesic, `area_km2` in EPSG:6933, `frac_in_nigeria` = ratio |
+| field names in `LAYERS.md` field tables that the layer does not have | **0** of 63 |
+| rows changed by running the repairs a second time | **0** in all 40 tables |
 
 **The overlap number is measured in the layer's own CRS, deliberately.** Reprojecting each polygon
 *separately* to EPSG:6933 moves shared edges by a few millimetres, so a 6933-only measurement

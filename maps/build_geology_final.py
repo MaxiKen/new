@@ -327,10 +327,32 @@ water = shapely.union_all(wb[wb["kind"].isin(["lake", "lake / reservoir"])].geom
 
 # say what each water polygon is, and how much of it is actually in Nigeria
 wb["printed_polygon"] = wb["kind"].isin(["lake", "lake / reservoir"])
-wb["area_in_nigeria_km2"] = [round(km2(shapely.make_valid(g.intersection(country))), 1)
-                             for g in wb.geometry]
-wb["frac_in_nigeria"] = [round(a / km2(g), 3) if km2(g) else 0.0
-                         for a, g in zip(wb["area_in_nigeria_km2"], wb.geometry)]
+# area in EPSG:6933 from the geometry in the row (as every other area in the file),
+# perimeter geodesic including the interior rings, and an in-Nigeria area that
+# cannot exceed the total - computing each with a different measure is how the
+# reservoir ended up 0.06 % in Nigeria and 0.06 % larger than itself.
+_wb_ea = wb.to_crs(EQ)
+wb["area_km2"] = np.round(_wb_ea.area.values / 1e6, 3)
+_ins = gpd.GeoSeries([shapely.make_valid(g.intersection(country)) for g in wb.geometry],
+                     crs="EPSG:4326").to_crs(EQ).area.values / 1e6
+wb["area_in_nigeria_km2"] = np.round(np.minimum(_ins, wb["area_km2"].values), 3)
+wb["frac_in_nigeria"] = np.round(
+    np.where(wb["area_km2"].values > 0, wb["area_in_nigeria_km2"] / wb["area_km2"], 0.0), 4)
+
+
+def _geodesic_perimeter(geom):
+    if geom is None or geom.is_empty:
+        return 0.0
+    parts = [geom] if geom.geom_type == "Polygon" else list(getattr(geom, "geoms", []))
+    total = 0.0
+    for p in parts:
+        for ring in [p.exterior] + list(p.interiors):
+            xs, ys = np.asarray(ring.coords).T[:2]
+            total += GEOID.line_length(xs, ys)
+    return total / 1000
+
+
+wb["perim_km"] = np.round([_geodesic_perimeter(g) for g in wb.geometry], 3)
 wb["geometry"] = [polygonal(shapely.make_valid(g)) for g in wb.geometry]
 wb = wb[wb.geometry.notna()].reset_index(drop=True)
 wb["note"] = None   # NULL, not "": an empty string is not a value
@@ -580,6 +602,24 @@ for col, kind in (("age_ma_min", float), ("age_ma_max", float), ("legend_row", "
                   ("draw_order", int)):
     if col in out.columns:
         out[col] = pd.to_numeric(out[col], errors="coerce").astype(kind)
+
+# The paint-order replay leaves hairline slits where a path runs out along a
+# contact and comes back along it, and duplicate vertices from the boolean ops.
+# They cost no area, so no area/overlap/gap check sees them, and they break
+# simplification and rendering. Snap the rings to 1e-9 deg (0.05 mm, six orders
+# of magnitude below the 0.7 km ink the layer was read at) and re-validate.
+def _clean_rings(geom):
+    if geom is None or geom.is_empty:
+        return geom
+    fixed = shapely.make_valid(shapely.set_precision(geom, 1e-9))
+    parts = list(fixed.geoms) if fixed.geom_type.startswith("Multi") else [fixed]
+    return shapely.geometry.MultiPolygon([p for p in parts if p.geom_type == "Polygon"])
+
+
+_area_before = float(out.geometry.area.sum())
+out["geometry"] = [_clean_rings(g) for g in out.geometry]
+assert abs(float(out.geometry.area.sum()) - _area_before) / _area_before < 1e-10
+out = out[out.geometry.notna() & ~out.geometry.is_empty].reset_index(drop=True)
 write(out, "geology_units")
 
 # reprojection to UTM creates self-intersections, so repair and re-clean here

@@ -138,6 +138,42 @@ if m:
         checks.append(dict(layer="(file)", check=f"header EPSG:{crs} features", doc=nf,
                            measured=got.get(crs, (0, 0))[1], ok=got.get(crs, (0, 0))[1] == nf))
 
+# ---- field tables: every field the catalogue names must exist in that layer ---
+# A field table is read as the layer's schema. This checks it against the schema.
+import collections
+cols_by_layer = {}
+for name in found:
+    info = pyogrio.read_info(P, layer=name)
+    cols_by_layer[name] = set(info["fields"])
+current = None
+for line in text.splitlines():
+    h = re.match(r"^###\s+\d+\.\s+`([^`]+)`", line)
+    if h:
+        current = h.group(1)
+        continue
+    if re.match(r"^#{2,3}\s", line):
+        current = None
+        continue
+    if current is None or current not in cols_by_layer or not line.startswith("|"):
+        continue
+    cells = [c.strip() for c in line.strip().strip("|").split("|")]
+    if not cells or not cells[0].startswith("`") or set(cells[0]) <= set("-: "):
+        continue
+    for tok in re.findall(r"`([^`]+)`", cells[0]):
+        for piece in [x.strip() for x in tok.split(",")]:
+            # `canvas_x/y` is shorthand for canvas_x and canvas_y
+            parts = [piece]
+            if "/" in piece:
+                left, right = [x.strip() for x in piece.split("/", 1)]
+                prefix = left.rsplit("_", 1)[0] + "_" if "_" in left else ""
+                parts = [left, prefix + right]
+            for part in parts:
+                if not re.match(r"^[a-z][a-z0-9_]*$", part):
+                    continue
+                checks.append(dict(layer=current, check="field exists", doc=part,
+                                   measured=None,
+                                   ok=part in cols_by_layer[current]))
+
 bad = [c for c in checks if not c["ok"]]
 json.dump({"checks": checks, "failures": bad}, open(OUT, "w"), indent=1)
 

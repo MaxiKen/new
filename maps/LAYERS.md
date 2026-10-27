@@ -33,7 +33,7 @@ Navigation: [Boundary & water](#1-boundary-and-water) · [Geology](#2-geology) �
 | 6 | `geology_units_equal_area` | 97 | 6933 | MultiPolygon | 100 % | the same, exact areas |
 | 7 | `geology_boundaries` | 2,819 | 4326 | LineString | 99.9 % of 84,001 km | contacts, by confidence |
 | 8 | `faults` | 648 | 4326 | LineString | 99.8 % of 18,669 km | major and inferred faults |
-| 9 | `fold_axes` | 90 | 4326 | LineString | 94.4 % | anticlines and synclines |
+| 9 | `fold_axes` | 90 | 4326 | LineString | 94.6 % | anticlines and synclines |
 | 10 | `younger_granite_outlines` | 59 | 4326 | LineString | 100 % | Jos Plateau ring complexes, as outlines |
 | 11 | `rivers` | 1,054 | 4326 | LineString | 83.1 % of 41,194 km | drainage centrelines |
 | 12 | `roads` | 122 | 4326 | LineString | 92.6 % of 19,842 km | trunk roads |
@@ -51,7 +51,7 @@ Navigation: [Boundary & water](#1-boundary-and-water) · [Geology](#2-geology) �
 | 24 | `mineral_localities_equal_area` | 999 | 6933 | Point | same | the same, equal-area |
 | 25 | `mineral_localities_utm32n` | 999 | 32632 | Point | 992/999 | **(21) in metres** — the refined positions, *not* (20): see §7 |
 | 26 | `graticule_geology` | 22 | 4326 | LineString | 66.5 %* | QA: the 2011 graticule fit |
-| 27 | `graticule_minerals` | 11 | 4326 | LineString | 63.6 %* | QA: the 2023 graticule fit |
+| 27 | `graticule_minerals` | 11 | 4326 | LineString | 63.8 %* | QA: the 2023 graticule fit |
 | 28 | `towns_geonames` | 45,415 | 4326 | Point | 98.9 % | **the gazetteer** — every populated place GeoNames records for Nigeria; state, population where known. See [`towns_geonames.md`](towns_geonames.md) |
 | 29 | `poly_soil_ph` | 111 | 4326 | MultiPolygon | 100 % | **the soil-pH sheet as polygons**: 5 pH classes, palette measured from the printed swatches, clipped to the border; covers 99.94 % of the territory |
 | 30 | `poly_population` | 299 | 4326 | MultiPolygon | 100 % | **the population sheet as polygons**: 5 absolute-count classes by unnamed district; covers 92.51 % of the territory, the rest is blank on the sheet |
@@ -88,13 +88,15 @@ Lake Chad is treaty-defined; take that from a gazette or the ICJ ruling, not fro
 1:2,000,000 map. Official land area is 923,768 km² — 1.7 % larger, because the official
 figure treats Lake Chad and the creeks differently. That is not an error in this polygon.
 
-### 2. `international_boundary` — 1 line, 4,166 km, 3,500 vertices
+### 2. `international_boundary` — 1 line, 4,093 km, 3,500 vertices
 
 The 2023 sheet's boundary exactly as printed: a single open LineString, land border only,
 no sea edge, `closed = 0`. It is the raw input to layer 1.
 
-Fields: `class`, `name`, `n_frag`, `length_km`, `n_vert`, `mid_lon/lat`, `zone`,
-`start_lon/lat`, `end_lon/lat`, `closed`.
+Fields: `class`, `name`, `n_frag`, `len_km`, `km_in_nigeria`, `frac_in_nigeria`, `n_vert`,
+`mid_lon/lat`, `zone`, `start_lon/lat`, `end_lon/lat`, `closed`. `len_km` is the geodesic
+length, the same call and the same name as on the seven other measured line layers — it used
+to be called `length_km` here alone, and there was no in-Nigeria field at all.
 
 **Use it for:** drawing a border, or checking your own line against NGSA's.
 **Do not use it for:** a polygon (it is open) or a legal claim.
@@ -106,9 +108,9 @@ the most easily misread layer in the file.
 
 | `name` | `kind` | area km² | in Nigeria | `printed_polygon` | what it actually is |
 |---|---|---|---|---|---|
-| Gulf of Guinea (Atlantic Ocean) | `sea` | 133,390 | 3,085 | False | the sheet's sea area; clipped by the coastline only |
-| Lake Chad | `lake` | 13,363 | 5,670 | **True** | real water polygon, printed blue |
-| River Niger / River Benue | `river` | 5,870 | 5,084 | False | a **corridor envelope** around the two channels, *not* water drawn as a polygon |
+| Gulf of Guinea (Atlantic Ocean) | `sea` | 133,395 | 3,085 | False | the sheet's sea area; clipped by the coastline only |
+| Lake Chad | `lake` | 13,373 | 5,670 | **True** | real water polygon, printed blue |
+| River Niger / River Benue | `river` | 5,869 | 5,084 | False | a **corridor envelope** around the two channels, *not* water drawn as a polygon |
 | *(NULL)* — unnamed reservoir | `lake / reservoir` | 226 | 226 | **True** | real water polygon; `name` is NULL and `name_src` records `no water name on the map` (it sits at 6.90–7.07 E, 9.73–10.03 N) |
 
 Only `printed_polygon = True` (Lake Chad + the reservoir) was allowed to absorb geology
@@ -116,8 +118,12 @@ gaps — that is where the `W` / "Water body" unit's 5,671 km² comes from. The 
 15 rings and must not be treated as a lake; using it as water would flood the Niger valley
 with false "water" geology.
 
-Other fields: `area_km2` (whole drawn polygon), `area_in_nigeria_km2`, `frac_in_nigeria`,
-`n_rings`, `fill`, `perim_km`, `cen_lon/lat`, bounds, `src_seq`, `note`.
+Other fields: `area_km2` (whole drawn polygon, EPSG:6933 like every other area in the file),
+`area_in_nigeria_km2`, `frac_in_nigeria`, `n_rings`, `fill`, `perim_km` (geodesic, interior
+rings included), `cen_lon/lat`, bounds, `src_seq`, `note`. All of them are now computed from
+the stored geometry; before this pass the areas were up to 10 km² away from it (Lake Chad),
+which made them reproducible only by trust, and the unnamed reservoir's in-Nigeria area
+(225.7) was larger than its own total (225.56), with `frac_in_nigeria` 1.0006.
 
 ---
 
@@ -126,9 +132,18 @@ Other fields: `area_km2` (whole drawn polygon), `area_in_nigeria_km2`, `frac_in_
 ### 4. `geology_units` — 97 rows, 907,157 km², the deliverable layer
 
 **There is one geology layer, and this is it.** 96 rock units + one `W` water unit. Valid,
-non-overlapping (residual 0.002 km² = round-off at shared edges), no inland gap, cut on
-`national_territory`, and `sum(area_km2)` equals the country exactly — so per-unit areas
-need no further dissolve, and every point falls in exactly one unit.
+non-overlapping (residual 0.002 km² = round-off at shared edges), no inland gap (0.006 km²,
+same cause), cut on `national_territory`, and `sum(area_km2)` equals the country exactly — so
+per-unit areas need no further dissolve, and every point falls in exactly one unit.
+
+Rings are simple: the paint-order replay left 35 hairline slits — a ring running out along a
+contact and back along the same line, up to 7.1 km long and zero area wide — and 14 duplicate
+vertices. Neither is visible in an area or an overlap test, which is why they survived three
+audits; both break simplification and rendering. Removed on 19 units by snapping to a 1e-9°
+grid (0.05 mm) and re-validating: the ring set, the point set and the area are unchanged
+(1.6 m² of degenerate sliver parts collapsed), and there are no slits or duplicate vertices
+left anywhere in the file. `geology_era` had 95 slits of up to 13.8 km and is clean for the
+same reason; its copies were rebuilt from the cleaned geometry.
 
 It is built from the 1,518 printed polygons of the 2011 sheet by **replaying the PDF's paint
 order**: each path loses exactly the part covered by any path drawn after it. That is a
@@ -188,7 +203,7 @@ compute area, coverage, density or share-of-country from: it matches the geodesi
 0.000 %. `geology_units` and this layer give identical totals — pick by CRS convenience, not
 by accuracy.
 
-### 7. `geology_boundaries` — 2,819 lines, 84,001 km, 99.9 % inside Nigeria
+### 7. `geology_boundaries` — 2,819 lines, 81,849 km, 99.9 % inside Nigeria
 
 The contacts between units, as printed, with the confidence the cartographer gave them:
 
@@ -207,7 +222,7 @@ printed here. 39 fragments run past the border (the worst keeps 69 % of its leng
 Fields: `ocg_id`, `layer`, `class`, `stroke`, `width_pt`, `n_frag`, `len_km`, `src_seq`,
 `km_in_nigeria`, `frac_in_nigeria`.
 
-### 8. `faults` — 648 lines, 18,669 km, 99.8 % inside Nigeria
+### 8. `faults` — 648 lines, 17,704 km, 99.8 % inside Nigeria
 
 Fractures in two classes: **major fracture / fault** (243) and **fracture / fault (inferred)**
 (405). Split across two source layers, hence 646 fragments in 2 `ocg_id` groups.
@@ -215,12 +230,12 @@ Fractures in two classes: **major fracture / fault** (243) and **fracture / faul
 Fields as layer 7. Straight-line drawing, so these are structure traces at 1:2,000,000, not
 surveyed fault geometry — do not buffer them into "fault zones" and believe the width.
 
-### 9. `fold_axes` — 90 lines, 1,983 km, 94.4 % inside Nigeria
+### 9. `fold_axes` — 90 lines, 1,962 km, 94.6 % inside Nigeria
 
 Anticlinal (8) and synclinal (82) axes. Same field set. 5.6 % of their length runs outside
 the border because the sheet draws the neighbouring countries' structure too.
 
-### 10. `younger_granite_outlines` — 59 lines, 2,519 km
+### 10. `younger_granite_outlines` — 59 lines, 2,466 km
 
 The Jurassic Younger Granite ring complexes of the Jos Plateau, as printed. **These are
 outlines, not closed rings**: 18 of the 59 return to their start point, the rest do not.
@@ -236,24 +251,24 @@ generalised at 1:2,000,000 (1 pt ≈ 0.7 km). The five line layers carry
 `km_in_nigeria` / `frac_in_nigeria`; the point layers carry `in_nigeria`, because the sheet
 prints neighbouring-country context and it is flagged rather than deleted.
 
-### 11. `rivers` — 1,054 lines, 41,194 km, 83.1 % inside Nigeria
+### 11. `rivers` — 1,054 lines, 40,206 km, 83.1 % inside Nigeria
 
 Drainage centrelines. The largest single-source layer in the file: 1,054 fragments from **one**
 source `ocg_id`, because a PDF path gets exported per segment. 16.9 % of the length is in
 Niger, Benin, Cameroon and Chad — that is the sheet's context, not an error. Fields include
 `class`, `stroke`, `width_pt`, `len_km`, `src_seq`.
 
-### 12. `roads` — 122 lines, 19,842 km, 92.6 % inside Nigeria
+### 12. `roads` — 122 lines, 19,630 km, 92.5 % inside Nigeria
 
 Trunk roads only; this is not a road network and it is not navigable — no junctions, no
 classes beyond `road`, no names. 7.4 % runs outside the border.
 
-### 13. `railway` — 6 lines, 3,131 km, 100 % inside Nigeria
+### 13. `railway` — 6 lines, 3,084 km, 100 % inside Nigeria
 
 Six long lines, entirely within the country. The only transport layer with no cross-border
 content.
 
-### 14. `state_boundaries` — 83 lines, 36,044 km, 92.3 % inside Nigeria
+### 14. `state_boundaries` — 83 lines, 35,588 km, 92.2 % inside Nigeria
 
 The country's internal boundaries, drawn as 83 fragments: the 36 state boundaries plus the
 FCT, but also the neighbouring countries' internal lines, which is why 7.7 % of the length is
@@ -304,6 +319,17 @@ stored points 12.1 km median, shuffled x/y 13.9–14.2 km, uniform-in-territory 
 So: **valid positions → `minerals_named`. Usable commodity attributes → `mineral_symbols`,
 filtered on `is_symbol = 1`.** Everything else in the family is kept for provenance and
 comparison, and `mineral_localities*` is queued for rebuild.
+
+Which copy comes from which matters here, because the names do not say:
+
+| layer | CRS | parent | what it adds |
+|---|---|---|---|
+| 20 `mineral_localities` | 4326 | — | the extraction as it stands |
+| 21 `mineral_localities_refined` | 4326 | 20 | `pos_method`, `pos_sigma_m`, `pos_confidence`, `reassigned_from` |
+| 22 `mineral_localities_icons` | 4326 | 21 | icon anchoring: `locality_id`, `n_icons`, `icon_tier`, `moved_from_label_m` |
+| 23 `mineral_localities_icons_utm32n` | 32632 | 22 | the projection only |
+| 24 `mineral_localities_equal_area` | 6933 | 22 | the projection only (+ `area_km2_equal_area` on the geology copies) |
+| 25 `mineral_localities_utm32n` | 32632 | **21** | the projection only — *not* layer 20 in metres |
 
 ### 18. `mineral_symbols` — 1,609 rows, **POSITIONS WITHDRAWN**
 
@@ -429,14 +455,14 @@ Both are **instruments, not geography**: they are the graticule fitted to each s
 derive and verify the affine transforms. 33–36 % of their length runs past the map frame, which
 is the point — they are what the fit was measured on.
 
-### 26. `graticule_geology` — 22 lines, 24,230 km
+### 26. `graticule_geology` — 22 lines, 24,041 km
 
 The 1° graticule fitted to the 2011 sheet: 12 meridians and 10 parallels, `axis`, `value`,
 `label` (`3°E`…), `page_pt` (where the line sits on the page), `length_km`, `n_lines`. This is
 the evidence for the geology affine `lon = (x + 276.36)/157.593, lat = (2281.63 - y)/157.586`,
 residual 0.20 pt = 130 m.
 
-### 27. `graticule_minerals` — 11 lines, 13,765 km
+### 27. `graticule_minerals` — 11 lines, 13,664 km
 
 The graticule fitted to the 2023 sheet, plus the field that documents a source defect:
 `vp_value` is what the extraction's table said (4.172 for the 4°E line), `printed` is what the
@@ -459,7 +485,7 @@ only one of the 32 state capitals appears in both layers.
 |---|---|
 | `geonameid` | the GeoNames id — the stable key |
 | `coord_dp` | decimal places GeoNames recorded for the position: **7,372 of 45,415 entries have 2 or fewer**, i.e. a position good to about 1 km at best and 50 km at worst. Filter on it before measuring distances |
-| `state`, `state_gn`, `state_agree` | state from the polygon the point falls in; GeoNames' own state; and `state_agree` as a real BOOLEAN where both exist (93.6 % of 31,486 agree) |
+| `state`, `state_gn`, `state_agree` | state from the polygon the point falls in; GeoNames' own state; and `state_agree` as a real BOOLEAN where both exist (93.7 % of 31,913 agree; 427 of those have no polygon state, so they agree by construction) |
 | `population` | 0 where GeoNames records none — only **450** places carry a figure |
 | `elevation_m`, `dem_m` | spot elevation and digital model height, as recorded, NULL where absent |
 | `dup_group` | 642 rows are a second spelling of a place already in the layer; 2,638 rows share an exact coordinate with another row |
@@ -611,3 +637,30 @@ covers all 907,157 km².
    `volcanic_plugs` (6 decimal places, about 0.1 m); in the projection copies the coordinates
    round-trip to within a millimetre. A query cannot get two answers for one point — that was
    not true before 2026-10-27, when the two copies disagreed by up to 0.1 m in 584 rows.
+13. **Every row's length is one measure.** `len_km` and `km_in_nigeria` are both geodesic, and
+   `frac_in_nigeria` is their ratio, so `km_in_nigeria <= len_km` always. Before the 2026-10-27
+   pass the two were measured differently — `len_km` on the ellipsoid, `km_in_nigeria` on the
+   EPSG:6933 grid, which stretches a north-south line in this latitude range — and the
+   in-Nigeria figure came out *longer than the whole line* in 26 state-boundary, 71 road, 580
+   river, 486 fault, 39 fold-axis and 1,972 geology-boundary rows. `frac_in_nigeria` was
+   clamped to hide it. `audit_layers.py` now re-measures every line geodesically and fails if
+   the attributes disagree.
+14. **`water_bodies.perim_km` includes the interior rings** (Lake Chad has 38 holes, 640 km of
+   shoreline): it is 1,570 km, of which 930 km is the outer shore. `area_in_nigeria_km2` is
+   never larger than `area_km2`, and `frac_in_nigeria` is their ratio.
+15. **A missing value is never a sentinel.** `towns_geonames.dem_m` held 42 × `-9999` (the SRTM
+   void, all coastal or riverine) and two small negatives before this pass — an elevation of
+   -9,999 m that any `MIN()` or `< 500` test would have counted as data. It is NULL now, and
+   the audit fails on any `-9999` / `-99999` / `-32768` in any numeric column.
+16. **No value is cut off at a fixed width.** Two were: `mineral_symbols.link` stopped at
+   "colour not consi" in 448 rows, and `towns_geonames.alt_names` could stop mid-name in the
+   middle of its list. Both are whole now, and the audit checks that the strings that were
+   truncated are complete.
+17. **Text carries no padding, no double spaces and no control characters.** One town name had
+   a double space and `Gabu(Ogaja)` was the one locality of 999 written without a space before
+   its parenthetical; both are join keys, so both are fixed.
+18. **`geology_units.formation` is a name, not a note.** Twelve rows carried the provenance tag
+   "(chart key)" inside the name, one read "Awgu - Formation" with a dash before the word
+   Formation, and three held a lithology ("Sediments", "Mangroves swamps", "Meader belt …")
+   because the sheet's legend row gave no formation — those three are NULL now, with a `note`,
+   and `unit` still holds the printed description. 37 names, all clean.

@@ -60,6 +60,225 @@
     6,
     7
    ]
+  },
+  "ring_needles_removed": {
+   "geology_units": {
+    "rows_cleaned": 0,
+    "needles_before": 0,
+    "needles_after": 0,
+    "parts_before": 1574,
+    "parts_after": 1574,
+    "area_lost_m2": 0.0
+   },
+   "geology_era": {
+    "rows_cleaned": 0,
+    "needles_before": 0,
+    "needles_after": 0,
+    "parts_before": 811,
+    "parts_after": 811,
+    "area_lost_m2": 0.0
+   }
+  },
+  "geology_copies_rebuilt": {
+   "layers": [
+    "geology_units_utm32n",
+    "geology_units_equal_area"
+   ],
+   "needles": {
+    "geology_units_utm32n": 0,
+    "geology_units_equal_area": 0
+   },
+   "equal_area_km2": 907157.0
+  },
+  "towns_geonames_detail": {
+   "dem_m_void_to_null": 0,
+   "alt_names_cut": 0,
+   "timezone_fixed": 0
+  },
+  "truncated_text": {
+   "mineral_symbols_link": 0,
+   "poly_population_class_name": 0
+  },
+  "name_spacing": {
+   "mineral_localities": 0,
+   "mineral_localities_refined": 0,
+   "mineral_localities_utm32n": 0,
+   "mineral_localities_icons": 0,
+   "mineral_localities_icons_utm32n": 0,
+   "mineral_localities_equal_area": 0,
+   "towns": 0
+  },
+  "formation_tidied": {
+   "geology_units": 0,
+   "geology_units_utm32n": 0,
+   "geology_units_equal_area": 0
+  },
+  "formation_names": {
+   "count": 37,
+   "values": [
+    "Abeokuta Formation",
+    "Ajali Formation",
+    "Asu River group",
+    "Awgu Formation",
+    "Awi-Odukpani Formation",
+    "Bassange Formation",
+    "Benin Formation",
+    "Bima Formation",
+    "Chad Formation",
+    "Dange Formation",
+    "Dukamaje Formation",
+    "Ewekoro Formation",
+    "Ezeaku group",
+    "Ezeaku group",
+    "Fika Formation",
+    "Gombe Formation",
+    "Gundumi Formation",
+    "Gundumi Formation",
+    "Gwandu Formation",
+    "Gwandu Formation",
+    "Ilaro Formation",
+    "Illo Formation",
+    "Imo group",
+    "Kerri-Kerri Formation",
+    "Lafia-Wukari Formation",
+    "Mamu Formation",
+    "Mamu Formation",
+    "Newer Basalt",
+    "Nkporo Formation",
+    "Nsukka Formation",
+    "Nsukka Formation",
+    "Nupe Formation",
+    "Ogwashi-Asaba Formation",
+    "Pindiga Formation",
+    "Sombreiro Deltaic Formation",
+    "Taloka Formation",
+    "Yola-Bima-Yolde Formation"
+   ]
+  },
+  "line_lengths_recomputed": {
+   "state_boundaries": {
+    "rows": 83,
+    "len_km_before": 35587.5,
+    "len_km_after": 35587.5,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0,
+    "km_in_nigeria_before": 32817.7,
+    "km_in_nigeria_after": 32817.7,
+    "share_before_pct": 92.22,
+    "share_after_pct": 92.22
+   },
+   "fold_axes": {
+    "rows": 90,
+    "len_km_before": 1961.8,
+    "len_km_after": 1961.8,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0,
+    "km_in_nigeria_before": 1856.4,
+    "km_in_nigeria_after": 1856.4,
+    "share_before_pct": 94.63,
+    "share_after_pct": 94.63
+   },
+   "roads": {
+    "rows": 122,
+    "len_km_before": 19629.6,
+    "len_km_after": 19629.6,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0,
+    "km_in_nigeria_before": 18148.5,
+    "km_in_nigeria_after": 18148.5,
+    "share_before_pct": 92.45,
+    "share_after_pct": 92.45
+   },
+   "rivers": {
+    "rows": 1054,
+    "len_km_before": 40206.4,
+    "len_km_after": 40206.4,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0,
+    "km_in_nigeria_before": 33416.4,
+    "km_in_nigeria_after": 33416.4,
+    "share_before_pct": 83.11,
+    "share_after_pct": 83.11
+   },
+   "faults": {
+    "rows": 648,
+    "len_km_before": 17704.3,
+    "len_km_after": 17704.3,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0,
+    "km_in_nigeria_before": 17672.2,
+    "km_in_nigeria_after": 17672.2,
+    "share_before_pct": 99.82,
+    "share_after_pct": 99.82
+   },
+   "geology_boundaries": {
+    "rows": 2819,
+    "len_km_before": 81849.2,
+    "len_km_after": 81849.2,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0,
+    "km_in_nigeria_before": 81726.7,
+    "km_in_nigeria_after": 81726.7,
+    "share_before_pct": 99.85,
+    "share_after_pct": 99.85
+   },
+   "younger_granite_outlines": {
+    "rows": 59,
+    "len_km_before": 2465.7,
+    "len_km_after": 2465.7,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0,
+    "km_in_nigeria_before": 2465.7,
+    "km_in_nigeria_after": 2465.7,
+    "share_before_pct": 100.0,
+    "share_after_pct": 100.0
+   },
+   "railway": {
+    "rows": 6,
+    "len_km_before": 3084.2,
+    "len_km_after": 3084.2,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0
+   },
+   "international_boundary": {
+    "rows": 1,
+    "len_km_before": 4093.4,
+    "len_km_after": 4093.4,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0,
+    "km_in_nigeria_before": 4093.1,
+    "km_in_nigeria_after": 4093.1,
+    "share_before_pct": 99.99,
+    "share_after_pct": 99.99
+   }
+  },
+  "water_bodies_geometry_measures": {
+   "area_before_km2": {
+    "Gulf of Guinea (Atlantic Ocean)": 133395.07,
+    "Lake Chad": 13373.19,
+    "River Niger / River Benue": 5869.35,
+    "unnamed reservoir": 225.66
+   },
+   "area_after_km2": {
+    "Gulf of Guinea (Atlantic Ocean)": 133395.07,
+    "Lake Chad": 13373.19,
+    "River Niger / River Benue": 5869.35,
+    "unnamed reservoir": 225.66
+   },
+   "total_before_km2": 152863.3,
+   "total_after_km2": 152863.3,
+   "perim_before_km": {
+    "Gulf of Guinea (Atlantic Ocean)": 4956.2,
+    "Lake Chad": 1570.3,
+    "River Niger / River Benue": 5026.8,
+    "unnamed reservoir": 137.8
+   },
+   "perim_after_km": {
+    "Gulf of Guinea (Atlantic Ocean)": 4956.2,
+    "Lake Chad": 1570.3,
+    "River Niger / River Benue": 5026.8,
+    "unnamed reservoir": 137.8
+   }
   }
  },
  "history": {
@@ -122,6 +341,225 @@
     6,
     7
    ]
+  },
+  "ring_needles_removed": {
+   "geology_units": {
+    "rows_cleaned": 0,
+    "needles_before": 0,
+    "needles_after": 0,
+    "parts_before": 1574,
+    "parts_after": 1574,
+    "area_lost_m2": 0.0
+   },
+   "geology_era": {
+    "rows_cleaned": 0,
+    "needles_before": 0,
+    "needles_after": 0,
+    "parts_before": 811,
+    "parts_after": 811,
+    "area_lost_m2": 0.0
+   }
+  },
+  "geology_copies_rebuilt": {
+   "layers": [
+    "geology_units_utm32n",
+    "geology_units_equal_area"
+   ],
+   "needles": {
+    "geology_units_utm32n": 0,
+    "geology_units_equal_area": 0
+   },
+   "equal_area_km2": 907157.0
+  },
+  "towns_geonames_detail": {
+   "dem_m_void_to_null": 0,
+   "alt_names_cut": 0,
+   "timezone_fixed": 0
+  },
+  "truncated_text": {
+   "mineral_symbols_link": 0,
+   "poly_population_class_name": 0
+  },
+  "name_spacing": {
+   "mineral_localities": 0,
+   "mineral_localities_refined": 0,
+   "mineral_localities_utm32n": 0,
+   "mineral_localities_icons": 0,
+   "mineral_localities_icons_utm32n": 0,
+   "mineral_localities_equal_area": 0,
+   "towns": 0
+  },
+  "formation_tidied": {
+   "geology_units": 0,
+   "geology_units_utm32n": 0,
+   "geology_units_equal_area": 0
+  },
+  "formation_names": {
+   "count": 37,
+   "values": [
+    "Abeokuta Formation",
+    "Ajali Formation",
+    "Asu River group",
+    "Awgu Formation",
+    "Awi-Odukpani Formation",
+    "Bassange Formation",
+    "Benin Formation",
+    "Bima Formation",
+    "Chad Formation",
+    "Dange Formation",
+    "Dukamaje Formation",
+    "Ewekoro Formation",
+    "Ezeaku group",
+    "Ezeaku group",
+    "Fika Formation",
+    "Gombe Formation",
+    "Gundumi Formation",
+    "Gundumi Formation",
+    "Gwandu Formation",
+    "Gwandu Formation",
+    "Ilaro Formation",
+    "Illo Formation",
+    "Imo group",
+    "Kerri-Kerri Formation",
+    "Lafia-Wukari Formation",
+    "Mamu Formation",
+    "Mamu Formation",
+    "Newer Basalt",
+    "Nkporo Formation",
+    "Nsukka Formation",
+    "Nsukka Formation",
+    "Nupe Formation",
+    "Ogwashi-Asaba Formation",
+    "Pindiga Formation",
+    "Sombreiro Deltaic Formation",
+    "Taloka Formation",
+    "Yola-Bima-Yolde Formation"
+   ]
+  },
+  "line_lengths_recomputed": {
+   "state_boundaries": {
+    "rows": 83,
+    "len_km_before": 35587.5,
+    "len_km_after": 35587.5,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0,
+    "km_in_nigeria_before": 32817.7,
+    "km_in_nigeria_after": 32817.7,
+    "share_before_pct": 92.22,
+    "share_after_pct": 92.22
+   },
+   "fold_axes": {
+    "rows": 90,
+    "len_km_before": 1961.8,
+    "len_km_after": 1961.8,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0,
+    "km_in_nigeria_before": 1856.4,
+    "km_in_nigeria_after": 1856.4,
+    "share_before_pct": 94.63,
+    "share_after_pct": 94.63
+   },
+   "roads": {
+    "rows": 122,
+    "len_km_before": 19629.6,
+    "len_km_after": 19629.6,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0,
+    "km_in_nigeria_before": 18148.5,
+    "km_in_nigeria_after": 18148.5,
+    "share_before_pct": 92.45,
+    "share_after_pct": 92.45
+   },
+   "rivers": {
+    "rows": 1054,
+    "len_km_before": 40206.4,
+    "len_km_after": 40206.4,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0,
+    "km_in_nigeria_before": 33416.4,
+    "km_in_nigeria_after": 33416.4,
+    "share_before_pct": 83.11,
+    "share_after_pct": 83.11
+   },
+   "faults": {
+    "rows": 648,
+    "len_km_before": 17704.3,
+    "len_km_after": 17704.3,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0,
+    "km_in_nigeria_before": 17672.2,
+    "km_in_nigeria_after": 17672.2,
+    "share_before_pct": 99.82,
+    "share_after_pct": 99.82
+   },
+   "geology_boundaries": {
+    "rows": 2819,
+    "len_km_before": 81849.2,
+    "len_km_after": 81849.2,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0,
+    "km_in_nigeria_before": 81726.7,
+    "km_in_nigeria_after": 81726.7,
+    "share_before_pct": 99.85,
+    "share_after_pct": 99.85
+   },
+   "younger_granite_outlines": {
+    "rows": 59,
+    "len_km_before": 2465.7,
+    "len_km_after": 2465.7,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0,
+    "km_in_nigeria_before": 2465.7,
+    "km_in_nigeria_after": 2465.7,
+    "share_before_pct": 100.0,
+    "share_after_pct": 100.0
+   },
+   "railway": {
+    "rows": 6,
+    "len_km_before": 3084.2,
+    "len_km_after": 3084.2,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0
+   },
+   "international_boundary": {
+    "rows": 1,
+    "len_km_before": 4093.4,
+    "len_km_after": 4093.4,
+    "rows_with_in_nigeria_over_total_before": 0,
+    "after": 0,
+    "km_in_nigeria_before": 4093.1,
+    "km_in_nigeria_after": 4093.1,
+    "share_before_pct": 99.99,
+    "share_after_pct": 99.99
+   }
+  },
+  "water_bodies_geometry_measures": {
+   "area_before_km2": {
+    "Gulf of Guinea (Atlantic Ocean)": 133395.07,
+    "Lake Chad": 13373.19,
+    "River Niger / River Benue": 5869.35,
+    "unnamed reservoir": 225.66
+   },
+   "area_after_km2": {
+    "Gulf of Guinea (Atlantic Ocean)": 133395.07,
+    "Lake Chad": 13373.19,
+    "River Niger / River Benue": 5869.35,
+    "unnamed reservoir": 225.66
+   },
+   "total_before_km2": 152863.3,
+   "total_after_km2": 152863.3,
+   "perim_before_km": {
+    "Gulf of Guinea (Atlantic Ocean)": 4956.2,
+    "Lake Chad": 1570.3,
+    "River Niger / River Benue": 5026.8,
+    "unnamed reservoir": 137.8
+   },
+   "perim_after_km": {
+    "Gulf of Guinea (Atlantic Ocean)": 4956.2,
+    "Lake Chad": 1570.3,
+    "River Niger / River Benue": 5026.8,
+    "unnamed reservoir": 137.8
+   }
   }
  },
  "note": "every repair below is already applied and verified; `history` is what the first run changed"
