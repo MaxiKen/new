@@ -29,12 +29,12 @@
   "p90_distance_km": 98.41
  },
  "nearest_ngsa_km_median": 20.77,
- "state_from_polygon": 44904,
- "state_from_polygon_pct": 98.9,
  "geonames_state_vs_polygon": {
-  "compared": 31486,
-  "agree": 29476,
-  "agree_pct": 93.6
+  "compared": 31913,
+  "agree": 29903,
+  "disagree": 2010,
+  "agree_pct": 93.7,
+  "not_comparable": 13502
  },
  "spot_check": {
   "cities": {
@@ -54,11 +54,27 @@
    "Calabar": 3.22,
    "Uyo": 2.71
   },
-  "n": 15,
   "median_km": 0.55,
-  "worst_km": 5.69
+  "worst_km": 5.69,
+  "worst_city": "Ibadan",
+  "note": "distance from each published coordinate to the nearest gazetteer place of that name; KNOWN in build_towns.py"
  },
  "outside_territory": 500,
  "outside_territory_max_km": 291.74,
- "outside_territory_median_km": 0.81
+ "outside_territory_median_km": 0.81,
+ "state_name_source": {
+  "note": "`with_state` counts every row that carries a state name: from the state polygons where the point falls in one, from GeoNames' own field otherwise"
+ },
+ "as_built": {
+  "superseded": {
+   "state_from_polygon": 44904,
+   "state_from_polygon_pct": 98.9,
+   "geonames_state_vs_polygon": {
+    "compared": 31486,
+    "agree": 29476,
+    "agree_pct": 93.6
+   }
+  },
+  "note": "what build_towns.py measured at build time. The repairs that followed (state name from the repaired polygons, state_agree recomputed) changed these; the values above are recomputed from the shipped layer by refresh_towns_report.py. Nothing was deleted."
+ }
 }

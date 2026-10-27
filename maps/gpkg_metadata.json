@@ -3,6 +3,10 @@
   "gpkg_metadata",
   "gpkg_metadata_reference"
  ],
+ "last_change_pinned": {
+  "main": 35,
+  "copies": 5
+ },
  "files": {
   "Nigeria_Geology_Minerals_4326.gpkg": {
    "records": 4,

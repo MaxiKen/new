@@ -29,7 +29,7 @@ resulting layer and `towns_report.json`.
 | `name`, `ascii_name` | the name as GeoNames prefers it, and ASCII-folded |
 | `alt_names` | the alternative spellings GeoNames records, comma-separated and cut at 120 characters (the longest in the layer is 116) |
 | `feature_code`, `feature_type` | `PPL` village/town (45,141), `PPLA` state capital (36), `PPLA2` (82), `PPLC` national capital (1 — Abuja), `PPLX` section of a place (44), `PPLQ` abandoned (40), `PPLL` locality (41), `PPLS` (25), `PPLF` farm (4), `PPLR` religious (1), with the plain-language type beside each |
-| `state` | state name, from the state polygon the point falls in |
+| `state` | state name: from the state polygon the point falls in, or GeoNames' own `state_gn` where the point falls outside every polygon (427 rows) |
 | `state_gn` | the state GeoNames itself records (70 % of places have none) |
 | `state_agree` | a real BOOLEAN (1/0, NULL where either side is unknown) — they agree on **93.7 %** of 31,913 comparisons (29,903 agree, 2,010 do not); disagreeing rows are worth a look before trusting either. 427 of the 31,913 fall outside every state polygon on the sheet, so their `state` *is* GeoNames' own and they agree by construction |
 | `admin1_code`, `admin2_code` | GeoNames' own codes, as printed — `admin1_code` is `00` for 13,501 rows, which is GeoNames saying it does not know the state, so use `state` (from the polygon) rather than this code; `admin2_code` is populated for 12 rows |
@@ -84,7 +84,7 @@ merged or dropped to hide it.
 | against published coordinates for 15 major cities (independent of this repository) | median **0.55 km**, worst 5.7 km (Ibadan) |
 | against the NGSA map labels — for each of the 404 named labels, the nearest same-name gazetteer place | **257 within 15 km**, median 10.8 km, 90th percentile 98 km |
 | state agreement, GeoNames' own field vs. the polygon | **93.7 %** of 31,913 (427 of them have no polygon state, so they agree by construction) |
-| state present | 99.8 % of rows (from the polygon) |
+| state present | 99.8 % of rows — from the state polygon where the point falls in one, 427 rows from GeoNames' own field rather than a polygon |
 | positions with `coord_dp >= 3` | 38,043 of 45,415 = **83.8 %** (7,372 at 2 or fewer) |
 
 Read the NGSA comparison correctly: a blanket "the gazetteer is 10 km from the

@@ -35,6 +35,7 @@ sheets in this repository:
 | `minerals_named.md` | how each of the 1,323 glyphs was named, per-colour-family accuracy, and the totals that are *not* reliable |
 | `REVIEW_2026-10-25.md` | an independent review of this dataset against the two source PDFs, and what it changed |
 | `build_towns.py` | adds **`towns_geonames`** — the 45,415-place GeoNames gazetteer of Nigeria, with state, and the two accuracy checks against outside data |
+| `refresh_towns_report.py` | recomputes the gazetteer's layer-derived counters from the shipped layer and keeps the superseded build-time values under `as_built` |
 | `towns_geonames.md` | that layer: provenance, licence, fields, the measured accuracy, and what it must not be used for |
 | `towns_report.json` / `towns_geonames_qc.png` | its counts and checks, and the overlay it was checked against |
 | `RASTER_VS_VECTOR.md` | **which of the nine scans should be polygons and which must stay rasters**, with the measurement behind each verdict |
@@ -48,7 +49,7 @@ sheets in this repository:
 | `repair_layers.py` | the per-layer defects found by the deep audit, each one idempotent and recorded (`layer_repairs.json`) |
 | `docs_check.py` | **tests every published number against the files that produced it** — the layer tables in `LAYERS.md` and `README.md`, the field tables, and the raster catalogue in `RASTER_LAYERS.md` against `raster_georeferencing.json` (412 claims in all); exits non-zero if one is wrong |
 | `vectorisation_study.py` | the purity / fragmentation / round-trip test each sheet passes or fails |
-| `georef_new_map.py` | **georeferences the nine scans in `new map/`** into the GeoPackage as clipped RGBA raster layers, with a measured border offset per layer |
+| `georef_new_map.py` | **georeferences the nine scans in `new map/`** into the GeoPackage as clipped tiled rasters (RGBA where the clip bites, RGB JPEG where the tile is fully opaque), with a measured border offset per layer |
 | `RASTER_LAYERS.md` | the nine raster layers: format decisions, legend transcriptions, measured positional error and what each must not be used for |
 | `raster_georeferencing.json` / `raster_georeferencing_qc.png` | the fit record for every raster layer, and the overlay it was checked against |
 | `refresh_crs_report.py` | recomputes `crs_qa_report.json` from the shipped file, so its layer count and its 3857 error figure cannot drift from the data |
@@ -112,6 +113,19 @@ and merges the tiles, the second replaces only its own layer. Neither touches th
 metadata and are safe on the finished file). Re-running them replaces the nine
 raster layers and `towns_geonames` in place. See `RASTER_LAYERS.md` and
 `towns_geonames.md`.
+
+### The deliverable is byte-reproducible
+
+Running the block above again, from the files it left behind, rewrites both
+GeoPackages and the PDF **byte for byte** - same SHA-256, not merely the same
+content. That took work in `add_gpkg_metadata.py`, the last writer: the repair and
+describing passes bump `gpkg_contents.last_change` and re-insert the rows of the
+register tables in whatever order they ran, SQLite's header counts writes, and
+matplotlib stamps the PDF with the clock. None of that is data, so the last writer
+pins the timestamp, rewrites the registers in sorted order, `VACUUM`s the file and
+resets the header counters. This is what makes the SHA-256 in a citation a usable
+audit handle: `check_idempotency.py` proves no row changed, and this proves no byte
+did.
 
 `build_geology_final.py` must run **after** `build_combined.py` and **before** `finalize_layers.py`:
 it consumes the raw geology and rebuilds the derived layers. It refuses to run twice on its own

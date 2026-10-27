@@ -96,10 +96,19 @@ side" but *which* side and why:
 
 ## Format decisions
 
-* **GeoTIFF‑in‑GeoPackage tiles, 4‑band RGBA `uint8`.** The alpha band carries
-  the clip, so the surrounding paper, legend boxes, scale bars, north arrows and
-  titles disappear instead of smearing into the mapping. Multi‑band rasters in a
-  GeoPackage must be byte data, hence `uint8`.
+* **PNG and JPEG image tiles in a GeoPackage pyramid, `uint8`, 256 × 256.** The
+  alpha channel carries the clip, so the surrounding paper, legend boxes, scale
+  bars, north arrows and titles disappear instead of smearing into the mapping.
+  The 953 tiles are not all the same image format, and that is deliberate on
+  GDAL's part: a tile that needs transparency is written as **4‑band RGBA PNG**
+  (307 tiles) and a tile that is wholly inside the printed map is written as
+  **3‑band RGB JPEG** (646 tiles), which is smaller and lossless where it matters
+  because nothing in it is transparent. A GeoPackage stores one image BLOB per
+  tile, so a mixed pyramid is legal; a reader must treat a 3‑band tile as fully
+  opaque. `audit_layers.py` proves that assumption holds: it decodes all 953
+  tiles, and checks that no 3‑band tile touches clipped ground — if one did, the
+  clip would show as a rectangular block of paper. GDAL reads each layer as a
+  4‑band RGBA dataset, which is how QGIS opens it.
 * **No rotation, no reprojection of the pixels.** Every sheet is a plain affine
   (independent x/y scale, no rotation). Resampling a classification would invent
   class values along every boundary, so the pixels are untouched and only the

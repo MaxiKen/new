@@ -1,6 +1,6 @@
 {
  "gpkg": "/home/user/new/maps/Nigeria_Geology_Minerals_4326.gpkg",
- "gpkg_mtime": "2026-10-27T07:11:28",
+ "gpkg_mtime": "2026-10-27T08:16:48",
  "rows": [
   {
    "script": "audit_layers.py",
@@ -90,7 +90,7 @@
    "ok": true,
    "fresh": true,
    "kind": "build",
-   "note": "45,415 places, 44,915 inside"
+   "note": "45,415 places, 44,915 inside, 31,913 state comparisons (29,903 agree) - every counter matches the layer"
   },
   {
    "script": "georef_new_map.py",

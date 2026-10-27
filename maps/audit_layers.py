@@ -865,6 +865,75 @@ else:
 chk["crs"] = crs_chk
 chk["geopackage_conformance"] = gpkg
 
+# ---- the raster pyramids: every tile decodes, and the clip still holds -----
+# A GeoPackage stores one image BLOB per tile, so a pyramid may mix formats -
+# and GDAL does: a tile that needs transparency is a 4-band RGBA PNG, a tile
+# wholly inside the printed map is a 3-band RGB JPEG. That is legal and it is
+# smaller, but it is only *correct* if no 3-band tile sits on ground the clip
+# should have removed: such a tile would show as a block of paper. Decode every
+# tile and check the invariant, instead of trusting the writer.
+from rasterio.io import MemoryFile
+
+tile_chk = {}
+for (t,) in sqlite3.connect(P).execute(
+        "SELECT table_name FROM gpkg_contents WHERE data_type='tiles' ORDER BY 1"):
+    con = sqlite3.connect(P)
+    mw, mh, tw, th = con.execute(
+        "SELECT matrix_width, matrix_height, tile_width, tile_height FROM gpkg_tile_matrix"
+        " WHERE table_name = ?", (t,)).fetchone()
+    rec = dict(tiles=0, png=0, jpeg=0, rgb_tiles=0, rgba_tiles=0, undecodable=[],
+               wrong_size=[], opaque_block_at_clip=[])
+    mosaic = np.zeros((mh * th, mw * tw, 4), dtype=np.uint8)
+    rgb_cells = []
+    for blob, c, r in con.execute(f'SELECT tile_data, tile_column, tile_row FROM "{t}"'):
+        rec["tiles"] += 1
+        if blob[:8] == b"\x89PNG\r\n\x1a\n":
+            rec["png"] += 1
+        elif blob[:2] == b"\xff\xd8":
+            rec["jpeg"] += 1
+        try:
+            with MemoryFile(blob) as mf:
+                with mf.open() as ds:
+                    a = ds.read()
+        except Exception as exc:                  # a tile that will not open is a defect
+            rec["undecodable"].append(f"{c},{r}: {exc}")
+            continue
+        if (a.shape[1], a.shape[2]) != (th, tw):
+            rec["wrong_size"].append(f"{c},{r}: {a.shape[1:]} vs {(th, tw)}")
+        a = np.transpose(a, (1, 2, 0))
+        if a.shape[2] == 3:
+            rec["rgb_tiles"] += 1
+            rgb_cells.append((c, r))
+            a = np.dstack([a, np.full(a.shape[:2], 255, dtype=np.uint8)])
+        else:
+            rec["rgba_tiles"] += 1
+        mosaic[r * th:(r + 1) * th, c * tw:(c + 1) * tw, :] = a
+    con.close()
+    alpha = mosaic[:, :, 3]
+    for c, r in rgb_cells:
+        y0, y1, x0, x1 = r * th, (r + 1) * th, c * tw, (c + 1) * tw
+        edges = []
+        if r > 0:
+            edges.append(alpha[y0 - 1, x0:x1])
+        if r < mh - 1:
+            edges.append(alpha[y1, x0:x1])
+        if c > 0:
+            edges.append(alpha[y0:y1, x0 - 1])
+        if c < mw - 1:
+            edges.append(alpha[y0:y1, x1])
+        if any((e == 0).mean() > 0.01 for e in edges):
+            rec["opaque_block_at_clip"].append(f"{c},{r}")
+    rec["clipped_px_pct"] = round(100 * float((alpha == 0).mean()), 1)
+    tile_chk[t] = rec
+    if rec["undecodable"]:
+        problems.append(f"{t}: {len(rec['undecodable'])} tile(s) do not decode")
+    if rec["wrong_size"]:
+        problems.append(f"{t}: {rec['wrong_size'][:2]} are not {th}x{tw}")
+    if rec["opaque_block_at_clip"]:
+        problems.append(f"{t}: {len(rec['opaque_block_at_clip'])} 3-band tile(s) sit on "
+                        f"clipped ground, so the clip would show as a block of paper")
+chk["raster_tiles"] = tile_chk
+
 # ---- class polygons: no self-overlap, and how much they actually cover -----
 poly_chk = {}
 for name in [n for n in layers if n.startswith("poly_")]:

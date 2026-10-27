@@ -287,8 +287,59 @@ if COPIES.exists():
     ]
     copies_report = write_records(COPIES, COPY_CASES, last)
 
+# The same reasoning applies to the rest of the file's own bookkeeping, which is
+# what stood between this dataset and a build you can re-run. Three things drifted
+# on every run and none of them is data:
+#   * `gpkg_contents.last_change` is the wall clock of whoever ran the pipeline,
+#     because the repair and describing passes rewrite tables and bump it;
+#   * the rows of the register tables are re-inserted by those passes in whatever
+#     order they happened to run, so the row ids - and with them every page of the
+#     file - move;
+#   * SQLite's header counts writes (change counter, schema cookie).
+# Left alone, a rerun rewrote all 49 MB of a byte-identical dataset. This is the
+# last writer, so it normalises all three: the stamp is pinned, the registers are
+# rewritten in sorted order, VACUUM rebuilds the file from its contents alone, and
+# the header counters are set to a fixed value. Nothing here describes a layer, and
+# the sort is total, so the same data gives the same bytes.
+STAMPED_TABLES = ("gpkg_contents",)
+
+
+def normalise(path, stamp):
+    """Pin the timestamps, fix the register row order, VACUUM, pin the header."""
+    con = sqlite3.connect(path, isolation_level=None)
+    n = con.execute("SELECT COUNT(*) FROM gpkg_contents").fetchone()[0]
+    con.execute("UPDATE gpkg_contents SET last_change = ?", (stamp,))
+    con.execute("BEGIN")
+    for t in ("gpkg_contents", "gpkg_geometry_columns", "gpkg_extensions",
+              "gpkg_ogr_contents", "gpkg_tile_matrix", "gpkg_tile_matrix_set",
+              "gpkg_spatial_ref_sys", "gpkg_metadata", "gpkg_metadata_reference"):
+        if not con.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+                           (t,)).fetchone():
+            continue
+        cols = [r[1] for r in con.execute(f'PRAGMA table_info("{t}")')]
+        quoted = ",".join(f'"{c}"' for c in cols)
+        rows = con.execute(f'SELECT {quoted} FROM "{t}"').fetchall()
+        rows.sort(key=lambda r: [(v is not None, str(v)) for v in r])
+        con.execute(f'DELETE FROM "{t}"')
+        con.executemany(f'INSERT INTO "{t}" ({quoted}) VALUES ({",".join("?" * len(cols))})',
+                        rows)
+    con.execute("COMMIT")
+    con.execute("VACUUM")
+    con.close()
+    # the counter and its mirror at offset 92 are written together, which is what
+    # keeps the header self-consistent; the schema cookie counts DDL, not data
+    raw = bytearray(path.read_bytes())
+    for off in (24, 92):
+        raw[off:off + 4] = (1).to_bytes(4, "big")
+    raw[40:44] = (1).to_bytes(4, "big")
+    path.write_bytes(raw)
+    return n
+
+
 report = dict(
     tables_added=["gpkg_metadata", "gpkg_metadata_reference"],
+    last_change_pinned=dict(main=normalise(GPKG, last),
+                            copies=normalise(COPIES, last) if copies_report else 0),
     files={
         GPKG.name: dict(records=main_report["records"],
                         references=main_report["references"],

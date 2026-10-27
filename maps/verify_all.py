@@ -2,7 +2,7 @@
 """Index the evidence: every check this project runs, its verdict, and whether
 that verdict is still about the file that ships.
 
-Nine scripts measure the GeoPackage and write a small JSON each. Nothing keeps
+Twelve scripts measure the GeoPackage and write a small JSON each. Nothing keeps
 those files honest: a JSON written before the last repair still says what was
 true then, and it is exactly this failure that produced the stale prose and
 stale registers found in earlier passes. This reads every evidence file, pulls
@@ -10,15 +10,18 @@ out its verdict, and compares its timestamp with the GeoPackage's. A verdict
 older than the data is reported as **stale**, and that is a failure, because a
 stale check is indistinguishable from an absent one.
 
-It does not re-measure: the verdicts are each script's own. What it checks is
-that they are present, that they parse, that the verdict they carry is a pass,
-and that they were produced after the last change to the file.
+It does not re-measure the file: the verdicts are each script's own. What it
+checks is that they are present, that they parse, that the verdict they carry is
+a pass, and that they were produced after the last change to the file. The one
+exception is `towns_report.json`: a build record has no verdict, and the one that
+shipped was stale, so its counters are re-measured against the layer.
 
 Run:  python verify_all.py        (after the scripts it indexes)
 """
 import datetime as dt
 import json
 import pathlib
+import sqlite3
 import sys
 
 HERE = pathlib.Path(__file__).parent
@@ -83,7 +86,31 @@ def copies(d):
 
 
 def towns(d):
-    return True, (f"{d.get('features'):,} places, {d.get('inside_national_territory'):,} inside")
+    # The report is a build record, so it was accepted on its own word - and it
+    # drifted: the repairs that ran after build_towns.py changed the state name and
+    # the state agreement, and the JSON kept the pre-repair numbers while both
+    # documents quoted the layer. A build record is only worth having if it is
+    # still true, so the counters it publishes are re-measured here, from the layer
+    # as it ships, and a disagreement is a failure.
+    con = sqlite3.connect(GPKG)
+    have = dict(zip(("features", "inside", "with_state", "compared", "agree"),
+                    con.execute("SELECT COUNT(*), SUM(in_nigeria), SUM(state IS NOT NULL),"
+                                " SUM(state_agree IS NOT NULL), SUM(state_agree = 1)"
+                                " FROM towns_geonames").fetchone()))
+    con.close()
+    agree = d.get("geonames_state_vs_polygon", {})
+    said = dict(features=d.get("features"),
+                inside=d.get("inside_national_territory"),
+                with_state=d.get("with_state"),
+                compared=agree.get("compared"),
+                agree=agree.get("agree"))
+    off = [f"{k}: report {said[k]} vs layer {have[k]}"
+           for k in have if said[k] is not None and said[k] != have[k]]
+    if off:
+        return False, "report disagrees with the layer: " + "; ".join(off[:3])
+    return True, (f"{have['features']:,} places, {have['inside']:,} inside, "
+                  f"{have['compared']:,} state comparisons ({have['agree']:,} agree) "
+                  f"- every counter matches the layer")
 
 
 def rasters(d):

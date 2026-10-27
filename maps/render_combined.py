@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Render the combined geology + mineral resources map from the GeoPackage."""
 import pathlib
+import re
 import warnings
 
 import geopandas as gpd
@@ -206,4 +207,11 @@ for sp in ax.spines.values():
 for ext in ("png", "pdf"):
     out = HERE / f"Nigeria_Geology_Minerals_4326.{ext}"
     fig.savefig(out, facecolor="white", dpi=200 if ext == "png" else None)
+    if ext == "pdf":
+        # matplotlib stamps /CreationDate with the clock, so two renders of the
+        # same figure differ. The drawing is deterministic; only that string is
+        # not, and pinning it makes the PDF reproducible from the layer file.
+        raw = out.read_bytes()
+        out.write_bytes(re.sub(rb"/(CreationDate|ModDate) \(D:\d{14}Z\)",
+                               rb"/\1 (D:20261027000000Z)", raw))
     print("wrote", out, f"{out.stat().st_size / 1e6:.1f} MB")

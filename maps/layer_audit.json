@@ -1238,11 +1238,11 @@
     "EPSG:4326"
    ],
    "copies_file": {
-    "mineral_localities_utm32n": 32632,
-    "mineral_localities_icons_utm32n": 32632,
-    "mineral_localities_equal_area": 6933,
+    "geology_units_equal_area": 6933,
     "geology_units_utm32n": 32632,
-    "geology_units_equal_area": 6933
+    "mineral_localities_equal_area": 6933,
+    "mineral_localities_icons_utm32n": 32632,
+    "mineral_localities_utm32n": 32632
    }
   },
   "geopackage_conformance": {
@@ -1260,6 +1260,107 @@
    "ogr_contents_wrong_counts": [],
    "undescribed_layers": [],
    "application_id": 1196444487
+  },
+  "raster_tiles": {
+   "raster_dem": {
+    "tiles": 26,
+    "png": 23,
+    "jpeg": 3,
+    "rgb_tiles": 3,
+    "rgba_tiles": 23,
+    "undecodable": [],
+    "wrong_size": [],
+    "opaque_block_at_clip": [],
+    "clipped_px_pct": 77.6
+   },
+   "raster_dominant_soils": {
+    "tiles": 537,
+    "png": 131,
+    "jpeg": 406,
+    "rgb_tiles": 406,
+    "rgba_tiles": 131,
+    "undecodable": [],
+    "wrong_size": [],
+    "opaque_block_at_clip": [],
+    "clipped_px_pct": 88.4
+   },
+   "raster_ethnic_groups": {
+    "tiles": 15,
+    "png": 14,
+    "jpeg": 1,
+    "rgb_tiles": 1,
+    "rgba_tiles": 14,
+    "undecodable": [],
+    "wrong_size": [],
+    "opaque_block_at_clip": [],
+    "clipped_px_pct": 88.7
+   },
+   "raster_forest_reserves": {
+    "tiles": 327,
+    "png": 96,
+    "jpeg": 231,
+    "rgb_tiles": 231,
+    "rgba_tiles": 96,
+    "undecodable": [],
+    "wrong_size": [],
+    "opaque_block_at_clip": [],
+    "clipped_px_pct": 72.6
+   },
+   "raster_general_geology": {
+    "tiles": 5,
+    "png": 5,
+    "jpeg": 0,
+    "rgb_tiles": 0,
+    "rgba_tiles": 5,
+    "undecodable": [],
+    "wrong_size": [],
+    "opaque_block_at_clip": [],
+    "clipped_px_pct": 87.3
+   },
+   "raster_landcover": {
+    "tiles": 5,
+    "png": 5,
+    "jpeg": 0,
+    "rgb_tiles": 0,
+    "rgba_tiles": 5,
+    "undecodable": [],
+    "wrong_size": [],
+    "opaque_block_at_clip": [],
+    "clipped_px_pct": 90.4
+   },
+   "raster_population": {
+    "tiles": 6,
+    "png": 6,
+    "jpeg": 0,
+    "rgb_tiles": 0,
+    "rgba_tiles": 6,
+    "undecodable": [],
+    "wrong_size": [],
+    "opaque_block_at_clip": [],
+    "clipped_px_pct": 84.5
+   },
+   "raster_soil_ph": {
+    "tiles": 23,
+    "png": 19,
+    "jpeg": 4,
+    "rgb_tiles": 4,
+    "rgba_tiles": 19,
+    "undecodable": [],
+    "wrong_size": [],
+    "opaque_block_at_clip": [],
+    "clipped_px_pct": 79.4
+   },
+   "raster_temperature": {
+    "tiles": 9,
+    "png": 8,
+    "jpeg": 1,
+    "rgb_tiles": 1,
+    "rgba_tiles": 8,
+    "undecodable": [],
+    "wrong_size": [],
+    "opaque_block_at_clip": [],
+    "clipped_px_pct": 93.6
+   }
   },
   "class_polygons": {
    "poly_population": {
