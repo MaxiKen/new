@@ -39,6 +39,7 @@ import geopandas as gpd
 
 HERE = pathlib.Path(__file__).parent
 GPKG = HERE / "Nigeria_Geology_Minerals_4326.gpkg"
+COPIES = HERE / "Nigeria_Geology_Minerals_projected_copies.gpkg"
 OUT = HERE / "gpkg_metadata.json"
 
 ISO19115 = "https://www.iso.org/standard/53798.html"
@@ -167,7 +168,54 @@ MASTER = record_xml(
     "rasters keep the sheets' own positional error. Attribution must stay with "
     "the file.")
 
-CASES = [
+# a record may only reference a table that the file it is written into holds, so
+# each file gets its own case list, filtered against its own gpkg_contents
+MINERAL_LAYERS = ("mineral_symbols", "mineral_localities", "mineral_localities_refined",
+                  "mineral_localities_icons", "mineral_localities_utm32n",
+                  "mineral_localities_icons_utm32n", "mineral_localities_equal_area")
+
+
+def write_records(path, cases, stamp):
+    """Replace the metadata tables of one file with `cases`; return what was written."""
+    con = sqlite3.connect(path)
+    con.execute("PRAGMA foreign_keys=ON")
+    con.executescript(DDL)
+    contents = {r[0] for r in con.execute("SELECT table_name FROM gpkg_contents")}
+    con.execute("DELETE FROM gpkg_metadata_reference")
+    con.execute("DELETE FROM gpkg_metadata")
+    written = []
+    for mid, scope, xml, targets in cases:
+        ET.fromstring(xml)                      # well-formed before it goes in
+        missing = [t for _, t, *_ in targets if t and t not in contents]
+        assert not missing, f"{path.name}: records reference absent table(s) {missing}"
+        con.execute("INSERT INTO gpkg_metadata (id, md_scope, md_standard_uri, mime_type,"
+                    " metadata) VALUES (?,?,?,?,?)", (mid, scope, ISO19115, "text/xml", xml))
+        for rscope, table, col, rowid in targets:
+            con.execute("INSERT INTO gpkg_metadata_reference (reference_scope, table_name,"
+                        " column_name, row_id_value, timestamp, md_file_id, md_parent_id)"
+                        " VALUES (?,?,?,?,?,?,NULL)", (rscope, table, col, rowid, stamp, mid))
+            written.append(dict(scope=rscope, table=table, md_file_id=mid))
+    con.commit()
+    n_rec, n_ref = (con.execute("SELECT count(*) FROM gpkg_metadata").fetchone()[0],
+                    con.execute("SELECT count(*) FROM gpkg_metadata_reference").fetchone()[0])
+    unknown = con.execute(
+        "SELECT r.table_name FROM gpkg_metadata_reference r LEFT JOIN gpkg_contents c"
+        " ON c.table_name = r.table_name WHERE r.reference_scope='table'"
+        " AND c.table_name IS NULL").fetchall()
+    dangling = con.execute(
+        "SELECT r.md_file_id FROM gpkg_metadata_reference r LEFT JOIN gpkg_metadata m"
+        " ON m.id = r.md_file_id WHERE m.id IS NULL").fetchall()
+    for (mid,) in con.execute("SELECT id FROM gpkg_metadata"):
+        ET.fromstring(con.execute("SELECT metadata FROM gpkg_metadata WHERE id=?",
+                                  (mid,)).fetchone()[0])
+    integrity = con.execute("PRAGMA integrity_check").fetchone()[0]
+    con.close()
+    assert not unknown and not dangling and integrity == "ok", (unknown, dangling, integrity)
+    return dict(records=n_rec, references=n_ref, integrity=integrity, detail=written)
+
+
+main_layers = [t for (t,) in layers]
+MAIN_CASES = [
     (1, "dataset", MASTER, [("geopackage", None, None, None)]),
     (2, "featureType", record_xml(
         "towns_geonames - GeoNames populated places, Nigeria",
@@ -193,58 +241,76 @@ CASES = [
         "The layers that carry the extraction's mineral-symbol coordinates, and "
         "the notice that those coordinates carry no positional information.",
         (west, south, east, north), WITHDRAWN),
-        [("table", t, None, None) for t in
-         ("mineral_symbols", "mineral_localities", "mineral_localities_refined",
-          "mineral_localities_utm32n", "mineral_localities_icons",
-          "mineral_localities_icons_utm32n", "mineral_localities_equal_area")]),
+        [("table", t, None, None) for t in MINERAL_LAYERS if t in main_layers]),
 ]
 
-con.execute("DELETE FROM gpkg_metadata_reference")
-con.execute("DELETE FROM gpkg_metadata")
-refs = []
-for mid, scope, xml, targets in CASES:
-    ET.fromstring(xml)  # must be well-formed before it goes in the file
-    con.execute("INSERT INTO gpkg_metadata (id, md_scope, md_standard_uri, mime_type, metadata)"
-                " VALUES (?,?,?,?,?)",
-                (mid, scope, ISO19115, "text/xml", xml))
-    for scope, table, col, rowid in targets:
-        con.execute("INSERT INTO gpkg_metadata_reference (reference_scope, table_name,"
-                    " column_name, row_id_value, timestamp, md_file_id, md_parent_id)"
-                    " VALUES (?,?,?,?,?,?,NULL)",
-                    (scope, table, col, rowid, last, mid))
-        refs.append(dict(scope=scope, table=table, md_file_id=mid))
-con.commit()
+con_m = sqlite3.connect(GPKG)
+main_report = write_records(GPKG, MAIN_CASES, last)
 
-# verify what was written, from the file
-check = con.execute("SELECT count(*) FROM gpkg_metadata").fetchone()[0]
-refs_in = con.execute("SELECT count(*) FROM gpkg_metadata_reference").fetchone()[0]
-unknown = con.execute(
-    "SELECT r.table_name FROM gpkg_metadata_reference r LEFT JOIN gpkg_contents c"
-    " ON c.table_name = r.table_name WHERE r.reference_scope='table'"
-    " AND c.table_name IS NULL").fetchall()
-dangling = con.execute(
-    "SELECT r.md_file_id FROM gpkg_metadata_reference r LEFT JOIN gpkg_metadata m"
-    " ON m.id = r.md_file_id WHERE m.id IS NULL").fetchall()
-integrity = con.execute("PRAGMA integrity_check").fetchone()[0]
-for (mid,) in con.execute("SELECT id FROM gpkg_metadata"):
-    ET.fromstring(con.execute("SELECT metadata FROM gpkg_metadata WHERE id=?", (mid,)).fetchone()[0])
-con.close()
-
-assert not unknown, f"reference to a table that is not in gpkg_contents: {unknown}"
-assert not dangling, f"reference to a missing metadata row: {dangling}"
-assert integrity == "ok", integrity
+copies_report = None
+if COPIES.exists():
+    con_c = sqlite3.connect(COPIES)
+    copy_layers = [r[0] for r in con_c.execute(
+        "SELECT table_name FROM gpkg_contents WHERE data_type='features' ORDER BY 1")]
+    parent = {"geology_units_utm32n": "geology_units",
+              "geology_units_equal_area": "geology_units",
+              "mineral_localities_icons_utm32n": "mineral_localities_icons",
+              "mineral_localities_equal_area": "mineral_localities_icons",
+              "mineral_localities_utm32n": "mineral_localities_refined"}
+    srs = sorted({r[0] for r in con_c.execute("SELECT DISTINCT srs_id FROM gpkg_contents")})
+    con_c.close()
+    COPY_CASES = [
+        (1, "dataset", record_xml(
+            "Nigeria - measurement copies of the projected layers (GeoPackage)",
+            f"{len(copy_layers)} reprojections of layers in "
+            f"Nigeria_Geology_Minerals_4326.gpkg, for calculating area and length in "
+            f"metres. Layers: " + ", ".join(f"{c} (from {parent[c]})" for c in copy_layers)
+            + f". CRS: {', '.join('EPSG:%d' % s for s in srs)}.",
+            (west, south, east, north),
+            "These layers are the same features as the EPSG:4326 originals, "
+            "reprojected: same rows, same attributes, same key. They live here "
+            "rather than in the deliverable because that file is a single CRS "
+            "(EPSG:4326, the only one its tiled rasters can carry) so that its "
+            "layers can be laid on each other without a reprojection. Use them to "
+            "measure, the originals to draw. Same source and terms as the "
+            "originals: NGSA sheets, digitised for this dataset."),
+            [("geopackage", None, None, None)]
+            + [("table", c, None, None) for c in copy_layers]),
+        (2, "featureType", record_xml(
+            "Mineral positions - withdrawn (projected copies)",
+            "The reprojected copies of the mineral-locality layers, and the notice "
+            "that the coordinates in them carry no positional information.",
+            (west, south, east, north), WITHDRAWN),
+            [("table", t, None, None) for t in
+             ("mineral_localities_utm32n", "mineral_localities_icons_utm32n",
+              "mineral_localities_equal_area") if t in copy_layers]),
+    ]
+    copies_report = write_records(COPIES, COPY_CASES, last)
 
 report = dict(
     tables_added=["gpkg_metadata", "gpkg_metadata_reference"],
-    records=check, references=refs_in, timestamp_used=last, integrity=integrity,
-    records_detail=[{"id": m, "scope": scope, "chars": len(x),
-                     "about": [r["table"] or "the whole file" for r in refs
-                               if r["md_file_id"] == m]} for m, scope, x, _ in CASES],
-    licences=[{"source": s, "terms": t} for s, t in LICENCES],
+    files={
+        GPKG.name: dict(records=main_report["records"],
+                        references=main_report["references"],
+                        integrity=main_report["integrity"],
+                        about=[r["table"] or "the whole file" for r in main_report["detail"]]),
+        COPIES.name: dict(records=copies_report["records"],
+                          references=copies_report["references"],
+                          integrity=copies_report["integrity"],
+                          about=[r["table"] or "the whole file"
+                                 for r in copies_report["detail"]]) if copies_report else None,
+    },
+    timestamp_used=last,
+    licences=[{"source": s_, "terms": t} for s_, t in LICENCES],
     note="ids and timestamps are pinned, so a rerun rewrites the same bytes",
 )
 json.dump(report, open(OUT, "w"), indent=1)
-print(f"gpkg_metadata: {check} records, {refs_in} references -> {OUT.name}")
-for r in report["records_detail"]:
-    print(f"  id {r['id']}: {len(r['about'])} reference(s) - {', '.join(r['about'])[:90]}")
-print(f"  timestamps = {last}; integrity_check: {integrity}")
+
+for name, d in report["files"].items():
+    if not d:
+        continue
+    print(f"{name}: {d['records']} record(s), {d['references']} reference(s), "
+          f"integrity {d['integrity']}")
+    for r in d["about"]:
+        print(f"   - {r}")
+print(f"timestamps = {last} -> {OUT.name}")

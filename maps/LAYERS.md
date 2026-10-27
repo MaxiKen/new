@@ -1,16 +1,29 @@
 # Layer catalogue — `Nigeria_Geology_Minerals_4326.gpkg`
 
-**31 vector layers, 60,555 features** — plus **9 georeferenced raster layers**, documented
-separately in [`RASTER_LAYERS.md`](RASTER_LAYERS.md), and one added gazetteer layer,
+**26 vector layers, 57,364 features — every one in EPSG:4326** — plus **9 georeferenced raster
+layers** (also EPSG:4326, the only CRS a degree-tiled raster can carry), documented separately in
+[`RASTER_LAYERS.md`](RASTER_LAYERS.md), and **one** added gazetteer layer,
 [`towns_geonames`](towns_geonames.md) (45,415 points), documented in
-[`towns_geonames.md`](towns_geonames.md). 26 layers in EPSG:4326 (57,364 features), 3 in EPSG:32632
-(2,095), 2 in EPSG:6933 (1,096). Every layer has a CRS, 0 invalid / empty / null geometries,
-and is verified by `audit_layers.py` (result: `layer_audit.json`, 0 problems).
+[`towns_geonames.md`](towns_geonames.md).
+
+**One CRS, on purpose.** All 26 vector layers and all 9 rasters are EPSG:4326, so they can be
+laid on each other, joined and drawn without a reprojection. The five reprojections that used to
+sit in this file — three in EPSG:32632, two in EPSG:6933 — exist only so that area and length can
+be *measured* in metres, and each had a 4326 twin here; they now live, unchanged, in
+**`Nigeria_Geology_Minerals_projected_copies.gpkg`** (see
+[The five reprojections](#the-five-reprojections)). Nothing was deleted: the geometry and every
+attribute of each copy are the same, and `audit_layers.py` proves the copy is its parent
+reprojected on every run. Layer numbers 5, 6, 23, 24 and 25 are therefore absent from the summary
+table below — the numbering is deliberately left alone so every cross-reference in these files
+still resolves.
+
+Every layer has a CRS, 0 invalid / empty / null geometries, and is verified by `audit_layers.py`
+(result: `layer_audit.json`, 0 problems).
 
 The file also carries its own provenance: `gpkg_metadata` holds four ISO 19139 records — the
 whole file (title, lineage, bounding box, the licence of every source), the GeoNames CC BY 4.0
 attribution for `towns_geonames`, the Natural Earth terms for the outline, and the
-positions-withdrawn notice attached to the seven mineral layers — with
+positions-withdrawn notice attached to its four mineral layers — with
 `gpkg_metadata_reference` saying which part of the file each one is about. `add_gpkg_metadata.py`
 writes them and `audit_layers.py` checks that they are well-formed and still complete, so the
 attribution survives the file being copied on its own.
@@ -25,7 +38,8 @@ Navigation: [Boundary & water](#1-boundary-and-water) · [Geology](#2-geology) �
 [Base geography](#3-base-geography) · [Minerals](#4-minerals) ·
 [The gazetteer](#6-the-gazetteer) · [QA](#5-qa-layers) ·
 [Class polygons](#7-the-class-polygons-2931) ·
-[How to choose](#8-which-layer-do-i-want) · [Read this before you compute](#9-read-this-before-you-compute)
+[How to choose](#8-which-layer-do-i-want) · [Read this before you compute](#9-read-this-before-you-compute) ·
+[The five reprojections](#the-five-reprojections)
 
 ---
 
@@ -37,8 +51,6 @@ Navigation: [Boundary & water](#1-boundary-and-water) · [Geology](#2-geology) �
 | 2 | `international_boundary` | 1 | 4326 | LineString | 100 % | the 2023 land border as printed |
 | 3 | `water_bodies` | 4 | 4326 | MultiPolygon | 9.2 %* | sea, Lake Chad, the Niger–Benue corridor |
 | 4 | `geology_units` | 97 | 4326 | MultiPolygon | 100 % | **the geology**: 96 rock units + water |
-| 5 | `geology_units_utm32n` | 97 | 32632 | MultiPolygon | 100 % | the same, metres |
-| 6 | `geology_units_equal_area` | 97 | 6933 | MultiPolygon | 100 % | the same, exact areas |
 | 7 | `geology_boundaries` | 2,819 | 4326 | LineString | 99.9 % of 84,001 km | contacts, by confidence |
 | 8 | `faults` | 648 | 4326 | LineString | 99.8 % of 18,669 km | major and inferred faults |
 | 9 | `fold_axes` | 90 | 4326 | LineString | 94.6 % | anticlines and synclines |
@@ -55,9 +67,6 @@ Navigation: [Boundary & water](#1-boundary-and-water) · [Geology](#2-geology) �
 | 20 | `mineral_localities` | 999 | 4326 | Point | 991/999 | **positions withdrawn**; raw extraction |
 | 21 | `mineral_localities_refined` | 999 | 4326 | Point | 992/999 | **positions withdrawn**; older policy |
 | 22 | `mineral_localities_icons` | 999 | 4326 | Point | 995/999 | **positions withdrawn**; icon-anchored |
-| 23 | `mineral_localities_icons_utm32n` | 999 | 32632 | Point | same | the same, metres |
-| 24 | `mineral_localities_equal_area` | 999 | 6933 | Point | same | the same, equal-area |
-| 25 | `mineral_localities_utm32n` | 999 | 32632 | Point | 992/999 | **(21) in metres** — the refined positions, *not* (20): see §7 |
 | 26 | `graticule_geology` | 22 | 4326 | LineString | 66.5 %* | QA: the 2011 graticule fit |
 | 27 | `graticule_minerals` | 11 | 4326 | LineString | 63.8 %* | QA: the 2023 graticule fit |
 | 28 | `towns_geonames` | 45,415 | 4326 | Point | 98.9 % | **the gazetteer** — every populated place GeoNames records for Nigeria; state, population where known. See [`towns_geonames.md`](towns_geonames.md) |
@@ -69,6 +78,9 @@ Navigation: [Boundary & water](#1-boundary-and-water) · [Geology](#2-geology) �
 graticule lines that run past the map frame. Do not clip them, do not add them to an area total.
 
 ---
+
+*Not in this file:* 5, 6, 23, 24, 25 — the five reprojections, now in
+`Nigeria_Geology_Minerals_projected_copies.gpkg`. See [The five reprojections](#the-five-reprojections).
 
 ## 1. Boundary and water
 
@@ -198,19 +210,6 @@ Watch-outs:
   subtract `filled_km2` or filter `filled == False` — **not** `filled_km2 == 0`, which selects
   the opposite group.
 
-### 5. `geology_units_utm32n` — 97 rows, EPSG:32632
-
-The same 97 units in UTM 32N, with the same attributes. Areas here read **+0.19 %** high, and
-lengths are worse at the eastern and western edges, because Nigeria spans zones 31N, 32N and
-33N and this is one zone. **Use for local metric work inside 6–12°E; do not use for area.**
-
-### 6. `geology_units_equal_area` — 97 rows, EPSG:6933
-
-The same, on the equal-area projection, plus `area_km2_equal_area`. This is the layer to
-compute area, coverage, density or share-of-country from: it matches the geodesic figure to
-0.000 %. `geology_units` and this layer give identical totals — pick by CRS convenience, not
-by accuracy.
-
 ### 7. `geology_boundaries` — 2,819 lines, 81,849 km, 99.9 % inside Nigeria
 
 The contacts between units, as printed, with the confidence the cartographer gave them:
@@ -338,9 +337,9 @@ Which copy comes from which matters here, because the names do not say:
 | 20 `mineral_localities` | 4326 | — | the extraction as it stands |
 | 21 `mineral_localities_refined` | 4326 | 20 | `pos_method`, `pos_sigma_m`, `pos_confidence`, `reassigned_from` |
 | 22 `mineral_localities_icons` | 4326 | 21 | icon anchoring: `locality_id`, `n_icons`, `icon_tier`, `moved_from_label_m` |
-| 23 `mineral_localities_icons_utm32n` | 32632 | 22 | the projection only |
-| 24 `mineral_localities_equal_area` | 6933 | 22 | the projection only (+ `area_km2_equal_area` on the geology copies) |
-| 25 `mineral_localities_utm32n` | 32632 | **21** | the projection only — *not* layer 20 in metres |
+| 23 `mineral_localities_icons_utm32n` | 32632 | 22 | the projection only — *copies file* |
+| 24 `mineral_localities_equal_area` | 6933 | 22 | the projection only — *copies file* |
+| 25 `mineral_localities_utm32n` | 32632 | **21** | the projection only, *not* layer 20 in metres — *copies file* |
 
 ### 18. `mineral_symbols` — 1,609 rows, **POSITIONS WITHDRAWN**
 
@@ -438,25 +437,6 @@ the group centre — never the centroid, which would fall on blank paper between
 
 Caveats even after the rebuild: 15 geometries are deliberate duplicates (two records at one
 position: 29 rows in 14 positions), and `dist_to_coast_m > 0` for 4 points 0.9–5.7 km offshore.
-
-### 23. `mineral_localities_icons_utm32n` — 999 rows, EPSG:32632
-
-Layer 22 in metres, same attributes. Same withdrawal applies.
-
-### 24. `mineral_localities_equal_area` — 999 rows, EPSG:6933
-
-Layer 22 on the equal-area projection. Note 17 duplicate geometries here against 15 in 4326 —
-reprojection rounds two more pairs onto the same coordinate. Same withdrawal applies.
-
-### 25. `mineral_localities_utm32n` — 999 rows, EPSG:32632
-
-**This is the EPSG:32632 copy of layer 21, `mineral_localities_refined` — not of layer 20.**
-The name is historic: the layer was written by `refine_localities.py` alongside the refined
-positions, and its coordinates match layer 21 in 999 of 999 rows while differing from layer 20
-by up to **11.9 km** in 117 rows. Its columns are layer 21's (`pos_sigma_m`,
-`pos_confidence`, `reassigned_from`, `host_boundary_dist_m`), not layer 20's. Read the
-coordinates as refined. If you need the raw extraction in metres, project layer 20 yourself —
-both carry withdrawn positions, so the difference is historical, not usable data.
 
 ---
 
@@ -594,6 +574,63 @@ sheet, not a transcription of it: it is coarser, and it says so.
 `s`, `P`, `Gmsh`, `BCT`) — see §9, item 5. It is not a gap in coverage: the layer
 covers all 907,157 km².
 
+## The five reprojections
+
+These are the same features as their 4326 parents — same rows, same attributes, same key,
+geometry reprojected — and they live in a second file so that the deliverable is one CRS:
+
+    Nigeria_Geology_Minerals_projected_copies.gpkg   (51 MB is the main file; this one is ~8 MB)
+
+| layer | CRS | parent | rows | use it for |
+|---|---|---|---|---|
+| `geology_units_utm32n` | EPSG:32632 | `geology_units` | 97 | local metric work inside 6–12° E; **not** area |
+| `geology_units_equal_area` | EPSG:6933 | `geology_units` | 97 | area, coverage, density (exact) |
+| `mineral_localities_icons_utm32n` | EPSG:32632 | `mineral_localities_icons` | 999 | local distance (positions withdrawn) |
+| `mineral_localities_equal_area` | EPSG:6933 | `mineral_localities_icons` | 999 | equal-area work (positions withdrawn) |
+| `mineral_localities_utm32n` | EPSG:32632 | `mineral_localities_refined` | 999 | local distance (positions withdrawn) |
+
+You do not need them to work in metres: `pyproj.Geod` gives geodesic area and length from the
+4326 layers directly, and `gdf.to_crs(6933)` costs nothing on these row counts. They are kept
+because a stored measurement is reproducible and a recomputed one can drift with the library.
+
+`split_projected_copies.py` did the move and `audit_layers.py` re-proves it every run: the copy's
+every attribute is compared with its parent and its geometry with the parent reprojected (max
+offset 0.00 m), and the deliverable is asserted to hold nothing but EPSG:4326.
+
+#### 5. `geology_units_utm32n` — 97 rows, EPSG:32632
+
+The same 97 units in UTM 32N, with the same attributes. Areas here read **+0.19 %** high, and
+lengths are worse at the eastern and western edges, because Nigeria spans zones 31N, 32N and
+33N and this is one zone. **Use for local metric work inside 6–12°E; do not use for area.**
+
+#### 6. `geology_units_equal_area` — 97 rows, EPSG:6933
+
+The same, on the equal-area projection, plus `area_km2_equal_area`. This is the layer to
+compute area, coverage, density or share-of-country from: it matches the geodesic figure to
+0.000 %. `geology_units` and this layer give identical totals — pick by CRS convenience, not
+by accuracy.
+
+#### 23. `mineral_localities_icons_utm32n` — 999 rows, EPSG:32632
+
+Layer 22 in metres, same attributes. Same withdrawal applies.
+
+#### 24. `mineral_localities_equal_area` — 999 rows, EPSG:6933
+
+Layer 22 on the equal-area projection. Note 17 duplicate geometries here against 15 in 4326 —
+reprojection rounds two more pairs onto the same coordinate. Same withdrawal applies.
+
+#### 25. `mineral_localities_utm32n` — 999 rows, EPSG:32632
+
+**This is the EPSG:32632 copy of layer 21, `mineral_localities_refined` — not of layer 20.**
+The name is historic: the layer was written by `refine_localities.py` alongside the refined
+positions, and its coordinates match layer 21 in 999 of 999 rows while differing from layer 20
+by up to **11.9 km** in 117 rows. Its columns are layer 21's (`pos_sigma_m`,
+`pos_confidence`, `reassigned_from`, `host_boundary_dist_m`), not layer 20's. Read the
+coordinates as refined. If you need the raw extraction in metres, project layer 20 yourself —
+both carry withdrawn positions, so the difference is historical, not usable data.
+
+---
+
 ## 8. Which layer do I want?
 
 | if you want to… | use |
@@ -614,7 +651,7 @@ covers all 907,157 km².
 one is about: the whole file (`geopackage` scope — title, abstract, lineage, bounding box
 and the licence of every source), `towns_geonames` (the GeoNames **CC BY 4.0** attribution),
 `national_territory` and `international_boundary` (Natural Earth 1:10m, public domain,
-edited onto the 2023 sheet border), and the seven mineral layers (the positions-withdrawn
+edited onto the 2023 sheet border), and the mineral layers (the positions-withdrawn
 notice, so a reader who opens `mineral_symbols` in any GIS finds it). `add_gpkg_metadata.py`
 writes them with pinned ids and dates, so a rerun is byte-identical; `audit_layers.py`
 re-parses the XML on every run and fails if a record is malformed, a reference is dangling,

@@ -67,6 +67,8 @@ import geopandas as gpd
 import numpy as np
 import pandas as pd
 import pyogrio
+
+from gpkg_write import write_layer
 from pyproj import Geod
 from shapely.geometry import Point
 
@@ -379,7 +381,7 @@ def main(cache="/tmp/geonames_cache"):
                "admin1_code", "admin2_code", "lga",
                "population", "elevation_m", "dem_m", "timezone", "moddate",
                "in_nigeria", "coord_dp", "ngsa_town_km", "dup_group", "geometry"]]
-    pyogrio.write_dataframe(out, GPKG, layer=LAYER, driver="GPKG", append=False)
+    write_layer(out, GPKG, LAYER)
     print(f"  wrote layer {LAYER}: {len(out):,} points")
     for k in ("inside_pct", "with_state_pct", "with_population", "state_seats",
               "duplicate_spellings", "nearest_ngsa_km_median", "check_against_ngsa"):

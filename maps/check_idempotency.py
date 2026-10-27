@@ -20,25 +20,33 @@ import sys
 HERE = pathlib.Path(__file__).parent
 GPKG = HERE / "Nigeria_Geology_Minerals_4326.gpkg"
 OUT = HERE / "idempotency_check.json"
-PIPELINE = ["normalise_nulls.py", "repair_layers.py", "add_gpkg_metadata.py",
-            "describe_layers.py", "fix_gpkg_hygiene.py"]
+PIPELINE = ["normalise_nulls.py", "repair_layers.py", "split_projected_copies.py",
+            "add_gpkg_metadata.py", "describe_layers.py", "fix_gpkg_hygiene.py"]
+# both files are fingerprinted: the repair pipeline writes to the copies file too,
+# and a step that quietly rewrote it would otherwise go unnoticed.
+FILES = ["Nigeria_Geology_Minerals_4326.gpkg",
+         "Nigeria_Geology_Minerals_projected_copies.gpkg"]
 
 
 def fingerprint():
-    """sha256 of every row of every table, timestamps aside."""
+    """sha256 of every row of every table of every file."""
     import sqlite3
-    con = sqlite3.connect(GPKG)
-    tables = [r[0] for r in con.execute(
-        "SELECT table_name FROM gpkg_contents ORDER BY 1")]
     prints = {}
-    for t in tables:
-        # every column, `fid` included: a rewrite that renumbers the primary key
-        # breaks any fid a user has saved, so that is a change, not a detail
-        h = hashlib.sha256()
-        for row in con.execute(f'SELECT * FROM "{t}" ORDER BY rowid'):
-            h.update(repr(tuple(row)).encode())
-        prints[t] = h.hexdigest()[:16]
-    con.close()
+    for f in FILES:
+        path = HERE / f
+        if not path.exists():
+            continue
+        con = sqlite3.connect(path)
+        tables = [r[0] for r in con.execute(
+            "SELECT table_name FROM gpkg_contents ORDER BY 1")]
+        for t in tables:
+            # every column, `fid` included: a rewrite that renumbers the primary
+            # key breaks any fid a user has saved, so that is a change
+            h = hashlib.sha256()
+            for row in con.execute(f'SELECT * FROM "{t}" ORDER BY rowid'):
+                h.update(repr(tuple(row)).encode())
+            prints[f"{f}:{t}"] = h.hexdigest()[:16]
+        con.close()
     return prints
 
 

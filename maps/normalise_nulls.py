@@ -40,7 +40,10 @@ import geopandas as gpd
 import pandas as pd
 import pyogrio
 
+from gpkg_write import write_layer
+
 HERE = pathlib.Path(__file__).parent
+
 GPKG = HERE / "Nigeria_Geology_Minerals_4326.gpkg"
 OUT = HERE / "null_normalisation.json"
 
@@ -74,7 +77,7 @@ def main(gpkg=GPKG, out=OUT):
         for col in cols:
             if col in g.columns:
                 g[col] = g[col].astype(object).where(pd.notna(g[col]), None).replace("", None)
-        pyogrio.write_dataframe(g, gpkg, layer=t, driver="GPKG", append=False)
+        write_layer(g, gpkg, t)
         back = gpd.read_file(gpkg, layer=t)
         assert len(back) == before_rows, (t, len(back), before_rows)
         assert geometry_digest(back) == before_hash, f"{t}: geometry changed"

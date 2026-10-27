@@ -166,115 +166,6 @@
    },
    "code_unique": true
   },
-  "geology_units_equal_area": {
-   "features": 97,
-   "crs": "EPSG:6933",
-   "declared_geometry_type": "MULTIPOLYGON",
-   "geometry_types_present": [
-    "MultiPolygon"
-   ],
-   "attributes": [
-    "code",
-    "unit",
-    "fill",
-    "leg_desc",
-    "legend_row",
-    "attr_source",
-    "era",
-    "period",
-    "eon",
-    "epoch",
-    "age_ma_min",
-    "age_ma_max",
-    "rock_cls",
-    "formation",
-    "draw_order",
-    "filled",
-    "fill_source",
-    "mapped_km2",
-    "filled_km2",
-    "area_km2",
-    "note",
-    "area_km2_equal_area"
-   ],
-   "null_geometry": 0,
-   "empty_geometry": 0,
-   "invalid_geometry": 0,
-   "duplicate_geometry": 0,
-   "area_km2": 907157.0,
-   "area_inside_nigeria_km2": 907157.0,
-   "frac_inside": 1.0,
-   "null_counts": {
-    "leg_desc": 6,
-    "legend_row": 6,
-    "attr_source": 1,
-    "era": 5,
-    "period": 24,
-    "eon": 6,
-    "epoch": 52,
-    "age_ma_min": 6,
-    "age_ma_max": 6,
-    "rock_cls": 2,
-    "formation": 60,
-    "fill_source": 22,
-    "note": 80
-   },
-   "code_unique": true
-  },
-  "geology_units_utm32n": {
-   "features": 97,
-   "crs": "EPSG:32632",
-   "declared_geometry_type": "MULTIPOLYGON",
-   "geometry_types_present": [
-    "MultiPolygon"
-   ],
-   "attributes": [
-    "code",
-    "unit",
-    "fill",
-    "leg_desc",
-    "legend_row",
-    "attr_source",
-    "era",
-    "period",
-    "eon",
-    "epoch",
-    "age_ma_min",
-    "age_ma_max",
-    "rock_cls",
-    "formation",
-    "draw_order",
-    "filled",
-    "fill_source",
-    "mapped_km2",
-    "filled_km2",
-    "area_km2",
-    "note"
-   ],
-   "null_geometry": 0,
-   "empty_geometry": 0,
-   "invalid_geometry": 0,
-   "duplicate_geometry": 0,
-   "area_km2": 907157.0,
-   "area_inside_nigeria_km2": 907157.0,
-   "frac_inside": 1.0,
-   "null_counts": {
-    "leg_desc": 6,
-    "legend_row": 6,
-    "attr_source": 1,
-    "era": 5,
-    "period": 24,
-    "eon": 6,
-    "epoch": 52,
-    "age_ma_min": 6,
-    "age_ma_max": 6,
-    "rock_cls": 2,
-    "formation": 60,
-    "fill_source": 22,
-    "note": 80
-   },
-   "code_unique": true
-  },
   "graticule_geology": {
    "features": 22,
    "crs": "EPSG:4326",
@@ -403,93 +294,9 @@
    },
    "locality_id_unique": true
   },
-  "mineral_localities_equal_area": {
-   "features": 999,
-   "crs": "EPSG:6933",
-   "declared_geometry_type": "POINT",
-   "geometry_types_present": [
-    "Point"
-   ],
-   "attributes": [
-    "locality_id",
-    "zone",
-    "number",
-    "locality",
-    "mineral_1",
-    "group_1",
-    "minerals",
-    "n_minerals",
-    "n_icons",
-    "icon_tier",
-    "icon_spread_m",
-    "pos_method",
-    "moved_from_label_m",
-    "lon",
-    "lat",
-    "dist_to_coast_m",
-    "shared_number",
-    "host_code",
-    "host_boundary_dist_m",
-    "group_centroid_lon",
-    "group_centroid_lat"
-   ],
-   "null_geometry": 0,
-   "empty_geometry": 0,
-   "invalid_geometry": 0,
-   "duplicate_geometry": 17,
-   "features_inside_nigeria": 995,
-   "features_outside_nigeria": 4,
-   "outside_flag_column": null,
-   "null_counts": {
-    "icon_spread_m": 179
-   },
-   "locality_id_unique": true
-  },
   "mineral_localities_icons": {
    "features": 999,
    "crs": "EPSG:4326",
-   "declared_geometry_type": "POINT",
-   "geometry_types_present": [
-    "Point"
-   ],
-   "attributes": [
-    "locality_id",
-    "zone",
-    "number",
-    "locality",
-    "mineral_1",
-    "group_1",
-    "minerals",
-    "n_minerals",
-    "n_icons",
-    "icon_tier",
-    "icon_spread_m",
-    "pos_method",
-    "moved_from_label_m",
-    "lon",
-    "lat",
-    "dist_to_coast_m",
-    "shared_number",
-    "host_code",
-    "host_boundary_dist_m",
-    "group_centroid_lon",
-    "group_centroid_lat"
-   ],
-   "null_geometry": 0,
-   "empty_geometry": 0,
-   "invalid_geometry": 0,
-   "duplicate_geometry": 15,
-   "features_inside_nigeria": 995,
-   "features_outside_nigeria": 4,
-   "outside_flag_column": null,
-   "null_counts": {
-    "icon_spread_m": 179
-   },
-   "locality_id_unique": true
-  },
-  "mineral_localities_icons_utm32n": {
-   "features": 999,
-   "crs": "EPSG:32632",
    "declared_geometry_type": "POINT",
    "geometry_types_present": [
     "Point"
@@ -562,44 +369,6 @@
    "features_inside_nigeria": 992,
    "features_outside_nigeria": 7,
    "outside_flag_column": "in_nigeria",
-   "null_counts": {
-    "reassigned_from": 882,
-    "host_boundary_dist_m": 7
-   },
-   "locality_id_unique": true
-  },
-  "mineral_localities_utm32n": {
-   "features": 999,
-   "crs": "EPSG:32632",
-   "declared_geometry_type": "POINT",
-   "geometry_types_present": [
-    "Point"
-   ],
-   "attributes": [
-    "zone",
-    "number",
-    "locality",
-    "mineral_1",
-    "group_1",
-    "minerals",
-    "n_minerals",
-    "lon",
-    "lat",
-    "pos_method",
-    "pos_sigma_m",
-    "pos_confidence",
-    "reassigned_from",
-    "host_code",
-    "host_boundary_dist_m",
-    "locality_id"
-   ],
-   "null_geometry": 0,
-   "empty_geometry": 0,
-   "invalid_geometry": 0,
-   "duplicate_geometry": 46,
-   "features_inside_nigeria": 992,
-   "features_outside_nigeria": 7,
-   "outside_flag_column": null,
    "null_counts": {
     "reassigned_from": 882,
     "host_boundary_dist_m": 7
@@ -1121,11 +890,8 @@
    "projected_copy_attribute_diffs": {},
    "lonlat_vs_geometry_max_m": {
     "mineral_localities": 0.0,
-    "mineral_localities_equal_area": 0.0014,
     "mineral_localities_icons": 0.0,
-    "mineral_localities_icons_utm32n": 0.0,
     "mineral_localities_refined": 0.0,
-    "mineral_localities_utm32n": 0.0,
     "minerals_named": 0.0,
     "state_capitals": 0.0,
     "towns": 0.0,
@@ -1170,16 +936,6 @@
       "MultiPolygon"
      ]
     },
-    "geology_units_equal_area": {
-     "geometry_types": [
-      "MultiPolygon"
-     ]
-    },
-    "geology_units_utm32n": {
-     "geometry_types": [
-      "MultiPolygon"
-     ]
-    },
     "graticule_geology": {
      "geometry_types": [
       "LineString"
@@ -1200,27 +956,12 @@
       "Point"
      ]
     },
-    "mineral_localities_equal_area": {
-     "geometry_types": [
-      "Point"
-     ]
-    },
     "mineral_localities_icons": {
      "geometry_types": [
       "Point"
      ]
     },
-    "mineral_localities_icons_utm32n": {
-     "geometry_types": [
-      "Point"
-     ]
-    },
     "mineral_localities_refined": {
-     "geometry_types": [
-      "Point"
-     ]
-    },
-    "mineral_localities_utm32n": {
      "geometry_types": [
       "Point"
      ]
@@ -1396,32 +1137,12 @@
      "false": 22,
      "null": 0
     },
-    "geology_units_equal_area.filled": {
-     "true": 75,
-     "false": 22,
-     "null": 0
-    },
-    "geology_units_utm32n.filled": {
-     "true": 75,
-     "false": 22,
-     "null": 0
-    },
     "mineral_localities.in_nigeria": {
      "true": 991,
      "false": 8,
      "null": 0
     },
-    "mineral_localities_equal_area.shared_number": {
-     "true": 78,
-     "false": 921,
-     "null": 0
-    },
     "mineral_localities_icons.shared_number": {
-     "true": 78,
-     "false": 921,
-     "null": 0
-    },
-    "mineral_localities_icons_utm32n.shared_number": {
      "true": 78,
      "false": 921,
      "null": 0
@@ -1479,32 +1200,59 @@
    }
   },
   "metadata": {
-   "records": 4,
-   "scopes": {
-    "dataset": 1,
-    "featureType": 3
+   "Nigeria_Geology_Minerals_4326.gpkg": {
+    "file": "Nigeria_Geology_Minerals_4326.gpkg",
+    "records": 4,
+    "references": 8,
+    "scopes": [
+     "dataset",
+     "featureType"
+    ],
+    "unparsable": [],
+    "wrong_mime": [],
+    "references_to_missing_tables": [],
+    "references_to_missing_records": [],
+    "mentions_cc_by_4": true,
+    "mentions_withdrawn": true,
+    "towns_referenced": true
    },
-   "unparsable": [],
-   "wrong_mime": [],
-   "references": 11,
-   "scopes_referenced": [
-    "geopackage",
-    "table"
+   "Nigeria_Geology_Minerals_projected_copies.gpkg": {
+    "file": "Nigeria_Geology_Minerals_projected_copies.gpkg",
+    "records": 2,
+    "references": 9,
+    "scopes": [
+     "dataset",
+     "featureType"
+    ],
+    "unparsable": [],
+    "wrong_mime": [],
+    "references_to_missing_tables": [],
+    "references_to_missing_records": [],
+    "mentions_cc_by_4": true,
+    "mentions_withdrawn": true,
+    "towns_referenced": false
+   }
+  },
+  "crs": {
+   "deliverable_srs": [
+    "EPSG:4326"
    ],
-   "references_to_missing_tables": [],
-   "references_to_missing_records": [],
-   "mentions_cc_by_4": true,
-   "mentions_withdrawn": true,
-   "attributes_town_licence": true
+   "copies_file": {
+    "mineral_localities_utm32n": 32632,
+    "mineral_localities_icons_utm32n": 32632,
+    "mineral_localities_equal_area": 6933,
+    "geology_units_utm32n": 32632,
+    "geology_units_equal_area": 6933
+   }
   },
   "geopackage_conformance": {
-   "contents_layers": 40,
+   "contents_layers": 35,
    "integrity_check": "ok",
    "foreign_key_check": 0,
    "user_version": 10400,
    "dangling_extension_rows": [],
    "orphan_geometry_columns": [],
-   "rtree_indexes": 31,
+   "rtree_indexes": 26,
    "layers_without_spatial_index": [],
    "orphan_rtree_tables": [],
    "tile_matrix_levels_without_tiles": [],

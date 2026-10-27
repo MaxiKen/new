@@ -46,13 +46,40 @@ import geopandas as gpd
 import numpy as np
 import pandas as pd
 import pyogrio
+
+from gpkg_write import write_layer
 import shapely
 import shapely.geometry
 
+
 HERE = pathlib.Path(__file__).parent
 GPKG = HERE / "Nigeria_Geology_Minerals_4326.gpkg"
+# The five reprojections live in their own file so the deliverable is one CRS
+# (split_projected_copies.py explains why). Every repair below therefore asks
+# `target()` where a layer is before it reads or writes it.
+COPIES = HERE / "Nigeria_Geology_Minerals_projected_copies.gpkg"
 OUT = HERE / "layer_repairs.json"
 report = {"file": GPKG.name, "repairs": {}}
+
+
+def existing():
+    """Every layer this run can touch: the deliverable plus the copies file."""
+    names = {n for n, _ in pyogrio.list_layers(GPKG)}
+    if COPIES.exists():
+        names |= {n for n, _ in pyogrio.list_layers(COPIES)}
+    return names
+
+
+def target(layer):
+    """The file a layer lives in."""
+    return COPIES if (COPIES.exists() and layer in
+                      {n for n, _ in pyogrio.list_layers(COPIES)}) else GPKG
+
+
+def read(layer):
+    return gpd.read_file(target(layer), layer=layer)
+
+
 
 
 def columns(con, t):
@@ -61,7 +88,7 @@ def columns(con, t):
 
 def declared_types(layer):
     """The declared field types, so a rewrite cannot quietly widen an INTEGER to REAL."""
-    con = sqlite3.connect(GPKG)
+    con = sqlite3.connect(target(layer))
     d = {r[1]: r[2] for r in con.execute(f'PRAGMA table_info("{layer}")')}
     con.close()
     return d
@@ -76,7 +103,7 @@ def rewrite(layer, fn, where=None):
     are restored on the way out: a round trip turns INTEGER-with-NULL into float.
     """
     types = declared_types(layer)
-    g = gpd.read_file(GPKG, layer=layer)
+    g = read(layer)
     changed = fn(g)
     for c, t in types.items():
         if c not in g.columns:
@@ -87,7 +114,7 @@ def rewrite(layer, fn, where=None):
             g[c] = pd.array([None if pd.isna(v) else bool(v) for v in g[c]], dtype="boolean")
         elif t == "REAL":
             g[c] = pd.to_numeric(g[c], errors="coerce").astype("float64")
-    pyogrio.write_dataframe(g, GPKG, layer=layer, driver="GPKG", append=False)
+    write_layer(g, target(layer), layer)
     after = declared_types(layer)
     assert {k: after[k] for k in types} == types, (layer, types, after)
     return changed
@@ -97,8 +124,9 @@ def rewrite(layer, fn, where=None):
 con = sqlite3.connect(GPKG)
 a = con.execute("SELECT lon, lat FROM mineral_localities").fetchall()
 b = con.execute("SELECT lon, lat FROM mineral_localities_refined").fetchall()
-u = con.execute("SELECT lon, lat FROM mineral_localities_utm32n").fetchall()
 con.close()
+u = sqlite3.connect(target("mineral_localities_utm32n")).execute(
+    "SELECT lon, lat FROM mineral_localities_utm32n").fetchall()
 report["repairs"]["mineral_localities_utm32n_identity"] = {
     "rows_matching_mineral_localities": sum(1 for x, y in zip(a, u) if x == y),
     "rows_matching_mineral_localities_refined": sum(1 for x, y in zip(b, u) if x == y),
@@ -119,7 +147,7 @@ def blank(v):
     return v is None or (isinstance(v, float) and pd.isna(v)) or (isinstance(v, str) and not v)
 
 
-g = gpd.read_file(GPKG, layer="mineral_localities")
+g = read("mineral_localities")
 fixed, new_era, new_per, new_age = [], [], [], []
 for _, r in g.iterrows():
     hc, era, per, age = r["host_code"], r["host_era"], r["host_period"], r["host_age_ma"]
@@ -141,7 +169,7 @@ if fixed:
     g["host_era"], g["host_period"], g["host_age_ma"] = (
         pd.array(new_era, dtype="string"), pd.array(new_per, dtype="string"),
         pd.array(new_age, dtype="Float64"))
-    pyogrio.write_dataframe(g, GPKG, layer="mineral_localities", driver="GPKG", append=False)
+    write_layer(g, GPKG, "mineral_localities")
 report["repairs"]["mineral_localities_host_attributes"] = dict(
     rows_checked=len(g), rows_drifted=len(fixed), rows=fixed[:20],
     note=("every locality's host_era/host_period/host_age_ma is now recomputed from the "
@@ -152,12 +180,12 @@ print(f"  host attributes vs geology: {len(g)} checked, {len(fixed)} drifted "
       f"{[f['number'] for f in fixed][:6]}")
 
 # 3. locality_id on the three layers that lack it ----------------------------
-icons = gpd.read_file(GPKG, layer="mineral_localities_icons")
+icons = read("mineral_localities_icons")
 key = list(zip(icons["zone"], icons["number"], icons["locality"]))
 ids = list(icons["locality_id"])
 added = {}
 for t in ("mineral_localities", "mineral_localities_refined", "mineral_localities_utm32n"):
-    g = gpd.read_file(GPKG, layer=t)
+    g = read(t)
     if "locality_id" in g.columns:
         added[t] = "already present"
         continue
@@ -165,13 +193,13 @@ for t in ("mineral_localities", "mineral_localities_refined", "mineral_localitie
         f"{t}: rows do not line up with mineral_localities_icons")
     g.insert(len(g.columns) - 1, "locality_id", ids)
     assert g["locality_id"].is_unique
-    pyogrio.write_dataframe(g, GPKG, layer=t, driver="GPKG", append=False)
+    write_layer(g, GPKG, t)
     added[t] = len(ids)
 report["repairs"]["locality_id_added"] = added
 print(f"  locality_id added: {added}")
 
 # 4-6. towns_geonames: numeric elevation, real booleans, a precision column ---
-g = gpd.read_file(GPKG, layer="towns_geonames")
+g = read("towns_geonames")
 before = dict(rows=len(g))
 g["elevation_m"] = pd.to_numeric(g["elevation_m"], errors="coerce").astype("Int64")
 
@@ -207,7 +235,7 @@ order = ["geonameid", "name", "ascii_name", "alt_names", "feature_code", "featur
          "population", "elevation_m", "dem_m", "timezone", "moddate", "in_nigeria",
          "coord_dp", "ngsa_town_km", "dup_group", "geometry"]
 g = g[order]
-pyogrio.write_dataframe(g, GPKG, layer="towns_geonames", driver="GPKG", append=False)
+write_layer(g, GPKG, "towns_geonames")
 con = sqlite3.connect(GPKG)
 types = {r[1]: r[2] for r in con.execute('PRAGMA table_info("towns_geonames)'.replace(')', '")'))}
 dp_counts = dict(con.execute(
@@ -225,12 +253,12 @@ print(f"  towns_geonames: elevation_m INTEGER, state_agree BOOLEAN, coord_dp add
 # 7. geometry == the lon/lat pair, in the three label layers ------------------
 snapped = {}
 for t in ("towns", "state_capitals", "volcanic_plugs"):
-    g = gpd.read_file(GPKG, layer=t)
+    g = read(t)
     d = np.hypot(g.geometry.x - g.lon, g.geometry.y - g.lat) * 111_000
     moved = int((d > 1e-9).sum())
     g["geometry"] = gpd.points_from_xy(g["lon"], g["lat"])
-    pyogrio.write_dataframe(g, GPKG, layer=t, driver="GPKG", append=False)
-    back = gpd.read_file(GPKG, layer=t)
+    write_layer(g, GPKG, t)
+    back = read(t)
     d2 = np.hypot(back.geometry.x - back.lon, back.geometry.y - back.lat) * 111_000
     assert float(np.abs(d2).max()) < 1e-9, (t, np.abs(d2).max())
     snapped[t] = dict(rows=len(g), rows_moved=moved, max_shift_m=round(float(d.max()), 3))
@@ -239,13 +267,13 @@ for t in ("towns", "state_capitals", "volcanic_plugs"):
 report["repairs"]["geometry_snapped_to_lonlat"] = snapped
 
 # 8. class_id on geology_era, matching the other two class layers -------------
-g = gpd.read_file(GPKG, layer="geology_era")
+g = read("geology_era")
 if "class_id" not in g.columns:
     g = g.sort_values("area_km2", ascending=False).reset_index(drop=True)
     g.insert(0, "class_id", range(1, len(g) + 1))
     assert g["class_id"].is_unique
-    pyogrio.write_dataframe(g, GPKG, layer="geology_era", driver="GPKG", append=False)
-g = gpd.read_file(GPKG, layer="geology_era")
+    write_layer(g, GPKG, "geology_era")
+g = read("geology_era")
 assert g["class_id"].notna().all() and g["class_id"].is_unique
 report["repairs"]["geology_era_class_id"] = dict(
     rows=len(g), class_ids=sorted(int(v) for v in g["class_id"]))
@@ -290,7 +318,7 @@ def polys_only(geom):
 
 needle_report = {}
 for layer in ("geology_units", "geology_era"):
-    g = gpd.read_file(GPKG, layer=layer)
+    g = read(layer)
     area_before = float(g.geometry.area.sum())
     before = sum(needles(x) for x in g.geometry)
     rows = 0
@@ -305,8 +333,8 @@ for layer in ("geology_units", "geology_era"):
     parts_before = sum(len(x.geoms) if x.geom_type.startswith("Multi") else 1 for x in g.geometry)
     if before and after == 0:
         g["geometry"] = geom
-        pyogrio.write_dataframe(g, GPKG, layer=layer, driver="GPKG", append=False)
-        back = gpd.read_file(GPKG, layer=layer)
+        write_layer(g, GPKG, layer)
+        back = read(layer)
         rel = abs(float(back.geometry.area.sum()) - area_before) / area_before
         # the only area that goes is the 4 sliver parts of < 1e-12 deg2 that the
         # snap collapses to a line: 1.6 m2 in the whole country
@@ -324,16 +352,19 @@ report["repairs"]["ring_needles_removed"] = needle_report
 # 10. the projected copies are rebuilt from the repaired 4326 geometry ---------
 # Otherwise the parent is clean and its copies carry the old slits (they had
 # fewer only because reprojection happened to collapse some).
-g = gpd.read_file(GPKG, layer="geology_units")
+g = read("geology_units")
 utm = g.to_crs("EPSG:32632")
 utm["geometry"] = [polys_only(shapely.make_valid(x)) for x in utm.geometry]
-pyogrio.write_dataframe(utm, GPKG, layer="geology_units_utm32n", driver="GPKG", append=False)
+if "geology_units_utm32n" in existing():
+    write_layer(utm, target("geology_units_utm32n"), "geology_units_utm32n")
 ea = g.to_crs("EPSG:6933")
 ea["geometry"] = [polys_only(shapely.make_valid(x)) for x in ea.geometry]
 ea["area_km2_equal_area"] = np.round(ea.area.values / 1e6, 3)
-pyogrio.write_dataframe(ea, GPKG, layer="geology_units_equal_area", driver="GPKG", append=False)
-copy_needles = {l: sum(needles(x) for x in gpd.read_file(GPKG, layer=l).geometry)
-                for l in ("geology_units_utm32n", "geology_units_equal_area")}
+if "geology_units_equal_area" in existing():
+    write_layer(ea, target("geology_units_equal_area"), "geology_units_equal_area")
+copy_needles = {l: sum(needles(x) for x in read(l).geometry)
+                for l in ("geology_units_utm32n", "geology_units_equal_area")
+                if l in existing()}
 assert not any(copy_needles.values()), copy_needles
 report["repairs"]["geology_copies_rebuilt"] = dict(
     layers=list(copy_needles), needles=copy_needles,
@@ -414,9 +445,10 @@ def fix_locality(g):
 
 
 spaced = {}
-for layer in ("mineral_localities", "mineral_localities_refined", "mineral_localities_utm32n",
-              "mineral_localities_icons", "mineral_localities_icons_utm32n",
-              "mineral_localities_equal_area"):
+for layer in [l for l in ("mineral_localities", "mineral_localities_refined",
+                          "mineral_localities_utm32n", "mineral_localities_icons",
+                          "mineral_localities_icons_utm32n",
+                          "mineral_localities_equal_area") if l in existing()]:
     spaced[layer] = rewrite(layer, fix_locality)
 
 
@@ -479,7 +511,8 @@ def make_formation_fix():
 
 
 tidied = {}
-for layer in ("geology_units", "geology_units_utm32n", "geology_units_equal_area"):
+for layer in [l for l in ("geology_units", "geology_units_utm32n",
+                          "geology_units_equal_area") if l in existing()]:
     tidied[layer] = rewrite(layer, make_formation_fix())
     print(f"  {layer:24s} formation tidied: {tidied[layer]} rows")
 report["repairs"]["formation_tidied"] = tidied
@@ -501,7 +534,7 @@ con.close()
 from pyproj import Geod
 
 GEOD = Geod(ellps="WGS84")
-TERRITORY = gpd.read_file(GPKG, layer="national_territory").geometry.iloc[0]
+TERRITORY = read("national_territory").geometry.iloc[0]
 
 
 def geo_len(geom):
@@ -522,7 +555,7 @@ def geo_len(geom):
 length_rows = {}
 # the border carried its length as `length_km` while every other line layer calls it
 # `len_km`, and it had no in-Nigeria fields at all. One name, one measure.
-_border = gpd.read_file(GPKG, layer="international_boundary")
+_border = read("international_boundary")
 if "length_km" in _border.columns:
 
 
@@ -539,11 +572,11 @@ if "length_km" in _border.columns:
     print("  international_boundary: length_km renamed len_km (geodesic, as everywhere else)")
     report["repairs"]["international_boundary_length"] = dict(
         renamed="length_km -> len_km",
-        length_km=round(float(gpd.read_file(GPKG, layer="international_boundary")["len_km"].sum()), 3))
+        length_km=round(float(read("international_boundary")["len_km"].sum()), 3))
 
 for layer in ("state_boundaries", "fold_axes", "roads", "rivers", "faults", "geology_boundaries",
               "younger_granite_outlines", "railway", "international_boundary"):
-    g = gpd.read_file(GPKG, layer=layer)
+    g = read(layer)
     if "len_km" not in g.columns:
         continue
     before_over = int((g["km_in_nigeria"] > g["len_km"] + 1e-6).sum()) if "km_in_nigeria" in g.columns else 0
@@ -561,7 +594,7 @@ for layer in ("state_boundaries", "fold_axes", "roads", "rivers", "faults", "geo
         return len(g)
 
     rewrite(layer, fix)
-    g = gpd.read_file(GPKG, layer=layer)
+    g = read(layer)
     after_over = int((g["km_in_nigeria"] > g["len_km"] + 1e-6).sum()) if "km_in_nigeria" in g.columns else 0
     assert after_over == 0, (layer, after_over)
     rec = dict(rows=len(g), len_km_before=round(old_len, 1), len_km_after=round(float(g["len_km"].sum()), 1),
@@ -586,7 +619,7 @@ report["repairs"]["line_lengths_recomputed"] = length_rows
 # of the file uses: area in EPSG:6933 (as `geology_units.area_km2` and the
 # `poly_*` layers), perimeter geodesic including the interior rings. The
 # perimeter barely moves (Lake Chad 1,569.7 -> 1,570.3 km): it was right.
-wb = gpd.read_file(GPKG, layer="water_bodies")
+wb = read("water_bodies")
 stored = {k: round(float(v), 2) for k, v in zip(
     wb["name"].fillna("unnamed reservoir"), wb["area_km2"])}
 
@@ -617,7 +650,7 @@ def _ring_len(geom):
 
 
 rewrite("water_bodies", fix_water)
-wb2 = gpd.read_file(GPKG, layer="water_bodies")
+wb2 = read("water_bodies")
 assert (wb2["area_in_nigeria_km2"] <= wb2["area_km2"] + 1e-3).all()
 assert (wb2["frac_in_nigeria"] <= 1.0).all()
 report["repairs"]["water_bodies_geometry_measures"] = dict(
@@ -650,10 +683,10 @@ def _ccw(geom):
     return shapely.orient_polygons(geom, exterior_cw=False)
 
 
-for layer in ("national_territory", "geology_units", "geology_units_utm32n",
-              "geology_units_equal_area", "geology_era", "poly_soil_ph",
-              "poly_population", "water_bodies"):
-    g = gpd.read_file(GPKG, layer=layer)
+for layer in [l for l in ("national_territory", "geology_units", "geology_units_utm32n",
+                          "geology_units_equal_area", "geology_era", "poly_soil_ph",
+                          "poly_population", "water_bodies") if l in existing()]:
+    g = read(layer)
     parts = lambda geom: ([geom] if geom.geom_type == "Polygon"
                           else list(getattr(geom, "geoms", [])))
     before_cw = sum(1 for geom in g.geometry for p in parts(geom) if not p.exterior.is_ccw)
@@ -666,7 +699,7 @@ for layer in ("national_territory", "geology_units", "geology_units_utm32n",
         return len(g)
 
     rewrite(layer, fix)
-    g2 = gpd.read_file(GPKG, layer=layer)
+    g2 = read(layer)
     after_cw = sum(1 for geom in g2.geometry for p in parts(geom) if not p.exterior.is_ccw)
     after_ccw_interior = sum(1 for geom in g2.geometry for p in parts(geom)
                              for h in p.interiors if h.is_ccw)

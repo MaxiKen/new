@@ -21,6 +21,7 @@ HERE = pathlib.Path(__file__).parent
 GPKG = HERE / "Nigeria_Geology_Minerals_4326.gpkg"
 OUT = HERE / "crs_qa_report.json"
 EQ_AREA = "EPSG:6933"
+COPIES = HERE / "Nigeria_Geology_Minerals_projected_copies.gpkg"
 GEOID = Geod(ellps="WGS84")
 
 old = json.load(open(OUT)) if OUT.exists() else {}
@@ -41,6 +42,13 @@ for name, _ in pyogrio.list_layers(GPKG):
     g = gpd.read_file(GPKG, layer=name, rows=1)
     layer_crs[name] = g.crs.to_string() if g.crs else None
 
+# the five reprojections are in their own file; record what they are, from that file
+copies = {}
+if COPIES.exists():
+    for n, _ in pyogrio.list_layers(COPIES):
+        info = pyogrio.read_info(COPIES, layer=n)
+        copies[n] = dict(crs=info["crs"], features=info["features"])
+
 icons = gpd.read_file(GPKG, layer="mineral_localities_icons")
 offshore = icons[icons["dist_to_coast_m"] > 0]
 
@@ -55,11 +63,16 @@ report = {
     "shared_printed_numbers": int(icons["shared_number"].sum()),
     "offshore_points": int(len(offshore)),
     "max_dist_to_coast_m": float(np.max(offshore["dist_to_coast_m"])) if len(offshore) else 0.0,
+    "projected_copies_file": COPIES.name if copies else None,
+    "projected_copies": copies,
     "guidance": {
         "store": "EPSG:4326 (degrees) - never compute area in it",
-        "area": f"{EQ_AREA} (equal area) - exact; geology_units_equal_area and "
-                f"mineral_localities_equal_area are ready",
+        "area": f"{EQ_AREA} (equal area) - exact; to_crs('{EQ_AREA}') on the 4326 "
+                f"layers, or the stored copies in {COPIES.name}",
         "distance": "local: EPSG:32631/32632/32633 by zone; countrywide: geodesic",
+        "single_crs": "the deliverable is EPSG:4326 throughout, so layers can be laid "
+                      "on each other; the 6933/32632 reprojections live in "
+                      "Nigeria_Geology_Minerals_projected_copies.gpkg",
         # computed, not typed: this line used to disagree with the figure above it
         "avoid": f"EPSG:3857 (+{areas['EPSG:3857_error_pct']:.2f} % area error over Nigeria)",
     },

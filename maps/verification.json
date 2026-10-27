@@ -1,15 +1,15 @@
 {
  "gpkg": "/home/user/new/maps/Nigeria_Geology_Minerals_4326.gpkg",
- "gpkg_mtime": "2026-10-27T05:09:57",
+ "gpkg_mtime": "2026-10-27T07:11:28",
  "rows": [
   {
    "script": "audit_layers.py",
    "evidence": "layer_audit.json",
-   "what": "all 31 layers + 9 rasters + registers",
+   "what": "all 26 layers + 9 rasters + the copies file + registers",
    "ok": true,
    "fresh": true,
    "kind": "check",
-   "note": "31 layers, 9 rasters, 0 problems"
+   "note": "26 layers, 9 rasters, 0 problems"
   },
   {
    "script": "docs_check.py",
@@ -18,7 +18,7 @@
    "ok": true,
    "fresh": true,
    "kind": "check",
-   "note": "442/442 claims hold"
+   "note": "412/412 claims hold"
   },
   {
    "script": "fix_gpkg_hygiene.py",
@@ -54,7 +54,7 @@
    "ok": true,
    "fresh": true,
    "kind": "check",
-   "note": "31 layers, 3 CRS, 907,157 km2"
+   "note": "26 layers, 1 CRS, 907,157 km2"
   },
   {
    "script": "add_gpkg_metadata.py",
@@ -63,7 +63,7 @@
    "ok": true,
    "fresh": true,
    "kind": "pipeline",
-   "note": "4 records, 11 references, integrity ok"
+   "note": "4326: 4 records / 8 refs; copies: 2 records / 9 refs"
   },
   {
    "script": "check_polygon_colour.py",
@@ -73,6 +73,15 @@
    "fresh": true,
    "kind": "check",
    "note": "2 sheets, own class nearest for 99.0-100.0% of sampled polygons, 3 outlier(s) listed"
+  },
+  {
+   "script": "split_projected_copies.py",
+   "evidence": "projected_copies.json",
+   "what": "the 5 reprojections, moved",
+   "ok": true,
+   "fresh": true,
+   "kind": "pipeline",
+   "note": "5 copies moved, deliverable CRS [4326], integrity ok"
   },
   {
    "script": "build_towns.py",

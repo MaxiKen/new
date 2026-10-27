@@ -113,62 +113,6 @@
    "ok": true
   },
   {
-   "layer": "geology_units_utm32n",
-   "check": "feature count",
-   "doc": 97,
-   "measured": 97,
-   "ok": true
-  },
-  {
-   "layer": "geology_units_utm32n",
-   "check": "CRS",
-   "doc": "32632",
-   "measured": "32632",
-   "ok": true
-  },
-  {
-   "layer": "geology_units_utm32n",
-   "check": "geometry type",
-   "doc": "MultiPolygon",
-   "measured": "MultiPolygon",
-   "ok": true
-  },
-  {
-   "layer": "geology_units_utm32n",
-   "check": "in-Nigeria share",
-   "doc": 100.0,
-   "measured": 100.0,
-   "ok": true
-  },
-  {
-   "layer": "geology_units_equal_area",
-   "check": "feature count",
-   "doc": 97,
-   "measured": 97,
-   "ok": true
-  },
-  {
-   "layer": "geology_units_equal_area",
-   "check": "CRS",
-   "doc": "6933",
-   "measured": "6933",
-   "ok": true
-  },
-  {
-   "layer": "geology_units_equal_area",
-   "check": "geometry type",
-   "doc": "MultiPolygon",
-   "measured": "MultiPolygon",
-   "ok": true
-  },
-  {
-   "layer": "geology_units_equal_area",
-   "check": "in-Nigeria share",
-   "doc": 100.0,
-   "measured": 100.0,
-   "ok": true
-  },
-  {
    "layer": "geology_boundaries",
    "check": "feature count",
    "doc": 2819,
@@ -603,76 +547,6 @@
    "ok": true
   },
   {
-   "layer": "mineral_localities_icons_utm32n",
-   "check": "feature count",
-   "doc": 999,
-   "measured": 999,
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_icons_utm32n",
-   "check": "CRS",
-   "doc": "32632",
-   "measured": "32632",
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_icons_utm32n",
-   "check": "geometry type",
-   "doc": "Point",
-   "measured": "Point",
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_equal_area",
-   "check": "feature count",
-   "doc": 999,
-   "measured": 999,
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_equal_area",
-   "check": "CRS",
-   "doc": "6933",
-   "measured": "6933",
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_equal_area",
-   "check": "geometry type",
-   "doc": "Point",
-   "measured": "Point",
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_utm32n",
-   "check": "feature count",
-   "doc": 999,
-   "measured": 999,
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_utm32n",
-   "check": "CRS",
-   "doc": "32632",
-   "measured": "32632",
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_utm32n",
-   "check": "geometry type",
-   "doc": "Point",
-   "measured": "Point",
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_utm32n",
-   "check": "in-Nigeria count",
-   "doc": 992,
-   "measured": 992,
-   "ok": true
-  },
-  {
    "layer": "graticule_geology",
    "check": "feature count",
    "doc": 22,
@@ -880,20 +754,6 @@
    "check": "heading area km2",
    "doc": 907157.0,
    "measured": 907157.0,
-   "ok": true
-  },
-  {
-   "layer": "geology_units_utm32n",
-   "check": "heading count",
-   "doc": 97,
-   "measured": 97,
-   "ok": true
-  },
-  {
-   "layer": "geology_units_equal_area",
-   "check": "heading count",
-   "doc": 97,
-   "measured": 97,
    "ok": true
   },
   {
@@ -1121,27 +981,6 @@
    "ok": true
   },
   {
-   "layer": "mineral_localities_icons_utm32n",
-   "check": "heading count",
-   "doc": 999,
-   "measured": 999,
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_equal_area",
-   "check": "heading count",
-   "doc": 999,
-   "measured": 999,
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_utm32n",
-   "check": "heading count",
-   "doc": 999,
-   "measured": 999,
-   "ok": true
-  },
-  {
    "layer": "graticule_geology",
    "check": "heading count",
    "doc": 22,
@@ -1221,57 +1060,171 @@
   {
    "layer": "(file)",
    "check": "header layer count",
-   "doc": 31,
-   "measured": 31,
-   "ok": true
-  },
-  {
-   "layer": "(file)",
-   "check": "header feature count",
-   "doc": 60555,
-   "measured": 60555,
-   "ok": true
-  },
-  {
-   "layer": "(file)",
-   "check": "header EPSG:4326 layers",
    "doc": 26,
    "measured": 26,
    "ok": true
   },
   {
    "layer": "(file)",
-   "check": "header EPSG:4326 features",
+   "check": "header feature count",
    "doc": 57364,
    "measured": 57364,
    "ok": true
   },
   {
    "layer": "(file)",
-   "check": "header EPSG:32632 layers",
-   "doc": 3,
-   "measured": 3,
+   "check": "every layer is EPSG:4326",
+   "doc": "every one in EPSG:4326",
+   "measured": [
+    "EPSG:4326"
+   ],
    "ok": true
   },
   {
-   "layer": "(file)",
-   "check": "header EPSG:32632 features",
-   "doc": 2095,
-   "measured": 2095,
+   "layer": "(copies)",
+   "check": "the reprojection table lists the file's layers",
+   "doc": 5,
+   "measured": 5,
    "ok": true
   },
   {
-   "layer": "(file)",
-   "check": "header EPSG:6933 layers",
-   "doc": 2,
-   "measured": 2,
+   "layer": "(copies)",
+   "check": "geology_units_utm32n is in the copies file",
+   "doc": "listed",
+   "measured": true,
    "ok": true
   },
   {
-   "layer": "(file)",
-   "check": "header EPSG:6933 features",
-   "doc": 1096,
-   "measured": 1096,
+   "layer": "(copies)",
+   "check": "geology_units_utm32n CRS",
+   "doc": "EPSG:32632",
+   "measured": "EPSG:32632",
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "geology_units_utm32n rows",
+   "doc": 97,
+   "measured": 97,
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "geology_units_utm32n parent is in the deliverable",
+   "doc": "geology_units",
+   "measured": true,
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "geology_units_equal_area is in the copies file",
+   "doc": "listed",
+   "measured": true,
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "geology_units_equal_area CRS",
+   "doc": "EPSG:6933",
+   "measured": "EPSG:6933",
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "geology_units_equal_area rows",
+   "doc": 97,
+   "measured": 97,
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "geology_units_equal_area parent is in the deliverable",
+   "doc": "geology_units",
+   "measured": true,
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "mineral_localities_icons_utm32n is in the copies file",
+   "doc": "listed",
+   "measured": true,
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "mineral_localities_icons_utm32n CRS",
+   "doc": "EPSG:32632",
+   "measured": "EPSG:32632",
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "mineral_localities_icons_utm32n rows",
+   "doc": 999,
+   "measured": 999,
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "mineral_localities_icons_utm32n parent is in the deliverable",
+   "doc": "mineral_localities_icons",
+   "measured": true,
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "mineral_localities_equal_area is in the copies file",
+   "doc": "listed",
+   "measured": true,
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "mineral_localities_equal_area CRS",
+   "doc": "EPSG:6933",
+   "measured": "EPSG:6933",
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "mineral_localities_equal_area rows",
+   "doc": 999,
+   "measured": 999,
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "mineral_localities_equal_area parent is in the deliverable",
+   "doc": "mineral_localities_icons",
+   "measured": true,
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "mineral_localities_utm32n is in the copies file",
+   "doc": "listed",
+   "measured": true,
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "mineral_localities_utm32n CRS",
+   "doc": "EPSG:32632",
+   "measured": "EPSG:32632",
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "mineral_localities_utm32n rows",
+   "doc": 999,
+   "measured": 999,
+   "ok": true
+  },
+  {
+   "layer": "(copies)",
+   "check": "mineral_localities_utm32n parent is in the deliverable",
+   "doc": "mineral_localities_refined",
+   "measured": true,
    "ok": true
   },
   {
@@ -1297,62 +1250,6 @@
   },
   {
    "layer": "geology_units",
-   "check": "README: in-Nigeria share",
-   "doc": 100.0,
-   "measured": 100.0,
-   "ok": true
-  },
-  {
-   "layer": "geology_units_utm32n",
-   "check": "README: feature count",
-   "doc": 97,
-   "measured": 97,
-   "ok": true
-  },
-  {
-   "layer": "geology_units_utm32n",
-   "check": "README: CRS",
-   "doc": "32632",
-   "measured": "EPSG:32632",
-   "ok": true
-  },
-  {
-   "layer": "geology_units_utm32n",
-   "check": "README: geometry type",
-   "doc": "MultiPolygon",
-   "measured": "MultiPolygon",
-   "ok": true
-  },
-  {
-   "layer": "geology_units_utm32n",
-   "check": "README: in-Nigeria share",
-   "doc": 100.0,
-   "measured": 100.0,
-   "ok": true
-  },
-  {
-   "layer": "geology_units_equal_area",
-   "check": "README: feature count",
-   "doc": 97,
-   "measured": 97,
-   "ok": true
-  },
-  {
-   "layer": "geology_units_equal_area",
-   "check": "README: CRS",
-   "doc": "6933",
-   "measured": "EPSG:6933",
-   "ok": true
-  },
-  {
-   "layer": "geology_units_equal_area",
-   "check": "README: geometry type",
-   "doc": "MultiPolygon",
-   "measured": "MultiPolygon",
-   "ok": true
-  },
-  {
-   "layer": "geology_units_equal_area",
    "check": "README: in-Nigeria share",
    "doc": 100.0,
    "measured": 100.0,
@@ -1681,76 +1578,6 @@
    "ok": true
   },
   {
-   "layer": "mineral_localities_icons_utm32n",
-   "check": "README: feature count",
-   "doc": 999,
-   "measured": 999,
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_icons_utm32n",
-   "check": "README: CRS",
-   "doc": "32632",
-   "measured": "EPSG:32632",
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_icons_utm32n",
-   "check": "README: geometry type",
-   "doc": "Point",
-   "measured": "Point",
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_icons_utm32n",
-   "check": "README: inside count",
-   "doc": 995,
-   "measured": 995,
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_icons_utm32n",
-   "check": "README: total count",
-   "doc": 999,
-   "measured": 999,
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_equal_area",
-   "check": "README: feature count",
-   "doc": 999,
-   "measured": 999,
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_equal_area",
-   "check": "README: CRS",
-   "doc": "6933",
-   "measured": "EPSG:6933",
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_equal_area",
-   "check": "README: geometry type",
-   "doc": "Point",
-   "measured": "Point",
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_equal_area",
-   "check": "README: inside count",
-   "doc": 995,
-   "measured": 995,
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_equal_area",
-   "check": "README: total count",
-   "doc": 999,
-   "measured": 999,
-   "ok": true
-  },
-  {
    "layer": "mineral_localities",
    "check": "README: feature count",
    "doc": 999,
@@ -1815,41 +1642,6 @@
   },
   {
    "layer": "mineral_localities_refined",
-   "check": "README: total count",
-   "doc": 999,
-   "measured": 999,
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_utm32n",
-   "check": "README: feature count",
-   "doc": 999,
-   "measured": 999,
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_utm32n",
-   "check": "README: CRS",
-   "doc": "32632",
-   "measured": "EPSG:32632",
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_utm32n",
-   "check": "README: geometry type",
-   "doc": "Point",
-   "measured": "Point",
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_utm32n",
-   "check": "README: inside count",
-   "doc": 992,
-   "measured": 992,
-   "ok": true
-  },
-  {
-   "layer": "mineral_localities_utm32n",
    "check": "README: total count",
    "doc": 999,
    "measured": 999,
@@ -3180,8 +2972,8 @@
   {
    "layer": "README.md",
    "check": "stated claim count",
-   "doc": "442",
-   "measured": 442,
+   "doc": "412",
+   "measured": 412,
    "ok": true
   }
  ],

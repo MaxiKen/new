@@ -66,9 +66,20 @@ def crs(d):
 
 
 def meta(d):
-    return d.get("integrity") == "ok", (f"{d.get('records')} records, "
-                                        f"{d.get('references')} references, integrity "
-                                        f"{d.get('integrity')}")
+    # the report covers both files: the deliverable and the copies file
+    files = d.get("files", {})
+    ok = bool(files) and all((v or {}).get("integrity") == "ok" for v in files.values())
+    parts = [f"{k.split('_')[-1].replace('.gpkg', '')}: {(v or {}).get('records')} records / "
+             f"{(v or {}).get('references')} refs" for k, v in files.items()]
+    return ok, "; ".join(parts)
+
+
+def copies(d):
+    moved = d.get("moved", [])
+    ok = (len(moved) == 5 and d.get("main_srs") == [4326]
+          and d.get("integrity", {}).get("main") == "ok")
+    return ok, (f"{len(moved)} copies moved, deliverable CRS {d.get('main_srs')}, "
+                f"integrity {d.get('integrity', {}).get('main')}")
 
 
 def towns(d):
@@ -104,7 +115,7 @@ def geology(d):
 #   "build"    - the record of the run that built a layer; a record, not a
 #                verdict, with its invariants re-measured by audit_layers.py
 SPEC = [
-    ("audit_layers.py", "layer_audit.json", "all 31 layers + 9 rasters + registers", audit, "check"),
+    ("audit_layers.py", "layer_audit.json", "all 26 layers + 9 rasters + the copies file + registers", audit, "check"),
     ("docs_check.py", "docs_check.json", "every published number", docs, "check"),
     ("fix_gpkg_hygiene.py", "gpkg_hygiene.json", "the GeoPackage's own registers", hygiene, "pipeline"),
     ("repair_layers.py", "layer_repairs.json", "the per-layer repairs", repairs, "pipeline"),
@@ -112,6 +123,7 @@ SPEC = [
     ("refresh_crs_report.py", "crs_qa_report.json", "CRS and area by projection", crs, "check"),
     ("add_gpkg_metadata.py", "gpkg_metadata.json", "provenance and licences in-file", meta, "pipeline"),
     ("check_polygon_colour.py", "polygon_colour_check.json", "traced polygons vs the sheet", colour, "check"),
+    ("split_projected_copies.py", "projected_copies.json", "the 5 reprojections, moved", copies, "pipeline"),
     ("build_towns.py", "towns_report.json", "the GeoNames gazetteer", towns, "build"),
     ("georef_new_map.py", "raster_georeferencing.json", "the nine scanned sheets", rasters, "build"),
     ("build_geology_final.py", "geology_final_report.json", "the geology build's invariants", geology, "build"),

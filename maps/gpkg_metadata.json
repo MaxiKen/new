@@ -3,51 +3,40 @@
   "gpkg_metadata",
   "gpkg_metadata_reference"
  ],
- "records": 4,
- "references": 11,
- "timestamp_used": "2026-10-27T00:00:00.000Z",
- "integrity": "ok",
- "records_detail": [
-  {
-   "id": 1,
-   "scope": "dataset",
-   "chars": 5528,
+ "files": {
+  "Nigeria_Geology_Minerals_4326.gpkg": {
+   "records": 4,
+   "references": 8,
+   "integrity": "ok",
    "about": [
-    "the whole file"
-   ]
-  },
-  {
-   "id": 2,
-   "scope": "featureType",
-   "chars": 4981,
-   "about": [
-    "towns_geonames"
-   ]
-  },
-  {
-   "id": 3,
-   "scope": "featureType",
-   "chars": 4782,
-   "about": [
+    "the whole file",
+    "towns_geonames",
     "national_territory",
-    "international_boundary"
-   ]
-  },
-  {
-   "id": 4,
-   "scope": "featureType",
-   "chars": 5163,
-   "about": [
+    "international_boundary",
     "mineral_symbols",
     "mineral_localities",
     "mineral_localities_refined",
+    "mineral_localities_icons"
+   ]
+  },
+  "Nigeria_Geology_Minerals_projected_copies.gpkg": {
+   "records": 2,
+   "references": 9,
+   "integrity": "ok",
+   "about": [
+    "the whole file",
+    "geology_units_equal_area",
+    "geology_units_utm32n",
+    "mineral_localities_equal_area",
+    "mineral_localities_icons_utm32n",
     "mineral_localities_utm32n",
-    "mineral_localities_icons",
+    "mineral_localities_utm32n",
     "mineral_localities_icons_utm32n",
     "mineral_localities_equal_area"
    ]
   }
- ],
+ },
+ "timestamp_used": "2026-10-27T00:00:00.000Z",
  "licences": [
   {
    "source": "NGSA printed sheets (geology, minerals, soils, land cover, climate, population, ethnography, forest reserves)",

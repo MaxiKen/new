@@ -19,6 +19,7 @@ import warnings
 import geopandas as gpd
 import numpy as np
 import pandas as pd
+import pyogrio
 import shapely
 from pyproj import Geod
 
@@ -26,6 +27,26 @@ warnings.filterwarnings("ignore")
 
 HERE = pathlib.Path(__file__).parent
 P = HERE / "Nigeria_Geology_Minerals_4326.gpkg"
+# The five reprojections live in their own file, so the deliverable is one CRS.
+COPIES = HERE / "Nigeria_Geology_Minerals_projected_copies.gpkg"
+COPY_LAYERS = {"geology_units_utm32n": "geology_units",
+               "geology_units_equal_area": "geology_units",
+               "mineral_localities_icons_utm32n": "mineral_localities_icons",
+               "mineral_localities_equal_area": "mineral_localities_icons",
+               "mineral_localities_utm32n": "mineral_localities_refined"}
+
+
+def rdf(name, **kw):
+    """Read a layer from whichever of the two files holds it."""
+    if (COPIES.exists() and name in
+            {n for n, _ in __import__("pyogrio").list_layers(COPIES)}):
+        return gpd.read_file(COPIES, layer=name, **kw)
+    return gpd.read_file(P, layer=name, **kw)
+
+
+def path_of(name):
+    return COPIES if (COPIES.exists() and name in
+                      {n for n, _ in __import__("pyogrio").list_layers(COPIES)}) else P
 GEOID = Geod(ellps="WGS84")
 EQ = "EPSG:6933"
 
@@ -204,7 +225,7 @@ chk["drawn_outside_territory_km2"] = round(
     gpd.GeoSeries([shapely.make_valid(cov.difference(terr))], crs="EPSG:4326")
     .to_crs(EQ).iloc[0].area / 1e6, 4)
 
-ea = gpd.read_file(P, layer="geology_units_equal_area")
+ea = rdf("geology_units_equal_area")
 chk["area_4326_km2"] = round(float(units["area_km2"].sum()), 1)
 chk["area_6933_km2"] = round(float(ea["area_km2_equal_area"].sum()), 1)
 chk["area_geodesic_km2"] = round(abs(GEOID.geometry_area_perimeter(cov)[0]) / 1e6, 1)
@@ -218,7 +239,7 @@ chk["border_max_offset_m"] = round(float(d.max()) * 1000, 1)
 chk["border_vertices_over_50m"] = int((d > 0.05).sum())
 
 # codes present in the projections must match the 4326 layer
-utm = gpd.read_file(P, layer="geology_units_utm32n")
+utm = rdf("geology_units_utm32n")
 chk["codes_match_utm"] = bool(set(utm["code"]) == set(units["code"]))
 chk["codes_match_equal_area"] = bool(set(ea["code"]) == set(units["code"]))
 chk["utm_utilities"] = "EPSG:32632 area is +0.19 % over the exact figure"
@@ -277,19 +298,29 @@ COPY_PAIRS = [("geology_units", "geology_units_utm32n"),
               # copy descends from _refined, not from the 4326 layer of that name
               ("mineral_localities_refined", "mineral_localities_utm32n")]
 copy_diffs = {}
+
+
+def declared_in(path, layer):
+    c = sqlite3.connect(path)
+    t = {r[1]: r[2] for r in c.execute(f'PRAGMA table_info("{layer}")')}
+    c.close()
+    return t
+
+
 for a, b in COPY_PAIRS:
-    ta = {r[1]: r[2] for r in con.execute(f'PRAGMA table_info("{a}")')}
-    tb = {r[1]: r[2] for r in con.execute(f'PRAGMA table_info("{b}")')}
+    ga, gb = rdf(a), rdf(b)
+    key = "code" if "code" in ga.columns else "locality_id"
+    ta, tb = declared_in(path_of(a), a), declared_in(path_of(b), b)
     common = [c for c in ta if c in tb and c not in ("geom", "fid")]
-    key = "code" if "code" in ta else "locality_id"
-    A = {r[key]: r for r in con.execute(f'SELECT * FROM "{a}"')}
-    B = {r[key]: r for r in con.execute(f'SELECT * FROM "{b}"')}
+    A = {r[key]: r for r in ga.to_dict("records")}
+    B = {r[key]: r for r in gb.to_dict("records")}
     diffs = {}
     for k in A:
         if k not in B:
             continue
         for c in common:
-            if A[k][c] != B[k][c]:
+            x, y = A[k][c], B[k][c]
+            if x != y and not (pd.isna(x) and pd.isna(y)):
                 diffs[c] = diffs.get(c, 0) + 1
     if set(A) != set(B):
         diffs["__keys__"] = len(set(A) ^ set(B))
@@ -297,6 +328,8 @@ for a, b in COPY_PAIRS:
         copy_diffs[f"{a} -> {b}"] = diffs
         problems.append(f"{b} is not attribute-identical to {a}: {diffs}")
 attr["projected_copy_attribute_diffs"] = copy_diffs
+con = sqlite3.connect(P)
+con.row_factory = sqlite3.Row
 
 # 3. geometry and the lon/lat pair must agree --------------------------------
 lonlat = {}
@@ -477,8 +510,8 @@ attr["geometry_hygiene"] = geom_chk
 # geometry with the new attributes.
 copy_geom = {}
 for a, b in COPY_PAIRS:
-    ga = gpd.read_file(P, layer=a)
-    gb = gpd.read_file(P, layer=b)
+    ga = rdf(a)
+    gb = rdf(b)
     if len(ga) != len(gb):
         problems.append(f"{b}: {len(gb)} rows against {len(ga)} in {a}")
         copy_geom[b] = dict(rows=[len(ga), len(gb)])
@@ -744,62 +777,92 @@ if gpkg["user_version"] < 10200:
 # ---- provenance inside the file --------------------------------------------
 # The licence and the withdrawal notice must travel *with* the file, not only in
 # the sibling markdown: gpkg_metadata + gpkg_metadata_reference exist for this.
+# Both files are checked - the copies file carries its own provenance, because a
+# reader who measures in metres never sees the master record.
+import xml.etree.ElementTree as ET
+
 meta = {}
-if "gpkg_metadata" in tables:
-    import xml.etree.ElementTree as ET
-    recs = con.execute("SELECT id, md_scope, md_standard_uri, mime_type, metadata"
-                       " FROM gpkg_metadata ORDER BY id").fetchall()
-    meta["records"] = len(recs)
-    bad_xml, bad_mime, scopes = [], [], {}
-    for mid, scope, uri, mime, text in recs:
-        scopes[scope] = scopes.get(scope, 0) + 1
-        if mime != "text/xml":
-            bad_mime.append(mid)
-        try:
-            ET.fromstring(text)
-        except ET.ParseError as exc:
-            bad_xml.append(f"{mid}: {exc}")
-    meta["scopes"] = scopes
-    meta["unparsable"] = bad_xml
-    meta["wrong_mime"] = bad_mime
-    if bad_xml:
-        problems.append(f"gpkg_metadata record(s) are not well-formed XML: {bad_xml[:3]}")
-    if bad_mime:
-        problems.append(f"gpkg_metadata record(s) with a mime_type other than text/xml: {bad_mime}")
-    if not recs:
-        problems.append("gpkg_metadata exists but holds no record")
+for path in [q for q in (P, COPIES) if q.exists()]:
+    con2 = sqlite3.connect(path)
+    tbl = {r[0] for r in con2.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+    rec = dict(file=path.name)
+    if "gpkg_metadata" in tbl:
+        recs = con2.execute("SELECT id, md_scope, mime_type, metadata FROM gpkg_metadata"
+                            " ORDER BY id").fetchall()
+        contents2 = {r[0] for r in con2.execute("SELECT table_name FROM gpkg_contents")}
+        bad_xml, bad_mime = [], []
+        for mid, scope, mime, text in recs:
+            if mime != "text/xml":
+                bad_mime.append(mid)
+            try:
+                ET.fromstring(text)
+            except ET.ParseError as exc:
+                bad_xml.append(f"{mid}: {exc}")
+        refs = con2.execute("SELECT reference_scope, table_name, md_file_id"
+                            " FROM gpkg_metadata_reference").fetchall()
+        missing_tbl = sorted({t for _, t, _ in refs if t and t not in contents2})
+        missing_md = sorted({m for _, _, m in refs if m not in {r[0] for r in recs}})
+        text_all = " ".join(r[3] for r in recs)
+        rec.update(records=len(recs), references=len(refs),
+                   scopes=sorted({r[1] for r in recs}),
+                   unparsable=bad_xml, wrong_mime=bad_mime,
+                   references_to_missing_tables=missing_tbl,
+                   references_to_missing_records=missing_md,
+                   mentions_cc_by_4="CC BY 4.0" in text_all,
+                   mentions_withdrawn="POSITIONS WITHDRAWN" in text_all,
+                   towns_referenced=any(t == "towns_geonames" for _, t, _ in refs))
+        if bad_xml:
+            problems.append(f"{path.name}: gpkg_metadata record(s) are not well-formed XML: {bad_xml[:3]}")
+        if bad_mime:
+            problems.append(f"{path.name}: gpkg_metadata record(s) with a mime_type other than text/xml")
+        if not recs:
+            problems.append(f"{path.name}: gpkg_metadata exists but holds no record")
+        if missing_tbl:
+            problems.append(f"{path.name}: gpkg_metadata_reference names absent tables: {missing_tbl[:4]}")
+        if missing_md:
+            problems.append(f"{path.name}: gpkg_metadata_reference points at missing ids: {missing_md}")
+    else:
+        rec["records"] = 0
+        problems.append(f"{path.name}: no gpkg_metadata table: the licence and the "
+                        f"warnings do not travel with the file")
+    con2.close()
+    meta[path.name] = rec
 
-    refs = con.execute("SELECT reference_scope, table_name, md_file_id"
-                       " FROM gpkg_metadata_reference").fetchall()
-    meta["references"] = len(refs)
-    meta["scopes_referenced"] = sorted({r[0] for r in refs})
-    missing_tbl = sorted({t for _, t, _ in refs if t and t not in contents})
-    missing_md = sorted({m for _, _, m in refs if m not in {r[0] for r in recs}})
-    meta["references_to_missing_tables"] = missing_tbl
-    meta["references_to_missing_records"] = missing_md
-    if missing_tbl:
-        problems.append(f"gpkg_metadata_reference names tables that are not there: {missing_tbl[:4]}")
-    if missing_md:
-        problems.append(f"gpkg_metadata_reference points at missing metadata ids: {missing_md}")
-
-    # the two obligations a reuser cannot be expected to infer from the data
-    text_all = " ".join(r[4] for r in recs)
-    meta["mentions_cc_by_4"] = "CC BY 4.0" in text_all
-    meta["mentions_withdrawn"] = "POSITIONS WITHDRAWN" in text_all
-    meta["attributes_town_licence"] = any(
-        t == "towns_geonames" for _, t, _ in refs)
-    if not meta["mentions_cc_by_4"]:
-        problems.append("no metadata record carries the GeoNames CC BY 4.0 attribution")
-    if not meta["attributes_town_licence"]:
-        problems.append("the CC BY 4.0 record is not attached to towns_geonames")
-    if not meta["mentions_withdrawn"]:
-        problems.append("no metadata record carries the withdrawn-positions notice")
-else:
-    meta["records"] = 0
-    problems.append("no gpkg_metadata table: the licence and the warnings do not "
-                    "travel with the file")
-con.close()
+main_meta = meta.get(P.name, {})
+if main_meta and not main_meta.get("mentions_cc_by_4"):
+    problems.append("no metadata record carries the GeoNames CC BY 4.0 attribution")
+if main_meta and not main_meta.get("towns_referenced"):
+    problems.append("the CC BY 4.0 record is not attached to towns_geonames")
+if main_meta and not main_meta.get("mentions_withdrawn"):
+    problems.append("no metadata record carries the withdrawn-positions notice")
 chk["metadata"] = meta
+
+# ---- one CRS in the deliverable -------------------------------------------
+# The layers are meant to be laid on each other. A single file with three CRS
+# means every consumer has to reproject first, and a layer drawn in the wrong CRS
+# does not error - it lands somewhere else. The five reprojections that exist for
+# measuring live in their own file (split_projected_copies.py); this asserts the
+# split is complete and that nothing drifted back in.
+crs_chk = dict(deliverable_srs=sorted({rec.get("crs") for rec in
+                                       [r for r in report["layers"].values()] if rec.get("crs")}))
+if crs_chk["deliverable_srs"] != ["EPSG:4326"]:
+    problems.append(f"the deliverable is not one CRS: {crs_chk['deliverable_srs']}")
+if COPIES.exists():
+    con2 = sqlite3.connect(COPIES)
+    copies = con2.execute("SELECT table_name, srs_id FROM gpkg_contents").fetchall()
+    con2.close()
+    crs_chk["copies_file"] = {t: s for t, s in copies}
+    main_names = {n for n, _ in pyogrio.list_layers(P)}
+    copy_names = {t for t, _ in copies}
+    absent = [t for t in COPY_LAYERS if t not in copy_names]
+    if absent:
+        problems.append(f"the copies file does not hold {absent}")
+    still_in_main = [t for t in COPY_LAYERS if t in main_names]
+    if still_in_main:
+        problems.append(f"the deliverable still holds reprojections: {still_in_main}")
+else:
+    problems.append("no projected-copies file: the measurement layers are missing")
+chk["crs"] = crs_chk
 chk["geopackage_conformance"] = gpkg
 
 # ---- class polygons: no self-overlap, and how much they actually cover -----

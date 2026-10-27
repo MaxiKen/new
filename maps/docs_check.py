@@ -113,7 +113,7 @@ for name in sorted(found - sectioned):
     checks.append(dict(layer=name, check="has its own section", doc=None, measured=None, ok=False))
 
 # ---- header totals ---------------------------------------------------------
-m = re.search(r"\*\*(\d+) vector layers,\s+([\d,]+) features\*\*", text)
+m = re.search(r"\*\*(\d+) vector layers,\s+([\d,]+) features[^*]*\*\*", text)
 if not m and "vector layers" in text:
     checks.append(dict(layer="(file)", check="header totals are parseable",
                        doc="vector layers, ... features", measured="matched nothing", ok=False))
@@ -125,30 +125,38 @@ if m:
     checks.append(dict(layer="(file)", check="header feature count",
                        doc=int(m.group(2).replace(",", "")), measured=n_feat,
                        ok=int(m.group(2).replace(",", "")) == n_feat))
-# `\s+` between the groups, not a literal space: this sentence wraps across two
-# lines in LAYERS.md, and a literal-space pattern silently matched nothing, so a
-# wrong figure ("23 layers in EPSG:4326") was reported as 0 wrong for several runs.
-# A claim that cannot be parsed is now a failure, not a skip.
-_crs_pat = (r"(\d+) layers in EPSG:4326\s*\(([\d,]+) features\), (\d+) in EPSG:32632"
-            r"\s*\(([\d,]+)\), (\d+) in EPSG:6933\s*\(([\d,]+)\)")
-m = re.search(_crs_pat, text)
-if not m and "layers in EPSG:4326" in text:
-    checks.append(dict(layer="(file)", check="header CRS split is parseable",
-                       doc="layers in EPSG:4326", measured="matched nothing", ok=False))
-if m:
-    want = {4326: (int(m.group(1)), int(m.group(2).replace(",", ""))),
-            32632: (int(m.group(3)), int(m.group(4).replace(",", ""))),
-            6933: (int(m.group(5)), int(m.group(6).replace(",", "")))}
-    got = {}
-    for rec in audit.values():
-        crs = int((rec["crs"] or "EPSG:0").split(":")[1])
-        a, b = got.get(crs, (0, 0))
-        got[crs] = (a + 1, b + rec["features"])
-    for crs, (nl, nf) in want.items():
-        checks.append(dict(layer="(file)", check=f"header EPSG:{crs} layers", doc=nl,
-                           measured=got.get(crs, (0, 0))[0], ok=got.get(crs, (0, 0))[0] == nl))
-        checks.append(dict(layer="(file)", check=f"header EPSG:{crs} features", doc=nf,
-                           measured=got.get(crs, (0, 0))[1], ok=got.get(crs, (0, 0))[1] == nf))
+# the deliverable must be one CRS. This used to check a three-CRS split sentence;
+# the sentence is now a one-CRS claim, and the reprojections it used to describe
+# are checked against the file they live in.
+assert "every one in EPSG:4326" in text or "every layer in EPSG:4326" in text, \
+    "LAYERS.md no longer states the single-CRS property"
+_crs_bad = sorted({rec["crs"] for rec in audit.values()} - {"EPSG:4326"})
+checks.append(dict(layer="(file)", check="every layer is EPSG:4326",
+                   doc="every one in EPSG:4326", measured=sorted({rec["crs"] for rec in audit.values()}),
+                   ok=not _crs_bad))
+
+# the five reprojections: LAYERS.md's table against their own file
+COPIES = HERE / "Nigeria_Geology_Minerals_projected_copies.gpkg"
+_cop_layers = {n for n, _ in pyogrio.list_layers(COPIES)} if COPIES.exists() else set()
+_cop_rows = re.findall(r"^\|\s*`([a-z0-9_]+)`\s*\|\s*EPSG:(\d+)\s*\|\s*`([a-z0-9_]+)`\s*\|\s*([\d,]+)\s*\|",
+                       text, re.M)
+checks.append(dict(layer="(copies)", check="the reprojection table lists the file's layers",
+                   doc=len(_cop_layers), measured=len(_cop_rows),
+                   ok=len(_cop_rows) == len(_cop_layers) == 5))
+for name, srs, parent, n in _cop_rows:
+    ok = name in _cop_layers
+    checks.append(dict(layer="(copies)", check=f"{name} is in the copies file",
+                       doc="listed", measured=ok, ok=ok))
+    if not ok:
+        continue
+    info = pyogrio.read_info(COPIES, layer=name)
+    checks.append(dict(layer="(copies)", check=f"{name} CRS", doc=f"EPSG:{srs}",
+                       measured=info["crs"], ok=info["crs"] == f"EPSG:{srs}"))
+    checks.append(dict(layer="(copies)", check=f"{name} rows",
+                       doc=int(n.replace(",", "")), measured=info["features"],
+                       ok=info["features"] == int(n.replace(",", ""))))
+    checks.append(dict(layer="(copies)", check=f"{name} parent is in the deliverable",
+                       doc=parent, measured=parent in found, ok=parent in found))
 
 # ---- the same claims, in the README's own layer table ------------------------
 # Two documents quote the same figures. A number corrected in one and not the

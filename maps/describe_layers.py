@@ -26,6 +26,13 @@ import pyogrio
 
 HERE = pathlib.Path(__file__).parent
 GPKG = HERE / "Nigeria_Geology_Minerals_4326.gpkg"
+# the five reprojections, which live in their own file so the deliverable is one CRS
+COPIES = HERE / "Nigeria_Geology_Minerals_projected_copies.gpkg"
+COPY_PARENT = {"geology_units_utm32n": "geology_units",
+               "geology_units_equal_area": "geology_units",
+               "mineral_localities_icons_utm32n": "mineral_localities_icons",
+               "mineral_localities_equal_area": "mineral_localities_icons",
+               "mineral_localities_utm32n": "mineral_localities_refined"}
 OUT = HERE / "layer_descriptions.json"
 
 # layer -> (what it is / where it came from, caveat or None)
@@ -208,6 +215,32 @@ con.commit()
 blank = [r[0] for r in con.execute(
     "SELECT table_name FROM gpkg_contents WHERE description IS NULL OR description = ''")]
 con.close()
+
+# ---- the copies file: same treatment, plus why it exists --------------------
+if COPIES.exists():
+    con = sqlite3.connect(COPIES)
+    for name, kind in con.execute(
+            "SELECT table_name, data_type FROM gpkg_contents").fetchall():
+        if kind != "features":
+            continue
+        parent = COPY_PARENT[name]
+        what, caveat = FEATURES[parent]
+        info = pyogrio.read_info(COPIES, layer=name)
+        text = (f"Measurement copy of `{parent}` in {info['crs']}: {info['features']:,} "
+                f"features, every attribute identical to the parent and the same key, "
+                f"geometry reprojected so that area and length can be computed in "
+                f"metres. It lives in this file, not in "
+                f"Nigeria_Geology_Minerals_4326.gpkg, so that the deliverable is a "
+                f"single CRS and its layers can be laid on each other without a "
+                f"reprojection. Use `{parent}` for display and this copy for "
+                f"measurement. {what}")
+        if caveat:
+            text = f"{text} {caveat}"
+        con.execute("UPDATE gpkg_contents SET description = ? WHERE table_name = ?",
+                    (text, name))
+        descriptions[name] = text
+    con.commit()
+    con.close()
 
 json.dump(descriptions, open(OUT, "w"), indent=1, ensure_ascii=False)
 print(f"described {len(descriptions)} layers, {len(blank)} left blank")

@@ -127,7 +127,8 @@ added because the earlier audit's "0 problems" did not cover them:
   must not be used for. `describe_layers.py` now writes a description for every
   layer, caveats included, and `audit_layers.py` fails if one is blank.
 
-None of this removes data: 31 feature layers, 9 raster layers, 60,555 features and
+None of this removes data: 26 feature layers in the deliverable (the five reprojections sit in a
+second file, unchanged), 9 raster layers, 60,555 features and
 every tile are still there, and `gpkg_hygiene.json` records each register entry
 that was corrected.
 

@@ -17,18 +17,13 @@
    "rtree_fold_axes_geom",
    "rtree_geology_boundaries_geom",
    "rtree_geology_era_geom",
-   "rtree_geology_units_equal_area_geom",
    "rtree_geology_units_geom",
-   "rtree_geology_units_utm32n_geom",
    "rtree_graticule_geology_geom",
    "rtree_graticule_minerals_geom",
    "rtree_international_boundary_geom",
-   "rtree_mineral_localities_equal_area_geom",
    "rtree_mineral_localities_geom",
    "rtree_mineral_localities_icons_geom",
-   "rtree_mineral_localities_icons_utm32n_geom",
    "rtree_mineral_localities_refined_geom",
-   "rtree_mineral_localities_utm32n_geom",
    "rtree_mineral_symbols_geom",
    "rtree_minerals_named_geom",
    "rtree_national_territory_geom",
@@ -48,14 +43,14 @@
   "declared_but_missing": []
  },
  "after": {
-  "features": 31,
+  "features": 26,
   "tiles": 9,
-  "extension_rows": 31,
-  "spatial_indexes": 31,
+  "extension_rows": 26,
+  "spatial_indexes": 26,
   "tile_matrix_rows": 9,
   "integrity_check": "ok",
   "foreign_key_check": 0,
-  "size_mb": 51.88
+  "size_mb": 48.85
  },
  "history": {
   "dangling_extension_rows": 16,

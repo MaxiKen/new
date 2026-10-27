@@ -12,7 +12,8 @@ sheets in this repository:
 
 | File | What it is |
 |---|---|
-| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, **31 vector layers, 60,555 features** plus **9 georeferenced raster layers** (30 MB of tiles), EPSG:4326 with five projected copies — this is the deliverable |
+| `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, **26 vector layers, 57,364 features** plus **9 georeferenced raster layers** (30 MB of tiles) — **every layer in EPSG:4326**, so they can all be laid on each other. This is the deliverable |
+| `Nigeria_Geology_Minerals_projected_copies.gpkg` | the five reprojections (3 × EPSG:32632, 2 × EPSG:6933) that used to sit in the file above, kept for measuring area and length in metres; identical rows and attributes to their 4326 parents |
 | `Nigeria_Geology_Minerals_4326.png` / `.pdf` | rendered map |
 | `build_combined.py` | rebuilds the GeoPackage |
 | `render_combined.py` | rebuilds the image/PDF |
@@ -45,12 +46,15 @@ sheets in this repository:
 | `make_vector_qc.py` | redraws `vector_layers_qc.png`, including the ground the sheets leave blank |
 | `normalise_nulls.py` | makes missing values NULL again — a read/write round trip through a GeoDataFrame turns them into `''` |
 | `repair_layers.py` | the per-layer defects found by the deep audit, each one idempotent and recorded (`layer_repairs.json`) |
-| `docs_check.py` | **tests every published number against the files that produced it** — the layer tables in `LAYERS.md` and `README.md`, the field tables, and the raster catalogue in `RASTER_LAYERS.md` against `raster_georeferencing.json` (442 claims in all); exits non-zero if one is wrong |
+| `docs_check.py` | **tests every published number against the files that produced it** — the layer tables in `LAYERS.md` and `README.md`, the field tables, and the raster catalogue in `RASTER_LAYERS.md` against `raster_georeferencing.json` (412 claims in all); exits non-zero if one is wrong |
 | `vectorisation_study.py` | the purity / fragmentation / round-trip test each sheet passes or fails |
 | `georef_new_map.py` | **georeferences the nine scans in `new map/`** into the GeoPackage as clipped RGBA raster layers, with a measured border offset per layer |
 | `RASTER_LAYERS.md` | the nine raster layers: format decisions, legend transcriptions, measured positional error and what each must not be used for |
 | `raster_georeferencing.json` / `raster_georeferencing_qc.png` | the fit record for every raster layer, and the overlay it was checked against |
 | `refresh_crs_report.py` | recomputes `crs_qa_report.json` from the shipped file, so its layer count and its 3857 error figure cannot drift from the data |
+| `split_projected_copies.py` | moves the five reprojections into their own GeoPackage, so the deliverable is one CRS; verifies each copy against its parent before it leaves the file |
+| `gpkg_write.py` | replaces a layer inside a GeoPackage without relying on the writer's overwrite semantics (pyogrio 0.13 changed them), keeping the registers and the layer's description consistent |
+| `requirements.txt` | the versions this was last verified against |
 | `add_gpkg_metadata.py` | writes `gpkg_metadata` / `gpkg_metadata_reference`: the provenance, the four source licences and the withdrawal notice inside the file, with pinned ids and dates so a rerun is byte-identical |
 | `verify_all.py` | reads every evidence JSON, pulls out its verdict, fails if one is a fail or is older than the file, and writes `VERIFICATION.md` |
 | `check_idempotency.py` | runs the repairs a second time and fingerprints every table (geometry WKB, all attributes) to prove the build has converged |
@@ -84,20 +88,22 @@ python finalize_layers.py       # stable IDs, equal-area layers, crs_qa_report.j
 python add_named_minerals.py    # + minerals_named, refresh crs_qa_report.json
 python render_combined.py       # PNG/PDF (draws minerals_named, not the localities)
 python normalise_nulls.py       # restore NULL where a rewrite left ''
-python repair_layers.py         # the per-layer repairs (idempotent)
+python repair_layers.py         # the per-layer repairs (idempotent, both files)
+python split_projected_copies.py  # the 5 reprojections -> their own file, so the deliverable is one CRS
 python fix_gpkg_hygiene.py      # registers: dangling extensions, indexes, zoom levels
-python describe_layers.py       # a description for every layer, inside the file
+python describe_layers.py       # a description for every layer, in both files
+python add_gpkg_metadata.py     # provenance + licences inside both files (gpkg_metadata)
+python check_idempotency.py     # run the pipeline twice: the second run must change no row
 python refresh_crs_report.py    # crs_qa_report.json, recomputed from the file as shipped
-python add_gpkg_metadata.py     # provenance + licences inside the file (gpkg_metadata)
-python audit_layers.py          # verify all 31 layers + 9 rasters + the file's registers -> layer_audit.json
-python docs_check.py            # test every published number against the file
-python check_idempotency.py     # run the repairs twice: the second run must change no row
+python audit_layers.py          # verify all 26 layers + 9 rasters + the copies file + registers -> layer_audit.json
+python docs_check.py            # test every published number against the files
+python check_polygon_colour.py  # traced polygons against the sheet they were traced from
+python render_combined.py       # the PNG/PDF, from the layers as shipped
 python verify_all.py            # every check, its verdict, and whether it is current -> VERIFICATION.md
-python georef_new_map.py        # + the 9 raster layers (merges tiles, never rebuilds the vectors)
-python build_towns.py           # + towns_geonames, the gazetteer (downloads ~450 MB once, caches it)
 ```
 
-`georef_new_map.py` and `build_towns.py` are the two steps that are safe to run
+`georef_new_map.py` and `build_towns.py` (the two layers added last, run before the block above)
+are the two steps that are safe to run
 against the finished GeoPackage: the first writes each raster into a scratch file
 and merges the tiles, the second replaces only its own layer. Neither touches the
 27 layers the sheet-by-sheet build produced (`geology_era`, `poly_soil_ph` and
@@ -175,7 +181,7 @@ digitised ground.
 | summed `area_km2` | 912,520 km² | **907,157 km²** = the territory exactly |
 
 Verified on the shipped file: 97 rows, 0 invalid or empty geometries, no duplicate geometries,
-`geology_units`, `geology_units_equal_area` and the geodesic computation all give 907,157 km².
+`geology_units` (reprojected to 6933), `geology_units_equal_area` (the stored copy) and the geodesic computation all give 907,157 km².
 
 **The unit count went 92 → 96 because five codes are printed twice.** The legend has 92 rows but
 only 87 distinct codes: `Esh`, `MS`, `MyP`, `Ncsh` and `Wss` each appear on two rows, and each row
@@ -261,24 +267,41 @@ Two caveats:
 
 ## Using these layers for calculation
 
-**Every layer is EPSG:4326 except the five explicitly projected copies.** All geometries are
-valid, all have a CRS, no null or empty geometries, and `lon`/`lat` fields are asserted equal
-to the geometry. Verified on the current build:
+### One CRS, so they can be laid on each other
 
-| layer | CRS | features |
-|---|---|---|
-| the 26 EPSG:4326 layers | EPSG:4326 | 57,364 |
-| `mineral_localities_utm32n`, `mineral_localities_icons_utm32n`, `geology_units_utm32n` | EPSG:32632 | 999 / 999 / 97 |
-| `mineral_localities_equal_area`, `geology_units_equal_area` | EPSG:6933 | 999 / 97 |
+**Every layer in the deliverable is EPSG:4326 — all 26 vector layers and all 9 rasters.** Open
+them together in QGIS, join them, stack the rasters under the vectors, and nothing needs a
+reprojection. That is also the only CRS the rasters can carry: they are tiled in degrees, so a
+re-tiling into metres would resample the sheets a second time.
+
+The five reprojections that used to live in the file are now in
+`Nigeria_Geology_Minerals_projected_copies.gpkg`. They exist for one reason: **in degrees you
+cannot measure.** Area in EPSG:4326 is square degrees, and EPSG:3857 is 3.68 % wrong over
+Nigeria. Each copy has a 4326 twin in the main file with the same rows, attributes and key:
+
+| file | layer | CRS | features |
+|---|---|---|---|
+| main | the 26 layers, incl. `geology_units`, `mineral_localities_icons`, `mineral_localities_refined` | EPSG:4326 | 57,364 |
+| copies | `geology_units_utm32n`, `mineral_localities_icons_utm32n`, `mineral_localities_utm32n` | EPSG:32632 | 97 / 999 / 999 |
+| copies | `geology_units_equal_area`, `mineral_localities_equal_area` | EPSG:6933 | 97 / 999 |
+
+Nothing was deleted in the move, and `audit_layers.py` proves it on every run: each copy's every
+attribute is compared with its parent's and its geometry with the parent reprojected (max offset
+0.00 m), and the deliverable is asserted to hold nothing but EPSG:4326. If you would rather not
+carry a second file, `gdf.to_crs("EPSG:6933")` on the 4326 layers gives the same numbers — the
+stored copies are there for reproducibility, not necessity.
+
+All geometries are valid, all have a CRS, no null or empty geometries, and `lon`/`lat` fields
+are asserted equal to the geometry. Verified on the current build.
 
 ### Pick the CRS for what you are measuring
 
 | task | use | why |
 |---|---|---|
 | storage, exchange, web maps | **EPSG:4326** | degrees; **never compute area in it** — the result is square degrees |
-| area, coverage, density | **EPSG:6933** (`*_equal_area` layers) | exact: 0.000 % error against the geodesic area |
+| area, coverage, density | **EPSG:6933** — `geology_units_equal_area` in the copies file, or `to_crs(6933)` | exact: 0.000 % error against the geodesic area |
 | length / nearest-neighbour, countrywide | geodesic metres (`pyproj.Geod` on the 4326 layer) | no projection error anywhere |
-| length / nearest-neighbour, local | EPSG:32631 / 32632 / 32633 **by zone** | Nigeria spans zones 31N (2.7–6°E), 32N (6–12°E) and 33N (12–15°E); the provided UTM 32N layer is 0.19 % off in area and worse in length at the east/west edges |
+| length / nearest-neighbour, local | EPSG:32631 / 32632 / 32633 **by zone** | Nigeria spans zones 31N (2.7–6°E), 32N (6–12°E) and 33N (12–15°E); the provided UTM 32N copy is 0.19 % off in area and worse in length at the east/west edges |
 | never | EPSG:3857 | +3.68 % area error over Nigeria (940,568 vs 907,157 km²) |
 
 Measured on this build, for the mapped coverage:
@@ -374,8 +397,9 @@ graticule fit above supersedes it.
 
 ## What the layers contain
 
-**31 layers, 60,555 features, all verified by `audit_layers.py`** (26 layers in EPSG:4326 with
-57,364 features, three in 32632, two in 6933) (result in `layer_audit.json`).
+**26 layers, 57,364 features, all in EPSG:4326 and all verified by `audit_layers.py`** (result in
+`layer_audit.json`). The five reprojections are in the copies file and described in the section
+above; they are not in these tables, because they are not in this file.
 The table gives the count, CRS and geometry, what the layer is, and how much of it is inside
 Nigeria. "inside" matters: the 2011 sheet draws neighbouring-country context, so the base layers
 are not all Nigerian — that is now measured per feature, not assumed.
@@ -385,8 +409,6 @@ are not all Nigerian — that is now measured per feature, not assumed.
 | layer | n | CRS | geometry | what it is | inside Nigeria |
 |---|---|---|---|---|---|
 | `geology_units` | 97 | 4326 | MultiPolygon | **the only geology layer.** 96 rock units + `W` water. Valid, non-overlapping, no inland gap, cut on `national_territory`. Attributes: `code`, `unit`, `leg_desc`, `legend_row`, `attr_source`, `eon`/`era`/`period`/`epoch`, `age_ma_min`/`age_ma_max`, `rock_cls`, `formation`, `draw_order`, `area_km2`, `mapped_km2`, `filled_km2`, `filled`, `fill_source`, `fill`, `note` | 100 % |
-| `geology_units_utm32n` | 97 | 32632 | MultiPolygon | same, on UTM 32N. Areas here are **+0.19 %** — use it for local distance, not for area | 100 % |
-| `geology_units_equal_area` | 97 | 6933 | MultiPolygon | same, on EPSG:6933. `area_km2_equal_area` is exact (0.000 % vs geodesic) — **use this for area statistics** | 100 % |
 | `geology_boundaries` | 2,819 | 4326 | LineString | contacts between units: exact / approximate / inferred / transitional in `class` | 99.9 % of 81,849 km |
 | `faults` | 648 | 4326 | LineString | major and inferred fractures (`class`) | 99.8 % of 17,704 km |
 | `fold_axes` | 90 | 4326 | LineString | anticlinal and synclinal axes | 94.6 % |
@@ -417,11 +439,8 @@ are not all Nigerian — that is now measured per feature, not assumed.
 | layer | n | CRS | geometry | what it is | inside Nigeria |
 |---|---|---|---|---|---|
 | `mineral_localities_icons` | 999 | 4326 | Point | **POSITIONS INVALID — see `mineral_audit.md`; queued for rebuild.** Position was intended to be the centre of the printed mineral icon where one exists (842), otherwise the printed label, but the source symbol coordinates are ~9.6 km noise, so the anchoring does not hold. `locality_id` is the unique key; `n_icons`, `icon_tier`, `icon_spread_m`, `pos_method`, `moved_from_label_m`, `host_code`, `host_boundary_dist_m`, `group_centroid_lon/lat`, `shared_number` | 995/999 |
-| `mineral_localities_icons_utm32n` | 999 | 32632 | Point | the same positions, metres | 995/999 |
-| `mineral_localities_equal_area` | 999 | 6933 | Point | the same positions, equal-area | 995/999 |
 | `mineral_localities` | 999 | 4326 | Point | the localities before icon anchoring, with the full source vocabulary (`symbol`, `sym_colour`, `min_conf`, `pos_src`, `label_lon/lat`, `groups`) | 991/999 |
 | `mineral_localities_refined` | 999 | 4326 | Point | the previous positioning policy, kept for comparison | 992/999 |
-| `mineral_localities_utm32n` | 999 | 32632 | Point | **the EPSG:32632 copy of `mineral_localities_refined` (layer 21), not of layer 20** — the name is historic; the coordinates match layer 21 exactly and differ from layer 20 by up to 11.9 km in 117 rows | 992/999 |
 | `mineral_symbols` | 1,609 | 4326 | Point | **POSITIONS INVALID — see `mineral_audit.md` and `mineral_symbols_detected.gpkg`.** the extraction's symbol rows, with commodity, colour and how it was identified (`ident_mth`, `ident_scr`); the attributes are usable, the geometry is not (median 9.6 km from any symbol). **Filter on `is_symbol = 1` before counting:** that leaves the **1,489** rows that are one countable printed symbol. The 120 others are 56 raster slivers, 21 state-capital squares, 8 linework/label fragments, 5 bridge or water markings, 5 merged clusters, 15 fragments and 8 halves of a symbol already counted, and 2 merged touching pairs — unfiltered they show up as a phantom commodity with 56 members | 1,603/1,609 |
 | `minerals_named` | 1,323 | 4326 | Point | **the printed symbols, correctly placed.** Every glyph re-detected on the sheet at its native 75 dpi, each point the centroid of its symbol (±0.35 km). Named with the accuracy stated per row: `mineral`, `tier` (probable ≥70 % / tentative 50–70 % / unidentified), `family_accuracy_pct`, `mineral_class`, `details`, `in_nigeria`. **Use this for position; use `mineral_symbols.mineral` for counts — with `is_symbol = 1`.** 144 symbols are printed outside the border because the sheet maps the whole region (Niger, Benin, Cameroon) — `in_nigeria=False`, not an error | 1,179/1,323 |
 
@@ -451,18 +470,18 @@ otherwise. `layer_audit.json` records the fragment count per layer.
 | geology drawn outside the territory | **0.000 km²** in EPSG:4326 (0.001 km² reprojected separately) |
 | area: `area_km2` sum vs EPSG:6933 vs geodesic | 907,157.0 / 907,157.0 / 907,156.9 km² — **0.000 %** |
 | 2023 border vertices on the geology edge | 3,500, worst **7.5 m** |
-| codes in 4326 / 32632 / 6933 copies | identical sets |
-| invalid / empty / null geometries | **0** in all 31 layers |
+| codes in the 4326 layer and its two copies | identical sets |
+| invalid / empty / null geometries | **0** in all 26 layers |
 | duplicate geometries | only in point layers, and deliberate (see below) |
 | point → unit joins | 0 mismatches in all 6 layers that carry one |
 | numeric fields stored as text | **none** — `age_ma_min` / `age_ma_max` are float64 |
 | dangling `gpkg_extensions` rows / orphan rtree tables | **0 / 0** (16 dead rows and 7 dead indexes removed, 17 undeclared indexes declared, 29 empty zoom levels dropped) |
 | layers without a description inside the file | **0** of 40 |
-| provenance inside the file | 4 ISO 19139 records + 11 references in `gpkg_metadata` / `gpkg_metadata_reference` — the whole file, the GeoNames CC BY 4.0 attribution on `towns_geonames`, the Natural Earth terms on the outline, the withdrawal notice on the 7 mineral layers |
+| provenance inside the file | 4 ISO 19139 records + 8 references in the deliverable's `gpkg_metadata` (whole file, GeoNames CC BY 4.0 on `towns_geonames`, Natural Earth terms, the withdrawal notice on its 4 mineral layers), and 2 records + 9 references in the copies file |
 | `application_id` / `user_version` | `0x47504b47` (GPKG) / 10400 — GeoPackage 1.4 |
 | `len_km` vs the geodesic measurement | 0.000 km difference in all 9 line layers; `km_in_nigeria ≤ len_km` and `frac_in_nigeria = km_in_nigeria / len_km` in every row |
 | ring winding (GeoJSON / GeoParquet interop) | 0 clockwise exteriors, 0 counter-clockwise holes across the 8 polygon layers |
-| text hygiene | no leading or trailing space, double space, control character or `''` in any of the 60,555 rows' text fields |
+| text hygiene | no leading or trailing space, double space, control character or `''` in any of the 57,364 rows' text fields |
 | hairline slits / duplicate vertices in polygon rings | **0 / 0** (35 + 14 removed from `geology_units`, 95 from `geology_era`) |
 | sentinel values in numeric columns (`-9999`, `-99999`, `-32768`) | **0** |
 | text values with padding, double spaces or control characters | **0** |
@@ -508,7 +527,8 @@ GeoPackage, in four places, so a copy of the `.gpkg` on its own still carries it
 
 | where | what it holds |
 |---|---|
-| `gpkg_metadata` (4 records) + `gpkg_metadata_reference` (11 rows) | an ISO 19139 record for the whole file (title, abstract, lineage, bounding box, and the licence of every source), one for `towns_geonames` with the CC BY 4.0 text, one for the Natural Earth outline, and one attached to the seven mineral layers carrying the withdrawal notice |
+| `gpkg_metadata` (4 records) + `gpkg_metadata_reference` (8 rows) | an ISO 19139 record for the whole file (title, abstract, lineage, bounding box, and the licence of every source), one for `towns_geonames` with the CC BY 4.0 text, one for the Natural Earth outline, and one attached to the mineral layers carrying the withdrawal notice |
+| the same two tables in the copies file (2 records, 9 references) | the same for the five reprojections, so a reader who measures in metres still meets the licences and the withdrawal notice |
 | `gpkg_contents.description` | the per-layer description, which names the source and, for `towns_geonames`, the licence |
 | `metadata.json`, `gpkg_metadata.json` | the same, as plain files, for tools that do not read GeoPackage metadata |
 | this section | the human-readable version |
