@@ -118,5 +118,17 @@
  {
   "key": "gpkg_registers",
   "value": "the file's self-description was audited and repaired (fix_gpkg_hygiene.py, gpkg_hygiene_before.json -> gpkg_hygiene.json): 16 gpkg_extensions rows named things that do not exist (7 dropped exploratory layers, 9 rtree declarations on raster tile_data BLOBs), 7 orphan rtree indexes removed, 17 spatial indexes that existed but were undeclared are now declared (every feature layer has exactly one), and 29 of 38 declared tile-matrix zoom levels held no tiles and were dropped - each raster now declares exactly the one level that holds tiles. All 40 layers now carry a gpkg_contents description (describe_layers.py), which audit_layers.py checks."
+ },
+ {
+  "key": "data_conventions",
+  "value": "Missing values are NULL, never '' - enforced, not hoped for: normalise_nulls.py rewrites any empty string to NULL and audit_layers.py fails if one reappears (131,755 cells across 9 layers were normalised on 2026-10-27). Booleans are stored as BOOLEAN 1/0 (never 'True' text), counts and elevations as INTEGER (never numeric text). Every projected copy is attribute-identical to the layer it copies; before this pass the copies disagreed (NULL became '' on a read/write round trip). lon/lat and the geometry are the same point in every point layer."
+ },
+ {
+  "key": "deep_layer_audit",
+  "value": "A layer-by-layer audit on 2026-10-27 checked every one of the 31 layers against its own documentation, its sibling layers and its source, and found: gpkg_ogr_contents still cached feature counts for 7 dropped exploratory tables; 131,755 empty strings where NULL is the documented convention, which also made the projected copies disagree with their base layer; mineral_localities_utm32n is the EPSG:32632 copy of mineral_localities_refined, not of mineral_localities as its name and docs said (they differ by up to 11.9 km in 117 rows); one locality (number 70) carried a stale host era/period/age (Cenozoic/Quaternary instead of Mesozoic/Cretaceous); towns_geonames stored elevation as text and its only boolean as the text 'True'/'False', and 7,372 of its 45,415 positions are recorded to 2 decimal places or fewer (now exposed as coord_dp); towns, state_capitals and volcanic_plugs stored each point twice and the copies disagreed by up to 0.1 m; geology_era lacked the class_id the other class layers have; three locality layers lacked locality_id; geology_era was documented as reproducing the general-geology sheet's 9 classes when it has 7 era classes and the sheet's are era-plus-lithology. All are fixed (repair_layers.py, normalise_nulls.py) and all are now checks in audit_layers.py. docs_check.py tests every number in LAYERS.md against the file."
+ },
+ {
+  "key": "reproducibility",
+  "value": "The checks are part of the build: audit_layers.py (layers, rasters, registers, attribute conventions), docs_check.py (the catalogue's numbers), check_polygon_colour.py (class polygons against their sheets), fix_gpkg_hygiene.py (registers), normalise_nulls.py (NULL convention), describe_layers.py (per-layer descriptions). A release should show 0 problems, 0 wrong claims and 0 empty strings."
  }
 ]

@@ -198,7 +198,11 @@ def read_nigeria(db):
     df["feature_type"] = df.feature_code.map(lambda c: fc.get(c, ("", ""))[0])
     df["state"] = [a1.get(("NG", c)) for c in df.admin1_code]
     df["lga"] = [a2.get(("NG", a, b)) for a, b in zip(df.admin1_code, df.admin2_code)]
-    df["alt_names"] = df.alt_names.fillna("").str.slice(0, 120)
+    # a place with no recorded alternative names has none: NULL, not '' - the
+    # file's convention, and the difference between "absent" and "empty" that a
+    # text query can see
+    df["alt_names"] = df.alt_names.str.slice(0, 120)
+    df["alt_names"] = df.alt_names.replace("", None)
     df["population"] = df.population.fillna(0).astype("int64")
     return df
 
@@ -254,10 +258,10 @@ def main(cache="/tmp/geonames_cache"):
     j = j[~j.index.duplicated(keep="first")]
     g["state_polygon"] = j["state_ne"].to_numpy()
     g["state_gn"] = g["state"]
-    g["state_agree"] = [
+    g["state_agree"] = pd.array([
         None if (pd.isna(a) or pd.isna(b) or not str(a).strip() or not str(b).strip())
         else norm(str(a)).replace(" state", "") == norm(str(b)).replace(" state", "")
-        for a, b in zip(g.state_gn, g.state_polygon)]
+        for a, b in zip(g.state_gn, g.state_polygon)], dtype="boolean")
     g["state"] = g["state_polygon"].fillna(g["state_gn"])
 
     # --- the checks that make the layer auditable --------------------------
@@ -350,17 +354,35 @@ def main(cache="/tmp/geonames_cache"):
     json.dump(report, open(REPORT, "w"), indent=1)
 
     # --- write -------------------------------------------------------------
-    out = g.drop(columns=[c for c in ("k", "ngsa_name") if c in g.columns])
+    # numeric fields must be numbers: `elevation_m > 500` on TEXT compares strings
+    out = g.copy()
+    out["elevation_m"] = pd.to_numeric(out["elevation_m"], errors="coerce").astype("Int64")
+    for code_col in ("admin1_code", "admin2_code"):
+        out[code_col] = out[code_col].replace("", None)
+    # how precisely GeoNames records the position, in decimal places: 7,372 of
+    # the entries carry 2 or fewer, which is a position good to 1 km at best
+    def _dp(v):
+        t = f"{v:.6f}".rstrip("0").rstrip(".")
+        return len(t.split(".")[1]) if "." in t else 0
+
+    out["coord_dp"] = [min(_dp(x), _dp(y))
+                       for x, y in zip(out.geometry.x, out.geometry.y)]
+    out = out.drop(columns=[c for c in ("k", "ngsa_name") if c in out.columns])
     out = out[["geonameid", "name", "ascii_name", "alt_names", "feature_code",
                "feature_type", "state", "state_gn", "state_agree",
                "admin1_code", "admin2_code", "lga",
                "population", "elevation_m", "dem_m", "timezone", "moddate",
-               "in_nigeria", "ngsa_town_km", "dup_group", "geometry"]]
+               "in_nigeria", "coord_dp", "ngsa_town_km", "dup_group", "geometry"]]
     pyogrio.write_dataframe(out, GPKG, layer=LAYER, driver="GPKG", append=False)
     print(f"  wrote layer {LAYER}: {len(out):,} points")
     for k in ("inside_pct", "with_state_pct", "with_population", "state_seats",
               "duplicate_spellings", "nearest_ngsa_km_median", "check_against_ngsa"):
         print(f"  {k:24s} {report[k]}")
+    # a rewritten layer loses its gpkg_contents description and can pick up
+    # register debris: finish the job so the shipped layer is self-describing
+    here = pathlib.Path(__file__).parent
+    subprocess.run([sys.executable, str(here / "fix_gpkg_hygiene.py")], check=True)
+    subprocess.run([sys.executable, str(here / "describe_layers.py")], check=True)
     print(f"  wrote {REPORT.name}")
     return report
 

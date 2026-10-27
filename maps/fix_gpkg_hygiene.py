@@ -101,14 +101,33 @@ cur.executemany("DELETE FROM gpkg_tile_matrix WHERE table_name = ? AND zoom_leve
                 [(d["table"], d["zoom_level"]) for d in stale_zoom])
 report["removed"]["tile_matrix_levels_without_tiles"] = stale_zoom
 
-# 5. geometry-column rows for tables that do not exist -----------------------
+# 5. `gpkg_ogr_contents`: GDAL's cached feature counts ------------------------
+# Another register that survives a dropped table. A client reading it believes a
+# layer with 3,392 features exists when the table is gone.
+if cur.execute("SELECT count(*) FROM sqlite_master WHERE name = 'gpkg_ogr_contents'"
+               ).fetchone()[0]:
+    stale = [r[0] for r in cur.execute(
+        "SELECT table_name FROM gpkg_ogr_contents") if r[0] not in contents]
+    cur.executemany("DELETE FROM gpkg_ogr_contents WHERE table_name = ?",
+                    [(t,) for t in stale])
+    report["removed"]["ogr_contents_rows_for_missing_tables"] = stale
+    fixed_counts = []
+    for t, n in cur.execute("SELECT table_name, feature_count FROM gpkg_ogr_contents").fetchall():
+        actual = cur.execute(f'SELECT count(*) FROM "{t}"').fetchone()[0]
+        if actual != n:
+            cur.execute("UPDATE gpkg_ogr_contents SET feature_count = ? WHERE table_name = ?",
+                        (actual, t))
+            fixed_counts.append(f"{t}: {n} -> {actual}")
+    report["removed"]["ogr_contents_counts_corrected"] = fixed_counts
+
+# 6. geometry-column rows for tables that do not exist -----------------------
 gc_orphan = [t for t in geom_col if t not in contents]
 cur.executemany("DELETE FROM gpkg_geometry_columns WHERE table_name = ?",
                 [(t,) for t in gc_orphan])
 report["removed"]["orphan_geometry_columns"] = gc_orphan
 
 con.commit()
-# 6. reclaim the pages the dropped index tables leave behind
+# 7. reclaim the pages the dropped index tables leave behind
 cur.execute("VACUUM")
 con.commit()
 

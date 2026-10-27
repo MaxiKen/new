@@ -18,7 +18,7 @@ Which sheets become polygons is decided by measurement, not taste
 Layers written:
   poly_soil_ph       5 classes, 1 km/px, palette measured from the printed swatches
   poly_population    5 classes, 2.4 km/px, same
-  geology_era        9 era classes dissolved from `geology_units` (no raster input)
+  geology_era        7 era classes dissolved from `geology_units` (no raster input)
 """
 import json
 import pathlib
@@ -195,8 +195,9 @@ def main():
     out.append(dict(layer="geology_era", source="geology_units (vector, no raster)",
                     classes=int(len(era)), polygons=int(len(era)),
                     area_km2=round(float(era.area_km2.sum()), 1),
-                    note="dissolved by era; the same 9 classes the general "
-                         "geology sheet shows, but from attributed vector geology"))
+                    note="dissolved by era from the attributed vector geology: 7 classes, "
+                         "where the general-geology sheet's legend draws 9 era-plus-lithology "
+                         "classes - a coarser generalisation, not a tracing"))
     print(f"  {'geology_era':20s} {len(era)} era classes dissolved from geology_units  "
           f"{era.area_km2.sum():.0f} km2")
 
@@ -204,6 +205,8 @@ def main():
     # a rebuild leaves register debris; clean it in the same run so the shipped
     # file never advertises a layer, index or zoom level it does not contain
     subprocess.run([sys.executable, str(HERE / "fix_gpkg_hygiene.py")], check=True)
+    # rewriting a layer clears its gpkg_contents description
+    subprocess.run([sys.executable, str(HERE / "describe_layers.py")], check=True)
     print(f"\nwrote {REPORT.name}")
 
 

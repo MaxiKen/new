@@ -99,6 +99,7 @@
     "MultiPolygon"
    ],
    "attributes": [
+    "class_id",
     "class_name",
     "area_km2"
    ],
@@ -207,14 +208,16 @@
     "leg_desc": 6,
     "legend_row": 6,
     "attr_source": 1,
-    "era": 4,
-    "period": 5,
-    "eon": 5,
-    "epoch": 6,
+    "era": 5,
+    "period": 24,
+    "eon": 6,
+    "epoch": 52,
     "age_ma_min": 6,
     "age_ma_max": 6,
     "rock_cls": 2,
-    "formation": 6
+    "formation": 57,
+    "fill_source": 22,
+    "note": 96
    },
    "code_unique": true
   },
@@ -259,14 +262,16 @@
     "leg_desc": 6,
     "legend_row": 6,
     "attr_source": 1,
-    "era": 4,
-    "period": 5,
-    "eon": 5,
-    "epoch": 6,
+    "era": 5,
+    "period": 24,
+    "eon": 6,
+    "epoch": 52,
     "age_ma_min": 6,
     "age_ma_max": 6,
     "rock_cls": 2,
-    "formation": 6
+    "formation": 57,
+    "fill_source": 22,
+    "note": 96
    },
    "code_unique": true
   },
@@ -381,7 +386,8 @@
     "host_period",
     "host_age_ma",
     "host_dist_m",
-    "in_nigeria"
+    "in_nigeria",
+    "locality_id"
    ],
    "null_geometry": 0,
    "empty_geometry": 0,
@@ -390,7 +396,10 @@
    "features_inside_nigeria": 991,
    "features_outside_nigeria": 8,
    "outside_flag_column": "in_nigeria",
-   "null_counts": {}
+   "null_counts": {
+    "host_period": 333
+   },
+   "locality_id_unique": true
   },
   "mineral_localities_equal_area": {
    "features": 999,
@@ -541,7 +550,8 @@
     "reassigned_from",
     "host_code",
     "host_boundary_dist_m",
-    "in_nigeria"
+    "in_nigeria",
+    "locality_id"
    ],
    "null_geometry": 0,
    "empty_geometry": 0,
@@ -551,8 +561,10 @@
    "features_outside_nigeria": 7,
    "outside_flag_column": "in_nigeria",
    "null_counts": {
+    "reassigned_from": 882,
     "host_boundary_dist_m": 7
-   }
+   },
+   "locality_id_unique": true
   },
   "mineral_localities_utm32n": {
    "features": 999,
@@ -576,7 +588,8 @@
     "pos_confidence",
     "reassigned_from",
     "host_code",
-    "host_boundary_dist_m"
+    "host_boundary_dist_m",
+    "locality_id"
    ],
    "null_geometry": 0,
    "empty_geometry": 0,
@@ -586,8 +599,10 @@
    "features_outside_nigeria": 7,
    "outside_flag_column": null,
    "null_counts": {
+    "reassigned_from": 882,
     "host_boundary_dist_m": 7
-   }
+   },
+   "locality_id_unique": true
   },
   "mineral_symbols": {
    "features": 1609,
@@ -651,7 +666,8 @@
    "null_counts": {
     "mineral": 18,
     "mineral_class": 18,
-    "prior_name": 437
+    "prior_name": 437,
+    "details": 18
    }
   },
   "national_territory": {
@@ -867,7 +883,9 @@
    "duplicate_geometry": 0,
    "features_inside_nigeria": 32,
    "features_outside_nigeria": 0,
-   "null_counts": {},
+   "null_counts": {
+    "unit_per": 6
+   },
    "ocg_id_groups": 1,
    "ocg_id_fragments": 31
   },
@@ -906,7 +924,7 @@
     "unit_code": 23,
     "unit": 23,
     "unit_era": 28,
-    "unit_per": 28
+    "unit_per": 176
    },
    "ocg_id_groups": 1,
    "ocg_id_fragments": 485
@@ -937,6 +955,7 @@
     "timezone",
     "moddate",
     "in_nigeria",
+    "coord_dp",
     "ngsa_town_km",
     "dup_group"
    ],
@@ -948,10 +967,14 @@
    "features_outside_nigeria": 500,
    "outside_flag_column": "in_nigeria",
    "null_counts": {
+    "alt_names": 38217,
     "state": 84,
     "state_gn": 13502,
     "state_agree": 13929,
+    "admin1_code": 1,
+    "admin2_code": 45403,
     "lga": 45404,
+    "elevation_m": 45393,
     "dup_group": 44773
    }
   },
@@ -1090,6 +1113,35 @@
    "mineral_localities_refined": 0
   },
   "numeric_stored_as_text": [],
+  "attribute_integrity": {
+   "empty_strings": {},
+   "projected_copy_attribute_diffs": {},
+   "lonlat_vs_geometry_max_m": {
+    "mineral_localities": 0.0,
+    "mineral_localities_equal_area": 0.0014,
+    "mineral_localities_icons": 0.0,
+    "mineral_localities_icons_utm32n": 0.0,
+    "mineral_localities_refined": 0.0,
+    "mineral_localities_utm32n": 0.0,
+    "minerals_named": 0.0,
+    "state_capitals": 0.0,
+    "towns": 0.0,
+    "volcanic_plugs": 0.0
+   },
+   "locality_layers_without_locality_id": [],
+   "locality_layers_with_duplicate_id": [],
+   "wrong_declared_types": [],
+   "towns_geonames_coord_precision": {
+    "0": 320,
+    "1": 3631,
+    "2": 3421,
+    "3": 971,
+    "4": 7262,
+    "5": 29810
+   },
+   "denormalised_unit_attribute_drift": {},
+   "class_layers_without_class_id": []
+  },
   "geopackage_conformance": {
    "contents_layers": 40,
    "integrity_check": "ok",
@@ -1101,6 +1153,8 @@
    "layers_without_spatial_index": [],
    "orphan_rtree_tables": [],
    "tile_matrix_levels_without_tiles": [],
+   "ogr_contents_stale_rows": [],
+   "ogr_contents_wrong_counts": [],
    "undescribed_layers": []
   },
   "class_polygons": {

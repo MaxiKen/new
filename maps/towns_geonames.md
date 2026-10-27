@@ -31,13 +31,48 @@ resulting layer and `towns_report.json`.
 | `feature_code`, `feature_type` | `PPL` village/town (45,141), `PPLA` state capital (36), `PPLA2` (82), `PPLC` national capital (1 — Abuja), `PPLX` section of a place (44), `PPLQ` abandoned (40), `PPLL` locality (41), `PPLS` (25), `PPLF` farm (4), `PPLR` religious (1), with the plain-language type beside each |
 | `state` | state name, from the state polygon the point falls in |
 | `state_gn` | the state GeoNames itself records (70 % of places have none) |
-| `state_agree` | TRUE/FALSE where both exist — they agree on **93.6 %** of 31,486 comparisons; disagreeing rows are worth a look before trusting either |
-| `admin1_code`, `admin2_code`, `lga` | GeoNames' own codes; `lga` is nearly always NULL because GeoNames has almost no Nigerian LGA coverage (11 of 45,415) and no LGA has been invented from elsewhere |
+| `state_agree` | a real BOOLEAN (1/0, NULL where either side is unknown) — they agree on **93.6 %** of 31,486 comparisons; disagreeing rows are worth a look before trusting either |
+| `admin1_code`, `admin2_code` | GeoNames' own codes, as printed — `admin1_code` is `00` for 13,501 rows, which is GeoNames saying it does not know the state, so use `state` (from the polygon) rather than this code; `admin2_code` is populated for 12 rows |
+| `lga` | the local government area, resolved from GeoNames' own `admin2` names: **11 of 45,415**. GeoNames has almost no Nigerian LGA coverage and no LGA was invented from another source |
 | `population` | 0 where GeoNames records none; only **450** places carry a figure |
-| `elevation_m`, `dem_m`, `timezone`, `moddate` | as recorded by GeoNames |
+| `elevation_m`, `dem_m` | spot elevation and digital elevation model, in metres, as recorded — `INTEGER`, NULL where GeoNames has none (45,393 rows) |
+| `timezone`, `moddate` | as recorded by GeoNames |
+| `coord_dp` | **the precision of the position**, in decimal places (0–5). GeoNames does not record an accuracy, but it does record the number of digits: see below |
 | `in_nigeria` | point falls inside `national_territory` |
 | `ngsa_town_km` | distance to the nearest NGSA `towns` label, km |
 | `dup_group` | places with the same name in the same state within 5 km, numbered — **642 rows** are a second spelling of a settlement already in the layer. `dup_group IS NULL` drops them; nothing was deleted |
+| `ngsa_town_km` | distance to the nearest NGSA `towns` label, km |
+
+### Coordinate precision, which nothing else in the layer admits to
+
+GeoNames rounds a position to as many decimal places as it holds: 5 is about a
+metre, 1 is about 10 km, 0 is the whole degree. The distribution in this layer:
+
+| `coord_dp` | rows | worst-case positional error |
+|---|---|---|
+| 0 | 320 | ~55 km |
+| 1 | 3,631 | ~5.5 km |
+| 2 | 3,421 | ~550 m |
+| 3 | 971 | ~55 m |
+| 4 | 7,262 | ~5.5 m |
+| 5 | 29,810 | ~0.5 m |
+
+**7,372 entries (16 %) are at 2 decimal places or fewer.** They are real places,
+correctly named and correctly inside the right district, but their position is
+good to a kilometre at best and tens of kilometres at worst — the coordinate was
+recorded as a coarse locality, not surveyed. The two accuracy figures quoted below
+are unaffected (the 15 major cities are all at 4–5 dp; the NGSA comparison is a
+nearest-name distance, not a true error). For any distance calculation, filter:
+`WHERE coord_dp >= 3`.
+
+### Duplicate coordinates
+
+**2,638 rows share an exact coordinate with another row** — more than the 642 that
+`dup_group` marks, because GeoNames also gives neighbouring hamlets and two
+different spellings the same rounded position, and because at `coord_dp` 0–2 the
+rounding itself coincides. A spatial join therefore returns several places for one
+point; that is the source's behaviour, not a defect in the layer, and nothing was
+merged or dropped to hide it.
 
 ## Accuracy — measured, not asserted
 
@@ -49,6 +84,7 @@ resulting layer and `towns_report.json`.
 | against the NGSA map labels — for each of the 404 named labels, the nearest same-name gazetteer place | **257 within 15 km**, median 10.8 km, 90th percentile 98 km |
 | state agreement, GeoNames' own field vs. the polygon | **93.6 %** of 31,486 |
 | state present | 99.8 % of rows (from the polygon) |
+| positions with `coord_dp >= 3` | 38,043 of 45,415 = **83.8 %** (7,372 at 2 or fewer) |
 
 Read the NGSA comparison correctly: a blanket "the gazetteer is 10 km from the
 sheet" would be the wrong conclusion. Nigerian place names repeat — there are 14

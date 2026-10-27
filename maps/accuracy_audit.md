@@ -179,6 +179,23 @@ So only the QA graticule table was mislabelled; the feature layers are correctly
 That table is corrected in the GeoPackage (`label_offset_deg` records the adjustment). Had the
 offset been real, the boundary would have missed the border by 19 km — it misses by 100 m.
 
+## 6b. What the deep audit of the locality layers changed
+
+The ±10 km in this document is the *locating* error, and it is unchanged. A later
+layer-by-layer audit of the GeoPackage found defects of a different kind — record-level
+inconsistencies that no accuracy figure would have revealed — and fixed them. They matter here
+because two of them could have been mistaken for accuracy:
+
+| defect | how it showed up | what was wrong | now |
+|---|---|---|---|
+| stale host stratigraphy | one locality (number **70**, host code `GIgss`) carried `Cenozoic / Quaternary` while its host unit is `Mesozoic / Cretaceous` | the host join had been made before the unit table was final; 999 rows were checked and only this one had drifted | re-joined; the audit's `denormalised_unit_attribute_drift` check guards it |
+| "projected copy" that was not one | `mineral_localities_utm32n` disagreed with `mineral_localities` by up to 11.9 km in 117 rows | it is the EPSG:32632 copy of `mineral_localities_**refined**` (the de-duplicated positions), not of the raw digitised layer — the name and the catalogue both implied otherwise | documented as the copy of `_refined`; attribute-identical to it, 0 m round-trip |
+| position stored twice | `towns`, `state_capitals`, `volcanic_plugs` keep `lon`/`lat` **and** geometry | the pair had been rounded to 6 dp and the geometry had not, so the two disagreed by up to 0.1 m — harmless, but a file should not hold two answers to one question | geometry snapped to `lon`/`lat` (residual < 1 nm); the audit re-checks it at 1 cm, the EPSG:6933 round-trip figure of 1.4 mm |
+
+Neither of the first two changes any coordinate. The third moves points by at most 0.1 m. The
+±10 km stands, and the audit's job from here is to keep such record-level errors from being
+read as measurement error.
+
 ## 7. What would actually reduce the ±10 km
 
 Nothing in these two files. In order of cost:

@@ -14,8 +14,10 @@ Two sheets feed it, and it matters which one for what:
   international boundary.
 
 Navigation: [Boundary & water](#1-boundary-and-water) · [Geology](#2-geology) ·
-[Base geography](#3-base-geography) · [Minerals](#4-minerals) · [QA](#5-qa-layers) ·
-[How to choose](#6-which-layer-do-i-want) · [Read this before you compute](#7-read-this-before-you-compute)
+[Base geography](#3-base-geography) · [Minerals](#4-minerals) ·
+[The gazetteer](#6-the-gazetteer) · [QA](#5-qa-layers) ·
+[Class polygons](#7-the-class-polygons-2931) ·
+[How to choose](#8-which-layer-do-i-want) · [Read this before you compute](#9-read-this-before-you-compute)
 
 ---
 
@@ -47,13 +49,13 @@ Navigation: [Boundary & water](#1-boundary-and-water) · [Geology](#2-geology) �
 | 22 | `mineral_localities_icons` | 999 | 4326 | Point | 995/999 | **positions withdrawn**; icon-anchored |
 | 23 | `mineral_localities_icons_utm32n` | 999 | 32632 | Point | same | the same, metres |
 | 24 | `mineral_localities_equal_area` | 999 | 6933 | Point | same | the same, equal-area |
-| 25 | `mineral_localities_utm32n` | 999 | 32632 | Point | 991/999 | (20) in metres |
+| 25 | `mineral_localities_utm32n` | 999 | 32632 | Point | 992/999 | **(21) in metres** — the refined positions, *not* (20): see §7 |
 | 26 | `graticule_geology` | 22 | 4326 | LineString | 66.5 %* | QA: the 2011 graticule fit |
 | 27 | `graticule_minerals` | 11 | 4326 | LineString | 63.6 %* | QA: the 2023 graticule fit |
 | 28 | `towns_geonames` | 45,415 | 4326 | Point | 98.9 % | **the gazetteer** — every populated place GeoNames records for Nigeria; state, population where known. See [`towns_geonames.md`](towns_geonames.md) |
 | 29 | `poly_soil_ph` | 111 | 4326 | MultiPolygon | 100 % | **the soil-pH sheet as polygons**: 5 pH classes, palette measured from the printed swatches, clipped to the border; covers 99.94 % of the territory |
 | 30 | `poly_population` | 299 | 4326 | MultiPolygon | 100 % | **the population sheet as polygons**: 5 absolute-count classes by unnamed district; covers 92.51 % of the territory, the rest is blank on the sheet |
-| 31 | `geology_era` | 7 | 4326 | MultiPolygon | 100 % | the 9-era generalisation of `geology_units`, dissolved from the attributed vector — the vector answer to the general-geology sheet |
+| 31 | `geology_era` | 7 | 4326 | MultiPolygon | 100 % | 7 era classes dissolved from the attributed `geology_units` (era only, no lithology), keyed by `class_id` — the vector answer to the general-geology sheet |
 
 \* low "in Nigeria" share is by design for these three — they are sea, cross-border water and
 graticule lines that run past the map frame. Do not clip them, do not add them to an area total.
@@ -107,7 +109,7 @@ the most easily misread layer in the file.
 | Gulf of Guinea (Atlantic Ocean) | `sea` | 133,390 | 3,085 | False | the sheet's sea area; clipped by the coastline only |
 | Lake Chad | `lake` | 13,363 | 5,670 | **True** | real water polygon, printed blue |
 | River Niger / River Benue | `river` | 5,870 | 5,084 | False | a **corridor envelope** around the two channels, *not* water drawn as a polygon |
-| (unnamed reservoir) | `lake / reservoir` | 226 | 226 | **True** | real water polygon |
+| *(NULL)* — unnamed reservoir | `lake / reservoir` | 226 | 226 | **True** | real water polygon; `name` is NULL and `name_src` records `no water name on the map` (it sits at 6.90–7.07 E, 9.73–10.03 N) |
 
 Only `printed_polygon = True` (Lake Chad + the reservoir) was allowed to absorb geology
 gaps — that is where the `W` / "Water body" unit's 5,671 km² comes from. The `river` row has
@@ -151,7 +153,7 @@ intrusive, 1 water. Ages span 0–4,000 Ma.
 | `draw_order` | the paint order this polygon was replayed at (`src_seq`) |
 | `filled` | **bool**: did this unit receive assigned (not drawn) ground? True for 75 units, False for 22 |
 | `fill_source` | `water body` / `grown from neighbouring unit` / NULL |
-| `mapped_km2` | area that was directly digitised |
+| `mapped_km2` | area that was directly digitised (`0` only for `W`: the water unit's ground comes entirely from the printed water polygons, see `fill_source`) |
 | `filled_km2` | area assigned: `area_km2 - mapped_km2`. **0 means fully digitised** |
 | `area_km2` | total, computed in EPSG:6933 |
 | `fill`, `note` | printed colour; provenance note |
@@ -281,6 +283,10 @@ Good enough to label a map; not good enough to measure distance to a capital cit
 Volcanic plugs and necks as point symbols on the sheet, each joined to its host unit. 68 of
 68 inside the border. The plugs' *outlines* are not in the file — only the symbol position.
 
+`name` is **NULL for all 68 rows**, by design: the sheet gives the plugs no names, and
+`name_kind` says so (`no name on map`). The column is kept because the sibling point layers
+have it, not because it holds anything.
+
 ---
 
 ## 4. Minerals
@@ -407,12 +413,63 @@ reprojection rounds two more pairs onto the same coordinate. Same withdrawal app
 
 ### 25. `mineral_localities_utm32n` — 999 rows, EPSG:32632
 
-Layer 20 in metres (the raw extraction, with `pos_sigma_m`/`pos_confidence`). Same withdrawal
-applies.
+**This is the EPSG:32632 copy of layer 21, `mineral_localities_refined` — not of layer 20.**
+The name is historic: the layer was written by `refine_localities.py` alongside the refined
+positions, and its coordinates match layer 21 in 999 of 999 rows while differing from layer 20
+by up to **11.9 km** in 117 rows. Its columns are layer 21's (`pos_sigma_m`,
+`pos_confidence`, `reassigned_from`, `host_boundary_dist_m`), not layer 20's. Read the
+coordinates as refined. If you need the raw extraction in metres, project layer 20 yourself —
+both carry withdrawn positions, so the difference is historical, not usable data.
 
 ---
 
-## 4b. The class polygons (29–31)
+## 5. QA layers
+
+Both are **instruments, not geography**: they are the graticule fitted to each sheet, used to
+derive and verify the affine transforms. 33–36 % of their length runs past the map frame, which
+is the point — they are what the fit was measured on.
+
+### 26. `graticule_geology` — 22 lines, 24,230 km
+
+The 1° graticule fitted to the 2011 sheet: 12 meridians and 10 parallels, `axis`, `value`,
+`label` (`3°E`…), `page_pt` (where the line sits on the page), `length_km`, `n_lines`. This is
+the evidence for the geology affine `lon = (x + 276.36)/157.593, lat = (2281.63 - y)/157.586`,
+residual 0.20 pt = 130 m.
+
+### 27. `graticule_minerals` — 11 lines, 13,765 km
+
+The graticule fitted to the 2023 sheet, plus the field that documents a source defect:
+`vp_value` is what the extraction's table said (4.172 for the 4°E line), `printed` is what the
+sheet says (4), `offset_deg` = 0.172 and `label_offset_deg` = 0.17217 record the **+0.172°
+(19 km) mislabelling** that was removed. Only that QA table was wrong — the 2023 feature
+layers check out against the 2011 ones (boundary 0.1 km, towns 0.5 km).
+
+---
+
+## 6. The gazetteer
+
+### 28. `towns_geonames` — 45,415 points
+
+Every populated place GeoNames records for Nigeria, from the `allCountries` dump
+(snapshot 2014-10-02, CC BY 4.0, "GeoNames, geonames.org"). It answers the question
+the printed sheet cannot: the 2011 map labels 486 towns, GeoNames has 45,415, and
+only one of the 32 state capitals appears in both layers.
+
+| field | what it is |
+|---|---|
+| `geonameid` | the GeoNames id — the stable key |
+| `coord_dp` | decimal places GeoNames recorded for the position: **7,372 of 45,415 entries have 2 or fewer**, i.e. a position good to about 1 km at best and 50 km at worst. Filter on it before measuring distances |
+| `state`, `state_gn`, `state_agree` | state from the polygon the point falls in; GeoNames' own state; and `state_agree` as a real BOOLEAN where both exist (93.6 % of 31,486 agree) |
+| `population` | 0 where GeoNames records none — only **450** places carry a figure |
+| `elevation_m`, `dem_m` | spot elevation and digital model height, as recorded, NULL where absent |
+| `dup_group` | 642 rows are a second spelling of a place already in the layer; 2,638 rows share an exact coordinate with another row |
+
+Full provenance, the licence, and the two independent accuracy checks are in
+[`towns_geonames.md`](towns_geonames.md). In short: 98.9 % fall inside the
+territory, and against published coordinates for 15 major cities the median error
+is 0.55 km.
+
+## 7. The class polygons (29–31)
 
 These three are not traced from a scan for its own sake: the raster-or-vector
 question was decided per sheet by measurement, and only the sheets whose classes
@@ -474,48 +531,33 @@ The population sheet, traced: 2.37 km/px, classes of **absolute** population by
 
 ### 31. `geology_era` — 7 polygons, 907,157 km²
 
-The nine era classes the general-geology sheet shows, **dissolved from the
-attributed `geology_units` vector** rather than traced from the 2.5 km/px
-screenshot. It is therefore exact in area and carries no tracing error.
+**Seven era classes, dissolved from the attributed `geology_units` vector** rather
+than traced from the 2.5 km/px screenshot — exact in area, no tracing error, keyed
+by `class_id` like the other two class layers.
 
-| era | km² |
-|---|---|
-| Cenozoic | 303,554 |
-| Archaean-Palaeoproterozoic, reworked in the Neoproterozoic | 222,935 |
-| Mesozoic | 177,131 |
-| Neoproterozoic-Palaeozoic | 136,202 |
-| Neoproterozoic (Pan-African deformed) | 56,369 |
-| Water | 5,671 |
-| unclassified | 5,296 |
+It is **not** a reproduction of the general-geology sheet's legend. That legend
+draws **nine** classes, and they are era *plus lithology* (three Cenozoic: alluvials;
+sands and clays; volcanics — and so on for Mesozoic and Palaeozoic-Proterozoic),
+with no water and no unclassified class. Dissolving our 97 attributed units by era
+gives seven, because the vector geology carries one era per unit and no lithological
+subdivision at that level. The layer is therefore the vector generalisation of that
+sheet, not a transcription of it: it is coarser, and it says so.
+
+| `class_id` | era | km² |
+|---|---|---|
+| 1 | Cenozoic | 303,554 |
+| 2 | Archaean-Palaeoproterozoic, reworked in the Neoproterozoic | 222,935 |
+| 3 | Mesozoic | 177,131 |
+| 4 | Neoproterozoic-Palaeozoic | 136,202 |
+| 5 | Neoproterozoic (Pan-African deformed) | 56,369 |
+| 6 | Water | 5,671 |
+| 7 | unclassified | 5,296 |
 
 `unclassified` is the five units the source map gives no stratigraphy for (`Gdss`,
-`s`, `P`, `Gmsh`, `BCT`) — see §7, item 5. It is not a gap in coverage: the layer
+`s`, `P`, `Gmsh`, `BCT`) — see §9, item 5. It is not a gap in coverage: the layer
 covers all 907,157 km².
 
-## 5. QA layers
-
-Both are **instruments, not geography**: they are the graticule fitted to each sheet, used to
-derive and verify the affine transforms. 33–36 % of their length runs past the map frame, which
-is the point — they are what the fit was measured on.
-
-### 26. `graticule_geology` — 22 lines, 24,230 km
-
-The 1° graticule fitted to the 2011 sheet: 12 meridians and 10 parallels, `axis`, `value`,
-`label` (`3°E`…), `page_pt` (where the line sits on the page), `length_km`, `n_lines`. This is
-the evidence for the geology affine `lon = (x + 276.36)/157.593, lat = (2281.63 - y)/157.586`,
-residual 0.20 pt = 130 m.
-
-### 27. `graticule_minerals` — 11 lines, 13,765 km
-
-The graticule fitted to the 2023 sheet, plus the field that documents a source defect:
-`vp_value` is what the extraction's table said (4.172 for the 4°E line), `printed` is what the
-sheet says (4), `offset_deg` = 0.172 and `label_offset_deg` = 0.17217 record the **+0.172°
-(19 km) mislabelling** that was removed. Only that QA table was wrong — the 2023 feature
-layers check out against the 2011 ones (boundary 0.1 km, towns 0.5 km).
-
----
-
-## 6. Which layer do I want?
+## 8. Which layer do I want?
 
 | if you want to… | use |
 |---|---|
@@ -529,7 +571,7 @@ layers check out against the 2011 ones (boundary 0.1 km, towns 0.5 km).
 | plot towns / capitals / roads / rivers | layers 11–17, filtered on `in_nigeria` / `frac_in_nigeria` if you need only Nigeria |
 | check the georeferencing | `graticule_geology`, `graticule_minerals` |
 
-## 7. Read this before you compute
+## 9. Read this before you compute
 
 1. **Storage CRS is EPSG:4326 — never compute area in it** (you get square degrees). Area →
    EPSG:6933. Countrywide length/distance → geodesic (`pyproj.Geod`). Local length → UTM by
@@ -538,16 +580,34 @@ layers check out against the 2011 ones (boundary 0.1 km, towns 0.5 km).
 2. **Do not use any `mineral_localities*` position for calculation.** Valid positions are
    `minerals_named`; valid counts are `mineral_symbols[is_symbol == 1]`.
 3. **`ocg_id` is not a key.** It identifies the object on the sheet and one printed line can
-   be many fragments (1,054 river fragments from one object). Keys: `locality_id`
-   (localities), `code` (geology), row order otherwise.
+   be many fragments (1,054 river fragments from one object). Keys: `locality_id` (all six
+   locality layers carry it, and it is unique), `code` (geology), `class_id` (the three class
+   layers), `geonameid` (the gazetteer), `src_seq` (the base layers, unique within each).
 4. **`code` is case-sensitive**: `M` ≠ `m`, `Qs` ≠ `qs`. Lowercasing it merges two different
    units.
-5. **Missing values are NULL, never `""`** (except `fill_source`/`note` on the 22 fully
-   digitised units, which are NULL too). Where `era` is NULL, the sheet gives no
-   stratigraphy — it was not guessed.
+5. **Missing values are NULL, never `""`.** This is enforced, not hoped for:
+   `normalise_nulls.py` rewrites any empty string to NULL and `audit_layers.py` fails
+   if one reappears. Where `era` is NULL, the sheet gives no stratigraphy — it was
+   not guessed. Before the 2026-10-27 pass the file held **131,755 empty strings**
+   across nine layers, and the projected copies of `geology_units` disagreed with
+   it: 24 NULL periods in the base layer, 5 NULL and 19 empty in each copy.
 6. **`filled_km2 == 0` selects fully digitised units**, not filled ones. Use `filled == False`.
-7. **Duplicate point geometries are deliberate** in the locality layers (15 in layer 22);
-   they are distinct records, not rows to drop.
+7. **Duplicate point geometries are deliberate** in the locality layers (46 in layers 20
+   and 21, 15 in layer 22, 17 in the equal-area copy — reprojection rounds two more pairs
+   onto one coordinate); they are distinct records, not rows to drop.
 8. **The low "in Nigeria" percentages on `water_bodies`, `graticule_geology` and
    `graticule_minerals` are by design** — sea, cross-border water, and fit lines. Do not clip
    them and do not add them to a total.
+
+9. **`mineral_localities_utm32n` (25) is not layer 20 in metres.** It holds layer 21's
+   refined positions, and the two differ by up to 11.9 km in 117 rows. See §Minerals, layer 25.
+10. **`legend_row` is not unique and not a key.** It is the printed legend row, and two codes
+   can sit on one row: `LCM` and `Mcst` both carry row 25. It is a pointer back to the paper,
+   nothing more.
+11. **`coord_dp` in `towns_geonames` is the precision of the position**, in decimal places.
+   7,372 entries are at 2 or fewer — up to 1 km, and at 0–1 up to tens of km. A nearest-city
+   query that ignores it will return places that are not where they say.
+12. **`lon`/`lat` and the geometry are the same point** in `towns`, `state_capitals` and
+   `volcanic_plugs` (6 decimal places, about 0.1 m); in the projection copies the coordinates
+   round-trip to within a millimetre. A query cannot get two answers for one point — that was
+   not true before 2026-10-27, when the two copies disagreed by up to 0.1 m in 584 rows.

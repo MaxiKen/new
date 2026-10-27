@@ -42,6 +42,9 @@ sheets in this repository:
 | `describe_layers.py` | writes the `gpkg_contents` description of all 40 layers — what each is, its counts, and what it must not be used for |
 | `fix_gpkg_hygiene.py` | repairs the GeoPackage's registers (dangling extensions, orphan and undeclared indexes, empty zoom levels); idempotent, records every change |
 | `make_vector_qc.py` | redraws `vector_layers_qc.png`, including the ground the sheets leave blank |
+| `normalise_nulls.py` | makes missing values NULL again — a read/write round trip through a GeoDataFrame turns them into `''` |
+| `repair_layers.py` | the per-layer defects found by the deep audit, each one idempotent and recorded (`layer_repairs.json`) |
+| `docs_check.py` | **tests every number in `LAYERS.md` against the GeoPackage** — 176 claims, and it exits non-zero if one is wrong |
 | `vectorisation_study.py` | the purity / fragmentation / round-trip test each sheet passes or fails |
 | `georef_new_map.py` | **georeferences the nine scans in `new map/`** into the GeoPackage as clipped RGBA raster layers, with a measured border offset per layer |
 | `RASTER_LAYERS.md` | the nine raster layers: format decisions, legend transcriptions, measured positional error and what each must not be used for |
@@ -75,7 +78,12 @@ python anchor_to_icons.py       # + icon-anchored layers
 python finalize_layers.py       # stable IDs, equal-area layers, crs_qa_report.json
 python add_named_minerals.py    # + minerals_named, refresh crs_qa_report.json
 python render_combined.py       # PNG/PDF (draws minerals_named, not the localities)
+python normalise_nulls.py       # restore NULL where a rewrite left ''
+python repair_layers.py         # the per-layer repairs (idempotent)
+python describe_layers.py       # a description for every layer, inside the file
+python fix_gpkg_hygiene.py      # registers: dangling extensions, indexes, zoom levels
 python audit_layers.py          # verify all 31 layers + 9 rasters + the file's registers -> layer_audit.json
+python docs_check.py            # test every number in LAYERS.md against the file
 python georef_new_map.py        # + the 9 raster layers (merges tiles, never rebuilds the vectors)
 python build_towns.py           # + towns_geonames, the gazetteer (downloads ~450 MB once, caches it)
 ```
@@ -250,7 +258,7 @@ to the geometry. Verified on the current build:
 
 | layer | CRS | features |
 |---|---|---|
-| the 22 EPSG:4326 layers | EPSG:4326 | 11,532 |
+| the 26 EPSG:4326 layers | EPSG:4326 | 57,364 |
 | `mineral_localities_utm32n`, `mineral_localities_icons_utm32n`, `geology_units_utm32n` | EPSG:32632 | 999 / 999 / 97 |
 | `mineral_localities_equal_area`, `geology_units_equal_area` | EPSG:6933 | 999 / 97 |
 
@@ -396,7 +404,7 @@ are not all Nigerian — that is now measured per feature, not assumed.
 | `mineral_localities_equal_area` | 999 | 6933 | Point | the same positions, equal-area | 995/999 |
 | `mineral_localities` | 999 | 4326 | Point | the localities before icon anchoring, with the full source vocabulary (`symbol`, `sym_colour`, `min_conf`, `pos_src`, `label_lon/lat`, `groups`) | 991/999 |
 | `mineral_localities_refined` | 999 | 4326 | Point | the previous positioning policy, kept for comparison | 992/999 |
-| `mineral_localities_utm32n` | 999 | 32632 | Point | the same | 991/999 |
+| `mineral_localities_utm32n` | 999 | 32632 | Point | **the EPSG:32632 copy of `mineral_localities_refined` (layer 21), not of layer 20** — the name is historic; the coordinates match layer 21 exactly and differ from layer 20 by up to 11.9 km in 117 rows | 992/999 |
 | `mineral_symbols` | 1,609 | 4326 | Point | **POSITIONS INVALID — see `mineral_audit.md` and `mineral_symbols_detected.gpkg`.** the extraction's symbol rows, with commodity, colour and how it was identified (`ident_mth`, `ident_scr`); the attributes are usable, the geometry is not (median 9.6 km from any symbol). **Filter on `is_symbol = 1` before counting:** that leaves the **1,489** rows that are one countable printed symbol. The 120 others are 56 raster slivers, 21 state-capital squares, 8 linework/label fragments, 5 bridge or water markings, 5 merged clusters, 15 fragments and 8 halves of a symbol already counted, and 2 merged touching pairs — unfiltered they show up as a phantom commodity with 56 members | 1,603/1,609 |
 | `minerals_named` | 1,323 | 4326 | Point | **the printed symbols, correctly placed.** Every glyph re-detected on the sheet at its native 75 dpi, each point the centroid of its symbol (±0.35 km). Named with the accuracy stated per row: `mineral`, `tier` (probable ≥70 % / tentative 50–70 % / unidentified), `family_accuracy_pct`, `mineral_class`, `details`, `in_nigeria`. **Use this for position; use `mineral_symbols.mineral` for counts — with `is_symbol = 1`.** 144 symbols are printed outside the border because the sheet maps the whole region (Niger, Benin, Cameroon) — `in_nigeria=False`, not an error | 1,179/1,323 |
 

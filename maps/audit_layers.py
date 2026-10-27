@@ -224,6 +224,147 @@ chk["join_mismatches"] = bad_join
 
 chk["numeric_stored_as_text"] = textnum
 
+# ---- attribute integrity: the conventions the documentation promises --------
+# Each check below exists because the file once broke it. They are cheap, and
+# they are the only way the promises stay true after a rebuild.
+attr = {}
+con = sqlite3.connect(P)
+con.row_factory = sqlite3.Row
+
+# 1. missing values are NULL, never '' --------------------------------------
+empties = {}
+for t in layers:
+    for col, typ in [(r[1], r[2]) for r in con.execute(f'PRAGMA table_info("{t}")')]:
+        if typ != "TEXT":
+            continue
+        n = con.execute(f'SELECT count(*) FROM "{t}" WHERE "{col}" = \'\'').fetchone()[0]
+        if n:
+            empties[f"{t}.{col}"] = n
+attr["empty_strings"] = empties
+if empties:
+    problems.append(f"{sum(empties.values()):,} empty strings where NULL is the "
+                    f"convention: {list(empties)[:3]}")
+
+# 2. a projected copy carries the same attributes as the layer it copies ------
+COPY_PAIRS = [("geology_units", "geology_units_utm32n"),
+              ("geology_units", "geology_units_equal_area"),
+              ("mineral_localities_icons", "mineral_localities_icons_utm32n"),
+              ("mineral_localities_icons", "mineral_localities_equal_area")]
+copy_diffs = {}
+for a, b in COPY_PAIRS:
+    ta = {r[1]: r[2] for r in con.execute(f'PRAGMA table_info("{a}")')}
+    tb = {r[1]: r[2] for r in con.execute(f'PRAGMA table_info("{b}")')}
+    common = [c for c in ta if c in tb and c not in ("geom", "fid")]
+    key = "code" if "code" in ta else "locality_id"
+    A = {r[key]: r for r in con.execute(f'SELECT * FROM "{a}"')}
+    B = {r[key]: r for r in con.execute(f'SELECT * FROM "{b}"')}
+    diffs = {}
+    for k in A:
+        if k not in B:
+            continue
+        for c in common:
+            if A[k][c] != B[k][c]:
+                diffs[c] = diffs.get(c, 0) + 1
+    if set(A) != set(B):
+        diffs["__keys__"] = len(set(A) ^ set(B))
+    if diffs:
+        copy_diffs[f"{a} -> {b}"] = diffs
+        problems.append(f"{b} is not attribute-identical to {a}: {diffs}")
+attr["projected_copy_attribute_diffs"] = copy_diffs
+
+# 3. geometry and the lon/lat pair must agree --------------------------------
+lonlat = {}
+for name in layers:
+    g = gpd.read_file(P, layer=name)
+    if "lon" not in g.columns or not str(g.geometry.geom_type.iloc[0]).startswith("Point"):
+        continue
+    gg = g.to_crs("EPSG:4326")
+    d = float(np.max(np.hypot(gg.geometry.x - gg["lon"], gg.geometry.y - gg["lat"]))) * 111_000
+    lonlat[name] = round(d, 4)
+    # 1 cm: the layers stored in metres carry a millimetre of reprojection
+    # round-off when they are brought back to degrees; the 4326 layers must
+    # agree exactly, and do
+    if d > 0.01:
+        problems.append(f"{name}: lon/lat column disagrees with the geometry by {d:.3f} m")
+attr["lonlat_vs_geometry_max_m"] = lonlat
+
+# 4. the locality family shares one key --------------------------------------
+loc_family = [n for n in layers if n.startswith("mineral_localities")]
+no_key = [n for n in loc_family if "locality_id" not in
+          [r[1] for r in con.execute(f'PRAGMA table_info("{n}")')]]
+dup_key = [n for n in loc_family if n not in no_key and
+           con.execute(f'SELECT count(*)-count(DISTINCT locality_id) FROM "{n}"'
+                       ).fetchone()[0]]
+attr["locality_layers_without_locality_id"] = no_key
+attr["locality_layers_with_duplicate_id"] = dup_key
+if no_key or dup_key:
+    problems.append(f"locality family key missing in {no_key} / duplicated in {dup_key}")
+
+# 5. declared types: booleans are booleans, counts are numbers ---------------
+def declared(t, c):
+    for r in con.execute(f'PRAGMA table_info("{t}")'):
+        if r[1] == c:
+            return r[2]
+    return None
+
+
+bad_types = []
+for t, c, want in [("towns_geonames", "state_agree", "BOOLEAN"),
+                   ("towns_geonames", "elevation_m", "INTEGER"),
+                   ("towns_geonames", "population", "INTEGER"),
+                   ("geology_units", "filled", "BOOLEAN"),
+                   ("towns", "in_nigeria", "BOOLEAN")]:
+    if declared(t, c) != want:
+        bad_types.append(f"{t}.{c} is {declared(t, c)}, expected {want}")
+attr["wrong_declared_types"] = bad_types
+if bad_types:
+    problems.append(f"declared types wrong: {bad_types}")
+attr["towns_geonames_coord_precision"] = dict(con.execute(
+    "SELECT coord_dp, count(*) FROM towns_geonames GROUP BY 1 ORDER BY 1").fetchall()
+    if "coord_dp" in [r[1] for r in con.execute('PRAGMA table_info("towns_geonames")')]
+    else {})
+
+# 6. denormalised host attributes must match the geology they name -----------
+units_idx = {r[0]: r[1:] for r in con.execute(
+    "SELECT code, era, period, age_ma_max FROM geology_units")}
+DENORM = [("towns", "unit_code", "unit_era", "era"), ("towns", "unit_code", "unit_per", "period"),
+          ("state_capitals", "unit_code", "unit_era", "era"),
+          ("state_capitals", "unit_code", "unit_per", "period"),
+          ("volcanic_plugs", "unit_code", "unit_era", "era"),
+          ("volcanic_plugs", "unit_code", "unit_per", "period"),
+          ("mineral_localities", "host_code", "host_era", "era"),
+          ("mineral_localities", "host_code", "host_period", "period"),
+          ("mineral_localities", "host_code", "host_age_ma", "age_ma_max")]
+drift = {}
+for t, codecol, col, src in DENORM:
+    rows = con.execute(f'SELECT "{codecol}", "{col}" FROM "{t}"').fetchall()
+    bad = 0
+    for code, val in rows:
+        if code is None or code not in units_idx:
+            continue
+        want = units_idx[code][("era", "period", "age_ma_max").index(src)]
+        if want is None and val is None:
+            continue
+        if isinstance(want, str) or isinstance(val, str):
+            if str(want) != str(val):
+                bad += 1
+        elif val is None or abs(float(want) - float(val)) > 1e-6:
+            bad += 1
+    if bad:
+        drift[f"{t}.{col}"] = bad
+        problems.append(f"{t}.{col}: {bad} rows disagree with the geology unit they name")
+attr["denormalised_unit_attribute_drift"] = drift
+
+# 7. every class layer has an integer class_id -------------------------------
+no_class_id = [n for n in layers if (n.startswith("poly_") or n == "geology_era")
+               and "class_id" not in [r[1] for r in con.execute(f'PRAGMA table_info("{n}")')]]
+attr["class_layers_without_class_id"] = no_class_id
+if no_class_id:
+    problems.append(f"class layer(s) without class_id: {no_class_id}")
+con.close()
+chk["attribute_integrity"] = attr
+
+
 # ---- GeoPackage conformance: the registers must describe the contents ------
 # A SQLite integrity check says "ok" for a file that advertises a layer, an
 # index or a zoom level that is not there: the data is fine, the *description*
@@ -286,6 +427,32 @@ for t in [r[0] for r in con.execute(
 gpkg["tile_matrix_levels_without_tiles"] = stale_zoom
 if stale_zoom:
     problems.append(f"tile matrix declares empty zoom levels: {', '.join(stale_zoom[:5])}")
+# `gpkg_ogr_contents` is GDAL's feature-count cache: another register that can
+# name a table that no longer exists, with nothing in the data to show it
+if con.execute("SELECT count(*) FROM sqlite_master WHERE name = 'gpkg_ogr_contents'"
+               ).fetchone()[0]:
+    stale_counts = []
+    wrong_counts = []
+    for t, n in con.execute("SELECT table_name, feature_count FROM gpkg_ogr_contents"):
+        if t not in contents:
+            stale_counts.append(t)
+            continue
+        try:
+            actual = con.execute(f'SELECT count(*) FROM "{t}"').fetchone()[0]
+        except sqlite3.DatabaseError:
+            stale_counts.append(t)
+            continue
+        if actual != n:
+            wrong_counts.append(f"{t}: cached {n}, actual {actual}")
+    if stale_counts:
+        # fix_gpkg_hygiene.py removes these; the audit only reports them
+        problems.append(f"gpkg_ogr_contents caches counts for {len(stale_counts)} "
+                        f"missing table(s): {', '.join(stale_counts[:4])}")
+    gpkg["ogr_contents_stale_rows"] = stale_counts
+    gpkg["ogr_contents_wrong_counts"] = wrong_counts
+    if wrong_counts:
+        problems.append(f"gpkg_ogr_contents feature counts wrong: {wrong_counts[:3]}")
+
 gpkg["undescribed_layers"] = sorted(
     r[0] for r in con.execute("SELECT table_name, description FROM gpkg_contents")
     if not r[1])

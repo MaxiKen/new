@@ -70,16 +70,20 @@ FEATURES = {
         "The 36 state boundaries plus the FCT, as lines.", None),
     "towns": (
         "Settlements as printed on the 2011 sheet, with their host geology "
-        "unit, and labels placed where the sheet places them.",
-        "Label centres, not surveyed coordinates, and only what the sheet "
-        "prints - for coverage use `towns_geonames`."),
+        "unit, and labels placed where the sheet places them. `lon`/`lat` (6 dp, "
+        "about 0.1 m) are the same point as the geometry.",
+        "Label centres, not surveyed coordinates; 82 rows have no name because "
+        "the printed label could not be read - for coverage use `towns_geonames`."),
     "towns_geonames": (
         "The gazetteer: every populated place GeoNames records for Nigeria, "
         "with state and population where known; built by build_towns.py from "
         "the GeoNames allCountries dump (CC BY 4.0, 2014-10-02 snapshot).",
-        "Names and coordinates are GeoNames', at 4 decimal places; 642 spellings "
-        "are duplicated and 98.9 % fall inside the border (the rest are border "
-        "generalisation). See towns_geonames.md."),
+        "Names and coordinates are GeoNames'. `coord_dp` gives the decimal places "
+        "GeoNames recorded: 7,372 entries carry 2 or fewer, i.e. a position good "
+        "to about 1 km at best and 50 km at worst - filter on it before measuring "
+        "distances. 642 rows are a second spelling of a place already in the layer "
+        "(`dup_group`) and 2,638 share an exact coordinate with another row. "
+        "98.9 % fall inside the border. See towns_geonames.md."),
     "state_capitals": (
         "The 36 state capitals plus Abuja, as label centres.",
         "Label centres: good to about 15 km, not city-centre coordinates."),
@@ -102,7 +106,10 @@ FEATURES = {
         "The same 999 localities, anchored to the printed icons.",
         "Positions withdrawn - do not use the coordinates."),
     "mineral_localities_utm32n": (
-        "`mineral_localities` in EPSG:32632.",
+        "EPSG:32632 copy of `mineral_localities_refined`, not of "
+        "`mineral_localities` - the name is historic and the contents are the "
+        "refined positions (they differ from the raw extraction by up to 11.9 km "
+        "in 117 of 999 rows).",
         "Positions withdrawn - the projection does not fix them."),
     "mineral_localities_equal_area": (
         "`mineral_localities` in EPSG:6933.",
@@ -132,9 +139,11 @@ FEATURES = {
         "to the admin layers and not normalisable by area. 7.5 % of the "
         "territory is left uncoloured on the sheet and is left uncoloured here."),
     "geology_era": (
-        "The nine era classes the general-geology sheet shows, dissolved from "
-        "the attributed `geology_units` vector rather than traced from the "
-        "screenshot; built by build_vector_layers.py.", None),
+        "Seven era classes dissolved from the attributed `geology_units` vector "
+        "(plus water and unclassified), keyed by `class_id`; built by "
+        "build_vector_layers.py. Not a tracing of the general-geology sheet: that "
+        "sheet's legend draws nine era-plus-lithology classes, so this is a "
+        "coarser, era-only generalisation of the vector geology.", None),
 }
 
 # raster layer -> what it must not be used for

@@ -4,6 +4,8 @@
   "extension_rows": [],
   "orphan_rtree_tables": [],
   "tile_matrix_levels_without_tiles": [],
+  "ogr_contents_rows_for_missing_tables": [],
+  "ogr_contents_counts_corrected": [],
   "orphan_geometry_columns": []
  },
  "added": {

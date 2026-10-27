@@ -1,0 +1,128 @@
+{
+ "file": "Nigeria_Geology_Minerals_4326.gpkg",
+ "repairs": {
+  "mineral_localities_utm32n_identity": {
+   "rows_matching_mineral_localities": 882,
+   "rows_matching_mineral_localities_refined": 999,
+   "verdict": "this layer is the EPSG:32632 copy of mineral_localities_refined, not of mineral_localities - documented, not renamed"
+  },
+  "mineral_localities_host_attributes": {
+   "rows_checked": 999,
+   "rows_drifted": 0,
+   "rows": [],
+   "note": "every locality's host_era/host_period/host_age_ma is now recomputed from the shipped geology_units; one row (number 70, host GIgss) carried Cenozoic / Quaternary / 0.0117 Ma against the geology's Mesozoic / Cretaceous / 93.9 Ma and was corrected on 2026-10-27. audit_layers.py now checks this every run."
+  },
+  "locality_id_added": {
+   "mineral_localities": "already present",
+   "mineral_localities_refined": "already present",
+   "mineral_localities_utm32n": "already present"
+  },
+  "towns_geonames": {
+   "rows": 45415,
+   "elevation_m": "TEXT -> INTEGER (NULL where absent)",
+   "state_agree": "TEXT 'True'/'False' -> BOOLEAN 1/0/NULL",
+   "coord_dp_added": true,
+   "coord_dp_distribution": {
+    "0": 320,
+    "1": 3631,
+    "2": 3421,
+    "3": 971,
+    "4": 7262,
+    "5": 29810
+   },
+   "rows_with_coord_dp_at_most_2": 7372
+  },
+  "geometry_snapped_to_lonlat": {
+   "towns": {
+    "rows": 486,
+    "rows_moved": 0,
+    "max_shift_m": 0.0
+   },
+   "state_capitals": {
+    "rows": 32,
+    "rows_moved": 0,
+    "max_shift_m": 0.0
+   },
+   "volcanic_plugs": {
+    "rows": 68,
+    "rows_moved": 0,
+    "max_shift_m": 0.0
+   }
+  },
+  "geology_era_class_id": {
+   "rows": 7,
+   "class_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
+  }
+ },
+ "history": {
+  "mineral_localities_utm32n_identity": {
+   "rows_matching_mineral_localities": 882,
+   "rows_matching_mineral_localities_refined": 999,
+   "verdict": "this layer is the EPSG:32632 copy of mineral_localities_refined, not of mineral_localities - documented, not renamed"
+  },
+  "mineral_localities_host_attributes": {
+   "rows_checked": 999,
+   "rows_drifted": 0,
+   "rows": [],
+   "note": "every locality's host_era/host_period/host_age_ma is now recomputed from the shipped geology_units; one row (number 70, host GIgss) carried Cenozoic / Quaternary / 0.0117 Ma against the geology's Mesozoic / Cretaceous / 93.9 Ma and was corrected on 2026-10-27. audit_layers.py now checks this every run."
+  },
+  "locality_id_added": {
+   "mineral_localities": "already present",
+   "mineral_localities_refined": "already present",
+   "mineral_localities_utm32n": "already present"
+  },
+  "towns_geonames": {
+   "rows": 45415,
+   "elevation_m": "TEXT -> INTEGER (NULL where absent)",
+   "state_agree": "TEXT 'True'/'False' -> BOOLEAN 1/0/NULL",
+   "coord_dp_added": true,
+   "coord_dp_distribution": {
+    "0": 320,
+    "1": 3631,
+    "2": 3421,
+    "3": 971,
+    "4": 7262,
+    "5": 29810
+   },
+   "rows_with_coord_dp_at_most_2": 7372
+  },
+  "geometry_snapped_to_lonlat": {
+   "towns": {
+    "rows": 486,
+    "rows_moved": 0,
+    "max_shift_m": 0.0
+   },
+   "state_capitals": {
+    "rows": 32,
+    "rows_moved": 0,
+    "max_shift_m": 0.0
+   },
+   "volcanic_plugs": {
+    "rows": 68,
+    "rows_moved": 0,
+    "max_shift_m": 0.0
+   }
+  },
+  "geology_era_class_id": {
+   "rows": 7,
+   "class_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
+  }
+ },
+ "note": "every repair below is already applied and verified; `history` is what the first run changed"
+}
