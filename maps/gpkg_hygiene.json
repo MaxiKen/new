@@ -9,6 +9,7 @@
   "orphan_geometry_columns": []
  },
  "added": {
+  "gridded_coverage_extension_rows": [],
   "undeclared_indexes_declared": []
  },
  "kept": {
@@ -44,13 +45,13 @@
  },
  "after": {
   "features": 26,
-  "tiles": 9,
-  "extension_rows": 26,
+  "tiles": 10,
+  "extension_rows": 29,
   "spatial_indexes": 26,
-  "tile_matrix_rows": 9,
+  "tile_matrix_rows": 14,
   "integrity_check": "ok",
   "foreign_key_check": 0,
-  "size_mb": 48.85
+  "size_mb": 49.14
  },
  "history": {
   "dangling_extension_rows": 16,

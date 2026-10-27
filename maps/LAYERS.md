@@ -1,12 +1,14 @@
 # Layer catalogue — `Nigeria_Geology_Minerals_4326.gpkg`
 
-**26 vector layers, 57,364 features — every one in EPSG:4326** — plus **9 georeferenced raster
-layers** (also EPSG:4326, the only CRS a degree-tiled raster can carry), documented separately in
-[`RASTER_LAYERS.md`](RASTER_LAYERS.md), and **one** added gazetteer layer,
+**26 vector layers, 57,364 features — every one in EPSG:4326** — plus **ten tiled raster
+layers** (the nine georeferenced sheets and the DEM class map; also EPSG:4326, the only CRS a
+degree-tiled raster can carry), documented separately in
+[`RASTER_LAYERS.md`](RASTER_LAYERS.md), **one numeric raster** — the DEM built from the DEM
+sheet, `dem_from_sheet` — and **one** added gazetteer layer,
 [`towns_geonames`](towns_geonames.md) (45,415 points), documented in
 [`towns_geonames.md`](towns_geonames.md).
 
-**One CRS, on purpose.** All 26 vector layers and all 9 rasters are EPSG:4326, so they can be
+**One CRS, on purpose.** All 26 vector layers, the ten tiled rasters and the DEM are EPSG:4326, so they can be
 laid on each other, joined and drawn without a reprojection. The five reprojections that used to
 sit in this file — three in EPSG:32632, two in EPSG:6933 — exist only so that area and length can
 be *measured* in metres, and each had a 4326 twin here; they now live, unchanged, in
@@ -20,13 +22,42 @@ still resolves.
 Every layer has a CRS, 0 invalid / empty / null geometries, and is verified by `audit_layers.py`
 (result: `layer_audit.json`, 0 problems).
 
-The file also carries its own provenance: `gpkg_metadata` holds four ISO 19139 records — the
+The file also carries its own provenance: `gpkg_metadata` holds five ISO 19139 records — the
 whole file (title, lineage, bounding box, the licence of every source), the GeoNames CC BY 4.0
-attribution for `towns_geonames`, the Natural Earth terms for the outline, and the
-positions-withdrawn notice attached to its four mineral layers — with
+attribution for `towns_geonames`, the Natural Earth terms for the outline, the notice attached to
+its four mineral layers whose positions are withdrawn, and the statement of what the DEM is and
+is not — with
 `gpkg_metadata_reference` saying which part of the file each one is about. `add_gpkg_metadata.py`
 writes them and `audit_layers.py` checks that they are well-formed and still complete, so the
 attribution survives the file being copied on its own.
+
+### The DEM built from the sheet
+
+`raster_dem` is a scan; `dem_from_sheet` is the elevation those pixels state. Every pixel
+carries the **midpoint of the printed legend class** it falls in, as float32 metres, in an OGC
+**2D gridded coverage** — the GeoPackage container for a numeric raster, unlike the image tiles
+of the nine scans. `dem_from_sheet_class` is the same map as an integer 1–7 in legend order, as
+one band of image tiles.
+
+| class | printed range (m) | value (m) | share | area (km²) |
+|---|---|---|---|---|
+| 1 | -25 – 130 | 52.5 | 14.5 % | 130,735 |
+| 2 | 140 – 260 | 200.0 | 22.2 % | 200,395 |
+| 3 | 270 – 380 | 325.0 | 31.3 % | 283,099 |
+| 4 | 390 – 530 | 460.0 | 17.2 % | 155,127 |
+| 5 | 540 – 720 | 630.0 | 11.3 % | 101,986 |
+| 6 | 730 – 1,100 | 915.0 | 2.6 % | 23,206 |
+| 7 | 1200 – 2,100 | 1650.0 | 1.0 % | 8,599 |
+
+Each class's prototype colour was calibrated on the sheet itself — the legend swatch is not the
+colour the map is painted in, and hillshading changes every slope's colour — and checked against
+SRTM heights at towns the calibration never saw: **68.4 % exact class,
+96.1 % within one class, MAE 73 m** on
+22,379 towns. No metre comes from SRTM; every value is a printed legend value.
+With seven classes the vertical resolution is about 158 m, so this
+says what the sheet states and cannot resolve a hill — for real heights use a real DEM. Full
+account in [`RASTER_LAYERS.md`](RASTER_LAYERS.md); the GeoTIFFs are
+`Nigeria_DEM_from_sheet.tif` and `_smoothed.tif`.
 
 Two sheets feed it, and it matters which one for what:
 

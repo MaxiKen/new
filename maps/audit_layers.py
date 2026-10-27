@@ -20,6 +20,7 @@ import geopandas as gpd
 import numpy as np
 import pandas as pd
 import pyogrio
+import rasterio
 import shapely
 from pyproj import Geod
 
@@ -690,7 +691,9 @@ if gpkg["integrity_check"] != "ok":
 
 dangling_ext = [f"{t}.{c} ({e})" for t, c, e in con.execute(
     "SELECT table_name, column_name, extension_name FROM gpkg_extensions")
-    if t not in contents]
+    # the 2D gridded coverage extension is declared against the ancillary tables,
+    # which are tables by design and not layers; anything else must name a layer
+    if t not in contents and e != "gpkg_2d_gridded_coverage"]
 gpkg["dangling_extension_rows"] = dangling_ext
 if dangling_ext:
     problems.append(f"{len(dangling_ext)} gpkg_extensions row(s) name a layer that does"
@@ -865,6 +868,16 @@ else:
 chk["crs"] = crs_chk
 chk["geopackage_conformance"] = gpkg
 
+# Image tiles cannot carry a no-data value, so the class layer encodes its mask as a
+# sentinel; the claim lives in dem_from_sheet.json. This map is what the raster sweep
+# below applies when a layer's transparency is not in its alpha channel.
+try:
+    _dem = json.load(open(HERE / "dem_from_sheet.json")) if (HERE / "dem_from_sheet.json").exists() else None
+except Exception:
+    _dem = None
+DEM_SENTINEL = {k: v["sentinel"] for k, v in (_dem or {}).get("layers", {}).items()
+                if "sentinel" in v}
+
 # ---- the raster pyramids: every tile decodes, and the clip still holds -----
 # A GeoPackage stores one image BLOB per tile, so a pyramid may mix formats -
 # and GDAL does: a tile that needs transparency is a 4-band RGBA PNG, a tile
@@ -934,6 +947,63 @@ for (t,) in sqlite3.connect(P).execute(
                         f"clipped ground, so the clip would show as a block of paper")
 chk["raster_tiles"] = tile_chk
 
+# ---- the numeric coverages: a DEM must hold metres, not a picture -----------
+# `dem_from_sheet` is an OGC 2D gridded coverage, not image tiles, and that is the
+# whole point of it: an image layer could carry any value and a reader would have
+# no way to know which class means which height. So every value in it must be one
+# of the seven printed class midpoints (or the declared no-data), the class map
+# must say exactly the same thing pixel by pixel, and the accuracy claim in the
+# report must still be the accuracy of the layer that ships.
+cov_chk = {}
+for (t, kind) in sqlite3.connect(P).execute(
+        "SELECT table_name, data_type FROM gpkg_contents"
+        " WHERE data_type NOT IN ('features', 'tiles') ORDER BY 1"):
+    con = sqlite3.connect(P)
+    anc = con.execute("SELECT datatype, scale, offset, data_null FROM"
+                      " gpkg_2d_gridded_coverage_ancillary"
+                      " WHERE tile_matrix_set_name = ?", (t,)).fetchone()
+    declared = con.execute("SELECT COUNT(*) FROM gpkg_extensions"
+                           " WHERE extension_name = 'gpkg_2d_gridded_coverage'"
+                           " AND (table_name = ? OR table_name LIKE 'gpkg_2d_%')",
+                           (t,)).fetchone()[0]
+    con.close()
+    rec = dict(data_type=kind, ancillary=anc, extension_rows=declared)
+    if not anc:
+        problems.append(f"{t}: a gridded coverage with no ancillary row, so its "
+                        f"datatype and no-data value are undeclared")
+    with rasterio.open(f"GPKG:{P}:{t}") as ds:
+        a = ds.read(1)
+        rec.update(dtype=str(a.dtype), width=ds.width, height=ds.height,
+                   crs=str(ds.crs), res=[round(v, 9) for v in ds.res])
+        rec["sentinel_pixels"] = int((a == anc[3]).sum()) if anc and anc[3] is not None else 0
+    if declared == 0:
+        problems.append(f"{t}: the 2D gridded coverage extension is not declared")
+    vals = np.unique(a[a != (anc[3] if anc and anc[3] is not None else -9999)])
+    rec["distinct_values"] = int(len(vals))
+    rec["values"] = [round(float(v), 2) for v in vals]
+    # the companion class layer, if the report names one, must agree pixel for pixel
+    if t == "dem_from_sheet" and "dem_from_sheet_class" in {
+            r[0] for r in sqlite3.connect(P).execute("SELECT table_name FROM gpkg_contents")}:
+        with rasterio.open(f"GPKG:{P}:dem_from_sheet_class") as ds:
+            k = ds.read(1)
+        mids = np.array(rec["values"])
+        agree = np.isin(k, [0]) | np.isin(a, mids)
+        mapped_same = np.array_equal(a != (anc[3] if anc else -9999), (k != 0))
+        rec["class_map_same_footprint"] = bool(mapped_same)
+        if not mapped_same:
+            problems.append("dem_from_sheet and dem_from_sheet_class do not cover the "
+                            "same pixels")
+        off = a[(k > 0) & (a != (anc[3] if anc else -9999))]
+        # every class value must be the midpoint of the class the class map names
+        bad = int((np.abs(off - np.array(sorted(set(mids)))[np.clip(k[(k > 0)] - 1, 0,
+                                                                     len(mids) - 1)]) > 1e-3).sum())
+        rec["class_value_mismatches"] = bad
+        if bad:
+            problems.append(f"dem_from_sheet: {bad} pixel(s) do not carry the midpoint of "
+                            f"the class the class map assigns")
+    cov_chk[t] = rec
+chk["coverages"] = cov_chk
+
 # ---- class polygons: no self-overlap, and how much they actually cover -----
 poly_chk = {}
 for name in [n for n in layers if n.startswith("poly_")]:
@@ -969,12 +1039,20 @@ try:
         with rasterio.open(f"GPKG:{P}:{name}") as ds:
             step = max(1, ds.width // 1200)
             out_shape = (ds.height // step, ds.width // step)
-            alpha = ds.read(ds.count, out_shape=out_shape)
+            # Image tiles have no field for a no-data value (the spec only lets the
+            # numeric-coverage extension declare one), so a layer such as the DEM class
+            # map must encode its mask as a sentinel value. That claim lives in
+            # dem_from_sheet.json and in the layer's own description; take it from there
+            # rather than assuming the last band is an alpha channel.
+            sentinel = DEM_SENTINEL.get(name)
+            if sentinel is None:
+                have = ds.read(ds.count, out_shape=out_shape) > 0
+            else:
+                have = ds.read(1, out_shape=out_shape) != sentinel
             tr = ds.transform * ds.transform.scale(ds.width / out_shape[1],
                                                    ds.height / out_shape[0])
             inside = _rasterize([(terr_geom, 1)], out_shape=out_shape, transform=tr,
                                 fill=0, all_touched=True, dtype="uint8").astype(bool)
-            have = alpha > 0
             covered = (have & inside).sum() / max(inside.sum(), 1)
             spill = (have & ~inside).sum() / max(have.sum(), 1)
             rec = dict(kind="raster", crs=ds.crs.to_string() if ds.crs else None,

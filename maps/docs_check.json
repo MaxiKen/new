@@ -2970,10 +2970,255 @@
    "ok": true
   },
   {
+   "layer": "dem_from_sheet (class 2)",
+   "check": "dem: class lo m",
+   "doc": 140.0,
+   "measured": 140.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 2)",
+   "check": "dem: class hi m",
+   "doc": 260.0,
+   "measured": 260.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 2)",
+   "check": "dem: class value m",
+   "doc": 200.0,
+   "measured": 200.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 2)",
+   "check": "dem: class share pct",
+   "doc": 22.2,
+   "measured": 22.2,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 2)",
+   "check": "dem: class area km2",
+   "doc": 200395.0,
+   "measured": 200395,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 3)",
+   "check": "dem: class lo m",
+   "doc": 270.0,
+   "measured": 270.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 3)",
+   "check": "dem: class hi m",
+   "doc": 380.0,
+   "measured": 380.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 3)",
+   "check": "dem: class value m",
+   "doc": 325.0,
+   "measured": 325.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 3)",
+   "check": "dem: class share pct",
+   "doc": 31.3,
+   "measured": 31.3,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 3)",
+   "check": "dem: class area km2",
+   "doc": 283099.0,
+   "measured": 283099,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 4)",
+   "check": "dem: class lo m",
+   "doc": 390.0,
+   "measured": 390.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 4)",
+   "check": "dem: class hi m",
+   "doc": 530.0,
+   "measured": 530.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 4)",
+   "check": "dem: class value m",
+   "doc": 460.0,
+   "measured": 460.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 4)",
+   "check": "dem: class share pct",
+   "doc": 17.2,
+   "measured": 17.2,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 4)",
+   "check": "dem: class area km2",
+   "doc": 155127.0,
+   "measured": 155127,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 5)",
+   "check": "dem: class lo m",
+   "doc": 540.0,
+   "measured": 540.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 5)",
+   "check": "dem: class hi m",
+   "doc": 720.0,
+   "measured": 720.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 5)",
+   "check": "dem: class value m",
+   "doc": 630.0,
+   "measured": 630.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 5)",
+   "check": "dem: class share pct",
+   "doc": 11.3,
+   "measured": 11.3,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 5)",
+   "check": "dem: class area km2",
+   "doc": 101986.0,
+   "measured": 101986,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 6)",
+   "check": "dem: class lo m",
+   "doc": 730.0,
+   "measured": 730.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 6)",
+   "check": "dem: class hi m",
+   "doc": 1100.0,
+   "measured": 1100.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 6)",
+   "check": "dem: class value m",
+   "doc": 915.0,
+   "measured": 915.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 6)",
+   "check": "dem: class share pct",
+   "doc": 2.6,
+   "measured": 2.6,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 6)",
+   "check": "dem: class area km2",
+   "doc": 23206.0,
+   "measured": 23206,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 7)",
+   "check": "dem: class lo m",
+   "doc": 1200.0,
+   "measured": 1200.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 7)",
+   "check": "dem: class hi m",
+   "doc": 2100.0,
+   "measured": 2100.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 7)",
+   "check": "dem: class value m",
+   "doc": 1650.0,
+   "measured": 1650.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 7)",
+   "check": "dem: class share pct",
+   "doc": 1.0,
+   "measured": 1.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet (class 7)",
+   "check": "dem: class area km2",
+   "doc": 8599.0,
+   "measured": 8599,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet",
+   "check": "dem: exact class pct",
+   "doc": 68.4,
+   "measured": 68.4,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet",
+   "check": "dem: within one class pct",
+   "doc": 96.1,
+   "measured": 96.1,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet",
+   "check": "dem: mae m",
+   "doc": 73.0,
+   "measured": 73.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet",
+   "check": "dem: swatch exact pct",
+   "doc": 65.0,
+   "measured": 65.0,
+   "ok": true
+  },
+  {
+   "layer": "dem_from_sheet",
+   "check": "dem: swatch within pct",
+   "doc": 91.3,
+   "measured": 91.3,
+   "ok": true
+  },
+  {
    "layer": "README.md",
    "check": "stated claim count",
-   "doc": "412",
-   "measured": 412,
+   "doc": "447",
+   "measured": 447,
    "ok": true
   }
  ],

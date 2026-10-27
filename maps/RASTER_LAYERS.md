@@ -94,6 +94,57 @@ side" but *which* side and why:
   100 km east of the real one. Both are limits of the **sheets**, and are why
   those two are marked *medium* rather than *high*.
 
+## The DEM: values, not a picture
+
+`raster_dem` is a scan. `dem_from_sheet` is the thing it depicts, digitised: every
+pixel carries the midpoint of the printed class it falls in, as float32 metres, in
+an OGC **2D gridded coverage** — the GeoPackage container for a numeric raster, as
+opposed to the image tiles used by the nine scans. `dem_from_sheet_class` is the
+same map as an integer 1–7 in legend order, as one band of image tiles, for anyone
+who wants the class rather than the value.
+
+| class | printed range (m) | value used (m) | share of the mapped area | area (km²) |
+|---|---|---|---|---|
+| 1 | -25 – 130 | 52.5 | 14.5 % | 130,735 |
+| 2 | 140 – 260 | 200.0 | 22.2 % | 200,395 |
+| 3 | 270 – 380 | 325.0 | 31.3 % | 283,099 |
+| 4 | 390 – 530 | 460.0 | 17.2 % | 155,127 |
+| 5 | 540 – 720 | 630.0 | 11.3 % | 101,986 |
+| 6 | 730 – 1,100 | 915.0 | 2.6 % | 23,206 |
+| 7 | 1200 – 2,100 | 1650.0 | 1.0 % | 8,599 |
+
+**Why the colours had to be calibrated.** The sheet does not paint the legend
+swatches: class 1 is `#1f6fe0` in the legend but is drawn on the map as a cyan
+`#019bff` family, and every class is overlaid with hillshading, so a pixel on a
+slope is not the swatch colour either. Each class's prototype colour is therefore
+the median CIELAB value of the sheet's own pixels at towns whose independent SRTM
+height falls inside that class's printed range. SRTM is used *only* to say which
+colour means which class — no metre in the output comes from it, every value is a
+printed legend value — and the calibration uses only half the towns, so the
+accuracy below is measured on 22,379 towns the classifier never saw:
+
+| | exact class | within one class | MAE |
+|---|---|---|---|
+| **this build** | 68.4 % | 96.1 % | 73 m |
+| printed swatches alone | 65.0 % | 91.3 % | — |
+
+**What was removed, and why.** White is both the 1,200–2,100 m class and the
+brightest hillshade highlight on a riverbank; grey is both the 730–1,100 m class and
+shaded white. A patch of either smaller than 50 px (about 47 km²) is a highlight, not
+a summit, so it is dropped and filled from the surrounding ground
+(13,499 px of grey and
+18,860 px of white). The Gulf of Guinea is
+not in the output at all: the mask is the national territory, not the scan's extent.
+
+**What it cannot do.** Seven classes is a vertical resolution of about 110 m, so it
+says what the sheet states and nothing finer: it cannot resolve a hill, and it
+inherits the sheet's 0.97 km pixel and its 4.1 km median positional error. For real
+heights use a real DEM; for *what the printed sheet says*, this is exact.
+
+Also shipped as plain GeoTIFFs — `Nigeria_DEM_from_sheet.tif` (values) and
+`Nigeria_DEM_from_sheet_smoothed.tif` (a Gaussian-smoothed copy for the eye, which
+carries no information the class map lacks).
+
 ## Format decisions
 
 * **PNG and JPEG image tiles in a GeoPackage pyramid, `uint8`, 256 × 256.** The
@@ -131,7 +182,7 @@ side" but *which* side and why:
   Overviews would fix that and cost about 45 % of the file size (1.06 → 1.54 MB
   for one sheet on its own), which the deliverable's size budget does not carry,
   so the matrix now declares only the level that exists.
-* **Titled, described and legended inside the file.** Every one of the 40 layers
+* **Titled, described and legended inside the file.** Every one of the 42 layers
   has a `gpkg_contents.description` — what it is, how many features, its CRS, the
   script that wrote it, and what it must not be used for; the rasters carry their
   measured km/px, land-border offset, per-side offsets and overlap. Written by

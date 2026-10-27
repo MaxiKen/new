@@ -15,6 +15,7 @@ sheets in this repository:
 | `Nigeria_Geology_Minerals_4326.gpkg` | GeoPackage, **26 vector layers, 57,364 features** plus **9 georeferenced raster layers** (30 MB of tiles) — **every layer in EPSG:4326**, so they can all be laid on each other. This is the deliverable |
 | `Nigeria_Geology_Minerals_projected_copies.gpkg` | the five reprojections (3 × EPSG:32632, 2 × EPSG:6933) that used to sit in the file above, kept for measuring area and length in metres; identical rows and attributes to their 4326 parents |
 | `Nigeria_Geology_Minerals_4326.png` / `.pdf` | rendered map |
+| `Nigeria_DEM_from_sheet.tif` / `_smoothed.tif` / `.png` | the DEM as plain GeoTIFFs (values, and a smoothed copy for the eye) and a hypsometric preview |
 | `build_combined.py` | rebuilds the GeoPackage |
 | `render_combined.py` | rebuilds the image/PDF |
 | `metadata.json` | provenance record |
@@ -26,7 +27,7 @@ sheets in this repository:
 | `build_geology_final.py` | **builds the single geology layer**: resolves the overlaps from the printed ink, clips to the 2023 border, fills every inland gap; writes `geology_units`, `national_territory` and `geology_final_report.json` |
 | `build_clean_geology.py` | superseded by `build_geology_final.py`; kept because it produced the `overlap_resolution.json` evidence for the ink test |
 | `finalize_layers.py` | adds stable IDs, lon/lat, flags, the equal-area layers, **re-links every point to the shipped geology** and measures how much of each layer is inside Nigeria; writes `crs_qa_report.json` |
-| `audit_layers.py` | **verifies all 31 feature layers, the 9 rasters and the file's own registers** and writes `layer_audit.json`: geometry validity, CRS, duplicates, in-country share, area agreement, border flushness, point→unit joins, dangling `gpkg_extensions`, orphan/undeclared spatial indexes, empty tile-matrix zoom levels, blank layer descriptions |
+| `audit_layers.py` | **verifies all 31 feature layers, the 10 tiled rasters, the numeric DEM and the file's own registers** and writes `layer_audit.json`: geometry validity, CRS, duplicates, in-country share, area agreement, border flushness, point→unit joins, dangling `gpkg_extensions`, orphan/undeclared spatial indexes, empty tile-matrix zoom levels, blank layer descriptions |
 | `locality_reassignments.csv` | the 117 locality moves made by the (now superseded) icon-anchoring policy, for review |
 | `find_sites.py` | detects every printed mineral glyph on the 2023 sheet at its native 75 dpi and writes `mineral_symbols_detected.gpkg` |
 | `name_glyphs.py` / `name_the_437.py` | name those glyphs against the extraction's appearance reference; write `minerals_named.gpkg`, `minerals_named.csv` and `minerals_named.md` |
@@ -39,15 +40,16 @@ sheets in this repository:
 | `towns_geonames.md` | that layer: provenance, licence, fields, the measured accuracy, and what it must not be used for |
 | `towns_report.json` / `towns_geonames_qc.png` | its counts and checks, and the overlay it was checked against |
 | `RASTER_VS_VECTOR.md` | **which of the nine scans should be polygons and which must stay rasters**, with the measurement behind each verdict |
+| `build_dem_from_sheet.py` | **builds a real DEM from the tenth scan** — elevations in metres from the printed legend, stored as an OGC 2D gridded coverage, with its accuracy measured against SRTM at towns the calibration never saw |
 | `read_legend_swatches.py` | reads the printed legend swatches off each sheet — the colour-to-class mapping was transcribed by eye and was up to dE 100 wrong |
 | `build_vector_layers.py` | writes `poly_soil_ph`, `poly_population` (traced from the sheets, ink seams repaired on the soil sheet only) and `geology_era` (dissolved from `geology_units`) |
 | `check_polygon_colour.py` | tests every class polygon against the sheet it was traced from; writes `polygon_colour_check.json` |
-| `describe_layers.py` | writes the `gpkg_contents` description of all 40 layers — what each is, its counts, and what it must not be used for |
+| `describe_layers.py` | writes the `gpkg_contents` description of all 42 layers — what each is, its counts, and what it must not be used for |
 | `fix_gpkg_hygiene.py` | repairs the GeoPackage's registers (dangling extensions, orphan and undeclared indexes, empty zoom levels); idempotent, records every change |
 | `make_vector_qc.py` | redraws `vector_layers_qc.png`, including the ground the sheets leave blank |
 | `normalise_nulls.py` | makes missing values NULL again — a read/write round trip through a GeoDataFrame turns them into `''` |
 | `repair_layers.py` | the per-layer defects found by the deep audit, each one idempotent and recorded (`layer_repairs.json`) |
-| `docs_check.py` | **tests every published number against the files that produced it** — the layer tables in `LAYERS.md` and `README.md`, the field tables, and the raster catalogue in `RASTER_LAYERS.md` against `raster_georeferencing.json` (412 claims in all); exits non-zero if one is wrong |
+| `docs_check.py` | **tests every published number against the files that produced it** — the layer tables in `LAYERS.md` and `README.md`, the field tables, and the raster catalogue in `RASTER_LAYERS.md` against `raster_georeferencing.json` (447 claims in all); exits non-zero if one is wrong |
 | `vectorisation_study.py` | the purity / fragmentation / round-trip test each sheet passes or fails |
 | `georef_new_map.py` | **georeferences the nine scans in `new map/`** into the GeoPackage as clipped tiled rasters (RGBA where the clip bites, RGB JPEG where the tile is fully opaque), with a measured border offset per layer |
 | `RASTER_LAYERS.md` | the nine raster layers: format decisions, legend transcriptions, measured positional error and what each must not be used for |
@@ -88,6 +90,7 @@ python anchor_to_icons.py       # + icon-anchored layers
 python finalize_layers.py       # stable IDs, equal-area layers, crs_qa_report.json
 python add_named_minerals.py    # + minerals_named, refresh crs_qa_report.json
 python render_combined.py       # PNG/PDF (draws minerals_named, not the localities)
+python build_dem_from_sheet.py  # the DEM in metres from the printed legend (reads raster_dem)
 python normalise_nulls.py       # restore NULL where a rewrite left ''
 python repair_layers.py         # the per-layer repairs (idempotent, both files)
 python split_projected_copies.py  # the 5 reprojections -> their own file, so the deliverable is one CRS
@@ -96,7 +99,7 @@ python describe_layers.py       # a description for every layer, in both files
 python add_gpkg_metadata.py     # provenance + licences inside both files (gpkg_metadata)
 python check_idempotency.py     # run the pipeline twice: the second run must change no row
 python refresh_crs_report.py    # crs_qa_report.json, recomputed from the file as shipped
-python audit_layers.py          # verify all 26 layers + 9 rasters + the copies file + registers -> layer_audit.json
+python audit_layers.py          # verify all 26 layers + 10 tiled rasters + the DEM + the copies file + registers -> layer_audit.json
 python docs_check.py            # test every published number against the files
 python check_polygon_colour.py  # traced polygons against the sheet they were traced from
 python render_combined.py       # the PNG/PDF, from the layers as shipped
@@ -283,7 +286,7 @@ Two caveats:
 
 ### One CRS, so they can be laid on each other
 
-**Every layer in the deliverable is EPSG:4326 — all 26 vector layers and all 9 rasters.** Open
+**Every layer in the deliverable is EPSG:4326 — all 26 vector layers, the ten tiled rasters and the DEM.** Open
 them together in QGIS, join them, stack the rasters under the vectors, and nothing needs a
 reprojection. That is also the only CRS the rasters can carry: they are tiled in degrees, so a
 re-tiling into metres would resample the sheets a second time.

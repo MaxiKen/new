@@ -185,8 +185,45 @@ fits = {r["layer"]: r for r in json.load(open(HERE / "raster_georeferencing.json
 con = sqlite3.connect(GPKG)
 rows = con.execute("SELECT table_name, data_type FROM gpkg_contents").fetchall()
 
+dem = json.load(open(HERE / "dem_from_sheet.json"))
+DEM_TEXT = {
+    "dem_from_sheet":
+        "Elevation in metres, built from the DEM sheet: every pixel carries the midpoint "
+        "of the printed legend class it falls in, in seven steps ({bands}). Float32, "
+        "EPSG:4326, {w}x{h} px, {px_km2:.1f} km2 per pixel, stored as an OGC 2D gridded "
+        "coverage (float32, no image tiles), no-data {nodata:g}. Accuracy measured against "
+        "SRTM heights at {held:,} towns that were not used to calibrate the colours: the "
+        "printed class is reproduced exactly for {exact} % and within one class for {within} % "
+        "(MAE {mae:.0f} m). This is a digitisation of the sheet, not a measured DEM: seven "
+        "classes mean a vertical resolution of about {res:.0f} m, so it cannot resolve a "
+        "hill, and it inherits the sheet's own positional error. Built by "
+        "build_dem_from_sheet.py; see RASTER_LAYERS.md.",
+    "dem_from_sheet_class":
+        "The printed elevation class of the DEM sheet, as an integer 1-7 in the legend's "
+        "order ({bands}), uint8, EPSG:4326, {w}x{h} px, one band of image tiles, no-data 0. "
+        "This is the class map that dem_from_sheet turns into metres; keep it if you want "
+        "to know which class a pixel came from rather than its value. See RASTER_LAYERS.md.",
+}
+
+
+def _dem_text(name):
+    v = dem["validation"]
+    bands = " / ".join(f"{c['metres'][0]:.0f}-{c['metres'][1]:.0f}" for c in dem["classes"])
+    return DEM_TEXT[name].format(
+        bands=bands, w=dem["source"]["grid"]["width"], h=dem["source"]["grid"]["height"],
+        px_km2=dem["classes"][0]["area_km2"] / max(dem["classes"][0]["pixels"], 1),
+        nodata=(dem["layers"][name].get("nodata")
+                if dem["layers"][name].get("nodata") is not None
+                else dem["layers"][name].get("sentinel")), held=v["held_out_towns"],
+        exact=v["exact_class_pct"], within=v["within_one_class_pct"],
+        mae=v["mae_m"], res=dem["method"]["vertical_resolution_m"])
+
+
 descriptions = {}
 for name, kind in rows:
+    if name in DEM_TEXT:
+        descriptions[name] = _dem_text(name)
+        continue
     if kind == "features":
         what, caveat = FEATURES[name]
         g = pyogrio.read_info(GPKG, layer=name)

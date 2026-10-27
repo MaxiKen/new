@@ -48,7 +48,11 @@ features = {r[0] for r in cur.execute(
     "SELECT table_name FROM gpkg_contents WHERE data_type = 'features'")}
 tiles = {r[0] for r in cur.execute(
     "SELECT table_name FROM gpkg_contents WHERE data_type = 'tiles'")}
-contents = features | tiles
+coverages = {r[0] for r in cur.execute(
+    "SELECT table_name FROM gpkg_contents WHERE data_type = '2d-gridded-coverage'")}
+# a 2D gridded coverage (the DEM built from the sheet) is a live subject too: without
+# this it looked dangling and its extension declaration was deleted on every run
+contents = features | tiles | coverages
 geom_col = {r[0]: r[1] for r in cur.execute(
     "SELECT table_name, column_name FROM gpkg_geometry_columns")}
 report = {"file": GPKG.name, "removed": {}, "added": {}, "kept": {}}
@@ -59,12 +63,33 @@ valid_rtree = {f"rtree_{t}_{c}" for t, c in geom_col.items() if t in features}
 # 1. extension rows whose subject does not exist -----------------------------
 dead = [(t, c, e) for t, c, e in cur.execute(
     "SELECT table_name, column_name, extension_name FROM gpkg_extensions")
-    if t not in contents
-    or (e == "gpkg_rtree_index" and t in tiles)]
+    # the coverage extension declares itself once with a NULL table_name (it is about
+    # the ancillary tables, which are not layers), so it is never a dangling subject
+    if e != "gpkg_2d_gridded_coverage"
+    and (t not in contents or (e == "gpkg_rtree_index" and t in tiles))]
 cur.executemany("DELETE FROM gpkg_extensions WHERE table_name = ? AND column_name IS ?"
                 " AND extension_name = ?", dead)
 report["removed"]["extension_rows"] = [
     dict(table_name=t, column_name=c, extension_name=e) for t, c, e in dead]
+
+# 1b. the 2D gridded coverage extension must be declared, or a reader has no idea
+# the numeric tiles are numbers rather than pictures
+GRIDDED = "http://docs.opengeospatial.org/is/17-066r1/17-066r1.html"
+if coverages:
+    declared = {(t, c) for t, c in cur.execute(
+        "SELECT table_name, column_name FROM gpkg_extensions"
+        " WHERE extension_name = 'gpkg_2d_gridded_coverage'")}
+    add = []
+    for t in sorted(coverages):
+        for subject, column in ((t, "tile_data"),
+                                ("gpkg_2d_gridded_coverage_ancillary", None),
+                                ("gpkg_2d_gridded_tile_ancillary", None)):
+            if (subject, column) not in declared:
+                add.append((subject, column, "gpkg_2d_gridded_coverage", GRIDDED, "read-write"))
+    cur.executemany("INSERT INTO gpkg_extensions (table_name, column_name, extension_name,"
+                    " definition, scope) VALUES (?,?,?,?,?)", add)
+    report["added"]["gridded_coverage_extension_rows"] = [
+        dict(table_name=t, column_name=c, extension_name=e) for t, c, e, _, _ in add]
 
 # 2. rtree index tables for layers that are gone ------------------------------
 orphan_rtree = sorted(rtree_tables - valid_rtree)

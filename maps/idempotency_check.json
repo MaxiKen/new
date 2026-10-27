@@ -1,5 +1,5 @@
 {
- "rows_fingerprinted": 40,
+ "rows_fingerprinted": 42,
  "changed": {},
  "pipeline": [
   "normalise_nulls.py",

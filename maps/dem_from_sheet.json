@@ -1,0 +1,334 @@
+{
+ "layers": {
+  "dem_from_sheet": {
+   "role": "elevation in metres, printed class midpoints",
+   "dtype": "float32",
+   "nodata": -9999.0
+  },
+  "dem_from_sheet_class": {
+   "role": "the printed class itself, 1-7 in legend order",
+   "dtype": "uint8",
+   "stored_as": "1-band image tiles, like the nine sheets",
+   "sentinel": 0,
+   "sentinel_note": "image tiles have no field for a no-data value, so 0 means 'no class' here and is stated in the layer description too"
+  }
+ },
+ "source": {
+  "layer": "raster_dem",
+  "file": "DEM-of-map-of-nigeria.jpg",
+  "grid": {
+   "crs": "EPSG:4326",
+   "width": 2000,
+   "height": 1415,
+   "res_deg": [
+    0.008813134,
+    0.009039478
+   ],
+   "res_km": [
+    0.97,
+    1.0
+   ],
+   "bounds": [
+    1.636058,
+    2.867021,
+    19.262326,
+    15.657883
+   ]
+  }
+ },
+ "method": {
+  "legend_from": "raster_georeferencing.json - the printed legend, transcribed",
+  "palette_calibration": "per-class median CIELAB of the sheet's pixels at towns whose independent SRTM height falls in that class's printed range (even-numbered towns only); no elevation value comes from SRTM",
+  "classification": "nearest prototype in CIELAB, then the modal class of each 3x3 block (ties to the lower class, so the result is reproducible)",
+  "values": "class midpoints of the printed ranges, exact (no rounding)",
+  "masked": "sheet mask AND the national territory - the painted Gulf is not elevation",
+  "vertical_resolution_m": 158.0,
+  "caveat": "seven classes: this says what the sheet states, it cannot resolve a hill"
+ },
+ "despeckle": {
+  "min_patch_px": 50,
+  "min_patch_km2": 48,
+  "applied_to": [
+   6,
+   7
+  ],
+  "detail": {
+   "6": {
+    "patches": 5957,
+    "dropped_px": 13499
+   },
+   "7": {
+    "patches": 5486,
+    "dropped_px": 18860
+   }
+  },
+  "reason": "white and grey are each both a class and a hillshade highlight; a patch smaller than this is a highlight"
+ },
+ "classes": [
+  {
+   "klass": 1,
+   "metres": [
+    -25.0,
+    130.0
+   ],
+   "midpoint": 52.5,
+   "swatch": "#1f6fe0",
+   "prototype_lab": [
+    61.9,
+    1.8,
+    -57.9
+   ],
+   "pixels": 134986,
+   "share_pct": 14.5,
+   "area_km2": 130735
+  },
+  {
+   "klass": 2,
+   "metres": [
+    140.0,
+    260.0
+   ],
+   "midpoint": 200.0,
+   "swatch": "#d9ec9a",
+   "prototype_lab": [
+    97.4,
+    -11.0,
+    32.5
+   ],
+   "pixels": 206911,
+   "share_pct": 22.2,
+   "area_km2": 200395
+  },
+  {
+   "klass": 3,
+   "metres": [
+    270.0,
+    380.0
+   ],
+   "midpoint": 325.0,
+   "swatch": "#5f9e3f",
+   "prototype_lab": [
+    74.8,
+    -40.2,
+    57.1
+   ],
+   "pixels": 292304,
+   "share_pct": 31.3,
+   "area_km2": 283099
+  },
+  {
+   "klass": 4,
+   "metres": [
+    390.0,
+    530.0
+   ],
+   "midpoint": 460.0,
+   "swatch": "#d4551f",
+   "prototype_lab": [
+    61.3,
+    55.5,
+    68.8
+   ],
+   "pixels": 160171,
+   "share_pct": 17.2,
+   "area_km2": 155127
+  },
+  {
+   "klass": 5,
+   "metres": [
+    540.0,
+    720.0
+   ],
+   "midpoint": 630.0,
+   "swatch": "#8a3b1e",
+   "prototype_lab": [
+    37.0,
+    40.8,
+    44.1
+   ],
+   "pixels": 105302,
+   "share_pct": 11.3,
+   "area_km2": 101986
+  },
+  {
+   "klass": 6,
+   "metres": [
+    730.0,
+    1100.0
+   ],
+   "midpoint": 915.0,
+   "swatch": "#b0a49c",
+   "prototype_lab": [
+    75.9,
+    5.8,
+    10.5
+   ],
+   "pixels": 23960,
+   "share_pct": 2.6,
+   "area_km2": 23206
+  },
+  {
+   "klass": 7,
+   "metres": [
+    1200.0,
+    2100.0
+   ],
+   "midpoint": 1650.0,
+   "swatch": "#ffffff",
+   "prototype_lab": [
+    98.8,
+    0.2,
+    1.9
+   ],
+   "pixels": 8879,
+   "share_pct": 1.0,
+   "area_km2": 8599
+  }
+ ],
+ "validation": {
+  "towns_total": 45069,
+  "calibration_towns": 22535,
+  "held_out_towns": 22379,
+  "exact_class_pct": 68.4,
+  "within_one_class_pct": 96.1,
+  "mae_m": 73.0,
+  "rmse_m": 117.0,
+  "median_err_m": -20.0,
+  "bias_m": -15.0,
+  "swatch_only_exact_class_pct": 65.0,
+  "swatch_only_within_one_pct": 91.3,
+  "swatch_only_in_band_pct": 62.2,
+  "confusion_rows_are_srtm_class_cols_are_sheet": [
+   [
+    4460,
+    1463,
+    55,
+    2,
+    16,
+    0,
+    7
+   ],
+   [
+    1198,
+    3624,
+    1178,
+    78,
+    90,
+    21,
+    4
+   ],
+   [
+    86,
+    308,
+    2980,
+    478,
+    185,
+    30,
+    5
+   ],
+   [
+    46,
+    73,
+    485,
+    2388,
+    451,
+    21,
+    7
+   ],
+   [
+    0,
+    24,
+    62,
+    392,
+    1517,
+    48,
+    2
+   ],
+   [
+    0,
+    11,
+    6,
+    14,
+    129,
+    272,
+    20
+   ],
+   [
+    0,
+    1,
+    3,
+    9,
+    9,
+    46,
+    75
+   ]
+  ]
+ },
+ "grid_pixels_int": 932513,
+ "grid_pixels_pct": 33.0,
+ "merged": {
+  "coverages": [
+   "dem_from_sheet"
+  ],
+  "per_layer": {
+   "dem_from_sheet": {
+    "registers": {
+     "gpkg_contents": 37,
+     "gpkg_tile_matrix_set": 11,
+     "gpkg_tile_matrix": 14,
+     "gpkg_extensions": 29
+    },
+    "data_null": [
+     [
+      "dem_from_sheet",
+      -9999.0
+     ]
+    ],
+    "integrity": "ok"
+   },
+   "dem_from_sheet_class": {
+    "registers": {
+     "gpkg_contents": 37,
+     "gpkg_tile_matrix_set": 11,
+     "gpkg_tile_matrix": 17,
+     "gpkg_extensions": 29
+    },
+    "data_null": [
+     [
+      "dem_from_sheet",
+      -9999.0
+     ]
+    ],
+    "integrity": "ok"
+   }
+  },
+  "read_back": {
+   "dem_from_sheet": {
+    "dtype": "float32",
+    "nodata": -9999.0,
+    "identical": true,
+    "shape": [
+     1415,
+     2000
+    ],
+    "notes": ""
+   },
+   "dem_from_sheet_class": {
+    "dtype": "uint8",
+    "nodata": null,
+    "identical": true,
+    "shape": [
+     1415,
+     2000
+    ],
+    "notes": "image tiles cannot declare a no-data value; 0 is the sentinel and it is recorded in `layers` above"
+   }
+  }
+ },
+ "outputs": {
+  "geotiff": "Nigeria_DEM_from_sheet.tif",
+  "smoothed_geotiff": "Nigeria_DEM_from_sheet_smoothed.tif",
+  "preview_png": "Nigeria_DEM_from_sheet.png"
+ },
+ "note": "Every metre is a printed legend value; SRTM is used only to identify which colour on the scan means which printed class, and the accuracy is measured on towns that calibration never saw."
+}

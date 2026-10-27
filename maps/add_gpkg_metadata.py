@@ -159,8 +159,9 @@ n_attr = sum(gpd.read_file(GPKG, layer=t).shape[0] for (t,) in layers)
 
 MASTER = record_xml(
     "Nigeria - geology, minerals, soils, land cover, climate and places (GeoPackage)",
-    f"{len(layers)} feature layers ({n_attr:,} features) and {len(tiles)} raster "
-    f"layers ({len(tiles)} of the nine printed sheets in 'new map/'), EPSG:4326 with "
+    f"{len(layers)} feature layers ({n_attr:,} features), {len(tiles)} tiled raster "
+    f"layers (the nine printed sheets plus the DEM class map) and one numeric raster - "
+    f"a DEM built from the DEM sheet - EPSG:4326 with "
     f"per-layer projected copies. Layers: " + ", ".join(t for (t,) in layers) + ".",
     (west, south, east, north),
     "Read README.md and LAYERS.md before use: the mineral stand-in layers carry "
@@ -215,6 +216,7 @@ def write_records(path, cases, stamp):
 
 
 main_layers = [t for (t,) in layers]
+all_subjects = {r[0] for r in con.execute("SELECT table_name FROM gpkg_contents")}
 MAIN_CASES = [
     (1, "dataset", MASTER, [("geopackage", None, None, None)]),
     (2, "featureType", record_xml(
@@ -236,6 +238,23 @@ MAIN_CASES = [
         "border does not make the result authoritative for legal boundaries."),
         [("table", "national_territory", None, None),
          ("table", "international_boundary", None, None)]),
+    (5, "featureType", record_xml(
+        "dem_from_sheet - elevation in metres, built from the DEM sheet",
+        "Seven elevation classes transcribed from the printed legend of the DEM "
+        "sheet, carried into a float32 raster whose values are the class midpoints "
+        "(52.5, 200, 325, 460, 630, 915 and 1,650 m) and stored as an OGC 2D "
+        "gridded coverage, with a companion class map as 1-band image tiles. The "
+        "colour of each class was calibrated on the sheet itself and checked "
+        "against SRTM heights at towns the calibration never saw.",
+        (west, south, east, north),
+        "This is a digitisation of a printed seven-class map, not a measured DEM: "
+        "it cannot resolve a hill and inherits the sheet's positional error. The "
+        "range of each class is a printed legend value; the values inside a class "
+        "are its midpoint, not a measurement. SRTM was used only to identify which "
+        "colour on the scan means which printed class. For real heights use a real "
+        "DEM. See dem_from_sheet.json and RASTER_LAYERS.md."),
+        [("table", t, None, None) for t in ("dem_from_sheet", "dem_from_sheet_class")
+         if t in all_subjects]),
     (4, "featureType", record_xml(
         "Mineral positions - withdrawn",
         "The layers that carry the extraction's mineral-symbol coordinates, and "
@@ -323,6 +342,25 @@ def normalise(path, stamp):
         con.execute(f'DELETE FROM "{t}"')
         con.executemany(f'INSERT INTO "{t}" ({quoted}) VALUES ({",".join("?" * len(cols))})',
                         rows)
+    # The 2D gridded coverage's ancillary tables key on an AUTOINCREMENT id, which
+    # climbs by one per rebuild: the rows would be identical and the file would still
+    # differ. Sort them and renumber, so the ids are a function of the data.
+    for t, order in (("gpkg_2d_gridded_coverage_ancillary", "tile_matrix_set_name"),
+                     ("gpkg_2d_gridded_tile_ancillary", "tpudt_name, tpudt_id")):
+        if not con.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+                           (t,)).fetchone():
+            continue
+        cols = [r[1] for r in con.execute(f'PRAGMA table_info("{t}")')]
+        quoted = ",".join('"%s"' % c for c in cols)
+        marks = ",".join("?" * len(cols))
+        rows = con.execute('SELECT %s FROM "%s" ORDER BY %s' % (quoted, t, order)).fetchall()
+        con.execute('DELETE FROM "%s"' % t)
+        for i, row in enumerate(rows, 1):
+            row = list(row)
+            row[cols.index("id")] = i
+            con.execute('INSERT INTO "%s" (%s) VALUES (%s)' % (t, quoted, marks), row)
+    if con.execute("SELECT 1 FROM sqlite_master WHERE name='sqlite_sequence'").fetchone():
+        con.execute("DELETE FROM sqlite_sequence")
     con.execute("COMMIT")
     con.execute("VACUUM")
     con.close()

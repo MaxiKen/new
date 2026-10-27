@@ -1202,8 +1202,8 @@
   "metadata": {
    "Nigeria_Geology_Minerals_4326.gpkg": {
     "file": "Nigeria_Geology_Minerals_4326.gpkg",
-    "records": 4,
-    "references": 8,
+    "records": 5,
+    "references": 10,
     "scopes": [
      "dataset",
      "featureType"
@@ -1246,7 +1246,7 @@
    }
   },
   "geopackage_conformance": {
-   "contents_layers": 35,
+   "contents_layers": 37,
    "integrity_check": "ok",
    "foreign_key_check": 0,
    "user_version": 10400,
@@ -1262,6 +1262,17 @@
    "application_id": 1196444487
   },
   "raster_tiles": {
+   "dem_from_sheet_class": {
+    "tiles": 26,
+    "png": 26,
+    "jpeg": 0,
+    "rgb_tiles": 0,
+    "rgba_tiles": 26,
+    "undecodable": [],
+    "wrong_size": [],
+    "opaque_block_at_clip": [],
+    "clipped_px_pct": 77.8
+   },
    "raster_dem": {
     "tiles": 26,
     "png": 23,
@@ -1362,6 +1373,39 @@
     "clipped_px_pct": 93.6
    }
   },
+  "coverages": {
+   "dem_from_sheet": {
+    "data_type": "2d-gridded-coverage",
+    "ancillary": [
+     "float",
+     1.0,
+     0.0,
+     -9999.0
+    ],
+    "extension_rows": 3,
+    "dtype": "float32",
+    "width": 2000,
+    "height": 1415,
+    "crs": "EPSG:4326",
+    "res": [
+     0.008813134,
+     0.009039478
+    ],
+    "sentinel_pixels": 1897487,
+    "distinct_values": 7,
+    "values": [
+     52.5,
+     200.0,
+     325.0,
+     460.0,
+     630.0,
+     915.0,
+     1650.0
+    ],
+    "class_map_same_footprint": true,
+    "class_value_mismatches": 0
+   }
+  },
   "class_polygons": {
    "poly_population": {
     "polygons": 299,
@@ -1380,9 +1424,25 @@
     "outside_territory_km2": 0.0012
    }
   },
-  "raster_layers": 9
+  "raster_layers": 10
  },
  "rasters": {
+  "dem_from_sheet_class": {
+   "kind": "raster",
+   "crs": "EPSG:4326",
+   "width": 2000,
+   "height": 1415,
+   "bands": 4,
+   "dtype": "uint8",
+   "bounds": [
+    1.6361,
+    2.867,
+    19.2623,
+    15.6579
+   ],
+   "territory_covered_pct": 98.94,
+   "pixels_outside_territory_pct": 0.0
+  },
   "raster_dem": {
    "kind": "raster",
    "crs": "EPSG:4326",

@@ -1,6 +1,6 @@
 {
  "gpkg": "/home/user/new/maps/Nigeria_Geology_Minerals_4326.gpkg",
- "gpkg_mtime": "2026-10-27T08:16:48",
+ "gpkg_mtime": "2026-10-27T16:41:37",
  "rows": [
   {
    "script": "audit_layers.py",
@@ -9,7 +9,7 @@
    "ok": true,
    "fresh": true,
    "kind": "check",
-   "note": "26 layers, 9 rasters, 0 problems"
+   "note": "26 layers, 10 rasters, 0 problems"
   },
   {
    "script": "docs_check.py",
@@ -18,7 +18,7 @@
    "ok": true,
    "fresh": true,
    "kind": "check",
-   "note": "412/412 claims hold"
+   "note": "447/447 claims hold"
   },
   {
    "script": "fix_gpkg_hygiene.py",
@@ -45,7 +45,7 @@
    "ok": true,
    "fresh": true,
    "kind": "check",
-   "note": "40 tables, 0 still changing"
+   "note": "42 tables, 0 still changing"
   },
   {
    "script": "refresh_crs_report.py",
@@ -63,7 +63,7 @@
    "ok": true,
    "fresh": true,
    "kind": "pipeline",
-   "note": "4326: 4 records / 8 refs; copies: 2 records / 9 refs"
+   "note": "4326: 5 records / 10 refs; copies: 2 records / 9 refs"
   },
   {
    "script": "check_polygon_colour.py",
@@ -100,6 +100,15 @@
    "fresh": true,
    "kind": "build",
    "note": "9 sheets georeferenced, mean IoU 0.941"
+  },
+  {
+   "script": "build_dem_from_sheet.py",
+   "evidence": "dem_from_sheet.json",
+   "what": "the DEM built from the tenth sheet",
+   "ok": true,
+   "fresh": true,
+   "kind": "build",
+   "note": "7 printed class values, 44,765 towns re-checked, 67.9 % exact / 96.2 % within one class, MAE 73 m"
   },
   {
    "script": "build_geology_final.py",

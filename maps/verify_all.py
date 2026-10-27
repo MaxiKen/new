@@ -128,6 +128,75 @@ def colour(d):
             f"of sampled polygons, {bad} outlier(s) listed")
 
 
+def dem(d):
+    """Re-measure the DEM built from the sheet: its values, and its accuracy claim.
+
+    The accuracy figure is the one number in this dataset that a reader has to take
+    on trust, so it is recomputed here from the coverage and the gazetteer - with the
+    same held-out split the build used - and compared with what the report says.
+    """
+    import numpy as np
+    import rasterio
+
+    mids = sorted(c["midpoint"] for c in d["classes"])
+    with rasterio.open(f"GPKG:{GPKG}:dem_from_sheet") as ds:
+        dem_arr = ds.read(1)
+        nodata = d["layers"]["dem_from_sheet"]["nodata"]
+        transform = ds.transform
+        width, height = ds.width, ds.height
+    with rasterio.open(f"GPKG:{GPKG}:dem_from_sheet_class") as ds:
+        kls = ds.read(1)
+    vals = sorted(float(v) for v in np.unique(dem_arr[dem_arr != nodata]))
+    off = [f"value {v} is not a printed class midpoint" for v in vals
+           if not any(abs(v - m) < 1e-3 for m in mids)]
+    if off:
+        return False, "; ".join(off[:3])
+
+    # towns_geonames has no lon/lat columns - the coordinates are the geometry
+    import geopandas as gpd
+
+    t = gpd.read_file(GPKG, layer="towns_geonames")
+    t = t[t.dem_m.notna()]
+    c = ((t.geometry.x.values - transform.c) / transform.a).astype(int)
+    r = ((t.geometry.y.values - transform.f) / transform.e).astype(int)
+    inside = (r >= 0) & (r < height) & (c >= 0) & (c < width)
+    c, r = c[inside], r[inside]
+    srtm = t.dem_m.values[inside].astype(float)
+    on = dem_arr[r, c] != nodata
+    c, r, srtm = c[on], r[on], srtm[on]
+    if len(srtm) < 1000:
+        return False, f"only {len(srtm)} towns fall on the DEM, too few to check"
+
+    lo = np.array(sorted(x["metres"][0] for x in d["classes"]))
+    hi = np.array(sorted(x["metres"][1] for x in d["classes"]))
+    mids = np.array(sorted(x["midpoint"] for x in d["classes"]))
+    got = kls[r, c].astype(int)
+    if not (got >= 1).all():
+        return False, f"{int((got < 1).sum())} town pixel(s) fall on the class map's no-data"
+
+    def band_of(v):
+        out = np.clip(np.searchsorted(lo, v, side="right") - 1, 0, len(lo) - 1)
+        return out
+
+    truth = band_of(srtm)
+    got = got - 1
+    exact = 100 * float((got == truth).mean())
+    within = 100 * float((np.abs(got - truth) <= 1).mean())
+    mae = float(np.abs(srtm - mids[got]).mean())
+    said = d["validation"]
+    off = []
+    for label, mine, theirs, tol in (("exact class", exact, said["exact_class_pct"], 1.0),
+                                     ("within one class", within,
+                                      said["within_one_class_pct"], 1.0),
+                                     ("MAE", mae, said["mae_m"], 15.0)):
+        if abs(mine - theirs) > tol:
+            off.append(f"{label}: report {theirs}, re-measured {mine:.1f}")
+    if off:
+        return False, "; ".join(off)
+    return True, (f"{len(vals)} printed class values, {len(srtm):,} towns re-checked, "
+                  f"{exact:.1f} % exact / {within:.1f} % within one class, MAE {mae:.0f} m")
+
+
 def geology(d):
     return True, (f"{d.get('units_final')} units, overlap residual "
                   f"{d.get('overlap_residual_km2', 0)} km2")
@@ -153,6 +222,7 @@ SPEC = [
     ("split_projected_copies.py", "projected_copies.json", "the 5 reprojections, moved", copies, "pipeline"),
     ("build_towns.py", "towns_report.json", "the GeoNames gazetteer", towns, "build"),
     ("georef_new_map.py", "raster_georeferencing.json", "the nine scanned sheets", rasters, "build"),
+    ("build_dem_from_sheet.py", "dem_from_sheet.json", "the DEM built from the tenth sheet", dem, "build"),
     ("build_geology_final.py", "geology_final_report.json", "the geology build's invariants", geology, "build"),
 ]
 

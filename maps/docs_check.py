@@ -336,6 +336,49 @@ for _label, _want in _expect:
     checks.append(dict(layer="minerals_named.md", check=_label, doc=_want,
                        measured=_want, ok=_want in _mtxt))
 
+# ---- the DEM built from the sheet -------------------------------------------
+# The DEM's numbers are the ones a reader will act on (a class means a height), so
+# every one of them in RASTER_LAYERS.md is checked against dem_from_sheet.json - the
+# per-class table and the accuracy table - rather than trusted.
+dem_path = HERE / "dem_from_sheet.json"
+if dem_path.exists() and rdoc.exists():
+    dem = json.load(open(dem_path))
+    for row in re.findall(r"^\| (\d) \| ([\d,]+) – ([\d,]+) \| ([\d.]+) \| ([\d.]+) % \| "
+                          r"([\d,]+) \|", rdoc.read_text(), re.M):
+        k = int(row[0])
+        c = dem["classes"][k - 1]
+        for label, doc, measured in (
+                ("dem: class lo m", float(row[1].replace(",", "")), c["metres"][0]),
+                ("dem: class hi m", float(row[2].replace(",", "")), c["metres"][1]),
+                ("dem: class value m", float(row[3]), c["midpoint"]),
+                ("dem: class share pct", float(row[4]), c["share_pct"]),
+                ("dem: class area km2", float(row[5].replace(",", "")), c["area_km2"])):
+            checks.append(dict(layer=f"dem_from_sheet (class {k})", check=label, doc=doc,
+                               measured=measured, ok=abs(float(doc) - float(measured)) < 1e-6))
+    acc = re.findall(r"\| \*\*this build\*\* \| ([\d.]+) % \| ([\d.]+) % \| (\d+) m \|",
+                     rdoc.read_text())
+    if acc:
+        a = acc[0]
+        for label, doc, measured in (
+                ("dem: exact class pct", float(a[0]), dem["validation"]["exact_class_pct"]),
+                ("dem: within one class pct", float(a[1]),
+                 dem["validation"]["within_one_class_pct"]),
+                ("dem: mae m", float(a[2]), dem["validation"]["mae_m"])):
+            checks.append(dict(layer="dem_from_sheet", check=label, doc=doc, measured=measured,
+                               ok=abs(float(doc) - float(measured)) < 1e-6))
+    else:
+        checks.append(dict(layer="dem_from_sheet", check="dem: accuracy table present",
+                           doc="missing", measured=None, ok=False))
+    sw = re.findall(r"\| printed swatches alone \| ([\d.]+) % \| ([\d.]+) % \|", rdoc.read_text())
+    if sw:
+        for label, doc, measured in (
+                ("dem: swatch exact pct", float(sw[0][0]),
+                 dem["validation"]["swatch_only_exact_class_pct"]),
+                ("dem: swatch within pct", float(sw[0][1]),
+                 dem["validation"]["swatch_only_within_one_pct"])):
+            checks.append(dict(layer="dem_from_sheet", check=label, doc=doc, measured=measured,
+                               ok=abs(float(doc) - float(measured)) < 1e-6))
+
 # ---- the README's own claim count -------------------------------------------
 # README says "(408 claims in all)". That sentence is a claim too, so it is
 # checked against this run's total; a new block that changes the count without

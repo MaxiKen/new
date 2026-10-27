@@ -4,19 +4,21 @@
   "gpkg_metadata_reference"
  ],
  "last_change_pinned": {
-  "main": 35,
+  "main": 37,
   "copies": 5
  },
  "files": {
   "Nigeria_Geology_Minerals_4326.gpkg": {
-   "records": 4,
-   "references": 8,
+   "records": 5,
+   "references": 10,
    "integrity": "ok",
    "about": [
     "the whole file",
     "towns_geonames",
     "national_territory",
     "international_boundary",
+    "dem_from_sheet",
+    "dem_from_sheet_class",
     "mineral_symbols",
     "mineral_localities",
     "mineral_localities_refined",
