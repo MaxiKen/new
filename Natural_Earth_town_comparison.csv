@@ -1,0 +1,12 @@
+map_name,natural_earth_name,ne_lon,ne_lat,geology_grid_lon,geology_grid_lat,minerals_grid_lon,minerals_grid_lat,minerals_embedded_raw_lon,minerals_embedded_raw_lat,geology_vs_NE_km,minerals_grid_vs_NE_km,minerals_embedded_vs_NE_km,maps_embedded_vs_geology_km,caveat
+Aba,Aba,7.34998,5.100398,7.335676,5.001714,7.165202,5.007177,7.337248,5.007413,11.09,22.94,10.44,0.66,Excluded: ambiguous Aba settlement identity.
+Bama,Bama,13.690007,11.520394,13.639814,11.509251,13.467765,11.514799,13.640301,11.515558,5.61,24.22,5.44,0.7,"Symbol pairs visually inspected; centres approximate, reference point may differ from symbol; name match unconfirmed."
+Biu,Biu,12.189995,10.620423,12.16428,10.568182,11.992632,10.572666,12.165054,10.573349,6.45,22.22,5.9,0.58,"Symbol pairs visually inspected; centres approximate, reference point may differ from symbol; name match unconfirmed."
+Idah,Idah,6.73994,7.110404,6.677853,7.016332,6.505301,7.021393,6.677295,7.021791,12.5,27.72,12.04,0.61,"Symbol pairs visually inspected; centres approximate, reference point may differ from symbol; name match unconfirmed."
+Ife,Ife,4.560021,7.480434,4.475972,7.38408,4.302246,7.388905,4.474069,7.389333,14.17,30.19,13.87,0.62,Excluded: mineral label/marker association ambiguous.
+Iseyin,Iseyin,3.590003,7.970016,3.509795,7.90715,3.337775,7.912764,3.509523,7.913234,11.26,28.5,10.88,0.68,"Symbol pairs visually inspected; centres approximate, reference point may differ from symbol; name match unconfirmed."
+Iwo,Iwo,4.179993,7.629959,4.099095,7.559959,3.925595,7.565556,4.097389,7.565997,11.84,28.94,11.55,0.7,Excluded: mineral label/marker association ambiguous.
+Jalingo,Jalingo,11.360019,8.900373,11.312308,8.800251,11.008872,8.808113,11.181217,8.808654,12.31,39.92,22.13,14.44,Excluded: mineral label/marker association ambiguous.
+Nguru,Nguru,10.449998,12.880388,10.407801,12.856898,10.23628,12.860994,10.408565,12.861861,5.27,23.27,4.94,0.56,"Symbol pairs visually inspected; centres approximate, reference point may differ from symbol; name match unconfirmed."
+Ogbomosho,Ogbomosho,4.238043,8.131952,4.181323,8.069324,4.007828,8.075201,4.179629,8.075684,9.35,26.12,8.97,0.73,"Symbol pairs visually inspected; centres approximate, reference point may differ from symbol; name match unconfirmed."
+Orlu,Orlu,7.033307,5.783715,6.986207,5.700663,6.812916,5.705655,6.984935,5.705947,10.6,25.88,10.17,0.6,"Symbol pairs visually inspected; centres approximate, reference point may differ from symbol; name match unconfirmed."

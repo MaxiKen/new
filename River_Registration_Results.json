@@ -1,0 +1,98 @@
+{
+  "geo_grid": {
+    "Benue": {
+      "samples": 242,
+      "median_km": 4.57,
+      "p90_km": 14.62,
+      "within_5km_pct": 57.4
+    },
+    "Niger": {
+      "samples": 259,
+      "median_km": 2.35,
+      "p90_km": 5.85,
+      "within_5km_pct": 86.9
+    },
+    "fit_Niger": {
+      "reference_to_page_delta_degrees": [
+        0.01384,
+        -0.031486
+      ],
+      "training_median_km": 1.76,
+      "holdout_river": "Benue",
+      "holdout_median_km": 6.83
+    },
+    "fit_Benue": {
+      "reference_to_page_delta_degrees": [
+        -0.085058,
+        -0.019301
+      ],
+      "training_median_km": 2.09,
+      "holdout_river": "Niger",
+      "holdout_median_km": 7.57
+    }
+  },
+  "min_grid": {
+    "Benue": {
+      "samples": 242,
+      "median_km": 8.92,
+      "p90_km": 17.27,
+      "within_5km_pct": 24.4
+    },
+    "Niger": {
+      "samples": 259,
+      "median_km": 21.58,
+      "p90_km": 26.6,
+      "within_5km_pct": 4.2
+    },
+    "fit_Niger": {
+      "reference_to_page_delta_degrees": [
+        -0.247502,
+        -0.054662
+      ],
+      "training_median_km": 1.31,
+      "holdout_river": "Benue",
+      "holdout_median_km": 2.16
+    },
+    "fit_Benue": {
+      "reference_to_page_delta_degrees": [
+        -0.246832,
+        -0.061481
+      ],
+      "training_median_km": 1.9,
+      "holdout_river": "Niger",
+      "holdout_median_km": 1.56
+    }
+  },
+  "min_embedded": {
+    "Benue": {
+      "samples": 242,
+      "median_km": 3.83,
+      "p90_km": 10.85,
+      "within_5km_pct": 63.6
+    },
+    "Niger": {
+      "samples": 259,
+      "median_km": 8.78,
+      "p90_km": 12.97,
+      "within_5km_pct": 11.2
+    },
+    "fit_Niger": {
+      "reference_to_page_delta_degrees": [
+        -0.076646,
+        -0.054266
+      ],
+      "training_median_km": 1.32,
+      "holdout_river": "Benue",
+      "holdout_median_km": 2.17
+    },
+    "fit_Benue": {
+      "reference_to_page_delta_degrees": [
+        -0.074022,
+        -0.061321
+      ],
+      "training_median_km": 1.89,
+      "holdout_river": "Niger",
+      "holdout_median_km": 1.58
+    }
+  }
+}
