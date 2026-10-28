@@ -1,0 +1,62 @@
+{
+  "reference_disagreement": {
+    "natural_earth_vs_gadm_km": {
+      "median": 0.85,
+      "p90": 3.03,
+      "other_direction_median": 1.61,
+      "other_direction_p90": 9.21
+    },
+    "note": "two independent national outlines disagree by ~1 km: that is the floor any fit inherits"
+  },
+  "sheet_border_2023_vs": {
+    "natural earth": {
+      "median_km": 1.11,
+      "p90_km": 3.23,
+      "best_translation_km": [
+        0.66,
+        -0.22
+      ],
+      "median_after_km": 0.97,
+      "bootstrap_se_km": [
+        0.23,
+        0.32
+      ],
+      "minimum_detectable_shift_km": 0.63
+    },
+    "gadm": {
+      "median_km": 0.46,
+      "p90_km": 1.35,
+      "best_translation_km": [
+        0.11,
+        0.0
+      ],
+      "median_after_km": 0.45,
+      "bootstrap_se_km": [
+        0.05,
+        0.08
+      ],
+      "minimum_detectable_shift_km": 0.16
+    }
+  },
+  "datum_shift_field": {
+    "Minna (EPSG:4263)": {
+      "grid_points_with_operation": 130,
+      "median_m": 87.0,
+      "max_m": 112.0,
+      "median_operation_accuracy_m": 15.0
+    },
+    "NAD27 (EPSG:4267)": {
+      "grid_points_with_operation": 143,
+      "median_m": 0.0,
+      "max_m": 0.0,
+      "median_operation_accuracy_m": -1.0
+    }
+  },
+  "verdict": {
+    "largest_candidate_datum_shift_km": 0.112,
+    "best_detectable_shift_km": 0.16,
+    "reference_self_disagreement_km": 0.85,
+    "ratio_detection_to_signal": 1.4,
+    "result": "NOT SEPARABLE. The largest candidate datum shift in Nigeria (0.11 km) is smaller than the smallest offset this border can resolve (0.16 km, against GADM), and the two independent references disagree with each other by 0.85 km. Any datum identified by fitting these data would be an artefact of the reference choice."
+  }
+}
