@@ -1,0 +1,136 @@
+{
+  "generated_from": "Nigeria_Geology_Minerals_4326.gpkg",
+  "checks": [
+    {
+      "check": "all layers present",
+      "pass": true,
+      "detail": [
+        "alignment_checks",
+        "combined_map",
+        "mineral_density_all",
+        "mineral_density_metallic",
+        "mineral_density_nonmetallic",
+        "minerals_symbols",
+        "nigeria_boundary",
+        "ref_geology_2011",
+        "ref_minerals_2023"
+      ]
+    },
+    {
+      "check": "every layer is EPSG:4326",
+      "pass": true,
+      "detail": {
+        "ref_geology_2011": 4326,
+        "ref_minerals_2023": 4326,
+        "combined_map": 4326,
+        "mineral_density_all": 4326,
+        "mineral_density_metallic": 4326,
+        "mineral_density_nonmetallic": 4326,
+        "minerals_symbols": 4326,
+        "nigeria_boundary": 4326,
+        "alignment_checks": 4326
+      }
+    },
+    {
+      "check": "sqlite integrity",
+      "pass": true,
+      "detail": "ok"
+    },
+    {
+      "check": "dataset notes present",
+      "pass": true,
+      "detail": [
+        "title",
+        "mineral_positions",
+        "mineral_frame",
+        "geology",
+        "datum",
+        "commodity_names",
+        "density",
+        "not_for"
+      ]
+    },
+    {
+      "check": "point count",
+      "pass": true,
+      "detail": 1323
+    },
+    {
+      "check": "points have CRS",
+      "pass": true,
+      "detail": "EPSG:4326"
+    },
+    {
+      "check": "all classes populated",
+      "pass": true,
+      "detail": {
+        "industrial": 777,
+        "metallic": 338,
+        "gemstone": 144,
+        "energy": 46,
+        "unknown": 18
+      }
+    },
+    {
+      "check": "all tiers populated",
+      "pass": true,
+      "detail": {
+        "probable": 973,
+        "tentative": 332,
+        "unidentified": 18
+      }
+    },
+    {
+      "check": "most points inside Nigeria",
+      "pass": true,
+      "detail": "1301 of 1323 inside"
+    },
+    {
+      "check": "coordinates in plausible range",
+      "pass": true,
+      "detail": "x 2.63-14.57, y 3.88-13.89"
+    },
+    {
+      "check": "raster ref_geology_2011",
+      "pass": true,
+      "detail": "1240x1020 uint8 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
+    },
+    {
+      "check": "raster ref_minerals_2023",
+      "pass": true,
+      "detail": "1240x1020 uint8 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
+    },
+    {
+      "check": "raster combined_map",
+      "pass": true,
+      "detail": "1240x1020 uint8 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
+    },
+    {
+      "check": "raster mineral_density_all",
+      "pass": true,
+      "detail": "1240x1020 float32 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
+    },
+    {
+      "check": "raster mineral_density_metallic",
+      "pass": true,
+      "detail": "1240x1020 float32 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
+    },
+    {
+      "check": "raster mineral_density_nonmetallic",
+      "pass": true,
+      "detail": "1240x1020 float32 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
+    },
+    {
+      "check": "density integrates to the point count",
+      "pass": true,
+      "detail": "integral 1029 vs 1179 symbols inside Nigeria (edge clipping outside the border accounts for the difference)"
+    },
+    {
+      "check": "reference rasters share one grid",
+      "pass": true,
+      "detail": "identical transform and shape"
+    }
+  ],
+  "passed": 18,
+  "total": 18
+}

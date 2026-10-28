@@ -1,0 +1,12 @@
+{
+  "points": 1323,
+  "snapped_to_glyph_pct": 95.7,
+  "snapped_within_6px_pct": 88.1,
+  "distance_to_symbol_centre_px_median_old": 3.04,
+  "distance_to_symbol_centre_px_median_new": 0.71,
+  "distance_to_symbol_centre_km_old": 2.06,
+  "distance_to_symbol_centre_km_new": 0.48,
+  "median_move_km": 2.03,
+  "p90_move_km": 3.73,
+  "note": "the large moves relative to the previous file come from the vertical-flip fix and from the 19 km frame correction, not from the centre snapping (median snap is under 3 px)"
+}
