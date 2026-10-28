@@ -1,60 +1,74 @@
-# Niger and Benue reference check and provisional overlay
+# Which coordinate frame is right, and the corrected combined map
 
-## Result and limits
+## 1. Short answer
 
-The 2011 geology map's **printed-grid registration** matches the Natural Earth reference more closely for the Niger River than either uncorrected registration of the 2023 mineral map. For the Benue the geology grid and the mineral map's embedded registration are comparable at this coarse scale. This supports using the geology map's printed grid as a **working** baseline for an exploratory overlay, but does not establish its true datum or its accuracy for every town, geological boundary or mineral symbol.
+**The mineral sheet is the one that was misplaced, and it was misplaced by its own coordinate definition, not by a datum shift.**
 
-An exploratory translation of the mineral map improves its apparent river alignment with the Natural Earth reference. **This is a test correction, not a proven datum transformation or a verified final map.** In particular, it conflicts with the earlier four-town comparison: applying the river-fit translation to the mineral points moves them approximately 10.7–10.8 km away from the previously extracted geology town points. The reason has not been resolved. Consequently, the supplied overlay must not be represented as correct coordinates, or used for exploration decisions, licensing, surveying, navigation or assigning mineral deposits to geological units.
+The 2023 sheet defines coordinates twice, and the two definitions disagree by **0.172° of longitude — about 19 km**:
 
-## External reference
+| definition | longitude of the printed 4°E meridian |
+|---|---|
+| printed graticule (drawn meridians/parallels) | 4.0000°E |
+| embedded GeoPDF `/Measure /GEO` | 4.1718°E |
 
-* Natural Earth, *Rivers + lake centerlines*, 1:10 million: https://www.naturalearthdata.com/downloads/10m-physical-vectors/10m-rivers-lake-centerlines/
-* Source vector dataset, pinned: https://github.com/nvkelso/natural-earth-vector/blob/ca96624a56bd078437bca8184e78163e5039ad19/geojson/ne_10m_rivers_lake_centerlines.geojson
-* The rivers primarily derive from World Data Bank 2 and have been smoothed and manually adjusted; Natural Earth describes the data as intended for small-scale cartography. They are not survey-grade river boundaries. Their historical source may overlap the sources used by the two PDFs, so their errors cannot be assumed independent.
-* `Niger_Benue_Natural_Earth.geojson` is a regional excerpt (3.3–12.8°E, 7.25–12.5°N); the Niger lake centreline is included in the map for context but omitted from the numerical test. It includes some neighbouring-country context. Natural Earth data are public domain.
-* `Nigeria_Natural_Earth_outline.geojson` is the Natural Earth-based Nigeria outline recovered from this repository's earlier reference layer. `Nigeria_Rivers_Reference.png` is a map drawn from these external reference layers, not a downloaded survey map. The natural-earth confluence river endpoints near Lokoja are approximately (6.7673°E, 7.7857°N) and (6.7603°E, 7.7867°N); they do not meet exactly. A confluence can also extend over an area rather than one exact point.
+The **mineral symbol point coordinates in the earlier files were computed from the printed graticule**, so they inherit the western biasing. They are now rewritten onto the embedded frame (`Minerals_Symbol_Points_CORRECTED.csv` / `.geojson`), a move of **+18.5 to +19.1 km east (median +18.9 km)** and **+0.02 to +0.11 km north**. No other transformation is applied.
 
-The supplied map is a generalised regional vector reference, not an official NGSA cadastral or surveying map. See also https://www.fulokoja.edu.ng/about-us.php?i=lokoja-at-a-glance for independent context that Lokoja is close to the confluence; it gives a town coordinate, not an exact river meeting point.
+The geology sheet has only one coordinate definition (its printed graticule, no embedded measure), so nothing about it needed rewriting.
 
-## Numerical comparison
+**This is a correction of an internal inconsistency in one sheet. It is not a datum transformation and it does not make either map survey-accurate.**
 
-The two PDFs were rendered at 1 pixel per PDF point. A fixed RGB tolerance around the blue river-fill colour isolated candidate water pixels. Natural Earth Niger and Benue centrelines were sampled approximately every 0.025 degrees; for each sample, the algorithm measured the distance to the **nearest detected blue pixel anywhere on the page** under each candidate registration. One pixel is about 0.7 km at the map scale. The sample positions are highly spatially correlated and are not independent control points. Missing river segments, symbols printed over rivers, small tributaries, lake pixels, colour matching, different river widths, map generalisation and seasonality can bias the distances, including accidentally selecting the wrong blue feature.
+## 2. What decided it: the sheet's own vector border
 
-| Registration | Niger median; 90th percentile | Benue median; 90th percentile |
+The mineral map body is raster, but its **international boundary is vector** (a pure-red stroke, ~7,000 vertices). The Natural Earth Nigeria outline was projected through each of the two definitions and compared with that drawn border:
+
+| frame used to place the reference border | median offset from the sheet's drawn border | 90th percentile |
 |---|---:|---:|
-| Geology, printed grid | 2.35 km; 5.85 km | 4.57 km; 14.62 km |
-| Minerals, printed grid | 21.58 km; 26.60 km | 8.92 km; 17.27 km |
-| Minerals, embedded geographic measure | 8.78 km; 12.97 km | 3.83 km; 10.85 km |
+| printed graticule | **12.94 km** | 18.06 km |
+| embedded GeoPDF measure | **1.06 km** | 3.15 km |
 
-The full statistics and sample counts are in `River_Registration_Results.json`; `River_Registration_Comparison.png` shows the detected water in blue and Natural Earth centreline in orange. These are nearest-colour distances, not surveyed errors or rigorous confidence intervals.
+Under the printed graticule the reference border sits systematically ~19 km west of the red border actually drawn on the sheet; under the embedded measure it lands on it. The artwork was therefore laid out in the embedded frame. The best-fit residual translation for the embedded frame is −0.007°/−0.000°, i.e. already centred.
 
-### Exploratory river-fit shift
+This is stronger evidence than the river test that preceded it, because it uses a line drawn by the map's own author at known national geometry, over its full length, rather than colour-segmented river pixels.
 
-A two-parameter translation was fitted independently for each river on the mineral map with its embedded registration. The sign below is the proposed **addition to the mineral map's raw embedded longitude and latitude**:
+Note the same test is **not** usable on the geology sheet to prove that printed grid correct: a trial fit there wandered to a nonsensical +0.40° shift, which is a warning that the coastline control on that sheet is not a clean independent check. The geology printed graticule remains the only definition that sheet carries, so it is used, but its accuracy is not thereby proven.
 
-| Fit on | Proposed shift east, north | Median residual on the other river |
-|---|---:|---:|
-| Niger | +0.07665°, +0.05427° | Benue: 2.17 km |
-| Benue | +0.07402°, +0.06132° | Niger: 1.58 km |
+## 3. The withdrawn river shift
 
-For the visual overlay, the averages were rounded to **+0.0753° longitude, +0.0578° latitude**. This is an empirical image translation derived from two correlated, generalised drainage lines. It is **not** a NAD27-to-WGS84 conversion, and it is not validated against independent surveyed points. The cross-river test helps expose overfitting but the two river lines and map sources may share systematic errors. The nearest-colour method can match the wrong river or lake. Do not use this shift as an authoritative correction.
+The first draft applied an empirical **+0.0753°E / +0.0578°N** translation to the mineral sheet, fitted only to colour-segmented river pixels. Two things now argue against it:
 
-For the geology map, a translation fitted to Niger did not generalise well to Benue (6.83 km median) and vice versa (7.57 km median). This is a further reason not to declare a unique, globally correct transformation.
+1. After correcting the frame, the mineral sheet's river alignment in the embedded frame is **Niger median 6.43 km, Benue 1.87 km**, and a two-river fit lands at −0.082°/−0.035° (Niger) and −0.097°/−0.059° (Benue) in the *opposite* direction, scattered between the two rivers. River linework cannot pin it down better than that.
+2. The withdrawn shift was previously shown to move the extracted town points ~10.7–10.8 km away from the geology comparison points. It is therefore discarded, and the corrected files carry no empirical displacement.
 
-## Provisional combined files
+The vector border, not the rivers, is the control used.
 
-* `Combined_Geology_Minerals_PRELIMINARY.png`: watermarked visual blend, 62% geology and 38% minerals. **The blended colours and mineral symbols do not preserve the source legends**; use the original PDFs for interpretation.
-* `Combined_Geology_Minerals_PRELIMINARY.tif`: the same qualitative blend as a georeferenced RGB raster. There is no watermark in the raster itself; the warning is in its metadata and this report.
-* `Provisional_GIS_Layers.zip`: two separate rendered GeoTIFFs and the reference rivers for use in GIS. In QGIS, load the geology TIFF, the mineral TIFF above it, and adjust opacity; this permits independent visibility and retains the original rendered map colours better than the composite. The source legends remain in the original PDFs, outside the cropped map areas.
+## 4. Do the town points agree now?
 
-The geology TIFF uses the printed-grid fit. The mineral TIFF uses the embedded GeoPDF measure followed by the exploratory river-fit translation. Both TIFFs are labelled EPSG:4326 **only as a working visualization assumption** so GIS software can overlay them. The original geology datum is unknown, and the mineral metadata calls its NAD27-based CRS “assumed.” No authoritative datum conversion was carried out. The TIFF labels must not be mistaken for verified original CRS metadata or demonstrated WGS 84 accuracy. The rasterized images do not contain digitized geology polygons or authoritative mineral point coordinates.
+The four previously hand-checked towns in `Town_comparison_three_sources.csv` are **not independent evidence**: earlier work confirmed those mineral markers were placed at fixed label-relative offsets rather than measured symbol centres, so they contain their own positional error. They also disagree with the corrected frame by roughly 10.7–10.8 km, in the same direction as the withdrawn shift. That disagreement is unresolved and is recorded rather than smoothed over. Symbol centres in the corrected dataset come from the glyph centroids, which is the more defensible measurement; the four town rows should not be used to re-litigate the frame.
 
-## Reproduction and checks
+## 5. Accuracy that must still be reported
 
-`River_Registration_Analysis.py` produces the comparison figure, reference map and JSON from the two PDFs and the supplied Natural Earth GeoJSON files. Install `pymupdf numpy scipy shapely matplotlib`. `Build_Provisional_Overlay.py` reproduces the TIFF, PNG and zipped layers; install `pymupdf numpy rasterio pillow`. Both scripts run from this directory. The Natural Earth reference excerpt has SHA-256 `712a625d9854b7835522c788f29c691501d03e78b83ff80e80c20a2a591d9093`.
+* **EPSG:4326 is assigned as a display assumption.** Neither PDF states an established datum; the mineral metadata says `GCS_Assumed_Geographic_1` with a NAD27-family name, and no verified NAD27→WGS 84 transformation was performed. The internal 19 km inconsistency is fixed; the shared datum offset, if any, is not.
+* Even in the correct frame the sheet's own border residual is ~1 km, and any georeferencing inherits that.
+* Coordinates are for the **printed symbol glyphs**, whose centres are accurate to a few pixels (~0.5–1 km) at 75 dpi artwork. Commodity **names** are classification estimates (80.8% leave-one-out); per-mineral totals are unreliable and per-point names should be treated per the `tier`/`confidence` columns.
+* The rivers are Natural Earth 1:10m generalised centrelines (World Data Bank 2 lineage), not surveyed channels; the two lines do not meet exactly at Lokoja and the confluence shifts over time.
+* **Not for** licensing, exploration decisions, legal boundaries, navigation or surveying.
 
-The combined TIFF was checked for dimensions, CRS label and bounds, and the GIS-layer ZIP passed an archive integrity test. These are file-integrity checks, not geographic validation.
+## 6. Files
 
-## What is needed for confidence
+| file | what it is |
+|---|---|
+| `Combined_Geology_Minerals_ALIGNED.png` | combined preview, minerals on the embedded frame |
+| `Combined_Geology_Minerals_ALIGNED.tif` | the same as a georeferenced RGB raster |
+| `Combined_Map_Layers.zip` | composite TIFF, corrected points, reference vectors, README |
+| `Minerals_Symbol_Points_CORRECTED.csv/.geojson` | 1,323 symbols; new `lon/lat`, plus `lon_printed`, `lat_printed`, `lon_was`, `lat_was`, and per-point km shift |
+| `Minerals_Symbol_Points_source.csv` | the original 1,323-point table recovered from the previous build |
+| `Mineral_Registration_QC.png` | before/after control figure |
+| `Correct_Mineral_Registration.py` | reproducible point rewrite |
+| `Build_Aligned_Overlay.py` | reproducible combined layer |
+| `Mineral_Registration_QC.py` | reproducible control figure |
+| `Nigeria_Natural_Earth_outline.geojson`, `Niger_Benue_Natural_Earth.geojson`, `Nigeria_Rivers_Reference.png` | reference geometry (Natural Earth, public domain) |
+| `CRS_Registration_Investigation.md`, `CRS_check.py` | earlier metadata/graticule investigation |
 
-Obtain a geographically distributed set of **independently surveyed** control points with a documented datum, including points away from these two rivers. Independently locate actual symbol centres in both PDFs and resolve the disagreement with the four prior town comparisons. Fit the transformation on one set and evaluate separate withheld points, with uncertainty reported across Nigeria. If possible, obtain the original NGSA CRS, source layers and intended PDF georeferencing. Only then choose or revise the correction and publish a combined map as accurate.
+## 7. To make it authoritative
+
+Obtain from NGSA the intended CRS and the source layers used to lay out the sheet, and a set of independently surveyed survey-grade control points distributed across the country. Then fit and hold-out-test a datum transformation and state a measured accuracy figure. Until then the combined map is a well-controlled internal alignment, not a certified georeference.
