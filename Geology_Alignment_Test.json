@@ -1,0 +1,51 @@
+{
+  "state_network": {
+    "vector_vertices": 23396,
+    "sampled": 700,
+    "raw_median_km": 1.72,
+    "after_median_km": 1.44,
+    "shift_east_km": 0.22,
+    "shift_north_km": 0.89,
+    "se_east_km": 0.29,
+    "se_north_km": 0.15,
+    "reference": "GADM 4.1 state boundaries (analysis only)"
+  },
+  "coastline": {
+    "raw_median_km": 1.86,
+    "after_median_km": 1.58,
+    "shift_east_km": 0.33,
+    "shift_north_km": -2.11,
+    "se_east_km": 1.07,
+    "se_north_km": 0.4,
+    "reference": "Natural Earth outline",
+    "samples": 922
+  },
+  "rivers": {
+    "raw_median_km": 2.73,
+    "after_median_km": 2.61,
+    "shift_east_km": 0.22,
+    "shift_north_km": 0.78,
+    "se_east_km": 0.78,
+    "se_north_km": 0.93,
+    "reference": "Natural Earth Niger + Benue",
+    "samples": 626
+  },
+  "agreement": {
+    "state_network vs coastline": {
+      "gap_km": 3.0,
+      "combined_2sigma_km": 2.14,
+      "agree": false
+    },
+    "state_network vs rivers": {
+      "gap_km": 0.11,
+      "combined_2sigma_km": 1.86,
+      "agree": true
+    },
+    "coastline vs rivers": {
+      "gap_km": 2.89,
+      "combined_2sigma_km": 2.14,
+      "agree": false
+    }
+  },
+  "verdict": "NO SINGLE CORRECTION JUSTIFIED: the feature classes on this sheet disagree with each other by more than their own uncertainties, so there is no translation that improves them all"
+}
