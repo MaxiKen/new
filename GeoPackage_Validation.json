@@ -2,19 +2,54 @@
   "generated_from": "Nigeria_Geology_Minerals_4326.gpkg",
   "checks": [
     {
-      "check": "all layers present",
+      "check": "vector geology_units",
       "pass": true,
-      "detail": [
-        "alignment_checks",
-        "combined_map",
-        "mineral_density_all",
-        "mineral_density_metallic",
-        "mineral_density_nonmetallic",
-        "minerals_symbols",
-        "nigeria_boundary",
-        "ref_geology_2011",
-        "ref_minerals_2023"
-      ]
+      "detail": "1142 features, fields ['unit_code', 'unit_name', 'period', 'sheet_colour', 'area_km2', 'in_nigeria']"
+    },
+    {
+      "check": "vector faults",
+      "pass": true,
+      "detail": "13 features, fields ['feature', 'certainty', 'evidence', 'length_km', 'in_nigeria', 'geometry']"
+    },
+    {
+      "check": "vector roads",
+      "pass": true,
+      "detail": "954 features, fields ['feature', 'evidence', 'in_nigeria', 'geometry']"
+    },
+    {
+      "check": "vector rivers",
+      "pass": true,
+      "detail": "1055 features, fields ['feature', 'length_km', 'in_nigeria', 'geometry']"
+    },
+    {
+      "check": "vector state_boundaries",
+      "pass": true,
+      "detail": "83 features, fields ['feature', 'in_nigeria', 'geometry']"
+    },
+    {
+      "check": "units carry names, not just colours",
+      "pass": true,
+      "detail": "45 codes, 23 unlabelled"
+    },
+    {
+      "check": "units are inside or on Nigeria",
+      "pass": true,
+      "detail": "1025 of 1142 polygons flagged in_nigeria"
+    },
+    {
+      "check": "fault layer is sparse and plausible",
+      "pass": true,
+      "detail": "13 traces, 246 km, 13 in Nigeria"
+    },
+    {
+      "check": "road network present",
+      "pass": true,
+      "detail": "954 strokes, 942 in Nigeria"
+    },
+    {
+      "check": "all 13 layers present",
+      "pass": true,
+      "detail": "13 of 13: ['combined_map', 'faults', 'geology_units', 'mineral_density_all', 'mineral_density_metallic', 'mineral_density_nonmetallic', 'minerals_symbols', 'nigeria_boundary', 'ref_geology_2011', 'ref_minerals_2023', 'rivers', 'roads', 'state_boundaries']"
     },
     {
       "check": "every layer is EPSG:4326",
@@ -26,9 +61,13 @@
         "mineral_density_all": 4326,
         "mineral_density_metallic": 4326,
         "mineral_density_nonmetallic": 4326,
+        "geology_units": 4326,
+        "faults": 4326,
+        "roads": 4326,
+        "rivers": 4326,
+        "state_boundaries": 4326,
         "minerals_symbols": 4326,
-        "nigeria_boundary": 4326,
-        "alignment_checks": 4326
+        "nigeria_boundary": 4326
       }
     },
     {
@@ -41,9 +80,16 @@
       "pass": true,
       "detail": [
         "title",
+        "geology_units",
+        "faults",
+        "roads",
+        "faults_method",
+        "rivers",
+        "state_boundaries",
+        "features_not_available",
         "mineral_positions",
         "mineral_frame",
-        "geology",
+        "geology_registration",
         "datum",
         "commodity_names",
         "density",
@@ -83,7 +129,7 @@
     {
       "check": "most points inside Nigeria",
       "pass": true,
-      "detail": "1301 of 1323 inside"
+      "detail": "1299 of 1323 inside"
     },
     {
       "check": "coordinates in plausible range",
@@ -93,17 +139,17 @@
     {
       "check": "raster ref_geology_2011",
       "pass": true,
-      "detail": "1240x1020 uint8 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
+      "detail": "2480x2040 uint8 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
     },
     {
       "check": "raster ref_minerals_2023",
       "pass": true,
-      "detail": "1240x1020 uint8 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
+      "detail": "2480x2040 uint8 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
     },
     {
       "check": "raster combined_map",
       "pass": true,
-      "detail": "1240x1020 uint8 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
+      "detail": "2480x2040 uint8 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
     },
     {
       "check": "raster mineral_density_all",
@@ -123,7 +169,7 @@
     {
       "check": "density integrates to the point count",
       "pass": true,
-      "detail": "integral 1029 vs 1179 symbols inside Nigeria (edge clipping outside the border accounts for the difference)"
+      "detail": "integral 1087 vs 1179 symbols inside Nigeria (edge clipping outside the border accounts for the difference)"
     },
     {
       "check": "reference rasters share one grid",
@@ -131,6 +177,6 @@
       "detail": "identical transform and shape"
     }
   ],
-  "passed": 18,
-  "total": 18
+  "passed": 27,
+  "total": 27
 }

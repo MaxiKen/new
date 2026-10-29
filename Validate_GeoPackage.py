@@ -12,13 +12,37 @@ def chk(name, ok, detail):
     R.append({"check": name, "pass": bool(ok), "detail": detail})
     print(("PASS " if ok else "FAIL ") + f"{name}: {detail}")
 
+
+# ---- vector layers: geometry, CRS and attribute integrity
+for name, must in [("geology_units", ["unit_code", "unit_name", "period", "sheet_colour",
+                                      "area_km2", "in_nigeria"]),
+                   ("faults", ["feature", "certainty", "evidence", "length_km", "in_nigeria"]),
+                   ("roads", ["feature", "evidence", "in_nigeria"]),
+                   ("rivers", ["feature", "length_km", "in_nigeria"]),
+                   ("state_boundaries", ["feature", "in_nigeria"])]:
+    g = gpd.read_file(GPKG, layer=name)
+    ok = (g.crs.to_epsg() == 4326 and len(g) > 0 and all(m in g.columns for m in must)
+          and g.geometry.notna().all() and not g.geometry.is_empty.any())
+    chk(f"vector {name}", ok, f"{len(g)} features, fields {list(g.columns)[:6]}")
+
+u = gpd.read_file(GPKG, layer="geology_units")
+chk("units carry names, not just colours", (u.unit_code != "unlabelled").sum() > 1000,
+    f"{u.unit_code.nunique()} codes, {(u.unit_code=='unlabelled').sum()} unlabelled")
+chk("units are inside or on Nigeria", u.in_nigeria.mean() > .8,
+    f"{u.in_nigeria.sum()} of {len(u)} polygons flagged in_nigeria")
+fa = gpd.read_file(GPKG, layer="faults")
+chk("fault layer is sparse and plausible", 5 <= len(fa) <= 200,
+    f"{len(fa)} traces, {fa.length_km.sum():.0f} km, {fa.in_nigeria.sum()} in Nigeria")
+ro = gpd.read_file(GPKG, layer="roads")
+chk("road network present", len(ro) > 500, f"{len(ro)} strokes, {ro.in_nigeria.sum()} in Nigeria")
+
 con = sqlite3.connect(GPKG)
 rows = con.execute("select table_name,data_type,srs_id from gpkg_contents").fetchall()
 names = {r[0] for r in rows}
-chk("all layers present",
-    {"ref_geology_2011", "ref_minerals_2023", "combined_map", "mineral_density_all",
-     "mineral_density_metallic", "mineral_density_nonmetallic", "minerals_symbols",
-     "nigeria_boundary", "alignment_checks"} <= names, sorted(names))
+need = {"ref_geology_2011", "ref_minerals_2023", "combined_map", "mineral_density_all",
+        "mineral_density_metallic", "mineral_density_nonmetallic", "minerals_symbols",
+        "nigeria_boundary", "geology_units", "faults", "roads", "rivers", "state_boundaries"}
+chk("all 13 layers present", need <= names, f"{len(need & names)} of {len(need)}: {sorted(names)}")
 chk("every layer is EPSG:4326", all(r[2] == 4326 for r in rows), {r[0]: r[2] for r in rows})
 ints = con.execute("pragma integrity_check").fetchone()[0]
 chk("sqlite integrity", ints == "ok", ints)
@@ -45,7 +69,8 @@ for name in ["ref_geology_2011", "ref_minerals_2023", "combined_map",
              "mineral_density_all", "mineral_density_metallic", "mineral_density_nonmetallic"]:
     with rasterio.open(f"GPKG:{GPKG}:{name}") as d:
         a = d.read(1)
-        ok = (d.crs.to_epsg() == 4326 and d.width == 1240 and d.height == 1020
+        want = (1240, 1020) if "density" in name else (2480, 2040)
+        ok = (d.crs.to_epsg() == 4326 and (d.width, d.height) == want
               and np.isfinite(np.nanmax(a.astype(float))))
         chk(f"raster {name}", ok,
             f"{d.width}x{d.height} {d.dtypes[0]} {d.crs.to_string()} bounds "

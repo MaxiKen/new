@@ -2,8 +2,8 @@
   "checked": 1294,
   "total": 1323,
   "on_a_glyph_pct": 97.8,
-  "distance_to_glyph_centre_pt_median": 0.62,
-  "distance_to_glyph_centre_km_median": 0.44,
-  "within_1pt_pct": 73.9,
-  "within_2pt_pct": 94.3
+  "distance_to_glyph_centre_pt_median": 0.5,
+  "distance_to_glyph_centre_km_median": 0.35,
+  "within_1pt_pct": 75.0,
+  "within_2pt_pct": 95.4
 }

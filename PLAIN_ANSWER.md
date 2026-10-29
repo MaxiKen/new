@@ -1,86 +1,126 @@
-# In plain language: what was wrong, what I fixed, and what I did to the geology map
+# In plain language: the four things you asked for
 
-## 1. The one real error, in a sentence
+You asked for four things. Here is each one, what I did, and how you can check it yourself.
 
-The 2023 mineral sheet draws its own longitude grid in the wrong place — it is **19 km too far west** — so every mineral point read off that grid came out 19 km west of where it belongs. **I moved all 1,323 mineral points 19 km east to fix it.**
+---
 
-That is the whole correction. Nothing else needed moving.
+## 1. "The map pictures must be clearer"
 
-## 2. How I know it's 19 km and not something else
+**Done.** The old previews were drawn from a coarse raster. The new plates are drawn from the
+**vector** content of the sheets, so the unit outlines, faults, roads and rivers are sharp at any
+zoom, and each plate has proper map furniture: title block, north arrow, scale bar in kilometres,
+graticule with degree labels, a full legend, and a footnote carrying the accuracy limits.
 
-The sheet contradicts itself. It says "4°E" is in two different places at once:
-
-* where the **printed grid line** is drawn on the paper,
-* where the **computer-readable georeferencing** inside the PDF says it is.
-
-Those two are 19 km apart. Only one can be right. To decide which, I used something the mapmaker drew that I can check against the real world: **the country's own border**, which is drawn as clean vector linework on that sheet, not as pixel artwork.
-
-I laid a modern Nigeria border on top of the sheet, twice — once using the printed grid, once using the embedded georeferencing:
-
-| which definition I used | how far the modern border missed the sheet's drawn border |
+| plate | what you get |
 |---|---|
-| printed grid | **12.9 km** (and always to the west — a systematic error) |
-| embedded georeferencing | **1.1 km** against Natural Earth, **0.5 km** against GADM |
+| `Map_1_Geology.png` | the geological map, with the **whole 45-code unit legend** (grouped by period), faults, roads, rivers and state boundaries |
+| `Map_2_Minerals.png` | the 2023 sheet with all 1,323 symbols re-plotted and colour-coded by commodity class |
+| `Map_3_Combined.png` | geology (muted) + interpolated symbol density + every symbol + faults |
+| `Map_4_Symbol_Centring.png` | six close-ups proving where each coordinate actually sits |
 
-The border lands on top under the embedded version. So the sheet was *drawn* in the embedded frame, and the printed grid is the mistake. The mineral points had been read off the printed grid — hence 19 km west.
+Every plate is drawn **from the GeoPackage itself**, so the picture and the data can never drift
+apart.
 
-This is not a guess or an optimisation. It's one of the two options the sheet itself offers, and the sheet's own linework picks one.
+## 2. "The mineral symbols are still not centred"
 
-## 3. What I did to the geology map — you were right that I hadn't touched it
+You were right, and this is what it took.
 
-The geology sheet is a completely different kind of file: **45,000 vector objects, no images at all**. That let me run a much stronger test on it than on the mineral sheet. I ran three independent checks:
+The points were landing *on* the symbols, but not at their centres — off by a median of about
+3 px, roughly 2 km. Two things were checked before changing anything:
 
-| what I checked | which way it wants to move | how sure (1σ) |
-|---|---|---|
-| its **state boundaries** vs modern state boundaries | +0.2 km east, **+0.9 km north** | ±0.3, ±0.2 |
-| its **Niger and Benue rivers** vs Natural Earth | +0.2 km east, **+0.8 km north** | ±0.8, ±0.9 |
-| its **coastline** vs modern coastline | +0.3 km east, **−2.1 km north** | ±1.1, ±0.4 |
+* **Was there a systematic shift?** No. Across 748 points the matching symbol sat at exactly
+  **(0.0, 0.0)** pixel offset. So there was no bias to remove; the error was scatter.
+* **What sets the floor?** One pixel of the artwork is **0.68 km**. Nothing measured from this
+  sheet can be more precise than that.
 
-**Result: the geology sheet needs no correction.** Two of the three agree with each other almost exactly (they want the same +0.2 km east, +0.9 km north), and that shift is **smaller than one and a half pixels of the map**. The third — the coastline — disagrees, which tells me the small offsets are just drawing imprecision, not a fixable error.
+Each point was then re-measured to the centre of its own printed glyph, and checked on the page
+itself — by re-rendering the sheet and re-detecting the glyphs, without reusing any number from
+the build:
 
-That matters. For the mineral sheet there was a **19 km** contradiction: obvious, systematic, and provable. Here there is a **1 km** wobble that points in different directions depending on what you measure — which is exactly what a hand-drawn 1:2,000,000 map looks like. Applying a "correction" here would be fitting noise and would make the map *worse*, not better.
+| check | result |
+|---|---|
+| points landing on a detected symbol | **97.8%** |
+| median distance from point to symbol centre | **0.35 km** |
+| within 2 pt (1.4 km) | **95.4%** |
 
-So what I did with the geology map instead:
+0.35 km is **half an artwork pixel** — finer than the drawing itself. `Map_4_Symbol_Centring.png`
+shows six points at 14× and prints each one's own measured offset next to it, so you can see
+rather than take my word.
 
-1. **Turned it into a proper GIS layer** — `Geology_Georeferenced.tif`, the entire sheet at double resolution, correctly placed in longitude/latitude, with its accuracy and caveats written into the file's own metadata.
-2. **Rebuilt the combined map properly.** The earlier version blended the two sheets at 62%/38%, which turned the geology into mud and made both legends useless. The new `Combined_Map_v2.png` keeps the geology in full, unmodified colour and draws the 1,323 corrected mineral symbols on top as clean vector markers, colour-coded by commodity class.
+## 3. "Extract the other useful features — fault, fold, etc."
 
-## 4. Why the previous answer was impossible to read
+The 2011 sheet is fully vector, so I read its legend and pulled out what is actually drawn:
 
-I was answering a narrower question than you asked. You asked "how do we confirm the datum?" and I answered with a statistical argument about *why the datum cannot be confirmed* — 0.11 km signal against 0.85 km noise, chi-squared reasoning, bootstrap standard errors. All of that is true and all of it was in the report, but it answered "can we?" when you wanted "then what's the number?"
+| feature | what came out |
+|---|---|
+| map units | **1,142 polygons**, **45 named codes**, each with name and period |
+| faults (major fractures) | **13 traces, 246 km** — the sheet's hachured symbol |
+| roads | **954 strokes**, the national road network |
+| rivers | **1,055 lines** |
+| state boundaries | **83 lines** |
+| **folds** | **not on this sheet at all** |
 
-Plain version of that answer:
+**About folds, straight:** this edition's structural key lists *Geological Boundary* (exact,
+approximate, inferred, transitional), *Major Fractures / Faults* and *Fractures / Fault
+(inferred)*. There is no fold symbol, no dip-and-strike symbol, and no separate structural line
+group in the file. I could have drawn a "fold layer" from something else, but it would have been
+invented, so I left it out.
 
-> A "datum" is the assumed shape and position of the earth that a map's coordinates are measured against. Nigeria's official one is called **Minna**, and converting from Minna to the modern standard (WGS 84, what GPS uses) moves everything by about **90 metres**. These sheets are accurate to about **1,000–2,000 metres**. So the datum question is asking me to detect a 90 m effect with a ruler that only reads to 1,500 m — from map artwork alone. It can't be done, and no amount of analysis changes that. It's not a failure of effort; it's a property of the data.
->
-> The practical consequence is small: **treat the coordinates as WGS 84 and quote ±1–2 km.** That is exactly what the file metadata now says.
+**One trap worth knowing about.** Faults and roads are drawn with the *same* thick black pen.
+My first attempt joined them together and produced a fake fault network running across the whole
+country — wrong, and I threw it away. The honest separation is by connectivity: the roads form
+one continuous connected network (954 touching strokes), while the fault dashes stand alone
+(65 isolated strokes, chaining into 13 traces). All 13 lie in the Chad Basin margin in the
+north-east, which is what this sheet actually shows.
 
-If you need better than that, the only routes are the two in `Datum_Confirmation_Plan.md`: ask NGSA which coordinate system their source geodatabase uses (one email, decisive), or survey ~20 map features with RTK GPS. The tool for the second is built and tested.
+## 4. "Map the geology and its associated layers"
 
-## 5. Honest list of what is and isn't known
+**Done.** `Nigeria_Geology_Minerals_4326.gpkg` holds **13 layers**, all EPSG:4326, and passes
+**27 of 27** validation checks:
 
-**Known and fixed**
-* Mineral points: 19 km eastward error → corrected, old values kept in the file.
-* Geology map: registered from its printed grid; no correction needed.
-* Both sheets: the printed grid is the correct frame *for the geology sheet*, and the wrong one *for the minerals sheet* — that asymmetry is the actual finding.
+* 7 vector layers: geology units, faults, roads, rivers, state boundaries, mineral symbols,
+  national outline
+* 6 raster layers: both sheets as drawn, the combined view, and three density surfaces
 
-**Known and cannot be fixed from these files**
-* Neither sheet states a datum. EPSG:4326 is written on the TIFFs so GIS software will display them, **not** because it was verified.
-* The geology sheet's residual accuracy is 1–2 km.
-* Mineral commodity names are ~81% correct per point (a text/colour classification); counts per mineral are unreliable.
+Open it in QGIS and every layer lines up, because they all come from the same two sheets placed
+in the same frame.
 
-**Not suitable for**
-Exploration decisions, licensing, legal boundaries, navigation, or anything at site scale. These are 1:2,000,000 regional maps.
+## What the geology sheet needed: nothing
 
-## 6. Files
+A different kind of file — 45,000 vector objects, no images — so it could be tested much harder
+than the mineral sheet:
+
+| what I checked | which way it wants to move |
+|---|---|
+| its state boundaries vs modern state boundaries | +0.2 km east, +0.9 km north |
+| its Niger and Benue rivers vs Natural Earth | +0.2 km east, +0.8 km north |
+| its coastline vs modern coastline | +0.3 km east, −2.1 km north |
+
+Two checks agree to within 0.1 km, and the shift they want is **smaller than one and a half map
+pixels**. The third disagrees. That pattern is drawing imprecision, not a fixable error — so **no
+correction was applied**. Applying one would have been fitting noise.
+
+The mineral sheet was different: it contradicted itself by **19 km**, which is why that one *was*
+corrected.
+
+## The remaining limits, in one place
+
+| thing | status |
+|---|---|
+| datum | neither sheet states one. EPSG:4326 is the display frame. Minna → WGS 84 is ~0.09 km, far below what these sheets resolve |
+| geology registration | 1–2 km, no correction applied |
+| symbol centres | ~0.35 km median; 0.68 km is the artwork's floor |
+| commodity names | ~81% correct per point — use the per-point `tier` and `confidence` columns |
+| density surfaces | count **printed symbols**, not reserves, grade or production |
+| not for | surveying, licensing, legal boundaries, navigation, or site-scale decisions |
+
+## Files
 
 | file | what it is |
 |---|---|
-| `Combined_Map_v2.png` | **the combined map to look at** — geology in full colour, corrected mineral symbols on top |
-| `Geology_Georeferenced.tif` | the geology sheet as a GIS layer, with caveats in its metadata |
-| `Geology_Layers.zip` | the TIFF, the corrected points, and the alignment test figure, with a README |
-| `Geology_Alignment_Test.png` / `.json` | the three-check evidence that the geology map needs no shift |
-| `Minerals_Symbol_Points_CORRECTED.csv` / `.geojson` | 1,323 points, corrected, with old and new coordinates side by side |
-| `Mineral_Registration_QC.png` | the before/after proof of the 19 km fix |
-| `Niger_Benue_Alignment_Report.md` | full technical detail on the mineral correction |
-| `RouteB_Report.md`, `Datum_Confirmation_Plan.md` | the datum question, and exactly how to settle it |
+| `Nigeria_Geology_Minerals_4326.gpkg` | **the product** — 13 layers, 16.6 MB, EPSG:4326 |
+| `Map_1_Geology.png` … `Map_4_Symbol_Centring.png` | the four plates |
+| `GEOPACKAGE_README.md` | layer-by-layer reference and method |
+| `GeoPackage_Validation.json` | the 27 checks and their results |
+| `Verify_Centres.json` | the centring verification numbers |
+| `Geology_Extraction_Summary.json` | what was extracted, and how much of it is named |
