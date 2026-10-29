@@ -101,6 +101,22 @@ with rasterio.open(f"GPKG:{GPKG}:ref_geology_2011") as dg, \
     same = dg.transform == dm.transform and dg.shape == dm.shape
 chk("reference rasters share one grid", same, "identical transform and shape")
 
+# ---- the unit layer must be a real partition of the country: one unit at every place, no holes
+from shapely.ops import unary_union
+u32 = u.to_crs(32632)
+ng32 = nig.to_crs(32632).geometry.union_all()
+u_union = unary_union(u32.geometry.tolist())
+covered = u_union.intersection(ng32).area / ng32.area * 100
+overlap = (u32.area.sum() - u_union.area) / ng32.area * 100
+hole = ng32.difference(u_union).area / 1e6
+chk("geology units cover the country", covered > 99.9, f"{covered:.2f}% of Nigeria covered")
+chk("geology units do not overlap", abs(overlap) < 0.05,
+    f"overlap is {overlap:.3f}% of the country ({u32.area.sum()/1e6 - u_union.area/1e6:.1f} km2)")
+chk("no holes left inside the country", hole < 50, f"{hole:.1f} km2 unassigned")
+chk("every polygon carries a legend name", (u.unit_code != "unresolved").mean() > .99,
+    f"{(u.unit_code != 'unresolved').sum()} of {len(u)} named; "
+    f"{u.name_confidence.value_counts().to_dict()}")
+
 out = {"generated_from": str(GPKG.name), "checks": R,
        "passed": sum(r["pass"] for r in R), "total": len(R)}
 json.dump(out, open(P / "GeoPackage_Validation.json", "w"), indent=2)

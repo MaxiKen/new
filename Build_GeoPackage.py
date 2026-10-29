@@ -2,7 +2,7 @@
 """Build Nigeria_Geology_Minerals_4326.gpkg — a complete, documented EPSG:4326 dataset.
 
 Vector layers
-  geology_units       1,142 filled map-unit polygons from the 2011 sheet, with unit code,
+  geology_units       map-unit polygons from the 2011 sheet, with unit code,
                       rock name, period and the sheet colour; named from the unit labels
                       printed inside each polygon
   faults              115 structural fault lines drawn on the 2011 sheet
@@ -87,7 +87,7 @@ for g in (units, faults, roads, rivers, states, pts):
 units["area_km2"] = (units.to_crs("EPSG:3857").area / 1e6).round(1)
 units["in_nigeria"] = units.geometry.representative_point().within(nigeria)
 units = units[["unit_code", "unit_name", "period", "sheet_colour", "area_km2",
-               "in_nigeria", "how_named", "geometry"]]
+               "in_nigeria", "how_named", "name_confidence", "geometry"]]
 faults["length_km"] = (faults.to_crs("EPSG:3857").length / 1000).round(1)
 rivers["length_km"] = (rivers.to_crs("EPSG:3857").length / 1000).round(1)
 # The 2011 sheet also draws structure and drainage in neighbouring countries and its marginal

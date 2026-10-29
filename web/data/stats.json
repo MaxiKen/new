@@ -133,7 +133,7 @@
    {
     "check": "vector geology_units",
     "pass": true,
-    "detail": "1142 features, fields ['unit_code', 'unit_name', 'period', 'sheet_colour', 'area_km2', 'in_nigeria']"
+    "detail": "7388 features, fields ['unit_code', 'unit_name', 'period', 'sheet_colour', 'area_km2', 'in_nigeria']"
    },
    {
     "check": "vector faults",
@@ -158,12 +158,12 @@
    {
     "check": "units carry names, not just colours",
     "pass": true,
-    "detail": "45 codes, 23 unlabelled"
+    "detail": "71 codes, 0 unlabelled"
    },
    {
     "check": "units are inside or on Nigeria",
     "pass": true,
-    "detail": "1025 of 1142 polygons flagged in_nigeria"
+    "detail": "7388 of 7388 polygons flagged in_nigeria"
    },
    {
     "check": "fault layer is sparse and plausible",
@@ -321,10 +321,30 @@
     "check": "reference rasters share one grid",
     "pass": true,
     "detail": "identical transform and shape"
+   },
+   {
+    "check": "geology units cover the country",
+    "pass": true,
+    "detail": "100.00% of Nigeria covered"
+   },
+   {
+    "check": "geology units do not overlap",
+    "pass": true,
+    "detail": "overlap is 0.000% of the country (0.1 km2)"
+   },
+   {
+    "check": "no holes left inside the country",
+    "pass": true,
+    "detail": "1.4 km2 unassigned"
+   },
+   {
+    "check": "every polygon carries a legend name",
+    "pass": true,
+    "detail": "7384 of 7388 named; {'medium': 5890, 'high': 864, 'low': 634}"
    }
   ],
-  "passed": 30,
-  "total": 30
+  "passed": 34,
+  "total": 34
  },
  "projection": {
   "source": "Nigeria_Geology_Minerals_4326.gpkg",
@@ -333,19 +353,19 @@
     "crs": "ESRI:102022",
     "crs_name": "Africa_Albers_Equal_Area_Conic",
     "bounds_4326": [
-     2.135,
-     3.422,
-     21.194,
-     14.17
+     2.671,
+     4.272,
+     14.67,
+     13.88
     ],
     "bounds_projected_m": [
-     -2386313,
-     394201,
-     -395217,
-     1659989
+     -2323469,
+     498423,
+     -1077108,
+     1618681
     ],
     "area_change_pct_vs_albers": null,
-    "features": 1142
+    "features": 7388
    },
    "nigeria_boundary": {
     "crs": "ESRI:102022",
@@ -480,7 +500,7 @@
   ]
  },
  "counts": {
-  "units": 1142,
+  "units": 7388,
   "faults": 13,
   "roads": 942,
   "rivers": 974,

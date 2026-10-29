@@ -20,6 +20,44 @@ The four plates are drawn from the 4326 package, so a picture cannot disagree wi
 | `Map_3_Combined.png` | muted geology + interpolated symbol density + every occurrence + faults |
 | `Map_4_Symbol_Centring.png` | six measured close-ups proving where each coordinate sits |
 
+## The unit layer is a partition of the country
+
+An earlier version of this layer was not: it was built from the PDF's loose filled paths, which
+included one page-sized rectangle carrying the code `Qs`, a few legend swatches and a long neat-line
+strip, shapes that overlapped each other, and shapes covering only part of the country. Measured on
+that version:
+
+| | value |
+|---|---|
+| polygons | 1,142 (45 codes) |
+| Nigeria covered by a real unit | 370,494 km² — **40.7%** |
+| overlap between polygons | **428,619 km²** (17% of their combined area) |
+| the page-sized "unit" | one rectangle, 2,529,387 km², labelled `Qs` Quartzite |
+| polygons outside Nigeria | 117 |
+
+It is now rebuilt from the printed colours instead of the loose paths
+(`Rebuild_Geology_Units.py`): the map frame is rendered, every pixel is given the legend tint it is
+closest to, ink (codes, rules, line work) is filled from its neighbours, each connected region is
+named from the unit code printed inside it — or, where a unit is printed only once, from the nearest
+region of the same ink — and the regions are turned into polygons and clipped to the border.
+
+| | value |
+|---|---|
+| polygons | **7,388** (71 codes) |
+| Nigeria covered | **100.00%** |
+| overlap | **0.000%** (0.06 km², rounding) |
+| unassigned holes | **1.4 km²** in total, all below 8 km² |
+| named from a printed code | 864 polygons `high`, 5,890 `medium`, 634 `low`, 4 unnamed |
+
+`Geology_Partition_Before_After.png` shows the two readings side by side. Four checks in
+`Validate_GeoPackage.py` now test this every run: coverage, overlap, holes and naming.
+
+Two honest limits remain. Where the sheet prints two different units in the same ink — the pale
+yellows of `AB`, `qs` and `Al`, or the four exact-duplicate tints — colour cannot separate them and
+the answer rests on the nearest region carrying a printed code, which is why 5,890 polygons are
+marked `medium` rather than `high`. And four polygons (85 km²) carry ink that appears nowhere else
+labelled on the sheet.
+
 ## Live comparison viewer
 
 `serve_atlas.py` runs a small web app for checking the result against the pictures it came from,
@@ -134,7 +172,7 @@ The 4326 package remains the authoritative reference frame; the projected one is
 | layer | type | what it is |
 |---|---|---|
 | `minerals_occurrences` | 1,091 points | one row per printed symbol, at its centre, with name, alternative name, confidence, source and classifier evidence |
-| `geology_units` | 1,142 polygons | the sheet's map units with `unit_code`, `unit_name`, `period`, `sheet_colour`, `area_km2`, `in_nigeria` |
+| `geology_units` | 7,388 polygons | the sheet's map units as a complete partition of the country, with `unit_code`, `unit_name`, `period`, `sheet_colour`, `area_km2`, `name_confidence`, `how_named` |
 | `faults` | 13 traces | the sheet's "Major Fractures / Faults" symbol (246 km) |
 | `roads` | 954 strokes | the sheet's "Roads" symbol — the national road network |
 | `rivers` | 1,055 lines | the sheet's blue drainage |
@@ -155,7 +193,7 @@ Reference rasters: 2,480 × 2,040 at 0.005° over 2.6–15.0°E, 3.9–14.1°N. 
 
 | feature | status |
 |---|---|
-| map units with names and periods | **extracted** — 1,142 polygons, 45 named codes; 23 polygons with no printed label are kept and marked `unlabelled` |
+| map units with names and periods | **extracted** — 7,388 polygons, 71 named codes, one unit at every point of the country |
 | faults (major fractures) | **extracted** — 13 traces, 246 km |
 | roads | **extracted** — 954 strokes |
 | rivers | **extracted** — 1,055 lines |

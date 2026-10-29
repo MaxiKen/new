@@ -1,0 +1,17 @@
+{
+ "method": "per-pixel reading of the printed fills, named by the code printed inside each region",
+ "pixels": 12869280,
+ "regions": 7388,
+ "codes": 71,
+ "named_from_printed_code": 7384,
+ "unresolved_polygons": 4,
+ "unresolved_km2": 85.0,
+ "nigeria_km2": 909250.1,
+ "sum_of_polygons_km2": 909249.2,
+ "union_km2": 909249.2,
+ "overlap_km2": 0.06,
+ "gap_km2": 1.38,
+ "outside_country_km2": 0.46,
+ "coverage_pct": 100.0,
+ "gap_pct": 0.0
+}
