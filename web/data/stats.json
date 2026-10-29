@@ -1,0 +1,491 @@
+{
+ "occurrences": 1091,
+ "names": 47,
+ "confidence": {
+  "low": 892,
+  "medium": 113,
+  "high": 86
+ },
+ "class": {
+  "industrial": 544,
+  "metallic": 300,
+  "gemstone": 206,
+  "energy": 41
+ },
+ "identical": 194,
+ "same_family": 199,
+ "merged": 141,
+ "outside": 14,
+ "audit": {
+  "points_checked": 1091,
+  "matched_to_printed_ink": 1085,
+  "median_offset_pt": 0.486,
+  "median_offset_km": 0.33,
+  "p90_offset_pt": 4.49,
+  "within_0_5pt_pct": 50.7,
+  "within_1pt_pct": 60.6,
+  "within_2pt_pct": 70.2,
+  "matched_to_a_small_mark_pct": 3.3,
+  "unmatched": 6,
+  "worst": [
+   {
+    "row": 2,
+    "offset_pt": 2.75
+   },
+   {
+    "row": 6,
+    "offset_pt": 2.17
+   },
+   {
+    "row": 8,
+    "offset_pt": 3.75
+   },
+   {
+    "row": 15,
+    "offset_pt": 3.5
+   },
+   {
+    "row": 16,
+    "offset_pt": 3.83
+   },
+   {
+    "row": 28,
+    "offset_pt": 4.25
+   },
+   {
+    "row": 29,
+    "offset_pt": 3.75
+   },
+   {
+    "row": 30,
+    "offset_pt": 2.89
+   },
+   {
+    "row": 32,
+    "offset_pt": 2.58
+   },
+   {
+    "row": 37,
+    "offset_pt": 8.33
+   },
+   {
+    "row": 42,
+    "offset_pt": 3.08
+   },
+   {
+    "row": 44,
+    "offset_pt": 3.92
+   },
+   {
+    "row": 47,
+    "offset_pt": 3.5
+   },
+   {
+    "row": 49,
+    "offset_pt": 4.44
+   },
+   {
+    "row": 50,
+    "offset_pt": 3.92
+   },
+   {
+    "row": 54,
+    "offset_pt": 4.33
+   },
+   {
+    "row": 57,
+    "offset_pt": 5.66
+   },
+   {
+    "row": 58,
+    "offset_pt": 6.08
+   },
+   {
+    "row": 59,
+    "offset_pt": 2.17
+   },
+   {
+    "row": 60,
+    "offset_pt": 3.48
+   }
+  ]
+ },
+ "verify": {
+  "checked": 1061,
+  "total": 1091,
+  "on_a_glyph_pct": 97.3,
+  "distance_to_glyph_centre_pt_median": 0.12,
+  "distance_to_glyph_centre_km_median": 0.09,
+  "within_1pt_pct": 96.0,
+  "within_2pt_pct": 97.7
+ },
+ "consolidation": {
+  "input_points": 1323,
+  "on_a_symbol_patch_pct": 77.6,
+  "distinct_symbols": 1091,
+  "duplicates_merged": 232,
+  "merged_multi": 141,
+  "multi_named": 111
+ },
+ "validation": {
+  "generated_from": "Nigeria_Geology_Minerals_4326.gpkg",
+  "checks": [
+   {
+    "check": "vector geology_units",
+    "pass": true,
+    "detail": "1142 features, fields ['unit_code', 'unit_name', 'period', 'sheet_colour', 'area_km2', 'in_nigeria']"
+   },
+   {
+    "check": "vector faults",
+    "pass": true,
+    "detail": "13 features, fields ['feature', 'certainty', 'evidence', 'length_km', 'in_nigeria', 'geometry']"
+   },
+   {
+    "check": "vector roads",
+    "pass": true,
+    "detail": "954 features, fields ['feature', 'evidence', 'in_nigeria', 'geometry']"
+   },
+   {
+    "check": "vector rivers",
+    "pass": true,
+    "detail": "1055 features, fields ['feature', 'length_km', 'in_nigeria', 'geometry']"
+   },
+   {
+    "check": "vector state_boundaries",
+    "pass": true,
+    "detail": "83 features, fields ['feature', 'in_nigeria', 'geometry']"
+   },
+   {
+    "check": "units carry names, not just colours",
+    "pass": true,
+    "detail": "45 codes, 23 unlabelled"
+   },
+   {
+    "check": "units are inside or on Nigeria",
+    "pass": true,
+    "detail": "1025 of 1142 polygons flagged in_nigeria"
+   },
+   {
+    "check": "fault layer is sparse and plausible",
+    "pass": true,
+    "detail": "13 traces, 246 km, 13 in Nigeria"
+   },
+   {
+    "check": "road network present",
+    "pass": true,
+    "detail": "954 strokes, 942 in Nigeria"
+   },
+   {
+    "check": "all 13 layers present",
+    "pass": true,
+    "detail": "13 of 13: ['combined_map', 'faults', 'geology_units', 'mineral_density_all', 'mineral_density_metallic', 'mineral_density_nonmetallic', 'minerals_occurrences', 'nigeria_boundary', 'ref_geology_2011', 'ref_minerals_2023', 'rivers', 'roads', 'state_boundaries']"
+   },
+   {
+    "check": "every layer is EPSG:4326",
+    "pass": true,
+    "detail": {
+     "ref_geology_2011": 4326,
+     "ref_minerals_2023": 4326,
+     "combined_map": 4326,
+     "mineral_density_all": 4326,
+     "mineral_density_metallic": 4326,
+     "mineral_density_nonmetallic": 4326,
+     "geology_units": 4326,
+     "faults": 4326,
+     "roads": 4326,
+     "rivers": 4326,
+     "state_boundaries": 4326,
+     "minerals_occurrences": 4326,
+     "nigeria_boundary": 4326
+    }
+   },
+   {
+    "check": "sqlite integrity",
+    "pass": true,
+    "detail": "ok"
+   },
+   {
+    "check": "dataset notes present",
+    "pass": true,
+    "detail": [
+     "title",
+     "geology_units",
+     "faults",
+     "roads",
+     "faults_method",
+     "rivers",
+     "state_boundaries",
+     "features_not_available",
+     "mineral_positions",
+     "mineral_frame",
+     "geology_registration",
+     "datum",
+     "commodity_names",
+     "density",
+     "not_for"
+    ]
+   },
+   {
+    "check": "one point per printed symbol",
+    "pass": true,
+    "detail": 1091
+   },
+   {
+    "check": "no two points share a symbol patch",
+    "pass": true,
+    "detail": "804 points sit on a detected patch, 0 patches carry more than one point"
+   },
+   {
+    "check": "no duplicate coordinates",
+    "pass": true,
+    "detail": "0 exact duplicate geometry"
+   },
+   {
+    "check": "every point carries a name and its source",
+    "pass": true,
+    "detail": {
+     "printed commodity code read from the artwork": 949,
+     "legend symbol match on the printed glyph": 142
+    }
+   },
+   {
+    "check": "confidence is stated for every point",
+    "pass": true,
+    "detail": {
+     "low": 892,
+     "medium": 113,
+     "high": 86
+    }
+   },
+   {
+    "check": "points have CRS",
+    "pass": true,
+    "detail": "EPSG:4326"
+   },
+   {
+    "check": "all commodity classes populated",
+    "pass": true,
+    "detail": {
+     "industrial": 544,
+     "metallic": 300,
+     "gemstone": 206,
+     "energy": 41
+    }
+   },
+   {
+    "check": "almost every point is inside Nigeria",
+    "pass": true,
+    "detail": "1070 of 1091 inside (98.1%)"
+   },
+   {
+    "check": "coordinates in plausible range",
+    "pass": true,
+    "detail": "x 2.63-14.57, y 3.88-13.87"
+   },
+   {
+    "check": "raster ref_geology_2011",
+    "pass": true,
+    "detail": "2480x2040 uint8 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
+   },
+   {
+    "check": "raster ref_minerals_2023",
+    "pass": true,
+    "detail": "2480x2040 uint8 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
+   },
+   {
+    "check": "raster combined_map",
+    "pass": true,
+    "detail": "2480x2040 uint8 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
+   },
+   {
+    "check": "raster mineral_density_all",
+    "pass": true,
+    "detail": "1240x1020 float32 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
+   },
+   {
+    "check": "raster mineral_density_metallic",
+    "pass": true,
+    "detail": "1240x1020 float32 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
+   },
+   {
+    "check": "raster mineral_density_nonmetallic",
+    "pass": true,
+    "detail": "1240x1020 float32 EPSG:4326 bounds (2.6, 3.9, 15.0, 14.1)"
+   },
+   {
+    "check": "density integrates to the point count",
+    "pass": true,
+    "detail": "integral 898 vs 1070 symbols inside Nigeria (the shortfall is kernel mass that falls outside the national mask, not missing symbols) (edge clipping outside the border accounts for the difference)"
+   },
+   {
+    "check": "reference rasters share one grid",
+    "pass": true,
+    "detail": "identical transform and shape"
+   }
+  ],
+  "passed": 30,
+  "total": 30
+ },
+ "projection": {
+  "source": "Nigeria_Geology_Minerals_4326.gpkg",
+  "layers": {
+   "geology_units": {
+    "crs": "ESRI:102022",
+    "crs_name": "Africa_Albers_Equal_Area_Conic",
+    "bounds_4326": [
+     2.135,
+     3.422,
+     21.194,
+     14.17
+    ],
+    "bounds_projected_m": [
+     -2386313,
+     394201,
+     -395217,
+     1659989
+    ],
+    "area_change_pct_vs_albers": null,
+    "features": 1142
+   },
+   "nigeria_boundary": {
+    "crs": "ESRI:102022",
+    "crs_name": "Africa_Albers_Equal_Area_Conic",
+    "bounds_4326": [
+     2.671,
+     4.272,
+     14.67,
+     13.88
+    ],
+    "bounds_projected_m": [
+     -2323469,
+     498423,
+     -1077108,
+     1618681
+    ],
+    "area_change_pct_vs_albers": 0.0,
+    "features": 1
+   },
+   "minerals_occurrences": {
+    "crs": "EPSG:32632",
+    "crs_name": "WGS 84 / UTM zone 32N",
+    "bounds_4326": [
+     2.629,
+     3.879,
+     14.573,
+     13.875
+    ],
+    "bounds_projected_m": [
+     -196828,
+     428732,
+     1103938,
+     1536629
+    ],
+    "area_change_pct_vs_albers": null,
+    "features": 1091
+   },
+   "faults": {
+    "crs": "EPSG:32632",
+    "crs_name": "WGS 84 / UTM zone 32N",
+    "bounds_4326": [
+     11.917,
+     11.299,
+     14.03,
+     13.019
+    ],
+    "bounds_projected_m": [
+     816414,
+     1253684,
+     1049539,
+     1441086
+    ],
+    "area_change_pct_vs_albers": null,
+    "features": 13
+   },
+   "roads": {
+    "crs": "EPSG:32632",
+    "crs_name": "WGS 84 / UTM zone 32N",
+    "bounds_4326": [
+     3.204,
+     4.786,
+     15.019,
+     13.387
+    ],
+    "bounds_projected_m": [
+     -141110,
+     529290,
+     1155390,
+     1487856
+    ],
+    "area_change_pct_vs_albers": null,
+    "features": 954
+   },
+   "rivers": {
+    "crs": "EPSG:32632",
+    "crs_name": "WGS 84 / UTM zone 32N",
+    "bounds_4326": [
+     2.19,
+     3.744,
+     15.563,
+     13.846
+    ],
+    "bounds_projected_m": [
+     -247375,
+     413868,
+     1225368,
+     1534573
+    ],
+    "area_change_pct_vs_albers": null,
+    "features": 1055
+   },
+   "state_boundaries": {
+    "crs": "EPSG:32632",
+    "crs_name": "WGS 84 / UTM zone 32N",
+    "bounds_4326": [
+     2.67,
+     4.274,
+     14.679,
+     13.896
+    ],
+    "bounds_projected_m": [
+     -199166,
+     472999,
+     1118760,
+     1538991
+    ],
+    "area_change_pct_vs_albers": null,
+    "features": 83
+   }
+  },
+  "utm32n_distance_scale_error_pct": {
+   "median": 0.035,
+   "min": -0.016,
+   "max": 0.446,
+   "baselines_measured": 6
+  },
+  "nigeria_area_km2_albers": 907498.0,
+  "note": "Coordinates in this file are metres. geology_units and nigeria_boundary use Africa Albers Equal Area Conic so areas can be measured; the point and line layers use UTM 32N so distances and positions can be measured. The 4326 package remains the authoritative reference frame; this one is the working frame."
+ },
+ "bounds": {
+  "minerals": [
+   2.4762,
+   3.8306,
+   15.0254,
+   14.0467
+  ],
+  "geology": [
+   2.5785,
+   3.8686,
+   15.0283,
+   14.1487
+  ]
+ },
+ "counts": {
+  "units": 1142,
+  "faults": 13,
+  "roads": 942,
+  "rivers": 974,
+  "states": 65
+ },
+ "layers": 13,
+ "checks": 30
+}
