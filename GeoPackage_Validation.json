@@ -49,7 +49,7 @@
     {
       "check": "all 13 layers present",
       "pass": true,
-      "detail": "13 of 13: ['combined_map', 'faults', 'geology_units', 'mineral_density_all', 'mineral_density_metallic', 'mineral_density_nonmetallic', 'minerals_symbols', 'nigeria_boundary', 'ref_geology_2011', 'ref_minerals_2023', 'rivers', 'roads', 'state_boundaries']"
+      "detail": "13 of 13: ['combined_map', 'faults', 'geology_units', 'mineral_density_all', 'mineral_density_metallic', 'mineral_density_nonmetallic', 'minerals_occurrences', 'nigeria_boundary', 'ref_geology_2011', 'ref_minerals_2023', 'rivers', 'roads', 'state_boundaries']"
     },
     {
       "check": "every layer is EPSG:4326",
@@ -66,7 +66,7 @@
         "roads": 4326,
         "rivers": 4326,
         "state_boundaries": 4326,
-        "minerals_symbols": 4326,
+        "minerals_occurrences": 4326,
         "nigeria_boundary": 4326
       }
     },
@@ -97,9 +97,36 @@
       ]
     },
     {
-      "check": "point count",
+      "check": "one point per printed symbol",
       "pass": true,
-      "detail": 1323
+      "detail": 1091
+    },
+    {
+      "check": "no two points share a symbol patch",
+      "pass": true,
+      "detail": "804 points sit on a detected patch, 0 patches carry more than one point"
+    },
+    {
+      "check": "no duplicate coordinates",
+      "pass": true,
+      "detail": "0 exact duplicate geometry"
+    },
+    {
+      "check": "every point carries a name and its source",
+      "pass": true,
+      "detail": {
+        "printed commodity code read from the artwork": 949,
+        "legend symbol match on the printed glyph": 142
+      }
+    },
+    {
+      "check": "confidence is stated for every point",
+      "pass": true,
+      "detail": {
+        "low": 892,
+        "medium": 113,
+        "high": 86
+      }
     },
     {
       "check": "points have CRS",
@@ -107,34 +134,24 @@
       "detail": "EPSG:4326"
     },
     {
-      "check": "all classes populated",
+      "check": "all commodity classes populated",
       "pass": true,
       "detail": {
-        "industrial": 777,
-        "metallic": 338,
-        "gemstone": 144,
-        "energy": 46,
-        "unknown": 18
+        "industrial": 544,
+        "metallic": 300,
+        "gemstone": 206,
+        "energy": 41
       }
     },
     {
-      "check": "all tiers populated",
+      "check": "almost every point is inside Nigeria",
       "pass": true,
-      "detail": {
-        "probable": 973,
-        "tentative": 332,
-        "unidentified": 18
-      }
-    },
-    {
-      "check": "most points inside Nigeria",
-      "pass": true,
-      "detail": "1299 of 1323 inside"
+      "detail": "1070 of 1091 inside (98.1%)"
     },
     {
       "check": "coordinates in plausible range",
       "pass": true,
-      "detail": "x 2.63-14.57, y 3.88-13.89"
+      "detail": "x 2.63-14.57, y 3.88-13.87"
     },
     {
       "check": "raster ref_geology_2011",
@@ -169,7 +186,7 @@
     {
       "check": "density integrates to the point count",
       "pass": true,
-      "detail": "integral 1087 vs 1179 symbols inside Nigeria (edge clipping outside the border accounts for the difference)"
+      "detail": "integral 898 vs 1070 symbols inside Nigeria (the shortfall is kernel mass that falls outside the national mask, not missing symbols) (edge clipping outside the border accounts for the difference)"
     },
     {
       "check": "reference rasters share one grid",
@@ -177,6 +194,6 @@
       "detail": "identical transform and shape"
     }
   ],
-  "passed": 27,
-  "total": 27
+  "passed": 30,
+  "total": 30
 }

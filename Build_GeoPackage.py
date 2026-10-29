@@ -8,7 +8,7 @@ Vector layers
   faults              115 structural fault lines drawn on the 2011 sheet
   rivers              1,055 drainage lines from the 2011 sheet
   state_boundaries    83 internal administrative lines from the 2011 sheet
-  minerals_symbols    1,323 mineral symbols from the 2023 sheet, each at the centre of its
+  minerals_occurrences  one row per printed symbol on the 2023 sheet, at the symbol centre
                       printed glyph, with commodity, class, confidence and tier
   nigeria_boundary    Natural Earth 1:10m outline, for reference and clipping
   alignment_checks    the measurements behind every registration decision
@@ -78,7 +78,7 @@ faults = gpd.read_file(P / "Geology_Layers_Extracted.gpkg", layer="faults")
 roads  = gpd.read_file(P / "Geology_Layers_Extracted.gpkg", layer="roads")
 rivers = gpd.read_file(P / "Geology_Layers_Extracted.gpkg", layer="rivers")
 states = gpd.read_file(P / "Geology_Layers_Extracted.gpkg", layer="state_boundaries")
-pts = gpd.read_file(P / "Minerals_Symbol_Centres_4326.geojson")
+pts = gpd.read_file(P / "Minerals_Occurrences_4326.geojson")
 outline = gpd.read_file(P / "Nigeria_Natural_Earth_outline.geojson").to_crs(CRS)
 nigeria = unary_union(outline.geometry)
 for g in (units, faults, roads, rivers, states, pts):
@@ -101,14 +101,14 @@ roads = roads[["feature", "evidence", "in_nigeria", "geometry"]]
 rivers = rivers[["feature", "length_km", "in_nigeria", "geometry"]]
 states = states[["feature", "in_nigeria", "geometry"]]
 
-pts["mineral_class"] = pts["mineral_class"].fillna("unknown").replace("", "unknown")
-pts["tier"] = pts["tier"].fillna("unidentified")
 pts["mineral"] = pts["mineral"].fillna("unidentified")
-pts["confidence"] = pd.to_numeric(pts["confidence"], errors="coerce")
+pts["alternative_name"] = pts["alternative_name"].fillna("")
 pts["in_nigeria"] = pts.geometry.within(nigeria)
-cols = ["mineral", "mineral_class", "tier", "confidence", "colour_family",
-        "family_accuracy_pct", "in_nigeria", "snap_px", "canvas_x_centre",
-        "canvas_y_centre", "geometry"]
+pts = pts.rename(columns={"commodity_class": "mineral_class"})
+cols = ["mineral", "alternative_name", "mineral_class", "confidence", "name_source",
+        "family_agreement", "legend_symbol", "legend_score", "second_symbol", "margin",
+        "mineral_code_reading", "class_from_code_reading", "classifier_tier",
+        "n_source_points", "symbol_patch", "in_nigeria", "geometry"]
 pts = pts[[c for c in cols if c in pts.columns]]
 
 # ------------------------------------------------------------------ density
@@ -183,7 +183,7 @@ for name, arr, sub in BANDS:
                         "commodity names are about 81% correct", **COMMON))
 
 for layer, gdf in [("geology_units", units), ("faults", faults), ("roads", roads), ("rivers", rivers),
-                   ("state_boundaries", states), ("minerals_symbols", pts),
+                   ("state_boundaries", states), ("minerals_occurrences", pts),
                    ("nigeria_boundary", outline.assign(name="Nigeria"))]:
     gdf.to_file(GPKG, layer=layer, driver="GPKG", mode="a")
     print("  vector", layer, len(gdf))

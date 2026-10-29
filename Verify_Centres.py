@@ -20,7 +20,7 @@ def ll_to_page(lon, lat):
     return (74.23969 + (np.asarray(lon) - 2.47619) / 12.54519 * 1976.9518,
             358.7239 + (14.04668 - np.asarray(lat)) / 10.20997 * 1608.9773)
 
-rows = list(csv.DictReader(open(P / "Minerals_Symbol_Centres_4326.csv")))
+rows = list(csv.DictReader(open(P / "Minerals_Occurrences_4326.csv")))
 lon = np.array([float(r["lon"]) for r in rows]); lat = np.array([float(r["lat"]) for r in rows])
 xp, yp = ll_to_page(lon, lat)
 

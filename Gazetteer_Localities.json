@@ -1,0 +1,1397 @@
+{
+ "okeagbo": {
+  "locality": "Ok e - Agbo",
+  "codes": [
+   "Be"
+  ],
+  "numbers": [
+   102
+  ],
+  "minerals": [
+   "Beryl"
+  ]
+ },
+ "akokonortheast": {
+  "locality": "Ak ok o North East",
+  "codes": [
+   "Ds"
+  ],
+  "numbers": [
+   106
+  ],
+  "minerals": [
+   "Dimension stone"
+  ]
+ },
+ "shogbonokitipupa": {
+  "locality": "Shogbon (Ok itipupa)",
+  "codes": [
+   "CI"
+  ],
+  "numbers": [
+   121
+  ],
+  "minerals": [
+   "CI"
+  ]
+ },
+ "igbok": {
+  "locality": "IGBOK",
+  "codes": [
+   "ODA"
+  ],
+  "numbers": [
+   122
+  ],
+  "minerals": [
+   "ODA"
+  ]
+ },
+ "ijer": {
+  "locality": "IJER",
+  "codes": [
+   "O",
+   "I",
+   "IT",
+   "EK"
+  ],
+  "numbers": [
+   130,
+   136
+  ],
+  "minerals": [
+   "O",
+   "I",
+   "IT",
+   "EK"
+  ]
+ },
+ "ilobu": {
+  "locality": "Ilobu",
+  "codes": [
+   "Cl"
+  ],
+  "numbers": [
+   145
+  ],
+  "minerals": [
+   "Clay / pottery clay"
+  ]
+ },
+ "alos": {
+  "locality": "ALOS",
+  "codes": [
+   "HI"
+  ],
+  "numbers": [
+   162
+  ],
+  "minerals": [
+   "HI"
+  ]
+ },
+ "kurmindaganasn": {
+  "locality": "Kurmin Dagana Sn",
+  "codes": [
+   "Nb"
+  ],
+  "numbers": [
+   195
+  ],
+  "minerals": [
+   "Niobium (columbite)"
+  ]
+ },
+ "godogodosn": {
+  "locality": "Godogodo Sn,",
+  "codes": [
+   "Nb"
+  ],
+  "numbers": [
+   199
+  ],
+  "minerals": [
+   "Niobium (columbite)"
+  ]
+ },
+ "sabongidasn": {
+  "locality": "Sabongida Sn,",
+  "codes": [
+   "Nb"
+  ],
+  "numbers": [
+   201
+  ],
+  "minerals": [
+   "Niobium (columbite)"
+  ]
+ },
+ "sawmill": {
+  "locality": "Saw mill",
+  "codes": [
+   "Be"
+  ],
+  "numbers": [
+   205
+  ],
+  "minerals": [
+   "Beryl"
+  ]
+ },
+ "agameti": {
+  "locality": "Agameti",
+  "codes": [
+   "Be"
+  ],
+  "numbers": [
+   206
+  ],
+  "minerals": [
+   "Beryl"
+  ]
+ },
+ "mayobutale": {
+  "locality": "Mayo Butale",
+  "codes": [
+   "Gr"
+  ],
+  "numbers": [
+   11
+  ],
+  "minerals": [
+   "Granite"
+  ]
+ },
+ "gindimawaya": {
+  "locality": "Gindima waya",
+  "codes": [
+   "Fr"
+  ],
+  "numbers": [
+   34
+  ],
+  "minerals": [
+   "Feldspar"
+  ]
+ },
+ "major": {
+  "locality": "M AJOR",
+  "codes": [
+   "ER",
+   "T",
+   "POR"
+  ],
+  "numbers": [
+   75
+  ],
+  "minerals": [
+   "ER",
+   "Talc",
+   "POR"
+  ]
+ },
+ "mayana": {
+  "locality": "Mayana",
+  "codes": [
+   "P"
+  ],
+  "numbers": [
+   24
+  ],
+  "minerals": [
+   "Phosphate"
+  ]
+ },
+ "dakingarinplateau": {
+  "locality": "Dak in Garin plateau-",
+  "codes": [
+   "Fe"
+  ],
+  "numbers": [
+   28
+  ],
+  "minerals": [
+   "Iron"
+  ]
+ },
+ "lirueinkano": {
+  "locality": "Liruein Kano",
+  "codes": [
+   "Py"
+  ],
+  "numbers": [
+   89
+  ],
+  "minerals": [
+   "Pyrite"
+  ]
+ },
+ "giniy": {
+  "locality": "GINIY",
+  "codes": [
+   "A"
+  ],
+  "numbers": [
+   136
+  ],
+  "minerals": [
+   "A"
+  ]
+ },
+ "chokochok": {
+  "locality": "CHOK O-CHOK",
+  "codes": [
+   "Fe",
+   "O"
+  ],
+  "numbers": [
+   7
+  ],
+  "minerals": [
+   "Iron",
+   "O"
+  ]
+ },
+ "obajana": {
+  "locality": "OBAJANA",
+  "codes": [
+   "Fp"
+  ],
+  "numbers": [
+   10
+  ],
+  "minerals": [
+   "Feldspar"
+  ]
+ },
+ "lokojaagbaja": {
+  "locality": "LOK OJA (AGBAJA)",
+  "codes": [
+   "Fe"
+  ],
+  "numbers": [
+   16
+  ],
+  "minerals": [
+   "Iron"
+  ]
+ },
+ "itakpehills": {
+  "locality": "IT AK PE HILLS",
+  "codes": [
+   "Fe"
+  ],
+  "numbers": [
+   24
+  ],
+  "minerals": [
+   "Iron"
+  ]
+ },
+ "ajaok": {
+  "locality": "AJAOK",
+  "codes": [
+   "A",
+   "UT"
+  ],
+  "numbers": [
+   31,
+   32
+  ],
+  "minerals": [
+   "A",
+   "UT"
+  ]
+ },
+ "nnegiumuleri": {
+  "locality": "Nnegi - Umuleri",
+  "codes": [
+   "Fe"
+  ],
+  "numbers": [
+   42
+  ],
+  "minerals": [
+   "Iron"
+  ]
+ },
+ "ogwashiuku": {
+  "locality": "Ogwashi-Uk u",
+  "codes": [
+   "Lg"
+  ],
+  "numbers": [
+   60
+  ],
+  "minerals": [
+   "Lignite"
+  ]
+ },
+ "ughelli": {
+  "locality": "UGHELLI",
+  "codes": [
+   "Oil",
+   "T",
+   "EAS"
+  ],
+  "numbers": [
+   65
+  ],
+  "minerals": [
+   "Oil and gas",
+   "Talc",
+   "EAS"
+  ]
+ },
+ "escravosbeach": {
+  "locality": "ES CR AVOS BEACH",
+  "codes": [
+   "Oil"
+  ],
+  "numbers": [
+   67
+  ],
+  "minerals": [
+   "Oil and gas"
+  ]
+ },
+ "damagum": {
+  "locality": "Damagum",
+  "codes": [
+   "Gy"
+  ],
+  "numbers": [
+   16
+  ],
+  "minerals": [
+   "Gypsum"
+  ]
+ },
+ "wupti": {
+  "locality": "Wupti",
+  "codes": [
+   "Cl"
+  ],
+  "numbers": [
+   69
+  ],
+  "minerals": [
+   "Clay / pottery clay"
+  ]
+ },
+ "alapapopoola": {
+  "locality": "Alapa popoola",
+  "codes": [
+   "Fp"
+  ],
+  "numbers": [
+   98
+  ],
+  "minerals": [
+   "Feldspar"
+  ]
+ },
+ "igbet": {
+  "locality": "IGBET",
+  "codes": [
+   "I",
+   "T"
+  ],
+  "numbers": [
+   115
+  ],
+  "minerals": [
+   "I",
+   "Talc"
+  ]
+ },
+ "isanlu": {
+  "locality": "Isanlu -",
+  "codes": [
+   "Esa"
+  ],
+  "numbers": [
+   122
+  ],
+  "minerals": [
+   "Esa"
+  ]
+ },
+ "irawo": {
+  "locality": "Irawo -",
+  "codes": [
+   "Ile"
+  ],
+  "numbers": [
+   133
+  ],
+  "minerals": [
+   "Ile"
+  ]
+ },
+ "lgboljiaye": {
+  "locality": "lgbo ljiaye",
+  "codes": [
+   "Qa",
+   "M"
+  ],
+  "numbers": [
+   138,
+   139
+  ],
+  "minerals": [
+   "Quartz",
+   "Mica"
+  ]
+ },
+ "itasa": {
+  "locality": "Itasa",
+  "codes": [
+   "Be"
+  ],
+  "numbers": [
+   141
+  ],
+  "minerals": [
+   "Beryl"
+  ]
+ },
+ "morai": {
+  "locality": "Morai",
+  "codes": [
+   "Fp"
+  ],
+  "numbers": [
+   143
+  ],
+  "minerals": [
+   "Feldspar"
+  ]
+ },
+ "ajashe": {
+  "locality": "Ajashe",
+  "codes": [
+   "Fe",
+   "Cl"
+  ],
+  "numbers": [
+   144,
+   147
+  ],
+  "minerals": [
+   "Iron",
+   "Clay / pottery clay"
+  ]
+ },
+ "foko": {
+  "locality": "Fok o",
+  "codes": [
+   "M"
+  ],
+  "numbers": [
+   145
+  ],
+  "minerals": [
+   "Mica"
+  ]
+ },
+ "sabonbirningwari": {
+  "locality": "Sabon Birnin Gwari",
+  "codes": [
+   "Au"
+  ],
+  "numbers": [
+   13
+  ],
+  "minerals": [
+   "Gold"
+  ]
+ },
+ "igbona": {
+  "locality": "Igbona",
+  "codes": [
+   "Au"
+  ],
+  "numbers": [
+   146
+  ],
+  "minerals": [
+   "Gold"
+  ]
+ },
+ "ilesa": {
+  "locality": "Ilesa",
+  "codes": [
+   "Gm"
+  ],
+  "numbers": [
+   148
+  ],
+  "minerals": [
+   "Granite / migmatite"
+  ]
+ },
+ "lkire": {
+  "locality": "lkire",
+  "codes": [
+   "Gm"
+  ],
+  "numbers": [
+   154
+  ],
+  "minerals": [
+   "Granite / migmatite"
+  ]
+ },
+ "okin": {
+  "locality": "Ok in",
+  "codes": [
+   "Cl"
+  ],
+  "numbers": [
+   157
+  ],
+  "minerals": [
+   "Clay / pottery clay"
+  ]
+ },
+ "akoya": {
+  "locality": "Ak oya",
+  "codes": [
+   "Be"
+  ],
+  "numbers": [
+   158
+  ],
+  "minerals": [
+   "Beryl"
+  ]
+ },
+ "monija": {
+  "locality": "Monija",
+  "codes": [
+   "L",
+   "M"
+  ],
+  "numbers": [
+   163
+  ],
+  "minerals": [
+   "L",
+   "Mica"
+  ]
+ },
+ "afon": {
+  "locality": "Afon",
+  "codes": [
+   "Au"
+  ],
+  "numbers": [
+   170
+  ],
+  "minerals": [
+   "Gold"
+  ]
+ },
+ "safara": {
+  "locality": "Safara",
+  "codes": [
+   "Au"
+  ],
+  "numbers": [
+   171
+  ],
+  "minerals": [
+   "Gold"
+  ]
+ },
+ "areabeok": {
+  "locality": "AR E-ABEOK",
+  "codes": [
+   "A",
+   "UT"
+  ],
+  "numbers": [
+   175
+  ],
+  "minerals": [
+   "A",
+   "UT"
+  ]
+ },
+ "lfojunct": {
+  "locality": "lFO JUNCT",
+  "codes": [
+   "ION"
+  ],
+  "numbers": [
+   187
+  ],
+  "minerals": [
+   "ION"
+  ]
+ },
+ "shagam": {
+  "locality": "S HAGAM",
+  "codes": [
+   "U"
+  ],
+  "numbers": [
+   188
+  ],
+  "minerals": [
+   "Uranium"
+  ]
+ },
+ "atan": {
+  "locality": "Atan",
+  "codes": [
+   "Au"
+  ],
+  "numbers": [
+   190
+  ],
+  "minerals": [
+   "Gold"
+  ]
+ },
+ "idowa": {
+  "locality": "Idowa",
+  "codes": [
+   "Ls"
+  ],
+  "numbers": [
+   195
+  ],
+  "minerals": [
+   "Limestone"
+  ]
+ },
+ "ajara": {
+  "locality": "Ajara",
+  "codes": [
+   "Cl"
+  ],
+  "numbers": [
+   197
+  ],
+  "minerals": [
+   "Clay / pottery clay"
+  ]
+ },
+ "ndum": {
+  "locality": "Ndum",
+  "codes": [
+   "Fe",
+   "Ba"
+  ],
+  "numbers": [
+   16
+  ],
+  "minerals": [
+   "Iron",
+   "Baryte"
+  ]
+ },
+ "okaa": {
+  "locality": "Ok aa",
+  "codes": [
+   "Br"
+  ],
+  "numbers": [
+   18
+  ],
+  "minerals": [
+   "Brine"
+  ]
+ },
+ "amini": {
+  "locality": "Amini",
+  "codes": [
+   "Fr"
+  ],
+  "numbers": [
+   26
+  ],
+  "minerals": [
+   "Feldspar"
+  ]
+ },
+ "ugba": {
+  "locality": "Ugba",
+  "codes": [
+   "Ls"
+  ],
+  "numbers": [
+   27
+  ],
+  "minerals": [
+   "Limestone"
+  ]
+ },
+ "moze": {
+  "locality": "Moz e",
+  "codes": [
+   "Ls"
+  ],
+  "numbers": [
+   29
+  ],
+  "minerals": [
+   "Limestone"
+  ]
+ },
+ "yandev": {
+  "locality": "Yandev",
+  "codes": [
+   "Ba"
+  ],
+  "numbers": [
+   33
+  ],
+  "minerals": [
+   "Baryte"
+  ]
+ },
+ "itungwa": {
+  "locality": "Itungwa",
+  "codes": [
+   "Pb"
+  ],
+  "numbers": [
+   24
+  ],
+  "minerals": [
+   "Lead"
+  ]
+ },
+ "tsetyo": {
+  "locality": "Tsetyo",
+  "codes": [
+   "Gy"
+  ],
+  "numbers": [
+   38
+  ],
+  "minerals": [
+   "Gypsum"
+  ]
+ },
+ "bopo": {
+  "locality": "Bopo",
+  "codes": [
+   "C"
+  ],
+  "numbers": [
+   40
+  ],
+  "minerals": [
+   "Coal"
+  ]
+ },
+ "edum": {
+  "locality": "EDUM",
+  "codes": [
+   "Gy",
+   "OD",
+   "AM",
+   "OGA"
+  ],
+  "numbers": [
+   43
+  ],
+  "minerals": [
+   "Gypsum",
+   "OD",
+   "Amphibolite",
+   "OGA"
+  ]
+ },
+ "aliade": {
+  "locality": "Aliade",
+  "codes": [
+   "Ls"
+  ],
+  "numbers": [
+   44
+  ],
+  "minerals": [
+   "Limestone"
+  ]
+ },
+ "adoka": {
+  "locality": "Adok a",
+  "codes": [
+   "Gy"
+  ],
+  "numbers": [
+   45
+  ],
+  "minerals": [
+   "Gypsum"
+  ]
+ },
+ "opar": {
+  "locality": "Opar",
+  "codes": [
+   "Gy"
+  ],
+  "numbers": [
+   46
+  ],
+  "minerals": [
+   "Gypsum"
+  ]
+ },
+ "taraku": {
+  "locality": "Tarak u",
+  "codes": [
+   "Gy"
+  ],
+  "numbers": [
+   48
+  ],
+  "minerals": [
+   "Gypsum"
+  ]
+ },
+ "ukpa": {
+  "locality": "Uk pa",
+  "codes": [
+   "Gy"
+  ],
+  "numbers": [
+   49
+  ],
+  "minerals": [
+   "Gypsum"
+  ]
+ },
+ "orukpa": {
+  "locality": "Oruk pa",
+  "codes": [
+   "C"
+  ],
+  "numbers": [
+   50
+  ],
+  "minerals": [
+   "Coal"
+  ]
+ },
+ "igum": {
+  "locality": "IGUM",
+  "codes": [
+   "Ls",
+   "ALE"
+  ],
+  "numbers": [
+   51,
+   172
+  ],
+  "minerals": [
+   "Limestone",
+   "ALE"
+  ]
+ },
+ "egga": {
+  "locality": "Egga",
+  "codes": [
+   "Ls"
+  ],
+  "numbers": [
+   54
+  ],
+  "minerals": [
+   "Limestone"
+  ]
+ },
+ "gabu": {
+  "locality": "Gabu",
+  "codes": [
+   "Br"
+  ],
+  "numbers": [
+   56
+  ],
+  "minerals": [
+   "Brine"
+  ]
+ },
+ "fayun": {
+  "locality": "Fayun",
+  "codes": [
+   "Ls"
+  ],
+  "numbers": [
+   59
+  ],
+  "minerals": [
+   "Limestone"
+  ]
+ },
+ "lessel": {
+  "locality": "Lessel",
+  "codes": [
+   "Ba"
+  ],
+  "numbers": [
+   60
+  ],
+  "minerals": [
+   "Baryte"
+  ]
+ },
+ "yatier": {
+  "locality": "Yatier",
+  "codes": [
+   "Br"
+  ],
+  "numbers": [
+   62
+  ],
+  "minerals": [
+   "Brine"
+  ]
+ },
+ "dekina": {
+  "locality": "Dek ina",
+  "codes": [
+   "Fe"
+  ],
+  "numbers": [
+   66
+  ],
+  "minerals": [
+   "Iron"
+  ]
+ },
+ "ajiaia": {
+  "locality": "AjiaIa",
+  "codes": [
+   "C"
+  ],
+  "numbers": [
+   67
+  ],
+  "minerals": [
+   "Coal"
+  ]
+ },
+ "ogboy": {
+  "locality": "OGBOY",
+  "codes": [
+   "OGA"
+  ],
+  "numbers": [
+   69
+  ],
+  "minerals": [
+   "OGA"
+  ]
+ },
+ "ezimo": {
+  "locality": "Ez imo",
+  "codes": [
+   "C"
+  ],
+  "numbers": [
+   75
+  ],
+  "minerals": [
+   "Coal"
+  ]
+ },
+ "orba": {
+  "locality": "Orba",
+  "codes": [
+   "Cl"
+  ],
+  "numbers": [
+   77
+  ],
+  "minerals": [
+   "Clay / pottery clay"
+  ]
+ },
+ "okpuje": {
+  "locality": "Ok puje",
+  "codes": [
+   "Cl"
+  ],
+  "numbers": [
+   80
+  ],
+  "minerals": [
+   "Clay / pottery clay"
+  ]
+ },
+ "obimo": {
+  "locality": "Obimo",
+  "codes": [
+   "Fe"
+  ],
+  "numbers": [
+   82
+  ],
+  "minerals": [
+   "Iron"
+  ]
+ },
+ "nimbo": {
+  "locality": "Nimbo",
+  "codes": [
+   "Fe"
+  ],
+  "numbers": [
+   83
+  ],
+  "minerals": [
+   "Iron"
+  ]
+ },
+ "adani": {
+  "locality": "Adani",
+  "codes": [
+   "Gy"
+  ],
+  "numbers": [
+   84
+  ],
+  "minerals": [
+   "Gypsum"
+  ]
+ },
+ "nkalaguobukpaichi": {
+  "locality": "Nk alagu Obuk pa-Ichi",
+  "codes": [
+   "Fe"
+  ],
+  "numbers": [
+   90
+  ],
+  "minerals": [
+   "Iron"
+  ]
+ },
+ "lrore": {
+  "locality": "lrore",
+  "codes": [
+   "Cor"
+  ],
+  "numbers": [
+   150
+  ],
+  "minerals": [
+   "Corundum"
+  ]
+ },
+ "bchiyawa": {
+  "locality": "B.Chiyawa",
+  "codes": [
+   "Ba"
+  ],
+  "numbers": [
+   140
+  ],
+  "minerals": [
+   "Baryte"
+  ]
+ },
+ "lanqalanga": {
+  "locality": "Lanqalanga",
+  "codes": [
+   "Be"
+  ],
+  "numbers": [
+   138
+  ],
+  "minerals": [
+   "Beryl"
+  ]
+ },
+ "kaffinshanu": {
+  "locality": "Kaffin Shanu",
+  "codes": [
+   "Ca"
+  ],
+  "numbers": [
+   146
+  ],
+  "minerals": [
+   "Calcite"
+  ]
+ },
+ "tukubasn": {
+  "locality": "Tuk uba Sn.",
+  "codes": [
+   "Au"
+  ],
+  "numbers": [
+   223
+  ],
+  "minerals": [
+   "Gold"
+  ]
+ },
+ "zazaga": {
+  "locality": "Zaz aga",
+  "codes": [
+   "M"
+  ],
+  "numbers": [
+   226
+  ],
+  "minerals": [
+   "Mica"
+  ]
+ },
+ "zazagaw": {
+  "locality": "Zaz aga W .",
+  "codes": [
+   "Be"
+  ],
+  "numbers": [
+   227
+  ],
+  "minerals": [
+   "Beryl"
+  ]
+ },
+ "agbowa": {
+  "locality": "Agbowa",
+  "codes": [
+   "Cl"
+  ],
+  "numbers": [
+   201
+  ],
+  "minerals": [
+   "Clay / pottery clay"
+  ]
+ },
+ "ibite": {
+  "locality": "Ibite",
+  "codes": [
+   "Olo"
+  ],
+  "numbers": [
+   94
+  ],
+  "minerals": [
+   "Olo"
+  ]
+ },
+ "ubur": {
+  "locality": "UBUR",
+  "codes": [
+   "E",
+   "LAK",
+   "U",
+   "Br"
+  ],
+  "numbers": [
+   107,
+   192
+  ],
+  "minerals": [
+   "Evaporite",
+   "LAK",
+   "Uranium",
+   "Brine"
+  ]
+ },
+ "agbaba": {
+  "locality": "AGBABA",
+  "codes": [
+   "U",
+   "NS"
+  ],
+  "numbers": [
+   124
+  ],
+  "minerals": [
+   "Uranium",
+   "NS"
+  ]
+ },
+ "porthapcour": {
+  "locality": "POR T -HAPCOUR",
+  "codes": [
+   "Gs",
+   "T"
+  ],
+  "numbers": [
+   131
+  ],
+  "minerals": [
+   "Glass sand",
+   "Talc"
+  ]
+ },
+ "nwaoguijouchi": {
+  "locality": "Nwaogu - Ijouchi",
+  "codes": [
+   "Br",
+   "Py"
+  ],
+  "numbers": [
+   139
+  ],
+  "minerals": [
+   "Brine",
+   "Pyrite"
+  ]
+ },
+ "agbhar": {
+  "locality": "AGBHAR",
+  "codes": [
+   "U",
+   "NS",
+   "A"
+  ],
+  "numbers": [
+   142
+  ],
+  "minerals": [
+   "Uranium",
+   "NS",
+   "A"
+  ]
+ },
+ "ibiakuntakokpo": {
+  "locality": "Ibiak u Ntak Ok po",
+  "codes": [
+   "Cl"
+  ],
+  "numbers": [
+   157
+  ],
+  "minerals": [
+   "Clay / pottery clay"
+  ]
+ },
+ "afahaoffiong": {
+  "locality": "Afaha Offiong",
+  "codes": [
+   "Cl"
+  ],
+  "numbers": [
+   167
+  ],
+  "minerals": [
+   "Clay / pottery clay"
+  ]
+ },
+ "ikot": {
+  "locality": "Ik ot",
+  "codes": [
+   "Eba"
+  ],
+  "numbers": [
+   169
+  ],
+  "minerals": [
+   "Eba"
+  ]
+ },
+ "ibok": {
+  "locality": "IBOK",
+  "codes": [
+   "O"
+  ],
+  "numbers": [
+   176
+  ],
+  "minerals": [
+   "O"
+  ]
+ },
+ "omega": {
+  "locality": "Omega",
+  "codes": [
+   "Cu",
+   "Ba"
+  ],
+  "numbers": [
+   189,
+   190
+  ],
+  "minerals": [
+   "Copper",
+   "Baryte"
+  ]
+ },
+ "gabuogaja": {
+  "locality": "Gabu(Ogaja)",
+  "codes": [
+   "Ba"
+  ],
+  "numbers": [
+   197
+  ],
+  "minerals": [
+   "Baryte"
+  ]
+ },
+ "ksaja": {
+  "locality": "Ksaja",
+  "codes": [
+   "Qa"
+  ],
+  "numbers": [
+   205
+  ],
+  "minerals": [
+   "Quartz"
+  ]
+ },
+ "efomi": {
+  "locality": "Efomi",
+  "codes": [
+   "Br"
+  ],
+  "numbers": [
+   209
+  ],
+  "minerals": [
+   "Brine"
+  ]
+ },
+ "lkotakperem": {
+  "locality": "lkot Ak perem",
+  "codes": [
+   "Gn"
+  ],
+  "numbers": [
+   212
+  ],
+  "minerals": [
+   "Gn"
+  ]
+ },
+ "orua": {
+  "locality": "Orua",
+  "codes": [
+   "Gm"
+  ],
+  "numbers": [
+   215
+  ],
+  "minerals": [
+   "Granite / migmatite"
+  ]
+ },
+ "wukari": {
+  "locality": "Wuk ari",
+  "codes": [
+   "Ba"
+  ],
+  "numbers": [
+   226
+  ],
+  "minerals": [
+   "Baryte"
+  ]
+ }
+}

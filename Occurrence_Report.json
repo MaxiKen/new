@@ -1,0 +1,19 @@
+{
+  "occurrences": 1091,
+  "distinct_mineral_names": 57,
+  "both_readings_identical": 194,
+  "same_commodity_family": 199,
+  "different_family": 892,
+  "confidence": {
+    "low": 892,
+    "medium": 113,
+    "high": 86
+  },
+  "classes": {
+    "industrial": 551,
+    "metallic": 304,
+    "gemstone": 197,
+    "energy": 39
+  },
+  "symbols_merged_from_more_than_one_source_point": 141
+}

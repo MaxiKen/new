@@ -1,0 +1,139 @@
+{
+  "source": "Nigeria_Geology_Minerals_4326.gpkg",
+  "layers": {
+    "geology_units": {
+      "crs": "ESRI:102022",
+      "crs_name": "Africa_Albers_Equal_Area_Conic",
+      "bounds_4326": [
+        2.135,
+        3.422,
+        21.194,
+        14.17
+      ],
+      "bounds_projected_m": [
+        -2386313,
+        394201,
+        -395217,
+        1659989
+      ],
+      "area_change_pct_vs_albers": null,
+      "features": 1142
+    },
+    "nigeria_boundary": {
+      "crs": "ESRI:102022",
+      "crs_name": "Africa_Albers_Equal_Area_Conic",
+      "bounds_4326": [
+        2.671,
+        4.272,
+        14.67,
+        13.88
+      ],
+      "bounds_projected_m": [
+        -2323469,
+        498423,
+        -1077108,
+        1618681
+      ],
+      "area_change_pct_vs_albers": 0.0,
+      "features": 1
+    },
+    "minerals_occurrences": {
+      "crs": "EPSG:32632",
+      "crs_name": "WGS 84 / UTM zone 32N",
+      "bounds_4326": [
+        2.629,
+        3.879,
+        14.573,
+        13.875
+      ],
+      "bounds_projected_m": [
+        -196828,
+        428732,
+        1103938,
+        1536629
+      ],
+      "area_change_pct_vs_albers": null,
+      "features": 1091
+    },
+    "faults": {
+      "crs": "EPSG:32632",
+      "crs_name": "WGS 84 / UTM zone 32N",
+      "bounds_4326": [
+        11.917,
+        11.299,
+        14.03,
+        13.019
+      ],
+      "bounds_projected_m": [
+        816414,
+        1253684,
+        1049539,
+        1441086
+      ],
+      "area_change_pct_vs_albers": null,
+      "features": 13
+    },
+    "roads": {
+      "crs": "EPSG:32632",
+      "crs_name": "WGS 84 / UTM zone 32N",
+      "bounds_4326": [
+        3.204,
+        4.786,
+        15.019,
+        13.387
+      ],
+      "bounds_projected_m": [
+        -141110,
+        529290,
+        1155390,
+        1487856
+      ],
+      "area_change_pct_vs_albers": null,
+      "features": 954
+    },
+    "rivers": {
+      "crs": "EPSG:32632",
+      "crs_name": "WGS 84 / UTM zone 32N",
+      "bounds_4326": [
+        2.19,
+        3.744,
+        15.563,
+        13.846
+      ],
+      "bounds_projected_m": [
+        -247375,
+        413868,
+        1225368,
+        1534573
+      ],
+      "area_change_pct_vs_albers": null,
+      "features": 1055
+    },
+    "state_boundaries": {
+      "crs": "EPSG:32632",
+      "crs_name": "WGS 84 / UTM zone 32N",
+      "bounds_4326": [
+        2.67,
+        4.274,
+        14.679,
+        13.896
+      ],
+      "bounds_projected_m": [
+        -199166,
+        472999,
+        1118760,
+        1538991
+      ],
+      "area_change_pct_vs_albers": null,
+      "features": 83
+    }
+  },
+  "utm32n_distance_scale_error_pct": {
+    "median": 0.035,
+    "min": -0.016,
+    "max": 0.446,
+    "baselines_measured": 6
+  },
+  "nigeria_area_km2_albers": 907498.0,
+  "note": "Coordinates in this file are metres. geology_units and nigeria_boundary use Africa Albers Equal Area Conic so areas can be measured; the point and line layers use UTM 32N so distances and positions can be measured. The 4326 package remains the authoritative reference frame; this one is the working frame."
+}

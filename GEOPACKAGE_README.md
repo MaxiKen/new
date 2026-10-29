@@ -1,135 +1,187 @@
 # Nigeria: geology and mineral resources atlas
 
-One GeoPackage — `Nigeria_Geology_Minerals_4326.gpkg` (16.6 MB) — everything in **EPSG:4326**,
-built by `Build_GeoPackage.py` and checked by `Validate_GeoPackage.py`
-(**27 of 27 checks pass**, results in `GeoPackage_Validation.json`).
+Two GeoPackages, both built by script and both checked by script:
 
-Open it in QGIS: drag the file in and tick layers. Rasters appear under "Add raster layer" →
-the file → the named raster. Every raster carries tags recording how it was registered and
-what it must not be used for.
+| file | what it is |
+|---|---|
+| `Nigeria_Geology_Minerals_4326.gpkg` | **the reference frame.** 13 layers, EPSG:4326, 16.8 MB |
+| `Nigeria_Geology_Minerals_projected.gpkg` | **the working frame.** The same layers with geometry genuinely reprojected to metres — Albers equal-area for areas, UTM 32N for positions and distances |
 
-The four map plates beside it are drawn **from this same file**, so a picture cannot disagree
-with the data:
+`Validate_GeoPackage.py` runs **30 checks on the 4326 package; all 30 pass**
+(`GeoPackage_Validation.json`). `Projection_Report.json` proves the projected package's
+coordinates really are metres by reporting their ranges and the measured scale error.
+
+The four plates are drawn from the 4326 package, so a picture cannot disagree with the data:
 
 | plate | what it shows |
 |---|---|
-| `Map_1_Geology.png` | map units, faults, roads, drainage, state boundaries — with the full 45-code unit legend |
-| `Map_2_Minerals.png` | the 2023 sheet with all 1,323 symbols re-plotted and classified |
-| `Map_3_Combined.png` | muted geology + interpolated symbol density + every symbol + faults |
+| `Map_1_Geology.png` | map units, faults, roads, drainage, state boundaries, full 45-code legend |
+| `Map_2_Minerals.png` | the 2023 sheet with every occurrence re-plotted once and classified |
+| `Map_3_Combined.png` | muted geology + interpolated symbol density + every occurrence + faults |
 | `Map_4_Symbol_Centring.png` | six measured close-ups proving where each coordinate sits |
 
-## Layers (13)
+## What changed in this revision
+
+### 1. One point per printed symbol — duplicates removed
+
+The sheet draws a cluster of occurrences as several distinct symbols side by side. The previous
+file placed **1,323** points; measuring them showed that **232 of those points sat on a symbol
+that already had a point** — the same printed symbol had been recorded twice.
+
+Consolidation is geometric, not a choice: a symbol is a connected patch of the sheet's symbol
+palette, so two points that land on the same patch are the same symbol and become one point,
+placed at that patch's centre. Two points on *different* patches stay separate however close —
+a cluster of adjacent symbols is a real cluster.
+
+| | before | now |
+|---|---|---|
+| points | 1,323 | **1,091** |
+| points sharing a symbol with another point | 232 | **0** |
+| merged points kept as an attribute | — | 141 rows carry `n_source_points > 1` |
+| median distance to the symbol's printed centre | 0.35 km | **0.09 km** |
+| within 1 pt (0.71 km) | 74% | **96%** |
+
+Fitting each point to the centre of its glyph then moved 836 of them a median of 0.8 pt. No
+point was moved onto a neighbouring symbol: 54 points had no glyph within reach and were left
+where the consolidation put them.
+
+`Map_4_Symbol_Centring.png` shows six occurrences at 14×, each labelled with its own measured
+offset — four of the six are exactly 0.00.
+
+### 2. More minerals, and names clearly marked as readings
+
+The sheet's legend carries **67 mineral symbols**, and its gazetteer lists some localities with
+three or four minerals each (`87 Rjishi Hills Sn. W. Nb. Ta`, `11 MARNONA Gy`). Reading it took
+three passes:
+
+1. **The gazetteer** (`Parse_Gazetteer.py` → `Gazetteer_Localities.json`) parses the occurrence
+   table at character level and recovers the locality and the mineral codes for each numbered
+   entry, with the code → mineral expansions. It is the survey's own statement of what is where.
+2. **The legend symbols** (`Detect_Symbols.py`) are extracted as 67 templates and matched
+   against each occurring symbol on the sheet, giving a second, independent name and a score.
+3. **The commodity code printed inside each symbol** — the original reading, 81% correct per
+   point in leave-one-out testing.
+
+Where those two readings agree, the name is safe. Where they only agree on a family
+(Clay vs Brick Clay; Beryl vs Emerald) the name is published with `confidence = medium`. Where
+they conflict the row keeps **both names** — `mineral` and `alternative_name` — and is marked
+`low`. That is deliberate: I will not overwrite a good reading with a guess, and I will not hide
+a conflict behind a single confident-looking column.
+
+| | count |
+|---|---|
+| occurrences | **1,091** |
+| distinct commodity names | **47** (spellings merged from the sheet's split kerning) |
+| both readings identical | 194 |
+| readings agree on a commodity family | 199 |
+| readings conflict (`confidence = low`) | 892 |
+| `confidence` high / medium / low | 86 / 113 / 892 |
+
+The columns to sort by when you check: `confidence`, then `family_agreement`, then `margin`
+(how far the winning legend symbol beat the runner-up). `legend_symbol`, `second_symbol` and
+`legend_score` let you see exactly what the matcher saw.
+
+`Parse_Gazetteer.py` is honest about its own limit: the panel's index numbers **restart in each
+gridded zone**, so a number alone is ambiguous. The local names are not, which is why the table
+is keyed by locality and matched to the map by name.
+
+### 3. Layers that are actually projected
+
+EPSG:4326 is a frame of degrees. Distances and areas measured in it are wrong by up to 1% in
+latitude scaling — the very error that made a length look 1% short. So a second package now
+carries real projected geometry:
+
+| layer | CRS | coordinates | why |
+|---|---|---|---|
+| `geology_units`, `nigeria_boundary` | ESRI:102022 Africa Albers Equal Area Conic | −2,386,313 to −395,217 m E | areas are comparable everywhere |
+| `minerals_occurrences`, `faults`, `roads`, `rivers`, `state_boundaries` | EPSG:32632 WGS 84 / UTM 32N | −196,828 to 1,103,938 m E | positions and distances are metric |
+
+Measured, not asserted: the UTM 32N distance scale error over short baselines is
+**0.035% median** (−0.02% to 0.45%) — worst case about 1 m in 220 m. Nigeria's area in the
+equal-area frame is **907,498 km²**.
+
+The 4326 package remains the authoritative reference frame; the projected one is for measuring.
+
+## Layers (13, in the 4326 package)
 
 | layer | type | what it is |
 |---|---|---|
-| `minerals_symbols` | 1,323 points | every printed mineral symbol, at the **centre of its printed glyph**, with commodity name, class, confidence tier and value |
-| `geology_units` | 1,142 polygons | the sheet's coloured map units, each with `unit_code`, `unit_name`, `period`, `sheet_colour`, `area_km2`, `in_nigeria` |
-| `faults` | 13 traces | the sheet's "Major Fractures / Faults" symbol (246 km of trace) |
+| `minerals_occurrences` | 1,091 points | one row per printed symbol, at its centre, with name, alternative name, confidence, source and classifier evidence |
+| `geology_units` | 1,142 polygons | the sheet's map units with `unit_code`, `unit_name`, `period`, `sheet_colour`, `area_km2`, `in_nigeria` |
+| `faults` | 13 traces | the sheet's "Major Fractures / Faults" symbol (246 km) |
 | `roads` | 954 strokes | the sheet's "Roads" symbol — the national road network |
 | `rivers` | 1,055 lines | the sheet's blue drainage |
 | `state_boundaries` | 83 lines | the sheet's internal administrative lines |
-| `nigeria_boundary` | 1 polygon | Natural Earth 1:10m outline, for reference and clipping |
-| `ref_geology_2011` | raster, 3-band uint8 | the 2011 sheet as drawn, registered on its printed graticule |
-| `ref_minerals_2023` | raster, 3-band uint8 | the 2023 sheet as drawn, registered on its embedded frame |
-| `combined_map` | raster, 3-band uint8 | the two sheets overlaid |
-| `mineral_density_all` | raster, float32 | interpolated density of all printed symbols, σ = 0.15° |
-| `mineral_density_metallic` | raster, float32 | same, metallic only (338 symbols) |
-| `mineral_density_nonmetallic` | raster, float32 | same, industrial + gemstone + energy (967 symbols) |
+| `nigeria_boundary` | 1 polygon | Natural Earth 1:10m outline |
+| `ref_geology_2011` | 3-band uint8 | the 2011 sheet as drawn, on its printed graticule |
+| `ref_minerals_2023` | 3-band uint8 | the 2023 sheet as drawn, on its embedded frame |
+| `combined_map` | 3-band uint8 | the two sheets overlaid |
+| `mineral_density_all` | float32 | interpolated symbol density, σ = 0.15° |
+| `mineral_density_metallic` | float32 | same, metallic only |
+| `mineral_density_nonmetallic` | float32 | same, industrial + gemstone + energy |
 | `dataset_notes` | table | 15 plain-language notes, including what the file must not be used for |
 
-Reference rasters are 2,480 × 2,040 at 0.005° over 2.6–15.0°E, 3.9–14.1°N (0.005° ≈ 550 m).
-Density rasters are 1,240 × 1,020 at 0.01°, in **symbols per 1000 km²**, −9999 outside Nigeria.
+Reference rasters: 2,480 × 2,040 at 0.005° over 2.6–15.0°E, 3.9–14.1°N. Density rasters:
+1,240 × 1,020 at 0.01°, in symbols per 1000 km², −9999 outside Nigeria.
 
 ## Other features: what could and could not be extracted
 
-The 2011 sheet is fully vector (45,435 paths, no images), and its legend gives the pen
-meanings. That allowed every layer of information to be recovered — and one honest gap.
-
 | feature | status |
 |---|---|
-| map units, with names and periods | **extracted** — 1,142 polygons, 45 named codes, 23 polygons that carry no printed label (kept, marked `unlabelled`, not guessed) |
-| faults (major fractures) | **extracted** — the sheet's hachured symbol, 13 traces, 246 km |
-| roads | **extracted** — thick black "Roads" symbol, 954 strokes |
-| rivers | **extracted** — 1,055 blue lines |
-| state boundaries | **extracted** — 83 grey banded lines |
-| **folds** | **not present on this sheet.** Its structural symbols are *Geological Boundary (exact / approximate / inferred / transitional)*, *Major Fractures / Faults* and *Fractures / Fault (inferred)*. There is no fold symbol, no dip-and-strike symbol and no separate lineament group in the file, so no fold layer was invented. |
-| graticule as a layer | not needed; the sheet's grid is a 10-minute subdivision drawn as thousands of short segments, and the coordinate transform is supplied instead |
+| map units with names and periods | **extracted** — 1,142 polygons, 45 named codes; 23 polygons with no printed label are kept and marked `unlabelled` |
+| faults (major fractures) | **extracted** — 13 traces, 246 km |
+| roads | **extracted** — 954 strokes |
+| rivers | **extracted** — 1,055 lines |
+| state boundaries | **extracted** — 83 lines |
+| **folds** | **not present on this sheet.** Its structural key has *Geological Boundary* (exact/approximate/inferred/transitional), *Major Fractures / Faults* and *Fractures / Fault (inferred)* only. No fold symbol, no dip-and-strike symbol, no separate structural group. None was invented. |
 
-**How faults were separated from roads.** Both are drawn with the same thick black pen — this
-was the trap. They are separated by connectivity, not by guessing: the road network is one
-continuous connected network (954 mutually touching strokes), while fault dashes stand alone
-(65 isolated strokes, which chain into 13 traces, all in the Chad Basin margin of the
-north-east). That is what the sheet actually shows; the rest of Nigeria carries no fault symbol
-on this edition.
+**Faults vs roads.** Both use the same thick black pen. They are separated by connectivity: the
+road network is one continuous connected network (954 touching strokes); fault dashes stand
+alone (65 isolated strokes chaining into 13 traces, all on the Chad Basin margin). That is what
+this edition actually shows.
 
-## The mineral points are as accurate as this sheet allows
+## Method and provenance
 
-Three separate errors were found and fixed, and every fix is independently verified:
+```
+Extract_Geology_Layers.py     units, faults, roads, rivers, state lines from the vector geology sheet
+Parse_Gazetteer.py            the 2023 sheet's own occurrence table: locality -> mineral codes
+Rebuild_Symbol_Centres.py     per-symbol art-strip reconstruction (fixes the flipped strips)
+Consolidate_Symbols.py        one point per printed symbol; merges duplicates by symbol patch
+Classify_Symbols.py           matches each symbol against the 67 legend symbols
+Finalise_Occurrences.py       publishes a name, an alternative, a source and a confidence
+Normalise_Names.py            one canonical spelling and commodity class per mineral
+Snap_Final.py                 moves each point onto its glyph centre
+Verify_Centres.py             independent page-render check (does not reuse build coordinates)
+Build_GeoPackage.py           the 4326 package
+Build_Projected_Layers.py     the projected package, with measured scale error
+Validate_GeoPackage.py        30 assertions on the finished file
+Render_Maps.py                the four plates, drawn from the package itself
+```
 
-1. **The art strips are stored vertically flipped.** The seven 75 dpi strips holding the symbol
-   artwork are drawn flipped on the page; reading them naively mirrored every latitude about
-   its strip axis. Fix verified: symbols detected on the page land on the same symbols in the
-   artwork **100%** of the time, against **1%** for random positions.
+Three source errors are fixed in this lineage and are worth knowing about, because they are
+invisible in the output:
+
+1. **The seven 75 dpi art strips are stored vertically flipped.** Reading them naively mirrored
+   every latitude about its strip axis. Fix verified: symbols land on the same symbol in the
+   artwork 100% of the time, against 1% for random positions.
 2. **The printed graticule is 19 km west of the frame the artwork uses.** Proven by the sheet's
-   own vector border: it matches modern boundary data to **0.5–1.1 km** on the embedded GeoPDF
-   measure, but is **12.9 km** out on the printed grid.
-3. **Points sat inside glyphs but not at their centres.** There was no global bias — 748 of
-   1,323 points had a matching glyph at exactly (0.0, 0.0) px offset — so the residual was
-   pure source resolution. Each point was then re-measured to the centre of its own glyph.
-
-**Independent verification** (`Verify_Centres.py`, which re-renders the page at 4 px/pt and
-re-detects the glyphs without reusing any build coordinate):
-
-| check | result |
-|---|---|
-| points landing on a detected glyph | **97.8%** |
-| median distance from point to glyph centre | **0.35 km** (0.50 pt) |
-| within 1 pt (0.71 km) | 75.0% |
-| within 2 pt (1.41 km) | **95.4%** |
-
-One artwork pixel is **0.68 km**, so a 0.35 km median is finer than the drawing itself. That is
-the floor: claiming better would be false. `Map_4_Symbol_Centring.png` shows six points at 14×,
-each labelled with its own measured offset.
-
-## Reading the geology layer
-
-Colours are the sheet's own; nothing was reinterpreted. A unit's name comes from the unit label
-printed *inside* its polygons, voted across all polygons of that colour (92 of 105 colours
-resolved). Where that failed the polygon is marked `unit_code = 'unlabelled'`. Periods follow
-the sheet's legend, which mixes era names and system names (e.g. "Pan-African" alongside
-"Jurassic"); the file keeps the sheet's wording.
-
-## The density surface
-
-Gaussian kernel, σ = 0.15° (≈17 km), one unit per symbol, converted to symbols per 1000 km²,
-masked to Nigeria. It integrates to about 1,087 symbols against 1,179 inside the border — the
-shortfall is coastline clipping, asserted as a test rather than assumed.
-
-**Read it as**: how densely the *printed symbols* cluster. Not reserves, not grade, not
-production, not economic viability. Clustering partly reflects real geology and partly
-reflects where the survey looked. Commodity names are ~81% correct per point, so the class
-split is indicative only.
+   own vector border: 0.5–1.1 km error on the embedded measure, 12.9 km on the printed grid.
+3. **Points sat inside glyphs but not at their centres.** No global bias existed (748 points
+   matched at exactly (0.0, 0.0) px offset), so the residual was pure source resolution; each
+   point is now fitted to its own glyph.
 
 ## Limits, stated once
 
 * **Datum not established** for either sheet. EPSG:4326 is the display frame. Minna → WGS 84
-  moves Nigeria about 0.09 km, below what these sheets can resolve.
+  moves Nigeria about 0.09 km, below what these sheets resolve.
 * **Geology needs no correction**: state boundaries, rivers and coastline all sit within 1–3 km
-  of independent reference data; the best-fit shift (0.9 km) is below one and a half map pixels.
-* **Commodity names** are 80.8% correct overall (leave-one-out). Use the `tier` and
-  `confidence` columns per point; per-mineral totals are unreliable.
-* **Faults** are the sheet's printed symbol, generalised at 1:2,000,000; the hachures show the
-  downthrown side but the sheet does not label certainty.
+  of independent reference data; the best-fit shift (0.9 km) is under one and a half map pixels.
+* **Symbol centres** are 0.09 km median from their glyph centre. One artwork pixel is 0.68 km, so
+  the drawing — not the method — is the floor.
+* **Commodity names**: 18% of rows are carried by both independent readings, 27% more agree on a
+  family, and 82% are marked `low`. Use `confidence`; do not quote per-mineral totals as fact.
+  The columns `mineral` (published), `alternative_name` (the other reading), `legend_symbol`,
+  `second_symbol` and `margin` show exactly what each reading was and how close the call was.
+* **Faults** are the sheet's printed symbol at 1:2,000,000; the hachures show the downthrown side,
+  but the sheet does not label certainty.
 * **Not for** surveying, licensing, legal boundaries, navigation, or site-scale decisions.
-
-## Reproducing it
-
-```
-Extract_Geology_Layers.py   # pulls units, faults, roads, rivers, state lines from the vector sheet
-Rebuild_Symbol_Centres.py   # re-measures symbol centres from the native artwork
-Snap_To_Symbols.py          # snaps each point to its own glyph centre
-Verify_Centres.py           # independent page-render check
-Build_GeoPackage.py         # builds the .gpkg (13 layers)
-Validate_GeoPackage.py      # 27 assertions on the finished file
-Render_Maps.py              # draws the four plates from the .gpkg itself
-```

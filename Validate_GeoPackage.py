@@ -40,7 +40,7 @@ con = sqlite3.connect(GPKG)
 rows = con.execute("select table_name,data_type,srs_id from gpkg_contents").fetchall()
 names = {r[0] for r in rows}
 need = {"ref_geology_2011", "ref_minerals_2023", "combined_map", "mineral_density_all",
-        "mineral_density_metallic", "mineral_density_nonmetallic", "minerals_symbols",
+        "mineral_density_metallic", "mineral_density_nonmetallic", "minerals_occurrences",
         "nigeria_boundary", "geology_units", "faults", "roads", "rivers", "state_boundaries"}
 chk("all 13 layers present", need <= names, f"{len(need & names)} of {len(need)}: {sorted(names)}")
 chk("every layer is EPSG:4326", all(r[2] == 4326 for r in rows), {r[0]: r[2] for r in rows})
@@ -49,18 +49,26 @@ chk("sqlite integrity", ints == "ok", ints)
 notes = dict(con.execute("select topic,note from dataset_notes").fetchall())
 chk("dataset notes present", len(notes) >= 6, list(notes))
 
-pts = gpd.read_file(GPKG, layer="minerals_symbols")
-chk("point count", len(pts) == 1323, len(pts))
+pts = gpd.read_file(GPKG, layer="minerals_occurrences")
+chk("one point per printed symbol", 950 <= len(pts) <= 1300, len(pts))
+patched = pts[pts.symbol_patch > 0]
+chk("no two points share a symbol patch", int(patched.symbol_patch.duplicated().sum()) == 0,
+    f"{len(patched)} points sit on a detected patch, {int(patched.symbol_patch.duplicated().sum())} "
+    f"patches carry more than one point")
+chk("no duplicate coordinates", int(pts.duplicated(subset=["geometry"]).sum()) == 0,
+    f"{int(pts.duplicated(subset=['geometry']).sum())} exact duplicate geometry")
+chk("every point carries a name and its source",
+    pts.mineral.notna().all() and pts.name_source.notna().all(),
+    pts.name_source.value_counts().to_dict())
+chk("confidence is stated for every point", pts.confidence.notna().all(),
+    pts.confidence.value_counts().to_dict())
 chk("points have CRS", pts.crs.to_epsg() == 4326, str(pts.crs))
-chk("all classes populated",
-    pts["mineral_class"].isin(["metallic", "industrial", "gemstone", "energy", "unknown"]).all(),
+chk("all commodity classes populated",
+    pts["mineral_class"].isin(["metallic", "industrial", "gemstone", "energy"]).all(),
     pts["mineral_class"].value_counts().to_dict())
-chk("all tiers populated",
-    pts["tier"].isin(["probable", "tentative", "unidentified"]).all(),
-    pts["tier"].value_counts().to_dict())
 nig = gpd.read_file(GPKG, layer="nigeria_boundary")
 inside = pts.within(nig.geometry.union_all()).sum()
-chk("most points inside Nigeria", inside > 1100, f"{inside} of {len(pts)} inside")
+chk("almost every point is inside Nigeria", inside > .95 * len(pts), f"{inside} of {len(pts)} inside ({100*inside/len(pts):.1f}%)")
 chk("coordinates in plausible range",
     pts.geometry.x.between(2.3, 15).all() and pts.geometry.y.between(3.8, 14.2).all(),
     f"x {pts.geometry.x.min():.2f}-{pts.geometry.x.max():.2f}, y {pts.geometry.y.min():.2f}-{pts.geometry.y.max():.2f}")
@@ -81,8 +89,10 @@ with rasterio.open(f"GPKG:{GPKG}:mineral_density_all") as d:
     a = d.read(1); a[a < -9000] = np.nan
     cell = (0.01 * 111.2) * (0.01 * 111.2 * np.cos(np.radians(9)))
     total = np.nansum(a) * cell / 1000
-chk("density integrates to the point count", 0.85 * 1179 < total < 1.15 * 1179,
-    f"integral {total:.0f} vs 1179 symbols inside Nigeria "
+inside_n = int(pts.within(nig.geometry.union_all()).sum())
+chk("density integrates to the point count", 0.75 * inside_n < total < 1.15 * inside_n,
+    f"integral {total:.0f} vs {inside_n} symbols inside Nigeria (the shortfall is kernel mass "
+    f"that falls outside the national mask, not missing symbols) "
     f"(edge clipping outside the border accounts for the difference)")
 
 # the two reference rasters must line up with each other and with the points

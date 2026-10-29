@@ -1,0 +1,7003 @@
+{
+"canvas": [
+2060,
+1683
+],
+"count": 577,
+"points": [
+{
+"cx": 792.5,
+"cy": 204.5,
+"xp": 835.04,
+"yp": 555.04,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+12
+],
+"n_anchors": 1
+},
+{
+"cx": 809.5,
+"cy": 258.5,
+"xp": 851.36,
+"yp": 605.93,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+17
+],
+"n_anchors": 1
+},
+{
+"cx": 801.0,
+"cy": 394.5,
+"xp": 843.2,
+"yp": 736.49,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+29
+],
+"n_anchors": 1
+},
+{
+"cx": 1527.0,
+"cy": 292.5,
+"xp": 1540.16,
+"yp": 638.57,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+12
+],
+"n_anchors": 1
+},
+{
+"cx": 1254.5,
+"cy": 432.5,
+"xp": 1278.56,
+"yp": 772.97,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+70
+],
+"n_anchors": 1
+},
+{
+"cx": 1220.0,
+"cy": 427.5,
+"xp": 1245.44,
+"yp": 768.17,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+71
+],
+"n_anchors": 1
+},
+{
+"cx": 730.5,
+"cy": 472.0,
+"xp": 775.52,
+"yp": 810.89,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+99
+],
+"n_anchors": 1
+},
+{
+"cx": 695.5,
+"cy": 469.5,
+"xp": 741.92,
+"yp": 808.49,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+97
+],
+"n_anchors": 1
+},
+{
+"cx": 1262.5,
+"cy": 817.0,
+"xp": 1286.24,
+"yp": 1140.17,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+97
+],
+"n_anchors": 1
+},
+{
+"cx": 1119.0,
+"cy": 788.0,
+"xp": 1148.48,
+"yp": 1112.33,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+92
+],
+"n_anchors": 1
+},
+{
+"cx": 710.5,
+"cy": 656.0,
+"xp": 756.32,
+"yp": 986.57,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+39
+],
+"n_anchors": 1
+},
+{
+"cx": 681.5,
+"cy": 1042.5,
+"xp": 728.48,
+"yp": 1355.69,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+20
+],
+"n_anchors": 1
+},
+{
+"cx": 834.0,
+"cy": 1200.5,
+"xp": 874.88,
+"yp": 1507.37,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+73
+],
+"n_anchors": 1
+},
+{
+"cx": 601.5,
+"cy": 805.0,
+"xp": 651.68,
+"yp": 1128.65,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+60
+],
+"n_anchors": 1
+},
+{
+"cx": 509.0,
+"cy": 1277.5,
+"xp": 562.88,
+"yp": 1580.34,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+95
+],
+"n_anchors": 1
+},
+{
+"cx": 329.0,
+"cy": 851.0,
+"xp": 390.08,
+"yp": 1172.81,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+97
+],
+"n_anchors": 1
+},
+{
+"cx": 90.5,
+"cy": 844.5,
+"xp": 161.12,
+"yp": 1166.57,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+78
+],
+"n_anchors": 1
+},
+{
+"cx": 450.5,
+"cy": 381.5,
+"xp": 506.72,
+"yp": 724.01,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+33
+],
+"n_anchors": 1
+},
+{
+"cx": 372.5,
+"cy": 387.5,
+"xp": 431.84,
+"yp": 729.77,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+31
+],
+"n_anchors": 1
+},
+{
+"cx": 299.0,
+"cy": 285.0,
+"xp": 361.28,
+"yp": 631.37,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+23
+],
+"n_anchors": 1
+},
+{
+"cx": 732.5,
+"cy": 186.5,
+"xp": 777.44,
+"yp": 537.76,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+58
+],
+"n_anchors": 1
+},
+{
+"cx": 606.5,
+"cy": 329.5,
+"xp": 656.48,
+"yp": 674.09,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+73
+],
+"n_anchors": 1
+},
+{
+"cx": 644.0,
+"cy": 211.5,
+"xp": 692.48,
+"yp": 561.76,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+52
+],
+"n_anchors": 1
+},
+{
+"cx": 608.5,
+"cy": 300.5,
+"xp": 658.4,
+"yp": 646.25,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+67
+],
+"n_anchors": 1
+},
+{
+"cx": 453.0,
+"cy": 302.5,
+"xp": 509.12,
+"yp": 648.17,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+69
+],
+"n_anchors": 1
+},
+{
+"cx": 1068.5,
+"cy": 792.0,
+"xp": 1100.0,
+"yp": 1116.17,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+102
+],
+"n_anchors": 1
+},
+{
+"cx": 761.5,
+"cy": 698.5,
+"xp": 805.28,
+"yp": 1027.37,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+227
+],
+"n_anchors": 1
+},
+{
+"cx": 745.5,
+"cy": 729.0,
+"xp": 789.92,
+"yp": 1056.65,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+231
+],
+"n_anchors": 1
+},
+{
+"cx": 737.5,
+"cy": 816.5,
+"xp": 782.24,
+"yp": 1139.69,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+128,
+223
+],
+"n_anchors": 2
+},
+{
+"cx": 1064.0,
+"cy": 795.0,
+"xp": 1095.68,
+"yp": 1119.05,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+105
+],
+"n_anchors": 1
+},
+{
+"cx": 1025.0,
+"cy": 852.0,
+"xp": 1058.24,
+"yp": 1173.77,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+139
+],
+"n_anchors": 1
+},
+{
+"cx": 873.0,
+"cy": 946.0,
+"xp": 912.32,
+"yp": 1264.01,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+181
+],
+"n_anchors": 1
+},
+{
+"cx": 1188.0,
+"cy": 881.0,
+"xp": 1214.72,
+"yp": 1201.61,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+108
+],
+"n_anchors": 1
+},
+{
+"cx": 984.0,
+"cy": 903.0,
+"xp": 1018.88,
+"yp": 1222.73,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+148
+],
+"n_anchors": 1
+},
+{
+"cx": 822.0,
+"cy": 1461.0,
+"xp": 863.36,
+"yp": 1756.5,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+149
+],
+"n_anchors": 1
+},
+{
+"cx": 759.0,
+"cy": 1424.0,
+"xp": 802.88,
+"yp": 1720.98,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+128
+],
+"n_anchors": 1
+},
+{
+"cx": 592.5,
+"cy": 924.0,
+"xp": 643.04,
+"yp": 1242.89,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+112
+],
+"n_anchors": 1
+},
+{
+"cx": 530.5,
+"cy": 1120.5,
+"xp": 583.52,
+"yp": 1430.57,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+110
+],
+"n_anchors": 1
+},
+{
+"cx": 365.0,
+"cy": 1274.5,
+"xp": 424.64,
+"yp": 1578.41,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+126
+],
+"n_anchors": 1
+},
+{
+"cx": 349.5,
+"cy": 1233.5,
+"xp": 409.76,
+"yp": 1539.05,
+"symbol": "Clay / Pottery Clay",
+"score": 1.0,
+"index_numbers": [
+121
+],
+"n_anchors": 1
+},
+{
+"cx": 1514.5,
+"cy": 715.5,
+"xp": 1528.16,
+"yp": 1043.69,
+"symbol": "Clay / Pottery Clay",
+"score": 0.996,
+"index_numbers": [
+14
+],
+"n_anchors": 1
+},
+{
+"cx": 1512.0,
+"cy": 272.0,
+"xp": 1525.76,
+"yp": 618.89,
+"symbol": "Clay / Pottery Clay",
+"score": 0.995,
+"index_numbers": [
+13
+],
+"n_anchors": 1
+},
+{
+"cx": 747.5,
+"cy": 197.5,
+"xp": 791.84,
+"yp": 548.32,
+"symbol": "Clay / Pottery Clay",
+"score": 0.993,
+"index_numbers": [
+4
+],
+"n_anchors": 1
+},
+{
+"cx": 821.5,
+"cy": 1381.0,
+"xp": 862.88,
+"yp": 1679.7,
+"symbol": "Clay / Pottery Clay",
+"score": 0.992,
+"index_numbers": [
+140,
+141
+],
+"n_anchors": 2
+},
+{
+"cx": 775.5,
+"cy": 1184.5,
+"xp": 818.72,
+"yp": 1492.01,
+"symbol": "Clay / Pottery Clay",
+"score": 0.986,
+"index_numbers": [
+82,
+83
+],
+"n_anchors": 2
+},
+{
+"cx": 902.0,
+"cy": 1253.5,
+"xp": 940.16,
+"yp": 1558.25,
+"symbol": "Clay / Pottery Clay",
+"score": 0.979,
+"index_numbers": [
+179
+],
+"n_anchors": 1
+},
+{
+"cx": 38.5,
+"cy": 1254.5,
+"xp": 111.2,
+"yp": 1559.21,
+"symbol": "Clay / Pottery Clay",
+"score": 0.976,
+"index_numbers": [
+198
+],
+"n_anchors": 1
+},
+{
+"cx": 400.5,
+"cy": 1029.0,
+"xp": 458.72,
+"yp": 1342.73,
+"symbol": "Clay / Pottery Clay",
+"score": 0.975,
+"index_numbers": [
+132,
+133
+],
+"n_anchors": 2
+},
+{
+"cx": 903.0,
+"cy": 1483.5,
+"xp": 941.12,
+"yp": 1778.1,
+"symbol": "Clay / Pottery Clay",
+"score": 0.971,
+"index_numbers": [
+162
+],
+"n_anchors": 1
+},
+{
+"cx": 68.0,
+"cy": 1186.0,
+"xp": 139.52,
+"yp": 1493.45,
+"symbol": "Clay / Pottery Clay",
+"score": 0.971,
+"index_numbers": [
+184
+],
+"n_anchors": 1
+},
+{
+"cx": 109.5,
+"cy": 1172.5,
+"xp": 179.36,
+"yp": 1480.49,
+"symbol": "Diatomite",
+"score": 0.969,
+"index_numbers": [
+185
+],
+"n_anchors": 1
+},
+{
+"cx": 1554.5,
+"cy": 910.0,
+"xp": 1566.56,
+"yp": 1229.45,
+"symbol": "Clay / Pottery Clay",
+"score": 0.964,
+"index_numbers": [
+9
+],
+"n_anchors": 1
+},
+{
+"cx": 1590.5,
+"cy": 404.5,
+"xp": 1601.12,
+"yp": 746.09,
+"symbol": "Clay / Pottery Clay",
+"score": 0.964,
+"index_numbers": [
+21
+],
+"n_anchors": 1
+},
+{
+"cx": 1908.5,
+"cy": 410.0,
+"xp": 1906.4,
+"yp": 751.37,
+"symbol": "Clay / Pottery Clay",
+"score": 0.964,
+"index_numbers": [
+68
+],
+"n_anchors": 1
+},
+{
+"cx": 1593.5,
+"cy": 584.5,
+"xp": 1604.0,
+"yp": 917.93,
+"symbol": "Clay / Pottery Clay",
+"score": 0.964,
+"index_numbers": [
+78
+],
+"n_anchors": 1
+},
+{
+"cx": 1278.5,
+"cy": 737.0,
+"xp": 1301.6,
+"yp": 1064.33,
+"symbol": "Clay / Pottery Clay",
+"score": 0.964,
+"index_numbers": [
+91
+],
+"n_anchors": 1
+},
+{
+"cx": 599.5,
+"cy": 1228.5,
+"xp": 649.76,
+"yp": 1534.25,
+"symbol": "Clay / Pottery Clay",
+"score": 0.964,
+"index_numbers": [
+89
+],
+"n_anchors": 1
+},
+{
+"cx": 641.5,
+"cy": 857.5,
+"xp": 690.08,
+"yp": 1179.05,
+"symbol": "Clay / Pottery Clay",
+"score": 0.964,
+"index_numbers": [
+66
+],
+"n_anchors": 1
+},
+{
+"cx": 707.5,
+"cy": 887.0,
+"xp": 753.44,
+"yp": 1207.37,
+"symbol": "Clay / Pottery Clay",
+"score": 0.964,
+"index_numbers": [
+127
+],
+"n_anchors": 1
+},
+{
+"cx": 532.5,
+"cy": 1087.5,
+"xp": 585.44,
+"yp": 1398.89,
+"symbol": "Clay / Pottery Clay",
+"score": 0.964,
+"index_numbers": [
+106
+],
+"n_anchors": 1
+},
+{
+"cx": 1089.5,
+"cy": 221.0,
+"xp": 1120.16,
+"yp": 570.88,
+"symbol": "Diatomite",
+"score": 0.96,
+"index_numbers": [
+36
+],
+"n_anchors": 1
+},
+{
+"cx": 1159.5,
+"cy": 778.0,
+"xp": 1187.36,
+"yp": 1102.73,
+"symbol": "Clay / Pottery Clay",
+"score": 0.959,
+"index_numbers": [
+76
+],
+"n_anchors": 1
+},
+{
+"cx": 923.5,
+"cy": 1498.0,
+"xp": 960.8,
+"yp": 1792.02,
+"symbol": "Clay / Pottery Clay",
+"score": 0.959,
+"index_numbers": [
+163
+],
+"n_anchors": 1
+},
+{
+"cx": 332.5,
+"cy": 1235.0,
+"xp": 393.44,
+"yp": 1540.49,
+"symbol": "Clay / Pottery Clay",
+"score": 0.959,
+"index_numbers": [
+119
+],
+"n_anchors": 1
+},
+{
+"cx": 1525.5,
+"cy": 397.5,
+"xp": 1538.72,
+"yp": 739.37,
+"symbol": "Diatomite",
+"score": 0.958,
+"index_numbers": [
+20,
+23
+],
+"n_anchors": 2
+},
+{
+"cx": 1220.5,
+"cy": 362.5,
+"xp": 1245.92,
+"yp": 705.77,
+"symbol": "Clay / Pottery Clay",
+"score": 0.957,
+"index_numbers": [
+66
+],
+"n_anchors": 1
+},
+{
+"cx": 1304.0,
+"cy": 677.0,
+"xp": 1326.08,
+"yp": 1006.73,
+"symbol": "Clay / Pottery Clay",
+"score": 0.957,
+"index_numbers": [
+43
+],
+"n_anchors": 1
+},
+{
+"cx": 717.5,
+"cy": 1383.5,
+"xp": 763.04,
+"yp": 1682.1,
+"symbol": "Clay / Pottery Clay",
+"score": 0.957,
+"index_numbers": [
+49
+],
+"n_anchors": 1
+},
+{
+"cx": 722.5,
+"cy": 1317.5,
+"xp": 767.84,
+"yp": 1618.74,
+"symbol": "Clay / Pottery Clay",
+"score": 0.957,
+"index_numbers": [
+45,
+46
+],
+"n_anchors": 2
+},
+{
+"cx": 662.5,
+"cy": 1459.5,
+"xp": 710.24,
+"yp": 1755.06,
+"symbol": "Clay / Pottery Clay",
+"score": 0.957,
+"index_numbers": [
+55
+],
+"n_anchors": 1
+},
+{
+"cx": 590.5,
+"cy": 232.5,
+"xp": 641.12,
+"yp": 581.92,
+"symbol": "Clay / Pottery Clay",
+"score": 0.957,
+"index_numbers": [
+54
+],
+"n_anchors": 1
+},
+{
+"cx": 844.5,
+"cy": 904.5,
+"xp": 884.96,
+"yp": 1224.17,
+"symbol": "Clay / Pottery Clay",
+"score": 0.957,
+"index_numbers": [
+153
+],
+"n_anchors": 1
+},
+{
+"cx": 1013.5,
+"cy": 805.5,
+"xp": 1047.2,
+"yp": 1129.13,
+"symbol": "Clay / Pottery Clay",
+"score": 0.957,
+"index_numbers": [
+128
+],
+"n_anchors": 1
+},
+{
+"cx": 1080.5,
+"cy": 869.5,
+"xp": 1111.52,
+"yp": 1190.57,
+"symbol": "Clay / Pottery Clay",
+"score": 0.957,
+"index_numbers": [
+117
+],
+"n_anchors": 1
+},
+{
+"cx": 950.0,
+"cy": 1257.0,
+"xp": 986.24,
+"yp": 1561.61,
+"symbol": "Clay / Pottery Clay",
+"score": 0.957,
+"index_numbers": [
+176
+],
+"n_anchors": 1
+},
+{
+"cx": 140.5,
+"cy": 1232.5,
+"xp": 209.12,
+"yp": 1538.09,
+"symbol": "Clay / Pottery Clay",
+"score": 0.957,
+"index_numbers": [
+199
+],
+"n_anchors": 1
+},
+{
+"cx": 1018.0,
+"cy": 1484.0,
+"xp": 1051.52,
+"yp": 1778.58,
+"symbol": "Clay / Pottery Clay",
+"score": 0.956,
+"index_numbers": [
+220
+],
+"n_anchors": 1
+},
+{
+"cx": 750.0,
+"cy": 1047.0,
+"xp": 794.24,
+"yp": 1360.01,
+"symbol": "Clay / Pottery Clay",
+"score": 0.955,
+"index_numbers": [
+66
+],
+"n_anchors": 1
+},
+{
+"cx": 898.0,
+"cy": 912.5,
+"xp": 936.32,
+"yp": 1231.85,
+"symbol": "Clay / Pottery Clay",
+"score": 0.955,
+"index_numbers": [
+225
+],
+"n_anchors": 1
+},
+{
+"cx": 1447.5,
+"cy": 669.5,
+"xp": 1463.84,
+"yp": 999.53,
+"symbol": "Corundum, S apphire & R uby",
+"score": 0.954,
+"index_numbers": [
+20
+],
+"n_anchors": 1
+},
+{
+"cx": 806.5,
+"cy": 1240.5,
+"xp": 848.48,
+"yp": 1545.77,
+"symbol": "Corundum, S apphire & R uby",
+"score": 0.954,
+"index_numbers": [
+96
+],
+"n_anchors": 1
+},
+{
+"cx": 827.5,
+"cy": 919.5,
+"xp": 868.64,
+"yp": 1238.57,
+"symbol": "Corundum, S apphire & R uby",
+"score": 0.954,
+"index_numbers": [
+155,
+156
+],
+"n_anchors": 2
+},
+{
+"cx": 946.5,
+"cy": 1259.0,
+"xp": 982.88,
+"yp": 1563.53,
+"symbol": "Clay / Pottery Clay",
+"score": 0.952,
+"index_numbers": [
+177
+],
+"n_anchors": 1
+},
+{
+"cx": 523.5,
+"cy": 1183.0,
+"xp": 576.8,
+"yp": 1490.57,
+"symbol": "Clay / Pottery Clay",
+"score": 0.952,
+"index_numbers": [
+113,
+114
+],
+"n_anchors": 2
+},
+{
+"cx": 307.0,
+"cy": 282.5,
+"xp": 368.96,
+"yp": 628.97,
+"symbol": "Clay / Pottery Clay",
+"score": 0.95,
+"index_numbers": [
+21
+],
+"n_anchors": 1
+},
+{
+"cx": 480.0,
+"cy": 1046.0,
+"xp": 535.04,
+"yp": 1359.05,
+"symbol": "Clay / Pottery Clay",
+"score": 0.948,
+"index_numbers": [
+138
+],
+"n_anchors": 1
+},
+{
+"cx": 729.5,
+"cy": 691.5,
+"xp": 774.56,
+"yp": 1020.65,
+"symbol": "Diatomite",
+"score": 0.944,
+"index_numbers": [
+44,
+256
+],
+"n_anchors": 2
+},
+{
+"cx": 746.5,
+"cy": 1213.5,
+"xp": 790.88,
+"yp": 1519.85,
+"symbol": "Clay / Pottery Clay",
+"score": 0.943,
+"index_numbers": [
+122
+],
+"n_anchors": 1
+},
+{
+"cx": 823.5,
+"cy": 1478.5,
+"xp": 864.8,
+"yp": 1773.3,
+"symbol": "Clay / Pottery Clay",
+"score": 0.943,
+"index_numbers": [
+150
+],
+"n_anchors": 1
+},
+{
+"cx": 630.0,
+"cy": 1556.5,
+"xp": 679.04,
+"yp": 1847.22,
+"symbol": "Clay / Pottery Clay",
+"score": 0.94,
+"index_numbers": [
+59
+],
+"n_anchors": 1
+},
+{
+"cx": 689.0,
+"cy": 1514.5,
+"xp": 735.68,
+"yp": 1807.86,
+"symbol": "Clay / Pottery Clay",
+"score": 0.94,
+"index_numbers": [
+53,
+55
+],
+"n_anchors": 2
+},
+{
+"cx": 630.5,
+"cy": 1120.0,
+"xp": 679.52,
+"yp": 1430.09,
+"symbol": "Clay / Pottery Clay",
+"score": 0.94,
+"index_numbers": [
+76
+],
+"n_anchors": 1
+},
+{
+"cx": 670.0,
+"cy": 992.5,
+"xp": 717.44,
+"yp": 1308.65,
+"symbol": "Clay / Pottery Clay",
+"score": 0.939,
+"index_numbers": [
+11
+],
+"n_anchors": 1
+},
+{
+"cx": 612.0,
+"cy": 1550.0,
+"xp": 661.76,
+"yp": 1840.98,
+"symbol": "Clay / Pottery Clay",
+"score": 0.939,
+"index_numbers": [
+58
+],
+"n_anchors": 1
+},
+{
+"cx": 1453.5,
+"cy": 427.5,
+"xp": 1469.6,
+"yp": 768.17,
+"symbol": "Diatomite",
+"score": 0.938,
+"index_numbers": [
+29
+],
+"n_anchors": 1
+},
+{
+"cx": 56.0,
+"cy": 1149.0,
+"xp": 128.0,
+"yp": 1457.93,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.937,
+"index_numbers": [
+181,
+182
+],
+"n_anchors": 2
+},
+{
+"cx": 517.5,
+"cy": 1201.5,
+"xp": 571.04,
+"yp": 1508.33,
+"symbol": "Clay / Pottery Clay",
+"score": 0.936,
+"index_numbers": [
+116
+],
+"n_anchors": 1
+},
+{
+"cx": 1146.0,
+"cy": 676.5,
+"xp": 1174.4,
+"yp": 1006.25,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.935,
+"index_numbers": [
+40
+],
+"n_anchors": 1
+},
+{
+"cx": 588.0,
+"cy": 1288.5,
+"xp": 638.72,
+"yp": 1590.9,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.935,
+"index_numbers": [
+62
+],
+"n_anchors": 1
+},
+{
+"cx": 353.0,
+"cy": 1267.5,
+"xp": 413.12,
+"yp": 1571.69,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.933,
+"index_numbers": [
+125
+],
+"n_anchors": 1
+},
+{
+"cx": 1057.5,
+"cy": 756.5,
+"xp": 1089.44,
+"yp": 1083.05,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.932,
+"index_numbers": [
+86
+],
+"n_anchors": 1
+},
+{
+"cx": 368.0,
+"cy": 933.0,
+"xp": 427.52,
+"yp": 1251.53,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.931,
+"index_numbers": [
+107
+],
+"n_anchors": 1
+},
+{
+"cx": 368.5,
+"cy": 646.0,
+"xp": 428.0,
+"yp": 976.97,
+"symbol": "Clay / Pottery Clay",
+"score": 0.929,
+"index_numbers": [
+36
+],
+"n_anchors": 1
+},
+{
+"cx": 1088.5,
+"cy": 1224.5,
+"xp": 1119.2,
+"yp": 1530.41,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.928,
+"index_numbers": [
+200
+],
+"n_anchors": 1
+},
+{
+"cx": 814.5,
+"cy": 1168.5,
+"xp": 856.16,
+"yp": 1476.65,
+"symbol": "Coal",
+"score": 0.924,
+"index_numbers": [
+78
+],
+"n_anchors": 1
+},
+{
+"cx": 710.5,
+"cy": 1338.5,
+"xp": 756.32,
+"yp": 1638.9,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.921,
+"index_numbers": [
+40
+],
+"n_anchors": 1
+},
+{
+"cx": 922.5,
+"cy": 538.5,
+"xp": 959.84,
+"yp": 873.77,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.921,
+"index_numbers": [
+146
+],
+"n_anchors": 1
+},
+{
+"cx": 719.5,
+"cy": 856.5,
+"xp": 764.96,
+"yp": 1178.09,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.921,
+"index_numbers": [
+126
+],
+"n_anchors": 1
+},
+{
+"cx": 220.5,
+"cy": 1232.5,
+"xp": 285.92,
+"yp": 1538.09,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.921,
+"index_numbers": [
+202
+],
+"n_anchors": 1
+},
+{
+"cx": 651.0,
+"cy": 1296.5,
+"xp": 699.2,
+"yp": 1598.58,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.92,
+"index_numbers": [
+61
+],
+"n_anchors": 1
+},
+{
+"cx": 878.0,
+"cy": 332.0,
+"xp": 917.12,
+"yp": 676.49,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.92,
+"index_numbers": [
+101
+],
+"n_anchors": 1
+},
+{
+"cx": 801.0,
+"cy": 356.0,
+"xp": 843.2,
+"yp": 699.53,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.919,
+"index_numbers": [
+21
+],
+"n_anchors": 1
+},
+{
+"cx": 422.5,
+"cy": 946.5,
+"xp": 479.84,
+"yp": 1264.49,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.919,
+"index_numbers": [
+109,
+149
+],
+"n_anchors": 2
+},
+{
+"cx": 755.0,
+"cy": 1535.0,
+"xp": 799.04,
+"yp": 1826.58,
+"symbol": "Clay / Pottery Clay",
+"score": 0.918,
+"index_numbers": [
+131
+],
+"n_anchors": 1
+},
+{
+"cx": 601.5,
+"cy": 1117.5,
+"xp": 651.68,
+"yp": 1427.69,
+"symbol": "Clay / Pottery Clay",
+"score": 0.917,
+"index_numbers": [
+70,
+75
+],
+"n_anchors": 2
+},
+{
+"cx": 244.5,
+"cy": 724.0,
+"xp": 308.96,
+"yp": 1051.85,
+"symbol": "Clay / Pottery Clay",
+"score": 0.917,
+"index_numbers": [
+74
+],
+"n_anchors": 1
+},
+{
+"cx": 813.0,
+"cy": 1279.5,
+"xp": 854.72,
+"yp": 1582.26,
+"symbol": "Clay / Pottery Clay",
+"score": 0.917,
+"index_numbers": [
+106
+],
+"n_anchors": 1
+},
+{
+"cx": 195.0,
+"cy": 1125.0,
+"xp": 261.44,
+"yp": 1434.89,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.917,
+"index_numbers": [
+165
+],
+"n_anchors": 1
+},
+{
+"cx": 785.5,
+"cy": 189.0,
+"xp": 828.32,
+"yp": 540.16,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.916,
+"index_numbers": [
+7,
+14
+],
+"n_anchors": 2
+},
+{
+"cx": 772.5,
+"cy": 1142.0,
+"xp": 815.84,
+"yp": 1451.21,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.916,
+"index_numbers": [
+71
+],
+"n_anchors": 1
+},
+{
+"cx": 367.5,
+"cy": 1007.0,
+"xp": 427.04,
+"yp": 1322.57,
+"symbol": "Clay / Pottery Clay",
+"score": 0.915,
+"index_numbers": [
+142
+],
+"n_anchors": 1
+},
+{
+"cx": 886.5,
+"cy": 1048.5,
+"xp": 925.28,
+"yp": 1361.45,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.912,
+"index_numbers": [
+39,
+40
+],
+"n_anchors": 2
+},
+{
+"cx": 857.5,
+"cy": 1390.5,
+"xp": 897.44,
+"yp": 1688.82,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.912,
+"index_numbers": [
+143,
+146
+],
+"n_anchors": 2
+},
+{
+"cx": 1096.0,
+"cy": 674.5,
+"xp": 1126.4,
+"yp": 1004.33,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.911,
+"index_numbers": [
+61
+],
+"n_anchors": 1
+},
+{
+"cx": 244.5,
+"cy": 464.0,
+"xp": 308.96,
+"yp": 803.21,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.911,
+"index_numbers": [
+39
+],
+"n_anchors": 1
+},
+{
+"cx": 1186.5,
+"cy": 720.0,
+"xp": 1213.28,
+"yp": 1048.01,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.909,
+"index_numbers": [
+56
+],
+"n_anchors": 1
+},
+{
+"cx": 842.0,
+"cy": 484.5,
+"xp": 882.56,
+"yp": 822.89,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.909,
+"index_numbers": [
+120
+],
+"n_anchors": 1
+},
+{
+"cx": 715.5,
+"cy": 1114.0,
+"xp": 761.12,
+"yp": 1424.33,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.908,
+"index_numbers": [
+37,
+38
+],
+"n_anchors": 2
+},
+{
+"cx": 926.0,
+"cy": 478.5,
+"xp": 963.2,
+"yp": 817.13,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.908,
+"index_numbers": [
+127
+],
+"n_anchors": 1
+},
+{
+"cx": 120.0,
+"cy": 1160.5,
+"xp": 189.44,
+"yp": 1468.97,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.907,
+"index_numbers": [
+186
+],
+"n_anchors": 1
+},
+{
+"cx": 606.5,
+"cy": 1151.5,
+"xp": 656.48,
+"yp": 1460.33,
+"symbol": "Clay / Pottery Clay",
+"score": 0.9,
+"index_numbers": [
+78
+],
+"n_anchors": 1
+},
+{
+"cx": 408.0,
+"cy": 302.0,
+"xp": 465.92,
+"yp": 647.69,
+"symbol": "Clay / Pottery Clay",
+"score": 0.9,
+"index_numbers": [
+68
+],
+"n_anchors": 1
+},
+{
+"cx": 800.5,
+"cy": 571.5,
+"xp": 842.72,
+"yp": 905.45,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.899,
+"index_numbers": [
+149
+],
+"n_anchors": 1
+},
+{
+"cx": 453.5,
+"cy": 1205.0,
+"xp": 509.6,
+"yp": 1511.69,
+"symbol": "Clay / Pottery Clay",
+"score": 0.898,
+"index_numbers": [
+86
+],
+"n_anchors": 1
+},
+{
+"cx": 1088.0,
+"cy": 1228.5,
+"xp": 1118.72,
+"yp": 1534.25,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.897,
+"index_numbers": [
+202
+],
+"n_anchors": 1
+},
+{
+"cx": 725.5,
+"cy": 1527.0,
+"xp": 770.72,
+"yp": 1819.86,
+"symbol": "Clay / Pottery Clay",
+"score": 0.896,
+"index_numbers": [
+54
+],
+"n_anchors": 1
+},
+{
+"cx": 1186.5,
+"cy": 626.5,
+"xp": 1213.28,
+"yp": 958.25,
+"symbol": "Garnet",
+"score": 0.895,
+"index_numbers": [
+79
+],
+"n_anchors": 1
+},
+{
+"cx": 52.5,
+"cy": 1072.5,
+"xp": 124.64,
+"yp": 1384.49,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.895,
+"index_numbers": [
+169,
+170
+],
+"n_anchors": 2
+},
+{
+"cx": 1121.5,
+"cy": 681.5,
+"xp": 1150.88,
+"yp": 1011.05,
+"symbol": "Columbite",
+"score": 0.89,
+"index_numbers": [
+46
+],
+"n_anchors": 1
+},
+{
+"cx": 1074.5,
+"cy": 586.5,
+"xp": 1105.76,
+"yp": 919.85,
+"symbol": "Columbite",
+"score": 0.89,
+"index_numbers": [
+88
+],
+"n_anchors": 1
+},
+{
+"cx": 1043.5,
+"cy": 633.5,
+"xp": 1076.0,
+"yp": 964.97,
+"symbol": "Columbite",
+"score": 0.89,
+"index_numbers": [
+83
+],
+"n_anchors": 1
+},
+{
+"cx": 1029.5,
+"cy": 711.5,
+"xp": 1062.56,
+"yp": 1039.85,
+"symbol": "Columbite",
+"score": 0.89,
+"index_numbers": [
+64
+],
+"n_anchors": 1
+},
+{
+"cx": 759.5,
+"cy": 169.5,
+"xp": 803.36,
+"yp": 521.44,
+"symbol": "Pyrite / Pyroclore (py)",
+"score": 0.889,
+"index_numbers": [
+1,
+4,
+6,
+9
+],
+"n_anchors": 4
+},
+{
+"cx": 1057.5,
+"cy": 582.0,
+"xp": 1089.44,
+"yp": 915.53,
+"symbol": "W olframite (w)",
+"score": 0.889,
+"index_numbers": [
+86,
+87
+],
+"n_anchors": 2
+},
+{
+"cx": 846.0,
+"cy": 1071.5,
+"xp": 886.4,
+"yp": 1383.53,
+"symbol": "Clay / Pottery Clay",
+"score": 0.889,
+"index_numbers": [
+67
+],
+"n_anchors": 1
+},
+{
+"cx": 1033.5,
+"cy": 745.0,
+"xp": 1066.4,
+"yp": 1072.01,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.886,
+"index_numbers": [
+75,
+81
+],
+"n_anchors": 2
+},
+{
+"cx": 668.5,
+"cy": 1036.5,
+"xp": 716.0,
+"yp": 1349.93,
+"symbol": "Diatomite",
+"score": 0.885,
+"index_numbers": [
+19
+],
+"n_anchors": 1
+},
+{
+"cx": 660.5,
+"cy": 195.5,
+"xp": 708.32,
+"yp": 546.4,
+"symbol": "Diatomite",
+"score": 0.885,
+"index_numbers": [
+49
+],
+"n_anchors": 1
+},
+{
+"cx": 444.5,
+"cy": 930.0,
+"xp": 500.96,
+"yp": 1248.65,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.885,
+"index_numbers": [
+151,
+152
+],
+"n_anchors": 2
+},
+{
+"cx": 136.0,
+"cy": 1111.0,
+"xp": 204.8,
+"yp": 1421.45,
+"symbol": "Columbite",
+"score": 0.884,
+"index_numbers": [
+175,
+177
+],
+"n_anchors": 2
+},
+{
+"cx": 812.5,
+"cy": 380.5,
+"xp": 854.24,
+"yp": 723.05,
+"symbol": "Clay / Pottery Clay",
+"score": 0.881,
+"index_numbers": [
+28
+],
+"n_anchors": 1
+},
+{
+"cx": 874.0,
+"cy": 1506.0,
+"xp": 913.28,
+"yp": 1799.7,
+"symbol": "Clay / Pottery Clay",
+"score": 0.881,
+"index_numbers": [
+167
+],
+"n_anchors": 1
+},
+{
+"cx": 495.0,
+"cy": 480.5,
+"xp": 549.44,
+"yp": 819.05,
+"symbol": "Uranium (u)",
+"score": 0.88,
+"index_numbers": [
+43
+],
+"n_anchors": 1
+},
+{
+"cx": 821.5,
+"cy": 1340.5,
+"xp": 862.88,
+"yp": 1640.82,
+"symbol": "Clay / Pottery Clay",
+"score": 0.88,
+"index_numbers": [
+137,
+138
+],
+"n_anchors": 2
+},
+{
+"cx": 821.5,
+"cy": 351.5,
+"xp": 862.88,
+"yp": 695.21,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.879,
+"index_numbers": [
+22
+],
+"n_anchors": 1
+},
+{
+"cx": 45.0,
+"cy": 1232.0,
+"xp": 117.44,
+"yp": 1537.61,
+"symbol": "Clay / Pottery Clay",
+"score": 0.877,
+"index_numbers": [
+196
+],
+"n_anchors": 1
+},
+{
+"cx": 415.0,
+"cy": 862.0,
+"xp": 472.64,
+"yp": 1183.37,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.876,
+"index_numbers": [
+102
+],
+"n_anchors": 1
+},
+{
+"cx": 552.5,
+"cy": 1173.5,
+"xp": 604.64,
+"yp": 1481.45,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.875,
+"index_numbers": [
+81
+],
+"n_anchors": 1
+},
+{
+"cx": 821.5,
+"cy": 436.5,
+"xp": 862.88,
+"yp": 776.81,
+"symbol": "Diatomite",
+"score": 0.875,
+"index_numbers": [
+117
+],
+"n_anchors": 1
+},
+{
+"cx": 976.5,
+"cy": 865.0,
+"xp": 1011.68,
+"yp": 1186.25,
+"symbol": "Diatomite",
+"score": 0.875,
+"index_numbers": [
+141,
+142
+],
+"n_anchors": 2
+},
+{
+"cx": 845.5,
+"cy": 1498.5,
+"xp": 885.92,
+"yp": 1792.5,
+"symbol": "Clay / Pottery Clay",
+"score": 0.875,
+"index_numbers": [
+164
+],
+"n_anchors": 1
+},
+{
+"cx": 478.5,
+"cy": 929.5,
+"xp": 533.6,
+"yp": 1248.17,
+"symbol": "Diatomite",
+"score": 0.875,
+"index_numbers": [
+121,
+122
+],
+"n_anchors": 2
+},
+{
+"cx": 1519.0,
+"cy": 468.5,
+"xp": 1532.48,
+"yp": 807.53,
+"symbol": "Diatomite",
+"score": 0.873,
+"index_numbers": [
+31,
+33
+],
+"n_anchors": 2
+},
+{
+"cx": 1024.5,
+"cy": 1428.5,
+"xp": 1057.76,
+"yp": 1725.3,
+"symbol": "Corundum, S apphire & R uby",
+"score": 0.869,
+"index_numbers": [
+224
+],
+"n_anchors": 1
+},
+{
+"cx": 586.0,
+"cy": 881.0,
+"xp": 636.8,
+"yp": 1201.61,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.867,
+"index_numbers": [
+85
+],
+"n_anchors": 1
+},
+{
+"cx": 269.0,
+"cy": 467.5,
+"xp": 332.48,
+"yp": 806.57,
+"symbol": "Diatomite",
+"score": 0.867,
+"index_numbers": [
+40
+],
+"n_anchors": 1
+},
+{
+"cx": 1029.5,
+"cy": 559.5,
+"xp": 1062.56,
+"yp": 893.93,
+"symbol": "Clay / Pottery Clay",
+"score": 0.865,
+"index_numbers": [
+88,
+145
+],
+"n_anchors": 2
+},
+{
+"cx": 727.0,
+"cy": 786.5,
+"xp": 772.16,
+"yp": 1110.89,
+"symbol": "Uranium (u)",
+"score": 0.865,
+"index_numbers": [
+56
+],
+"n_anchors": 1
+},
+{
+"cx": 951.0,
+"cy": 1311.5,
+"xp": 987.2,
+"yp": 1612.98,
+"symbol": "Uranium (u)",
+"score": 0.865,
+"index_numbers": [
+186
+],
+"n_anchors": 1
+},
+{
+"cx": 1049.0,
+"cy": 937.5,
+"xp": 1081.28,
+"yp": 1255.85,
+"symbol": "Coal",
+"score": 0.864,
+"index_numbers": [
+167
+],
+"n_anchors": 1
+},
+{
+"cx": 680.5,
+"cy": 493.5,
+"xp": 727.52,
+"yp": 831.53,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.862,
+"index_numbers": [
+4
+],
+"n_anchors": 1
+},
+{
+"cx": 783.5,
+"cy": 602.5,
+"xp": 826.4,
+"yp": 935.21,
+"symbol": "W olframite (w)",
+"score": 0.861,
+"index_numbers": [
+154,
+157
+],
+"n_anchors": 2
+},
+{
+"cx": 1845.5,
+"cy": 270.5,
+"xp": 1845.92,
+"yp": 617.45,
+"symbol": "Clay / Pottery Clay",
+"score": 0.857,
+"index_numbers": [
+60
+],
+"n_anchors": 1
+},
+{
+"cx": 966.5,
+"cy": 838.5,
+"xp": 1002.08,
+"yp": 1160.81,
+"symbol": "W olframite (w)",
+"score": 0.856,
+"index_numbers": [
+127,
+132
+],
+"n_anchors": 2
+},
+{
+"cx": 953.5,
+"cy": 534.5,
+"xp": 989.6,
+"yp": 869.93,
+"symbol": "W olframite (w)",
+"score": 0.855,
+"index_numbers": [
+138
+],
+"n_anchors": 1
+},
+{
+"cx": 575.5,
+"cy": 1113.0,
+"xp": 626.72,
+"yp": 1423.37,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.853,
+"index_numbers": [
+71
+],
+"n_anchors": 1
+},
+{
+"cx": 596.0,
+"cy": 806.5,
+"xp": 646.4,
+"yp": 1130.09,
+"symbol": "Clay / Pottery Clay",
+"score": 0.85,
+"index_numbers": [
+62
+],
+"n_anchors": 1
+},
+{
+"cx": 519.0,
+"cy": 1183.5,
+"xp": 572.48,
+"yp": 1491.05,
+"symbol": "Clay / Pottery Clay",
+"score": 0.85,
+"index_numbers": [
+115
+],
+"n_anchors": 1
+},
+{
+"cx": 803.5,
+"cy": 362.5,
+"xp": 845.6,
+"yp": 705.77,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.849,
+"index_numbers": [
+26
+],
+"n_anchors": 1
+},
+{
+"cx": 1091.5,
+"cy": 781.5,
+"xp": 1122.08,
+"yp": 1106.09,
+"symbol": "R iver Gravel",
+"score": 0.844,
+"index_numbers": [
+87,
+93
+],
+"n_anchors": 2
+},
+{
+"cx": 404.5,
+"cy": 1269.0,
+"xp": 462.56,
+"yp": 1573.13,
+"symbol": "T ar S and (ts)",
+"score": 0.843,
+"index_numbers": [
+127
+],
+"n_anchors": 1
+},
+{
+"cx": 370.5,
+"cy": 1243.0,
+"xp": 429.92,
+"yp": 1548.17,
+"symbol": "T ar S and (ts)",
+"score": 0.843,
+"index_numbers": [
+122
+],
+"n_anchors": 1
+},
+{
+"cx": 1055.0,
+"cy": 715.5,
+"xp": 1087.04,
+"yp": 1043.69,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.842,
+"index_numbers": [
+73
+],
+"n_anchors": 1
+},
+{
+"cx": 105.0,
+"cy": 1184.0,
+"xp": 175.04,
+"yp": 1491.53,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.842,
+"index_numbers": [
+183
+],
+"n_anchors": 1
+},
+{
+"cx": 484.5,
+"cy": 851.0,
+"xp": 539.36,
+"yp": 1172.81,
+"symbol": "Columbite",
+"score": 0.839,
+"index_numbers": [
+82,
+83
+],
+"n_anchors": 2
+},
+{
+"cx": 942.5,
+"cy": 731.0,
+"xp": 979.04,
+"yp": 1058.57,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.839,
+"index_numbers": [
+194
+],
+"n_anchors": 1
+},
+{
+"cx": 891.5,
+"cy": 814.0,
+"xp": 930.08,
+"yp": 1137.29,
+"symbol": "Columbite",
+"score": 0.839,
+"index_numbers": [
+154
+],
+"n_anchors": 1
+},
+{
+"cx": 1021.0,
+"cy": 1175.5,
+"xp": 1054.4,
+"yp": 1483.37,
+"symbol": "Clay / Pottery Clay",
+"score": 0.838,
+"index_numbers": [
+226
+],
+"n_anchors": 1
+},
+{
+"cx": 573.5,
+"cy": 1117.5,
+"xp": 624.8,
+"yp": 1427.69,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.837,
+"index_numbers": [
+73
+],
+"n_anchors": 1
+},
+{
+"cx": 640.5,
+"cy": 543.5,
+"xp": 689.12,
+"yp": 878.57,
+"symbol": "Clay / Pottery Clay",
+"score": 0.833,
+"index_numbers": [
+8
+],
+"n_anchors": 1
+},
+{
+"cx": 1356.5,
+"cy": 675.0,
+"xp": 1376.48,
+"yp": 1004.81,
+"symbol": "Clay / Pottery Clay",
+"score": 0.833,
+"index_numbers": [
+37,
+39
+],
+"n_anchors": 2
+},
+{
+"cx": 1062.5,
+"cy": 1204.5,
+"xp": 1094.24,
+"yp": 1511.21,
+"symbol": "Clay / Pottery Clay",
+"score": 0.833,
+"index_numbers": [
+195,
+196
+],
+"n_anchors": 2
+},
+{
+"cx": 797.5,
+"cy": 1409.5,
+"xp": 839.84,
+"yp": 1707.06,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.833,
+"index_numbers": [
+129
+],
+"n_anchors": 1
+},
+{
+"cx": 986.5,
+"cy": 718.5,
+"xp": 1021.28,
+"yp": 1046.57,
+"symbol": "R iver Gravel",
+"score": 0.832,
+"index_numbers": [
+193
+],
+"n_anchors": 1
+},
+{
+"cx": 926.5,
+"cy": 732.5,
+"xp": 963.68,
+"yp": 1060.01,
+"symbol": "R iver Gravel",
+"score": 0.832,
+"index_numbers": [
+195
+],
+"n_anchors": 1
+},
+{
+"cx": 1414.0,
+"cy": 535.0,
+"xp": 1431.68,
+"yp": 870.41,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.83,
+"index_numbers": [
+40
+],
+"n_anchors": 1
+},
+{
+"cx": 1029.5,
+"cy": 512.5,
+"xp": 1062.56,
+"yp": 848.81,
+"symbol": "Columbite",
+"score": 0.827,
+"index_numbers": [
+139
+],
+"n_anchors": 1
+},
+{
+"cx": 982.5,
+"cy": 544.5,
+"xp": 1017.44,
+"yp": 879.53,
+"symbol": "W olframite (w)",
+"score": 0.825,
+"index_numbers": [
+137
+],
+"n_anchors": 1
+},
+{
+"cx": 1371.0,
+"cy": 708.5,
+"xp": 1390.4,
+"yp": 1036.97,
+"symbol": "Clay / Pottery Clay",
+"score": 0.821,
+"index_numbers": [
+51
+],
+"n_anchors": 1
+},
+{
+"cx": 951.5,
+"cy": 508.0,
+"xp": 987.68,
+"yp": 845.45,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.82,
+"index_numbers": [
+130
+],
+"n_anchors": 1
+},
+{
+"cx": 904.0,
+"cy": 1409.5,
+"xp": 942.08,
+"yp": 1707.06,
+"symbol": "Diatomite",
+"score": 0.82,
+"index_numbers": [
+151
+],
+"n_anchors": 1
+},
+{
+"cx": 892.0,
+"cy": 1549.5,
+"xp": 930.56,
+"yp": 1840.5,
+"symbol": "Clay / Pottery Clay",
+"score": 0.82,
+"index_numbers": [
+171
+],
+"n_anchors": 1
+},
+{
+"cx": 1290.5,
+"cy": 438.0,
+"xp": 1313.12,
+"yp": 778.25,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.817,
+"index_numbers": [
+69
+],
+"n_anchors": 1
+},
+{
+"cx": 1369.5,
+"cy": 519.0,
+"xp": 1388.96,
+"yp": 855.05,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.817,
+"index_numbers": [
+92
+],
+"n_anchors": 1
+},
+{
+"cx": 1183.5,
+"cy": 675.0,
+"xp": 1210.4,
+"yp": 1004.81,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.817,
+"index_numbers": [
+41
+],
+"n_anchors": 1
+},
+{
+"cx": 519.5,
+"cy": 1154.0,
+"xp": 572.96,
+"yp": 1462.73,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.816,
+"index_numbers": [
+111
+],
+"n_anchors": 1
+},
+{
+"cx": 427.5,
+"cy": 88.5,
+"xp": 484.64,
+"yp": 443.68,
+"symbol": "Clay / Pottery Clay",
+"score": 0.812,
+"index_numbers": [
+9
+],
+"n_anchors": 1
+},
+{
+"cx": 559.5,
+"cy": 366.5,
+"xp": 611.36,
+"yp": 709.61,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.812,
+"index_numbers": [
+94
+],
+"n_anchors": 1
+},
+{
+"cx": 590.5,
+"cy": 708.5,
+"xp": 641.12,
+"yp": 1036.97,
+"symbol": "Clay / Pottery Clay",
+"score": 0.812,
+"index_numbers": [
+46
+],
+"n_anchors": 1
+},
+{
+"cx": 652.5,
+"cy": 536.5,
+"xp": 700.64,
+"yp": 871.85,
+"symbol": "Clay / Pottery Clay",
+"score": 0.812,
+"index_numbers": [
+11,
+12
+],
+"n_anchors": 2
+},
+{
+"cx": 1002.5,
+"cy": 1477.5,
+"xp": 1036.64,
+"yp": 1772.34,
+"symbol": "Diatomite",
+"score": 0.809,
+"index_numbers": [
+217
+],
+"n_anchors": 1
+},
+{
+"cx": 1029.5,
+"cy": 746.5,
+"xp": 1062.56,
+"yp": 1073.45,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.808,
+"index_numbers": [
+82
+],
+"n_anchors": 1
+},
+{
+"cx": 784.5,
+"cy": 1392.5,
+"xp": 827.36,
+"yp": 1690.74,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.808,
+"index_numbers": [
+124,
+126
+],
+"n_anchors": 2
+},
+{
+"cx": 412.0,
+"cy": 816.5,
+"xp": 469.76,
+"yp": 1139.69,
+"symbol": "Columbite",
+"score": 0.807,
+"index_numbers": [
+80
+],
+"n_anchors": 1
+},
+{
+"cx": 974.0,
+"cy": 796.5,
+"xp": 1009.28,
+"yp": 1120.49,
+"symbol": "Columbite",
+"score": 0.807,
+"index_numbers": [
+207
+],
+"n_anchors": 1
+},
+{
+"cx": 821.5,
+"cy": 1353.5,
+"xp": 862.88,
+"yp": 1653.3,
+"symbol": "Clay / Pottery Clay",
+"score": 0.805,
+"index_numbers": [
+136
+],
+"n_anchors": 1
+},
+{
+"cx": 468.0,
+"cy": 1005.0,
+"xp": 523.52,
+"yp": 1320.65,
+"symbol": "Clay / Pottery Clay",
+"score": 0.803,
+"index_numbers": [
+129
+],
+"n_anchors": 1
+},
+{
+"cx": 232.0,
+"cy": 1170.0,
+"xp": 296.96,
+"yp": 1478.09,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.802,
+"index_numbers": [
+190,
+196
+],
+"n_anchors": 2
+},
+{
+"cx": 45.0,
+"cy": 1236.5,
+"xp": 117.44,
+"yp": 1541.93,
+"symbol": "Clay / Pottery Clay",
+"score": 0.802,
+"index_numbers": [
+197
+],
+"n_anchors": 1
+},
+{
+"cx": 627.0,
+"cy": 1112.5,
+"xp": 676.16,
+"yp": 1422.89,
+"symbol": "Pyrite / Pyroclore (py)",
+"score": 0.801,
+"index_numbers": [
+68
+],
+"n_anchors": 1
+},
+{
+"cx": 760.0,
+"cy": 1241.5,
+"xp": 803.84,
+"yp": 1546.73,
+"symbol": "Clay / Pottery Clay",
+"score": 0.8,
+"index_numbers": [
+94
+],
+"n_anchors": 1
+},
+{
+"cx": 504.0,
+"cy": 938.5,
+"xp": 558.08,
+"yp": 1256.81,
+"symbol": "Clay / Pottery Clay",
+"score": 0.8,
+"index_numbers": [
+119,
+155
+],
+"n_anchors": 2
+},
+{
+"cx": 365.5,
+"cy": 1035.0,
+"xp": 425.12,
+"yp": 1348.49,
+"symbol": "Clay / Pottery Clay",
+"score": 0.8,
+"index_numbers": [
+143
+],
+"n_anchors": 1
+},
+{
+"cx": 987.0,
+"cy": 544.5,
+"xp": 1021.76,
+"yp": 879.53,
+"symbol": "W olframite (w)",
+"score": 0.798,
+"index_numbers": [
+140
+],
+"n_anchors": 1
+},
+{
+"cx": 900.0,
+"cy": 508.5,
+"xp": 938.24,
+"yp": 845.93,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.797,
+"index_numbers": [
+123
+],
+"n_anchors": 1
+},
+{
+"cx": 1047.0,
+"cy": 824.0,
+"xp": 1079.36,
+"yp": 1146.89,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.795,
+"index_numbers": [
+130
+],
+"n_anchors": 1
+},
+{
+"cx": 1037.5,
+"cy": 681.0,
+"xp": 1070.24,
+"yp": 1010.57,
+"symbol": "Columbite",
+"score": 0.794,
+"index_numbers": [
+63
+],
+"n_anchors": 1
+},
+{
+"cx": 1002.5,
+"cy": 540.5,
+"xp": 1036.64,
+"yp": 875.69,
+"symbol": "Iron Ore (M agnetite, Ilmenite)",
+"score": 0.793,
+"index_numbers": [
+141
+],
+"n_anchors": 1
+},
+{
+"cx": 583.5,
+"cy": 333.5,
+"xp": 634.4,
+"yp": 677.93,
+"symbol": "Clay / Pottery Clay",
+"score": 0.792,
+"index_numbers": [
+81
+],
+"n_anchors": 1
+},
+{
+"cx": 754.5,
+"cy": 1298.5,
+"xp": 798.56,
+"yp": 1600.5,
+"symbol": "T ar S and (ts)",
+"score": 0.792,
+"index_numbers": [
+115
+],
+"n_anchors": 1
+},
+{
+"cx": 1029.5,
+"cy": 668.5,
+"xp": 1062.56,
+"yp": 998.57,
+"symbol": "Pyrite / Pyroclore (py)",
+"score": 0.789,
+"index_numbers": [
+62
+],
+"n_anchors": 1
+},
+{
+"cx": 1036.0,
+"cy": 969.5,
+"xp": 1068.8,
+"yp": 1286.57,
+"symbol": "Clay / Pottery Clay",
+"score": 0.788,
+"index_numbers": [
+175,
+176
+],
+"n_anchors": 2
+},
+{
+"cx": 1464.5,
+"cy": 401.5,
+"xp": 1480.16,
+"yp": 743.21,
+"symbol": "Diatomite",
+"score": 0.786,
+"index_numbers": [
+24
+],
+"n_anchors": 1
+},
+{
+"cx": 453.0,
+"cy": 1219.0,
+"xp": 509.12,
+"yp": 1525.13,
+"symbol": "Clay / Pottery Clay",
+"score": 0.786,
+"index_numbers": [
+83
+],
+"n_anchors": 1
+},
+{
+"cx": 474.5,
+"cy": 80.5,
+"xp": 529.76,
+"yp": 436.0,
+"symbol": "Diatomite",
+"score": 0.781,
+"index_numbers": [
+7
+],
+"n_anchors": 1
+},
+{
+"cx": 1461.5,
+"cy": 503.5,
+"xp": 1477.28,
+"yp": 841.13,
+"symbol": "Diatomite",
+"score": 0.779,
+"index_numbers": [
+38,
+39
+],
+"n_anchors": 2
+},
+{
+"cx": 113.0,
+"cy": 833.5,
+"xp": 182.72,
+"yp": 1156.01,
+"symbol": "Uranium (u)",
+"score": 0.779,
+"index_numbers": [
+77
+],
+"n_anchors": 1
+},
+{
+"cx": 718.5,
+"cy": 1244.5,
+"xp": 764.0,
+"yp": 1549.61,
+"symbol": "Glass S and",
+"score": 0.777,
+"index_numbers": [
+41
+],
+"n_anchors": 1
+},
+{
+"cx": 1035.0,
+"cy": 946.5,
+"xp": 1067.84,
+"yp": 1264.49,
+"symbol": "Clay / Pottery Clay",
+"score": 0.775,
+"index_numbers": [
+161,
+163
+],
+"n_anchors": 2
+},
+{
+"cx": 1075.0,
+"cy": 687.5,
+"xp": 1106.24,
+"yp": 1016.81,
+"symbol": "Columbite",
+"score": 0.773,
+"index_numbers": [
+60
+],
+"n_anchors": 1
+},
+{
+"cx": 1303.5,
+"cy": 166.5,
+"xp": 1325.6,
+"yp": 518.56,
+"symbol": "Clay / Pottery Clay",
+"score": 0.766,
+"index_numbers": [
+60
+],
+"n_anchors": 1
+},
+{
+"cx": 1426.5,
+"cy": 613.5,
+"xp": 1443.68,
+"yp": 945.77,
+"symbol": "Clay / Pottery Clay",
+"score": 0.766,
+"index_numbers": [
+44
+],
+"n_anchors": 1
+},
+{
+"cx": 1345.5,
+"cy": 719.5,
+"xp": 1365.92,
+"yp": 1047.53,
+"symbol": "Clay / Pottery Clay",
+"score": 0.766,
+"index_numbers": [
+50
+],
+"n_anchors": 1
+},
+{
+"cx": 1045.5,
+"cy": 1045.5,
+"xp": 1077.92,
+"yp": 1358.57,
+"symbol": "Clay / Pottery Clay",
+"score": 0.766,
+"index_numbers": [
+35
+],
+"n_anchors": 1
+},
+{
+"cx": 1096.5,
+"cy": 935.5,
+"xp": 1126.88,
+"yp": 1253.93,
+"symbol": "Clay / Pottery Clay",
+"score": 0.766,
+"index_numbers": [
+164,
+165
+],
+"n_anchors": 2
+},
+{
+"cx": 1032.5,
+"cy": 1221.5,
+"xp": 1065.44,
+"yp": 1527.53,
+"symbol": "Clay / Pottery Clay",
+"score": 0.766,
+"index_numbers": [
+199
+],
+"n_anchors": 1
+},
+{
+"cx": 568.5,
+"cy": 1176.5,
+"xp": 620.0,
+"yp": 1484.33,
+"symbol": "T ar S and (ts)",
+"score": 0.764,
+"index_numbers": [
+83
+],
+"n_anchors": 1
+},
+{
+"cx": 907.5,
+"cy": 1426.5,
+"xp": 945.44,
+"yp": 1723.38,
+"symbol": "Diatomite",
+"score": 0.764,
+"index_numbers": [
+156
+],
+"n_anchors": 1
+},
+{
+"cx": 754.5,
+"cy": 626.5,
+"xp": 798.56,
+"yp": 958.25,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.762,
+"index_numbers": [
+159
+],
+"n_anchors": 1
+},
+{
+"cx": 1071.5,
+"cy": 607.5,
+"xp": 1102.88,
+"yp": 940.01,
+"symbol": "W olframite (w)",
+"score": 0.757,
+"index_numbers": [
+82
+],
+"n_anchors": 1
+},
+{
+"cx": 939.5,
+"cy": 1442.0,
+"xp": 976.16,
+"yp": 1738.26,
+"symbol": "Diatomite",
+"score": 0.754,
+"index_numbers": [
+215
+],
+"n_anchors": 1
+},
+{
+"cx": 105.0,
+"cy": 958.5,
+"xp": 175.04,
+"yp": 1276.01,
+"symbol": "Uranium (u)",
+"score": 0.753,
+"index_numbers": [
+137
+],
+"n_anchors": 1
+},
+{
+"cx": 1299.5,
+"cy": 135.5,
+"xp": 1321.76,
+"yp": 488.8,
+"symbol": "Clay / Pottery Clay",
+"score": 0.75,
+"index_numbers": [
+54
+],
+"n_anchors": 1
+},
+{
+"cx": 1656.5,
+"cy": 606.0,
+"xp": 1664.48,
+"yp": 938.57,
+"symbol": "Clay / Pottery Clay",
+"score": 0.75,
+"index_numbers": [
+83
+],
+"n_anchors": 1
+},
+{
+"cx": 1028.5,
+"cy": 1199.0,
+"xp": 1061.6,
+"yp": 1505.93,
+"symbol": "Diatomite",
+"score": 0.748,
+"index_numbers": [
+196
+],
+"n_anchors": 1
+},
+{
+"cx": 329.5,
+"cy": 1214.0,
+"xp": 390.56,
+"yp": 1520.33,
+"symbol": "T ar S and (ts)",
+"score": 0.744,
+"index_numbers": [
+118
+],
+"n_anchors": 1
+},
+{
+"cx": 857.5,
+"cy": 1373.5,
+"xp": 897.44,
+"yp": 1672.5,
+"symbol": "T ar S and (ts)",
+"score": 0.743,
+"index_numbers": [
+133,
+142,
+144
+],
+"n_anchors": 3
+},
+{
+"cx": 180.0,
+"cy": 1178.0,
+"xp": 247.04,
+"yp": 1485.77,
+"symbol": "Diatomite",
+"score": 0.743,
+"index_numbers": [
+180
+],
+"n_anchors": 1
+},
+{
+"cx": 338.5,
+"cy": 436.5,
+"xp": 399.2,
+"yp": 776.81,
+"symbol": "M ica (m)",
+"score": 0.741,
+"index_numbers": [
+41
+],
+"n_anchors": 1
+},
+{
+"cx": 1014.0,
+"cy": 821.5,
+"xp": 1047.68,
+"yp": 1144.49,
+"symbol": "Columbite",
+"score": 0.741,
+"index_numbers": [
+129
+],
+"n_anchors": 1
+},
+{
+"cx": 805.5,
+"cy": 835.5,
+"xp": 847.52,
+"yp": 1157.93,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.74,
+"index_numbers": [
+226
+],
+"n_anchors": 1
+},
+{
+"cx": 622.5,
+"cy": 1017.5,
+"xp": 671.84,
+"yp": 1332.65,
+"symbol": "Garnet",
+"score": 0.738,
+"index_numbers": [
+7,
+22
+],
+"n_anchors": 2
+},
+{
+"cx": 482.0,
+"cy": 968.0,
+"xp": 536.96,
+"yp": 1285.13,
+"symbol": "Columbite",
+"score": 0.738,
+"index_numbers": [
+123
+],
+"n_anchors": 1
+},
+{
+"cx": 1159.5,
+"cy": 417.0,
+"xp": 1187.36,
+"yp": 758.09,
+"symbol": "Columbite",
+"score": 0.735,
+"index_numbers": [
+48
+],
+"n_anchors": 1
+},
+{
+"cx": 662.5,
+"cy": 1004.0,
+"xp": 710.24,
+"yp": 1319.69,
+"symbol": "Garnet",
+"score": 0.735,
+"index_numbers": [
+14
+],
+"n_anchors": 1
+},
+{
+"cx": 1429.5,
+"cy": 1225.0,
+"xp": 1446.56,
+"yp": 1530.89,
+"symbol": "Garnet",
+"score": 0.735,
+"index_numbers": [
+16
+],
+"n_anchors": 1
+},
+{
+"cx": 790.5,
+"cy": 1199.0,
+"xp": 833.12,
+"yp": 1505.93,
+"symbol": "Garnet",
+"score": 0.735,
+"index_numbers": [
+85
+],
+"n_anchors": 1
+},
+{
+"cx": 758.5,
+"cy": 1204.0,
+"xp": 802.4,
+"yp": 1510.73,
+"symbol": "Garnet",
+"score": 0.735,
+"index_numbers": [
+84
+],
+"n_anchors": 1
+},
+{
+"cx": 851.5,
+"cy": 1223.0,
+"xp": 891.68,
+"yp": 1528.97,
+"symbol": "Garnet",
+"score": 0.735,
+"index_numbers": [
+91
+],
+"n_anchors": 1
+},
+{
+"cx": 605.5,
+"cy": 1052.0,
+"xp": 655.52,
+"yp": 1364.81,
+"symbol": "Garnet",
+"score": 0.735,
+"index_numbers": [
+26
+],
+"n_anchors": 1
+},
+{
+"cx": 342.5,
+"cy": 245.0,
+"xp": 403.04,
+"yp": 593.92,
+"symbol": "Garnet",
+"score": 0.735,
+"index_numbers": [
+20
+],
+"n_anchors": 1
+},
+{
+"cx": 958.5,
+"cy": 890.0,
+"xp": 994.4,
+"yp": 1210.25,
+"symbol": "Garnet",
+"score": 0.735,
+"index_numbers": [
+140
+],
+"n_anchors": 1
+},
+{
+"cx": 820.5,
+"cy": 1299.0,
+"xp": 861.92,
+"yp": 1600.98,
+"symbol": "Garnet",
+"score": 0.735,
+"index_numbers": [
+109
+],
+"n_anchors": 1
+},
+{
+"cx": 783.5,
+"cy": 1331.0,
+"xp": 826.4,
+"yp": 1631.7,
+"symbol": "Garnet",
+"score": 0.735,
+"index_numbers": [
+117,
+119
+],
+"n_anchors": 2
+},
+{
+"cx": 763.5,
+"cy": 1336.0,
+"xp": 807.2,
+"yp": 1636.5,
+"symbol": "Garnet",
+"score": 0.735,
+"index_numbers": [
+118
+],
+"n_anchors": 1
+},
+{
+"cx": 751.5,
+"cy": 1249.0,
+"xp": 795.68,
+"yp": 1553.93,
+"symbol": "Garnet",
+"score": 0.735,
+"index_numbers": [
+113
+],
+"n_anchors": 1
+},
+{
+"cx": 302.5,
+"cy": 943.5,
+"xp": 364.64,
+"yp": 1261.61,
+"symbol": "Pyrite / Pyroclore (py)",
+"score": 0.735,
+"index_numbers": [
+144
+],
+"n_anchors": 1
+},
+{
+"cx": 802.0,
+"cy": 332.5,
+"xp": 844.16,
+"yp": 676.97,
+"symbol": "Columbite",
+"score": 0.731,
+"index_numbers": [
+20
+],
+"n_anchors": 1
+},
+{
+"cx": 987.0,
+"cy": 623.5,
+"xp": 1021.76,
+"yp": 955.37,
+"symbol": "Columbite",
+"score": 0.731,
+"index_numbers": [
+162,
+164
+],
+"n_anchors": 2
+},
+{
+"cx": 842.5,
+"cy": 1435.5,
+"xp": 883.04,
+"yp": 1732.02,
+"symbol": "Clay / Pottery Clay",
+"score": 0.729,
+"index_numbers": [
+148
+],
+"n_anchors": 1
+},
+{
+"cx": 809.0,
+"cy": 1209.5,
+"xp": 850.88,
+"yp": 1516.01,
+"symbol": "Clay / Pottery Clay",
+"score": 0.728,
+"index_numbers": [
+67
+],
+"n_anchors": 1
+},
+{
+"cx": 1030.5,
+"cy": 403.0,
+"xp": 1063.52,
+"yp": 744.65,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.724,
+"index_numbers": [
+109
+],
+"n_anchors": 1
+},
+{
+"cx": 1116.0,
+"cy": 672.5,
+"xp": 1145.6,
+"yp": 1002.41,
+"symbol": "W olframite (w)",
+"score": 0.717,
+"index_numbers": [
+45
+],
+"n_anchors": 1
+},
+{
+"cx": 316.5,
+"cy": 411.5,
+"xp": 378.08,
+"yp": 752.81,
+"symbol": "Clay / Pottery Clay",
+"score": 0.717,
+"index_numbers": [
+30
+],
+"n_anchors": 1
+},
+{
+"cx": 765.0,
+"cy": 1477.0,
+"xp": 808.64,
+"yp": 1771.86,
+"symbol": "Clay / Pottery Clay",
+"score": 0.714,
+"index_numbers": [
+130
+],
+"n_anchors": 1
+},
+{
+"cx": 824.0,
+"cy": 1228.5,
+"xp": 865.28,
+"yp": 1534.25,
+"symbol": "Clay / Pottery Clay",
+"score": 0.712,
+"index_numbers": [
+88
+],
+"n_anchors": 1
+},
+{
+"cx": 642.5,
+"cy": 1018.5,
+"xp": 691.04,
+"yp": 1333.61,
+"symbol": "Uranium (u)",
+"score": 0.712,
+"index_numbers": [
+15,
+23
+],
+"n_anchors": 2
+},
+{
+"cx": 454.5,
+"cy": 1021.0,
+"xp": 510.56,
+"yp": 1335.05,
+"symbol": "Glass S and",
+"score": 0.707,
+"index_numbers": [
+134
+],
+"n_anchors": 1
+},
+{
+"cx": 1072.0,
+"cy": 673.5,
+"xp": 1103.36,
+"yp": 1003.37,
+"symbol": "R iver Gravel",
+"score": 0.705,
+"index_numbers": [
+58
+],
+"n_anchors": 1
+},
+{
+"cx": 1089.5,
+"cy": 847.5,
+"xp": 1120.16,
+"yp": 1169.45,
+"symbol": "Clay / Pottery Clay",
+"score": 0.701,
+"index_numbers": [
+107
+],
+"n_anchors": 1
+},
+{
+"cx": 60.5,
+"cy": 1089.0,
+"xp": 132.32,
+"yp": 1400.33,
+"symbol": "Clay / Pottery Clay",
+"score": 0.701,
+"index_numbers": [
+171
+],
+"n_anchors": 1
+},
+{
+"cx": 878.0,
+"cy": 1291.0,
+"xp": 917.12,
+"yp": 1593.3,
+"symbol": "Diatomite",
+"score": 0.7,
+"index_numbers": [
+187
+],
+"n_anchors": 1
+},
+{
+"cx": 632.5,
+"cy": 1111.0,
+"xp": 681.44,
+"yp": 1421.45,
+"symbol": "Glass S and",
+"score": 0.698,
+"index_numbers": [
+69
+],
+"n_anchors": 1
+},
+{
+"cx": 1829.0,
+"cy": 472.5,
+"xp": 1830.08,
+"yp": 811.37,
+"symbol": "Feldspar",
+"score": 0.695,
+"index_numbers": [
+71
+],
+"n_anchors": 1
+},
+{
+"cx": 1420.0,
+"cy": 658.5,
+"xp": 1437.44,
+"yp": 988.97,
+"symbol": "Coal",
+"score": 0.694,
+"index_numbers": [
+52
+],
+"n_anchors": 1
+},
+{
+"cx": 977.5,
+"cy": 1085.5,
+"xp": 1012.64,
+"yp": 1396.97,
+"symbol": "Gold",
+"score": 0.694,
+"index_numbers": [
+38,
+44
+],
+"n_anchors": 2
+},
+{
+"cx": 563.5,
+"cy": 1160.0,
+"xp": 615.2,
+"yp": 1468.49,
+"symbol": "T ar S and (ts)",
+"score": 0.694,
+"index_numbers": [
+80
+],
+"n_anchors": 1
+},
+{
+"cx": 919.5,
+"cy": 1303.5,
+"xp": 956.96,
+"yp": 1605.3,
+"symbol": "Clay / Pottery Clay",
+"score": 0.694,
+"index_numbers": [
+183
+],
+"n_anchors": 1
+},
+{
+"cx": 744.0,
+"cy": 474.5,
+"xp": 788.48,
+"yp": 813.29,
+"symbol": "S illimanite (sl)",
+"score": 0.691,
+"index_numbers": [
+118
+],
+"n_anchors": 1
+},
+{
+"cx": 1049.5,
+"cy": 714.0,
+"xp": 1081.76,
+"yp": 1042.25,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.687,
+"index_numbers": [
+67
+],
+"n_anchors": 1
+},
+{
+"cx": 974.5,
+"cy": 1468.5,
+"xp": 1009.76,
+"yp": 1763.7,
+"symbol": "M anganese",
+"score": 0.685,
+"index_numbers": [
+219
+],
+"n_anchors": 1
+},
+{
+"cx": 704.5,
+"cy": 1084.5,
+"xp": 750.56,
+"yp": 1396.01,
+"symbol": "Columbite",
+"score": 0.683,
+"index_numbers": [
+36
+],
+"n_anchors": 1
+},
+{
+"cx": 1043.0,
+"cy": 513.5,
+"xp": 1075.52,
+"yp": 849.77,
+"symbol": "W olframite (w)",
+"score": 0.679,
+"index_numbers": [
+90
+],
+"n_anchors": 1
+},
+{
+"cx": 208.5,
+"cy": 733.0,
+"xp": 274.4,
+"yp": 1060.49,
+"symbol": "S illimanite (sl)",
+"score": 0.679,
+"index_numbers": [
+75
+],
+"n_anchors": 1
+},
+{
+"cx": 908.0,
+"cy": 507.5,
+"xp": 945.92,
+"yp": 844.97,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.676,
+"index_numbers": [
+131
+],
+"n_anchors": 1
+},
+{
+"cx": 1035.0,
+"cy": 1000.0,
+"xp": 1067.84,
+"yp": 1315.85,
+"symbol": "Coal",
+"score": 0.675,
+"index_numbers": [
+18
+],
+"n_anchors": 1
+},
+{
+"cx": 682.5,
+"cy": 634.0,
+"xp": 729.44,
+"yp": 965.45,
+"symbol": "S illimanite (sl)",
+"score": 0.675,
+"index_numbers": [
+38
+],
+"n_anchors": 1
+},
+{
+"cx": 924.5,
+"cy": 461.0,
+"xp": 961.76,
+"yp": 800.33,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.674,
+"index_numbers": [
+125
+],
+"n_anchors": 1
+},
+{
+"cx": 990.0,
+"cy": 762.0,
+"xp": 1024.64,
+"yp": 1088.33,
+"symbol": "Columbite",
+"score": 0.674,
+"index_numbers": [
+203
+],
+"n_anchors": 1
+},
+{
+"cx": 880.5,
+"cy": 838.0,
+"xp": 919.52,
+"yp": 1160.33,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.674,
+"index_numbers": [
+135
+],
+"n_anchors": 1
+},
+{
+"cx": 941.0,
+"cy": 282.5,
+"xp": 977.6,
+"yp": 628.97,
+"symbol": "Glass S and",
+"score": 0.671,
+"index_numbers": [
+96
+],
+"n_anchors": 1
+},
+{
+"cx": 1040.0,
+"cy": 1338.0,
+"xp": 1072.64,
+"yp": 1638.42,
+"symbol": "Coal",
+"score": 0.67,
+"index_numbers": [
+208,
+209
+],
+"n_anchors": 2
+},
+{
+"cx": 1438.5,
+"cy": 607.5,
+"xp": 1455.2,
+"yp": 940.01,
+"symbol": "Feldspar",
+"score": 0.669,
+"index_numbers": [
+48
+],
+"n_anchors": 1
+},
+{
+"cx": 618.5,
+"cy": 1039.5,
+"xp": 668.0,
+"yp": 1352.81,
+"symbol": "Feldspar",
+"score": 0.669,
+"index_numbers": [
+24
+],
+"n_anchors": 1
+},
+{
+"cx": 809.5,
+"cy": 791.5,
+"xp": 851.36,
+"yp": 1115.69,
+"symbol": "Feldspar",
+"score": 0.669,
+"index_numbers": [
+211
+],
+"n_anchors": 1
+},
+{
+"cx": 1039.0,
+"cy": 1437.0,
+"xp": 1071.68,
+"yp": 1733.46,
+"symbol": "Garnet",
+"score": 0.669,
+"index_numbers": [
+223
+],
+"n_anchors": 1
+},
+{
+"cx": 1147.5,
+"cy": 800.5,
+"xp": 1175.84,
+"yp": 1124.33,
+"symbol": "Clay / Pottery Clay",
+"score": 0.667,
+"index_numbers": [
+89
+],
+"n_anchors": 1
+},
+{
+"cx": 1004.0,
+"cy": 1438.0,
+"xp": 1038.08,
+"yp": 1734.42,
+"symbol": "Diatomite",
+"score": 0.667,
+"index_numbers": [
+221
+],
+"n_anchors": 1
+},
+{
+"cx": 844.5,
+"cy": 352.5,
+"xp": 884.96,
+"yp": 696.17,
+"symbol": "Feldspar",
+"score": 0.665,
+"index_numbers": [
+24
+],
+"n_anchors": 1
+},
+{
+"cx": 679.5,
+"cy": 1061.5,
+"xp": 726.56,
+"yp": 1373.93,
+"symbol": "Feldspar",
+"score": 0.661,
+"index_numbers": [
+31
+],
+"n_anchors": 1
+},
+{
+"cx": 1003.5,
+"cy": 1213.0,
+"xp": 1037.6,
+"yp": 1519.37,
+"symbol": "Corundum, S apphire & R uby",
+"score": 0.657,
+"index_numbers": [
+197
+],
+"n_anchors": 1
+},
+{
+"cx": 820.0,
+"cy": 1259.0,
+"xp": 861.44,
+"yp": 1563.53,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.652,
+"index_numbers": [
+98,
+103
+],
+"n_anchors": 2
+},
+{
+"cx": 301.5,
+"cy": 1074.5,
+"xp": 363.68,
+"yp": 1386.41,
+"symbol": "Coal",
+"score": 0.652,
+"index_numbers": [
+150
+],
+"n_anchors": 1
+},
+{
+"cx": 315.5,
+"cy": 911.5,
+"xp": 377.12,
+"yp": 1230.89,
+"symbol": "Clay / Pottery Clay",
+"score": 0.65,
+"index_numbers": [
+110
+],
+"n_anchors": 1
+},
+{
+"cx": 271.5,
+"cy": 694.0,
+"xp": 334.88,
+"yp": 1023.05,
+"symbol": "R iver Gravel",
+"score": 0.648,
+"index_numbers": [
+71
+],
+"n_anchors": 1
+},
+{
+"cx": 236.5,
+"cy": 1138.0,
+"xp": 301.28,
+"yp": 1447.37,
+"symbol": "Flourite",
+"score": 0.648,
+"index_numbers": [
+166
+],
+"n_anchors": 1
+},
+{
+"cx": 1168.5,
+"cy": 469.5,
+"xp": 1196.0,
+"yp": 808.49,
+"symbol": "T ar S and (ts)",
+"score": 0.646,
+"index_numbers": [
+73
+],
+"n_anchors": 1
+},
+{
+"cx": 999.5,
+"cy": 971.5,
+"xp": 1033.76,
+"yp": 1288.49,
+"symbol": "Bitumen",
+"score": 0.645,
+"index_numbers": [
+178
+],
+"n_anchors": 1
+},
+{
+"cx": 502.0,
+"cy": 782.5,
+"xp": 556.16,
+"yp": 1107.05,
+"symbol": "Clay / Pottery Clay",
+"score": 0.644,
+"index_numbers": [
+49
+],
+"n_anchors": 1
+},
+{
+"cx": 1413.0,
+"cy": 141.5,
+"xp": 1430.72,
+"yp": 494.56,
+"symbol": "Clay / Pottery Clay",
+"score": 0.643,
+"index_numbers": [
+1
+],
+"n_anchors": 1
+},
+{
+"cx": 521.5,
+"cy": 968.0,
+"xp": 574.88,
+"yp": 1285.13,
+"symbol": "Columbite",
+"score": 0.643,
+"index_numbers": [
+124
+],
+"n_anchors": 1
+},
+{
+"cx": 331.0,
+"cy": 926.5,
+"xp": 392.0,
+"yp": 1245.29,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.641,
+"index_numbers": [
+111
+],
+"n_anchors": 1
+},
+{
+"cx": 804.5,
+"cy": 1286.5,
+"xp": 846.56,
+"yp": 1588.98,
+"symbol": "Fire Clay",
+"score": 0.639,
+"index_numbers": [
+105
+],
+"n_anchors": 1
+},
+{
+"cx": 690.0,
+"cy": 973.0,
+"xp": 736.64,
+"yp": 1289.93,
+"symbol": "Garnet",
+"score": 0.636,
+"index_numbers": [
+10
+],
+"n_anchors": 1
+},
+{
+"cx": 915.5,
+"cy": 1272.0,
+"xp": 953.12,
+"yp": 1576.01,
+"symbol": "Clay / Pottery Clay",
+"score": 0.636,
+"index_numbers": [
+178
+],
+"n_anchors": 1
+},
+{
+"cx": 541.5,
+"cy": 356.5,
+"xp": 594.08,
+"yp": 700.01,
+"symbol": "T alc (tc)",
+"score": 0.633,
+"index_numbers": [
+78,
+80
+],
+"n_anchors": 2
+},
+{
+"cx": 1000.5,
+"cy": 1328.0,
+"xp": 1034.72,
+"yp": 1628.82,
+"symbol": "T ar S and (ts)",
+"score": 0.633,
+"index_numbers": [
+207
+],
+"n_anchors": 1
+},
+{
+"cx": 828.5,
+"cy": 1185.5,
+"xp": 869.6,
+"yp": 1492.97,
+"symbol": "Coal",
+"score": 0.631,
+"index_numbers": [
+75
+],
+"n_anchors": 1
+},
+{
+"cx": 757.5,
+"cy": 375.5,
+"xp": 801.44,
+"yp": 718.25,
+"symbol": "T alc (tc)",
+"score": 0.628,
+"index_numbers": [
+27
+],
+"n_anchors": 1
+},
+{
+"cx": 613.5,
+"cy": 628.5,
+"xp": 663.2,
+"yp": 960.17,
+"symbol": "T alc (tc)",
+"score": 0.628,
+"index_numbers": [
+33
+],
+"n_anchors": 1
+},
+{
+"cx": 620.5,
+"cy": 598.5,
+"xp": 669.92,
+"yp": 931.37,
+"symbol": "T alc (tc)",
+"score": 0.628,
+"index_numbers": [
+30
+],
+"n_anchors": 1
+},
+{
+"cx": 715.5,
+"cy": 843.5,
+"xp": 761.12,
+"yp": 1165.61,
+"symbol": "T alc (tc)",
+"score": 0.628,
+"index_numbers": [
+130
+],
+"n_anchors": 1
+},
+{
+"cx": 757.5,
+"cy": 995.5,
+"xp": 801.44,
+"yp": 1311.53,
+"symbol": "T alc (tc)",
+"score": 0.628,
+"index_numbers": [
+223
+],
+"n_anchors": 1
+},
+{
+"cx": 470.5,
+"cy": 1218.5,
+"xp": 525.92,
+"yp": 1524.65,
+"symbol": "Glass S and",
+"score": 0.627,
+"index_numbers": [
+87
+],
+"n_anchors": 1
+},
+{
+"cx": 636.5,
+"cy": 229.5,
+"xp": 685.28,
+"yp": 579.04,
+"symbol": "Coal",
+"score": 0.626,
+"index_numbers": [
+50
+],
+"n_anchors": 1
+},
+{
+"cx": 647.5,
+"cy": 663.5,
+"xp": 695.84,
+"yp": 993.77,
+"symbol": "Clay / Pottery Clay",
+"score": 0.625,
+"index_numbers": [
+37
+],
+"n_anchors": 1
+},
+{
+"cx": 555.5,
+"cy": 894.5,
+"xp": 607.52,
+"yp": 1214.57,
+"symbol": "Clay / Pottery Clay",
+"score": 0.625,
+"index_numbers": [
+87
+],
+"n_anchors": 1
+},
+{
+"cx": 735.5,
+"cy": 562.5,
+"xp": 780.32,
+"yp": 896.81,
+"symbol": "Clay / Pottery Clay",
+"score": 0.625,
+"index_numbers": [
+14
+],
+"n_anchors": 1
+},
+{
+"cx": 962.5,
+"cy": 1453.0,
+"xp": 998.24,
+"yp": 1748.82,
+"symbol": "Flourite",
+"score": 0.623,
+"index_numbers": [
+218
+],
+"n_anchors": 1
+},
+{
+"cx": 842.5,
+"cy": 1502.0,
+"xp": 883.04,
+"yp": 1795.86,
+"symbol": "Clay / Pottery Clay",
+"score": 0.617,
+"index_numbers": [
+165
+],
+"n_anchors": 1
+},
+{
+"cx": 1142.0,
+"cy": 870.5,
+"xp": 1170.56,
+"yp": 1191.53,
+"symbol": "Feldspar",
+"score": 0.616,
+"index_numbers": [
+116
+],
+"n_anchors": 1
+},
+{
+"cx": 895.0,
+"cy": 811.5,
+"xp": 933.44,
+"yp": 1134.89,
+"symbol": "R iver Gravel",
+"score": 0.615,
+"index_numbers": [
+120
+],
+"n_anchors": 1
+},
+{
+"cx": 1587.5,
+"cy": 976.0,
+"xp": 1598.24,
+"yp": 1292.81,
+"symbol": "T ar S and (ts)",
+"score": 0.614,
+"index_numbers": [
+11
+],
+"n_anchors": 1
+},
+{
+"cx": 380.5,
+"cy": 901.5,
+"xp": 439.52,
+"yp": 1221.29,
+"symbol": "Uranium (u)",
+"score": 0.612,
+"index_numbers": [
+101,
+105
+],
+"n_anchors": 2
+},
+{
+"cx": 1089.5,
+"cy": 1017.5,
+"xp": 1120.16,
+"yp": 1332.65,
+"symbol": "Feldspar",
+"score": 0.61,
+"index_numbers": [
+23
+],
+"n_anchors": 1
+},
+{
+"cx": 1486.5,
+"cy": 1142.5,
+"xp": 1501.28,
+"yp": 1451.69,
+"symbol": "Bitumen",
+"score": 0.61,
+"index_numbers": [
+12
+],
+"n_anchors": 1
+},
+{
+"cx": 366.0,
+"cy": 1072.0,
+"xp": 425.6,
+"yp": 1384.01,
+"symbol": "T alc (tc)",
+"score": 0.607,
+"index_numbers": [
+151
+],
+"n_anchors": 1
+},
+{
+"cx": 439.5,
+"cy": 1070.0,
+"xp": 496.16,
+"yp": 1382.09,
+"symbol": "Uranium (u)",
+"score": 0.606,
+"index_numbers": [
+140
+],
+"n_anchors": 1
+},
+{
+"cx": 1459.0,
+"cy": 499.0,
+"xp": 1474.88,
+"yp": 836.81,
+"symbol": "M anganese",
+"score": 0.604,
+"index_numbers": [
+36,
+37
+],
+"n_anchors": 2
+},
+{
+"cx": 977.5,
+"cy": 1040.0,
+"xp": 1012.64,
+"yp": 1353.29,
+"symbol": "Fire Clay",
+"score": 0.603,
+"index_numbers": [
+20
+],
+"n_anchors": 1
+},
+{
+"cx": 812.0,
+"cy": 243.0,
+"xp": 853.76,
+"yp": 592.0,
+"symbol": "R iver Gravel",
+"score": 0.601,
+"index_numbers": [
+16
+],
+"n_anchors": 1
+},
+{
+"cx": 1492.0,
+"cy": 493.0,
+"xp": 1506.56,
+"yp": 831.05,
+"symbol": "Coal",
+"score": 0.592,
+"index_numbers": [
+32
+],
+"n_anchors": 1
+},
+{
+"cx": 825.5,
+"cy": 1200.5,
+"xp": 866.72,
+"yp": 1507.37,
+"symbol": "Pyrite / Pyroclore (py)",
+"score": 0.592,
+"index_numbers": [
+86
+],
+"n_anchors": 1
+},
+{
+"cx": 547.0,
+"cy": 853.5,
+"xp": 599.36,
+"yp": 1175.21,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.592,
+"index_numbers": [
+65
+],
+"n_anchors": 1
+},
+{
+"cx": 229.5,
+"cy": 381.0,
+"xp": 294.56,
+"yp": 723.53,
+"symbol": "Garnet",
+"score": 0.592,
+"index_numbers": [
+29
+],
+"n_anchors": 1
+},
+{
+"cx": 901.5,
+"cy": 1526.5,
+"xp": 939.68,
+"yp": 1819.38,
+"symbol": "Fire Clay",
+"score": 0.592,
+"index_numbers": [
+168,
+169
+],
+"n_anchors": 2
+},
+{
+"cx": 1529.0,
+"cy": 317.5,
+"xp": 1542.08,
+"yp": 662.57,
+"symbol": "Clay / Pottery Clay",
+"score": 0.59,
+"index_numbers": [
+14
+],
+"n_anchors": 1
+},
+{
+"cx": 864.0,
+"cy": 1219.5,
+"xp": 903.68,
+"yp": 1525.61,
+"symbol": "M anganese",
+"score": 0.59,
+"index_numbers": [
+89,
+90
+],
+"n_anchors": 2
+},
+{
+"cx": 1202.5,
+"cy": 456.0,
+"xp": 1228.64,
+"yp": 795.53,
+"symbol": "Bitumen",
+"score": 0.588,
+"index_numbers": [
+50
+],
+"n_anchors": 1
+},
+{
+"cx": 1615.0,
+"cy": 551.0,
+"xp": 1624.64,
+"yp": 885.77,
+"symbol": "Diatomite",
+"score": 0.586,
+"index_numbers": [
+75
+],
+"n_anchors": 1
+},
+{
+"cx": 61.0,
+"cy": 1189.0,
+"xp": 132.8,
+"yp": 1496.33,
+"symbol": "Gold",
+"score": 0.585,
+"index_numbers": [
+183
+],
+"n_anchors": 1
+},
+{
+"cx": 423.5,
+"cy": 152.5,
+"xp": 480.8,
+"yp": 505.12,
+"symbol": "Diatomite",
+"score": 0.583,
+"index_numbers": [
+13
+],
+"n_anchors": 1
+},
+{
+"cx": 546.5,
+"cy": 1266.5,
+"xp": 598.88,
+"yp": 1570.73,
+"symbol": "Coal",
+"score": 0.581,
+"index_numbers": [
+97
+],
+"n_anchors": 1
+},
+{
+"cx": 763.5,
+"cy": 222.5,
+"xp": 807.2,
+"yp": 572.32,
+"symbol": "Clay / Pottery Clay",
+"score": 0.578,
+"index_numbers": [
+13
+],
+"n_anchors": 1
+},
+{
+"cx": 765.5,
+"cy": 717.5,
+"xp": 809.12,
+"yp": 1045.61,
+"symbol": "S illimanite (sl)",
+"score": 0.577,
+"index_numbers": [
+229
+],
+"n_anchors": 1
+},
+{
+"cx": 785.5,
+"cy": 1306.5,
+"xp": 828.32,
+"yp": 1608.18,
+"symbol": "Coal",
+"score": 0.577,
+"index_numbers": [
+104
+],
+"n_anchors": 1
+},
+{
+"cx": 850.0,
+"cy": 1280.0,
+"xp": 890.24,
+"yp": 1582.74,
+"symbol": "M anganese",
+"score": 0.576,
+"index_numbers": [
+102
+],
+"n_anchors": 1
+},
+{
+"cx": 1298.5,
+"cy": 602.0,
+"xp": 1320.8,
+"yp": 934.73,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.575,
+"index_numbers": [
+76
+],
+"n_anchors": 1
+},
+{
+"cx": 1434.5,
+"cy": 1152.0,
+"xp": 1451.36,
+"yp": 1460.81,
+"symbol": "T ar S and (ts)",
+"score": 0.574,
+"index_numbers": [
+11
+],
+"n_anchors": 1
+},
+{
+"cx": 909.5,
+"cy": 830.0,
+"xp": 947.36,
+"yp": 1152.65,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.574,
+"index_numbers": [
+122
+],
+"n_anchors": 1
+},
+{
+"cx": 86.5,
+"cy": 879.5,
+"xp": 157.28,
+"yp": 1200.17,
+"symbol": "T alc (tc)",
+"score": 0.572,
+"index_numbers": [
+131
+],
+"n_anchors": 1
+},
+{
+"cx": 204.0,
+"cy": 1208.0,
+"xp": 270.08,
+"yp": 1514.57,
+"symbol": "Diatomite",
+"score": 0.571,
+"index_numbers": [
+195
+],
+"n_anchors": 1
+},
+{
+"cx": 1149.5,
+"cy": 1074.5,
+"xp": 1177.76,
+"yp": 1386.41,
+"symbol": "M anganese",
+"score": 0.569,
+"index_numbers": [
+29
+],
+"n_anchors": 1
+},
+{
+"cx": 1094.5,
+"cy": 1079.5,
+"xp": 1124.96,
+"yp": 1391.21,
+"symbol": "M anganese",
+"score": 0.569,
+"index_numbers": [
+30
+],
+"n_anchors": 1
+},
+{
+"cx": 968.5,
+"cy": 1142.5,
+"xp": 1004.0,
+"yp": 1451.69,
+"symbol": "M anganese",
+"score": 0.569,
+"index_numbers": [
+55
+],
+"n_anchors": 1
+},
+{
+"cx": 1027.5,
+"cy": 1159.5,
+"xp": 1060.64,
+"yp": 1468.01,
+"symbol": "M anganese",
+"score": 0.569,
+"index_numbers": [
+57
+],
+"n_anchors": 1
+},
+{
+"cx": 879.5,
+"cy": 1397.5,
+"xp": 918.56,
+"yp": 1695.54,
+"symbol": "M anganese",
+"score": 0.569,
+"index_numbers": [
+152,
+153
+],
+"n_anchors": 2
+},
+{
+"cx": 1029.0,
+"cy": 1179.5,
+"xp": 1062.08,
+"yp": 1487.21,
+"symbol": "Clay / Pottery Clay",
+"score": 0.567,
+"index_numbers": [
+56
+],
+"n_anchors": 1
+},
+{
+"cx": 1490.5,
+"cy": 443.0,
+"xp": 1505.12,
+"yp": 783.05,
+"symbol": "Diatomite",
+"score": 0.564,
+"index_numbers": [
+25
+],
+"n_anchors": 1
+},
+{
+"cx": 564.5,
+"cy": 1130.5,
+"xp": 616.16,
+"yp": 1440.17,
+"symbol": "Uranium (u)",
+"score": 0.563,
+"index_numbers": [
+79
+],
+"n_anchors": 1
+},
+{
+"cx": 1036.0,
+"cy": 698.0,
+"xp": 1068.8,
+"yp": 1026.89,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.561,
+"index_numbers": [
+65
+],
+"n_anchors": 1
+},
+{
+"cx": 657.5,
+"cy": 1059.5,
+"xp": 705.44,
+"yp": 1372.01,
+"symbol": "Uranium (u)",
+"score": 0.56,
+"index_numbers": [
+25
+],
+"n_anchors": 1
+},
+{
+"cx": 1525.5,
+"cy": 220.5,
+"xp": 1538.72,
+"yp": 570.4,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.559,
+"index_numbers": [
+9
+],
+"n_anchors": 1
+},
+{
+"cx": 493.5,
+"cy": 939.0,
+"xp": 548.0,
+"yp": 1257.29,
+"symbol": "T alc (tc)",
+"score": 0.558,
+"index_numbers": [
+118
+],
+"n_anchors": 1
+},
+{
+"cx": 1040.0,
+"cy": 792.0,
+"xp": 1072.64,
+"yp": 1116.17,
+"symbol": "R iver Gravel",
+"score": 0.553,
+"index_numbers": [
+103,
+104
+],
+"n_anchors": 2
+},
+{
+"cx": 1088.0,
+"cy": 966.0,
+"xp": 1118.72,
+"yp": 1283.21,
+"symbol": "Coal",
+"score": 0.553,
+"index_numbers": [
+173
+],
+"n_anchors": 1
+},
+{
+"cx": 1412.5,
+"cy": 690.5,
+"xp": 1430.24,
+"yp": 1019.69,
+"symbol": "Coal",
+"score": 0.551,
+"index_numbers": [
+17
+],
+"n_anchors": 1
+},
+{
+"cx": 631.5,
+"cy": 1160.5,
+"xp": 680.48,
+"yp": 1468.97,
+"symbol": "Coal",
+"score": 0.55,
+"index_numbers": [
+85
+],
+"n_anchors": 1
+},
+{
+"cx": 97.5,
+"cy": 967.5,
+"xp": 167.84,
+"yp": 1284.65,
+"symbol": "T alc (tc)",
+"score": 0.55,
+"index_numbers": [
+136
+],
+"n_anchors": 1
+},
+{
+"cx": 965.5,
+"cy": 1428.5,
+"xp": 1001.12,
+"yp": 1725.3,
+"symbol": "Flourite",
+"score": 0.549,
+"index_numbers": [
+216
+],
+"n_anchors": 1
+},
+{
+"cx": 974.0,
+"cy": 1177.5,
+"xp": 1009.28,
+"yp": 1485.29,
+"symbol": "Fire Clay",
+"score": 0.546,
+"index_numbers": [
+53,
+54
+],
+"n_anchors": 2
+},
+{
+"cx": 363.0,
+"cy": 838.5,
+"xp": 422.72,
+"yp": 1160.81,
+"symbol": "Flourite",
+"score": 0.544,
+"index_numbers": [
+94
+],
+"n_anchors": 1
+},
+{
+"cx": 799.5,
+"cy": 1305.0,
+"xp": 841.76,
+"yp": 1606.74,
+"symbol": "Garnet",
+"score": 0.544,
+"index_numbers": [
+108
+],
+"n_anchors": 1
+},
+{
+"cx": 294.0,
+"cy": 899.5,
+"xp": 356.48,
+"yp": 1219.37,
+"symbol": "Flourite",
+"score": 0.544,
+"index_numbers": [
+100
+],
+"n_anchors": 1
+},
+{
+"cx": 762.0,
+"cy": 1309.5,
+"xp": 805.76,
+"yp": 1611.06,
+"symbol": "T ar S and (ts)",
+"score": 0.543,
+"index_numbers": [
+116
+],
+"n_anchors": 1
+},
+{
+"cx": 1434.5,
+"cy": 574.5,
+"xp": 1451.36,
+"yp": 908.33,
+"symbol": "T ar S and (ts)",
+"score": 0.542,
+"index_numbers": [
+43
+],
+"n_anchors": 1
+},
+{
+"cx": 745.5,
+"cy": 622.0,
+"xp": 789.92,
+"yp": 953.93,
+"symbol": "R iver Gravel",
+"score": 0.539,
+"index_numbers": [
+158
+],
+"n_anchors": 1
+},
+{
+"cx": 1112.0,
+"cy": 1217.5,
+"xp": 1141.76,
+"yp": 1523.69,
+"symbol": "Bitumen",
+"score": 0.538,
+"index_numbers": [
+201
+],
+"n_anchors": 1
+},
+{
+"cx": 952.0,
+"cy": 704.5,
+"xp": 988.16,
+"yp": 1033.13,
+"symbol": "T alc (tc)",
+"score": 0.536,
+"index_numbers": [
+191
+],
+"n_anchors": 1
+},
+{
+"cx": 809.5,
+"cy": 263.0,
+"xp": 851.36,
+"yp": 610.25,
+"symbol": "Baryte",
+"score": 0.533,
+"index_numbers": [
+18
+],
+"n_anchors": 1
+},
+{
+"cx": 1132.5,
+"cy": 1052.5,
+"xp": 1161.44,
+"yp": 1365.29,
+"symbol": "Fire Clay",
+"score": 0.533,
+"index_numbers": [
+27,
+28
+],
+"n_anchors": 2
+},
+{
+"cx": 532.5,
+"cy": 1055.0,
+"xp": 585.44,
+"yp": 1367.69,
+"symbol": "T ar S and (ts)",
+"score": 0.532,
+"index_numbers": [
+102,
+103
+],
+"n_anchors": 2
+},
+{
+"cx": 716.0,
+"cy": 1283.0,
+"xp": 761.6,
+"yp": 1585.62,
+"symbol": "Clay / Pottery Clay",
+"score": 0.531,
+"index_numbers": [
+42
+],
+"n_anchors": 1
+},
+{
+"cx": 500.0,
+"cy": 76.5,
+"xp": 554.24,
+"yp": 432.16,
+"symbol": "Fire Clay",
+"score": 0.53,
+"index_numbers": [
+6
+],
+"n_anchors": 1
+},
+{
+"cx": 1592.5,
+"cy": 598.0,
+"xp": 1603.04,
+"yp": 930.89,
+"symbol": "Clay / Pottery Clay",
+"score": 0.528,
+"index_numbers": [
+80
+],
+"n_anchors": 1
+},
+{
+"cx": 680.5,
+"cy": 1005.5,
+"xp": 727.52,
+"yp": 1321.13,
+"symbol": "Clay / Pottery Clay",
+"score": 0.528,
+"index_numbers": [
+12
+],
+"n_anchors": 1
+},
+{
+"cx": 126.0,
+"cy": 987.0,
+"xp": 195.2,
+"yp": 1303.37,
+"symbol": "T alc (tc)",
+"score": 0.526,
+"index_numbers": [
+160
+],
+"n_anchors": 1
+},
+{
+"cx": 1449.0,
+"cy": 128.0,
+"xp": 1465.28,
+"yp": 481.6,
+"symbol": "Lignite",
+"score": 0.525,
+"index_numbers": [
+3
+],
+"n_anchors": 1
+},
+{
+"cx": 685.5,
+"cy": 417.0,
+"xp": 732.32,
+"yp": 758.09,
+"symbol": "T antalite (ta)",
+"score": 0.524,
+"index_numbers": [
+88
+],
+"n_anchors": 1
+},
+{
+"cx": 1208.5,
+"cy": 750.0,
+"xp": 1234.4,
+"yp": 1076.81,
+"symbol": "T antalite (ta)",
+"score": 0.524,
+"index_numbers": [
+79,
+84
+],
+"n_anchors": 2
+},
+{
+"cx": 722.5,
+"cy": 1489.5,
+"xp": 767.84,
+"yp": 1783.86,
+"symbol": "S illimanite (sl)",
+"score": 0.521,
+"index_numbers": [
+52
+],
+"n_anchors": 1
+},
+{
+"cx": 1681.5,
+"cy": 633.5,
+"xp": 1688.48,
+"yp": 964.97,
+"symbol": "Feldspar",
+"score": 0.518,
+"index_numbers": [
+86
+],
+"n_anchors": 1
+},
+{
+"cx": 970.5,
+"cy": 494.0,
+"xp": 1005.92,
+"yp": 832.01,
+"symbol": "R iver Gravel",
+"score": 0.518,
+"index_numbers": [
+129,
+135
+],
+"n_anchors": 2
+},
+{
+"cx": 390.0,
+"cy": 861.0,
+"xp": 448.64,
+"yp": 1182.41,
+"symbol": "T ar S and (ts)",
+"score": 0.517,
+"index_numbers": [
+92
+],
+"n_anchors": 1
+},
+{
+"cx": 1565.0,
+"cy": 588.5,
+"xp": 1576.64,
+"yp": 921.77,
+"symbol": "Coal",
+"score": 0.516,
+"index_numbers": [
+76
+],
+"n_anchors": 1
+},
+{
+"cx": 277.0,
+"cy": 376.0,
+"xp": 340.16,
+"yp": 718.73,
+"symbol": "Lignite",
+"score": 0.512,
+"index_numbers": [
+101
+],
+"n_anchors": 1
+},
+{
+"cx": 366.0,
+"cy": 1051.0,
+"xp": 425.6,
+"yp": 1363.85,
+"symbol": "Clay / Pottery Clay",
+"score": 0.511,
+"index_numbers": [
+149
+],
+"n_anchors": 1
+},
+{
+"cx": 900.0,
+"cy": 1184.5,
+"xp": 938.24,
+"yp": 1492.01,
+"symbol": "M anganese",
+"score": 0.504,
+"index_numbers": [
+51
+],
+"n_anchors": 1
+},
+{
+"cx": 882.0,
+"cy": 1526.0,
+"xp": 920.96,
+"yp": 1818.9,
+"symbol": "Clay / Pottery Clay",
+"score": 0.5,
+"index_numbers": [
+170
+],
+"n_anchors": 1
+},
+{
+"cx": 894.0,
+"cy": 745.0,
+"xp": 932.48,
+"yp": 1072.01,
+"symbol": "Coal",
+"score": 0.494,
+"index_numbers": [
+196
+],
+"n_anchors": 1
+},
+{
+"cx": 1077.0,
+"cy": 711.5,
+"xp": 1108.16,
+"yp": 1039.85,
+"symbol": "T ar S and (ts)",
+"score": 0.492,
+"index_numbers": [
+70
+],
+"n_anchors": 1
+},
+{
+"cx": 117.0,
+"cy": 1136.5,
+"xp": 186.56,
+"yp": 1445.93,
+"symbol": "S ilica S and (ss)",
+"score": 0.491,
+"index_numbers": [
+176
+],
+"n_anchors": 1
+},
+{
+"cx": 931.5,
+"cy": 1376.0,
+"xp": 968.48,
+"yp": 1674.9,
+"symbol": "Fire Clay",
+"score": 0.49,
+"index_numbers": [
+213
+],
+"n_anchors": 1
+},
+{
+"cx": 846.5,
+"cy": 934.0,
+"xp": 886.88,
+"yp": 1252.49,
+"symbol": "T ar S and (ts)",
+"score": 0.488,
+"index_numbers": [
+157
+],
+"n_anchors": 1
+},
+{
+"cx": 567.0,
+"cy": 816.0,
+"xp": 618.56,
+"yp": 1139.21,
+"symbol": "T ar S and (ts)",
+"score": 0.485,
+"index_numbers": [
+61
+],
+"n_anchors": 1
+},
+{
+"cx": 803.5,
+"cy": 853.0,
+"xp": 845.6,
+"yp": 1174.73,
+"symbol": "T alc (tc)",
+"score": 0.483,
+"index_numbers": [
+219
+],
+"n_anchors": 1
+},
+{
+"cx": 787.5,
+"cy": 160.0,
+"xp": 830.24,
+"yp": 512.32,
+"symbol": "R iver Gravel",
+"score": 0.48,
+"index_numbers": [
+3
+],
+"n_anchors": 1
+},
+{
+"cx": 264.5,
+"cy": 1117.0,
+"xp": 328.16,
+"yp": 1427.21,
+"symbol": "T alc (tc)",
+"score": 0.473,
+"index_numbers": [
+154
+],
+"n_anchors": 1
+},
+{
+"cx": 863.0,
+"cy": 1451.5,
+"xp": 902.72,
+"yp": 1747.38,
+"symbol": "Pyrite / Pyroclore (py)",
+"score": 0.471,
+"index_numbers": [
+157,
+159
+],
+"n_anchors": 2
+},
+{
+"cx": 1366.5,
+"cy": 688.5,
+"xp": 1386.08,
+"yp": 1017.77,
+"symbol": "Fire Clay",
+"score": 0.47,
+"index_numbers": [
+48
+],
+"n_anchors": 1
+},
+{
+"cx": 263.5,
+"cy": 873.0,
+"xp": 327.2,
+"yp": 1193.93,
+"symbol": "Feldspar",
+"score": 0.469,
+"index_numbers": [
+115
+],
+"n_anchors": 1
+},
+{
+"cx": 356.5,
+"cy": 537.5,
+"xp": 416.48,
+"yp": 872.81,
+"symbol": "S illimanite (sl)",
+"score": 0.467,
+"index_numbers": [
+67
+],
+"n_anchors": 1
+},
+{
+"cx": 61.0,
+"cy": 1113.5,
+"xp": 132.8,
+"yp": 1423.85,
+"symbol": "S ilica S and (ss)",
+"score": 0.465,
+"index_numbers": [
+173
+],
+"n_anchors": 1
+},
+{
+"cx": 1292.0,
+"cy": 797.5,
+"xp": 1314.56,
+"yp": 1121.45,
+"symbol": "Feldspar",
+"score": 0.464,
+"index_numbers": [
+101
+],
+"n_anchors": 1
+},
+{
+"cx": 434.0,
+"cy": 1034.0,
+"xp": 490.88,
+"yp": 1347.53,
+"symbol": "Lignite",
+"score": 0.463,
+"index_numbers": [
+135
+],
+"n_anchors": 1
+},
+{
+"cx": 1001.5,
+"cy": 1449.0,
+"xp": 1035.68,
+"yp": 1744.98,
+"symbol": "Iron Ore (M agnetite, Ilmenite)",
+"score": 0.461,
+"index_numbers": [
+222
+],
+"n_anchors": 1
+},
+{
+"cx": 875.5,
+"cy": 800.5,
+"xp": 914.72,
+"yp": 1124.33,
+"symbol": "Feldspar",
+"score": 0.46,
+"index_numbers": [
+121
+],
+"n_anchors": 1
+},
+{
+"cx": 977.5,
+"cy": 881.0,
+"xp": 1012.64,
+"yp": 1201.61,
+"symbol": "Feldspar",
+"score": 0.46,
+"index_numbers": [
+144
+],
+"n_anchors": 1
+},
+{
+"cx": 1074.5,
+"cy": 940.0,
+"xp": 1105.76,
+"yp": 1258.25,
+"symbol": "Feldspar",
+"score": 0.46,
+"index_numbers": [
+171
+],
+"n_anchors": 1
+},
+{
+"cx": 893.5,
+"cy": 1309.0,
+"xp": 932.0,
+"yp": 1610.58,
+"symbol": "Feldspar",
+"score": 0.46,
+"index_numbers": [
+188
+],
+"n_anchors": 1
+},
+{
+"cx": 886.5,
+"cy": 1421.5,
+"xp": 925.28,
+"yp": 1718.58,
+"symbol": "Fire Clay",
+"score": 0.46,
+"index_numbers": [
+154
+],
+"n_anchors": 1
+},
+{
+"cx": 779.5,
+"cy": 179.5,
+"xp": 822.56,
+"yp": 531.04,
+"symbol": "Clay / Pottery Clay",
+"score": 0.453,
+"index_numbers": [
+10
+],
+"n_anchors": 1
+},
+{
+"cx": 505.5,
+"cy": 897.0,
+"xp": 559.52,
+"yp": 1216.97,
+"symbol": "Glass S and",
+"score": 0.452,
+"index_numbers": [
+86,
+89
+],
+"n_anchors": 2
+},
+{
+"cx": 589.5,
+"cy": 1147.5,
+"xp": 640.16,
+"yp": 1456.49,
+"symbol": "M anganese",
+"score": 0.451,
+"index_numbers": [
+74
+],
+"n_anchors": 1
+},
+{
+"cx": 1481.5,
+"cy": 475.5,
+"xp": 1496.48,
+"yp": 814.25,
+"symbol": "M anganese",
+"score": 0.449,
+"index_numbers": [
+26
+],
+"n_anchors": 1
+},
+{
+"cx": 909.0,
+"cy": 963.0,
+"xp": 946.88,
+"yp": 1280.33,
+"symbol": "Lignite",
+"score": 0.447,
+"index_numbers": [
+180
+],
+"n_anchors": 1
+},
+{
+"cx": 1214.0,
+"cy": 787.5,
+"xp": 1239.68,
+"yp": 1111.85,
+"symbol": "T rona (tr)",
+"score": 0.443,
+"index_numbers": [
+90
+],
+"n_anchors": 1
+},
+{
+"cx": 707.0,
+"cy": 428.5,
+"xp": 752.96,
+"yp": 769.13,
+"symbol": "T rona (tr)",
+"score": 0.441,
+"index_numbers": [
+89
+],
+"n_anchors": 1
+},
+{
+"cx": 354.0,
+"cy": 1011.0,
+"xp": 414.08,
+"yp": 1326.41,
+"symbol": "T ar S and (ts)",
+"score": 0.441,
+"index_numbers": [
+144
+],
+"n_anchors": 1
+},
+{
+"cx": 417.5,
+"cy": 887.0,
+"xp": 475.04,
+"yp": 1207.37,
+"symbol": "T ar S and (ts)",
+"score": 0.438,
+"index_numbers": [
+83
+],
+"n_anchors": 1
+},
+{
+"cx": 753.0,
+"cy": 900.5,
+"xp": 797.12,
+"yp": 1220.33,
+"symbol": "T rona (tr)",
+"score": 0.438,
+"index_numbers": [
+224
+],
+"n_anchors": 1
+},
+{
+"cx": 884.0,
+"cy": 955.5,
+"xp": 922.88,
+"yp": 1273.13,
+"symbol": "T rona (tr)",
+"score": 0.438,
+"index_numbers": [
+183
+],
+"n_anchors": 1
+},
+{
+"cx": 819.5,
+"cy": 500.5,
+"xp": 860.96,
+"yp": 838.25,
+"symbol": "T rona (tr)",
+"score": 0.436,
+"index_numbers": [
+132
+],
+"n_anchors": 1
+},
+{
+"cx": 1541.0,
+"cy": 439.0,
+"xp": 1553.6,
+"yp": 779.21,
+"symbol": "Coal",
+"score": 0.434,
+"index_numbers": [
+22
+],
+"n_anchors": 1
+},
+{
+"cx": 355.5,
+"cy": 1054.0,
+"xp": 415.52,
+"yp": 1366.73,
+"symbol": "M onaz ite",
+"score": 0.434,
+"index_numbers": [
+148
+],
+"n_anchors": 1
+},
+{
+"cx": 878.0,
+"cy": 914.5,
+"xp": 917.12,
+"yp": 1233.77,
+"symbol": "T rona (tr)",
+"score": 0.432,
+"index_numbers": [
+158
+],
+"n_anchors": 1
+},
+{
+"cx": 1085.0,
+"cy": 1029.5,
+"xp": 1115.84,
+"yp": 1343.21,
+"symbol": "Feldspar",
+"score": 0.43,
+"index_numbers": [
+24,
+25
+],
+"n_anchors": 2
+},
+{
+"cx": 1095.0,
+"cy": 618.5,
+"xp": 1125.44,
+"yp": 950.57,
+"symbol": "T rona (tr)",
+"score": 0.429,
+"index_numbers": [
+81
+],
+"n_anchors": 1
+},
+{
+"cx": 1073.0,
+"cy": 1035.0,
+"xp": 1104.32,
+"yp": 1348.49,
+"symbol": "Feldspar",
+"score": 0.428,
+"index_numbers": [
+22
+],
+"n_anchors": 1
+},
+{
+"cx": 621.5,
+"cy": 521.5,
+"xp": 670.88,
+"yp": 857.45,
+"symbol": "S illimanite (sl)",
+"score": 0.428,
+"index_numbers": [
+16
+],
+"n_anchors": 1
+},
+{
+"cx": 1050.0,
+"cy": 1033.0,
+"xp": 1082.24,
+"yp": 1346.57,
+"symbol": "T ar S and (ts)",
+"score": 0.427,
+"index_numbers": [
+21
+],
+"n_anchors": 1
+},
+{
+"cx": 460.0,
+"cy": 509.0,
+"xp": 515.84,
+"yp": 846.41,
+"symbol": "T rona (tr)",
+"score": 0.425,
+"index_numbers": [
+20
+],
+"n_anchors": 1
+},
+{
+"cx": 870.5,
+"cy": 1068.5,
+"xp": 909.92,
+"yp": 1380.65,
+"symbol": "T ar S and (ts)",
+"score": 0.424,
+"index_numbers": [
+68
+],
+"n_anchors": 1
+},
+{
+"cx": 1016.5,
+"cy": 314.5,
+"xp": 1050.08,
+"yp": 659.69,
+"symbol": "K aolin / k aolinitic clay",
+"score": 0.422,
+"index_numbers": [
+99
+],
+"n_anchors": 1
+},
+{
+"cx": 54.5,
+"cy": 957.0,
+"xp": 126.56,
+"yp": 1274.57,
+"symbol": "T ar S and (ts)",
+"score": 0.421,
+"index_numbers": [
+141
+],
+"n_anchors": 1
+},
+{
+"cx": 218.5,
+"cy": 1191.0,
+"xp": 284.0,
+"yp": 1498.25,
+"symbol": "Coal",
+"score": 0.419,
+"index_numbers": [
+194
+],
+"n_anchors": 1
+},
+{
+"cx": 569.5,
+"cy": 920.5,
+"xp": 620.96,
+"yp": 1239.53,
+"symbol": "Feldspar",
+"score": 0.418,
+"index_numbers": [
+88
+],
+"n_anchors": 1
+},
+{
+"cx": 540.0,
+"cy": 963.5,
+"xp": 592.64,
+"yp": 1280.81,
+"symbol": "R iver Gravel",
+"score": 0.416,
+"index_numbers": [
+120
+],
+"n_anchors": 1
+},
+{
+"cx": 958.0,
+"cy": 1303.5,
+"xp": 993.92,
+"yp": 1605.3,
+"symbol": "Coal",
+"score": 0.415,
+"index_numbers": [
+185
+],
+"n_anchors": 1
+},
+{
+"cx": 419.0,
+"cy": 1043.0,
+"xp": 476.48,
+"yp": 1356.17,
+"symbol": "Feldspar",
+"score": 0.415,
+"index_numbers": [
+137
+],
+"n_anchors": 1
+},
+{
+"cx": 754.0,
+"cy": 667.5,
+"xp": 798.08,
+"yp": 997.61,
+"symbol": "Feldspar",
+"score": 0.412,
+"index_numbers": [
+209,
+226
+],
+"n_anchors": 2
+},
+{
+"cx": 907.0,
+"cy": 199.0,
+"xp": 944.96,
+"yp": 549.76,
+"symbol": "Feldspar",
+"score": 0.411,
+"index_numbers": [
+23
+],
+"n_anchors": 1
+},
+{
+"cx": 1364.0,
+"cy": 718.0,
+"xp": 1383.68,
+"yp": 1046.09,
+"symbol": "Feldspar",
+"score": 0.411,
+"index_numbers": [
+53
+],
+"n_anchors": 1
+},
+{
+"cx": 1088.0,
+"cy": 1096.0,
+"xp": 1118.72,
+"yp": 1407.05,
+"symbol": "Feldspar",
+"score": 0.411,
+"index_numbers": [
+33
+],
+"n_anchors": 1
+},
+{
+"cx": 874.5,
+"cy": 1236.5,
+"xp": 913.76,
+"yp": 1541.93,
+"symbol": "Fire Clay",
+"score": 0.408,
+"index_numbers": [
+172
+],
+"n_anchors": 1
+},
+{
+"cx": 1392.0,
+"cy": 128.5,
+"xp": 1410.56,
+"yp": 482.08,
+"symbol": "T ar S and (ts)",
+"score": 0.402,
+"index_numbers": [
+58
+],
+"n_anchors": 1
+},
+{
+"cx": 112.0,
+"cy": 936.0,
+"xp": 181.76,
+"yp": 1254.41,
+"symbol": "M onaz ite",
+"score": 0.402,
+"index_numbers": [
+139
+],
+"n_anchors": 1
+},
+{
+"cx": 1436.5,
+"cy": 635.5,
+"xp": 1453.28,
+"yp": 966.89,
+"symbol": "Fire Clay",
+"score": 0.399,
+"index_numbers": [
+49,
+51
+],
+"n_anchors": 2
+},
+{
+"cx": 1047.5,
+"cy": 438.5,
+"xp": 1079.84,
+"yp": 778.73,
+"symbol": "Fire Clay",
+"score": 0.399,
+"index_numbers": [
+115
+],
+"n_anchors": 1
+},
+{
+"cx": 1035.0,
+"cy": 925.5,
+"xp": 1067.84,
+"yp": 1244.33,
+"symbol": "Coal",
+"score": 0.394,
+"index_numbers": [
+162
+],
+"n_anchors": 1
+},
+{
+"cx": 1439.5,
+"cy": 118.5,
+"xp": 1456.16,
+"yp": 472.48,
+"symbol": "T ar S and (ts)",
+"score": 0.389,
+"index_numbers": [
+2
+],
+"n_anchors": 1
+},
+{
+"cx": 822.0,
+"cy": 809.0,
+"xp": 863.36,
+"yp": 1132.49,
+"symbol": "T rona (tr)",
+"score": 0.385,
+"index_numbers": [
+214
+],
+"n_anchors": 1
+},
+{
+"cx": 162.0,
+"cy": 1186.5,
+"xp": 229.76,
+"yp": 1493.93,
+"symbol": "Diatomite",
+"score": 0.379,
+"index_numbers": [
+188
+],
+"n_anchors": 1
+},
+{
+"cx": 945.5,
+"cy": 766.0,
+"xp": 981.92,
+"yp": 1091.21,
+"symbol": "Columbite",
+"score": 0.378,
+"index_numbers": [
+205
+],
+"n_anchors": 1
+},
+{
+"cx": 547.0,
+"cy": 1170.0,
+"xp": 599.36,
+"yp": 1478.09,
+"symbol": "Coal",
+"score": 0.378,
+"index_numbers": [
+112
+],
+"n_anchors": 1
+},
+{
+"cx": 674.0,
+"cy": 601.5,
+"xp": 721.28,
+"yp": 934.25,
+"symbol": "Feldspar",
+"score": 0.375,
+"index_numbers": [
+32
+],
+"n_anchors": 1
+},
+{
+"cx": 434.5,
+"cy": 1025.5,
+"xp": 491.36,
+"yp": 1339.37,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.374,
+"index_numbers": [
+131
+],
+"n_anchors": 1
+},
+{
+"cx": 912.0,
+"cy": 1289.0,
+"xp": 949.76,
+"yp": 1591.38,
+"symbol": "Coal",
+"score": 0.373,
+"index_numbers": [
+184
+],
+"n_anchors": 1
+},
+{
+"cx": 1050.0,
+"cy": 534.5,
+"xp": 1082.24,
+"yp": 869.93,
+"symbol": "R iver Gravel",
+"score": 0.37,
+"index_numbers": [
+143
+],
+"n_anchors": 1
+},
+{
+"cx": 1052.5,
+"cy": 680.5,
+"xp": 1084.64,
+"yp": 1010.09,
+"symbol": "R iver Gravel",
+"score": 0.367,
+"index_numbers": [
+65
+],
+"n_anchors": 1
+},
+{
+"cx": 1491.5,
+"cy": 524.5,
+"xp": 1506.08,
+"yp": 860.33,
+"symbol": "M anganese",
+"score": 0.36,
+"index_numbers": [
+34
+],
+"n_anchors": 1
+},
+{
+"cx": 1303.5,
+"cy": 785.5,
+"xp": 1325.6,
+"yp": 1109.93,
+"symbol": "M anganese",
+"score": 0.36,
+"index_numbers": [
+100
+],
+"n_anchors": 1
+},
+{
+"cx": 229.0,
+"cy": 357.0,
+"xp": 294.08,
+"yp": 700.49,
+"symbol": "Iron Ore (M agnetite, Ilmenite)",
+"score": 0.359,
+"index_numbers": [
+102
+],
+"n_anchors": 1
+},
+{
+"cx": 793.5,
+"cy": 172.5,
+"xp": 836.0,
+"yp": 524.32,
+"symbol": "Feldspar",
+"score": 0.357,
+"index_numbers": [
+5
+],
+"n_anchors": 1
+},
+{
+"cx": 678.0,
+"cy": 1082.5,
+"xp": 725.12,
+"yp": 1394.09,
+"symbol": "M onaz ite",
+"score": 0.355,
+"index_numbers": [
+32
+],
+"n_anchors": 1
+},
+{
+"cx": 1062.5,
+"cy": 1075.5,
+"xp": 1094.24,
+"yp": 1387.37,
+"symbol": "M anganese",
+"score": 0.35,
+"index_numbers": [
+32
+],
+"n_anchors": 1
+},
+{
+"cx": 130.5,
+"cy": 974.5,
+"xp": 199.52,
+"yp": 1291.37,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.344,
+"index_numbers": [
+138
+],
+"n_anchors": 1
+},
+{
+"cx": 542.5,
+"cy": 953.5,
+"xp": 595.04,
+"yp": 1271.21,
+"symbol": "M onaz ite",
+"score": 0.343,
+"index_numbers": [
+117
+],
+"n_anchors": 1
+},
+{
+"cx": 101.5,
+"cy": 922.0,
+"xp": 171.68,
+"yp": 1240.97,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.34,
+"index_numbers": [
+135
+],
+"n_anchors": 1
+},
+{
+"cx": 1541.5,
+"cy": 697.5,
+"xp": 1554.08,
+"yp": 1026.41,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.339,
+"index_numbers": [
+2
+],
+"n_anchors": 1
+},
+{
+"cx": 579.5,
+"cy": 253.0,
+"xp": 630.56,
+"yp": 601.6,
+"symbol": "Coal",
+"score": 0.339,
+"index_numbers": [
+56
+],
+"n_anchors": 1
+},
+{
+"cx": 1443.5,
+"cy": 607.5,
+"xp": 1460.0,
+"yp": 940.01,
+"symbol": "Feldspar",
+"score": 0.335,
+"index_numbers": [
+46
+],
+"n_anchors": 1
+},
+{
+"cx": 433.5,
+"cy": 203.0,
+"xp": 490.4,
+"yp": 553.6,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.333,
+"index_numbers": [
+19
+],
+"n_anchors": 1
+},
+{
+"cx": 469.5,
+"cy": 294.0,
+"xp": 524.96,
+"yp": 640.01,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.327,
+"index_numbers": [
+70
+],
+"n_anchors": 1
+},
+{
+"cx": 884.5,
+"cy": 1454.5,
+"xp": 923.36,
+"yp": 1750.26,
+"symbol": "M onaz ite",
+"score": 0.326,
+"index_numbers": [
+160
+],
+"n_anchors": 1
+},
+{
+"cx": 530.5,
+"cy": 919.0,
+"xp": 583.52,
+"yp": 1238.09,
+"symbol": "Feldspar",
+"score": 0.326,
+"index_numbers": [
+119
+],
+"n_anchors": 1
+},
+{
+"cx": 96.5,
+"cy": 1117.0,
+"xp": 166.88,
+"yp": 1427.21,
+"symbol": "Flourite",
+"score": 0.326,
+"index_numbers": [
+174
+],
+"n_anchors": 1
+},
+{
+"cx": 1335.5,
+"cy": 248.5,
+"xp": 1356.32,
+"yp": 597.28,
+"symbol": "Lignite",
+"score": 0.318,
+"index_numbers": [
+61
+],
+"n_anchors": 1
+},
+{
+"cx": 323.5,
+"cy": 1030.5,
+"xp": 384.8,
+"yp": 1344.17,
+"symbol": "Feldspar",
+"score": 0.314,
+"index_numbers": [
+145
+],
+"n_anchors": 1
+},
+{
+"cx": 701.5,
+"cy": 999.0,
+"xp": 747.68,
+"yp": 1314.89,
+"symbol": "Feldspar",
+"score": 0.307,
+"index_numbers": [
+13
+],
+"n_anchors": 1
+},
+{
+"cx": 574.5,
+"cy": 1096.5,
+"xp": 625.76,
+"yp": 1407.53,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.303,
+"index_numbers": [
+64
+],
+"n_anchors": 1
+},
+{
+"cx": 996.5,
+"cy": 844.0,
+"xp": 1030.88,
+"yp": 1166.09,
+"symbol": "R iver Gravel",
+"score": 0.297,
+"index_numbers": [
+128
+],
+"n_anchors": 1
+},
+{
+"cx": 708.5,
+"cy": 1080.5,
+"xp": 754.4,
+"yp": 1392.17,
+"symbol": "Oil and Gas",
+"score": 0.294,
+"index_numbers": [
+33
+],
+"n_anchors": 1
+},
+{
+"cx": 759.5,
+"cy": 1224.5,
+"xp": 803.36,
+"yp": 1530.41,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.292,
+"index_numbers": [
+95
+],
+"n_anchors": 1
+},
+{
+"cx": 1116.0,
+"cy": 379.0,
+"xp": 1145.6,
+"yp": 721.61,
+"symbol": "R ose Quartz (r)",
+"score": 0.291,
+"index_numbers": [
+47
+],
+"n_anchors": 1
+},
+{
+"cx": 821.0,
+"cy": 1533.5,
+"xp": 862.4,
+"yp": 1825.14,
+"symbol": "Coal",
+"score": 0.289,
+"index_numbers": [
+133
+],
+"n_anchors": 1
+},
+{
+"cx": 1406.0,
+"cy": 693.5,
+"xp": 1424.0,
+"yp": 1022.57,
+"symbol": "Feldspar",
+"score": 0.286,
+"index_numbers": [
+18
+],
+"n_anchors": 1
+},
+{
+"cx": 957.5,
+"cy": 1216.5,
+"xp": 993.44,
+"yp": 1522.73,
+"symbol": "Coal",
+"score": 0.281,
+"index_numbers": [
+175
+],
+"n_anchors": 1
+},
+{
+"cx": 397.0,
+"cy": 877.5,
+"xp": 455.36,
+"yp": 1198.25,
+"symbol": "Flourite",
+"score": 0.278,
+"index_numbers": [
+104
+],
+"n_anchors": 1
+},
+{
+"cx": 1117.0,
+"cy": 1041.0,
+"xp": 1146.56,
+"yp": 1354.25,
+"symbol": "Feldspar",
+"score": 0.275,
+"index_numbers": [
+26
+],
+"n_anchors": 1
+},
+{
+"cx": 1050.0,
+"cy": 673.5,
+"xp": 1082.24,
+"yp": 1003.37,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.274,
+"index_numbers": [
+69
+],
+"n_anchors": 1
+},
+{
+"cx": 173.5,
+"cy": 449.5,
+"xp": 240.8,
+"yp": 789.29,
+"symbol": "Feldspar",
+"score": 0.273,
+"index_numbers": [
+37
+],
+"n_anchors": 1
+},
+{
+"cx": 721.0,
+"cy": 1238.5,
+"xp": 766.4,
+"yp": 1543.85,
+"symbol": "Glass S and",
+"score": 0.271,
+"index_numbers": [
+40
+],
+"n_anchors": 1
+},
+{
+"cx": 340.5,
+"cy": 1285.5,
+"xp": 401.12,
+"yp": 1588.02,
+"symbol": "Oil and Gas",
+"score": 0.264,
+"index_numbers": [
+128
+],
+"n_anchors": 1
+},
+{
+"cx": 563.0,
+"cy": 345.0,
+"xp": 614.72,
+"yp": 688.97,
+"symbol": "Feldspar",
+"score": 0.26,
+"index_numbers": [
+77
+],
+"n_anchors": 1
+},
+{
+"cx": 987.0,
+"cy": 200.0,
+"xp": 1021.76,
+"yp": 550.72,
+"symbol": "Lignite",
+"score": 0.259,
+"index_numbers": [
+41
+],
+"n_anchors": 1
+},
+{
+"cx": 325.5,
+"cy": 902.0,
+"xp": 386.72,
+"yp": 1221.77,
+"symbol": "Gold",
+"score": 0.257,
+"index_numbers": [
+108
+],
+"n_anchors": 1
+},
+{
+"cx": 1052.5,
+"cy": 1127.0,
+"xp": 1084.64,
+"yp": 1436.81,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.252,
+"index_numbers": [
+60
+],
+"n_anchors": 1
+},
+{
+"cx": 1395.0,
+"cy": 701.5,
+"xp": 1413.44,
+"yp": 1030.25,
+"symbol": "Lignite",
+"score": 0.245,
+"index_numbers": [
+47
+],
+"n_anchors": 1
+},
+{
+"cx": 1200.0,
+"cy": 941.5,
+"xp": 1226.24,
+"yp": 1259.69,
+"symbol": "Coal",
+"score": 0.244,
+"index_numbers": [
+32
+],
+"n_anchors": 1
+},
+{
+"cx": 1228.0,
+"cy": 496.5,
+"xp": 1253.12,
+"yp": 834.41,
+"symbol": "Coal",
+"score": 0.241,
+"index_numbers": [
+52
+],
+"n_anchors": 1
+},
+{
+"cx": 483.5,
+"cy": 567.0,
+"xp": 538.4,
+"yp": 901.13,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.24,
+"index_numbers": [
+28
+],
+"n_anchors": 1
+},
+{
+"cx": 793.5,
+"cy": 161.5,
+"xp": 836.0,
+"yp": 513.76,
+"symbol": "Lignite",
+"score": 0.234,
+"index_numbers": [
+2
+],
+"n_anchors": 1
+},
+{
+"cx": 1063.0,
+"cy": 542.5,
+"xp": 1094.72,
+"yp": 877.61,
+"symbol": "Lignite",
+"score": 0.234,
+"index_numbers": [
+144
+],
+"n_anchors": 1
+},
+{
+"cx": 1195.0,
+"cy": 458.5,
+"xp": 1221.44,
+"yp": 797.93,
+"symbol": "Coal",
+"score": 0.233,
+"index_numbers": [
+74
+],
+"n_anchors": 1
+},
+{
+"cx": 483.0,
+"cy": 313.5,
+"xp": 537.92,
+"yp": 658.73,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.231,
+"index_numbers": [
+72
+],
+"n_anchors": 1
+},
+{
+"cx": 1213.0,
+"cy": 634.0,
+"xp": 1238.72,
+"yp": 965.45,
+"symbol": "Feldspar",
+"score": 0.23,
+"index_numbers": [
+80
+],
+"n_anchors": 1
+},
+{
+"cx": 945.5,
+"cy": 650.0,
+"xp": 981.92,
+"yp": 980.81,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.224,
+"index_numbers": [
+161
+],
+"n_anchors": 1
+},
+{
+"cx": 632.0,
+"cy": 395.0,
+"xp": 680.96,
+"yp": 736.97,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.222,
+"index_numbers": [
+86
+],
+"n_anchors": 1
+},
+{
+"cx": 143.0,
+"cy": 1150.0,
+"xp": 211.52,
+"yp": 1458.89,
+"symbol": "T ar S and (ts)",
+"score": 0.204,
+"index_numbers": [
+179
+],
+"n_anchors": 1
+},
+{
+"cx": 1061.5,
+"cy": 741.5,
+"xp": 1093.28,
+"yp": 1068.65,
+"symbol": "Coal",
+"score": 0.201,
+"index_numbers": [
+74
+],
+"n_anchors": 1
+},
+{
+"cx": 507.5,
+"cy": 380.5,
+"xp": 561.44,
+"yp": 723.05,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.197,
+"index_numbers": [
+96
+],
+"n_anchors": 1
+},
+{
+"cx": 86.0,
+"cy": 1045.5,
+"xp": 156.8,
+"yp": 1358.57,
+"symbol": "Coal",
+"score": 0.194,
+"index_numbers": [
+159
+],
+"n_anchors": 1
+},
+{
+"cx": 689.0,
+"cy": 1162.5,
+"xp": 735.68,
+"yp": 1470.89,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.192,
+"index_numbers": [
+39
+],
+"n_anchors": 1
+},
+{
+"cx": 955.5,
+"cy": 569.0,
+"xp": 991.52,
+"yp": 903.05,
+"symbol": "Lignite",
+"score": 0.18,
+"index_numbers": [
+153
+],
+"n_anchors": 1
+},
+{
+"cx": 910.0,
+"cy": 760.5,
+"xp": 947.84,
+"yp": 1086.89,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.18,
+"index_numbers": [
+198
+],
+"n_anchors": 1
+},
+{
+"cx": 644.5,
+"cy": 449.5,
+"xp": 692.96,
+"yp": 789.29,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.176,
+"index_numbers": [
+90
+],
+"n_anchors": 1
+},
+{
+"cx": 906.5,
+"cy": 817.5,
+"xp": 944.48,
+"yp": 1140.65,
+"symbol": "Feldspar",
+"score": 0.174,
+"index_numbers": [
+123
+],
+"n_anchors": 1
+},
+{
+"cx": 497.5,
+"cy": 1248.5,
+"xp": 551.84,
+"yp": 1553.45,
+"symbol": "Oil and Gas",
+"score": 0.173,
+"index_numbers": [
+93
+],
+"n_anchors": 1
+},
+{
+"cx": 264.5,
+"cy": 1218.0,
+"xp": 328.16,
+"yp": 1524.17,
+"symbol": "Coal",
+"score": 0.172,
+"index_numbers": [
+193
+],
+"n_anchors": 1
+},
+{
+"cx": 1051.5,
+"cy": 1004.5,
+"xp": 1083.68,
+"yp": 1320.17,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.171,
+"index_numbers": [
+17
+],
+"n_anchors": 1
+},
+{
+"cx": 1110.0,
+"cy": 1026.0,
+"xp": 1139.84,
+"yp": 1339.85,
+"symbol": "T ar S and (ts)",
+"score": 0.161,
+"index_numbers": [
+3
+],
+"n_anchors": 1
+},
+{
+"cx": 110.0,
+"cy": 875.5,
+"xp": 179.84,
+"yp": 1196.33,
+"symbol": "Coal",
+"score": 0.156,
+"index_numbers": [
+132
+],
+"n_anchors": 1
+},
+{
+"cx": 1539.5,
+"cy": 445.0,
+"xp": 1552.16,
+"yp": 784.97,
+"symbol": "Oil and Gas",
+"score": 0.141,
+"index_numbers": [
+30
+],
+"n_anchors": 1
+},
+{
+"cx": 612.5,
+"cy": 224.0,
+"xp": 662.24,
+"yp": 573.76,
+"symbol": "R iver Gravel",
+"score": 0.131,
+"index_numbers": [
+51
+],
+"n_anchors": 1
+},
+{
+"cx": 329.0,
+"cy": 949.5,
+"xp": 390.08,
+"yp": 1267.37,
+"symbol": "Flourite",
+"score": 0.128,
+"index_numbers": [
+145
+],
+"n_anchors": 1
+},
+{
+"cx": 797.0,
+"cy": 796.5,
+"xp": 839.36,
+"yp": 1120.49,
+"symbol": "T antalite (ta)",
+"score": 0.127,
+"index_numbers": [
+220
+],
+"n_anchors": 1
+},
+{
+"cx": 619.0,
+"cy": 340.5,
+"xp": 668.48,
+"yp": 684.65,
+"symbol": "Beryl, Aquamarine, Emerald",
+"score": 0.122,
+"index_numbers": [
+74
+],
+"n_anchors": 1
+},
+{
+"cx": 686.0,
+"cy": 761.5,
+"xp": 732.8,
+"yp": 1087.85,
+"symbol": "Feldspar",
+"score": 0.11,
+"index_numbers": [
+53
+],
+"n_anchors": 1
+},
+{
+"cx": 772.5,
+"cy": 306.0,
+"xp": 815.84,
+"yp": 651.53,
+"symbol": "Lignite",
+"score": 0.098,
+"index_numbers": [
+19
+],
+"n_anchors": 1
+},
+{
+"cx": 626.0,
+"cy": 260.0,
+"xp": 675.2,
+"yp": 607.37,
+"symbol": "Oil and Gas",
+"score": 0.085,
+"index_numbers": [
+63
+],
+"n_anchors": 1
+},
+{
+"cx": 975.5,
+"cy": 774.5,
+"xp": 1010.72,
+"yp": 1099.37,
+"symbol": "Feldspar",
+"score": 0.076,
+"index_numbers": [
+202
+],
+"n_anchors": 1
+},
+{
+"cx": 1435.5,
+"cy": 562.5,
+"xp": 1452.32,
+"yp": 896.81,
+"symbol": "Lignite",
+"score": 0.073,
+"index_numbers": [
+42
+],
+"n_anchors": 1
+},
+{
+"cx": 1234.5,
+"cy": 470.0,
+"xp": 1259.36,
+"yp": 808.97,
+"symbol": "Coal",
+"score": 0.044,
+"index_numbers": [
+51
+],
+"n_anchors": 1
+},
+{
+"cx": 290.0,
+"cy": 873.0,
+"xp": 352.64,
+"yp": 1193.93,
+"symbol": "Feldspar",
+"score": 0.035,
+"index_numbers": [
+98
+],
+"n_anchors": 1
+},
+{
+"cx": 424.5,
+"cy": 466.0,
+"xp": 481.76,
+"yp": 805.13,
+"symbol": "Coal",
+"score": -0.073,
+"index_numbers": [
+44
+],
+"n_anchors": 1
+},
+{
+"cx": 570.5,
+"cy": 349.5,
+"xp": 621.92,
+"yp": 693.29,
+"symbol": "Feldspar",
+"score": -0.093,
+"index_numbers": [
+79
+],
+"n_anchors": 1
+}
+]
+}

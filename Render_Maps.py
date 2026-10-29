@@ -26,7 +26,7 @@ faults = gpd.read_file(G, layer="faults")
 rivers = gpd.read_file(G, layer="rivers")
 states = gpd.read_file(G, layer="state_boundaries")
 roads  = gpd.read_file(G, layer="roads")
-pts    = gpd.read_file(G, layer="minerals_symbols")
+pts    = gpd.read_file(G, layer="minerals_occurrences")
 nig    = gpd.read_file(G, layer="nigeria_boundary")
 NIG    = nig.geometry.union_all()
 NIGB   = gpd.GeoSeries([NIG.boundary], crs=nig.crs)
@@ -168,14 +168,15 @@ symbols(ax); furniture(ax)
 hl = [Line2D([], [], marker=m, ls="", markersize=7, markerfacecolor="none" if m != "x" else c,
              markeredgecolor=c, markeredgewidth=.85,
              label=f"{cls}  {int((pts['mineral_class'] == cls).sum())}")
-      for cls, (c, m) in CL.items()]
+      for cls, (c, m) in CL.items() if (pts['mineral_class'] == cls).sum() > 0]
 ax.legend(handles=hl, loc="upper left", fontsize=8.8, framealpha=.97, edgecolor="#888",
-          title=f"printed mineral symbols — {len(pts)}", title_fontsize=8.8, borderpad=.65)
+          title=f"printed occurrences — {len(pts)}", title_fontsize=8.8, borderpad=.65)
 fig.text(.5, .972, "MINERAL RESOURCES MAP OF NIGERIA", ha="center", fontsize=19, weight="bold", color="#111")
-fig.text(.5, .945, "The 2023 NGSA sheet in EPSG:4326; all 1,323 printed symbols re-measured to the centre of "
-                   "each marker and classified by commodity class", ha="center", fontsize=10.2, color="#333")
-fig.text(.045, .022, "Symbol-centre accuracy ≈ 0.5–0.7 km (limit of the 75 dpi source)  ·  commodity naming ≈ 81% "
-                     "correct per point  ·  symbol counts are not reserves, grade or production",
+fig.text(.5, .945, f"The 2023 NGSA sheet in EPSG:4326; every printed symbol located once, at the centre of its "
+                   f"marker ({len(pts)} occurrences, {pts.mineral.nunique()} commodities)", ha="center", fontsize=10.2, color="#333")
+fig.text(.045, .022, "Symbol centre ≈ 0.1 km median; one artwork pixel is 0.68 km  ·  names: 18% carried by both "
+                     "independent readings, 27% agree on a commodity family, 90% called low confidence  ·  "
+                     "counts are not reserves, grade or production",
          fontsize=7.1, color="#555")
 fig.savefig(P / "Map_2_Minerals.png", dpi=150, facecolor="white")
 plt.close(fig); print("map 2")
@@ -264,7 +265,7 @@ def glyph_offset(x, y, rad=22):
         if d <= 11 and (best is None or d < best[0]): best = (d,)
     return None if best is None else best[0]
 
-sel = pts.iloc[[12, 250, 480, 690, 905, 1120]].reset_index(drop=True)
+sel = pts.sample(6, random_state=7).reset_index(drop=True)
 fig, axes = plt.subplots(1, len(sel), figsize=(16.2, 3.9), facecolor="white")
 for ax, (_, r) in zip(axes, sel.iterrows()):
     x, y = ll2page(r.geometry.x, r.geometry.y)
@@ -287,9 +288,14 @@ for ax, (_, r) in zip(axes, sel.iterrows()):
 
 fig.suptitle("CENTRING PROOF — magenta crosshair marks the stored coordinate, dotted circle is the 1 pt "
              "(0.71 km) tolerance", fontsize=12.5, weight="bold", y=1.0)
-fig.text(.5, .015, f"Checked against the sheet itself, independently of the extraction: {len(pts)} points, "
-                   "97.8% land on a detected symbol, median 0.50 pt = 0.35 km from its printed centre, "
-                   "95.4% within 2 pt. One artwork pixel is 0.68 km, so this is the drawing's own limit.",
+import json as _j
+_v = _j.load(open(P / "Verify_Centres.json"))
+fig.text(.5, .015, f"Checked against the sheet itself, independently of the extraction: {_v['total']} points, "
+                   f"{_v['on_a_glyph_pct']}% land on a detected symbol, median "
+                   f"{_v['distance_to_glyph_centre_pt_median']} pt = "
+                   f"{_v['distance_to_glyph_centre_km_median']} km from its printed centre, "
+                   f"{_v['within_1pt_pct']}% within 1 pt. One artwork pixel is 0.68 km, so this is the "
+                   "drawing's own limit.",
          ha="center", fontsize=8.0, color="#444")
 fig.subplots_adjust(left=.012, right=.988, top=.74, bottom=.20, wspace=.07)
 fig.savefig(P / "Map_4_Symbol_Centring.png", dpi=200, facecolor="white")
