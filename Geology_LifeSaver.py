@@ -29,8 +29,9 @@ from shapely.ops import unary_union
 from shapely.validation import make_valid
 
 import os
-SRC = ("Geology_Bodies.geojson" if os.path.exists("Geology_Bodies.geojson")
-       else "Geology_Units_Partition.geojson")     # guard whatever layer actually ships
+SRC = next((f for f in ("Geology_Units.geojson", "Geology_Units_Partition.geojson",
+                        "Geology_Bodies.geojson") if os.path.exists(f)),
+           "Geology_Units.geojson")                # guard whatever layer actually ships
 OUT = "Geology_Units_Repaired.geojson"
 GPKG = "Nigeria_Geology_Minerals_4326.gpkg"
 
@@ -40,6 +41,7 @@ BRIDGE_M = 400            # a gap narrower than this between two parts of one un
 HOLE_KM2 = 0.002          # smaller holes are rounding, not ground
 
 CHECK_ONLY = "--check" in sys.argv
+APPLY = "--apply" in sys.argv          # make the repaired layer the shipped one
 
 
 def parts(g):
@@ -50,19 +52,68 @@ def parts(g):
     return [p for p in getattr(g, "geoms", []) if p.geom_type == "Polygon"]
 
 
+def bnd(g):
+    """boundary of any geometry, including a collection (whose .boundary is None)"""
+    if g is None or g.is_empty:
+        return None
+    b = g.boundary
+    if b is None:                       # a GeometryCollection: union the parts
+        ps = parts(g)
+        return unary_union([p.boundary for p in ps]) if ps else None
+    return b
+
+
+def repair(g):
+    """Fix a broken ring without inventing ground.
+
+    buffer(0) first -- it never grows a shape -- then make_valid, and any candidate that changes
+    the area by more than 1% is refused. An over-eager make_valid once turned one weak ring into a
+    36,000 km2 polygon covering half the country.
+    """
+    if g is None or g.is_empty or g.is_valid:
+        return g
+    a0 = g.area
+    for cand in (g.buffer(0), make_valid(g)):
+        ps = parts(cand)
+        if not ps:
+            continue
+        m = ps[0] if len(ps) == 1 else unary_union(ps)
+        if m.is_empty:
+            continue
+        if a0 == 0 or abs(m.area - a0) <= max(1e-9, 0.01 * a0):
+            return m
+    return g
+
+
+def safe_union(geoms):
+    """unary_union that repairs invalid inputs first (side-location conflicts)"""
+    good = []
+    for g in geoms:
+        if g is None or g.is_empty:
+            continue
+        if not g.is_valid:
+            g = g.buffer(0)
+        if g is not None and not g.is_empty:
+            good.append(g)
+    return unary_union(good)
+
+
 def audit(gdf, boundary):
     g = gdf.geometry
-    uni = unary_union(g.tolist())
+    uni = safe_union(g.tolist())
     ng = boundary
-    area = uni.area / 1e6
     overlap = (g.area.sum() - uni.area) / 1e6
-    gap = ng.difference(uni).area / 1e6
+    # a gap is ground the layer has already surrounded and left empty; ground the sheet simply
+    # does not colour (offshore, the north-east corner) is not a gap and must not be invented
+    hole = sum(Polygon(r).area for p in parts(uni) for r in p.interiors) / 1e6
+    unmapped = ng.difference(uni).area / 1e6 - hole
     return {
         "polygons": int(len(gdf)),
         "codes": int(gdf.unit_code.nunique()),
         "covered_pct": round(uni.intersection(ng).area / ng.area * 100, 3),
         "overlap_km2": round(float(overlap), 3),
-        "gap_km2": round(float(gap), 3),
+        "gap_km2": round(float(hole), 3),
+        "not_mapped_km2": round(float(max(0.0, unmapped)), 1),
         "slivers": int(sum(1 for p in g if p.area / 1e6 < MIN_AREA_KM2)),
     }
 
@@ -94,14 +145,14 @@ def find_cuts(gdf, geoms, codes, tree, tol_m=2500):
 def health(geoms, label):
     """sum vs union: if these drift apart, some step has duplicated ground."""
     tot = sum(g.area for g in geoms) / 1e6
-    uni = unary_union([g for g in geoms if not g.is_empty]).area / 1e6
+    uni = safe_union(geoms).area / 1e6
     print(f"  [{label}] sum {tot:,.0f} km²  union {uni:,.0f} km²  double-counted {tot - uni:,.1f} km²")
     return tot - uni
 
 
 def main():
-    gdf = gpd.read_file(SRC).to_crs(32632)
-    gdf["geometry"] = gdf.geometry.apply(lambda g: make_valid(g) if not g.is_valid else g)
+    gdf = gpd.read_file(SRC, engine="pyogrio").to_crs(32632)
+    gdf["geometry"] = gdf.geometry.apply(repair)          # guard, never make_valid alone
     gdf = gdf[~gdf.geometry.is_empty].reset_index(drop=True)
     ng = gpd.read_file(GPKG, layer="nigeria_boundary").to_crs(32632).geometry.union_all()
 
@@ -200,12 +251,15 @@ def main():
             for j in tree.query(g.buffer(30), predicate="intersects"):
                 if j == i:
                     continue
-                ln = geoms[j].boundary.intersection(g.buffer(30)).length
+                bj = bnd(geoms[j])
+                if bj is None:
+                    continue
+                ln = bj.intersection(g.buffer(30)).length
                 if ln > blen:
                     best, blen = j, ln
             if best is None:
                 continue
-            geoms[best] = unary_union([geoms[best], g])
+            geoms[best] = safe_union([geoms[best], g])
             drop.add(i)
             merged_slivers += 1
         if not drop:
@@ -224,8 +278,10 @@ def main():
     # ---------------------------------------------------------------- 4. holes
     filled, filled_area = 0, 0.0
     for _ in range(3):
-        uni = unary_union(geoms)
-        holes = [p for p in parts(ng.difference(uni)) if p.area / 1e6 >= HOLE_KM2]
+        uni = safe_union(geoms)
+        # only holes the units already enclose: see audit() for why
+        holes = [Polygon(r) for p in parts(uni) for r in p.interiors
+                 if Polygon(r).area / 1e6 >= HOLE_KM2]
         if not holes:
             break
         tree = STRtree(geoms)
@@ -233,12 +289,15 @@ def main():
         for h in holes:
             best, blen = None, 0.0
             for j in tree.query(h.buffer(30), predicate="intersects"):
-                ln = geoms[j].boundary.intersection(h.buffer(30)).length
+                bj = bnd(geoms[j])
+                if bj is None:
+                    continue
+                ln = bj.intersection(h.buffer(30)).length
                 if ln > blen:
                     best, blen = j, ln
             if best is None:
                 continue
-            geoms[best] = unary_union([geoms[best], h])
+            geoms[best] = safe_union([geoms[best], h])
             filled += 1
             filled_area += h.area / 1e6
             touched = True
@@ -266,31 +325,14 @@ def main():
         per[c] += 1
     log["fragments_per_unit"] = dict(sorted(per.items(), key=lambda kv: -kv[1])[:15])
 
-    def clean(g, guard=True):
-        """Repair a broken ring without inventing ground.
-
-        make_valid can turn a nearly-degenerate ring into a shape that spans half the country if
-        the ring is self-intersecting in an unlucky place, so buffer(0) is tried first and any
-        candidate that changes the area by more than 1% is rejected.
-        """
-        if g.is_valid or g.is_empty:
-            return g
-        a0 = g.area
-        for cand in (g.buffer(0), make_valid(g)):
-            polys = parts(cand)
-            if not polys:
-                continue
-            m = polys[0] if len(polys) == 1 else unary_union(polys)
-            if m.is_empty:
-                continue
-            if not guard or a0 == 0 or abs(m.area - a0) <= max(1e-9, 0.01 * a0):
-                return m
-        return g
+    clean = repair
 
     gdf = gdf.copy()
     gdf["geometry"] = [clean(g) for g in gdf.geometry]
 
-    gdf["area_km2"] = (gdf.area / 1e6).round(4)
+    # equal-area, not UTM: a UTM area over Nigeria is 0.2% too large and the README quotes it
+    AEQ = "+proj=aea +lat_1=4 +lat_2=14 +lat_0=9 +lon_0=8 +datum=WGS84 +units=m +no_defs"
+    gdf["area_km2"] = (gdf.to_crs(AEQ).area / 1e6).round(4)
     out4326 = gdf.to_crs(4326).copy()
     # reprojection and writing can re-break a thin ring, so repair what is actually written
     n_bad = int((~out4326.geometry.is_valid).sum())
@@ -300,25 +342,66 @@ def main():
         print(f"  thin rings repaired for the 4326 write: {n_bad} -> {n_bad2} still broken")
         log["repairs"]["invalid_rings_repaired"] = n_bad - n_bad2
     out4326 = out4326[~out4326.geometry.is_empty].reset_index(drop=True)
-    out4326.to_file(OUT, driver="GeoJSON")
-    import pyogrio
-    pyogrio.write_dataframe(out4326, "Geology_Layers_Extracted.gpkg", layer="geology_units",
-                            driver="GPKG")
-    print("repaired layer written into Geology_Layers_Extracted.gpkg as geology_units")
+
+    def flatten(g):
+        """a GeometryCollection is not something a GeoJSON reader can draw: keep its polygons"""
+        if g.geom_type in ("Polygon", "MultiPolygon"):
+            return g
+        ps = parts(g)
+        if not ps:
+            return g
+        return MultiPolygon(ps) if len(ps) > 1 else ps[0]
+
+    n_coll = int(sum(g.geom_type not in ("Polygon", "MultiPolygon") for g in out4326.geometry))
+    if n_coll:
+        out4326["geometry"] = [flatten(g) for g in out4326.geometry]
+        print(f"  geometry collections flattened to polygons: {n_coll}")
+        log["repairs"]["collections_flattened"] = n_coll
+
+    def write(gdf, path):
+        """Write, then read the file back: rounding coordinates on the way out can re-break a thin
+        ring, so repair what actually landed in the file and write it again."""
+        gdf.to_file(path, driver="GeoJSON", engine="pyogrio",
+                    layer_options={"COORDINATE_PRECISION": 12})
+        for attempt in range(3):
+            back = gpd.read_file(path, engine="pyogrio")
+            bad = ~back.geometry.is_valid
+            if not bad.any():
+                return back
+            back.loc[bad, "geometry"] = [clean(g) for g in back.geometry[bad]]
+            back.to_file(path, driver="GeoJSON", engine="pyogrio",
+                         layer_options={"COORDINATE_PRECISION": 12})
+            print(f"  {path}: {int(bad.sum())} ring(s) re-broken by the write, repaired "
+                  f"(pass {attempt + 1})")
+        return gpd.read_file(path, engine="pyogrio")
+
+    out4326 = write(out4326, OUT)
+    if APPLY:
+        import pyogrio
+        pyogrio.write_dataframe(out4326, "Geology_Layers_Extracted.gpkg", layer="geology_units",
+                                driver="GPKG")
+        out4326 = write(out4326, SRC)        # the shipped layer is now the repaired one
+        print(f"repaired layer applied: {SRC} and the geology_units layer of "
+              "Geology_Layers_Extracted.gpkg; re-run Build_GeoPackage.py, "
+              "Build_Projected_Layers.py, Render_Maps.py and Build_Web_Data.py")
+    else:
+        print(f"repaired layer written to {OUT} (use --apply to make it the shipped layer)")
 
     # ---------------------------------------------------------------- 6. check what was written
-    back = gpd.read_file(OUT).to_crs(32632)
+    back4326 = gpd.read_file(OUT, engine="pyogrio")
+    n_invalid_4326 = int((~back4326.geometry.is_valid).sum())
+    back = back4326.to_crs(32632)
     # reprojecting a thin ring back to metres can re-break it; buffer(0) repairs without moving ground
     gs = [g.buffer(0) if not g.is_valid else g for g in back.geometry]
     gs = [g for g in gs if not g.is_empty]
     tot = back.area.sum() / 1e6
-    uni = unary_union(gs).area / 1e6
+    uni = safe_union(gs).area / 1e6
     drift = tot - uni
     log["written"] = {"polygons": int(len(back)), "sum_km2": round(float(tot), 1),
                       "union_km2": round(float(uni), 1), "double_counted_km2": round(float(drift), 1),
-                      "invalid": int((~back.is_valid).sum())}
+                      "invalid_4326": n_invalid_4326}
     print(f"  read back: {len(back)} polygons, sum {tot:,.0f} km², union {uni:,.0f} km², "
-          f"double-counted {drift:,.1f} km², invalid {int((~back.is_valid).sum())}")
+          f"double-counted {drift:,.1f} km², invalid in 4326 {n_invalid_4326}")
     if drift > 1.0 or abs(drift) > 0.01 * uni:
         print("  WARNING: the written layer claims more ground than it covers — "
               "the repair duplicated something")

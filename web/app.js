@@ -31,11 +31,11 @@ const H = () => VP.h;
 
 const state = {
   stats: null, points: [], vectors: null, units: null, images: {},
-  mode: 'explore', base: 'minerals',
+  mode: 'explore', base: 'geology',
   filters: { conf: new Set(['high', 'medium', 'low']),
              cls: new Set(['metallic', 'industrial', 'gemstone', 'energy']) },
   layers: {
-    units: { on: false, op: .55 }, boundary: { on: true, op: 1 },
+    units: { on: true, op: .55 }, boundary: { on: true, op: 1 },
     faults: { on: true, op: 1 }, roads: { on: false, op: .8 },
     rivers: { on: true, op: .8 }, states: { on: false, op: .8 },
     points: { on: true, op: 1 },
@@ -48,6 +48,11 @@ const state = {
 };
 
 const isPhone = () => window.matchMedia('(max-width: 900px)').matches;
+// A portrait phone is taller than Nigeria is wide, so a fitted view always leaves bands of
+// background above and below. Cropping the country to fill them would hide the coast and the
+// eastern border, so the fit stays whole and the slack is left as background: pinch or the zoom
+// slider takes you in.
+const PHONE_FIT_BOOST = 1.0;
 
 /* ------------------------------------------------------------------ projection */
 function project(lon, lat, view = state.view) {
@@ -64,7 +69,10 @@ function boundsOf(key) {
 function computeFit() {
   const b = boundsOf(state.base === 'geology' ? 'geology' : 'minerals');
   const pad = isPhone() ? .96 : .93;
-  return Math.min(W() / (b[2] - b[0]), H() / (b[3] - b[1])) * pad;
+  const fit = Math.min(W() / (b[2] - b[0]), H() / (b[3] - b[1])) * pad;
+  // width-fitting a portrait phone leaves two thirds of the screen empty, so open a little
+  // further in and let the map be panned
+  return fit * (isPhone() ? PHONE_FIT_BOOST : 1);
 }
 function fitToNigeria() {
   const b = boundsOf(state.base === 'geology' ? 'geology' : 'minerals');
@@ -461,7 +469,12 @@ function drawCompare() {
   ctx.save();
   ctx.beginPath(); ctx.rect(split, 0, W() - split, H()); ctx.clip();
   ctx.fillStyle = '#f4f6f8'; ctx.fillRect(split, 0, W() - split, H());
+  // no sheet underneath on this side, so the replot is painted at full strength: the split is a
+  // colour comparison, and a 55% wash over white is not the colour the layer actually carries
+  const unitsOp = state.layers.units.op;
+  state.layers.units.op = Math.max(unitsOp, .95);
   renderScene(ctx, state.view, { base: false, units: true, lines: true, points: true, labels: true });
+  state.layers.units.op = unitsOp;
   ctx.restore();
 
   // divider you can drag either way
@@ -479,19 +492,27 @@ function drawCompare() {
   ctx.fillText('\u2194', split, my);
   ctx.textAlign = 'left';
 
+  // the two labels never overlap: when the divider is dragged near one side there is no room for
+  // the second label on the same row, so it drops to the next row instead
+  const placed = [];
   const tag = (x, text, colour) => {
     ctx.font = '600 11px sans-serif';
     const w = ctx.measureText(text).width + 16;
+    let y = 8;
+    while (placed.some((r) => y < r.y + 24 && y + 22 > r.y && x < r.x + r.w + 6 && x + w + 6 > r.x)) {
+      y += 26;
+    }
+    placed.push({ x, y, w });
     ctx.fillStyle = 'rgba(255,255,255,.94)';
-    ctx.fillRect(x, 8, w, 22);
+    ctx.fillRect(x, y, w, 22);
     ctx.strokeStyle = 'rgba(16,23,32,.16)'; ctx.lineWidth = 1;
-    ctx.strokeRect(x + .5, 8.5, w - 1, 21);
+    ctx.strokeRect(x + .5, y + .5, w - 1, 21);
     ctx.fillStyle = colour;
     ctx.textBaseline = 'middle';
-    ctx.fillText(text, x + 8, 19.5);
+    ctx.fillText(text, x + 8, y + 11.5);
   };
   tag(8, 'geology sheet', '#8a5410');
-  tag(Math.min(split + 8, W() - 130), 'unit polygons', '#0f5f7a');
+  tag(Math.min(split + 8, Math.max(8, W() - 130)), 'unit polygons', '#0f5f7a');
   ctx.restore();
 }
 
@@ -618,7 +639,6 @@ function bindUI() {
     state.base = e.target.value;
     state.crop.key = null;
     state.fitScale = computeFit();
-    setUnits(state.base !== 'minerals');
     schedule();
   });
   $('#baseOpacity').addEventListener('input', (e) => {

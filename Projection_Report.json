@@ -5,19 +5,19 @@
       "crs": "ESRI:102022",
       "crs_name": "Africa_Albers_Equal_Area_Conic",
       "bounds_4326": [
-        2.671,
+        2.669,
         4.272,
-        14.67,
-        13.88
+        14.678,
+        13.894
       ],
       "bounds_projected_m": [
-        -2323469,
+        -2323667,
         498423,
-        -1077108,
-        1618681
+        -1076237,
+        1620289
       ],
       "area_change_pct_vs_albers": null,
-      "features": 1552
+      "features": 97
     },
     "nigeria_boundary": {
       "crs": "ESRI:102022",

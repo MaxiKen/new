@@ -73,10 +73,12 @@ comb = (geo_r.astype(np.float32) * .62 + min_r.astype(np.float32) * .38).astype(
 print("reference rasters warped")
 
 # ------------------------------------------------------------------ vectors
-# the unit layer is the NGSA body set, re-referenced and repaired by Build_NGSA_Geology.py;
-# the pixel reading of the 2011 sheet is kept on disk as Geology_Units_Repaired.geojson but is
-# not shipped: it fragments every unit along the printed labels and lines
-units = gpd.read_file(P / "Geology_Bodies.geojson")
+# the unit layer is the 97-unit reading of the 2011 sheet, built by Build_Geology_Units.py from
+# data/geology/geology_units_main.gpkg and guarded by Geology_LifeSaver.py. The 1,552-body trace
+# (Geology_Bodies.geojson) and the 5,539-region pixel reading are kept on disk as evidence, not
+# shipped: both fragment a single map unit into hundreds of pieces wherever a label or a road
+# crosses it, which is not what the sheet's legend describes.
+units = gpd.read_file(P / "Geology_Units.geojson")
 faults = gpd.read_file(P / "Geology_Layers_Extracted.gpkg", layer="faults")
 roads  = gpd.read_file(P / "Geology_Layers_Extracted.gpkg", layer="roads")
 rivers = gpd.read_file(P / "Geology_Layers_Extracted.gpkg", layer="rivers")
@@ -87,7 +89,8 @@ nigeria = unary_union(outline.geometry)
 for g in (units, faults, roads, rivers, states, pts):
     g.set_crs(CRS, allow_override=True, inplace=True)
 
-units["area_km2"] = (units.to_crs("EPSG:32632").area / 1e6).round(2)
+ALBERS = "+proj=aea +lat_1=4 +lat_2=14 +lat_0=9 +lon_0=8 +datum=WGS84 +units=m +no_defs"
+units["area_km2"] = (units.to_crs(ALBERS).area / 1e6).round(2)
 units["in_nigeria"] = units.geometry.representative_point().within(nigeria)
 units = units[["unit_code", "unit_name", "period", "sheet_colour", "area_km2",
                "in_nigeria", "how_named", "name_confidence", "geometry"]]
@@ -197,13 +200,17 @@ con = sqlite3.connect(GPKG)
 con.execute("CREATE TABLE IF NOT EXISTS dataset_notes(topic TEXT, note TEXT)")
 notes = [
  ("title", "Nigeria geology, structure and mineral symbols, EPSG:4326"),
- ("geology_units", f"{len(units)} geological bodies, {units.unit_code.nunique()} distinct unit codes, forming a "
-                   "complete partition of the country (no overlaps, no gaps, nothing outside the border). "
-                   "Geometry comes from the NGSA body set that already existed in this repository and was "
-                   "re-referenced against the sheet's printed graticule by Build_NGSA_Geology.py; names and "
-                   "periods come from the sheet's legend. 1,402 bodies carry a legend name; 150 carry the "
-                   "codes OGp and S, which the sheet prints but its own legend omits, and are named to "
-                   "series level and flagged low rather than guessed."),
+ ("geology_units", f"{len(units)} map units, {units.unit_code.nunique()} distinct unit codes, one row per "
+                   "entry in the sheet's own legend. The layer is a partition of the mapped area: 99.6% of "
+                   "Nigeria covered, 0.03 km2 of overlap, 0.02 km2 of enclosed ground unassigned; the 3,205 km2 "
+                   "not covered is the Cameroon border strip and a sliver of coast that the printed sheet never "
+                   "colours. Geometry is the dissolved vector reading of the 2011 sheet "
+                   "(data/geology/geology_units_main.gpkg, built by Build_Geology_Units.py and audited by "
+                   "Geology_LifeSaver.py); names, periods and colours come from the sheet's legend. 91 of the "
+                   "97 carry a full legend name; the other 6 (BCT, Gdss, Gmsh, OGp, W, s) are codes the sheet "
+                   "prints without a legend row, named to series level and flagged name_confidence = low rather "
+                   "than guessed. A unit may be several separate polygons (OGp, the Older Granite field, is 232 "
+                   "of them): the parts are real outcrops, not tracing debris."),
  ("faults", f"{len(faults)} fault traces ({int(faults.in_nigeria.sum())} inside Nigeria, "
             f"{faults.length_km.sum():.0f} km of trace in total) rebuilt from the sheet's thick black "
             "hachured structural symbol by chaining its vector segments end to end. The hachures show "

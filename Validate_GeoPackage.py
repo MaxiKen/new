@@ -3,7 +3,7 @@
 import json, sqlite3
 from pathlib import Path
 import numpy as np, rasterio, geopandas as gpd
-from shapely.geometry import Point
+from shapely.geometry import Point, Polygon
 
 P = Path(__file__).resolve().parent
 GPKG = P / "Nigeria_Geology_Minerals_4326.gpkg"
@@ -26,8 +26,12 @@ for name, must in [("geology_units", ["unit_code", "unit_name", "period", "sheet
     chk(f"vector {name}", ok, f"{len(g)} features, fields {list(g.columns)[:6]}")
 
 u = gpd.read_file(GPKG, layer="geology_units")
-chk("units carry names, not just colours", (u.unit_code != "unlabelled").sum() > 1000,
-    f"{u.unit_code.nunique()} codes, {(u.unit_code=='unlabelled').sum()} unlabelled")
+# the layer is one row per map unit now, not one row per traced body, so the test is coverage of
+# the area by named units rather than a count of polygons
+named_area = u.area_km2[u.unit_code != "unlabelled"].sum() / u.area_km2.sum()
+chk("units carry names, not just colours", (u.unit_code != "unlabelled").all() and named_area > .99,
+    f"{u.unit_code.nunique()} codes over {len(u)} map units, "
+    f"{(u.unit_code=='unlabelled').sum()} unlabelled, {named_area*100:.1f}% of the area named")
 chk("units are inside or on Nigeria", u.in_nigeria.mean() > .8,
     f"{u.in_nigeria.sum()} of {len(u)} polygons flagged in_nigeria")
 fa = gpd.read_file(GPKG, layer="faults")
@@ -113,12 +117,18 @@ u32 = u32[~u32.is_empty]
 u_union = unary_union(u32.geometry.tolist())
 covered = u_union.intersection(ng32).area / ng32.area * 100
 overlap = (u32.area.sum() - u_union.area) / ng32.area * 100
-hole = ng32.difference(u_union).area / 1e6
-chk("geology units cover the country", covered > 99.9, f"{covered:.2f}% of Nigeria covered")
+# a hole is ground the units already surround; ground the sheet never colours (offshore, the
+# north-east corner, the Cameroon border strip) is a limit of the source, not a hole
+hole = sum(Polygon(r).area for p in (u_union.geoms if u_union.geom_type == "MultiPolygon"
+                                     else [u_union]) for r in p.interiors) / 1e6
+not_mapped = ng32.difference(u_union).area / 1e6 - hole
+chk("geology units cover the mapped area", covered > 99.0,
+    f"{covered:.2f}% of Nigeria covered, {not_mapped:.0f} km2 the sheet leaves uncoloured")
 chk("geology units do not overlap", abs(overlap) < 0.05,
     f"overlap is {overlap:.3f}% of the country ({u32.area.sum()/1e6 - u_union.area/1e6:.1f} km2, "
     f"{n_repaired} thin rings repaired on the way in)")
-chk("no holes left inside the country", hole < 50, f"{hole:.1f} km2 unassigned")
+chk("no holes left inside the mapped area", hole < 50,
+    f"{hole:.2f} km2 of enclosed ground unassigned")
 named_full = int((u.name_confidence != "low").sum())
 chk("almost every polygon carries a legend name", named_full / len(u) > .85,
     f"{named_full} of {len(u)} carry a full legend name; the other {len(u) - named_full} carry "

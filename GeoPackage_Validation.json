@@ -4,7 +4,7 @@
     {
       "check": "vector geology_units",
       "pass": true,
-      "detail": "1552 features, fields ['unit_code', 'unit_name', 'period', 'sheet_colour', 'area_km2', 'in_nigeria']"
+      "detail": "97 features, fields ['unit_code', 'unit_name', 'period', 'sheet_colour', 'area_km2', 'in_nigeria']"
     },
     {
       "check": "vector faults",
@@ -29,12 +29,12 @@
     {
       "check": "units carry names, not just colours",
       "pass": true,
-      "detail": "78 codes, 0 unlabelled"
+      "detail": "97 codes over 97 map units, 0 unlabelled, 100.0% of the area named"
     },
     {
       "check": "units are inside or on Nigeria",
       "pass": true,
-      "detail": "1552 of 1552 polygons flagged in_nigeria"
+      "detail": "97 of 97 polygons flagged in_nigeria"
     },
     {
       "check": "fault layer is sparse and plausible",
@@ -194,9 +194,9 @@
       "detail": "identical transform and shape"
     },
     {
-      "check": "geology units cover the country",
+      "check": "geology units cover the mapped area",
       "pass": true,
-      "detail": "100.00% of Nigeria covered"
+      "detail": "99.65% of Nigeria covered, 3205 km2 the sheet leaves uncoloured"
     },
     {
       "check": "geology units do not overlap",
@@ -204,19 +204,19 @@
       "detail": "overlap is -0.000% of the country (-0.0 km2, 0 thin rings repaired on the way in)"
     },
     {
-      "check": "no holes left inside the country",
+      "check": "no holes left inside the mapped area",
       "pass": true,
-      "detail": "1.1 km2 unassigned"
+      "detail": "0.02 km2 of enclosed ground unassigned"
     },
     {
       "check": "almost every polygon carries a legend name",
       "pass": true,
-      "detail": "1402 of 1552 carry a full legend name; the other 150 carry ['OGp', 'S'], codes the sheet prints but its own legend omits \u2014 named to series level and flagged low, not guessed. {'high': 1331, 'low': 150, 'medium': 71}"
+      "detail": "91 of 97 carry a full legend name; the other 6 carry ['BCT', 'Gdss', 'Gmsh', 'OGp', 'W', 's'], codes the sheet prints but its own legend omits \u2014 named to series level and flagged low, not guessed. {'high': 91, 'low': 6}"
     },
     {
       "check": "every polygon carries a unit code",
       "pass": true,
-      "detail": "78 distinct codes"
+      "detail": "97 distinct codes"
     }
   ],
   "passed": 35,

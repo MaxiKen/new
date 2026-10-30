@@ -4,10 +4,10 @@ Two GeoPackages, both built by script and both checked by script:
 
 | file | what it is |
 |---|---|
-| `Nigeria_Geology_Minerals_4326.gpkg` | **the reference frame.** 13 layers, EPSG:4326, 16.8 MB |
+| `Nigeria_Geology_Minerals_4326.gpkg` | **the reference frame.** 13 layers, EPSG:4326, 16.5 MB |
 | `Nigeria_Geology_Minerals_projected.gpkg` | **the working frame.** The same layers with geometry genuinely reprojected to metres — Albers equal-area for areas, UTM 32N for positions and distances |
 
-`Validate_GeoPackage.py` runs **30 checks on the 4326 package; all 30 pass**
+`Validate_GeoPackage.py` runs **35 checks on the 4326 package; all 35 pass**
 (`GeoPackage_Validation.json`). `Projection_Report.json` proves the projected package's
 coordinates really are metres by reporting their ranges and the measured scale error.
 
@@ -20,104 +20,134 @@ The four plates are drawn from the 4326 package, so a picture cannot disagree wi
 | `Map_3_Combined.png` | muted geology + interpolated symbol density + every occurrence + faults |
 | `Map_4_Symbol_Centring.png` | six measured close-ups proving where each coordinate sits |
 
-## The unit layer is a partition of the country
+## The unit layer: 97 map units, not a thousand traced pieces
 
-It took three attempts. The first read the PDF's loose filled paths and included one page-sized
-rectangle carrying the code `Qs`, the legend swatches and a neat-line strip: 1,142 polygons, 40.7% of
-the country covered, 428,619 km² of overlap. The second read the printed colours pixel by pixel and
-fixed the coverage, but fragmented every unit along the labels and lines printed over it (see
-below). **This version ships the geology body set that already existed in this repository, taken
-from branches `7am` / `edit-mode` / `side`, re-referenced against the sheet and repaired.**
+Four readings of the same printed sheet exist in this repository. Only one of them is shipped,
+and the choice is a count first and a measurement second:
+
+| reading | rows | what it is | shipped |
+|---|---|---|---|
+| `Geology_Bodies.geojson` (`Build_NGSA_Geology.py`) | **1,552** | bodies traced body by body from a photograph of the sheet | no — kept as evidence |
+| `Rebuild_Geology_Units.py` | **5,539** | regions read per pixel off the rendered sheet | no — kept as evidence |
+| `Geology_Units_Partition` attempt | **1,142** | the PDF's loose filled paths, including a page-sized `Qs` rectangle | no — retired |
+| `data/geology/geology_units_main.gpkg` → **`Geology_Units.geojson`** (`Build_Geology_Units.py`) | **97** | one polygon set per legend entry, dissolved | **yes** |
+
+A thousand polygons is not a geology layer, it is a tracing. The 2011 sheet's own legend has 97
+rows; the shipped layer has 97 rows, so a legend row is one shape and a code means one thing.
 
 | | value |
 |---|---|
-| bodies | **1,552** (78 unit codes) |
-| Nigeria covered | **100.00%** |
-| overlap | **0.000%** (0.00 km²) |
-| unassigned holes | **1.1 km²** in total |
-| bodies under 0.5 km² | **0** (41 merged into a neighbour) |
-| largest body | 62,956 km² — the Chad basin sands |
-| median body | 66 km² |
-| carrying a full legend name | 1,402 of 1,552 |
+| map units | **97** (97 codes, all distinct) |
+| parts (an outcrop of one unit is a part) | **1,572** — 15 units are a single piece, median 5, worst 232 (`OGp`, the Older Granite field, which really is scattered) |
+| area covered | **907,157 km²** |
+| of Nigeria's 909,250 km² | **99.65%** — the 3,205 km² the sheet leaves uncoloured is the Cameroon border strip and a sliver of coast, not a gap in the layer |
+| overlap | **0.03 km²** (0.000003%) |
+| enclosed holes | **0.02 km²**, all below the 0.002 km² threshold |
+| median unit | **3,078 km²**; largest `M` Migmatite 99,972 km²; smallest `BCT` 4.5 km² |
+| median part | **73 km²**; 41 parts under 0.5 km² |
+| named from a legend row | **91 of 97** (94%) |
+| flagged `name_confidence = low` | 6 codes, 94,433 km² — `OGp`, `W`, `Gdss`, `s`, `Gmsh`, `BCT`, all printed on the sheet without a legend row |
 
-### Where these polygons come from, and the reference check
+`Geology_Units_Comparison.png` is the picture version of that table: the same window of Sokoto
+drawn from the sheet, from the shipped layer, and from the 1,552-body trace.
 
-The source, `data/ngsa/ngsa_geology_v6.gpkg`, is revision 6 of an interpretation made from a
-6,600 × 3,675 photograph of the NGSA sheet: 1,588 singlepart polygons following the printed
-contacts, one shared contact network, with a lithology per body. Its header said **“EPSG:4326 —
-assumed datum”** — nobody had checked where it sat. That is the part that is now fixed, and the
-check is measured, not asserted.
+### Why the traced readings were not shipped
 
-The photograph carries the sheet's own graticule. Every meridians and parallel was measured to the
-pixel centre — 5 meridians (3°E to 14°E) and 9 parallels (5°N to 13°N, `data/ngsa/graticule_control
-_points.json`):
+They are not wrong about the rock; they are wrong about what a unit is. A traced body stops wherever
+printed type, a road, a railway or a shear zone crosses it, so:
 
-| | measured |
-|---|---|
-| grid spacing | 328.5 px per degree east–west, 328.4 px north–south |
-| straightness of the grid | 0.16 px across a meridian, 0.19 px across a parallel |
-| shipped linear transform vs that grid | **mean 0.23 km, worst 0.27 km** |
-| what was done | the polygons were re-tied to the measured graticule |
+* **one legend row becomes hundreds of shapes** — median body 69 km² against a median unit of
+  3,078 km², and the traced set only manages 78 of the sheet's 97 codes;
+* **a contact cannot be told from a label** — the edge of a "body" is as often the edge of a letter
+  as the edge of a rock type, so nothing downstream can use it as a boundary;
+* **names have to be guessed** — only 1,402 of the 1,552 bodies pick up a legend name, because the
+  fragments no longer sit inside the printed code that used to name them.
 
-So the coordinates were already nearly right — but they were right by luck, and now they are right
-by measurement. `Geology_Referencing.png` shows the graticule as measured, and the bodies drawn over
-the printed sheet.
+The pixel reading has a third problem, measured: roads, rivers and shear zones are printed in flat
+colours like fills, so the reader carved them out of the unit they crossed, and each printed letter
+became a hole that split its share of the unit between the neighbours. Repairing both rules took
+pairs of same-code polygons closer than 2.5 km from 2,362 to 1,151 — and the layer still had
+staircase edges and still cut units wherever a line was thinner than the cut-off. It is kept on
+disk as `Geology_Units_Repaired.geojson`, and is not what ships.
 
-The geometry was then made fit to ship:
+### Where the 97 units come from
 
-* **cut to the border** — 4,242 km² of the source lay outside Nigeria, mostly coast and border fringe;
-* **bare ground closed** — 12,554 km² inside the border carried no body: 7 pieces were water on the
-  printed sheet (Lake Chad and reservoirs) and became the class `WATER`; the rest, 8,575 km² of thin
-  coastal and border strips, went to the neighbour sharing the longest edge with them;
-* **tiny bodies merged** — 41 bodies under 0.5 km² and thinner than 0.4 km were absorbed, so there is
-  not one speck left;
-* **names and periods** from the sheet's legend, so the codes mean here what they mean on the sheet.
+`data/geology/geology_units_main.gpkg` is the dissolved vector reading of the sheet that already
+existed in this repository on branch `addition` (`maps/Nigeria_Geology_Minerals_4326.gpkg`), where
+it was built with its own report (`maps/geology_final_report.json`). It carries, per row, the
+printed code, the legend's unit name, the era and period, the measured sheet colour, the legend row
+number and how the name was decided — which is why it can be checked against the printed legend
+rather than taken on trust.
 
-Two codes the sheet prints but its own legend omits stay unresolved on purpose: `OGp` (149 bodies,
-79,251 km², the salmon Older Granite field) and `S` (1 body, 928 km²). They are named to series level,
-given `name_confidence = low`, and counted out loud in the map legend rather than guessed.
+`Build_Geology_Units.py` does not re-trace it. It validates every geometry, merges the 7 specks
+under 0.25 km² into the neighbour they touch, closes the 3 enclosed pinholes, and puts the four
+fields the rest of the pipeline expects (`unit_code`, `unit_name`, `period`, `sheet_colour`) on
+every row, plus `how_named` and `name_confidence`. Two things it deliberately does not do:
 
-### Why the pixel-by-pixel reading was retired
+* **it does not grow the layer to the border.** An earlier pass "filled holes" against the national
+  outline and invented 97,000 km² of rock in places the sheet never colours. Only ground the units
+  already enclose counts as a hole.
+* **it does not merge the parts of one unit.** `OGp` really is a scattered field of granite; welding
+  its 232 outcrops into one blob would be a lie about the geology.
 
-The second attempt read every flat colour on the sheet and rebuilt each region from it. It reached
-100% coverage, but it split units in two in exactly the places the question was about, and its edges
-were pixel staircases. Measured on that layer: **2,362 pairs of polygons sharing a unit code sat
-within 2.5 km of each other, 462 within 1 km, 159 within 500 m.** Two causes, both found and both
-worth recording because the body set does not have them:
+## Review: every geology polygon layer in the repository, audited
 
-* **Line work taken for rock.** Roads, rivers, shear zones and dashes are printed in flat colours
-  like units; the reader carved them out of the unit they crossed. Their thickness gives them away:
-  measured as twice the largest inscribed radius, line work is 2–6 px and fills are 11 px or more.
-* **A name cut into the unit under it.** Every letter was a hole, and the filler gave each letter
-  pixel to its nearest neighbour, so a name straddling a contact took half its letters from each
-  side and dismembered the unit it was printed on.
+This is the audit behind the table above. Every `.geojson` and `.gpkg` in the tree was opened and
+counted, not just the one that ships.
 
-Repairing those two rules took the fragmentation from 2,362 pairs to 1,151, and it is documented in
-`Geology_Partition_Before_After.png` — but the result still had staircase edges and still cut units
-where a line was thinner than the cut-off. It is kept on disk (`Geology_Units_Repaired.geojson`) for
-comparison and is **not** what ships.
+| layer | file | rows | verdict |
+|---|---|---|---|
+| map units (shipped) | `Geology_Units.geojson` | **97** | ships |
+| map units (guard output) | `Geology_Units_Repaired.geojson` | 97 | identical to the shipped layer after `--apply`; kept so the guard's output is visible |
+| traced bodies | `Geology_Bodies.geojson` | 1,552 | retired; kept as evidence, and it is what `Build_NGSA_Geology.py` still produces |
+| bodies layer inside a package | `Nigeria_Geology_Minerals_4326.gpkg` → `geology_units` | 97 | same 97 rows as the shipped layer, with `area_km2` recomputed in equal-area |
+| ngsa source | `data/ngsa/ngsa_geology_v6.gpkg` → `geology_bodies` | 1,588 | upstream interpretation; not shipped |
+| national outline | `Nigeria_Natural_Earth_outline.geojson` | 1 | not a geology layer |
+| raster readings | `ref_geology_2011`, `combined_map` | 2480 × 2040 | pictures, not polygons |
+
+What else the audit found and fixed, so the next reader does not have to find it again:
+
+* **Three units vanished on reprojection.** `Al`, `Bnst` and `Ajst` are valid in lon/lat but turn
+  invalid when rotated into the equal-area frame, and `make_valid` on the projected shape returned a
+  collection with no polygons in it — silently dropping 94,000 km². Every geometry is now repaired
+  with `buffer(0)` first, which fixes the projection thin-ring case with no measurable area change.
+* **Coordinate rounding re-breaks rings on write.** Writing GeoJSON rounds coordinates, and thin
+  rings that were valid in memory come back self-intersecting. Both scripts now read the written
+  file back and repair what landed on disk; `Geology_LifeSaver.py` reports 0 invalid rings for the
+  shipped layer.
+* **Hole-filling invented ground.** Filling "holes" against the national outline added 97,000 km² of
+  rock in areas the sheet never colours. Only enclosed interiors count as holes now.
+* **Validation was hard-coded to a 1,000-row layer.** Two checks in `Validate_GeoPackage.py`
+  (`> 1000` named bodies, 100% coverage against the national outline) could only pass on the traced
+  layer. They now test the property that matters — every row named, and coverage of the area the
+  sheet actually maps — and the package passes **35 of 35**.
+* **The viewer defaulted to a layer that was off.** The unit layer shipped switched off in the
+  control panel and the opening base was the minerals sheet, so the preview opened with no
+  polygons at all. It now opens on the geology sheet with the 97 units on.
 
 ## The life saver
 
 `Geology_LifeSaver.py` is the safety net around the unit layer. Run it after any change:
 
 ```
-python3 Geology_LifeSaver.py            # audit, repair, write Geology_Units_Repaired.geojson
 python3 Geology_LifeSaver.py --check    # audit only, exit code 1 if anything is wrong
+python3 Geology_LifeSaver.py            # audit, repair, write Geology_Units_Repaired.geojson
+python3 Geology_LifeSaver.py --apply    # ...and make the repaired layer the shipped one
 ```
 
-It measures the layer, fixes what it finds, and writes both `LifeSaver_Report.json` and the repaired
-layer back into `Geology_Layers_Extracted.gpkg` as `geology_units`, which is what every downstream
-build reads.
+It guards whatever layer actually ships (`Geology_Units.geojson`), measures it, fixes what it finds,
+and writes `LifeSaver_Report.json`. With `--apply` it also writes the repaired layer back to
+`Geology_Units.geojson` and into `Geology_Layers_Extracted.gpkg` as `geology_units`, then reads the
+written file back and repairs anything the coordinate rounding re-broke.
 
 | step | what it does | result on the current build |
 |---|---|---|
 | overlaps | trims the smaller polygon where two claim the same ground | nothing to do on the shipped layer |
-| cuts | bridges two parts of one unit when only empty ground lies between them, never across another unit | 6 pairs found, none narrow enough to be a cut |
+| cuts | bridges two parts of one unit when only empty ground lies between them, never across another unit | 0 on the shipped layer |
 | slivers | merges strands thinner than 0.45 km into their neighbour; leaves small chunky outcrops alone | 0 |
-| holes | gives unassigned ground to the neighbour sharing the longest edge with it | 1.1 km² left, below its threshold |
+| holes | gives enclosed ground to the neighbour sharing the longest edge with it (never open ground the sheet does not colour) | 0.02 km² enclosed, below the threshold |
 | fragments | counts the pieces each unit comes in, so the real structure is visible | reported, not forced together |
-| read-back | reads the written file again and checks the sum of areas against the union | 909,249.3 = 909,249.3 km², nothing double-counted |
+| read-back | reads the written file again and checks the sum of areas against the union | 908,907 = 908,907 km², nothing double-counted, 0 invalid rings |
 
 Two rules keep it honest. It never invents a unit — a bridge joins only two polygons that already
 carry the same code — and it checks every geometry it writes: a repair that changes a polygon's area
@@ -146,7 +176,14 @@ anything the package does not contain.
 
 **Mobile.** Below 900 px the layout becomes a single full-screen map: the layer panel is a drawer
 behind the hamburger, the inspector slides up from the bottom when a point is tapped, the toolbar
-becomes one row with a zoom slider, and one finger pans while two fingers pinch.
+becomes one row with a zoom slider, and one finger pans while two fingers pinch. A portrait phone is
+taller than Nigeria is wide, so a fitted view leaves background above and below the country — that
+is deliberate. Cropping the map to fill the screen would hide the coast and the eastern border.
+
+All four modes were rendered at 1280 × 800 and at 390 × 844 (phone) after this rebuild, and each
+one was checked by eye *and* by counting non-background pixels in each half of the canvas, so a
+blank pane could not pass as a working one. That check is what caught the Compare-mode bug
+described below.
 
 **Deep zoom.** The zoom slider runs from level 100 (the whole country) to **1500**, which is about
 25 km across a phone screen — far past the resolution of the exported sheet. Two things make that
@@ -158,6 +195,20 @@ usable rather than merely pixelated:
   each boundary stroked in its own colour, so no white seams appear between neighbours.
 
 ## What changed in this revision
+
+### 0. The preview itself
+
+Two bugs in the viewer made the last preview look wrong, and neither was in the data:
+
+* **the unit layer shipped switched off.** `state.layers.units.on` was `false` and the opening base
+  was the minerals sheet, so the polygons only appeared if a reader found the checkbox. The viewer
+  now opens on the 2011 geology sheet with the 97 units drawn;
+* **Compare drew the polygons at 55% over white.** The right-hand side has no sheet underneath it,
+  so the 55% opacity that is right for drawing over the printed map washed the replot out to a pale
+  ghost. In Compare the replot is now painted at full strength, which is the whole point of putting
+  the printed sheet and the measured colours side by side;
+* the two Compare labels (`geology sheet`, `unit polygons`) collided when the divider was dragged
+  near the left edge; they now drop to a second row instead of overprinting each other.
 
 ### 1. One point per printed symbol — duplicates removed
 
@@ -244,7 +295,7 @@ The 4326 package remains the authoritative reference frame; the projected one is
 | layer | type | what it is |
 |---|---|---|
 | `minerals_occurrences` | 1,091 points | one row per printed symbol, at its centre, with name, alternative name, confidence, source and classifier evidence |
-| `geology_units` | 1,552 bodies | the sheet's map units as a complete partition of the country, with `unit_code`, `unit_name`, `period`, `sheet_colour`, `area_km2`, `name_confidence`, `how_named` |
+| `geology_units` | **97 map units** | the sheet's map units, one row per legend entry, with `unit_code`, `unit_name`, `period`, `sheet_colour`, `area_km2`, `in_nigeria`, `name_confidence`, `how_named` |
 | `faults` | 13 traces | the sheet's "Major Fractures / Faults" symbol (246 km) |
 | `roads` | 954 strokes | the sheet's "Roads" symbol — the national road network |
 | `rivers` | 1,055 lines | the sheet's blue drainage |

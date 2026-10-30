@@ -133,7 +133,8 @@ stats = {"occurrences": len(occ),
                     "geology": [round(v, 4) for v in bounds_geology]},
          "counts": {"units": len(u), "faults": len(vec["faults"]), "roads": len(vec["roads"]),
                     "rivers": len(vec["rivers"]), "states": len(vec["states"])},
-         "layers": 13, "checks": 30}
+         "layers": 13,
+         "checks": int(rd("GeoPackage_Validation.json").get("total", 35))}
 json.dump(stats, open(D / "stats.json", "w"), indent=1)
 print("  stats.json written")
 print("bounds minerals", [round(v, 2) for v in bounds_minerals])

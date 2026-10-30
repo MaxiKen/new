@@ -1,0 +1,41 @@
+{
+ "source": {
+  "file": "data/geology/geology_units_main.gpkg",
+  "rows": 97,
+  "crs": "EPSG:4326"
+ },
+ "shipped_layer": "Geology_Units.geojson",
+ "rows": 97,
+ "codes": 97,
+ "parts_before_merge": 1584,
+ "parts_after_merge": 1572,
+ "specks_merged": 7,
+ "specks_threshold_km2": 0.25,
+ "holes_filled": 3,
+ "holes_filled_km2": 0.019,
+ "coverage_pct_nigeria": 99.65,
+ "unmapped_km2": 6046.3,
+ "area_outside_nigeria_km2": 2851.6,
+ "overlap_km2": 0.025574021000000002,
+ "area_km2": 907156.8,
+ "part_km2": {
+  "min": 0.0,
+  "median": 73.3,
+  "max": 62577.8
+ },
+ "small_parts_under_half_km2": 41,
+ "named_from_legend": 91,
+ "low_confidence": [
+  "BCT",
+  "Gdss",
+  "Gmsh",
+  "OGp",
+  "W",
+  "s"
+ ],
+ "low_confidence_area_km2": 94433.0,
+ "replaced": {
+  "Geology_Bodies.geojson": 1552,
+  "Rebuild_Geology_Units.py": 5539
+ }
+}
