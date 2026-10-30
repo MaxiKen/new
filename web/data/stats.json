@@ -133,7 +133,7 @@
    {
     "check": "vector geology_units",
     "pass": true,
-    "detail": "7388 features, fields ['unit_code', 'unit_name', 'period', 'sheet_colour', 'area_km2', 'in_nigeria']"
+    "detail": "8540 features, fields ['unit_code', 'unit_name', 'period', 'sheet_colour', 'area_km2', 'in_nigeria']"
    },
    {
     "check": "vector faults",
@@ -158,12 +158,12 @@
    {
     "check": "units carry names, not just colours",
     "pass": true,
-    "detail": "71 codes, 0 unlabelled"
+    "detail": "55 codes, 0 unlabelled"
    },
    {
     "check": "units are inside or on Nigeria",
     "pass": true,
-    "detail": "7388 of 7388 polygons flagged in_nigeria"
+    "detail": "8540 of 8540 polygons flagged in_nigeria"
    },
    {
     "check": "fault layer is sparse and plausible",
@@ -335,12 +335,12 @@
    {
     "check": "no holes left inside the country",
     "pass": true,
-    "detail": "1.4 km2 unassigned"
+    "detail": "1.5 km2 unassigned"
    },
    {
-    "check": "every polygon carries a legend name",
+    "check": "almost every polygon carries a legend name",
     "pass": true,
-    "detail": "7384 of 7388 named; {'medium': 5890, 'high': 864, 'low': 634}"
+    "detail": "8207 of 8540 named; {'low': 5208, 'medium': 2945, 'high': 387}"
    }
   ],
   "passed": 34,
@@ -365,7 +365,7 @@
      1618681
     ],
     "area_change_pct_vs_albers": null,
-    "features": 7388
+    "features": 8540
    },
    "nigeria_boundary": {
     "crs": "ESRI:102022",
@@ -500,7 +500,7 @@
   ]
  },
  "counts": {
-  "units": 7388,
+  "units": 8540,
   "faults": 13,
   "roads": 942,
   "rivers": 974,

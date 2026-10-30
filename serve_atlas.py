@@ -11,6 +11,8 @@ Endpoints
   /                     the viewer
   /data/*               exported layers, sheet renders, statistics
   /api/crop             ?lon=&lat=&r=&src=minerals|geology  -> PNG with a crosshair
+  /api/view             ?src=&lon0=&lat0=&lon1=&lat1=&w=&h= -> PNG of that exact window,
+                        rendered from the PDF, so deep zoom stays sharp instead of pixelated
   /api/health           liveness + asset report
 """
 import io, json, os
@@ -37,6 +39,24 @@ def ll_to_page(lon, lat, src):
         return lon * 157.593 - 276.36, 2281.63 - lat * 157.586
     return (74.23969 + (lon - 2.47619) / 12.54519 * 1976.9518,
             358.7239 + (14.04668 - lat) / 10.20997 * 1608.9773)
+
+
+def view_png(src, lon0, lat0, lon1, lat1, w, h):
+    """Render exactly the requested geographic window at the requested pixel size."""
+    doc = _DOCS.get(src)
+    if doc is None:
+        doc = _DOCS[src] = pymupdf.open(PDFS[src])
+    page = doc[0]
+    x0, y0 = ll_to_page(lon0, lat1, src)          # top-left of the window
+    x1, y1 = ll_to_page(lon1, lat0, src)          # bottom-right
+    clip = pymupdf.Rect(min(x0, x1), min(y0, y1), max(x0, x1), max(y0, y1))
+    zoom = max(1.0, min(40.0, max(w / max(clip.width, .01), h / max(clip.height, .01))))
+    pix = page.get_pixmap(matrix=pymupdf.Matrix(zoom, zoom), clip=clip, alpha=False)
+    im = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
+    im = im.resize((w, h), Image.LANCZOS)
+    buf = io.BytesIO()
+    im.save(buf, "PNG", optimize=False, compress_level=3)
+    return buf.getvalue()
 
 
 _DOCS = {}
@@ -103,6 +123,25 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_header("Content-Type", "image/png")
             self.send_header("Content-Length", str(len(png)))
             self.send_header("Cache-Control", "no-store")
+            self.end_headers()
+            self.wfile.write(png)
+            return
+        if u.path == "/api/view":
+            q = parse_qs(u.query)
+            try:
+                src = q.get("src", ["geology"])[0]
+                if src not in PDFS:
+                    return self._json({"error": "unknown src"}, 400)
+                lon0, lat0, lon1, lat1 = (float(q[k][0]) for k in ("lon0", "lat0", "lon1", "lat1"))
+                w = max(16, min(3000, int(float(q.get("w", ["512"])[0]))))
+                h = max(16, min(3000, int(float(q.get("h", ["512"])[0]))))
+                png = view_png(src, lon0, lat0, lon1, lat1, w, h)
+            except Exception as exc:                      # noqa: BLE001
+                return self._json({"error": str(exc)}, 400)
+            self.send_response(200)
+            self.send_header("Content-Type", "image/png")
+            self.send_header("Content-Length", str(len(png)))
+            self.send_header("Cache-Control", "max-age=120")
             self.end_headers()
             self.wfile.write(png)
             return

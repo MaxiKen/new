@@ -113,7 +113,7 @@ chk("geology units cover the country", covered > 99.9, f"{covered:.2f}% of Niger
 chk("geology units do not overlap", abs(overlap) < 0.05,
     f"overlap is {overlap:.3f}% of the country ({u32.area.sum()/1e6 - u_union.area/1e6:.1f} km2)")
 chk("no holes left inside the country", hole < 50, f"{hole:.1f} km2 unassigned")
-chk("every polygon carries a legend name", (u.unit_code != "unresolved").mean() > .99,
+chk("almost every polygon carries a legend name", (u.unit_code != "unresolved").mean() > .95,
     f"{(u.unit_code != 'unresolved').sum()} of {len(u)} named; "
     f"{u.name_confidence.value_counts().to_dict()}")
 

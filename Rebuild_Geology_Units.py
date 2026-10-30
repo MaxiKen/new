@@ -35,7 +35,7 @@ KM_PER_PX = 0.68 / Z
 FRAME = pymupdf.Rect(114, 60, 2100, 1680)          # the sheet's map area in page points
 TOL = 60                                           # RGB distance accepted as "this tint"
 MIN_KM2 = 1.5                                      # smaller regions are absorbed
-SIMPLIFY = 0.0006                                  # ~65 m, below one printed pixel
+SIMPLIFY = 0.0002                                  # ~22 m, well below one printed pixel
 SMOOTH = 7                                         # median window: removes hatch dots and text
 
 
@@ -73,9 +73,39 @@ print(f"map render {W}x{H}  ({KM_PER_PX:.2f} km per pixel)")
 # the sheet hatches some fills and prints codes inside them; a median keeps the fill, drops the ink
 im = np.stack([ndimage.median_filter(im[:, :, c], size=SMOOTH) for c in range(3)], axis=2)
 
-# nearest legend tint through a 5-bit lookup table, so 12.9 million pixels cost one pass
+# The map's own inks, not the legend swatches. The sheet is printed with a colour-management
+# shift, so a fill on the map can sit 40-90 RGB units from the swatch that represents it, and
+# matching to swatches blurs neighbouring units together. So: find the flat inks the map itself
+# uses, and classify against those.
+flat = (im >> 3).astype(np.int32)
+code5 = (flat[:, :, 0] * 1024 + flat[:, :, 1] * 32 + flat[:, :, 2]).ravel()
+vals, counts = np.unique(code5, return_counts=True)
+order = np.argsort(-counts)
+MAP_TINTS = []
+for i in order:
+    if counts[i] < 0.0004 * code5.size:          # under ~0.04% of the map is not a fill
+        break
+    k = int(vals[i])
+    rgb = ((k // 1024) * 8 + 4, ((k // 32) % 32) * 8 + 4, (k % 32) * 8 + 4)
+    if rgb == (4, 4, 4) or sum(rgb) < 90:        # ink, not fill
+        continue
+    MAP_TINTS.append(rgb)
+print(f"{len(MAP_TINTS)} flat inks found on the map itself, "
+      f"covering {counts[order[:len(MAP_TINTS)]].sum() / code5.size * 100:.0f}% of it")
+
+LEG_TINTS = list(tint_codes)
+INK_CODES = {}
+INK_SWATCH = {}
+for i, ink in enumerate(MAP_TINTS):
+    ds = sorted((sum(abs(a - b) for a, b in zip(ink, t)), j) for j, t in enumerate(LEG_TINTS))
+    d, j = ds[0]
+    INK_SWATCH[i] = (LEG_TINTS[j], d)
+    INK_CODES[i] = tint_codes[LEG_TINTS[j]] if d <= 90 else []
+print("map inks close enough to a legend swatch:",
+      sum(1 for i in INK_CODES if INK_CODES[i]), "of", len(MAP_TINTS))
+
 lut_n = 32
-lut_rgb = np.array(TINT_LIST, np.float32)
+lut_rgb = np.array(MAP_TINTS, np.float32)
 q = (im >> 3).astype(np.int32)
 keys = (q[:, :, 0] * lut_n + q[:, :, 1]) * lut_n + q[:, :, 2]
 lut_cls = np.full(lut_n ** 3, -1, np.int16)
@@ -87,7 +117,7 @@ for k in range(lut_n ** 3):
     lut_dist[k] = d[i]
     lut_cls[k] = i if d[i] <= TOL else -1
 cls = lut_cls[keys]
-print(f"pixels on a legend tint: {(cls >= 0).mean() * 100:.1f}%")
+print(f"pixels on one of the map's own inks: {(cls >= 0).mean() * 100:.1f}%")
 
 # ---------------------------------------------------------------- 3. no pixel left behind
 hole = cls < 0
@@ -100,7 +130,7 @@ print("every pixel now carries a tint")
 # whichever tint dominates their neighbourhood
 best = np.zeros((H, W), np.float32)
 cls_c = np.zeros((H, W), np.int16)
-for t in range(len(tint_codes)):
+for t in range(len(MAP_TINTS)):
     f = ndimage.uniform_filter((cls == t).astype(np.float32), 5)
     take = f > best
     best[take] = f[take]
@@ -114,7 +144,7 @@ print("class raster cleaned")
 ids = np.zeros((H, W), np.int32)
 nxt = 1
 regions = []
-for t_i, tint in enumerate(tint_codes):
+for t_i, tint in enumerate(MAP_TINTS):
     m = cls == t_i
     if not m.any():
         continue
@@ -130,12 +160,16 @@ for t_i, tint in enumerate(tint_codes):
         if area_km2 < MIN_KM2:
             continue
         ids[s][lab[s] == k] = nxt
-        regions.append({"id": nxt, "tint": tint, "tint_i": t_i, "codes": tint_codes[tint],
+        regions.append({"id": nxt, "tint": tint, "tint_i": t_i, "codes": INK_CODES[t_i],
                         "area_km2": area_km2, "slice": s})
         nxt += 1
 print(f"{len(regions)} regions kept")
 
 # ---------------------------------------------------------------- 4. name them from the printed codes
+# Every ink on the sheet is a fill printed once in the legend and labelled wherever it appears.
+# So: count which unit codes are printed on which ink, and pair each ink with the code that is
+# printed on it more than on any other ink, and that appears on no other ink as often (a mutual
+# best). One ink, at most one code: a code can never spread to the wrong colour.
 raw = [(w[0], w[1], w[2], w[3], w[4].strip().rstrip(",.")) for w in page.get_text("words")]
 known = set(LEGEND) | {c for cs in tint_codes.values() for c in cs}
 words = list(raw)
@@ -149,113 +183,84 @@ for i, a in enumerate(raw):                       # join kerned pairs such as "Q
         if j in known:
             words.append((a[0], min(a[1], b_[1]), b_[2], max(a[3], b_[3]), j))
             break
-votes = {}
+
+votes, ink_tokens = {}, {}
 for x0, y0, x1, y1, txt in words:
-    if txt not in LEGEND and txt not in {c for cs in tint_codes.values() for c in cs}:
+    if txt not in known:
         continue
     px = int(((x0 + x1) / 2 - FRAME.x0) * Z)
     py = int(((y0 + y1) / 2 - FRAME.y0) * Z)
     if not (0 <= px < W and 0 <= py < H):
         continue
     rid = int(ids[py, px])
-    if rid:
-        votes.setdefault(rid, {}).setdefault(txt, 0)
-        votes[rid][txt] += 1
-
-# a unit is printed once per region, but its tint repeats all over the map. So a region without
-# its own printed code inherits the code that the same tint carries everywhere else.
-tint_votes = {}
-for x0, y0, x1, y1, txt in words:
-    if txt not in LEGEND:
-        continue
-    px = int(((x0 + x1) / 2 - FRAME.x0) * Z)
-    py = int(((y0 + y1) / 2 - FRAME.y0) * Z)
-    if not (0 <= px < W and 0 <= py < H):
-        continue
     t = int(cls[py, px])
-    tint_votes.setdefault(t, {}).setdefault(txt, 0)
-    tint_votes[t][txt] += 1
+    if rid:
+        votes.setdefault(rid, {})
+        votes[rid][txt] = votes[rid].get(txt, 0) + 1
+        ink_tokens.setdefault(t, {})
+        ink_tokens[t][txt] = ink_tokens[t].get(txt, 0) + 1
 
-# some legend tints are the same ink printed twice; if a tint never carries a code, adopt the
-# reading of the nearest tint that does, and say how far apart the two inks are
-voted_tints = [t for t in tint_votes if tint_votes[t]]
-def nearest_voted(tint):
-    best = None
-    for t in voted_tints:
-        d = float(np.linalg.norm(np.array(tint, np.float32) - np.array(TINT_LIST[t], np.float32)))
-        if best is None or d < best[0]:
-            best = (d, t)
-    return best
+# mutual-best pairing of ink <-> code
+code_total = {}
+for t, d in ink_tokens.items():
+    for c, n in d.items():
+        code_total.setdefault(c, {})[t] = n
+best_code = {t: max(d, key=d.get) for t, d in ink_tokens.items() if d}
+INK_CODE, INK_HOW = {}, {}
+for t, c in best_code.items():
+    top_ink_of_code = max(code_total[c], key=code_total[c].get)
+    if top_ink_of_code != t:
+        continue                                  # that code belongs to another ink more strongly
+    INK_CODE[t] = c
+    INK_HOW[t] = f"{ink_tokens[t][c]} printed labels of {c} on this ink"
+print(f"{len(INK_CODE)} of {len(MAP_TINTS)} inks paired with their printed code")
 
-# regions of one ink that carry their own printed code act as witnesses for the others
-witness = {}
-for r in regions:
-    v = votes.get(r["id"], {})
-    if v:
-        best = sorted(v.items(), key=lambda kv: -kv[1])[0][0]
-        witness.setdefault(r["tint_i"], []).append((r["area_km2"] * 0 + r["id"], r["slice"], best))
-cent = {}
-for t, lst in witness.items():
-    for rid, sl, code in lst:
-        cent[rid] = ((sl[1].start + sl[1].stop) / 2, (sl[0].start + sl[0].stop) / 2, code)
-by_tint = {}
-for rid, (cx, cy, code) in cent.items():
-    by_tint.setdefault(next(r["tint_i"] for r in regions if r["id"] == rid), []).append((cx, cy, code, rid))
+# inks with no mutual best may still be named from the legend, if the legend gives them one code
+for t, tint in enumerate(MAP_TINTS):
+    if t in INK_CODE:
+        continue
+    swatch, d = INK_SWATCH[t]
+    codes = tint_codes.get(swatch, [])
+    if d <= 60 and len(codes) == 1:
+        INK_CODE[t] = codes[0]
+        INK_HOW[t] = f"ink matches the legend swatch for {codes[0]} (RGB distance {d:.0f}); no label printed on it"
 
-nbr_cache = {}
 rows = []
 for r in regions:
     own = votes.get(r["id"], {})
-    tv = tint_votes.get(r["tint_i"], {})
+    code = INK_CODE.get(r["tint_i"])
+    how = INK_HOW.get(r["tint_i"], "this ink is not labelled on the sheet")
+    n = own.get(code, 0) if code else 0
+    second = ""
     if own:
         order = sorted(own.items(), key=lambda kv: -kv[1])
-        code, n = order[0]
-        second = order[1][0] if len(order) > 1 else ""
-        how = "code printed inside this region"
-    elif by_tint.get(r["tint_i"]):
-        sl = r["slice"]
-        cx, cy = (sl[1].start + sl[1].stop) / 2, (sl[0].start + sl[0].stop) / 2
-        cand = by_tint[r["tint_i"]]
-        d, (wx, wy, code, wid) = min((((cx - a) ** 2 + (cy - b) ** 2) ** .5, (a, b, c, i))
-                                     for a, b, c, i in cand)
-        n = votes[wid].get(code, 0)
-        second = ""
-        how = "nearest region of the same ink carries the code %s (%.0f km away)" % (code, d * KM_PER_PX)
-    elif len(r["codes"]) == 1:
-        # no printed label anywhere on this ink, but the legend says what the ink is
-        code, second = r["codes"][0], ""
-        n = 0
-        how = "ink matches the legend swatch for %s; no code printed on it" % code
-    else:
-        if r["tint_i"] not in nbr_cache:
-            nbr_cache[r["tint_i"]] = nearest_voted(r["tint"])
-        d, t = nbr_cache[r["tint_i"]]
-        if d <= 18 and tint_votes.get(t):
-            order = sorted(tint_votes[t].items(), key=lambda kv: -kv[1])
-            code, n = order[0]
-            second = order[1][0] if len(order) > 1 else ""
-            how = "ink matches the %s tint (RGB distance %.0f) whose printed code is %s" % (code, d, code)
-        else:
-            code, n, second, how = "unresolved", 0, "", "no printed code on this tint or a matching one"
-    if len(tint_codes[r["tint"]]) > 1 and not own:
-        how += f"; tint shared by {'/'.join(tint_codes[r['tint']])}"
-    if code != "unresolved":
-        name, period = LEGEND.get(code, ("Not named in the legend", "unknown"))
-        name, period = TINT_NAME.get((code, r["tint"]), (name, period))
-    else:
-        name, period = ("Not labelled on the sheet", "unknown")
-    if own:
+        if order[0][0] != code:
+            second = order[0][0]          # a different code printed inside: say so
+    if code is None:
+        conf = "low"
+    elif n > 0:
         conf = "high"
-    elif "nearest region of the same ink" in how:
+    elif "printed labels" in how:
         conf = "medium"
     else:
         conf = "low"
+    if code and code != "unresolved":
+        name, period = LEGEND.get(code, ("Not named in the legend", "unknown"))
+        if code in {c for (c, _t) in TINT_NAME}:      # same code, two printed meanings
+            swatch = INK_SWATCH[r["tint_i"]][0]
+            cands = [(tt, v) for (c, tt), v in TINT_NAME.items() if c == code]
+            tt, v = min(cands, key=lambda p: sum(abs(a - b) for a, b in zip(swatch, p[0])))
+            name, period = v
+    else:
+        code, name, period = "unresolved", "Not labelled on the sheet", "unknown"
+    if second:
+        how += f"; a different code ({second}) is printed inside this region"
     r.update(code=code, votes=n, second=second, how=how, name=name, period=period, conf=conf)
     rows.append(r)
 
 named = sum(1 for r in rows if r["code"] != "unresolved")
-print(f"regions named: {named} of {len(rows)}  "
-      f"({sum(1 for r in rows if r['code'] != 'unresolved' and r['votes'] > 0)} with a vote)")
+print(f"regions named: {named} of {len(rows)}; "
+      f"codes used: {len({r['code'] for r in rows})}")
 
 # ---------------------------------------------------------------- 5. polygons
 src = ids.astype(np.int32)

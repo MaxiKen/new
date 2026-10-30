@@ -4,8 +4,8 @@
 Everything here is derived from the shipped GeoPackage and the source PDFs, so the viewer
 cannot show anything the package does not contain:
 
-  data/minerals_sheet.jpg     the 2023 sheet's map area, rendered from the PDF at 2.6x
-  data/geology_sheet.jpg      the 2011 sheet's map area, rendered from the PDF at 1.8x
+  data/minerals_sheet.jpg     the 2023 sheet's map area, rendered from the PDF at 3.4x
+  data/geology_sheet.jpg      the 2011 sheet's map area, rendered from the PDF at 2.4x
   data/occurrences.json       1,091 occurrences with names, alternatives and confidence
   data/vectors.json           faults, roads, rivers, state lines, national boundary
   data/units.json             geology unit polygons with their sheet colours
@@ -32,8 +32,8 @@ def render(pdf, rect, scale, out, quality=86):
 
 MX = pymupdf.Rect(74.23969, 358.7239, 2051.8313, 1968.6611)      # 2023 map area, page points
 GX = pymupdf.Rect(130, 52, 2092, 1672)                            # 2011 map frame, page points
-render(P / "Mineral_Resources_Map_of_Nigeria_2023.pdf", MX, 2.6, D / "minerals_sheet.jpg")
-render(P / "Geological_Map_of_Nigeria.pdf", GX, 1.8, D / "geology_sheet.jpg")
+render(P / "Mineral_Resources_Map_of_Nigeria_2023.pdf", MX, 3.4, D / "minerals_sheet.jpg", quality=82)
+render(P / "Geological_Map_of_Nigeria.pdf", GX, 2.4, D / "geology_sheet.jpg", quality=84)
 
 
 def ll_2023(x, y):
