@@ -75,7 +75,8 @@ print("reference rasters warped")
 # ------------------------------------------------------------------ vectors
 # the unit layer is the 97-unit reading of the 2011 sheet, built by Build_Geology_Units.py from
 # data/geology/geology_units_main.gpkg and guarded by Geology_LifeSaver.py. The 1,552-body trace
-# (Geology_Bodies.geojson) and the 5,539-region pixel reading are kept on disk as evidence, not
+# (data/geology/geology_bodies_retired.geojson) and the 5,539-region pixel reading are kept on
+# disk as evidence, not
 # shipped: both fragment a single map unit into hundreds of pieces wherever a label or a road
 # crosses it, which is not what the sheet's legend describes.
 units = gpd.read_file(P / "Geology_Units.geojson")

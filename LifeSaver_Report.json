@@ -10,46 +10,5 @@
   "cuts_empty_space": 0,
   "cuts_narrow": 0
  },
- "repairs": {
-  "overlaps_removed_km2": -0.0,
-  "cuts_bridged": 0,
-  "slivers_merged": 0,
-  "holes_filled": 0,
-  "holes_filled_km2": 0.0
- },
- "after": {
-  "polygons": 97,
-  "codes": 97,
-  "covered_pct": 99.648,
-  "overlap_km2": -0.0,
-  "gap_km2": 0.017,
-  "not_mapped_km2": 3204.5,
-  "slivers": 0,
-  "cuts_empty_space": 0,
-  "same_code_pairs_2_5km": null
- },
- "fragments_per_unit": {
-  "M": 1,
-  "Cst": 1,
-  "OGp": 1,
-  "Al": 1,
-  "GG": 1,
-  "MG": 1,
-  "NPss": 1,
-  "Su": 1,
-  "OGm": 1,
-  "Bnst": 1,
-  "Kss": 1,
-  "Gwss": 1,
-  "bG": 1,
-  "Bss": 1,
-  "Esh": 1
- },
- "written": {
-  "polygons": 97,
-  "sum_km2": 908907.0,
-  "union_km2": 908907.0,
-  "double_counted_km2": -0.0,
-  "invalid_4326": 0
- }
+ "repairs": {}
 }

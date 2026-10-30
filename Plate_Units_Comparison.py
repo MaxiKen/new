@@ -44,7 +44,7 @@ def patches(gdf, lonlat=WIN):
 
 def main():
     units = gpd.read_file("Geology_Units.geojson", engine="pyogrio")
-    bodies = gpd.read_file("Geology_Bodies.geojson", engine="pyogrio")
+    bodies = gpd.read_file("data/geology/geology_bodies_retired.geojson", engine="pyogrio")
     stats = json.load(open("web/data/stats.json"))
     b = stats["bounds"]["geology"]
 

@@ -27,7 +27,7 @@ and the choice is a count first and a measurement second:
 
 | reading | rows | what it is | shipped |
 |---|---|---|---|
-| `Geology_Bodies.geojson` (`Build_NGSA_Geology.py`) | **1,552** | bodies traced body by body from a photograph of the sheet | no — kept as evidence |
+| `data/geology/geology_bodies_retired.geojson` (`Build_NGSA_Geology.py`) | **1,552** | bodies traced body by body from a photograph of the sheet | no — kept as evidence |
 | `Rebuild_Geology_Units.py` | **5,539** | regions read per pixel off the rendered sheet | no — kept as evidence |
 | `Geology_Units_Partition` attempt | **1,142** | the PDF's loose filled paths, including a page-sized `Qs` rectangle | no — retired |
 | `data/geology/geology_units_main.gpkg` → **`Geology_Units.geojson`** (`Build_Geology_Units.py`) | **97** | one polygon set per legend entry, dissolved | **yes** |
@@ -99,7 +99,7 @@ counted, not just the one that ships.
 |---|---|---|---|
 | map units (shipped) | `Geology_Units.geojson` | **97** | ships |
 | map units (guard output) | `Geology_Units_Repaired.geojson` | 97 | identical to the shipped layer after `--apply`; kept so the guard's output is visible |
-| traced bodies | `Geology_Bodies.geojson` | 1,552 | retired; kept as evidence, and it is what `Build_NGSA_Geology.py` still produces |
+| traced bodies | `data/geology/geology_bodies_retired.geojson` | 1,552 | retired; kept as evidence, and it is what `Build_NGSA_Geology.py` still produces |
 | bodies layer inside a package | `Nigeria_Geology_Minerals_4326.gpkg` → `geology_units` | 97 | same 97 rows as the shipped layer, with `area_km2` recomputed in equal-area |
 | ngsa source | `data/ngsa/ngsa_geology_v6.gpkg` → `geology_bodies` | 1,588 | upstream interpretation; not shipped |
 | national outline | `Nigeria_Natural_Earth_outline.geojson` | 1 | not a geology layer |

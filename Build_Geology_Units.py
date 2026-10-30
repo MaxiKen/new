@@ -3,7 +3,8 @@
 
 The repository holds three readings of the same 2011 sheet:
 
-  * ``Geology_Bodies.geojson``        1,552 bodies traced body by body (rejected: unusable
+  * ``data/geology/geology_bodies_retired.geojson``
+                                      1,552 bodies traced body by body (rejected: unusable
                                       as a map — every label becomes a hole, every road a seam)
   * ``Rebuild_Geology_Units.py``      5,539 regions read per pixel from the rendered sheet
                                       (rejected: same problem, one class per pixel)
@@ -232,7 +233,7 @@ def main():
         "low_confidence": sorted(out[out.name_confidence == "low"].unit_code.tolist()),
         "low_confidence_area_km2": round(
             float(out[out.name_confidence == "low"].area_km2.sum()), 0),
-        "replaced": {"Geology_Bodies.geojson": 1552, "Rebuild_Geology_Units.py": 5539},
+        "replaced": {"data/geology/geology_bodies_retired.geojson": 1552, "Rebuild_Geology_Units.py": 5539},
     })
     json.dump(rep, open(REPORT, "w"), indent=1)
     print(json.dumps(rep, indent=1))

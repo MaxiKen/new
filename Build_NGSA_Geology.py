@@ -14,7 +14,9 @@ What this script does
 2. Applies a correction if the check finds one that matters (more than 200 m anywhere).
 3. Cuts the bodies to Nigeria, closes the ground the map leaves uncoloured, absorbs the tiny
    bodies, and gives each one the legend name and period used everywhere else in this repository.
-4. Writes Geology_Bodies.geojson and Geology_Bodies_Report.json.
+4. Writes data/geology/geology_bodies_retired.geojson and its report. That layer is NOT what
+   ships (see Build_Geology_Units.py): it is kept as evidence of the trace, and named so nobody
+   mistakes it for the shipped layer.
 
 Run:  python3 Build_NGSA_Geology.py
 """
@@ -30,7 +32,7 @@ import geology_legend as L
 SRC = "data/ngsa/ngsa_geology_v6.gpkg"
 GPKG = "Nigeria_Geology_Minerals_4326.gpkg"
 CP = "data/ngsa/graticule_control_points.json"
-OUT = "Geology_Bodies.geojson"
+OUT = "data/geology/geology_bodies_retired.geojson"
 
 SHIPPED = dict(x0=2.3359994770659283, sx=0.003045517499751267,
                y0=13.895364028822385, sy=-0.003045590373802226, crop=190)
@@ -288,8 +290,8 @@ def main():
     cols = ["unit_code", "unit_name", "period", "sheet_colour", "area_km2", "in_nigeria",
             "how_named", "name_confidence", "lithology", "class_id", "contact_qa", "geometry"]
     gdf[cols].to_crs(4326).to_file(OUT, driver="GeoJSON")
-    json.dump(rep, open("Geology_Bodies_Report.json", "w"), indent=1)
-    print(f"wrote {OUT} and Geology_Bodies_Report.json")
+    json.dump(rep, open("data/geology/geology_bodies_retired_report.json", "w"), indent=1)
+    print(f"wrote {OUT} and its report")
     return 0
 
 

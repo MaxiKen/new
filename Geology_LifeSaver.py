@@ -30,6 +30,7 @@ from shapely.validation import make_valid
 
 import os
 SRC = next((f for f in ("Geology_Units.geojson", "Geology_Units_Partition.geojson",
+                        "data/geology/geology_bodies_retired.geojson",
                         "Geology_Bodies.geojson") if os.path.exists(f)),
            "Geology_Units.geojson")                # guard whatever layer actually ships
 OUT = "Geology_Units_Repaired.geojson"

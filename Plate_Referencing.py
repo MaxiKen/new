@@ -18,8 +18,8 @@ PHOTO = "/tmp/pic NGSA geological-map-of-nigeria-.jpg"
 SHEET = "Geological_Map_of_Nigeria.pdf"
 X0, Y0, KX, KY = 276.36, 2281.63, 157.593, 157.586
 
-bodies = gpd.read_file("Geology_Bodies.geojson")
-rep = json.load(open("Geology_Bodies_Report.json"))
+bodies = gpd.read_file("data/geology/geology_bodies_retired.geojson")
+rep = json.load(open("data/geology/geology_bodies_retired_report.json"))
 
 fig = plt.figure(figsize=(16.5, 10.6), dpi=140)
 gs = fig.add_gridspec(2, 3, height_ratios=[1, 1.05], hspace=.2, wspace=.06)
