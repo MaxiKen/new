@@ -73,7 +73,10 @@ comb = (geo_r.astype(np.float32) * .62 + min_r.astype(np.float32) * .38).astype(
 print("reference rasters warped")
 
 # ------------------------------------------------------------------ vectors
-units = gpd.read_file(P / "Geology_Layers_Extracted.gpkg", layer="geology_units")
+# the unit layer is the NGSA body set, re-referenced and repaired by Build_NGSA_Geology.py;
+# the pixel reading of the 2011 sheet is kept on disk as Geology_Units_Repaired.geojson but is
+# not shipped: it fragments every unit along the printed labels and lines
+units = gpd.read_file(P / "Geology_Bodies.geojson")
 faults = gpd.read_file(P / "Geology_Layers_Extracted.gpkg", layer="faults")
 roads  = gpd.read_file(P / "Geology_Layers_Extracted.gpkg", layer="roads")
 rivers = gpd.read_file(P / "Geology_Layers_Extracted.gpkg", layer="rivers")
@@ -84,7 +87,7 @@ nigeria = unary_union(outline.geometry)
 for g in (units, faults, roads, rivers, states, pts):
     g.set_crs(CRS, allow_override=True, inplace=True)
 
-units["area_km2"] = (units.to_crs("EPSG:3857").area / 1e6).round(1)
+units["area_km2"] = (units.to_crs("EPSG:32632").area / 1e6).round(2)
 units["in_nigeria"] = units.geometry.representative_point().within(nigeria)
 units = units[["unit_code", "unit_name", "period", "sheet_colour", "area_km2",
                "in_nigeria", "how_named", "name_confidence", "geometry"]]
@@ -194,9 +197,13 @@ con = sqlite3.connect(GPKG)
 con.execute("CREATE TABLE IF NOT EXISTS dataset_notes(topic TEXT, note TEXT)")
 notes = [
  ("title", "Nigeria geology, structure and mineral symbols, EPSG:4326"),
- ("geology_units", f"{len(units)} filled polygons from the 2011 NGSA sheet, {units.unit_code.nunique()} distinct "
-                   "unit codes. Named from the unit labels printed inside each polygon; a unit whose label "
-                   "could not be read is marked 'unlabelled' rather than guessed."),
+ ("geology_units", f"{len(units)} geological bodies, {units.unit_code.nunique()} distinct unit codes, forming a "
+                   "complete partition of the country (no overlaps, no gaps, nothing outside the border). "
+                   "Geometry comes from the NGSA body set that already existed in this repository and was "
+                   "re-referenced against the sheet's printed graticule by Build_NGSA_Geology.py; names and "
+                   "periods come from the sheet's legend. 1,402 bodies carry a legend name; 150 carry the "
+                   "codes OGp and S, which the sheet prints but its own legend omits, and are named to "
+                   "series level and flagged low rather than guessed."),
  ("faults", f"{len(faults)} fault traces ({int(faults.in_nigeria.sum())} inside Nigeria, "
             f"{faults.length_km.sum():.0f} km of trace in total) rebuilt from the sheet's thick black "
             "hachured structural symbol by chaining its vector segments end to end. The hachures show "

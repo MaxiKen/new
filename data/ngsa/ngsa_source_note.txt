@@ -1,0 +1,19 @@
+Provenance of data/ngsa/ngsa_geology_v6.gpkg
+============================================
+
+Source: revision 6 of the NGSA geological-map interpretation that already lives in this
+repository on branches `7am`, `edit-mode` and `side` (public/data/NGSA_geology_v6.zip and
+data/map/ngsa_geology.shp). Copied here unchanged so the build in Build_NGSA_Geology.py does
+not depend on another branch.
+
+Original note from that package:
+  Prepared 10 October 2026 from the supplied "pic NGSA geological-map-of-nigeria-.jpg"
+  (6600 x 3675 pixels). A reproducible automated draft, not an official NGSA vector dataset.
+
+What was in it: 1,588 singlepart polygons, 78 unit codes, one shared contact network, no
+interior gaps inside the mapped footprint, EPSG:4326 with an *assumed* linear georeference
+(source_reference.jgw: 0.0030455 deg/px, origin 2.336 E / 13.8954 N, crop origin pixel 190,190).
+
+What this repository changed: nothing in the geometry here. Build_NGSA_Geology.py verifies the
+georeference against the printed graticule on the source photograph, repairs the coverage and
+writes the layer used by the GeoPackage and the viewer.

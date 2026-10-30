@@ -1,0 +1,50 @@
+{
+ "reference": {
+  "control_points": {
+   "meridians": 5,
+   "parallels": 9
+  },
+  "grid_pixels_per_degree": [
+   328.5,
+   328.38
+  ],
+  "grid_straightness_px": {
+   "meridian": 0.16,
+   "parallel": 0.19
+  },
+  "shipped_vs_grid_km": [
+   0.226,
+   0.265
+  ],
+  "verdict": "the shipped transform was off by up to 0.27 km; it has been replaced by the graticule fit",
+  "graticule_transform": {
+   "lon": [
+    1.7560758,
+    0.0030454118
+   ],
+   "lat": [
+    14.4750783,
+    -0.0030453759
+   ]
+  }
+ },
+ "bodies": 1552,
+ "codes": 78,
+ "area_km2": 909249.3,
+ "union_km2": 909249.3,
+ "nigeria_km2": 909250.1,
+ "coverage_pct": 100.0,
+ "overlap_km2": -0.0,
+ "holes_km2": 1.126,
+ "under_0_5_km2": 0,
+ "median_km2": 69.3,
+ "largest_km2": 63146.1,
+ "named_full_legend": 1402,
+ "codes_absent_from_legend": {
+  "OGp": 149,
+  "S": 1
+ },
+ "area_without_legend_name_km2": 80178.6,
+ "merged_tiny": 41,
+ "water_bodies": 113
+}

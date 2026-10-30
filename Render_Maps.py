@@ -113,7 +113,7 @@ PERIODS = ["Recent", "Neogene", "Tertiary to Recent volcanics", "Palaeogene", "C
 def groups_for(per_list):
     out = []
     for per in per_list:
-        sub = units[(units.period == per) & (units.unit_code != "unlabelled")].drop_duplicates("unit_code")
+        sub = units[units.period == per].drop_duplicates("unit_code")
         sub = sub.sort_values("unit_code")
         if len(sub):
             out.append((f"{per} ({len(sub)})",
@@ -124,9 +124,13 @@ y_a = unit_legend(la, groups_for(PERIODS[:5]), "MAP UNITS",
                   f"{len(units)} polygons · {units.unit_code.nunique()} codes · part 1 of 2")
 y_b = unit_legend(lb, groups_for(PERIODS[5:]), "MAP UNITS (cont.)",
                   "unit codes as printed on the sheet · part 2 of 2")
-lb.text(0, y_b + .004, "23 further polygons are drawn but carry no printed code.\n"
-                       "They are kept in the data marked 'unlabelled'.", fontsize=5.9,
-        va="top", color="#666", linespacing=1.35)
+_low = units[units.name_confidence == "low"]
+lb.text(0, y_b + .004,
+        f"{len(_low)} bodies ({_low.area_km2.sum():,.0f} km²) carry the codes "
+        f"{', '.join(sorted(_low.unit_code.unique()))} — printed on the sheet,\n"
+        "but its own legend has no row for them. They are named to series level\n"
+        "and flagged low, not guessed.",
+        fontsize=5.7, va="top", color="#666", linespacing=1.35)
 
 hl = [Line2D([], [], color="#c01018", lw=1.8, label=f"fault (major fracture) — {len(faults)} traces"),
       Line2D([], [], color="#222222", lw=.9, label=f"road — {len(roads)} strokes"),
@@ -139,9 +143,9 @@ fig.text(.5, .955, "GEOLOGICAL MAP OF NIGERIA", ha="center", fontsize=20, weight
 fig.text(.5, .925, "Map units, faults, roads, drainage and administrative boundaries vectorised from the "
                    "2011 Geological Survey of Nigeria 1:2,000,000 sheet",
          ha="center", fontsize=10.4, color="#333")
-fig.text(.038, .022, "EPSG:4326 WGS 84 display frame  ·  unit outlines copied from the sheet, colours not "
-                     "reinterpreted  ·  registration residual 1–2 km  ·  no fold or dip-and-strike layer "
-                     "exists on this sheet  ·  not a survey product",
+fig.text(.038, .022, "EPSG:4326 WGS 84 display frame  ·  unit outlines re-referenced to the sheet's own "
+                     "printed graticule (residual 0.3 km) and copied from it, colours not reinterpreted  ·  "
+                     "no fold or dip-and-strike layer exists on this sheet  ·  not a survey product",
          fontsize=7.0, color="#555")
 fig.savefig(P / "Map_1_Geology.png", dpi=150, facecolor="white")
 plt.close(fig); print("map 1")

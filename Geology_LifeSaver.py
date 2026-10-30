@@ -28,7 +28,9 @@ from shapely.geometry import MultiPolygon, Polygon
 from shapely.ops import unary_union
 from shapely.validation import make_valid
 
-SRC = "Geology_Units_Partition.geojson"
+import os
+SRC = ("Geology_Bodies.geojson" if os.path.exists("Geology_Bodies.geojson")
+       else "Geology_Units_Partition.geojson")     # guard whatever layer actually ships
 OUT = "Geology_Units_Repaired.geojson"
 GPKG = "Nigeria_Geology_Minerals_4326.gpkg"
 

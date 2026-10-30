@@ -22,87 +22,80 @@ The four plates are drawn from the 4326 package, so a picture cannot disagree wi
 
 ## The unit layer is a partition of the country
 
-An earlier version of this layer was not: it was built from the PDF's loose filled paths, which
-included one page-sized rectangle carrying the code `Qs`, a few legend swatches and a long neat-line
-strip, shapes that overlapped each other, and shapes covering only part of the country. Measured on
-that version:
+It took three attempts. The first read the PDF's loose filled paths and included one page-sized
+rectangle carrying the code `Qs`, the legend swatches and a neat-line strip: 1,142 polygons, 40.7% of
+the country covered, 428,619 km² of overlap. The second read the printed colours pixel by pixel and
+fixed the coverage, but fragmented every unit along the labels and lines printed over it (see
+below). **This version ships the geology body set that already existed in this repository, taken
+from branches `7am` / `edit-mode` / `side`, re-referenced against the sheet and repaired.**
 
 | | value |
 |---|---|
-| polygons | 1,142 (45 codes) |
-| Nigeria covered by a real unit | 370,494 km² — **40.7%** |
-| overlap between polygons | **428,619 km²** (17% of their combined area) |
-| the page-sized "unit" | one rectangle, 2,529,387 km², labelled `Qs` Quartzite |
-| polygons outside Nigeria | 117 |
-
-It is now rebuilt from the printed colours instead of the loose paths
-(`Rebuild_Geology_Units.py`): the map frame is rendered, the flat inks the map itself uses are
-found (the sheet is printed with a colour shift, so matching to legend swatches blurs neighbouring
-units together), every pixel takes its ink, ink such as codes and roads is filled from its
-neighbours, and each connected region becomes a polygon, clipped to the border, with the slivers
-closed by their longest shared edge.
-
-| | value |
-|---|---|
-| polygons | **5,539** (53 codes) |
+| bodies | **1,552** (78 unit codes) |
 | Nigeria covered | **100.00%** |
-| overlap | **0.000%** (0.0 km²) |
-| unassigned holes | **0.06 km²** in total |
-| named from the sheet's own labels | 5,496 of 5,539 polygons (99.2%) |
-| sum of polygons vs union of polygons | 909,249.4 km² vs 909,249.4 km² — no double counting |
+| overlap | **0.000%** (0.00 km²) |
+| unassigned holes | **1.1 km²** in total |
+| bodies under 0.5 km² | **0** (41 merged into a neighbour) |
+| largest body | 62,956 km² — the Chad basin sands |
+| median body | 66 km² |
+| carrying a full legend name | 1,402 of 1,552 |
 
-### A printed name or a line must not cut a unit in two
+### Where these polygons come from, and the reference check
 
-The first colour rebuild still produced 8,540 polygons, and many units arrived in pieces with the
-cut exactly where a name was printed or a line crossed: 2,361 pairs of polygons with the same unit
-code sat within 2.5 km of each other, 462 within 1 km, 159 within 500 m. Looked at closely, two
-causes accounted for all of it.
+The source, `data/ngsa/ngsa_geology_v6.gpkg`, is revision 6 of an interpretation made from a
+6,600 × 3,675 photograph of the NGSA sheet: 1,588 singlepart polygons following the printed
+contacts, one shared contact network, with a lithology per body. Its header said **“EPSG:4326 —
+assumed datum”** — nobody had checked where it sat. That is the part that is now fixed, and the
+check is measured, not asserted.
 
-* **Line work was being taken for rock.** Roads, rivers, shear zones, railways and boundaries are
-  printed in flat colours, just like units. The reader accepted them as inks and then carved them
-  out of the unit they were drawn across. Thickness settles it: measured as twice the largest
-  inscribed radius of each colour's largest blob, the sheet's line work is 2–6 px and its fills are
-  11 px or more — a clean gap. Inks thinner than 10 px are now line work: they are left empty and
-  filled by their surroundings, so a line is bridged instead of cutting.
-* **A name was being cut into the unit beneath it.** Every letter was a hole, and the old filler
-  gave each letter pixel to whichever neighbour was nearest. A name straddling a boundary therefore
-  took half its letters from one unit and half from the other, dismembering the unit it was printed
-  on. Now the holes are labelled as whole shapes: a compact shape (a letter, digit or symbol —
-  13,027 of 13,075) takes the single fill that surrounds it, so the name vanishes and the unit runs
-  through it.
+The photograph carries the sheet's own graticule. Every meridians and parallel was measured to the
+pixel centre — 5 meridians (3°E to 14°E) and 9 parallels (5°N to 13°N, `data/ngsa/graticule_control
+_points.json`):
 
-| pairs of polygons sharing a unit code | before | after |
-|---|---|---|
-| closer than 2.5 km | 2,362 | **1,151** |
-| closer than 1 km | 462 | **211** |
-| closer than 500 m | 159 | **72** |
-| closer than 100 m | 9 | **4** |
-
-`Geology_Partition_Before_After.png` is the evidence: the distribution of those gaps, and three of
-the worst cases with the old boundary (red) detouring around every letter beside the repaired
-boundary (blue) running straight through the name.
-
-Of the 1,151 remaining pairs, 1,120 have another unit genuinely between them, so the unit really is
-in two places; 31 are separated by nothing but a thin strip of other ground left by a line thinner
-than the 10 px cut-off or by the border clip. The life saver below can bridge those on request.
-
-Naming is deliberately strict: each ink is paired with the unit code printed on it by a
-mutual-best match, so one colour can never spread to the wrong unit. Every polygon carries
-`name_confidence`:
-
-| confidence | meaning |
+| | measured |
 |---|---|
-| `high` | the code is printed inside this very region |
-| `medium` | the code is printed elsewhere on the same ink |
-| `low` | no code on this ink; named from the legend swatch, or `unresolved` |
+| grid spacing | 328.5 px per degree east–west, 328.4 px north–south |
+| straightness of the grid | 0.16 px across a meridian, 0.19 px across a parallel |
+| shipped linear transform vs that grid | **mean 0.23 km, worst 0.27 km** |
+| what was done | the polygons were re-tied to the measured graticule |
 
-Four checks in `Validate_GeoPackage.py` test this every run: coverage, overlap, holes and naming
-(34/34 pass on the current build).
+So the coordinates were already nearly right — but they were right by luck, and now they are right
+by measurement. `Geology_Referencing.png` shows the graticule as measured, and the bodies drawn over
+the printed sheet.
 
-Two honest limits remain. The sheet re-uses the same pale inks for several units, and one-letter
-codes such as `M` appear in place names, so colour alone cannot always separate them; that is why
-most polygons are `medium` rather than `high`. And where a region is numbered but never lettered,
-the ink is recorded but the unit stays `unresolved` rather than being guessed.
+The geometry was then made fit to ship:
+
+* **cut to the border** — 4,242 km² of the source lay outside Nigeria, mostly coast and border fringe;
+* **bare ground closed** — 12,554 km² inside the border carried no body: 7 pieces were water on the
+  printed sheet (Lake Chad and reservoirs) and became the class `WATER`; the rest, 8,575 km² of thin
+  coastal and border strips, went to the neighbour sharing the longest edge with them;
+* **tiny bodies merged** — 41 bodies under 0.5 km² and thinner than 0.4 km were absorbed, so there is
+  not one speck left;
+* **names and periods** from the sheet's legend, so the codes mean here what they mean on the sheet.
+
+Two codes the sheet prints but its own legend omits stay unresolved on purpose: `OGp` (149 bodies,
+79,251 km², the salmon Older Granite field) and `S` (1 body, 928 km²). They are named to series level,
+given `name_confidence = low`, and counted out loud in the map legend rather than guessed.
+
+### Why the pixel-by-pixel reading was retired
+
+The second attempt read every flat colour on the sheet and rebuilt each region from it. It reached
+100% coverage, but it split units in two in exactly the places the question was about, and its edges
+were pixel staircases. Measured on that layer: **2,362 pairs of polygons sharing a unit code sat
+within 2.5 km of each other, 462 within 1 km, 159 within 500 m.** Two causes, both found and both
+worth recording because the body set does not have them:
+
+* **Line work taken for rock.** Roads, rivers, shear zones and dashes are printed in flat colours
+  like units; the reader carved them out of the unit they crossed. Their thickness gives them away:
+  measured as twice the largest inscribed radius, line work is 2–6 px and fills are 11 px or more.
+* **A name cut into the unit under it.** Every letter was a hole, and the filler gave each letter
+  pixel to its nearest neighbour, so a name straddling a contact took half its letters from each
+  side and dismembered the unit it was printed on.
+
+Repairing those two rules took the fragmentation from 2,362 pairs to 1,151, and it is documented in
+`Geology_Partition_Before_After.png` — but the result still had staircase edges and still cut units
+where a line was thinner than the cut-off. It is kept on disk (`Geology_Units_Repaired.geojson`) for
+comparison and is **not** what ships.
 
 ## The life saver
 
@@ -119,12 +112,12 @@ build reads.
 
 | step | what it does | result on the current build |
 |---|---|---|
-| overlaps | trims the smaller polygon where two claim the same ground | 0.04 km² removed |
-| cuts | bridges two parts of one unit when only empty ground lies between them, and never across another unit | 1 bridged |
-| slivers | merges strands thinner than 0.45 km into their neighbour; leaves small chunky outcrops alone | 0 needed |
-| holes | gives unassigned ground to the neighbour sharing the longest edge with it | 22 holes, 1.74 km² |
+| overlaps | trims the smaller polygon where two claim the same ground | nothing to do on the shipped layer |
+| cuts | bridges two parts of one unit when only empty ground lies between them, never across another unit | 6 pairs found, none narrow enough to be a cut |
+| slivers | merges strands thinner than 0.45 km into their neighbour; leaves small chunky outcrops alone | 0 |
+| holes | gives unassigned ground to the neighbour sharing the longest edge with it | 1.1 km² left, below its threshold |
 | fragments | counts the pieces each unit comes in, so the real structure is visible | reported, not forced together |
-| read-back | reads the written file again and checks the sum of areas against the union | 909,249.4 = 909,249.4 km², nothing double-counted |
+| read-back | reads the written file again and checks the sum of areas against the union | 909,249.3 = 909,249.3 km², nothing double-counted |
 
 Two rules keep it honest. It never invents a unit — a bridge joins only two polygons that already
 carry the same code — and it checks every geometry it writes: a repair that changes a polygon's area
@@ -251,7 +244,7 @@ The 4326 package remains the authoritative reference frame; the projected one is
 | layer | type | what it is |
 |---|---|---|
 | `minerals_occurrences` | 1,091 points | one row per printed symbol, at its centre, with name, alternative name, confidence, source and classifier evidence |
-| `geology_units` | 5,539 polygons | the sheet's map units as a complete partition of the country, with `unit_code`, `unit_name`, `period`, `sheet_colour`, `area_km2`, `name_confidence`, `how_named` |
+| `geology_units` | 1,552 bodies | the sheet's map units as a complete partition of the country, with `unit_code`, `unit_name`, `period`, `sheet_colour`, `area_km2`, `name_confidence`, `how_named` |
 | `faults` | 13 traces | the sheet's "Major Fractures / Faults" symbol (246 km) |
 | `roads` | 954 strokes | the sheet's "Roads" symbol — the national road network |
 | `rivers` | 1,055 lines | the sheet's blue drainage |
@@ -272,7 +265,7 @@ Reference rasters: 2,480 × 2,040 at 0.005° over 2.6–15.0°E, 3.9–14.1°N. 
 
 | feature | status |
 |---|---|
-| map units with names and periods | **extracted** — 5,539 polygons, one unit at every point of the country, each with a stated confidence |
+| map units with names and periods | **extracted** — 1,552 bodies, one unit at every point of the country, 1,402 with a legend name and 150 flagged low |
 | faults (major fractures) | **extracted** — 13 traces, 246 km |
 | roads | **extracted** — 954 strokes |
 | rivers | **extracted** — 1,055 lines |
