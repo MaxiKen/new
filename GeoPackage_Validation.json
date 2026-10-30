@@ -4,7 +4,7 @@
     {
       "check": "vector geology_units",
       "pass": true,
-      "detail": "8540 features, fields ['unit_code', 'unit_name', 'period', 'sheet_colour', 'area_km2', 'in_nigeria']"
+      "detail": "5539 features, fields ['unit_code', 'unit_name', 'period', 'sheet_colour', 'area_km2', 'in_nigeria']"
     },
     {
       "check": "vector faults",
@@ -29,12 +29,12 @@
     {
       "check": "units carry names, not just colours",
       "pass": true,
-      "detail": "55 codes, 0 unlabelled"
+      "detail": "53 codes, 0 unlabelled"
     },
     {
       "check": "units are inside or on Nigeria",
       "pass": true,
-      "detail": "8540 of 8540 polygons flagged in_nigeria"
+      "detail": "5539 of 5539 polygons flagged in_nigeria"
     },
     {
       "check": "fault layer is sparse and plausible",
@@ -201,17 +201,17 @@
     {
       "check": "geology units do not overlap",
       "pass": true,
-      "detail": "overlap is 0.000% of the country (0.1 km2)"
+      "detail": "overlap is 0.000% of the country (0.0 km2, 113 thin rings repaired on the way in)"
     },
     {
       "check": "no holes left inside the country",
       "pass": true,
-      "detail": "1.5 km2 unassigned"
+      "detail": "1.2 km2 unassigned"
     },
     {
       "check": "almost every polygon carries a legend name",
       "pass": true,
-      "detail": "8207 of 8540 named; {'low': 5208, 'medium': 2945, 'high': 387}"
+      "detail": "5496 of 5539 named; {'low': 3064, 'medium': 1961, 'high': 514}"
     }
   ],
   "passed": 34,

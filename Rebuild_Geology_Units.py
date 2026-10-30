@@ -89,9 +89,67 @@ for i in order:
     rgb = ((k // 1024) * 8 + 4, ((k // 32) % 32) * 8 + 4, (k % 32) * 8 + 4)
     if rgb == (4, 4, 4) or sum(rgb) < 90:        # ink, not fill
         continue
+    if rgb == (252, 252, 252) or rgb == (148, 220, 244):
+        continue                                  # paper and sea, not map units
     MAP_TINTS.append(rgb)
 print(f"{len(MAP_TINTS)} flat inks found on the map itself, "
       f"covering {counts[order[:len(MAP_TINTS)]].sum() / code5.size * 100:.0f}% of it")
+
+# Line work (roads, rivers, boundaries, dashed rails) is a flat colour too, so it would otherwise
+# become an ink in its own right and cut the unit it is drawn over in two. A fill is areally thick;
+# line work is thin. Measured on the largest blob of each ink, the two separate cleanly: line work
+# is 2-6 px thick, real fills are 11 px and up (10 px is 3.4 km at this rendering).
+FILL_MIN_THICKNESS = 10
+thick = {}
+for k_i, ink in enumerate(MAP_TINTS):
+    m = (code5.reshape(H, W) == (ink[0] >> 3) * 1024 + (ink[1] >> 3) * 32 + (ink[2] >> 3))
+    if not m.any():
+        thick[k_i] = 0.0
+        continue
+    lab, n = ndimage.label(m)
+    sizes = ndimage.sum(m, lab, range(1, n + 1))
+    big = (lab == (int(np.argmax(sizes)) + 1))
+    thick[k_i] = float(ndimage.distance_transform_edt(big).max()) * 2
+fills = [i for i in range(len(MAP_TINTS)) if thick[i] >= FILL_MIN_THICKNESS]
+thrown = [i for i in range(len(MAP_TINTS)) if thick[i] < FILL_MIN_THICKNESS]
+
+# A unit whose fill happens to be drawn narrow (a dyke, a thin band) would look like line work.
+# So ask the sheet: which ink is each unit label actually printed on? If a thin ink carries a
+# printed unit label, it is a fill, not line work.
+ink_class = {}
+palette = np.array(MAP_TINTS, np.float32)
+word_list = [(w[0], w[1], w[2], w[3], w[4].strip().rstrip(",."))
+             for w in page.get_text("words")]
+known_before = set(LEGEND)
+thin_promoted = {}
+for x0, y0, x1, y1, txt in word_list:
+    if txt not in known_before:
+        continue
+    px = int(((x0 + x1) / 2 - FRAME.x0) * Z)
+    py = int(((y0 + y1) / 2 - FRAME.y0) * Z)
+    if not (30 <= px < W - 30 and 30 <= py < H - 30):
+        continue
+    patch = im[py - 26:py + 26, px - 26:px + 26].reshape(-1, 3).astype(np.float32)
+    d = np.abs(patch[:, None, :] - palette[None, :, :]).sum(2)
+    near = d.min(1)
+    cls_patch = d.argmin(1)
+    ok = near <= TOL
+    if ok.sum() < 40:
+        continue
+    ink = int(np.bincount(cls_patch[ok]).argmax())
+    thin_promoted[ink] = thin_promoted.get(ink, 0) + 1
+for ink, n in thin_promoted.items():
+    if ink in thrown:
+        print(f"  thin ink {MAP_TINTS[ink]} carries {n} printed unit label(s): kept as a fill")
+        fills.append(ink)
+fills = sorted(set(fills))
+thrown = [i for i in range(len(MAP_TINTS)) if i not in set(fills)]
+print(f"{len(fills)} ink(s) are fills; {len(thrown)} are line work and will be bridged, not treated "
+      f"as units: {[MAP_TINTS[i] for i in thrown][:8]}")
+KEEP = fills
+MAP_TINTS_ALL = list(MAP_TINTS)
+MAP_TINTS = [MAP_TINTS[i] for i in KEEP]
+remap = {old: new for new, old in enumerate(KEEP)}
 
 LEG_TINTS = list(tint_codes)
 INK_CODES = {}
@@ -119,15 +177,64 @@ for k in range(lut_n ** 3):
 cls = lut_cls[keys]
 print(f"pixels on one of the map's own inks: {(cls >= 0).mean() * 100:.1f}%")
 
-# ---------------------------------------------------------------- 3. no pixel left behind
+# ---------------------------------------------------------------- 3. rebuild the fill under the ink
+# Everything printed on top of the fills — unit letters, place names, roads, rivers, boundaries,
+# symbols — is now a "hole". Filling it pixel by pixel (nearest fill) splits a unit wherever the
+# ink is wider than a hairline: a letter sitting near a boundary takes half its pixels from the
+# unit next door, and the unit it was printed on ends up in two pieces. So the holes are filled by
+# kind:
+#
+#   * a compact hole (a letter, a digit, a symbol) belongs to one unit: every pixel of it takes the
+#     fill that surrounds the whole shape, so a unit is not cut by its own label;
+#   * an elongated hole (a road, a river, a boundary line) really does cross units, so it is filled
+#     from both sides and splits down its middle, which bridges the two halves instead of
+#     separating them.
 hole = cls < 0
-if hole.any():
-    idx = ndimage.distance_transform_edt(hole, return_distances=False, return_indices=True)
-    cls = cls[tuple(idx)]
-print("every pixel now carries a tint")
+print(f"ink to rebuild: {hole.mean() * 100:.1f}% of the map")
 
-# clean the class raster as well: text and rules that survived the median are absorbed by
-# whichever tint dominates their neighbourhood
+COMPACT_DIAG = 34          # px; a letter or symbol is smaller than this
+def is_compact(sl, comp):
+    h = sl[0].stop - sl[0].start
+    w = sl[1].stop - sl[1].start
+    if (h * h + w * w) ** .5 > COMPACT_DIAG:
+        return False
+    return comp.sum() / max(1, h * w) > .12      # letters are chunky, lines are thin
+
+lab_h, n_h = ndimage.label(hole)
+print(f"{n_h:,} ink shapes to fill")
+objs = ndimage.find_objects(lab_h)
+filled = cls.copy()
+
+# compact shapes first: whole shape takes the fill that surrounds it
+compact_ids = []
+for k, sl in enumerate(objs, start=1):
+    if sl is None:
+        continue
+    comp = (lab_h[sl] == k)
+    if is_compact(sl, comp):
+        compact_ids.append(k)
+print(f"  {len(compact_ids):,} of them are letters/symbols and take one surrounding fill")
+
+for k in compact_ids:
+    sl = objs[k - 1]
+    y0 = max(0, sl[0].start - 2); y1 = min(H, sl[0].stop + 2)
+    x0 = max(0, sl[1].start - 2); x1 = min(W, sl[1].stop + 2)
+    comp = (lab_h[y0:y1, x0:x1] == k)
+    ring = ndimage.binary_dilation(comp, np.ones((3, 3), bool), iterations=2) & ~comp
+    vals = filled[y0:y1, x0:x1][ring]
+    vals = vals[vals >= 0]
+    if vals.size:
+        filled[y0:y1, x0:x1][comp] = np.bincount(vals).argmax()
+
+# everything still empty is line work: split it down the middle from both sides
+rest = filled < 0
+if rest.any():
+    idx = ndimage.distance_transform_edt(rest, return_distances=False, return_indices=True)
+    filled[rest] = filled[tuple(idx)][rest]
+cls = filled
+print("every pixel now carries a fill")
+
+# clean the class raster: any ink that survived is absorbed by whichever fill dominates around it
 best = np.zeros((H, W), np.float32)
 cls_c = np.zeros((H, W), np.int16)
 for t in range(len(MAP_TINTS)):

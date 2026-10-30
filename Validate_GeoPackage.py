@@ -105,13 +105,19 @@ chk("reference rasters share one grid", same, "identical transform and shape")
 from shapely.ops import unary_union
 u32 = u.to_crs(32632)
 ng32 = nig.to_crs(32632).geometry.union_all()
+# thin rings can come back invalid when reprojected; buffer(0) repairs them without moving ground
+u32 = u32.copy()
+n_repaired = int((~u32.geometry.is_valid).sum())
+u32["geometry"] = [g if g.is_valid else g.buffer(0) for g in u32.geometry]
+u32 = u32[~u32.is_empty]
 u_union = unary_union(u32.geometry.tolist())
 covered = u_union.intersection(ng32).area / ng32.area * 100
 overlap = (u32.area.sum() - u_union.area) / ng32.area * 100
 hole = ng32.difference(u_union).area / 1e6
 chk("geology units cover the country", covered > 99.9, f"{covered:.2f}% of Nigeria covered")
 chk("geology units do not overlap", abs(overlap) < 0.05,
-    f"overlap is {overlap:.3f}% of the country ({u32.area.sum()/1e6 - u_union.area/1e6:.1f} km2)")
+    f"overlap is {overlap:.3f}% of the country ({u32.area.sum()/1e6 - u_union.area/1e6:.1f} km2, "
+    f"{n_repaired} thin rings repaired on the way in)")
 chk("no holes left inside the country", hole < 50, f"{hole:.1f} km2 unassigned")
 chk("almost every polygon carries a legend name", (u.unit_code != "unresolved").mean() > .95,
     f"{(u.unit_code != 'unresolved').sum()} of {len(u)} named; "
